@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-26
-> **归档总数**：0 条
+> **最后更新**：2026-05-28
+> **归档总数**：3 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -33,7 +33,7 @@
 |---------|---------|---------|:---:|------|:------:|
 | P0-001-001-001-001-001 | 执行Spring Initializr生成项目 | 2026-05-28T20:30 | ✅ | 创建Spring Boot 3.4.5项目骨架(pom.xml+主类) | 5e64aee2 |
 | P0-001-001-001-001-002 | 验证项目可启动 | 2026-05-28T20:36 | ✅ | 排除JPA自动配置,项目1.2秒启动成功 | 46276bc6 |
-| P0-001-001-001-002-001 | 创建基础包目录 | 2026-05-28T20:32 | ✅ | 在com.erp下创建13个标准子包(common/config/controller/service/mapper/entity/dto/vo/enums/util/annotation/aspect/exception) | PENDING |
+| P0-001-001-001-002-001 | 创建基础包目录 | 2026-05-28T20:32 | ✅ | 在com.erp下创建13个标准子包(common/config/controller/service/mapper/entity/dto/vo/enums/util/annotation/aspect/exception) | e2556c65 |
 
 ### 写入格式（工人必须严格遵守）
 
