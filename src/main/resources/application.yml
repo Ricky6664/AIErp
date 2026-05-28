@@ -1,2 +1,9 @@
 # ERP AI Intelligent Management System
-spring.application.name=erp-ai
+spring:
+  application:
+    name: erp-ai
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration
