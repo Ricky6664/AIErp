@@ -1,0 +1,92 @@
+# P2-001-001-003-004-007 实现POST /copyFromLastPeriod从上期复制接口
+
+## 一、任务标识
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P2-001-001-003-004-007 |
+| 任务名称 | 实现POST /copyFromLastPeriod从上期复制接口 |
+| 所属模块 | P2-001 |
+| 优先级 | P2 |
+| 任务类型 | 综合开发任务 |
+
+## 二、任务目标
+
+实现POST /copyFromLastPeriod从上期复制接口：查询上期数据；复制+更新期间字段；重新生成编号
+
+## 三、前置依赖
+
+### 3.1 前置任务
+
+- P2-001-001-003-004 费用预算Controller开发（父任务）
+- P2-001-001-003-004-006 实现GET /detail/{id}详情查询接口（前序兄弟任务）
+
+### 3.2 前置资源
+
+- 项目代码仓库已就绪
+- 开发环境已搭建（JDK17 + Maven + PostgreSQL + Redis）
+
+## 四、关联规范引用
+
+| 规范文档名 | 引用原因 |
+|-----------|---------|
+| 全局规范-项目架构与开发约束 | 项目架构、技术约束与任务依赖关系 |
+| 全局规范-末端任务文档编写规范 | 末端任务文档格式与内容规范约束 |
+| 全局规范-AI开发执行手册 | AI辅助开发流程与执行标准 |
+| 全局规范-后端代码规范 | 后端代码开发规范约束 |
+| 全局规范-API接口规范 | API接口设计与RESTful规范约束 |
+
+## 五、详细开发规格
+
+> **本任务模块上下文**
+> - 涉及数据表：expense_budget(费用预算单), expense_budget_detail(预算明细), expense_application(费用申请单), expense_application_detail(申请明细), expense_reimbursement(费用报销单), expense_reimbursement_detail(报销明细)
+> - 涉及API：/api/expense/claim/*, /api/expense/application/*, /api/expense/budget/*, /api/expense/budget/execution/*
+### 5.1 接口定义
+- 按任务目标实现接口
+- @RequestMapping注解完整
+- @RequestBody+@Valid参数接收
+- 统一Result<T>响应
+
+### 5.2 处理流程
+1. 参数校验
+2. 业务校验
+3. Service调用
+4. 返回Result<T>
+
+### 5.3 错误码
+- 400: 参数错误
+- 404: 不存在
+- 409: 冲突
+- 422: 业务不允许
+- 500: 服务端异常
+## 六、交付物清单
+
+| 序号 | 文件路径 | 说明 |
+|:---:|---------|------|
+| 1 | src/main/java/com/erp/expense/controller/ExpenseController.java | Controller接口方法 |
+
+
+## 七、验收标准
+
+| 序号 | 检查项 | 验证方法 |
+|:---:|--------|---------|
+| 1 | 功能完整符合目标 | 对照Section 2 |
+| 2 | 编译/运行无错 | mvn compile |
+| 3 | 符合规范 | 代码审查 |
+| 4 | 单元测试通过 | mvn test |
+| 5 | Knife4j完整 | doc.html |
+
+
+## 八、易错警示
+
+> ⚠️ 代码提交前确保无敏感信息硬编码（密码/密钥/token）
+
+> ⚠️ 多租户隔离(tenant_id)必须正确——所有SQL查询需自动注入tenant_id
+
+> ⚠️ 逻辑删除字段(is_deleted)正确处理——查询追加is_deleted=false，删除使用UPDATE
+
+> ⚠️ @TableField勿遗漏
+
+> ⚠️ 事务边界准确避免大事务
+
+> ⚠️ 异常统一BusinessException

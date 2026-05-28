@@ -1,0 +1,39 @@
+# ============ Java / Maven ============
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# ============ Node.js / Frontend ============
+node_modules/
+dist/
+.output/
+.nuxt/
+
+# ============ IDE ============
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# ============ OS ============
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============ Logs ============
+logs/
+*.log
+
+# ============ Environment / Secrets ============
+.env
+.env.*
+credentials.json
+*.pem
+*.key
+
+# ============ Temp ============
+*.tmp
+*.bak

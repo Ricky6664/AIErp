@@ -1,0 +1,107 @@
+# P0-003-004-008-001-002 编写prod_product_purchase_price商品购价核定表索引与约束
+
+## 一、任务标识
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-003-004-008-001-002 |
+| 任务名称 | 编写prod_product_purchase_price商品购价核定表索引与约束 |
+| 所属模块 | P0-003 |
+| 优先级 | P0 |
+| 任务类型 | 综合开发任务 |
+
+## 二、任务目标
+
+
+为相关表创建索引与约束：主键PK、部分唯一索引UK(含WHERE is_deleted=false)、tenant_id首列联合索引、业务查询B-Tree索引
+
+## 三、前置依赖
+
+### 3.1 前置任务
+
+- P0-003-004-008-001 编写prod_product_purchase_price商品购价核定表DDL（父任务）
+- P0-003-004-008-001-001 编写CREATE TABLE语句（前序兄弟任务）
+
+### 3.2 前置资源
+
+- 项目代码仓库已就绪
+- 开发环境已搭建（JDK17 + Maven + PostgreSQL + Redis）
+
+## 四、关联规范引用
+
+
+
+| 规范文档名 | 引用原因 |
+|-----------|--------|
+| 全局规范-项目架构与开发约束 | 项目架构、技术约束与任务依赖关系 |
+| 全局规范-末端任务文档编写规范 | 末端任务文档结构与内容规范 |
+| 全局规范-AI开发执行手册 | AI开发执行流程与质量标准 |
+| 全局规范-数据库规范 | 数据库设计与DDL规范约束 |
+
+## 五、详细开发规格
+
+
+
+
+> **本任务模块上下文**（来源：P0-003模块开发指南）
+> - 本模块技术栈：PostgreSQL 15+ / Flyway迁移 / Schema多租户 / 公共字段基座规范
+> - 通用字段强制约束：所有业务表必须包含10个通用字段(id(BIGINT PK), tenant_id(BIGINT NOT NULL), created_by(BIGINT), created_at(TIMESTAMP DEFAULT CURRENT_TIMESTAMP), updated_by(BIGINT), updated_at(TIMESTAMP DEFAULT CURRENT_TIMESTAMP), is_deleted(BOOLEAN DEFAULT false), owner_dept_id(BIGINT), owner_id(BIGINT), version(INT DEFAULT 1))
+> - 数值精度约束：所有金额/单价/数量/转换率字段统一使用decimal(18,8)
+> - 部分唯一索引约束：业务唯一性字段必须采用`CREATE UNIQUE INDEX ... WHERE is_deleted = false`
+> - 多租户隔离：tenant_id字段不可为空，联合索引必须以tenant_id为首列
+> - Flyway命名规范：V{yyyyMMdd}{seq}__{description}.sql
+
+### 5.1 主键约束
+- `ALTER TABLE prod_product_purchase_price ADD CONSTRAINT pk_prod_product_purchase_price PRIMARY KEY (id)`
+
+### 5.2 部分唯一索引（关键：必须含WHERE is_deleted=false）
+- `CREATE UNIQUE INDEX uk_prod_product_purchase_price_code ON prod_product_purchase_price(code) WHERE is_deleted = false`
+- 避免boolean类型is_deleted在联合唯一索引中的"一删一活"陷阱
+
+### 5.3 多租户联合索引（tenant_id必须为首列）
+- `CREATE INDEX idx_prod_product_purchase_price_tenant_code ON prod_product_purchase_price(tenant_id, code)`
+- `CREATE INDEX idx_prod_product_purchase_price_tenant_status ON prod_product_purchase_price(tenant_id, status)`
+
+### 5.4 业务查询索引
+- 外键关联字段索引、常用查询字段索引（状态、日期）、树形结构索引（parent_id）
+
+### 5.5 Flyway迁移脚本
+- 命名：`V20260526001__create_prod_product_purchase_price_indexes.sql`
+
+## 六、交付物清单
+
+
+
+| 序号 | 文件路径 | 说明 |
+|:---:|---------|------|
+| 1 | db/migration/V20260526001__create_prod_product_purchase_price_indexes.sql | prod_product_purchase_price表索引与约束脚本 |
+| 2 | db/migration/V20260526001__drop_prod_product_purchase_price_indexes.sql | 索引回滚脚本(DROP INDEX) |
+
+## 七、验收标准
+
+
+
+| 序号 | 检查项 | 验证方法 |
+|:---:|--------|--------|
+| 1 | 主键约束pk_prod_product_purchase_price创建成功 | information_schema.table_constraints查询 |
+| 2 | 部分唯一索引含WHERE is_deleted=false | pg_indexes.indexdef检查 |
+| 3 | tenant_id作为联合索引首列 | pg_indexes查询 |
+| 4 | 索引命名规范(uk_/idx_前缀) | 人工检查DDL脚本 |
+| 5 | Flyway版本号无冲突 | flyway_schema_history查询 |
+
+## 八、易错警示
+
+
+> ⚠️ 通用字段10个必须完整包含(id/tenant_id/created_at/updated_at/created_by/updated_by/is_deleted/owner_dept_id/owner_id/version)，缺少任何一个将导致MyBatis-Plus自动填充和多租户插件异常
+
+> ⚠️ 部分唯一索引必须包含`WHERE is_deleted = false`条件，避免boolean类型is_deleted在联合唯一索引中的"一删一活"经典陷阱
+
+> ⚠️ 所有金额/单价/数量/转换率字段统一使用decimal(18,8)，禁止使用decimal(18,8)或DECIMAL(18,6)，显示精度由系统参数动态控制
+
+> ⚠️ 联合索引必须以tenant_id为首列（如INDEX(tenant_id, code)），否则多租户隔离查询性能将严重下降
+
+> ⚠️ Flyway迁移脚本命名必须使用V{yyyyMMdd}{seq}__{description}.sql（双下划线），版本号冲突将导致迁移失败
+
+> ⚠️ 所有表和字段必须包含COMMENT注释，PostgreSQL元数据查询和后续代码生成依赖COMMENT
+
+> ⚠️ 禁止使用数据库外键约束，应用层通过MyBatis-Plus维护关联关系，避免级联操作和性能问题

@@ -1,0 +1,111 @@
+# P2-003-001-001-002-002 编写PeriodCloseCheckServiceImpl实现类（@Service+checkBeforeClose方法：①查询当期所有凭证SELECT COUNT(*) FROM fin_voucher WHERE period_id=? AND status!='posted'，若有未过账凭证返回失败项"尚有N张凭证未过账"②查询损益科目余额SELECT SUM(balance) FROM fin_account_balance WHERE period_id=? AND account_type IN ('INCOME','EXPENSE')，若余额≠0返回失败项"损益科目尚有余额未结转"③库存校验：查询库存模块当期是否有未结算出入库单④明细账与总账平衡校验：按科目分别SUM明细账与总账发生额，差异≠0返回失败项⑤返回CheckResultVO含checkItems列表每项标通过/失败+失败原因+@Transactional(readOnly=true)）
+
+## 一、任务标识
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P2-003-001-001-002-002 |
+| 任务名称 | 编写PeriodCloseCheckServiceImpl实现类（@Service+checkBeforeClose方法：①查询当期所有凭证SELECT COUNT(*) FROM fin_voucher WHERE period_id=? AND status!='posted'，若有未过账凭证返回失败项"尚有N张凭证未过账"②查询损益科目余额SELECT SUM(balance) FROM fin_account_balance WHERE period_id=? AND account_type IN ('INCOME','EXPENSE')，若余额≠0返回失败项"损益科目尚有余额未结转"③库存校验：查询库存模块当期是否有未结算出入库单④明细账与总账平衡校验：按科目分别SUM明细账与总账发生额，差异≠0返回失败项⑤返回CheckResultVO含checkItems列表每项标通过/失败+失败原因+@Transactional(readOnly=true)） |
+| 所属模块 | P2-003 |
+| 优先级 | P2 |
+| 任务类型 | Entity/DTO/VO数据模型 |
+
+## 二、任务目标
+
+实现PeriodCloseCheckServiceImpl：extends ServiceImplX；@Service+@Transactional事务；DTO↔Entity转换(MapStruct)；业务校验+编码生成+持久化+操作日志
+
+## 三、前置依赖
+
+### 3.1 前置任务
+
+- P2-003-001-001-002 结账校验Service开发（父任务）
+- P2-003-001-001-002-001 编写PeriodCloseCheckService接口（前序兄弟任务）
+
+### 3.2 前置资源
+
+- 项目代码仓库已就绪
+- 开发环境已搭建（JDK17 + Maven + PostgreSQL + Redis）
+
+## 四、关联规范引用
+
+| 规范文档名 | 引用原因 |
+|-----------|---------|
+| 全局规范-项目架构与开发约束 | 项目架构、技术约束与任务依赖关系 |
+| 全局规范-末端任务文档编写规范 | 末端任务文档格式与内容规范约束 |
+| 全局规范-AI开发执行手册 | AI辅助开发流程与执行标准 |
+| 全局规范-后端代码规范 | 后端代码开发规范约束 |
+
+## 五、详细开发规格
+
+> **📦 本任务模块上下文**（来源：P2-003模块开发指南）
+> - 本模块涉及数据表：period_close(期末结账), period_close_log(结账日志), voucher(凭证), voucher_detail(凭证明细)
+> - 本模块涉及API：/api/period/close, /api/period/voucher
+> - 本模块业务规则：期末结账需校验所有单据已审核；凭证生成需遵循借贷平衡；反结账需检查后续期间是否已结账
+>
+> 💡 开发本任务时，请结合上述模块上下文理解业务场景和数据关系。
+
+### 5.1 ServiceImpl
+
+```java
+@Slf4j
+@Service
+public class PeriodCloseCheckServiceImpl extends ServiceImplX<PeriodCloseCheckMapper, PeriodCloseCheckEntity> implements PeriodCloseCheckService {
+    @Autowired private PeriodCloseCheckMapper periodCloseCheckMapper;
+    @Autowired private CodeGeneratorService codeGeneratorService;
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public PeriodCloseCheckVO create(PeriodCloseCheckCreateDTO dto) {
+        validateUnique(dto.getCode(), null);
+        PeriodCloseCheckEntity entity = MapStructConverter.INSTANCE.toEntity(dto);
+        entity.setCode(codeGeneratorService.generate("period.period_close_check"));
+        entity.setStatus(0);
+        save(entity);
+        saveDetails(entity.getId(), dto.getDetails());
+        return getDetail(entity.getId());
+    }
+}
+```
+
+### 5.2 关键
+- @Transactional(rollbackFor=Exception.class)
+- DTO→Entity用MapStruct
+- 编号CodeGeneratorService生成
+- 异常BusinessException(ErrorCode)
+- AOP操作日志
+## 六、交付物清单
+
+| 序号 | 文件路径 | 说明 |
+|:---:|---------|------|
+| 1 | src/main/java/com/erp/period/service/impl/PeriodCloseCheckServiceImpl.java | PeriodCloseCheckService实现 |
+
+
+## 七、验收标准
+
+| 序号 | 检查项 | 验证方法 |
+|:---:|--------|---------|
+| 1 | @Service注解 | 启动测试 |
+| 2 | @Transactional(rollbackFor=Exception.class) | 回滚测试 |
+| 3 | MapStruct转换 | 代码审查 |
+| 4 | BusinessException异常 | 异常测试 |
+| 5 | 编号CodeGeneratorService | 创建测试 |
+| 6 | 公共字段自动填充 | 查数据库 |
+
+
+## 八、易错警示
+
+> ⚠️ 代码提交前确保无敏感信息硬编码（密码/密钥/token）
+
+> ⚠️ 多租户隔离(tenant_id)必须正确——所有SQL查询需自动注入tenant_id
+
+> ⚠️ 逻辑删除字段(is_deleted)正确处理——查询追加is_deleted=false，删除使用UPDATE
+
+> ⚠️ 事务边界准确避免大事务
+
+> ⚠️ 异常统一BusinessException
+
+> ⚠️ 编码生成调用幂等
+
+> ⚠️ DTO→Entity用MapStruct避免BeanUtils性能问题
+
+> ⚠️ 批量用saveBatch/updateBatchById

@@ -1,0 +1,105 @@
+# P2-012-001-006-002-001 编写InitFaAssetMapper接口
+
+## 一、任务标识
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P2-012-001-006-002-001 |
+| 任务名称 | 编写InitFaAssetMapper接口 |
+| 所属模块 | P2-012 |
+| 优先级 | P2 |
+| 任务类型 | Mapper数据访问层 |
+
+## 二、任务目标
+
+编写InitFaAssetMapper接口：继承BaseMapper<Entity>，定义自定义查询方法（复杂联表/统计/批量操作），对应XML映射文件编写SQL，所有查询自动追加is_deleted=false条件，多租户表自动追加tenant_id条件
+
+## 三、前置依赖
+
+### 3.1 前置任务
+
+- P2-012-001-006-002 期初固定资产Mapper开发（父任务）
+
+### 3.2 前置资源
+
+- 项目代码仓库已就绪
+- 开发环境已搭建（JDK17 + Maven + PostgreSQL + Redis）
+
+## 四、关联规范引用
+
+
+| 规范文档名 | 引用原因 |
+|-----------|---------|
+| 全局规范-项目架构与开发约束 | 项目架构、技术约束与任务依赖关系 |
+| 全局规范-末端任务文档编写规范 | 末端任务文档标准化模板与质量要求 |
+| 全局规范-AI开发执行手册 | AI任务解读与执行流程规范 |
+| 全局规范-后端代码规范 | 后端代码开发规范约束 |
+| 全局规范-数据库规范 | 数据库字段映射与模型规范约束 |
+## 五、详细开发规格
+
+> **📦 本任务模块上下文**（来源：P2-012模块开发指南）
+> - 本模块涉及数据表：参见模块开发指南
+> - 本模块涉及API：/api/init/inventory, /api/init/ar, /api/init/ap, /api/init/ar-invoice, /api/init/ap-invoice
+> - 本模块业务规则：本模块无模块级专属约束，遵循全局规范。期初数据审核通过后自动写入对应业务表（库存表/应收表/应付表/资产卡片表/科目余额表）；已启用（已存在业务单据）的仓库/客户/供应商/科目不可修改期初数据；期初科目余额必须通过试算平衡校验（全部借方合计=全部贷方合计）方可提交；期初固定资产支持四种折旧方法公式自动计算月折旧额。
+>
+> 💡 开发本任务时，请结合上述模块上下文理解业务场景和数据关系。
+
+### 5.1 Mapper接口
+
+```java
+@Mapper
+public interface InitMapper extends BaseMapper<InitEntity> {
+    // 自定义查询方法（联表/统计/批量）
+    List<InitListVO> selectPageList(@Param("query") InitQueryDTO query);
+}
+```
+
+### 5.2 XML映射
+
+- namespace与Mapper接口全限定名一致
+- 所有查询WHERE追加 is_deleted = false
+- 多租户表追加 tenant_id = #{tenantId}
+- 复杂联表使用<resultMap>映射
+
+### 5.3 验证
+
+1. Mapper接口继承BaseMapper
+2. XML namespace正确
+3. SQL语句is_deleted条件完备
+
+## 六、交付物清单
+
+| 序号 | 文件路径 | 说明 |
+|:---:|---------|------|
+| 1 | src/main/java/com/erp/init/mapper/InitFaAssetMapper接口Mapper.java | Mapper接口 |
+| 2 | src/main/resources/mapper/init/InitFaAssetMapper接口Mapper.xml | Mapper XML |
+
+## 七、验收标准
+
+| 序号 | 检查项 | 验证方法 |
+|:---:|--------|---------|
+| 1 | Mapper接口继承BaseMapper<Entity> | 代码review |
+| 2 | XML namespace与Mapper全限定名一致 | 代码review |
+| 3 | 所有SELECT语句含is_deleted=false条件 | grep XML文件 |
+| 4 | 多租户表查询含tenant_id条件 | grep XML文件 |
+| 5 | 自定义方法有对应XML SQL映射 | 代码review |
+
+## 八、易错警示
+
+> ⚠️ 代码提交前确保无敏感信息硬编码（密码/密钥/token）
+
+> ⚠️ 多租户隔离(tenant_id)必须正确——所有SQL查询需自动注入tenant_id条件
+
+> ⚠️ 逻辑删除字段(is_deleted)正确处理——查询追加is_deleted=false，删除使用UPDATE而非DELETE
+
+> ⚠️ XML中所有SELECT必须追加is_deleted=false条件，勿依赖Entity@TableLogic
+
+> ⚠️ 多表联表查询注意笛卡尔积风险——必须有JOIN条件
+
+> ⚠️ 批量操作（INSERT/UPDATE）使用foreach但单次不超过500条
+
+> ⚠️ [期初管理模块] 期初数据审核通过后会自动写入对应业务表，审核操作不可撤销，需在审核前做完整校验
+
+> ⚠️ [期初管理模块] 已启用（存在业务单据）的仓库/客户/供应商/科目禁止修改期初数据，修改前需检查业务单据引用
+
+> ⚠️ [期初管理模块] 期初科目余额必须通过试算平衡校验：全部借方合计=全部贷方合计，否则禁止提交
