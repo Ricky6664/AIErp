@@ -35,7 +35,7 @@
 | P0-001-001-001-001-002 | 验证项目可启动 | 2026-05-28T20:36 | ✅ | 排除JPA自动配置,项目1.2秒启动成功 | 46276bc6 |
 | P0-001-001-001-002-001 | 创建基础包目录 | 2026-05-28T20:32 | ✅ | 在com.erp下创建13个标准子包(common/config/controller/service/mapper/entity/dto/vo/enums/util/annotation/aspect/exception) | e2556c65 |
 | P0-001-001-001-002-002 | 创建模块子包 | 2026-05-28T20:58 | ✅ | 创建common下7个子包(result/exception/constant/enums/entity/utils/config)+新增module/engine/framework顶级包+framework下4个子包(tenant/dataperm/softdelete/codegen) | d1cfe198 |
-| P0-001-001-001-002-003 | 验证包结构完整性 | 2026-05-28T21:12 | ✅ | 验证13个标准包完整存在,包名全小写,mvn compile BUILD SUCCESS(2s) | pending |
+| P0-001-001-001-002-003 | 验证包结构完整性 | 2026-05-28T21:12 | ✅ | 验证13个标准包完整存在,包名全小写,mvn compile BUILD SUCCESS(2s) | ec642500 |
 
 ### 写入格式（工人必须严格遵守）
 
