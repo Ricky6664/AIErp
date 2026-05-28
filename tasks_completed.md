@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-28
-> **归档总数**：18 条
+> **归档总数**：19 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -49,6 +49,7 @@
 | P0-001-001-003-001-001 | 编写dev环境配置 | 2026-05-28T21:53 | ✅ | 创建application-dev.yml(server.port=8080/PostgreSQL/Redis/MyBatis-Plus/日志),激活dev profile,BUILD SUCCESS | 84df9c8b |
 | P0-001-001-003-001-002 | 验证配置生效 | 2026-05-28T22:01 | ✅ | mvn compile BUILD SUCCESS+Spring Boot 1.89秒启动成功,dev profile激活,YAML 6项核心配置全部正确加载,无硬编码敏感信息 | 335c0ff4 |
 | P0-001-001-003-001-003 | 配置安全项检查 | 2026-05-28T22:15 | ✅ | 修复application-dev.yml安全项:DB/Redis密码改用环境变量注入,id-type改为assign_id,logic-delete-field改为is_deleted(boolean),mvn compile通过 | 2c76d96c |
+| P0-001-001-003-001-004-001 | 编写test环境配置 | 2026-05-28T22:20 | ✅ | 创建application-test.yml(server.port=8081/PostgreSQL test-db/Redis test-redis/MyBatis-Plus/关闭Swagger/日志INFO级别),敏感配置环境变量注入,mvn compile通过 | 090b379c |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -74,10 +75,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 17 | 0 | 0.79% |
+| P0 | 14 | 2,147 | 18 | 0 | 0.84% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **17** | **0** | **0.36%** |
+| **合计** | **46** | **4,716** | **18** | **0** | **0.38%** |
 
 ---
 
