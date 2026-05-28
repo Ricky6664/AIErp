@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-28
-> **归档总数**：6 条
+> **归档总数**：7 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -37,6 +37,7 @@
 | P0-001-001-001-002-002 | 创建模块子包 | 2026-05-28T20:58 | ✅ | 创建common下7个子包(result/exception/constant/enums/entity/utils/config)+新增module/engine/framework顶级包+framework下4个子包(tenant/dataperm/softdelete/codegen) | d1cfe198 |
 | P0-001-001-001-002-003 | 验证包结构完整性 | 2026-05-28T21:12 | ✅ | 验证13个标准包完整存在,包名全小写,mvn compile BUILD SUCCESS(2s) | ec642500 |
 | P0-001-001-001-003-001 | 编写启动类main方法 | 2026-05-28T21:22 | ✅ | ErpAiApplication主类(@SpringBootApplication+@MapperScan+@EnableAspectJAutoProxy),JVM参数-Xms512m -Xmx1024m,mvn clean compile BUILD SUCCESS | 008f881a |
+| P0-001-001-001-003-002 | 配置启动参数 | 2026-05-28T21:35 | ✅ | 创建banner.txt启动横幅+配置.mvn/jvm.config JVM参数(-Xms512m -Xmx1024m),mvn compile BUILD SUCCESS | 1515bab0 |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -62,10 +63,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 6 | 0 | 0.28% |
+| P0 | 14 | 2,147 | 7 | 0 | 0.33% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **6** | **0** | **0.13%** |
+| **合计** | **46** | **4,716** | **7** | **0** | **0.15%** |
 
 ---
 
