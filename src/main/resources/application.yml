@@ -4,6 +4,12 @@ spring:
     name: erp-ai
   main:
     banner-mode: console
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+    livereload:
+      enabled: true
   autoconfigure:
     exclude:
       - com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration
