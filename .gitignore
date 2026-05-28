@@ -58,3 +58,4 @@ credentials.json
 # ============ Lock files (runtime only, never commit) ============
 .catalog.lock
 .parallel.lock
+.locks/

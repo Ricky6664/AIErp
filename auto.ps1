@@ -1,6 +1,9 @@
 # Auto-Continuous Launcher - reads config.ini, loops claude sessions
 # Each loop iteration = 1 leaf task = 1 fresh claude session
 # Window stays open, claude sessions rotate within the same window
+# Protected by per-worker PID lock file - prevents duplicate instances
+#   - Old process dead (crashed/closed) → new instance auto-takes over
+#   - Old process alive → kills old instance, takes over (no more stale windows)
 #
 # Argument modes:
 #   auto.bat                          → Single worker, W1, no assignment
@@ -26,6 +29,85 @@ if ($args.Count -ge 2) {
         $assignedModule = $args[1]
     }
 }
+
+# ---- Per-worker PID lock: prevent duplicate instances ----
+# Each worker ID (W1, W2...) has a lock file: .locks/worker_W1.pid
+# The file stores the PowerShell process ID. On new launch:
+#   - No lock file / PID dead → take over (new instance starts normally)
+#   - PID alive → kill old process + take over (closes stale window automatically)
+# parallel.bat/start.bat launch W1,W2,W3... → each has its own lock → no conflict.
+$script:lockDir = Join-Path $scriptDir '.locks'
+$script:lockFile = Join-Path $script:lockDir "worker_$workerId.pid"
+$script:myPid = $PID
+$script:lockAcquired = $false
+
+function Acquire-WorkerLock {
+    # Ensure lock directory exists
+    if (-not (Test-Path $script:lockDir)) {
+        try { New-Item -ItemType Directory -Path $script:lockDir -Force | Out-Null } catch {}
+    }
+
+    # Check for existing lock
+    if (Test-Path $script:lockFile) {
+        $oldPidStr = $null
+        try { $oldPidStr = (Get-Content -Path $script:lockFile -Raw -Encoding UTF8).Trim() } catch {}
+
+        if ($oldPidStr -and $oldPidStr -match '^\d+$') {
+            $oldPid = [int]$oldPidStr
+
+            # Don't kill ourselves
+            if ($oldPid -ne $script:myPid) {
+                $oldProc = $null
+                try { $oldProc = Get-Process -Id $oldPid -ErrorAction SilentlyContinue } catch {}
+
+                if ($oldProc) {
+                    # Old instance is still alive - kill it (closes the stale window)
+                    Write-Host ""
+                    Write-Host "  [CLEANUP] Found stale worker $workerId (PID $oldPid)" -ForegroundColor Yellow
+                    Write-Host "  Terminating old instance to take over..." -ForegroundColor Yellow
+
+                    try {
+                        # Kill the entire process tree (cmd.exe → powershell → claude)
+                        Stop-Process -Id $oldPid -Force -ErrorAction SilentlyContinue
+                        Start-Sleep -Seconds 2
+                        Write-Host "  [OK] Old worker $workerId terminated." -ForegroundColor Green
+                    } catch {
+                        Write-Host "  [WARN] Could not kill PID $oldPid - taking over anyway" -ForegroundColor Yellow
+                    }
+                }
+                # else: old PID is dead (crashed/exited) → stale lock file, just overwrite
+            }
+        }
+    }
+
+    # Write our PID
+    try {
+        Set-Content -Path $script:lockFile -Value $script:myPid -Encoding UTF8
+        $script:lockAcquired = $true
+        return $true
+    } catch {
+        Write-Host "  [WARN] Could not write lock file: $($_.Exception.Message)" -ForegroundColor Yellow
+        # Continue anyway - lock file is best-effort
+        $script:lockAcquired = $true
+        return $true
+    }
+}
+
+function Release-WorkerLock {
+    if ($script:lockAcquired -and (Test-Path $script:lockFile)) {
+        try {
+            $storedPid = (Get-Content -Path $script:lockFile -Raw -Encoding UTF8).Trim()
+            # Only delete if it's OUR lock (don't delete a newer instance's lock)
+            if ($storedPid -eq [string]$script:myPid) {
+                Remove-Item -Path $script:lockFile -Force -ErrorAction SilentlyContinue
+            }
+        } catch {}
+    }
+    $script:lockAcquired = $false
+}
+
+# Acquire lock immediately after parsing worker ID
+Acquire-WorkerLock
 
 # ---- Helper: parse config.ini ----
 function Read-Config {
@@ -75,6 +157,7 @@ if (Test-StopSwitch $config) {
     Write-Host "  Worker $workerId will not start. Set to false to resume." -ForegroundColor Yellow
     Write-Host "============================================================" -ForegroundColor Yellow
     Write-Host ""
+    Release-WorkerLock
     Read-Host "Press Enter to exit"
     exit 0
 }
@@ -84,6 +167,7 @@ $msgFile = Join-Path $scriptDir 'auto-prompt.md'
 
 if (-not (Test-Path $msgFile)) {
     Write-Host "ERROR: auto-prompt.md not found" -ForegroundColor Red
+    Release-WorkerLock
     Read-Host "Press Enter to exit"
     exit 1
 }
@@ -92,6 +176,7 @@ $msgTemplate = (Get-Content -Path $msgFile -Raw -Encoding UTF8).Trim()
 
 if ([string]::IsNullOrWhiteSpace($msgTemplate)) {
     Write-Host "ERROR: auto-prompt.md is empty" -ForegroundColor Red
+    Release-WorkerLock
     Read-Host "Press Enter to exit"
     exit 1
 }
@@ -103,13 +188,14 @@ $failCount = 0
 Write-Host "============================================================" -ForegroundColor Cyan
 Write-Host "  ERP Auto Worker (Loop Mode)" -ForegroundColor Cyan
 Write-Host "  Project:  $projectPath" -ForegroundColor White
-Write-Host "  Worker:   $workerId" -ForegroundColor White
+Write-Host "  Worker:   $workerId (PID: $script:myPid)" -ForegroundColor White
 if ($assignedModule) {
     Write-Host "  Assigned: $assignedModule (pre-assigned by dispatcher)" -ForegroundColor Green
 } else {
     Write-Host "  Mode:     Claiming protocol (auto-claim from pool)" -ForegroundColor White
 }
 Write-Host "  Each task runs in a fresh Claude session" -ForegroundColor White
+Write-Host "  Lock:     .locks/worker_$workerId.pid" -ForegroundColor DarkGray
 Write-Host "============================================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -126,6 +212,7 @@ while ($true) {
         Write-Host "  Worker $workerId exiting. Set to false and restart to resume." -ForegroundColor Yellow
         Write-Host "============================================================" -ForegroundColor Yellow
         Write-Host ""
+        Release-WorkerLock
         break
     }
 
@@ -177,6 +264,7 @@ All other protocol rules (execution layer ordering, file isolation, registration
             Write-Host "    - API key invalid or rate limited" -ForegroundColor DarkGray
             Write-Host "    - Network connectivity issues" -ForegroundColor DarkGray
             Write-Host ""
+            Release-WorkerLock
             break
         }
 
@@ -197,3 +285,6 @@ All other protocol rules (execution layer ordering, file isolation, registration
     # After first task, clear pre-assignment (subsequent tasks use normal claiming)
     # (assignedModule variable persists but $taskNum > 1 so the if-block won't trigger)
 }
+
+# Safety net: ensure lock is released on any exit path
+Release-WorkerLock
