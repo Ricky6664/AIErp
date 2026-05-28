@@ -1,0 +1,54 @@
+# ============================================================
+# ERP AI - 开发环境配置 (application-dev.yml)
+# ============================================================
+
+# ---- 服务器配置 ----
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+# ---- 数据源配置 (PostgreSQL) ----
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/erp_dev?currentSchema=public&useUnicode=true&characterEncoding=utf-8
+    username: postgres
+    password: postgres
+
+  # ---- Redis 缓存配置 ----
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      database: 0
+      timeout: 5000ms
+      lettuce:
+        pool:
+          max-active: 20
+          max-idle: 10
+          min-idle: 5
+          max-wait: 3000ms
+
+# ---- MyBatis-Plus 配置 ----
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.erp.entity
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# ---- 日志配置 ----
+logging:
+  level:
+    com.erp: DEBUG
+    org.springframework: INFO
+    com.baomidou.mybatisplus: DEBUG
