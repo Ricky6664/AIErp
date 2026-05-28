@@ -37,3 +37,7 @@ credentials.json
 # ============ Temp ============
 *.tmp
 *.bak
+
+# ============ Lock files (runtime only, never commit) ============
+.catalog.lock
+.parallel.lock

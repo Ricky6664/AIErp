@@ -1,13 +1,14 @@
-# 并行开发规则（任务清单 + 工人池）
+# 并行开发规则（确定性并行引擎）
 
 > **所属主文档**：`CLAUDE.md` §10
-> **版本**：V4.0
+> **版本**：V5.0
 > **最后修订**：2026-05-28
-> **配套文档**：`tasks_dependency.md`（预计算依赖 + 并行分组 + 文件冲突矩阵）、`tasks_catalog.md`（全量任务清单）
+> **配套文档**：`tasks_dependency.md`（执行层 + 执行模式 + 文件隔离 + 认领协议）、`tasks_catalog.md`（全量任务清单）
+> **核心原则**：所有并行行为必须确定性 —— 同一状态下所有工人得出相同结论，零猜测
 
 ---
 
-> 并行开发分两个层级：**任务内并行**（单任务使用子Agent拆分工作）和**模块间并行**（多个工人窗口从任务池同时认领不同模块）。两者独立，可叠加使用。
+> 并行开发分两个层级：**任务内并行**（单任务使用子Agent拆分工作）和**模块间并行**（多个工人窗口从任务池同时认领不同模块/不同层的任务）。两者独立，可叠加使用。
 
 ---
 
@@ -26,198 +27,299 @@
   4. 子Agent 完成后由主会话执行 CLAUDE.md §6 自检协议
 
 典型用法：
-  - DDL + Entity 同时编写（文件不交叉）
-  - 多个独立的 Service 方法同时实现
-  - 前端页面 + 国际化词条同时编写
+  - DDL + Entity 同时编写（文件不交叉：.sql vs .java）
+  - 多个独立的 Service 方法同时实现（不同 .java 文件）
+  - 前端页面 + 国际化词条同时编写（.vue vs i18n/*.json）
+  - 多个独立 Entity 类同时创建（不同 .java 文件）
 ```
 
 ---
 
-## 2. 模块间并行（Inter-module Parallelism）
+## 2. 模块间并行（Inter-module Parallelism）— 确定性引擎
 
-**适用场景**：`tasks_dependency.md` 中「可并行模块」列明确标注的模块对，且前置依赖全部 ✅。
+**核心变化**：从"抢任务"模式变为"确定性分配"模式。所有认领操作在 `.catalog.lock` 保护下串行执行，通过七重约束检查 + 确定性排序消除一切随机性。
 
-**核心机制**：`parallel.bat N` 启动 N 个 `auto.bat` 工人窗口，每个工人独立从 `tasks_catalog.md` 按游标取任务到 `tasks_active.md` 并认领执行。
+### 2.1 架构
 
 ```
 架构：
   tasks_catalog.md（全量清单：4716 叶子任务，带位置编号）
-  tasks_dependency.md（依赖关系 + 并行分组 + 冲突矩阵）
+  tasks_dependency.md（依赖关系 + 执行层 L0-L6 + 执行模式 SERIAL/PARALLEL + 文件隔离规则）
        │
-       │ 按 fetch_cursor 取任务 + 查依赖确认可认领
+       │  七重约束检查 + 确定性排序（tasks_dependency.md §十二）
+       │  在 .catalog.lock 保护下串行执行
        ▼
-  tasks_active.md（活跃任务池）
+  tasks_active.md（活跃任务池 + 三重注册表）
        │
   ┌────┼────┐────┐
   ▼    ▼    ▼    ▼
- 工人  工人  工人  工人  (auto.bat × N)
-  W1   W2   W3   W4
+  W1   W2   W3   W4  (auto.bat × N, 各有唯一 WORKER_ID)
   │    │    │    │
-  认领P0-008  认领P0-009  认领P0-010  认领P0-011
-  执行...     执行...     执行...     执行...
-  完成→标记✅  完成→标记✅  完成→认领下一个  ...
+  认领  认领  认领  认领   (锁保护，串行决策)
+  执行  执行  执行  执行   (文件隔离，互不干扰)
+  完成  完成  完成  完成   (更新注册表，释放资源)
+  ↓    ↓    ↓    ↓
+  认领下一个 → 循环（零闲置）
+```
 
-每个工人内部：
-  auto.bat → auto.ps1 进入 while 循环 → claude 读取 auto-prompt.md →
-  续接🔄任务 或 认领⬜任务 →
-  执行叶子任务 → commit → claude 退出 → auto.ps1 循环自动启动下一个 → 循环
+### 2.2 工人 ID 系统
+
+```
+分配方式：
+  parallel.ps1 启动时为每个窗口分配唯一 ID
+  W1, W2, W3, ..., WN（N = max_workers）
+  通过环境变量 WORKER_ID 传递给 auto.ps1 → auto-prompt.md
+
+用途：
+  - 活跃认领注册表：记录哪个工人认领了哪个任务
+  - 文件锁注册表：记录哪个工人锁定了哪些文件
+  - 模块占用表：记录哪个工人占用了哪个模块
+  - 超时检测：通过时间戳判断工人是否崩溃
+  - 防重复认领：通过工人ID判断任务是否已被其他工人认领
+
+单工人模式：
+  固定为 W1
 ```
 
 ---
 
-## 3. 并行开发严格规则（必须 100% 遵守）
+## 3. 并行开发严格规则（12 条铁律）
 
 > **以下规则为强制执行，违反任何一条即判定为执行失败。**
+> **规则来源：`tasks_dependency.md` §九（执行层）、§十（执行模式）、§十一（文件隔离）、§十二（认领协议）**
 
+### 规则 1 - 窗口数量上限
 ```
-规则 1 - 窗口数量上限：
-  最大并行窗口数由 `config.ini` 的 `max_workers` 配置决定，绝对不能超过 100 个。
-  根据电脑性能配置窗口数，超过 100 会被限制为 100。
-  超过会导致内存爆炸、文件冲突、AI 失控。
+最大并行窗口数由 config.ini 的 max_workers 配置决定，绝对不能超过 100 个。
+超过会导致内存爆炸、文件冲突、AI 失控。
+parallel.ps1 在启动时强制校验。
+```
 
-规则 2 - 文件/目录隔离（绝对红线）：
-  每个窗口的任务只能修改自己分配到的目录和文件。
-  绝对不能有两个窗口修改同一个文件、同一个文件夹。
-  错误：窗口1改 /src/views/order，窗口2也改 /src/views/order
-  正确：窗口1改 /src/views/purchase，窗口2改 /src/views/sale
+### 规则 2 - 认领串行化（绝对铁律）
+```
+所有任务认领操作必须在 .catalog.lock 保护下执行。
+同一时刻只有 1 个工人在做认领决策。
+绝不允许两个工人同时认领任务。
+获取锁失败 → 等待 retry_interval_seconds → 重试，最多 max_retries 次。
+锁超时 timeout_seconds 秒自动释放（防止死锁）。
+```
 
-规则 3 - 禁止同时修改共享文件：
-  禁止两个窗口同时修改：
-  - 同一个 .vue / .java / .ts / .js 文件
-  - 同一个路由文件（router/*.ts）
-  - 同一个接口定义文件
-  - 同一个配置文件（application.yml、pom.xml、package.json）
-  - 同一个 XML 映射文件
-  - tasks_active.md、tasks_completed.md（通过锁机制串行化）
+### 规则 3 - 文件/目录隔离（绝对红线）
+```
+每个工人的任务只能修改其文件作用域内的文件（tasks_dependency.md §十一）。
+绝对不能有两个工人修改同一个文件。
+认领时在「文件锁注册表」登记所有要修改的文件路径。
+其他工人认领时检查文件锁注册表，有交集则跳过。
+```
 
-规则 4 - 无依赖才可并行：
-  任务B依赖任务A的代码 → 必须等A完全结束才能开始B，不能并行。
-  判断依据：tasks_dependency.md 中该模块的「严格前置依赖」列。
-  补充校验：任务文档 Section 3（前置依赖）。
+### 规则 4 - 禁止同时修改共享文件
+```
+以下共享文件绝对禁止两个工人同时修改：
+  pom.xml            — 只有 P0-001 可修改
+  package.json       — 只有 P0-002 可修改
+  application.yml    — 只有 P0-001 可修改（其他模块只追加自己的 section）
+  router/index.ts    — 只有 P0-002 可修改（其他模块只新增路由文件）
+  src/common/**      — 只有 P0-005 可修改
+  src/components/**  — 只有 P0-005 可修改
+完整清单见 tasks_dependency.md §十一.2。
+```
 
-规则 5 - 执行顺序必须遵循层级：
-  1) 基础架构/工具类 → 2) Entity/DTO → 3) Service/Mapper → 4) Controller/API → 5) 前端页面 → 6) 权限/配置
-  底层没写完，上层不能开始。
+### 规则 5 - 模块依赖约束
+```
+任务所属模块的所有「严格前置依赖」模块必须全部 ✅（在 tasks_completed.md 中记录）。
+判断依据：tasks_dependency.md §一「严格前置依赖」列。
+不满足 → 该任务不可认领，跳过。
+```
 
-规则 6 - Git 提交串行化：
-  - 一个任务结束 → 自检通过 → 获取 .parallel.lock → commit → push → 释放锁
-  - 禁止并行任务同时 commit、push
-  - 每个任务一个独立 commit，信息清晰：feat(模块号): 任务名称
-  - 锁超时 120 秒自动释放（防止窗口崩溃导致死锁）
+### 规则 6 - 执行层约束
+```
+同模块内，高层任务必须等低层任务全部完成后才能认领。
+执行层定义：L0(DDL) → L1(ENTITY) → L2(MAPPER) → L3(SERVICE) → L4(CONTROLLER) → L5(FRONTEND)
+判断依据：tasks_dependency.md §九。
+不满足 → 该任务不可认领，跳过。
+```
 
-规则 7 - 目录隔离规范：
-  前端任务：只动 /src/views/xxx、/src/api/xxx、/src/i18n/xxx（xxx为对应模块）
-  后端任务：只动对应模块的 /controller、/service、/mapper、/entity
-  配置任务：只动 /config、/router（配置任务不可并行，必须串行）
-  数据库任务：只动 /sql、/docs（DDL 任务不可并行，必须串行）
+### 规则 7 - 执行模式约束
+```
+SERIAL 模块：同一时刻只能被 1 个工人占用。
+  → 查 tasks_active.md 模块占用表，已被占用 → 跳过该模块所有任务。
+PARALLEL 模块：可被多个工人同时认领，但受文件隔离和执行层约束限制。
+判断依据：tasks_dependency.md §一「执行模式」列 + §十。
+```
 
-规则 8 - 启动前强制检查（每一项都必须满足）：
-  □ tasks_dependency.md 中该模块的可并行模块列是否包含当前其他窗口正在执行的模块？
-    → 不包含则不能并行
-  □ 是否会和现有任务修改同一文件？→ 是则不能并行
-  □ 是否会和现有任务修改同一目录？→ 是则不能并行
-  □ tasks_dependency.md 文件冲突矩阵中是否标记了冲突？→ 是则不能并行
-  □ 当前窗口是否已达到 config.ini 的 max_workers 上限？→ 是则必须排队
-  □ 是否涉及共享配置文件修改？→ 是则不能并行
-  任何一项不满足 → 不能并行，必须排队串行执行
+### 规则 8 - 执行顺序必须遵循层级
+```
+  1) 基础设施/DDL (L0) → 2) Entity/DTO (L1) → 3) Mapper/XML (L2)
+  → 4) Service (L3) → 5) Controller (L4) → 6) 前端 (L5) → 7) 配置 (L6)
+底层没写完，上层不能开始。
+```
+
+### 规则 9 - Git 提交串行化
+```
+一个任务结束 → 自检通过 → 获取 .parallel.lock → commit → 释放锁。
+禁止并行任务同时 commit、push。
+每个任务一个独立 commit，信息清晰：feat(模块号): 任务名称。
+锁超时 timeout_seconds 秒自动释放。
+```
+
+### 规则 10 - 目录隔离规范
+```
+后端任务：只动对应模块的 /controller、/service、/mapper、/entity
+前端任务：只动 /src/views/xxx、/src/api/xxx、/src/i18n/xxx（xxx 为对应模块）
+配置任务：只动自己的配置 section（共享文件不可并行）
+数据库任务：只动独立的 SQL 文件（Flyway 版本号隔离）
+```
+
+### 规则 11 - 确定性任务选择
+```
+当多个任务同时合格时，按确定性排序选择唯一一个：
+  1. P 级别升序（P0 > P1 > P2）
+  2. 模块号升序（001 > 002 > 003）
+  3. 执行层升序（L0 > L1 > L2）
+  4. 目录位置升序（catalog 编号小的优先）
+绝不允许随机选择或工人自行决定。
+```
+
+### 规则 12 - 启动前强制检查（七重约束，逐一验证）
+```
+□ C1: 模块前置依赖全部 ✅？
+□ C2: SERIAL 模块无人占用？（PARALLEL 跳过此检查）
+□ C3: 同模块低层全部 ✅？
+□ C4: 文件作用域与文件锁注册表无交集？
+□ C5: 任务不在活跃认领注册表中？
+□ C6: 同模块内无跨层冲突？
+□ C7: 共享文件未被其他工人锁定？
+任何一项不满足 → 不能认领，跳过此任务检查下一个。
 ```
 
 ---
 
-## 4. 并行任务识别条件
+## 4. 确定性认领协议（完整流程）
+
+> **权威来源**：`tasks_dependency.md` §十二。以下为执行摘要。
+
+```
+┌─ 获取 .catalog.lock ──────────────────────────────────────────────────┐
+│                                                                        │
+│  Step 1: 超时清理                                                     │
+│    扫描活跃认领注册表，清除超时工人的所有记录                           │
+│                                                                        │
+│  Step 2: 续接检查                                                     │
+│    有属于自己的🔄任务？→ 续接（释放锁，跳到执行）                     │
+│                                                                        │
+│  Step 3: 补充候选（如 active 可认领数 < fetch_threshold）              │
+│    从 catalog 按 fetch_cursor 取 fetch_batch_size 条                   │
+│    预筛选（模块依赖 + SERIAL 占用检查）→ 写入 active                  │
+│                                                                        │
+│  Step 4: 七重约束检查                                                 │
+│    对 active 中每个⬜任务逐一检查 C1~C7                               │
+│    通过的加入「合格候选列表」                                         │
+│                                                                        │
+│  Step 5: 确定性选择                                                   │
+│    排序：P级别 → 模块号 → 执行层 → 目录位置                          │
+│    选择第一个（唯一确定）                                             │
+│                                                                        │
+│  Step 6: 声明认领                                                     │
+│    任务状态 → 🔄 + 工人ID                                             │
+│    活跃认领注册表 ← 追加                                              │
+│    文件锁注册表 ← 追加所有文件路径                                    │
+│    模块占用表 ← 追加/更新                                             │
+│                                                                        │
+│  Step 7: 释放 .catalog.lock                                           │
+│                                                                        │
+└────────────────────────────────────────────────────────────────────────┘
+
+执行任务（锁外）：
+  加载上下文 → 开发 → 自检 → 获取 .parallel.lock → git commit → 释放锁
+  → 获取 .catalog.lock → 更新注册表（删除认领/文件锁/占用记录）→ 任务 ✅ → 释放锁
+  → 追加 tasks_completed.md → 回到 Step 1
+```
+
+---
+
+## 5. 并行任务识别条件
 
 | 并行类型 | 条件 | 安全前提 | 推荐窗口数 |
 |---------|------|---------|:---------:|
-| 跨模块并行 | tasks_dependency.md 可并行模块列互相包含 | 文件冲突矩阵无冲突 | 2~4 |
-| 前后端并行 | 后端 API 已完成，前端开发页面 | 文件路径完全不交叉 | 2 |
-| 同模块不同子域并行 | 同一模块内不同业务子域 | 不修改同一文件/目录 | 2~3 |
-| 同层级不同实体并行 | 多个独立实体的 CRUD | 实体间无关联关系 | 2~4 |
+| 跨模块并行 | 两个模块互在对方的「可并行模块」列中 | 七重约束全部通过 | 2~4 |
+| 前后端并行 | 后端 L4 已完成，前端 L5 开发 | 文件路径完全不交叉 | 2 |
+| 同模块不同实体组并行 | PARALLEL 模式模块，不同实体组的同层任务 | 文件作用域无交集 | 2~3 |
+| 同层级不同实体并行 | 多个独立实体的同层 CRUD | 实体间无关联关系 | 2~4 |
 
 **不可并行的场景（必须串行）**：
 
-| 场景 | 原因 | 参考 |
-|------|------|------|
-| DDL 建表任务 | 共享 SQL 文件和数据库 schema | tasks_dependency.md §三 |
-| 路由/配置文件修改 | 共享全局配置文件 | tasks_dependency.md §三 |
-| 有前置依赖关系的任务 | 违反规则 4 | tasks_dependency.md §一 |
-| 公共组件/工具类修改 | 影响所有模块 | tasks_dependency.md §三 |
-| pom.xml / package.json 修改 | 共享依赖配置 | tasks_dependency.md §三 |
-| 文件冲突矩阵标记的模块对 | 可能修改同一文件 | tasks_dependency.md §四 |
-
----
-
-## 5. 并行执行流程
-
-```
-Step 1：启动工人
-  用户运行 parallel.bat N（N = 2~4）
-  → parallel.ps1 启动 N 个 auto.bat 窗口（/c 模式，完成后自动关闭）
-  → 每个窗口启动 Claude 读取 auto-prompt.md
-
-Step 2：工人自动取任务
-  每个工人独立读取 tasks_active.md
-  → 有⬜/🔄任务 → 直接认领执行
-  → 无可执行任务 → 获取 .catalog.lock → 从 tasks_catalog.md 按 fetch_cursor 取任务
-    → 查 tasks_dependency.md 确认依赖已满足 → 写入 tasks_active.md → 释放锁
-
-Step 3：工人循环执行
-  每个工人：执行叶子任务 → 自检 → commit → claude 退出 → auto.ps1 循环启动下一个 → 循环
-  → 续接当前任务（🔄）或认领新任务（⬜）→ 循环
-
-Step 4：工人自动补充
-  快的工人完成任务后立即认领下一个
-  始终保持最多 N 个窗口在跑，零闲置
-  旧窗口自动关闭（/c 模式），新窗口接力执行
-
-Step 5：工人自然退出
-  fetch_cursor 到末尾 + tasks_active 无⬜/🔄 → 工人退出（不启动替补）
-  tasks_active 还有🔄（其他工人还在跑）→ 启动替补工人后退出
-```
+| 场景 | 原因 | 控制机制 |
+|------|------|---------|
+| SERIAL 模块的所有任务 | 模块被标记为串行 | C2 约束（模块占用表） |
+| DDL 建表任务 | 共享 SQL 文件和数据库 schema | C3 约束（执行层 L0 独占） |
+| 路由/配置文件修改 | 共享全局配置文件 | C7 约束（共享文件清单） |
+| 有前置依赖关系的任务 | 前置未完成 | C1 约束（模块依赖） + C3 约束（执行层） |
+| 公共组件/工具类修改 | 影响所有模块 | C2 约束（P0-005 为 SERIAL） |
+| pom.xml / package.json 修改 | 共享依赖配置 | C7 约束（共享文件清单） |
+| 文件锁注册表中有交集的任务 | 修改同一文件 | C4 约束（文件锁检查） |
 
 ---
 
 ## 6. 锁机制
 
 ```
-catalog 锁（取任务/清理已完成时使用）：
+catalog 锁（.catalog.lock）— 认领操作锁：
+  保护范围：
+    - 从 catalog 取任务到 active
+    - 七重约束检查
+    - 确定性任务选择
+    - 声明认领（更新三重注册表）
+    - 任务完成时更新注册表
+    - 超时清理
   锁文件：项目根目录 .catalog.lock
-  锁内容：窗口ID + fetch_cursor 位置 + 时间戳
+  锁内容：{ "worker": "W{N}", "action": "claim|complete|cleanup", "timestamp": "..." }
   获取流程：
     1. 检查 .catalog.lock 是否存在
-    2. 不存在 → 创建锁文件
+    2. 不存在 → 创建锁文件，写入工人ID + 时间戳
     3. 已存在 → 检查时间戳
-       - 超过 120 秒 → 死锁，删除旧锁重试
-       - 未超时 → 等待 3 秒重试，最多 40 次
-    4. 获取锁 → 修改 tasks_active.md（更新 fetch_cursor + 任务列表）→ 释放锁
+       - 超过 timeout_seconds → 死锁，删除旧锁重试
+       - 未超时 → 等待 retry_interval_seconds 重试，最多 max_retries 次
+    4. 获取锁 → 执行操作 → 删除锁文件
 
-Git 提交锁（commit/push 时使用）：
-  锁文件：项目根目录 .parallel.lock
-  用途：防止多工人同时 commit/push 造成冲突
+Git 提交锁（.parallel.lock）— commit/push 锁：
+  保护范围：git add + git commit + git push
   流程同上
+  用途：防止多工人同时 commit/push 造成 Git 冲突
 
 注意：
-  - tasks_active.md 的 fetch_cursor 更新 → 通过 .catalog.lock 串行化
-  - git commit/push → 通过 .parallel.lock 串行化
+  - .catalog.lock 的持有时间应尽量短（只做决策和注册表操作，不执行开发任务）
+  - 开发任务在锁外执行（代码编写、编译验证等）
+  - .parallel.lock 只在 commit 时短暂持有
   - tasks_catalog.md 和 tasks_dependency.md 为只读，无需锁
-  - 代码编写阶段的隔离靠目录/文件隔离规则（§3 规则 2/3）
 ```
 
 ---
 
-## 7. 多工人协作机制
+## 7. 注册表操作规范
+
+> **三重注册表均在 tasks_active.md 中维护。**
 
 ```
-共享文档：
-  tasks_catalog.md    — 全量任务清单（只读，工人不修改）
-  tasks_dependency.md — 依赖关系 + 并行分组（只读，工人不修改）
-  tasks_active.md     — 执行状态 + fetch_cursor + 活跃叶子任务（读写，通过锁串行化）
-  tasks_completed.md  — 完成归档（只追加）
+活跃认领注册表：
+  格式：| 任务编号 | 工人ID | 认领时间 |
+  追加时机：任务认领时
+  删除时机：任务完成 / 任务阻塞 / 超时清理
+  用途：防止重复认领（C5 约束）、超时检测
 
-隔离方式：
-  - tasks_active.md 的 fetch_cursor 更新 → 通过 .catalog.lock 串行化
-  - git commit/push → 通过 .parallel.lock 串行化
-  - tasks_active.md 中🔄任务标记了工人窗口ID，防止重复认领
-  - 无需单独的工人进度文件，tasks_active.md 已包含全部执行状态
+文件锁注册表：
+  格式：| 文件路径 | 任务编号 | 工人ID |
+  追加时机：任务认领时，登记所有预期修改的文件路径
+  删除时机：任务完成 / 任务阻塞 / 超时清理
+  用途：文件隔离检查（C4 约束）
+  文件路径计算：按 tasks_dependency.md §十一.1 的规则从任务类型和模块推导
+
+模块占用表：
+  格式：| 模块编号 | 工人ID | 执行模式 |
+  追加时机：工人认领了该模块的任务时
+  更新时机：同一 PARALLEL 模块有新工人加入时追加行
+  删除时机：SERIAL 模块最后一个任务完成时删除整行
+           PARALLEL 模块中某工人完成所有该模块任务时删除该工人的行
+  用途：SERIAL 模块独占检查（C2 约束）
 ```
 
 ---
@@ -226,30 +328,41 @@ Git 提交锁（commit/push 时使用）：
 
 ```
 项目根目录文件：
-  config.ini         — 统一配置（路径、停止开关、窗口数、补充策略、锁参数）
+  config.ini         — 统一配置（路径、开关、窗口数、补充策略、锁参数、注册表参数）
   auto.bat           — 工人启动器（单工人入口，也是多工人的每个窗口入口）
-  auto.ps1           — 解析 config.ini → 检查停止开关 → 读 auto-prompt.md → 启动 claude
-  auto-prompt.md     — 工人循环提示词（两级查找 + 停止开关 + 游标补充逻辑）
+  auto.ps1           — 解析 config.ini → 检查停止开关 → 接收 WORKER_ID → 读 auto-prompt.md → 启动 claude
+  auto-prompt.md     — 工人循环提示词（确定性认领协议 + 七重约束 + 注册表操作）
 
   parallel.bat       — 多工人启动器（接收数字参数 N，不设则读 config.ini）
-  parallel.ps1       — 解析 config.ini → 检查停止开关 → 启动 N 个 auto.bat 窗口（/c 模式）
+  parallel.ps1       — 解析 config.ini → 分配工人ID → 启动 N 个 auto.bat 窗口（传递 WORKER_ID）
 
-  tasks_catalog.md    — 全量叶子任务清单（带位置编号 + fetch_cursor 参考）
-  tasks_dependency.md — 预计算依赖关系 + 并行分组 + 文件冲突矩阵
-  tasks_active.md     — 活跃任务（叶子级 + fetch_cursor，工人直接认领）
-  tasks_completed.md  — 完成归档（只写不读）
-  .catalog.lock       — catalog 读取 / active-tasks 写入锁
-  .parallel.lock      — Git 提交锁
+  tasks_catalog.md      — 全量叶子任务清单（带位置编号 + fetch_cursor）
+  tasks_dependency.md   — 依赖关系 + 执行层 + 执行模式 + 文件隔离 + 认领协议
+  tasks_active.md       — 活跃任务 + fetch_cursor + 三重注册表
+  tasks_completed.md    — 完成归档（只写不读）
+  .catalog.lock         — 认领操作锁
+  .parallel.lock        — Git 提交锁
 
 启动方式：
-  单工人：auto.bat（双击或命令行）
-  多工人：parallel.bat 3（启动 3 个工人窗口）
+  单工人：auto.bat（WORKER_ID 自动设为 W1）
+  多工人：parallel.bat 3（启动 3 个工人窗口，ID 为 W1/W2/W3）
   多工人：parallel.bat（不带参数，使用 config.ini 的 max_workers）
   停止：config.ini 中 single_stop=true 或 multi_stop=true
 
 窗口生命周期：
   parallel.ps1 使用 cmd /c 启动窗口（命令完成后自动关闭）
   每个任务完成后 claude 退出 → auto.ps1 循环自动启动下一个 claude 会话
-  窗口始终保持打开，claude 会话在窗口内轮转，停止时窗口自动关闭
-  始终保持 N 个活跃窗口，停止时全部自动关闭
+  窗口始终保持打开，claude 会话在窗口内轮转
+  停止时全部自动关闭
+  始终保持 N 个活跃窗口（除非受约束限制导致空闲）
 ```
+
+---
+
+## 9. 变更日志
+
+| 版本 | 日期 | 变更内容 |
+|:---:|:---:|---------|
+| V1.0-V3.0 | - | 历史版本 |
+| V4.0 | 2026-05-28 | 任务清单+工人池架构 |
+| V5.0 | 2026-05-28 | 全面重写为确定性并行引擎：12条铁律（原8条）、确定性认领协议、三重注册表、工人ID系统、超时清理、确定性排序；消除所有随机性 |

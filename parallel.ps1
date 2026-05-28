@@ -76,21 +76,23 @@ $batPath = Join-Path $scriptDir 'auto.bat'
 
 for ($i = 1; $i -le $workerCount; $i++) {
     $title = "ERP-Worker-$i"
+    $workerId = "W$i"
 
     Start-Process cmd.exe -ArgumentList @(
         '/c',
-        "title $title && cd /d `"$scriptDir`" && `"$batPath`""
+        "title $title && cd /d `"$scriptDir`" && `"$batPath`" $workerId"
     )
 
-    Write-Host "  [OK] Worker $i launched: $title" -ForegroundColor Green
+    Write-Host "  [OK] Worker $i launched: $title (ID: $workerId)" -ForegroundColor Green
     Start-Sleep -Seconds 2
 }
 
 Write-Host ""
 Write-Host "============================================================" -ForegroundColor Cyan
 Write-Host "  $workerCount workers launched!" -ForegroundColor Green
-Write-Host "  Workers auto-claim tasks from tasks_active.md" -ForegroundColor White
-Write-Host "  Fast workers auto-claim next task (zero idle)" -ForegroundColor White
+Write-Host "  Each worker has a unique ID (W1..W$workerCount)" -ForegroundColor White
+Write-Host "  Workers auto-claim tasks via deterministic protocol" -ForegroundColor White
+Write-Host "  All claiming is serialized via .catalog.lock" -ForegroundColor White
 Write-Host "  Set multi_stop=true in config.ini to stop all" -ForegroundColor DarkGray
 Write-Host "============================================================" -ForegroundColor Cyan
 Write-Host ""
