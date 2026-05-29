@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：78 条
+> **归档总数**：79 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -125,6 +125,7 @@
 | P0-001-005-001-002-001 | 编写CREATE TABLE DDL | 2026-05-29T21:30 | ✅ | 验证sys_code_rule_segment从表DDL完整(rule_id FK/segment_type/segment_order/segment_value/segment_length/segment_format+通用字段+idx_segment_order索引),前序任务已创建全部DDL | 4270d90d |
 | P0-001-005-001-002-002 | 添加索引与约束 | 2026-05-29T22:00 | ✅ | V1__create_sys_code_rule.sql新增uk_segment_rule_order唯一部分索引(rule_id,segment_order,tenant_id WHERE is_deleted=FALSE)防止同规则同租户段排序重复,从表约束汇总:PK+FK+idx_segment_order+uk_segment_rule_order,mvn compile BUILD SUCCESS | 8f764bda |
 | P0-001-005-001-003-001 | 编写CREATE INDEX语句 | 2026-05-29T22:30 | ✅ | 验证V1__create_sys_code_rule.sql DDL完整:uk_rule_module(rule_code,tenant_id)唯一索引+idx_segment_order(rule_id,segment_order)复合索引+uk_segment_rule_order唯一部分索引+所有字段注释+Flyway格式,mvn compile通过 | 44ca7b1c |
+| P0-001-005-001-003-002 | 执行DDL脚本 | 2026-05-29T23:00 | ✅ | 在erp_dev库执行V1__create_sys_code_rule.sql:sys_code_rule主表(17字段)+sys_code_rule_segment从表(16字段)+5个索引全部创建成功,information_schema验证通过 | (待commit) |
 
 ### 写入格式（工人必须严格遵守）
 
