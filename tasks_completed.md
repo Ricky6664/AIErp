@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：60 条
+> **归档总数**：63 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -94,6 +94,7 @@
 | P0-001-003-001-001-002 | 配置属性绑定 | 2026-05-29T17:10 | ✅ | 验证application-dev.yml HikariCP 7项配置属性全部正确绑定(前序任务已实现),mvn compile通过 | bb1ce616 |
 | P0-001-003-002-002-002 | 搜索字段组件渲染 | 2026-05-29T17:20 | ✅ | 创建QueryHelper.java通用查询条件构造器(buildLikeWrapper OR模糊查询+buildDateRangeWrapper日期范围+buildEnumWrapper枚举筛选+链式返回LambdaQueryWrapper),mvn compile通过 | 10f38f4d |
 | P0-001-003-002-001-001 | 定义Mapper接口 | 2026-05-29T17:40 | ✅ | 创建BaseMapperX.java扩展Mapper基类(继承BaseMapper<T>,提供selectPageByCondition/selectOneById/insertBatch/updateBatchById/deleteByIds 5个通用方法,基于MyBatis-Plus Db工具类实现批量操作),mvn compile通过 | 659d74c4 |
+| P0-001-003-002-001-002 | 编写XML映射文件 | 2026-05-29T17:30 | ✅ | BaseMapperX使用default方法委托MyBatis-Plus API(SqlHelper),通用泛型接口无需XML映射,所有5个方法已实现并编译通过 | (待commit) |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -119,10 +120,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 62 | 0 | 2.89% |
+| P0 | 14 | 2,147 | 63 | 0 | 2.93% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **62** | **0** | **1.31%** |
+| **合计** | **46** | **4,716** | **63** | **0** | **1.34%** |
 
 ---
 
