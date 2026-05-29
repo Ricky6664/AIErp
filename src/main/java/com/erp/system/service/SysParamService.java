@@ -12,6 +12,7 @@ import org.springframework.cache.annotation.Caching;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -51,6 +52,10 @@ public class SysParamService {
     @Cacheable(value = "sys:param", key = "#category + ':' + #key", unless = "#result == null")
     @SuppressWarnings("unchecked")
     public <T> T getValue(String category, String key, Class<T> type) {
+        validateParamKey(category, key);
+        if (type == null) {
+            throw new BusinessException(ErrorCode.PARAM_MISSING, "目标类型不能为空");
+        }
         Long tenantId = getCurrentTenantId();
         String sql = "SELECT param_value, value_type FROM sys_param"
                 + " WHERE param_category = ? AND param_key = ? AND tenant_id = ? AND is_deleted = FALSE";
@@ -73,6 +78,7 @@ public class SysParamService {
      */
     @Cacheable(value = "sys:param", key = "#category + ':' + #key", unless = "#result == null")
     public String getStr(String category, String key) {
+        validateParamKey(category, key);
         Long tenantId = getCurrentTenantId();
         String sql = "SELECT param_value FROM sys_param"
                 + " WHERE param_category = ? AND param_key = ? AND tenant_id = ? AND is_deleted = FALSE";
@@ -88,6 +94,9 @@ public class SysParamService {
      */
     @Cacheable(value = "sys:param", key = "'list:' + #category", unless = "#result.isEmpty()")
     public List<Map<String, Object>> listByCategory(String category) {
+        if (!StringUtils.hasText(category)) {
+            throw new BusinessException(ErrorCode.PARAM_MISSING, "参数分类不能为空");
+        }
         Long tenantId = getCurrentTenantId();
         String sql = "SELECT param_category, param_key, param_value, value_type, description, sort_order"
                 + " FROM sys_param"
@@ -111,6 +120,10 @@ public class SysParamService {
     })
     @Transactional(rollbackFor = Exception.class)
     public void setParam(String category, String key, String value) {
+        validateParamKey(category, key);
+        if (value == null) {
+            throw new BusinessException(ErrorCode.PARAM_MISSING, "参数值不能为空");
+        }
         Long tenantId = getCurrentTenantId();
         String existsSql = "SELECT COUNT(*) FROM sys_param"
                 + " WHERE param_category = ? AND param_key = ? AND tenant_id = ? AND is_deleted = FALSE";
@@ -141,6 +154,7 @@ public class SysParamService {
     })
     @Transactional(rollbackFor = Exception.class)
     public void deleteParam(String category, String key) {
+        validateParamKey(category, key);
         Long tenantId = getCurrentTenantId();
         String checkSql = "SELECT is_system FROM sys_param"
                 + " WHERE param_category = ? AND param_key = ? AND tenant_id = ? AND is_deleted = FALSE";
@@ -217,6 +231,24 @@ public class SysParamService {
         } catch (Exception e) {
             log.warn("类型转换失败: value={}, valueType={}, targetType={}", value, valueType, type, e);
             return null;
+        }
+    }
+
+    // ==================== 参数校验 ====================
+
+    /**
+     * 校验参数分类和参数键不能为空.
+     *
+     * @param category 参数分类
+     * @param key      参数键
+     * @throws BusinessException 当 category 或 key 为空时抛出
+     */
+    private void validateParamKey(String category, String key) {
+        if (!StringUtils.hasText(category)) {
+            throw new BusinessException(ErrorCode.PARAM_MISSING, "参数分类不能为空");
+        }
+        if (!StringUtils.hasText(key)) {
+            throw new BusinessException(ErrorCode.PARAM_MISSING, "参数键不能为空");
         }
     }
 }

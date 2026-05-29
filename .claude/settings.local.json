@@ -47,7 +47,9 @@
       "Bash(findstr /i \"javax\")",
       "Bash(findstr /i \"javax\\\\|error\\\\|ERROR\\\\|cannot find\")",
       "Bash(findstr /i \"javax ERROR error\")",
-      "Bash(powershell *)"
+      "Bash(powershell *)",
+      "Bash(mvn test *)",
+      "Bash(Select-String -Pattern \"Tests run:|BUILD|ERROR|FAIL\")"
     ]
   }
 }
