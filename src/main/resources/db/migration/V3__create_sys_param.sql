@@ -55,7 +55,23 @@ COMMENT ON COLUMN sys_param.owner_dept_id IS '所属部门ID';
 COMMENT ON COLUMN sys_param.owner_id IS '数据负责人ID';
 COMMENT ON COLUMN sys_param.version IS '版本号';
 
+COMMENT ON CONSTRAINT pk_sys_param ON sys_param IS '主键约束：雪花算法BIGINT';
+COMMENT ON INDEX uk_category_key IS '唯一索引：参数分类+参数键+租户ID（仅未删除数据）';
+COMMENT ON INDEX idx_category IS '查询索引：按参数分类（仅未删除数据）';
+COMMENT ON INDEX idx_sys_param_tenant IS '租户级查询索引（仅未删除数据）';
+
 -- ============================================================
+-- 添加索引与约束（P0-001-007-001-001-002）
+-- 索引清单:
+--   1. pk_sys_param — 主键约束 (id)
+--   2. uk_category_key — 唯一索引 (param_category, param_key, tenant_id)
+--   3. idx_category — 分类查询索引 (param_category)
+--   4. idx_sys_param_tenant — 租户查询索引 (tenant_id)
+-- 约束说明：
+--   - 唯一索引包含 tenant_id 以支持多租户隔离
+--   - 所有索引使用部分索引（WHERE is_deleted = FALSE）排除软删除数据
+-- ============================================================
+--
 -- 回滚脚本（如需回滚，执行以下语句）:
 -- DROP TABLE IF EXISTS sys_param CASCADE;
 -- ============================================================
