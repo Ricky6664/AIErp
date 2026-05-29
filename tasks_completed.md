@@ -136,7 +136,7 @@
 | P0-001-005-002-001-001 | 定义Entity类 | 2026-05-29T21:16 | ✅ | 创建BaseEntity基类(11个通用字段+@TableLogic+@Version)+SysCodeRule实体(7业务字段)+SysCodeRuleSegment实体(6业务字段)+SysCodeRuleDTO(含CreateDTO/UpdateDTO/QueryDTO/SegmentDTO)+SysCodeRuleVO(含ListVO/DetailVO/SegmentVO),mvn compile BUILD SUCCESS (75 source files) | 60647c4b |
 | P0-001-005-002-001-002 | 定义DTO类 | 2026-05-29T21:35 | ✅ | 验证SysCodeRuleDTO(CreateDTO @NotBlank ruleCode/@NotNull segments+UpdateDTO+QueryDTO分页/SegmentDTO)+SysCodeRuleVO(ListVO+DetailVO+SegmentVO+@JsonFormat日期格式),Entity-DDL字段一一对应,@TableLogic/@TableField正确,mvn compile通过 | 4a2cf1a3 |
 | P0-001-005-002-001-003 | 定义VO类 | 2026-05-29T22:00 | ✅ | SysCodeRuleVO增强:ListVO/DetailVO新增isEnabledName字典翻译字段+SegmentVO新增segmentTypeName字典翻译字段,@JsonFormat日期格式,mvn compile通过 | 48aec71a |
-| P0-001-005-002-002-001 | 定义Mapper接口 | 2026-05-29T23:30 | ✅ | SysCodeRuleMapper extends BaseMapperX(selectRuleWithSegments联查主从表+selectByRuleCode按编码查询+updateCurrentVersion乐观锁)+SysCodeRuleMapper.xml(resultMap+LeftJoin+乐观锁UPDATE),mvn compile通过 | <pending> |
+| P0-001-005-002-002-001 | 定义Mapper接口 | 2026-05-29T23:30 | ✅ | SysCodeRuleMapper extends BaseMapperX(selectRuleWithSegments联查主从表+selectByRuleCode按编码查询+updateCurrentVersion乐观锁)+SysCodeRuleMapper.xml(resultMap+LeftJoin+乐观锁UPDATE),mvn compile通过 | 45488253 |
 
 
 ### 写入格式（工人必须严格遵守）
