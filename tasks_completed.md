@@ -140,7 +140,7 @@
 | P0-001-005-002-002-002 | 编写XML映射 | 2026-05-29T23:55 | ✅ | SysCodeRuleMapper.xml完整实现:BaseResultMap+RuleWithSegmentsResultMap(含segments collection嵌套)+selectRuleWithSegments主从联查+selectByRuleCode按编码查询+updateCurrentVersion乐观锁UPDATE,namespace正确,mvn compile通过 | (验证任务) |
 | P0-001-005-002-002-003 | 编写自定义查询方法 | 2026-05-29T23:59 | ✅ | SysCodeRuleMapper自定义查询方法验证:selectRuleWithSegments联查+selectByRuleCode按编码查询+updateCurrentVersion乐观锁,前序任务代码已就位,mvn compile通过 | (验证任务) |
 | P0-001-005-002-003-001 | 定义Service接口 | 2026-05-29T12:00 | ✅ | SysCodeRuleService(BaseCrudService扩展:create/update+ruleCode唯一性校验+segment批量保存/delete级联删除+preview/generate/refreshCache抽象方法)+SysCodeRuleServiceImpl(Redis分布式锁+重试)+SysCodeRuleSegmentMapper,mvn compile通过 | 5dba5dc9 |
-| P0-001-005-002-003-002 | 实现ServiceImpl | 2026-05-29T12:30 | ✅ | SysCodeRuleServiceImpl验证完成:Redis分布式锁(code:lock:{ruleCode})+3次重试(100ms间隔)+BusinessException+refreshCache清除缓存+@Transactional写操作,框架就绪,编码生成逻辑待段解析器(P0-001-005-003)补充 | ffe809ee |
+| P0-001-005-002-003-002 | 实现ServiceImpl | 2026-05-29T12:30 | ✅ | SysCodeRuleServiceImpl验证完成:Redis分布式锁(code:lock:{ruleCode})+3次重试(100ms间隔)+BusinessException+refreshCache清除缓存+@Transactional写操作,框架就绪,编码生成逻辑待段解析器(P0-001-005-003)补充 | 31ddd74f |
 
 
 ### 写入格式（工人必须严格遵守）
