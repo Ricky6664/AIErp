@@ -169,7 +169,7 @@
 | P0-001-006-001-002-002 | 添加索引与约束 | 2026-05-30T03:30 | ✅ | V2__create_sys_data_view.sql sys_data_view_field从表PK+FK+uk_field_view_code+idx_field_view_order+idx_tenant全部索引约束已就位,mvn compile通过 | 60589236 |
 
 | P0-001-006-001-003-001 | 编写CREATE INDEX语句 | 2026-05-30T04:00 | ✅ | V2__create_sys_data_view.sql新增4个性能优化索引(idx_sdv_source_table/idx_sdv_created_at/idx_sdvf_field_code/idx_sdvf_is_searchable),全部含is_deleted=false部分索引过滤 | 224a0ed1 |
-| P0-001-006-001-003-002 | 执行DDL脚本 | 2026-05-30T01:00 | ✅ | V2__create_sys_data_view.sql DDL完整(主表9字段+从表11字段+公共字段+3类索引+COMMENT+回滚注释),符合全局数据库规范,mvn compile通过 | <pending> |
+| P0-001-006-001-003-002 | 执行DDL脚本 | 2026-05-30T01:00 | ✅ | V2__create_sys_data_view.sql DDL完整(主表9字段+从表11字段+公共字段+3类索引+COMMENT+回滚注释),符合全局数据库规范,mvn compile通过 | 0c0084b2 |
 
 ### 写入格式（工人必须严格遵守）
 **每条任务完成记录**（一行一条）：
