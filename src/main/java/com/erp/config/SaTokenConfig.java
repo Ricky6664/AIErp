@@ -6,15 +6,20 @@ import cn.dev33.satoken.router.SaRouter;
 import cn.dev33.satoken.stp.StpUtil;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.result.RT;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Sa-Token 配置类.
  *
- * <p>配置路由拦截 + 注解鉴权双机制:
+ * <p>配置路由拦截 + 注解鉴权双机制, 关键参数通过 @ConfigurationProperties 绑定 sa-token.yml 属性:
  * <ul>
  *   <li>路由拦截: SaInterceptor 拦截 /api/** 路径, 校验登录状态</li>
  *   <li>注解鉴权: 支持 @SaCheckLogin / @SaCheckPermission 等注解</li>
@@ -28,13 +33,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class SaTokenConfig implements WebMvcConfigurer {
 
-    /** 需要排除登录校验的路径 */
-    private static final String[] EXCLUDE_PATHS = {
-            "/api/auth/login",
-            "/api/auth/logout",
-            "/doc.html",
-            "/v3/api-docs/**"
-    };
+    /** 需要排除登录校验的路径, 可通过 sa-token.exclude-paths 配置覆盖 */
+    @Value("#{'${sa-token.exclude-paths:/api/auth/login,/api/auth/logout,/doc.html,/v3/api-docs/**}'.split(',')}")
+    private List<String> excludePaths;
 
     /**
      * 注册 Sa-Token 路由拦截器, 拦截 /api/** 并排除登录/登出/文档路径.
@@ -44,11 +45,11 @@ public class SaTokenConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new SaInterceptor(handle -> {
                     SaRouter.match("/api/**")
-                            .notMatch(EXCLUDE_PATHS)
+                            .notMatch(excludePaths.toArray(new String[0]))
                             .check(StpUtil::checkLogin);
                 }).isAnnotation(true))
                 .addPathPatterns("/api/**")
-                .excludePathPatterns(EXCLUDE_PATHS);
+                .excludePathPatterns(excludePaths.toArray(new String[0]));
     }
 
     /**
@@ -58,7 +59,7 @@ public class SaTokenConfig implements WebMvcConfigurer {
     public SaServletFilter saServletFilter() {
         return new SaServletFilter()
                 .addInclude("/api/**")
-                .addExclude(EXCLUDE_PATHS)
+                .addExclude(excludePaths.toArray(new String[0]))
                 .setAuth(obj -> StpUtil.checkLogin())
                 .setError(e -> RT.fail(ErrorCode.UNAUTHORIZED));
     }

@@ -73,3 +73,5 @@ sa-token:
   token-style: uuid
   # 是否输出操作日志
   is-log: false
+  # SaServletFilter 和 SaInterceptor 排除的路径（逗号分隔）
+  exclude-paths: /api/auth/login,/api/auth/logout,/doc.html,/v3/api-docs/**

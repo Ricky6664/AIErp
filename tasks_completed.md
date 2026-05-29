@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：72 条
+> **归档总数**：73 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -109,6 +109,7 @@
 | P0-001-004-001-001-003 | 配置校验与启动检查 | 2026-05-29T19:35 | ✅ | SaTokenConfig.java(SaServletFilter+SaInterceptor双机制,排除login/logout/knife4j路径,RT.fail未登录响应),mvn compile通过 | 1df2a8a5 |
 | P0-001-004-002-002-002 | 实现核心处理逻辑 | 2026-05-29T20:00 | ✅ | LogicEnum(AND/OR)+@RequirePermission(value权限码数组,logic逻辑运算符默认AND)+PermissionAspect(@Around拦截,StpUtil.checkPermissionAnd/Or校验,失败NotPermissionException→403),mvn compile通过 | 06c219e8 |
 | P0-001-004-001-001-001 | 定义@Configuration配置类@Bean注册方式 | 2026-05-29T22:00 | ✅ | SaTokenConfig(@Configuration)+SaServletFilter(@Bean拦截/api/**排除login/logout/doc.html/v3)+未登录RT.fail(ErrorCode.UNAUTHORIZED)+SaInterceptor路由拦截+isAnnotation注解鉴权双机制 | 1df2a8a5 |
+| P0-001-004-001-001-002 | 配置属性绑定 | 2026-05-29T19:01 | ✅ | SaTokenConfig.java @Value绑定exclude-paths(@ConfigurationProperties风格)+application.yml sa-token.exclude-paths配置项,mvn compile BUILD SUCCESS | <pending> |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -134,7 +135,7 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 70 | 2 | 3.35% |
+| P0 | 14 | 2,147 | 71 | 2 | 3.40% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **70** | **2** | **1.52%** |
