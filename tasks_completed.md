@@ -54,7 +54,7 @@
 | P0-001-001-003-001-005-001 | 编写staging环境配置 | 2026-05-28T22:57 | ✅ | 创建application-staging.yml(server.port=8082/${DB_URL}/${REDIS_HOST}/NoLoggingImpl/日志INFO),敏感配置全部环境变量注入,mvn compile通过 | c0f63ca0 |
 | P0-001-001-003-001-005-002 | 验证staging环境配置 | 2026-05-28T23:05 | ✅ | staging profile启动验证:port=8082绑定正确,5项配置值全部正确加载,DB_URL/REDIS_HOST环境变量注入,无硬编码敏感信息,mvn compile通过 | (验证任务) |
 | P0-001-001-003-002-001 | 编写prod环境配置 | 2026-05-29T00:15 | ✅ | 创建application-prod.yml(server.port=8080/${DB_PASSWORD}/${REDIS_PASSWORD}/${JWT_SECRET}/NoLoggingImpl/日志WARN/Swagger关闭/HikariCP生产连接池),mvn compile通过 | 8d73fa3c |
-| P0-001-001-003-002-002 | 验证配置生效 | 2026-05-29T10:56 | ✅ | ProdConfigValidationTest 10项测试全部PASS(server.port=8080/环境变量注入/WARN日志/无硬编码/Swagger关闭/NoLoggingImpl),mvn compile+test BUILD SUCCESS | (验证任务) |
+| P0-001-001-003-002-002 | 验证配置生效 | 2026-05-29T10:56 | ✅ | ProdConfigValidationTest 10项测试全部PASS(server.port=8080/环境变量注入/WARN日志/无硬编码/Swagger关闭/NoLoggingImpl),mvn compile+test BUILD SUCCESS | 7a8f5b9f |
 
 ### 写入格式（工人必须严格遵守）
 
