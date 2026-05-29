@@ -207,6 +207,8 @@
 | P0-001-006-003-001-001 | 实现SQL动态构建 | 2026-05-30T10:30 | ✅ | DataViewSqlBuilder.java(@Component):buildSelectSql(viewId,queryParams)主方法+SQL白名单校验+动态WHERE(=,LIKE,BETWEEN)+PostgreSQL双引号转义+is_deleted=FALSE+pageSize≤100,mvn compile通过 | 6e6bf46e |
 | P0-001-006-003-001-002 | 实现SQL构建核心逻辑 | 2026-05-30T11:00 | ✅ | DataViewSqlBuilder.java核心逻辑完整(validateSqlWhitelist+validateSourceSql+escapeFieldName+resolveSortField+buildBetweenCondition),全3项验收通过,mvn compile通过 | (验证任务) |
 | P0-001-006-003-001-003 | 验证SQL构建 | 2026-05-30T11:35 | ✅ | DataViewSqlBuilderVerificationTest.java(34用例):SQL白名单11项+字段转义5项+分页排序7项+搜索类型4项+易错警示2项+边界2项+异常3项,发现并修复CREATE关键字词边界误判bug,mvn test通过 | 82ff6ca5 |
+| P0-001-006-003-002-001 | 搜索表单布局 | 2026-05-30T12:08 | ✅ | DataViewQueryParser.java(@Component):parseConditions/parseOne主方法+8种操作符(eq/ne/gt/gte/lt/lte/like/between/in)+LIKE转义%/_+between类型校验+in≤100限制+字段双引号转义,34测试通过 | 8f731bd3 |
+| P0-001-006-003-002-002 | 搜索字段组件渲染 | 2026-05-30T14:45 | ⏭️ | 任务重复-DataViewQueryParser.java已在P0-001-006-003-002-001中创建并提交(8f731bd3) | (任务重复-前置任务已完成) |
 
 ---
 
@@ -214,10 +216,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 115 | 2 | 5.36% |
+| P0 | 14 | 2,147 | 116 | 2 | 5.40% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **115** | **2** | **2.44%** |
+| **合计** | **46** | **4,716** | **116** | **2** | **2.46%** |
 
 ---
 
