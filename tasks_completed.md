@@ -59,7 +59,7 @@
 | P0-001-001-003-003-001-001 | 配置MyBatis-Plus全局项 | 2026-05-29T11:15 | ✅ | application.yml添加MyBatis-Plus全局配置(id-type=ASSIGN_ID/logic-delete-field=isDeleted/logic-delete-value=1/map-underscore-to-camel-case=true/cache-enabled=false),mvn compile BUILD SUCCESS | e9bbd1c2 |
 | P0-001-001-003-003-001-002 | 配置Sa-Token全局项 | 2026-05-29T12:00 | ✅ | application.yml添加Sa-Token全局配置(token-name=satoken/timeout=2592000/active-timeout=1800/is-concurrent=true/is-share=true/token-style=uuid/is-log=false),mvn compile BUILD SUCCESS | 7cf63892 |
 | P0-001-001-003-003-001-003 | 配置文件上传编码规则分页默认值 | 2026-05-29T12:25 | ✅ | application.yml添加spring.servlet.multipart(max-file-size=10MB/max-request-size=100MB)+file.upload(allowed-types/path)+page(default-size=20/max-size=100),mvn compile BUILD SUCCESS | 9fe5387c |
-| P0-001-001-003-003-002 | 抽取公共配置到application.yml | 2026-05-29T12:30 | ✅ | application.yml抽取5项公共配置:profiles.active=${SPRING_PROFILES_ACTIVE:dev}/application.name=erp-ai/server.servlet.context-path=/api/jackson.date-format=yyyy-MM-dd HH:mm:ss/jackson.time-zone=GMT+8,清理4个profile文件冲突context-path,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-001-003-003-002 | 抽取公共配置到application.yml | 2026-05-29T12:30 | ✅ | application.yml抽取5项公共配置:profiles.active=${SPRING_PROFILES_ACTIVE:dev}/application.name=erp-ai/server.servlet.context-path=/api/jackson.date-format=yyyy-MM-dd HH:mm:ss/jackson.time-zone=GMT+8,清理4个profile文件冲突context-path,mvn compile BUILD SUCCESS | 5658bc98 |
 
 ### 写入格式（工人必须严格遵守）
 
