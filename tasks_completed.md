@@ -229,6 +229,7 @@
 | P0-001-007-002-003-002 | 实现接口逻辑 | 2026-05-30T06:00 | ✅ | ParamCacheRefresher.java完整实现:@EventListener方法+evictCache私有方法+POST /refresh手动刷新端点+StringRedisTemplate键扫描清除,编译通过 | b2e4335e |
 | P0-001-007-003-001-001 | 定义接口路由与方法签名 | 2026-05-30T07:30 | ✅ | SysParamController.java(@RestController /api/system/params):5个CRUD端点(listByCategory/getByCategoryAndKey/create/update/delete),全部@RequirePermission+@Operation齐全,RESTful路径规范,is_system=1删除保护由Service层实现,/refresh端点由ParamCacheRefresher处理 | 8966b471 |
 | P0-001-007-002-002-002 | 实现高级转换方法 | 2026-05-30T18:30 | ✅ | ParamTypeConverter.java已完成(commit 173e887b):convert()方法支持STRING/NUMBER/BOOLEAN/JSON/DATE 5种类型,DATE双格式兼容,convertNumber支持Integer/Long/Double/Float/BigDecimal,convertBoolean支持true/1/yes,失败抛ParamException(30002),mvn compile通过 | 173e887b |
+| P0-001-007-003-001-002 | 实现查询逻辑 | 2026-05-30T08:00 | ✅ | SysParamController.java新增POST /refresh端点(StringRedisTemplate键扫描清除sys:param:*缓存)+@RequirePermission(system:param:manage),ParamCacheRefresher重构为@Component(保留@EventListener移除@RestController),全部6端点@RequirePermission+@Operation齐全,mvn compile通过 | 59ff6485 |
 
 ---
 
@@ -236,10 +237,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 133 | 2 | 6.19% |
+| P0 | 14 | 2,147 | 134 | 2 | 6.24% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **133** | **2** | **2.82%** |
+| **合计** | **46** | **4,716** | **134** | **2** | **2.84%** |
 
 ---
 
