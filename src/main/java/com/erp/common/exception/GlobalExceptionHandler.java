@@ -5,6 +5,7 @@ import cn.dev33.satoken.exception.NotPermissionException;
 import cn.dev33.satoken.exception.NotRoleException;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.result.RT;
+import com.erp.common.result.ValidationError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
+import org.springframework.validation.FieldError;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -24,7 +26,10 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Path;
+import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * 全局异常处理器.
@@ -126,58 +131,96 @@ public class GlobalExceptionHandler {
     /**
      * 请求体参数校验异常(@Valid / @Validated + @RequestBody).
      *
+     * <p>级别: WARN. 由 Spring Validation 在 {@code @RequestBody} 参数上触发,
+     * 提取所有 {@link FieldError} 并转换为 {@link ValidationError} 列表,
+     * 通过 {@code RT.fail(30001, "参数校验失败").data(errorList)} 返回给前端.</p>
+     *
      * @param e       校验异常
      * @param request 请求
-     * @return 统一响应
+     * @return 统一响应(含字段级校验错误列表)
      */
-    @Operation(summary = "处理请求体校验异常", description = "捕获@Valid/@Validated + @RequestBody触发的参数校验失败")
+    @Operation(summary = "处理请求体校验异常", description = "捕获@Valid/@Validated + @RequestBody触发的参数校验失败, 返回字段级错误列表")
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.OK)
-    public RT<Void> handleMethodArgumentNotValidException(MethodArgumentNotValidException e, HttpServletRequest request) {
-        String msg = e.getBindingResult().getFieldErrors().stream()
-                .map(f -> f.getField() + ": " + f.getDefaultMessage())
-                .collect(Collectors.joining("; "));
-        log.warn("[MethodArgumentNotValidException] uri={}, message={}", request.getRequestURI(), msg);
-        return RT.fail(ErrorCode.PARAM_FORMAT_ERROR.getCode(), msg);
+    public RT<List<ValidationError>> handleMethodArgumentNotValidException(MethodArgumentNotValidException e, HttpServletRequest request) {
+        List<ValidationError> errorList = e.getBindingResult().getFieldErrors().stream()
+                .map(f -> ValidationError.of(
+                        f.getField(),
+                        f.getDefaultMessage(),
+                        f.getRejectedValue()))
+                .collect(Collectors.toList());
+        log.warn("[MethodArgumentNotValidException] uri={}, errorCount={}, errors={}",
+                request.getRequestURI(), errorList.size(), errorList);
+        return RT.<List<ValidationError>>fail(ErrorCode.PARAM_INVALID.getCode(), ErrorCode.PARAM_INVALID.getMessage()).data(errorList);
     }
 
     /**
      * 表单绑定异常(@ModelAttribute / @Valid).
      *
+     * <p>级别: WARN. 由 Spring Validation 在表单绑定参数上触发,
+     * 提取所有 {@link FieldError} 并转换为 {@link ValidationError} 列表.</p>
+     *
      * @param e       绑定异常
      * @param request 请求
-     * @return 统一响应
+     * @return 统一响应(含字段级校验错误列表)
      */
-    @Operation(summary = "处理表单绑定异常", description = "捕获@ModelAttribute/@Valid触发的表单绑定校验失败")
+    @Operation(summary = "处理表单绑定异常", description = "捕获@ModelAttribute/@Valid触发的表单绑定校验失败, 返回字段级错误列表")
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.OK)
-    public RT<Void> handleBindException(BindException e, HttpServletRequest request) {
-        String msg = e.getBindingResult().getFieldErrors().stream()
-                .map(f -> f.getField() + ": " + f.getDefaultMessage())
-                .collect(Collectors.joining("; "));
-        log.warn("[BindException] uri={}, message={}", request.getRequestURI(), msg);
-        return RT.fail(ErrorCode.PARAM_FORMAT_ERROR.getCode(), msg);
+    public RT<List<ValidationError>> handleBindException(BindException e, HttpServletRequest request) {
+        List<ValidationError> errorList = e.getBindingResult().getFieldErrors().stream()
+                .map(f -> ValidationError.of(
+                        f.getField(),
+                        f.getDefaultMessage(),
+                        f.getRejectedValue()))
+                .collect(Collectors.toList());
+        log.warn("[BindException] uri={}, errorCount={}, errors={}",
+                request.getRequestURI(), errorList.size(), errorList);
+        return RT.<List<ValidationError>>fail(ErrorCode.PARAM_INVALID.getCode(), ErrorCode.PARAM_INVALID.getMessage()).data(errorList);
     }
 
     /**
      * 参数约束违反异常(@Validated + @RequestParam / @PathVariable / 方法级校验).
      *
      * <p>级别: WARN. 由 {@code @Validated} 注解在方法参数或类级别触发,
-     * 与 {@link MethodArgumentNotValidException} 互补.</p>
+     * 与 {@link MethodArgumentNotValidException} 互补. 提取 {@link ConstraintViolation}
+     * 的最后一个路径节点作为字段名, 转换为 {@link ValidationError} 列表.</p>
      *
      * @param e       约束违反异常
      * @param request 请求
-     * @return 统一响应
+     * @return 统一响应(含字段级校验错误列表)
      */
-    @Operation(summary = "处理参数约束违反异常", description = "捕获@Validated + @RequestParam/@PathVariable触发的方法级校验失败")
+    @Operation(summary = "处理参数约束违反异常", description = "捕获@Validated + @RequestParam/@PathVariable触发的方法级校验失败, 返回字段级错误列表")
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.OK)
-    public RT<Void> handleConstraintViolationException(ConstraintViolationException e, HttpServletRequest request) {
-        String msg = e.getConstraintViolations().stream()
-                .map(ConstraintViolation::getMessage)
-                .collect(Collectors.joining("; "));
-        log.warn("[ConstraintViolationException] uri={}, message={}", request.getRequestURI(), msg);
-        return RT.fail(ErrorCode.PARAM_INVALID.getCode(), msg);
+    public RT<List<ValidationError>> handleConstraintViolationException(ConstraintViolationException e, HttpServletRequest request) {
+        List<ValidationError> errorList = e.getConstraintViolations().stream()
+                .map(v -> ValidationError.of(
+                        extractFieldName(v.getPropertyPath()),
+                        v.getMessage(),
+                        v.getInvalidValue()))
+                .collect(Collectors.toList());
+        log.warn("[ConstraintViolationException] uri={}, errorCount={}, errors={}",
+                request.getRequestURI(), errorList.size(), errorList);
+        return RT.<List<ValidationError>>fail(ErrorCode.PARAM_INVALID.getCode(), ErrorCode.PARAM_INVALID.getMessage()).data(errorList);
+    }
+
+    /**
+     * 从 ConstraintViolation 的属性路径中提取最后一个节点作为字段名.
+     *
+     * <p>例如: {@code createUser.arg0.username} → {@code username}</p>
+     *
+     * @param propertyPath 属性路径
+     * @return 字段名(最后一个节点), 路径为空时返回 "unknown"
+     */
+    private String extractFieldName(Path propertyPath) {
+        if (propertyPath == null) {
+            return "unknown";
+        }
+        return StreamSupport.stream(propertyPath.spliterator(), false)
+                .reduce((first, second) -> second)
+                .map(Path.Node::getName)
+                .orElse("unknown");
     }
 
     /**

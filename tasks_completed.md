@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：55 条
+> **归档总数**：56 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -86,6 +86,7 @@
 | P0-001-002-002-002-001 | 定义泛型类结构 | 2026-05-29T15:55 | ✅ | 创建PageResult<T>分页响应类:字段list/total/pageNum/pageSize/pages+of(IPage<T>)从MyBatis-Plus转换+of(List,total,pageNum,pageSize)手动构建+empty()空分页+@JsonInclude(NON_NULL)+@Schema注解,mvn compile BUILD SUCCESS | fc34731f |
 | P0-001-002-002-002-002 | 实现静态工厂方法 | 2026-05-29T15:57 | ✅ | 验证PageResult<T>静态工厂方法完整:of(IPage<T>)转换MyBatis-Plus分页+of(List,total,pageNum,pageSize)手动构建+empty()空分页+@JsonInclude(NON_NULL)+字段(list/total/pageNum/pageSize/pages)齐全,前序任务已完整实现,mvn compile BUILD SUCCESS | fc34731f |
 | P0-001-002-002-002-003 | 编写单元测试 | 2026-05-29T16:01 | ✅ | 创建PageResultTest(34个测试全PASS):覆盖of(IPage)转换5项+of手动构建7项+empty()4项+字段Getter/Setter3项+@JsonInclude(NON_NULL)JSON序列化5项+Serializable序列化3项+类结构验证5项+RT组合2项,mvn test BUILD SUCCESS | 8009a101 |
+| P0-001-002-003-001-001 | 引入Hibernate Validator依赖配置MethodArgumentNotValidException全局捕获处理器 | 2026-05-29T16:11 | ✅ | pom.xml新增spring-boot-starter-validation依赖+创建ValidationError.java(field/message/rejectedValue+@JsonInclude(NON_NULL)+Serializable)+改造GlobalExceptionHandler(MethodArgumentNotValidException/BindException/ConstraintViolationException三类校验异常提取FieldError转List<ValidationError>返回RT<30001,参数校验失败>.data(errorList))+extractFieldName从ConstraintViolation路径提取字段名+30项单元测试全PASS(ValidationErrorTest 20项+GlobalExceptionHandlerValidationTest 10项),mvn compile BUILD SUCCESS | SHA待补 |
 
 ### 写入格式（工人必须严格遵守）
 
