@@ -158,6 +158,7 @@
 | P0-001-005-003-004-003 | 验证编码生成 | 2026-05-30T00:17 | ✅ | 创建CodeGenerateServiceTest.java(24项全PASS):Redis分布式锁验证(5项)+编码生成逻辑验证(6项)+序列号key格式与日重置验证(5项)+失败重试验证(5项)+综合场景验证(3项),mvn compile BUILD SUCCESS,CodeGenerateService验收标准全部通过 | (pending) |
 | P0-001-005-004-001-001 | 定义接口路由与方法签名 | 2026-05-30T00:10 | ✅ | 创建SysCodeRuleController.java(@RestController @RequestMapping /api/system/code-rules):8个CRUD+预览+生成接口,所有方法@RequirePermission+@Operation注解齐全,RESTful路径规范,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-005-004-001-002 | 实现新增修改删除方法 | 2026-05-30T00:30 | ✅ | SysCodeRuleController.java全部7个接口方法实现完成(create/update/delete/getById/pageList/preview/generate),@RequirePermission+@Operation齐全,RESTful规范,Service层CRUD完整(@Transactional+段处理+唯一性校验),mvn compile BUILD SUCCESS | (pending) |
+| P0-001-005-004-001-003 | 实现查询方法 | 2026-05-30 | ✅ | 验证SysCodeRuleController查询方法完整(getById/pageList/preview/generate),@RequirePermission+@Operation齐全,RESTful路径规范,mvn compile通过 | (验证任务) |
 
 ### P0-001-006 - 数据视图引擎基础服务
 
