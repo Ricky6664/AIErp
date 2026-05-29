@@ -63,6 +63,7 @@ credentials.json
 .session-token
 .worker.pid
 .cmd.pid
+.done
 .watchdog.pid
 .watchdog.ps1
 .watchdog-*.pid
