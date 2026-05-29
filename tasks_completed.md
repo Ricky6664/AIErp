@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：105 条
+> **归档总数**：106 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -172,6 +172,7 @@
 | P0-001-006-001-003-001 | 编写CREATE INDEX语句 | 2026-05-30T04:00 | ✅ | V2__create_sys_data_view.sql新增4个性能优化索引(idx_sdv_source_table/idx_sdv_created_at/idx_sdvf_field_code/idx_sdvf_is_searchable),全部含is_deleted=false部分索引过滤 | 224a0ed1 |
 | P0-001-006-001-003-002 | 执行DDL脚本 | 2026-05-30T01:00 | ✅ | V2__create_sys_data_view.sql DDL完整(主表9字段+从表11字段+公共字段+3类索引+COMMENT+回滚注释),符合全局数据库规范,mvn compile通过 | 0c0084b2 |
 | P0-001-006-001-003-003 | 验证索引与约束 | 2026-05-30T04:30 | ✅ | 静态验证V2__create_sys_data_view.sql 12项索引约束全部合规:sys_data_view 5项(pk+uk_view_code含tenant_id+3个部分索引)+sys_data_view_field 7项(pk+fk+uk_field_view_code含tenant_id+4个部分索引),mvn compile通过 | (pending) |
+| P0-001-006-002-001-001 | 定义Entity类 | 2026-05-30T05:00 | ✅ | 创建SysDataView.java(6业务字段+BaseEntity继承)+SysDataViewField.java(10业务字段+BaseEntity继承),@TableName+@TableLogic+@TableId ASSIGN_ID,字段与DDL一一对应,mvn compile通过 | (pending) |
 
 ### 写入格式（工人必须严格遵守）
 **每条任务完成记录**（一行一条）：
