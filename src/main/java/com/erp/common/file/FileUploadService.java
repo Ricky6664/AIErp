@@ -66,7 +66,7 @@ public class FileUploadService {
      */
     public FileVO upload(MultipartFile file) {
         if (file == null || file.isEmpty()) {
-            throw new BusinessException(ErrorCode.PARAM_MISSING, "上传文件不能为空");
+            throw new BusinessException(ErrorCode.PARAM_MISSING);
         }
 
         // 1. 扩展名黑名单校验
@@ -75,8 +75,7 @@ public class FileUploadService {
 
         // 2. 文件大小校验（单文件最大 10MB）
         if (file.getSize() > MAX_FILE_SIZE) {
-            throw new BusinessException(ErrorCode.PARAM_RANGE_ERROR,
-                    "文件大小超出限制, 最大 10MB");
+            throw new BusinessException(ErrorCode.PARAM_RANGE_ERROR);
         }
 
         // 3. MIME 魔数白名单校验
@@ -94,7 +93,7 @@ public class FileUploadService {
             Files.createDirectories(uploadDir);
         } catch (IOException e) {
             log.error("创建上传目录失败: {}", uploadDir, e);
-            throw new BusinessException(ErrorCode.INTERNAL_ERROR, "创建上传目录失败");
+            throw new BusinessException(ErrorCode.INTERNAL_ERROR);
         }
 
         // 6. 存储文件
@@ -103,7 +102,7 @@ public class FileUploadService {
             Files.copy(file.getInputStream(), destPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             log.error("文件存储失败: {}", destPath, e);
-            throw new BusinessException(ErrorCode.INTERNAL_ERROR, "文件存储失败");
+            throw new BusinessException(ErrorCode.INTERNAL_ERROR);
         }
 
         long fileSize = destPath.toFile().length();
@@ -181,7 +180,7 @@ public class FileUploadService {
             return contentType;
         }
 
-        throw new BusinessException(ErrorCode.PARAM_FORMAT_ERROR, "无法识别文件类型");
+        throw new BusinessException(ErrorCode.PARAM_FORMAT_ERROR);
     }
 
     /**
@@ -189,7 +188,7 @@ public class FileUploadService {
      */
     private void checkExtensionBlacklist(String originalFilename) {
         if (originalFilename == null || !originalFilename.contains(".")) {
-            throw new BusinessException(ErrorCode.PARAM_FORMAT_ERROR, "文件缺少扩展名");
+            throw new BusinessException(ErrorCode.PARAM_FORMAT_ERROR);
         }
         String ext = getExtension(originalFilename).toLowerCase();
         // 去掉开头的 "."
@@ -197,8 +196,7 @@ public class FileUploadService {
             ext = ext.substring(1);
         }
         if (EXTENSION_BLACKLIST.contains(ext)) {
-            throw new BusinessException(ErrorCode.PARAM_INVALID,
-                    "不允许上传的文件类型: ." + ext);
+            throw new BusinessException(ErrorCode.PARAM_INVALID);
         }
     }
 
@@ -214,8 +212,7 @@ public class FileUploadService {
                 Arrays.asList(allowedTypesStr.split("\\s*,\\s*"))
         );
         if (!allowed.contains(mimeType)) {
-            throw new BusinessException(ErrorCode.PARAM_INVALID,
-                    "不允许上传的文件类型: " + mimeType);
+            throw new BusinessException(ErrorCode.PARAM_INVALID);
         }
     }
 

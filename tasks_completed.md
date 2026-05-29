@@ -234,6 +234,7 @@
 | P0-001-007-003-002-002 | 实现接口逻辑 | 2026-05-30T09:00 | ✅ | SysParamController.java batchUpdate方法从stub实现为完整业务逻辑:参数空列表校验(BusinessException PARAM_MISSING)+循环调用sysParamService.setParam批量更新+日志记录,mvn compile BUILD SUCCESS | 377206c8 |
 | P0-001-008-001-001-001 | 实现文件上传核心逻辑 | 2026-05-30T10:00 | ✅ | FileUploadService.java(@Service):upload(MultipartFile)实现MIME魔数检测(JPEG/PNG/PDF/XLS/OOXML)+扩展名黑名单(exe/bat/sh/cmd)+UUID文件名+日期分目录(yyyy/MM/dd)存储,FileVO+FileUploadProperties支持类,mvn compile通过 | a99f46bd |
 | P0-001-008-001-001-002 | 实现文件上传核心逻辑 | 2026-05-30T11:00 | ✅ | FileUploadService增强:显式文件大小校验(单文件10MB PARAM_RANGE_ERROR)+SysFile Entity(@TableName sys_file)+SysFileMapper(BaseMapperX)+上传完成后自动记录sys_file元数据(文件名/路径/MIME/大小/CONFIRMED状态/上传人StpUtil获取),mvn compile通过 | 24a8ec13 |
+| P0-001-008-001-001-003 | 验证文件上传 | 2026-05-30T15:00 | ✅ | FileUploadServiceVerificationTest(17项全PASS):扩展名黑名单(exe/bat/sh/cmd)5项+MIME魔数白名单(JPEG/PNG/PDF)4项+文件大小校验(空/null/超大/边界)4项+成功上传流程(UUID格式/日期目录/FileVO完整字段/sys_file元数据)4项;修复BusinessException args被框架静默丢弃问题,mvn compile+test 171/171 PASS | (pending) |
 
 ---
 
