@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：68 条
+> **归档总数**：69 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -104,6 +104,7 @@
 | P0-001-003-003-001-002 | 实现ServiceImpl | 2026-05-29T19:00 | ✅ | 创建ServiceImplX.java(继承ServiceImpl<M,T>,实现IServiceX<T>,绑定BaseMapperX与IServiceX),mvn compile BUILD SUCCESS | a267e5b0 |
 | P0-001-003-003-001-003 | 业务辅助方法 | 2026-05-29T19:10 | ✅ | IServiceX.java 6个default方法完整(createBatch/updateBatch/pageList/getOneOrThrow/existsById/checkExists),mvn compile通过 | 1ccc659c |
 | P0-001-003-003-002-001 | 定义Service接口 | 2026-05-29T19:20 | ✅ | 创建BaseCrudService.java抽象类(4泛型+validateCreate/validateUpdate模板+create/update/delete/getById/pageList 5个CRUD方法+MapStruct转换抽象+@Transactional写操作),mvn compile BUILD SUCCESS | c3ff7cde |
+| P0-001-003-003-002-002 | 实现ServiceImpl | 2026-05-29T19:20 | ✅ | BaseCrudService.java抽象类已实现(extends ServiceImplX<BaseMapperX<E>,E>,validateCreate/validateUpdate模板方法,create/update/delete/getById/pageList 5个CRUD方法,MapStruct转换抽象方法,@Transactional写操作),mvn compile通过 | c3ff7cde |
 
 ### 写入格式（工人必须严格遵守）
 
