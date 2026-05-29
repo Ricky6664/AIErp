@@ -2,7 +2,6 @@ package com.erp.config;
 
 import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
@@ -11,18 +10,16 @@ import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.LongValue;
 import net.sf.jsqlparser.expression.NullValue;
-import org.apache.ibatis.reflection.MetaObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.time.LocalDateTime;
-
 /**
  * MyBatis-Plus 全局配置类.
  *
- * <p>注册 MybatisPlusInterceptor 拦截器链和 MetaObjectHandler 自动填充处理器.</p>
+ * <p>注册 MybatisPlusInterceptor 拦截器链.
+ * 自动填充处理器由 {@link MyMetaObjectHandler} 通过 {@code @Component} 自动注册.</p>
  *
  * <p>拦截器注册顺序(不可调整):
  * <ol>
@@ -98,64 +95,5 @@ public class MybatisPlusConfig {
         interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
 
         return interceptor;
-    }
-
-    /**
-     * 注册 MetaObjectHandler 自动填充处理器.
-     *
-     * <p>新增时自动填充: createdAt, updatedAt, createdBy, updatedBy, version.
-     * 更新时自动填充: updatedAt, updatedBy, version(自动递增由乐观锁插件处理).</p>
-     *
-     * @return MetaObjectHandler 自动填充处理器实例
-     */
-    @Bean
-    public MetaObjectHandler metaObjectHandler() {
-        return new ErpMetaObjectHandler();
-    }
-
-    /**
-     * ERP 系统 MetaObjectHandler 实现.
-     *
-     * <p>在实体对象的新增和更新操作时, 自动填充审计字段和版本号.</p>
-     *
-     * @author AI
-     * @since 2026-05-29
-     */
-    static class ErpMetaObjectHandler implements MetaObjectHandler {
-
-        @Override
-        public void insertFill(MetaObject metaObject) {
-            LocalDateTime now = LocalDateTime.now();
-            Long userId = getCurrentUserId();
-
-            this.strictInsertFill(metaObject, "createdAt", LocalDateTime.class, now);
-            this.strictInsertFill(metaObject, "updatedAt", LocalDateTime.class, now);
-            this.strictInsertFill(metaObject, "createdBy", Long.class, userId);
-            this.strictInsertFill(metaObject, "updatedBy", Long.class, userId);
-            this.strictInsertFill(metaObject, "version", Integer.class, 0);
-        }
-
-        @Override
-        public void updateFill(MetaObject metaObject) {
-            Long userId = getCurrentUserId();
-
-            // updatedAt 每次更新强制刷新为当前时间
-            this.setFieldValByName("updatedAt", LocalDateTime.now(), metaObject);
-            this.strictUpdateFill(metaObject, "updatedBy", Long.class, userId);
-        }
-
-        /**
-         * 获取当前登录用户 ID.
-         *
-         * @return 用户 ID, 未登录时返回 null
-         */
-        private Long getCurrentUserId() {
-            try {
-                Object userId = StpUtil.getLoginIdAsLong();
-                return userId != null ? Long.parseLong(userId.toString()) : null;
-            } catch (Exception e) {
-                return null;
-            }
-        }
     }
 }
