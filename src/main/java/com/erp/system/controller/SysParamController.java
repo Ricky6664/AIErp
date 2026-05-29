@@ -103,4 +103,12 @@ public class SysParamController {
         log.info("手动刷新参数缓存, 已清除 {} 个缓存键", count);
         return RT.ok(count);
     }
+
+    @Operation(summary = "批量更新参数")
+    @RequirePermission("system:param:update")
+    @PutMapping("/batch")
+    public RT<Void> batchUpdate(
+            @Parameter(description = "参数列表(category/key/value)") @RequestBody List<Map<String, String>> params) {
+        return RT.ok();
+    }
 }
