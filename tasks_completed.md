@@ -230,7 +230,7 @@
 | P0-001-007-003-001-001 | 定义接口路由与方法签名 | 2026-05-30T07:30 | ✅ | SysParamController.java(@RestController /api/system/params):5个CRUD端点(listByCategory/getByCategoryAndKey/create/update/delete),全部@RequirePermission+@Operation齐全,RESTful路径规范,is_system=1删除保护由Service层实现,/refresh端点由ParamCacheRefresher处理 | 8966b471 |
 | P0-001-007-002-002-002 | 实现高级转换方法 | 2026-05-30T18:30 | ✅ | ParamTypeConverter.java已完成(commit 173e887b):convert()方法支持STRING/NUMBER/BOOLEAN/JSON/DATE 5种类型,DATE双格式兼容,convertNumber支持Integer/Long/Double/Float/BigDecimal,convertBoolean支持true/1/yes,失败抛ParamException(30002),mvn compile通过 | 173e887b |
 | P0-001-007-003-001-002 | 实现查询逻辑 | 2026-05-30T08:00 | ✅ | SysParamController.java新增POST /refresh端点(StringRedisTemplate键扫描清除sys:param:*缓存)+@RequirePermission(system:param:manage),ParamCacheRefresher重构为@Component(保留@EventListener移除@RestController),全部6端点@RequirePermission+@Operation齐全,mvn compile通过 | 59ff6485 |
-| P0-001-007-003-002-001 | 定义接口路由与方法签名 | 2026-05-30T08:30 | ✅ | SysParamController.java新增PUT /batch批量更新端点(@RequirePermission(system:param:update)+@Operation),接受List<Map<String,String>>参数,RESTful路径/api/system/params/batch,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-007-003-002-001 | 定义接口路由与方法签名 | 2026-05-30T08:30 | ✅ | SysParamController.java新增PUT /batch批量更新端点(@RequirePermission(system:param:update)+@Operation),接受List<Map<String,String>>参数,RESTful路径/api/system/params/batch,mvn compile BUILD SUCCESS | fa9d0b16 |
 
 ---
 
