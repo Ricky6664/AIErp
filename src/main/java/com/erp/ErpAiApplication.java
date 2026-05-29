@@ -3,6 +3,7 @@ package com.erp;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
@@ -16,6 +17,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @SpringBootApplication(scanBasePackages = "com.erp")
 @MapperScan("com.erp.mapper")
 @EnableAspectJAutoProxy(exposeProxy = true)
+@EnableCaching
 public class ErpAiApplication {
 
     /**
