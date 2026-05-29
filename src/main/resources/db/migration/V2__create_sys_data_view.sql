@@ -1,7 +1,7 @@
 -- ============================================================
 -- ERP AI 智能管理系统 - 数据视图配置表 DDL
--- 任务: P0-001-006-001-001-001
--- 描述: 创建 sys_data_view 主表和 sys_data_view_field 从表
+-- 任务: P0-001-006-001-001-001 / P0-001-006-001-001-002
+-- 描述: 创建 sys_data_view 主表和 sys_data_view_field 从表，添加主键与索引约束
 -- 数据库: PostgreSQL 15+
 -- ============================================================
 
@@ -29,6 +29,9 @@ CREATE TABLE sys_data_view (
 
 -- 唯一索引（含 tenant_id，部分索引仅对未删除数据强制唯一）
 CREATE UNIQUE INDEX uk_view_code ON sys_data_view(view_code, tenant_id) WHERE is_deleted = FALSE;
+
+-- 租户级查询索引
+CREATE INDEX idx_sys_data_view_tenant ON sys_data_view(tenant_id) WHERE is_deleted = FALSE;
 
 COMMENT ON TABLE sys_data_view IS '数据视图配置表';
 COMMENT ON COLUMN sys_data_view.id IS '主键ID';
@@ -80,6 +83,9 @@ CREATE INDEX idx_field_view_order ON sys_data_view_field(view_id, field_order);
 
 -- 唯一部分索引（防止同视图同租户下字段编码重复）
 CREATE UNIQUE INDEX uk_field_view_code ON sys_data_view_field(view_id, field_code, tenant_id) WHERE is_deleted = FALSE;
+
+-- 租户级查询索引
+CREATE INDEX idx_sys_data_view_field_tenant ON sys_data_view_field(tenant_id) WHERE is_deleted = FALSE;
 
 COMMENT ON TABLE sys_data_view_field IS '数据视图字段配置表';
 COMMENT ON COLUMN sys_data_view_field.id IS '主键ID';

@@ -164,6 +164,7 @@
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | Git SHA |
 |---------|---------|---------|:---:|------|---------|
 | P0-001-006-001-001-001 | 编写CREATE TABLE sys_data_view主语句 | 2026-05-30T01:00 | ✅ | 创建V2__create_sys_data_view.sql:sys_data_view主表(id/view_code唯一/view_name/source_table/source_type(1表2SQL)/source_sql/description+10个通用字段)+sys_data_view_field从表(view_id FK/field_code/field_name/field_type/field_order/is_searchable/is_sortable/is_visible/search_type/search_component+10个通用字段)+uk_view_code部分唯一索引(view_code,tenant_id)+idx_field_view_order索引(view_id,field_order)+uk_field_view_code部分唯一索引(view_id,field_code,tenant_id)+COMMENT完整+回滚脚本 | <pending> |
+| P0-001-006-001-001-002 | 添加主键与索引约束 | 2026-05-30T02:00 | ✅ | V2__create_sys_data_view.sql补充idx_sys_data_view_tenant租户查询索引+idx_sys_data_view_field_tenant租户查询索引,主键/唯一索引/外键约束验证完整 | b8c42093 |
 
 ### 写入格式（工人必须严格遵守）
 **每条任务完成记录**（一行一条）：
@@ -188,10 +189,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 100 | 2 | 4.66% |
+| P0 | 14 | 2,147 | 101 | 2 | 4.70% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **100** | **2** | **2.12%** |
+| **合计** | **46** | **4,716** | **101** | **2** | **2.14%** |
 
 ---
 
