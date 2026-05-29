@@ -101,7 +101,7 @@
 | P0-001-003-002-002-001 | 搜索表单布局 | 2026-05-29T18:35 | ⏭️ | 任务文档信息不足：Section二/五描述后端QueryHelper开发，但任务类型为前端搜索表单(L5)，交付物为Vue+.ts文件，与详细规格存在根本性矛盾 | (跳过) |
 | P0-001-003-002-002-003 | 实现通用查询条件构造查询页搜索交互 | 2026-05-29T18:35 | ⏭️ | 任务文档信息不足：与P0-001-003-002-002-001相同模式，Section二/五复制了后端QueryHelper描述，但任务类型为前端搜索表单(L5) | (跳过) |
 | P0-001-003-003-001-001 | 定义Service接口 | 2026-05-29T18:50 | ✅ | 创建IServiceX.java(继承IService<T>,6个default方法:createBatch/updateBatch/pageList/getOneOrThrow/existsById/checkExists)+PageQuery.java通用分页查询参数类,mvn compile BUILD SUCCESS | 353c343e |
-| P0-001-003-003-001-002 | 实现ServiceImpl | 2026-05-29T19:00 | ✅ | 创建ServiceImplX.java(继承ServiceImpl<M,T>,实现IServiceX<T>,绑定BaseMapperX与IServiceX),mvn compile BUILD SUCCESS | (待提交) |
+| P0-001-003-003-001-002 | 实现ServiceImpl | 2026-05-29T19:00 | ✅ | 创建ServiceImplX.java(继承ServiceImpl<M,T>,实现IServiceX<T>,绑定BaseMapperX与IServiceX),mvn compile BUILD SUCCESS | a267e5b0 |
 
 ### 写入格式（工人必须严格遵守）
 
