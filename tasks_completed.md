@@ -162,6 +162,7 @@
 | P0-001-005-004-002-001 | 定义接口路由与方法签名 | 2026-05-30T12:00 | ✅ | SysCodeRuleController.java预览/生成接口路由(previvew/generate)已就位,@RequirePermission+@Operation齐全,RESTful路径规范,mvn compile通过 | (pending) |
 | P0-001-005-004-002-002 | 实现接口逻辑 | 2026-05-30T12:30 | ✅ | SysCodeRuleController.java全部7个接口(CRUD+预览+生成)完整实现,所有方法@RequirePermission+@Operation齐全,RESTful规范,mvn compile通过 | (pending) |
 | P0-001-005-004-003-001 | 定义接口路由与方法签名 | 2026-05-30T13:00 | ✅ | SysCodeRuleController.java生成接口路由(generate+preview)已就位,@RequirePermission+@Operation齐全,RESTful路径规范,mvn compile通过 | (pending) |
+| P0-001-005-004-003-002 | 实现接口逻辑 | 2026-05-30T13:30 | ✅ | SysCodeRuleController.java全部7个接口(create/update/delete/getById/pageList/preview/generate)完整实现逻辑,所有方法@RequirePermission+@Operation齐全,RESTful路径/api/system/code-rules,mvn compile BUILD SUCCESS | (pending) |
 
 ### P0-001-006 - 数据视图引擎基础服务
 
