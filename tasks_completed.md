@@ -152,7 +152,7 @@
 | P0-001-005-003-003-002 | 实现编码预览核心逻辑 | 2026-05-29T23:58 | ✅ | 增强CodePreviewService核心逻辑:buildEffectiveVariables构建变量Map传入SegmentParseContext、新增preview(ruleId,count,variables)重载支持自定义变量、SequenceSegmentParser预览用X占位符,mvn compile BUILD SUCCESS | a1afb658 |
 
 
-| P0-001-005-003-003-003 | 验证编码预览 | 2026-05-30T00:10 | ✅ | 验证CodePreviewService.java预览逻辑正确:预览模式解析所有段不消耗序列号(SequenceSegmentParser返回X占位符)+自定义变量+分隔符拼接+null规则/空段异常处理,修复SequenceSegmentParserTest预览测试期望值(00001→XXXXX),47/47 codegen测试全PASS,mvn compile BUILD SUCCESS | <pending> |
+| P0-001-005-003-003-003 | 验证编码预览 | 2026-05-30T00:10 | ✅ | 验证CodePreviewService.java预览逻辑正确:预览模式解析所有段不消耗序列号(SequenceSegmentParser返回X占位符)+自定义变量+分隔符拼接+null规则/空段异常处理,修复SequenceSegmentParserTest预览测试期望值(00001→XXXXX),47/47 codegen测试全PASS,mvn compile BUILD SUCCESS | 7ab1fe83 |
 
 ### 写入格式（工人必须严格遵守）
 **每条任务完成记录**（一行一条）：
