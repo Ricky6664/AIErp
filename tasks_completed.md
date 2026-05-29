@@ -144,7 +144,7 @@
 | P0-001-005-002-003-003 | 业务校验逻辑 | 2026-05-29T13:00 | ✅ | 段数据校验(validateSegments:类型1-4/排序去重/固定段值必填/序列段长度必填)+preview(查规则→查段→buildCode预览模式)+generate(分布式锁+3次重试+规则校验+Redis INCR序列生成+buildCode正式模式)+refreshCache(清除cache+seq),mvn compile通过 | 24ff9e21 |
 | P0-001-005-003-001-001 | 实现固定段日期段序列段自定义变量段解析器 | 2026-05-29T14:00 | ✅ | 创建SegmentParser接口+4个实现(FixedSegmentParser固定字符串/DateSegmentParser DateTimeFormatter/SequenceSegmentParser左补零+SequenceGenerator接口/VariableSegmentParser上下文Map)+SegmentParserFactory路由+SegmentParseContext上下文,mvn compile通过 | (pending) |
 | P0-001-005-003-001-002 | 实现段解析器核心逻辑 | 2026-05-29T14:30 | ✅ | DateSegmentParser新增DateTimeFormatter缓存+格式校验BusinessException/SequenceSegmentParser新增3次重试(50ms递增)全失败抛BusinessException/SegmentParserFactory路由未知类型抛BusinessException,mvn compile通过 | 4408a5b8 |
-| P0-001-005-003-001-003 | 验证各段解析 | 2026-05-29T22:56 | ✅ | SegmentParserVerificationTest(22项全PASS固定段+日期段+变量段+工厂路由)+SequenceSegmentParserTest(9项全PASS默认位数+预览模式+重试+重试耗尽抛异常),31/31 PASS,mvn compile通过 | (pending) |
+| P0-001-005-003-001-003 | 验证各段解析 | 2026-05-29T22:56 | ✅ | SegmentParserVerificationTest(22项全PASS固定段+日期段+变量段+工厂路由)+SequenceSegmentParserTest(9项全PASS默认位数+预览模式+重试+重试耗尽抛异常),31/31 PASS,mvn compile通过 | 2e1ce949 |
 
 
 ### 写入格式（工人必须严格遵守）
