@@ -1,5 +1,6 @@
 package com.erp.common.result;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,6 +35,7 @@ import java.io.Serializable;
  * @author AI
  * @since 2026-05-29
  */
+@Schema(description = "统一响应包装对象")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -43,15 +45,19 @@ public class RT<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /** 状态码: 200=成功, 其他=失败(业务错误码由 ErrorCode 枚举定义) */
+    @Schema(description = "状态码: 200=成功, 其他=失败", example = "200")
     private int code;
 
     /** 响应消息: 成功时="success", 失败时=具体错误描述 */
+    @Schema(description = "响应消息: 成功时为success, 失败时为具体错误描述", example = "success")
     private String message;
 
     /** 响应数据: 泛型, 失败时可为 null */
+    @Schema(description = "响应数据, 失败时为null")
     private T data;
 
     /** 响应时间戳(毫秒) */
+    @Schema(description = "响应时间戳(毫秒)", example = "1716940800000")
     private long timestamp;
 
     // ========== 成功 ==========

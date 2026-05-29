@@ -5,6 +5,8 @@ import cn.dev33.satoken.exception.NotPermissionException;
 import cn.dev33.satoken.exception.NotRoleException;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.result.RT;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -46,6 +48,7 @@ import java.util.stream.Collectors;
  */
 @RestControllerAdvice
 @Slf4j
+@Tag(name = "系统基础-全局异常处理", description = "统一捕获并处理所有异常, 转换为标准RT响应结构")
 public class GlobalExceptionHandler {
 
     // ========== 自定义业务异常 ==========
@@ -59,6 +62,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理业务异常", description = "捕获BusinessException, 业务逻辑校验失败场景")
     @ExceptionHandler(BusinessException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleBusinessException(BusinessException e, HttpServletRequest request) {
@@ -75,6 +79,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理参数异常", description = "捕获ParamException, 业务层主动抛出的参数校验异常")
     @ExceptionHandler(ParamException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleParamException(ParamException e, HttpServletRequest request) {
@@ -91,6 +96,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理认证异常", description = "捕获AuthException, 用户未登录或Token失效等认证场景")
     @ExceptionHandler(AuthException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleAuthException(AuthException e, HttpServletRequest request) {
@@ -107,6 +113,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理权限异常", description = "捕获PermissionException, 用户无操作权限或无数据权限场景")
     @ExceptionHandler(PermissionException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handlePermissionException(PermissionException e, HttpServletRequest request) {
@@ -123,6 +130,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理请求体校验异常", description = "捕获@Valid/@Validated + @RequestBody触发的参数校验失败")
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleMethodArgumentNotValidException(MethodArgumentNotValidException e, HttpServletRequest request) {
@@ -140,6 +148,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理表单绑定异常", description = "捕获@ModelAttribute/@Valid触发的表单绑定校验失败")
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleBindException(BindException e, HttpServletRequest request) {
@@ -160,6 +169,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理参数约束违反异常", description = "捕获@Validated + @RequestParam/@PathVariable触发的方法级校验失败")
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleConstraintViolationException(ConstraintViolationException e, HttpServletRequest request) {
@@ -177,6 +187,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理必填参数缺失", description = "捕获MissingServletRequestParameterException, 缺少必填请求参数")
     @ExceptionHandler(MissingServletRequestParameterException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleMissingServletRequestParameterException(MissingServletRequestParameterException e, HttpServletRequest request) {
@@ -192,6 +203,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理参数类型不匹配", description = "捕获MethodArgumentTypeMismatchException, 请求参数类型转换失败")
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e, HttpServletRequest request) {
@@ -208,6 +220,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理请求体解析异常", description = "捕获HttpMessageNotReadableException, 请求体JSON解析失败")
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleHttpMessageNotReadableException(HttpMessageNotReadableException e, HttpServletRequest request) {
@@ -224,6 +237,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理Sa-Token未登录异常", description = "捕获NotLoginException, Sa-Token框架触发的未登录异常")
     @ExceptionHandler(NotLoginException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleNotLoginException(NotLoginException e, HttpServletRequest request) {
@@ -238,6 +252,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理Sa-Token无权限异常", description = "捕获NotPermissionException, Sa-Token框架触发的无权限异常")
     @ExceptionHandler(NotPermissionException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleNotPermissionException(NotPermissionException e, HttpServletRequest request) {
@@ -252,6 +267,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理Sa-Token无角色异常", description = "捕获NotRoleException, Sa-Token框架触发的无角色异常")
     @ExceptionHandler(NotRoleException.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleNotRoleException(NotRoleException e, HttpServletRequest request) {
@@ -268,6 +284,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理请求方法不支持", description = "捕获HttpRequestMethodNotSupportedException, HTTP请求方法不被允许")
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     public RT<Void> handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e, HttpServletRequest request) {
@@ -282,6 +299,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理媒体类型不支持", description = "捕获HttpMediaTypeNotSupportedException, 请求的Content-Type不被支持")
     @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
     @ResponseStatus(HttpStatus.UNSUPPORTED_MEDIA_TYPE)
     public RT<Void> handleHttpMediaTypeNotSupportedException(HttpMediaTypeNotSupportedException e, HttpServletRequest request) {
@@ -296,6 +314,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "处理资源不存在(404)", description = "捕获NoResourceFoundException, 请求的资源不存在")
     @ExceptionHandler(NoResourceFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public RT<Void> handleNoResourceFoundException(NoResourceFoundException e, HttpServletRequest request) {
@@ -314,6 +333,7 @@ public class GlobalExceptionHandler {
      * @param request 请求
      * @return 统一响应
      */
+    @Operation(summary = "未知异常兜底处理", description = "捕获Exception, 所有未被特定处理的异常统一由此方法兜底")
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.OK)
     public RT<Void> handleException(Exception e, HttpServletRequest request) {
