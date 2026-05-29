@@ -14,20 +14,21 @@ import java.time.LocalDateTime;
  *
  * <p>在实体对象的新增和更新操作时, 自动填充审计字段、多租户ID和逻辑删除标记.</p>
  *
- * <p>新增时自动填充:
+ * <p>新增时自动填充({@code @TableField(fill = FieldFill.INSERT)}):
  * <ul>
- *   <li>{@code createdAt} - 创建时间({@link LocalDateTime#now()})</li>
- *   <li>{@code updatedAt} - 更新时间({@link LocalDateTime#now()})</li>
- *   <li>{@code createdBy} - 创建人(当前登录用户ID)</li>
+ *   <li>{@code createTime} - 创建时间({@link LocalDateTime#now()})</li>
+ *   <li>{@code updateTime} - 更新时间({@link LocalDateTime#now()})</li>
+ *   <li>{@code creatorId} - 创建人(当前登录用户ID, {@code StpUtil.getLoginIdAsLong()})</li>
+ *   <li>{@code updaterId} - 更新人(当前登录用户ID)</li>
  *   <li>{@code tenantId} - 租户ID(当前会话租户)</li>
  *   <li>{@code isDeleted} - 逻辑删除标记(0=未删除)</li>
  * </ul>
  * </p>
  *
- * <p>更新时自动填充:
+ * <p>更新时自动填充({@code @TableField(fill = FieldFill.UPDATE)}):
  * <ul>
- *   <li>{@code updatedAt} - 更新时间(强制刷新为当前时间)</li>
- *   <li>{@code updatedBy} - 更新人(当前登录用户ID)</li>
+ *   <li>{@code updateTime} - 更新时间(强制刷新为当前时间)</li>
+ *   <li>{@code updaterId} - 更新人(当前登录用户ID)</li>
  * </ul>
  * </p>
  *
@@ -53,13 +54,13 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         Long tenantId = getTenantId();
 
         // 创建时间
-        this.strictInsertFill(metaObject, "createdAt", LocalDateTime.class, now);
+        this.strictInsertFill(metaObject, "createTime", LocalDateTime.class, now);
         // 更新时间
-        this.strictInsertFill(metaObject, "updatedAt", LocalDateTime.class, now);
+        this.strictInsertFill(metaObject, "updateTime", LocalDateTime.class, now);
         // 创建人
-        this.strictInsertFill(metaObject, "createdBy", Long.class, userId);
+        this.strictInsertFill(metaObject, "creatorId", Long.class, userId);
         // 更新人
-        this.strictInsertFill(metaObject, "updatedBy", Long.class, userId);
+        this.strictInsertFill(metaObject, "updaterId", Long.class, userId);
         // 租户ID
         this.strictInsertFill(metaObject, "tenantId", Long.class, tenantId);
         // 逻辑删除标记: 0=未删除
@@ -68,12 +69,10 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void updateFill(MetaObject metaObject) {
-        Long userId = getCurrentUserId();
-
         // 更新时间: 每次更新强制刷新为当前时间
-        this.setFieldValByName("updatedAt", LocalDateTime.now(), metaObject);
-        // 更新人
-        this.strictUpdateFill(metaObject, "updatedBy", Long.class, userId);
+        this.setFieldValByName("updateTime", LocalDateTime.now(), metaObject);
+        // 更新人: 每次更新强制刷新为当前登录用户
+        this.setFieldValByName("updaterId", getCurrentUserId(), metaObject);
     }
 
     /**
