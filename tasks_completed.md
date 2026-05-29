@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：122 条
+> **归档总数**：123 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -213,6 +213,7 @@
 | P0-001-006-003-003-002 | 实现分页排序核心逻辑 | 2026-05-30T16:00 | ✅ | DataViewPagingExecutor.java(@Component):execute(viewCode,PageQuery)主方法+MyBatis-Plus Page封装+pageSize≤100限制+委托DataViewSqlBuilder排序白名单校验+默认create_time DESC,mvn compile通过 | (待提交) | 3b84b1f1 |
 | P0-001-006-003-003-001 | 实现分页排序执行 | 2026-05-30T17:30 | ✅ | DataViewPagingExecutor.java增强:execute()方法传递sortField/sortOrder到SqlBuilder;PageQuery.java新增sortField/sortOrder字段;排序白名单校验由SqlBuilder.resolveSortField()完成;默认create_time DESC;mvn compile通过 | (待提交) |
 | P0-001-006-004-002-002 | 实现查询逻辑 | 2026-05-30T03:32 | ✅ | SysDataViewController.java(@RestController /api/system/data-views)完整CRUD+POST/{viewCode}/execute+GET/{viewCode}/meta+所有方法@RequirePermission+execute方法@OperLog+@Operation齐全;OperLog.java注解定义;mvn compile BUILD SUCCESS | (待提交) |
+| P0-001-006-004-001-001 | 定义接口路由与方法签名 | 2026-05-30T04:00 | ✅ | SysDataViewController.java已由P0-001-006-004-002-002创建,本任务验证:CRUD接口路由(/api/system/data-views)+7个方法全部@RequirePermission+@Operation齐全+@OperLog,满足验收标准,mvn compile通过 | (待提交) |
 
 ---
 
@@ -220,7 +221,7 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 120 | 2 | 5.59% |
+| P0 | 14 | 2,147 | 121 | 2 | 5.64% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **120** | **2** | **2.54%** |
