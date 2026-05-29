@@ -2,9 +2,12 @@ package com.erp.common.file;
 
 import cn.hutool.core.io.FileTypeUtil;
 import cn.hutool.core.util.IdUtil;
+import cn.dev33.satoken.stp.StpUtil;
 import com.erp.common.config.FileUploadProperties;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.BusinessException;
+import com.erp.system.entity.SysFile;
+import com.erp.system.mapper.SysFileMapper;
 import com.erp.vo.FileVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +24,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -36,6 +38,11 @@ import java.util.Set;
 public class FileUploadService {
 
     private final FileUploadProperties fileUploadProperties;
+
+    private final SysFileMapper sysFileMapper;
+
+    /** 单文件最大大小（字节）：10MB */
+    private static final long MAX_FILE_SIZE = 10 * 1024 * 1024;
 
     /** 扩展名黑名单 */
     private static final Set<String> EXTENSION_BLACKLIST = new HashSet<>(Arrays.asList(
@@ -66,15 +73,21 @@ public class FileUploadService {
         String originalName = file.getOriginalFilename();
         checkExtensionBlacklist(originalName);
 
-        // 2. MIME 魔数白名单校验
+        // 2. 文件大小校验（单文件最大 10MB）
+        if (file.getSize() > MAX_FILE_SIZE) {
+            throw new BusinessException(ErrorCode.PARAM_RANGE_ERROR,
+                    "文件大小超出限制, 最大 10MB");
+        }
+
+        // 3. MIME 魔数白名单校验
         String mimeType = detectMimeType(file);
         checkMimeWhitelist(mimeType);
 
-        // 3. 生成 UUID 文件名（保留原始扩展名）
+        // 4. 生成 UUID 文件名（保留原始扩展名）
         String extension = getExtension(originalName);
         String uuidFileName = IdUtil.fastSimpleUUID() + extension;
 
-        // 4. 按日期分目录 (yyyy/MM/dd)
+        // 5. 按日期分目录 (yyyy/MM/dd)
         String dateDir = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
         Path uploadDir = Paths.get(fileUploadProperties.getPath(), dateDir);
         try {
@@ -84,7 +97,7 @@ public class FileUploadService {
             throw new BusinessException(ErrorCode.INTERNAL_ERROR, "创建上传目录失败");
         }
 
-        // 5. 存储文件
+        // 6. 存储文件
         Path destPath = uploadDir.resolve(uuidFileName);
         try {
             Files.copy(file.getInputStream(), destPath, StandardCopyOption.REPLACE_EXISTING);
@@ -97,10 +110,25 @@ public class FileUploadService {
         log.info("文件上传成功: original={}, stored={}, size={}, type={}",
                 originalName, destPath, fileSize, mimeType);
 
-        // 6. 记录 sys_file 元数据（由后续任务 SysFileMapper 完成入库）
-        // TODO: P0-001-008-001-002-xxx 任务创建 SysFile entity + mapper 后补充入库逻辑
+        // 7. 记录 sys_file 元数据
+        SysFile sysFile = new SysFile();
+        sysFile.setOriginalName(originalName);
+        sysFile.setStoragePath(dateDir + "/" + uuidFileName);
+        sysFile.setMimeType(mimeType);
+        sysFile.setExtension(extension);
+        sysFile.setSizeBytes(fileSize);
+        sysFile.setModule("common");
+        sysFile.setStatus("CONFIRMED");
+        sysFile.setDownloadCount(0);
+        try {
+            sysFile.setUploaderId(StpUtil.getLoginIdAsLong());
+        } catch (Exception e) {
+            sysFile.setUploaderId(0L);
+        }
+        sysFileMapper.insert(sysFile);
+        log.info("sys_file 元数据已入库: id={}", sysFile.getId());
 
-        // 7. 构建返回 VO
+        // 8. 构建返回 VO
         String url = "/api/file/download?path=" + dateDir + "/" + uuidFileName;
         return FileVO.builder()
                 .url(url)
