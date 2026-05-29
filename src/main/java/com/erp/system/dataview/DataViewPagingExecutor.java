@@ -80,11 +80,14 @@ public class DataViewPagingExecutor {
         Map<String, Object> params = new HashMap<>();
         params.put("_page", pageNum);
         params.put("_size", pageSize);
-        if (query.getSortField() != null && !query.getSortField().isBlank()) {
-            params.put("_sort", query.getSortField());
+
+        String validatedSortField = resolveSortField(query, fields);
+        if (validatedSortField != null) {
+            params.put("_sort", validatedSortField);
         }
-        if (query.getSortOrder() != null && !query.getSortOrder().isBlank()) {
-            params.put("_order", query.getSortOrder());
+        String validatedSortOrder = resolveSortOrder(query);
+        if (validatedSortOrder != null) {
+            params.put("_order", validatedSortOrder);
         }
 
         DataViewSqlBuilder.SqlBuildResult sqlResult = sqlBuilder.buildSelectSql(view.getId(), params);
@@ -118,6 +121,43 @@ public class DataViewPagingExecutor {
             return 10;
         }
         return Math.min(query.getPageSize(), MAX_PAGE_SIZE);
+    }
+
+    /**
+     * 排序字段白名单校验.
+     *
+     * <p>只允许视图配置的可排序(sortable)字段, 无效字段返回 null 让 SQL 构建器使用默认排序.</p>
+     */
+    private String resolveSortField(PageQuery query, List<SysDataViewField> fields) {
+        if (query == null || query.getSortField() == null || query.getSortField().isBlank()) {
+            return null;
+        }
+        String requestField = query.getSortField().trim();
+        for (SysDataViewField f : fields) {
+            if (f.getFieldCode().equalsIgnoreCase(requestField)
+                    && Boolean.TRUE.equals(f.getIsSortable())) {
+                return f.getFieldCode();
+            }
+        }
+        log.warn("排序字段 {} 不在视图可排序字段白名单中, 回退到默认排序", requestField);
+        return null;
+    }
+
+    /**
+     * 排序方向校验.
+     *
+     * <p>仅允许 ASC 或 DESC, 无效值返回 null 让 SQL 构建器使用默认 DESC.</p>
+     */
+    private String resolveSortOrder(PageQuery query) {
+        if (query == null || query.getSortOrder() == null || query.getSortOrder().isBlank()) {
+            return null;
+        }
+        String order = query.getSortOrder().trim().toUpperCase();
+        if ("ASC".equals(order) || "DESC".equals(order)) {
+            return order;
+        }
+        log.warn("无效的排序方向 {}, 回退到默认 DESC", query.getSortOrder());
+        return null;
     }
 
     private IPage<Map<String, Object>> buildEmptyPage(PageQuery query) {

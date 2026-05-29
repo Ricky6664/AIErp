@@ -215,6 +215,7 @@
 | P0-001-006-004-002-002 | 实现查询逻辑 | 2026-05-30T03:32 | ✅ | SysDataViewController.java(@RestController /api/system/data-views)完整CRUD+POST/{viewCode}/execute+GET/{viewCode}/meta+所有方法@RequirePermission+execute方法@OperLog+@Operation齐全;OperLog.java注解定义;mvn compile BUILD SUCCESS | (待提交) |
 | P0-001-006-004-001-001 | 定义接口路由与方法签名 | 2026-05-30T04:00 | ✅ | SysDataViewController.java已由P0-001-006-004-002-002创建,本任务验证:CRUD接口路由(/api/system/data-views)+7个方法全部@RequirePermission+@Operation齐全+@OperLog,满足验收标准,mvn compile通过 | 6b6ffdca |
 | P0-001-006-004-002-001 | 定义接口路由与方法签名 | 2026-05-30T05:00 | ✅ | SysDataViewController.java execute+getMeta接口路由与方法签名已就位,POST /{viewCode}/execute(@OperLog)+GET /{viewCode}/meta,@RequirePermission+@Operation齐全,RESTful规范,mvn compile通过 | 9aba4bdb |
+| P0-001-006-003-003-003 | 验证分页排序 | 2026-05-30T05:50 | ✅ | DataViewPagingExecutor.java排序字段白名单校验(resolveSortField/sortOrder)+DataViewPagingExecutorVerificationTest.java(24用例):SQL白名单2项+字段转义1项+分页排序6项+排序字段白名单4项+排序方向3项+异常3项+边界4项,mvn test 92通过 | (待提交) |
 
 ---
 
@@ -222,10 +223,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 122 | 2 | 5.68% |
+| P0 | 14 | 2,147 | 123 | 2 | 5.73% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **122** | **2** | **2.59%** |
+| **合计** | **46** | **4,716** | **123** | **2** | **2.61%** |
 
 ---
 
