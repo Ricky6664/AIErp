@@ -96,6 +96,7 @@
 | P0-001-003-002-001-001 | 定义Mapper接口 | 2026-05-29T17:40 | ✅ | 创建BaseMapperX.java扩展Mapper基类(继承BaseMapper<T>,提供selectPageByCondition/selectOneById/insertBatch/updateBatchById/deleteByIds 5个通用方法,基于MyBatis-Plus Db工具类实现批量操作),mvn compile通过 | 659d74c4 |
 | P0-001-003-002-001-002 | 编写XML映射文件 | 2026-05-29T17:30 | ✅ | BaseMapperX使用default方法委托MyBatis-Plus API(SqlHelper),通用泛型接口无需XML映射,所有5个方法已实现并编译通过 | d23545b3 |
 | P0-001-003-001-001-003 | 配置校验与启动检查 | 2026-05-29T18:00 | ✅ | 重构DataSourceConfig:硬编码→@Value从YAML读取HikariCP配置+@Validated+@Min/@Max校验注解,application-dev.yml 7项HikariCP配置完整,可/actuator/env验证 | 456e9e7f |
+| P0-001-003-001-002-001 | 定义注解元数据 | 2026-05-29T17:38 | ✅ | 创建DS.java(@Target TYPE/METHOD+@Retention RUNTIME+value() default "master")+DynamicDataSource(extends AbstractRoutingDataSource+DataSourceContextHolder ThreadLocal)+改造DataSourceConfig(@Bean masterDataSource+@Primary @Bean dataSource封装DynamicDataSource),mvn compile BUILD SUCCESS | (待提交) |
 
 ### 写入格式（工人必须严格遵守）
 

@@ -9,9 +9,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.validation.annotation.Validated;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * HikariCP 数据源配置类.
@@ -72,12 +75,12 @@ public class DataSourceConfig {
     private long leakDetectionThreshold;
 
     /**
-     * 注册 HikariCP 数据源 Bean.
+     * 注册 HikariCP master 数据源 Bean.
      *
      * @return HikariDataSource 实例
      */
     @Bean
-    public DataSource dataSource() {
+    public DataSource masterDataSource() {
         log.info("HikariCP DataSource initializing: poolName={}, maxPoolSize={}, minIdle={}, "
                         + "idleTimeout={}ms, maxLifetime={}ms, connectionTimeout={}ms, leakDetectionThreshold={}ms",
                 poolName, maximumPoolSize, minimumIdle,
@@ -100,5 +103,28 @@ public class DataSourceConfig {
                 config.getPoolName(), config.getMaximumPoolSize(), config.getMinimumIdle());
 
         return new HikariDataSource(config);
+    }
+
+    /**
+     * 注册动态数据源 Bean, 作为主数据源.
+     *
+     * <p>包装 master 数据源, 预留 slave 等多数据源扩展能力.
+     * 运行时通过 DataSourceContextHolder 中的 key 路由到目标数据源.</p>
+     *
+     * @param masterDataSource master 数据源
+     * @return DynamicDataSource 实例
+     */
+    @Bean
+    @Primary
+    public DataSource dataSource(DataSource masterDataSource) {
+        DynamicDataSource dynamicDataSource = new DynamicDataSource();
+
+        Map<Object, Object> targetDataSources = new HashMap<>();
+        targetDataSources.put("master", masterDataSource);
+        dynamicDataSource.setTargetDataSources(targetDataSources);
+        dynamicDataSource.setDefaultTargetDataSource(masterDataSource);
+
+        log.info("DynamicDataSource registered: defaultTarget=master, targets={}", targetDataSources.keySet());
+        return dynamicDataSource;
     }
 }
