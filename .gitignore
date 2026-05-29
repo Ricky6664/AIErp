@@ -58,4 +58,15 @@ credentials.json
 # ============ Lock files (runtime only, never commit) ============
 .catalog.lock
 .parallel.lock
+.relay
+.session-id
+.session-token
+.worker.pid
+.cmd.pid
+.watchdog.pid
+.watchdog.ps1
+.watchdog-*.pid
+.watchdog-*.ps1
+auto.log
+watchdog.log
 .locks/
