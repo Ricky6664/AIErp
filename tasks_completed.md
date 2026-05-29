@@ -112,7 +112,7 @@
 | P0-001-004-001-001-002 | 配置属性绑定 | 2026-05-29T19:01 | ✅ | SaTokenConfig.java @Value绑定exclude-paths(@ConfigurationProperties风格)+application.yml sa-token.exclude-paths配置项,mvn compile BUILD SUCCESS | <pending> |
 | P0-001-004-001-002-001 | 定义接口路由与方法签名 | 2026-05-29T19:10 | ✅ | StpInterfaceImpl(@Component implements StpInterface)+getPermissionList/getRoleList Redis缓存(satoken:permission/role:{loginId},5minTTL)+clearCache+spring-boot-starter-data-redis依赖,mvn compile BUILD SUCCESS | f4fcdc9f |
 | P0-001-004-001-002-002 | 实现接口逻辑 | 2026-05-29T20:10 | ✅ | StpInterfaceImpl.java完整实现：getPermissionList/getRoleList Redis缓存优先+DB回退+clearCache清除缓存,mvn compile通过 | d83c1532 |
-| P0-001-004-002-001-001 | 定义接口路由与方法签名 | 2026-05-29T22:30 | ✅ | 创建SaInterceptorConfig.java(@Configuration+WebMvcConfigurer+SaInterceptor+pathPatterns+CORS localhost:5173 Authorization),mvn compile通过 | <pending> |
+| P0-001-004-002-001-001 | 定义接口路由与方法签名 | 2026-05-29T22:30 | ✅ | 创建SaInterceptorConfig.java(@Configuration+WebMvcConfigurer+SaInterceptor+pathPatterns+CORS localhost:5173 Authorization),mvn compile通过 | 7ceff390 |
 
 ### 写入格式（工人必须严格遵守）
 
