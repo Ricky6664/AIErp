@@ -210,7 +210,7 @@
 | P0-001-006-003-002-001 | 搜索表单布局 | 2026-05-30T12:08 | ✅ | DataViewQueryParser.java(@Component):parseConditions/parseOne主方法+8种操作符(eq/ne/gt/gte/lt/lte/like/between/in)+LIKE转义%/_+between类型校验+in≤100限制+字段双引号转义,34测试通过 | 8f731bd3 |
 | P0-001-006-003-002-002 | 搜索字段组件渲染 | 2026-05-30T14:45 | ⏭️ | 任务重复-DataViewQueryParser.java已在P0-001-006-003-002-001中创建并提交(8f731bd3) | (任务重复-前置任务已完成) |
 | P0-001-007-001-001-001 | 编写CREATE TABLE DDL | 2026-05-30T15:00 | ✅ | V3__create_sys_param.sql(sys_param表:9业务字段+10通用字段+唯一索引uk_category_key+idx_category+idx_sys_param_tenant) | 20333511 |
-| P0-001-006-003-003-002 | 实现分页排序核心逻辑 | 2026-05-30T16:00 | ✅ | DataViewPagingExecutor.java(@Component):execute(viewCode,PageQuery)主方法+MyBatis-Plus Page封装+pageSize≤100限制+委托DataViewSqlBuilder排序白名单校验+默认create_time DESC,mvn compile通过 | (待提交) |
+| P0-001-006-003-003-002 | 实现分页排序核心逻辑 | 2026-05-30T16:00 | ✅ | DataViewPagingExecutor.java(@Component):execute(viewCode,PageQuery)主方法+MyBatis-Plus Page封装+pageSize≤100限制+委托DataViewSqlBuilder排序白名单校验+默认create_time DESC,mvn compile通过 | (待提交) | 3b84b1f1 |
 
 ---
 
