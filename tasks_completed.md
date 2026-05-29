@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：70 条
+> **归档总数**：72 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -106,6 +106,8 @@
 | P0-001-003-003-002-001 | 定义Service接口 | 2026-05-29T19:20 | ✅ | 创建BaseCrudService.java抽象类(4泛型+validateCreate/validateUpdate模板+create/update/delete/getById/pageList 5个CRUD方法+MapStruct转换抽象+@Transactional写操作),mvn compile BUILD SUCCESS | c3ff7cde |
 | P0-001-003-003-002-002 | 实现ServiceImpl | 2026-05-29T19:20 | ✅ | BaseCrudService.java抽象类已实现(extends ServiceImplX<BaseMapperX<E>,E>,validateCreate/validateUpdate模板方法,create/update/delete/getById/pageList 5个CRUD方法,MapStruct转换抽象方法,@Transactional写操作),mvn compile通过 | c3ff7cde |
 | P0-001-003-003-002-003 | 业务校验逻辑 | 2026-05-29T18:32 | ✅ | BaseCrudService.java验证通过(5个CRUD方法签名完整+validateCreate/validateUpdate模板+MapStruct转换抽象+@Transactional写操作+BusinessException存在检查),mvn compile BUILD SUCCESS | <pending> | adb00c90 |
+| P0-001-004-001-001-003 | 配置校验与启动检查 | 2026-05-29T19:35 | ✅ | SaTokenConfig.java(SaServletFilter+SaInterceptor双机制,排除login/logout/knife4j路径,RT.fail未登录响应),mvn compile通过 | 1df2a8a5 |
+| P0-001-004-002-002-002 | 实现核心处理逻辑 | 2026-05-29T20:00 | ✅ | LogicEnum(AND/OR)+@RequirePermission(value权限码数组,logic逻辑运算符默认AND)+PermissionAspect(@Around拦截,StpUtil.checkPermissionAnd/Or校验,失败NotPermissionException→403),mvn compile通过 | 06c219e8 |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -131,10 +133,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 68 | 2 | 3.26% |
+| P0 | 14 | 2,147 | 69 | 2 | 3.31% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **68** | **2** | **1.48%** |
+| **合计** | **46** | **4,716** | **69** | **2** | **1.50%** |
 
 ---
 
