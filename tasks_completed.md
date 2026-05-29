@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：133 条
+> **归档总数**：134 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -228,7 +228,7 @@
 | P0-001-007-002-003-001 | 定义接口路由与方法签名 | 2026-05-30 | ✅ | 创建ParamCacheRefresher.java(@EventListener监听ParamChangedEvent+Redis缓存清除+POST /api/system/params/refresh手动刷新)+ParamChangedEvent.java(自定义事件),支持多实例部署缓存同步,mvn clean compile BUILD SUCCESS | b2e4335e |
 | P0-001-007-002-003-002 | 实现接口逻辑 | 2026-05-30T06:00 | ✅ | ParamCacheRefresher.java完整实现:@EventListener方法+evictCache私有方法+POST /refresh手动刷新端点+StringRedisTemplate键扫描清除,编译通过 | b2e4335e |
 | P0-001-007-003-001-001 | 定义接口路由与方法签名 | 2026-05-30T07:30 | ✅ | SysParamController.java(@RestController /api/system/params):5个CRUD端点(listByCategory/getByCategoryAndKey/create/update/delete),全部@RequirePermission+@Operation齐全,RESTful路径规范,is_system=1删除保护由Service层实现,/refresh端点由ParamCacheRefresher处理 | 8966b471 |
-| P0-001-007-002-002-001 | 实现基础类型转换方法 | 2026-05-30T23:00 | ✅ | ParamTypeConverter.java:静态工具类convert(value,valueType,targetClass)支持STRING/NUMBER/BOOLEAN/JSON/DATE 5种类型转换,JSON使用Hutool JSONUtil,DATE支持yyyy-MM-dd/yyyy-MM-dd HH:mm:ss,失败抛ParamException(ErrorCode.PARAM_MISSING),mvn compile BUILD SUCCESS | 173e887b |
+| P0-001-007-002-002-002 | 实现高级转换方法 | 2026-05-30T18:30 | ✅ | ParamTypeConverter.java已完成(commit 173e887b):convert()方法支持STRING/NUMBER/BOOLEAN/JSON/DATE 5种类型,DATE双格式兼容,convertNumber支持Integer/Long/Double/Float/BigDecimal,convertBoolean支持true/1/yes,失败抛ParamException(30002),mvn compile通过 | 173e887b |
 
 ---
 
