@@ -24,3 +24,20 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
+
+# ---- Sa-Token 全局配置（环境无关公共项） ----
+sa-token:
+  # Token 名称（也是 cookie 名称）
+  token-name: satoken
+  # Token 有效期（秒），30天 = 2592000
+  timeout: 2592000
+  # Token 临时有效期（秒），无操作超时时间，30分钟 = 1800
+  active-timeout: 1800
+  # 是否允许同一账号并发登录（为true时允许一起登录，为false时新登录挤掉旧登录）
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个Token
+  is-share: true
+  # Token 风格：uuid
+  token-style: uuid
+  # 是否输出操作日志
+  is-log: false
