@@ -26,6 +26,12 @@ public class PageQuery {
     @Schema(description = "每页大小", example = "20")
     private Integer pageSize = 20;
 
+    @Schema(description = "排序字段名", example = "create_time")
+    private String sortField;
+
+    @Schema(description = "排序方向: ASC / DESC", example = "DESC")
+    private String sortOrder;
+
     /**
      * 转换为 MyBatis-Plus 分页对象.
      *

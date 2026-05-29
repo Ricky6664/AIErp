@@ -80,6 +80,12 @@ public class DataViewPagingExecutor {
         Map<String, Object> params = new HashMap<>();
         params.put("_page", pageNum);
         params.put("_size", pageSize);
+        if (query.getSortField() != null && !query.getSortField().isBlank()) {
+            params.put("_sort", query.getSortField());
+        }
+        if (query.getSortOrder() != null && !query.getSortOrder().isBlank()) {
+            params.put("_order", query.getSortOrder());
+        }
 
         DataViewSqlBuilder.SqlBuildResult sqlResult = sqlBuilder.buildSelectSql(view.getId(), params);
 
