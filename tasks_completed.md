@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：64 条
+> **归档总数**：67 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -98,6 +98,10 @@
 | P0-001-003-001-001-003 | 配置校验与启动检查 | 2026-05-29T18:00 | ✅ | 重构DataSourceConfig:硬编码→@Value从YAML读取HikariCP配置+@Validated+@Min/@Max校验注解,application-dev.yml 7项HikariCP配置完整,可/actuator/env验证 | 456e9e7f |
 | P0-001-003-001-002-001 | 定义注解元数据 | 2026-05-29T17:38 | ✅ | 创建DS.java(@Target TYPE/METHOD+@Retention RUNTIME+value() default "master")+DynamicDataSource(extends AbstractRoutingDataSource+DataSourceContextHolder ThreadLocal)+改造DataSourceConfig(@Bean masterDataSource+@Primary @Bean dataSource封装DynamicDataSource),mvn compile BUILD SUCCESS | 0f86b0e7 |
 | P0-001-003-001-002-002 | 实现注解处理器 | 2026-05-29T18:30 | ✅ | 创建DataSourceAspect.java(@Aspect+@Component+@Order(-1)+@Around dsPointcut,读取@DS注解value切换数据源,finally清理ThreadLocal),mvn compile BUILD SUCCESS | d8c2d913 |
+| P0-001-003-002-002-001 | 搜索表单布局 | 2026-05-29T18:35 | ⏭️ | 任务文档信息不足：Section二/五描述后端QueryHelper开发，但任务类型为前端搜索表单(L5)，交付物为Vue+.ts文件，与详细规格存在根本性矛盾 | (跳过) |
+| P0-001-003-002-002-003 | 实现通用查询条件构造查询页搜索交互 | 2026-05-29T18:35 | ⏭️ | 任务文档信息不足：与P0-001-003-002-002-001相同模式，Section二/五复制了后端QueryHelper描述，但任务类型为前端搜索表单(L5) | (跳过) |
+| P0-001-003-003-001-001 | 定义Service接口 | 2026-05-29T18:50 | ✅ | 创建IServiceX.java(继承IService<T>,6个default方法:createBatch/updateBatch/pageList/getOneOrThrow/existsById/checkExists)+PageQuery.java通用分页查询参数类,mvn compile BUILD SUCCESS | 353c343e |
+| P0-001-003-003-001-002 | 实现ServiceImpl | 2026-05-29T19:00 | ✅ | 创建ServiceImplX.java(继承ServiceImpl<M,T>,实现IServiceX<T>,绑定BaseMapperX与IServiceX),mvn compile BUILD SUCCESS | (待提交) |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -123,10 +127,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 64 | 0 | 2.98% |
+| P0 | 14 | 2,147 | 65 | 2 | 3.12% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **64** | **0** | **1.36%** |
+| **合计** | **46** | **4,716** | **65** | **2** | **1.42%** |
 
 ---
 
