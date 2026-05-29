@@ -1,8 +1,8 @@
 package com.erp.system.controller;
 
 import com.erp.common.annotation.RequirePermission;
-import com.erp.common.exception.BusinessException;
 import com.erp.common.enums.ErrorCode;
+import com.erp.common.exception.BusinessException;
 import com.erp.common.result.RT;
 import com.erp.system.service.SysParamService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -109,6 +109,16 @@ public class SysParamController {
     @PutMapping("/batch")
     public RT<Void> batchUpdate(
             @Parameter(description = "参数列表(category/key/value)") @RequestBody List<Map<String, String>> params) {
+        if (params == null || params.isEmpty()) {
+            throw new BusinessException(ErrorCode.PARAM_MISSING, "批量更新参数列表不能为空");
+        }
+        for (Map<String, String> param : params) {
+            String category = param.get("category");
+            String key = param.get("key");
+            String value = param.get("value");
+            sysParamService.setParam(category, key, value);
+        }
+        log.info("批量更新参数完成, 共处理 {} 条", params.size());
         return RT.ok();
     }
 }
