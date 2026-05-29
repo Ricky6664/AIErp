@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：73 条
+> **归档总数**：75 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -114,7 +114,13 @@
 | P0-001-004-001-002-002 | 实现接口逻辑 | 2026-05-29T20:10 | ✅ | StpInterfaceImpl.java完整实现：getPermissionList/getRoleList Redis缓存优先+DB回退+clearCache清除缓存,mvn compile通过 | d83c1532 |
 | P0-001-004-002-001-001 | 定义接口路由与方法签名 | 2026-05-29T22:30 | ✅ | 创建SaInterceptorConfig.java(@Configuration+WebMvcConfigurer+SaInterceptor+pathPatterns+CORS localhost:5173 Authorization),mvn compile通过 | 7ceff390 |
 | P0-001-004-002-001-002 | 实现接口逻辑 | 2026-05-29T23:00 | ✅ | SaInterceptorConfig.java完整实现验证：addInterceptors(SaInterceptor+SaRouter.match+notMatch+check)+addCorsMappings(allowCredentials+exposedHeaders), application.yml sa-token配置timeout=2592000/active-timeout=1800,mvn compile通过 | 741e2419 |
-| P0-001-004-002-002-003 | 集成测试验证 | 2026-05-29T19:47 | ✅ | PermissionAspectIntegrationTest(19个集成测试全部通过,AND/OR逻辑+放行场景+注解验证+异常验证+pom.xml新增H2 test scope+test application.yml H2内存数据库配置),mvn compile+mvn test BUILD SUCCESS | <pending> |
+| P0-001-004-002-002-003 | 集成测试验证 | 2026-05-29T19:47 | ✅ | PermissionAspectIntegrationTest(19个集成测试全部通过,AND/OR逻辑+放行场景+注解验证+异常验证+pom.xml新增H2 test scope+test application.yml H2内存数据库配置),mvn compile+mvn test BUILD SUCCESS | 37e797c8 |
+
+### P0-001-005 - 编码引擎基础服务
+
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | Git SHA |
+|---------|---------|---------|:---:|------|---------|
+| P0-001-005-001-001-001 | 编写CREATE TABLE sys_code_rule主语句 | 2026-05-29T20:00 | ✅ | 创建V1__create_sys_code_rule.sql:sys_code_rule主表(id/rule_code/rule_name/module_code/description/separator/current_value/is_enabled+10个通用字段)+sys_code_rule_segment从表(rule_id FK/segment_type/segment_order/segment_value/segment_length/segment_format+10个通用字段)+uk_rule_module部分唯一索引(rule_code,tenant_id)WHERE is_deleted=false+idx_segment_order索引(rule_id,segment_order)+COMMENT完整,mvn compile BUILD SUCCESS | TBD |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -140,10 +146,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 74 | 2 | 3.45% |
+| P0 | 14 | 2,147 | 75 | 2 | 3.49% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **74** | **2** | **1.57%** |
+| **合计** | **46** | **4,716** | **75** | **2** | **1.59%** |
 
 ---
 
