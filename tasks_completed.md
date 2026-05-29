@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：99 条
+> **归档总数**：100 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -159,6 +159,12 @@
 | P0-001-005-004-001-001 | 定义接口路由与方法签名 | 2026-05-30T00:10 | ✅ | 创建SysCodeRuleController.java(@RestController @RequestMapping /api/system/code-rules):8个CRUD+预览+生成接口,所有方法@RequirePermission+@Operation注解齐全,RESTful路径规范,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-005-004-001-002 | 实现新增修改删除方法 | 2026-05-30T00:30 | ✅ | SysCodeRuleController.java全部7个接口方法实现完成(create/update/delete/getById/pageList/preview/generate),@RequirePermission+@Operation齐全,RESTful规范,Service层CRUD完整(@Transactional+段处理+唯一性校验),mvn compile BUILD SUCCESS | (pending) |
 
+### P0-001-006 - 数据视图引擎基础服务
+
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | Git SHA |
+|---------|---------|---------|:---:|------|---------|
+| P0-001-006-001-001-001 | 编写CREATE TABLE sys_data_view主语句 | 2026-05-30T01:00 | ✅ | 创建V2__create_sys_data_view.sql:sys_data_view主表(id/view_code唯一/view_name/source_table/source_type(1表2SQL)/source_sql/description+10个通用字段)+sys_data_view_field从表(view_id FK/field_code/field_name/field_type/field_order/is_searchable/is_sortable/is_visible/search_type/search_component+10个通用字段)+uk_view_code部分唯一索引(view_code,tenant_id)+idx_field_view_order索引(view_id,field_order)+uk_field_view_code部分唯一索引(view_id,field_code,tenant_id)+COMMENT完整+回滚脚本 | <pending> |
+
 ### 写入格式（工人必须严格遵守）
 **每条任务完成记录**（一行一条）：
 
@@ -182,10 +188,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 99 | 2 | 4.61% |
+| P0 | 14 | 2,147 | 100 | 2 | 4.66% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **99** | **2** | **2.10%** |
+| **合计** | **46** | **4,716** | **100** | **2** | **2.12%** |
 
 ---
 
