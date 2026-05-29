@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：37 条
+> **归档总数**：38 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -68,6 +68,7 @@
 | P0-001-001-004-002-002 | 配置动态日志级别 | 2026-05-29T13:40 | ✅ | 验证logback-spring.xml动态日志级别配置完整性:5个springProperty从application.yml读取(com.erp=DEBUG/INFO,com.baomidou.mybatisplus=WARN,org.springframework.web=INFO,org.hibernate.SQL=WARN,io.undertow=WARN)+application-dev.yml/prod.yml/test.yml/staging.yml日志级别配置正确,mvn compile BUILD SUCCESS | (验证任务) |
 | P0-001-001-004-002-003 | 验证日志级别生效 | 2026-05-29T13:47 | ✅ | 三阶段验收全部PASS:V1日志格式%d{yyyy-MM-dd HH:mm:ss.SSS}正确/V2滚动策略maxFileSize=100MB+maxHistory=30天/V3 springProfile dev+prod+test,staging三环境/V4 5个springProperty动态注入源+Logback 1.5.18 JoranConfigurator.doConfigure运行时加载无异常+application-dev.yml com.erp=DEBUG/application-prod.yml com.erp=INFO动态覆盖正确,mvn compile BUILD SUCCESS | 0fc6c98e |
 | P0-001-001-005-001-001 | 定义@Configuration配置类@Bean注册方式 | 2026-05-29T14:02 | ✅ | 创建MybatisPlusConfig.java:@Configuration+@Bean MybatisPlusInterceptor(①TenantLineInnerInterceptor多租户+②PaginationInnerInterceptor分页overflow=true+③OptimisticLockerInnerInterceptor乐观锁)+@Bean MetaObjectHandler自动填充(createdAt/updatedAt/createdBy/updatedBy/version),mvn compile BUILD SUCCESS | 67802ae2 |
+| P0-001-001-005-001-002 | 配置属性绑定 | 2026-05-29T14:30 | ✅ | 验证MybatisPlusConfig.java配置属性绑定完整:@Configuration+@Bean MybatisPlusInterceptor(TenantLine+Pagination overflow=true+OptimisticLocker顺序正确)+@Bean MetaObjectHandler自动填充,mvn compile BUILD SUCCESS | (验证任务) |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -93,10 +94,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 36 | 0 | 1.68% |
+| P0 | 14 | 2,147 | 38 | 0 | 1.77% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **36** | **0** | **0.76%** |
+| **合计** | **46** | **4,716** | **38** | **0** | **0.81%** |
 
 ---
 
