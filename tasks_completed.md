@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：86 条
+> **归档总数**：87 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -137,6 +137,7 @@
 | P0-001-005-002-001-002 | 定义DTO类 | 2026-05-29T21:35 | ✅ | 验证SysCodeRuleDTO(CreateDTO @NotBlank ruleCode/@NotNull segments+UpdateDTO+QueryDTO分页/SegmentDTO)+SysCodeRuleVO(ListVO+DetailVO+SegmentVO+@JsonFormat日期格式),Entity-DDL字段一一对应,@TableLogic/@TableField正确,mvn compile通过 | 4a2cf1a3 |
 | P0-001-005-002-001-003 | 定义VO类 | 2026-05-29T22:00 | ✅ | SysCodeRuleVO增强:ListVO/DetailVO新增isEnabledName字典翻译字段+SegmentVO新增segmentTypeName字典翻译字段,@JsonFormat日期格式,mvn compile通过 | 48aec71a |
 | P0-001-005-002-002-001 | 定义Mapper接口 | 2026-05-29T23:30 | ✅ | SysCodeRuleMapper extends BaseMapperX(selectRuleWithSegments联查主从表+selectByRuleCode按编码查询+updateCurrentVersion乐观锁)+SysCodeRuleMapper.xml(resultMap+LeftJoin+乐观锁UPDATE),mvn compile通过 | 45488253 |
+| P0-001-005-002-002-002 | 编写XML映射 | 2026-05-29T23:55 | ✅ | SysCodeRuleMapper.xml完整实现:BaseResultMap+RuleWithSegmentsResultMap(含segments collection嵌套)+selectRuleWithSegments主从联查+selectByRuleCode按编码查询+updateCurrentVersion乐观锁UPDATE,namespace正确,mvn compile通过 | (验证任务) |
 
 
 ### 写入格式（工人必须严格遵守）
@@ -162,10 +163,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 86 | 2 | 4.01% |
+| P0 | 14 | 2,147 | 87 | 2 | 4.05% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **86** | **2** | **1.82%** |
+| **合计** | **46** | **4,716** | **87** | **2** | **1.85%** |
 
 ---
 
