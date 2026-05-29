@@ -148,6 +148,7 @@
 | P0-001-005-003-002-001 | 实现Redis INCR分布式自增 | 2026-05-29T23:08 | ✅ | SequenceGenerator:Redis INCR原子自增(key=code:seq:{ruleCode}:{yyyyMMdd},EX=86400)+分布式锁(key=code:lock:{ruleCode})+DB乐观锁降级(updateCurrentVersion重试3次)+getNext补零;SequenceSegmentParserTest 9/9 PASS,mvn compile通过 | 6cb67db6 |
 | P0-001-005-003-002-002 | 实现序列号自增逻辑 | 2026-05-29T23:32 | ✅ | SequenceGenerator.java完整实现:getNext(ruleCode,length)补零字符串+redisNext Redis INCR原子自增+dbNext DB乐观锁降级3次重试+分布式锁+日重置自动过期,mvn compile BUILD SUCCESS | 987d33ab |
 | P0-001-005-003-002-003 | 验证序列号生成 | 2026-05-29T23:42 | ✅ | SequenceGeneratorTest 16/16 PASS:Redis分布式锁(7项)+INCR性能(2项)+DB降级重试3次抛异常(5项)+综合验证(2项),mvn compile BUILD SUCCESS | ec1e624f |
+| P0-001-005-003-003-001 | 实现编码预览逻辑 | 2026-05-29T23:55 | ✅ | CodePreviewService.preview(ruleId,count)使用SegmentParserFactory策略模式,预览模式不消耗序列号,mvn compile BUILD SUCCESS | (待提交) |
 
 
 ### 写入格式（工人必须严格遵守）
