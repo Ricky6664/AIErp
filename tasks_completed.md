@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：106 条
+> **归档总数**：107 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -175,6 +175,7 @@
 | P0-001-006-002-001-001 | 定义Entity类 | 2026-05-30 | ✅ | 创建SysDataView.java(@TableName sys_data_view,6字段+BaseEntity继承)+SysDataViewField.java(@TableName sys_data_view_field,10字段+BaseEntity继承),@tableId ASSIGN_ID+@TableLogic+@Version齐全,mvn compile通过 | 272f5901 |
 | P0-001-006-002-001-002 | 定义DTO类 | 2026-05-30T05:00 | ✅ | 创建SysDataViewDTO.java(CreateDTO @NotBlank viewCode/viewName/sourceTable+UpdateDTO+QueryDTO分页)+SysDataViewFieldDTO.java(CreateDTO @NotNull viewId+@NotBlank fieldCode/fieldName+UpdateDTO+QueryDTO分页),遵循SysCodeRuleDTO嵌套静态类模式,mvn compile通过 | a5c43472 |
 | P0-001-006-002-001-003 | 定义VO类 | 2026-05-30T06:00 | ✅ | 创建SysDataViewVO.java(ListVO+DetailVO含fields列表+sourceTypeName字典翻译+@JsonFormat日期)+SysDataViewFieldVO.java(ListVO+DetailVO+fieldTypeName字典翻译+@JsonFormat日期),遵循SysCodeRuleVO嵌套静态类模式,mvn compile通过 | c40b404c |
+| P0-001-006-002-002-001 | 定义Mapper接口 | 2026-05-30T06:30 | ✅ | 创建SysDataViewMapper.java(selectViewWithFields联查+selectByViewCode按编码查询)+SysDataViewFieldMapper.java(selectVisibleFields查询可见字段)+SysDataViewMapper.xml(3个resultMap+2条自定义SQL+联查映射),mvn compile通过 | (pending) |
 | P0-001-006-002-001-001 | 定义Entity类 | 2026-05-30T05:00 | ✅ | 创建SysDataView.java(6业务字段+BaseEntity继承)+SysDataViewField.java(10业务字段+BaseEntity继承),@TableName+@TableLogic+@TableId ASSIGN_ID,字段与DDL一一对应,mvn compile通过 | 272f5901 |
 
 ### 写入格式（工人必须严格遵守）
@@ -200,10 +201,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 104 | 2 | 4.84% |
+| P0 | 14 | 2,147 | 105 | 2 | 4.89% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **103** | **2** | **2.18%** |
+| **合计** | **46** | **4,716** | **104** | **2** | **2.21%** |
 
 ---
 
