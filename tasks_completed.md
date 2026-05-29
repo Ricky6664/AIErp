@@ -223,7 +223,7 @@
 | P0-001-007-001-002-003 | 验证索引与约束 | 2026-05-30T21:30 | ✅ | 在erp_dev库执行V3__create_sys_param.sql:sys_param表17字段+3索引(pk_sys_param/uk_category_key/idx_category/idx_sys_param_tenant)+1主键约束全部创建成功,information_schema验证通过,字段类型与规范一致 | 4e879d1e |
 | P0-001-007-002-001-002 | 实现ServiceImpl | 2026-05-30T22:00 | ✅ | SysParamService.java(@Service):getValue(泛型类型转换)+getStr+setParam(UPSERT)+deleteParam(系统参数保护)+listByCategory,所有读方法@Cacheable(sys:param)+写方法@Caching(@CacheEvict清除单键和列表缓存),@Transactional写操作+JdbcTemplate+tenantId隔离+convertValue支持5种类型(STRING/NUMBER/BOOLEAN/JSON/DATE),@EnableCaching添加到ErpAiApplication,mvn compile通过 | 483c810e |
 | P0-001-007-002-001-003 | 业务校验逻辑 | 2026-05-30T22:40 | ✅ | SysParamService.java新增业务校验:validateParamKey(category/key不能为空)+getValue增加type非空校验+setParam增加value非空校验+listByCategory增加category非空校验+deleteParam系统参数保护(已有),所有public方法入口参数校验覆盖,@Transactional在public方法,mvn compile通过 | 5ee6f0d9 |
-| P0-001-007-002-001-001 | 定义Service接口 | 2026-05-30T23:00 | ✅ | SysParamService.java(@Service)接口定义:getValue泛型方法+getStr+setParam+deleteParam+listByCategory,所有读方法@Cacheable(sys:param缓存永不过期),写方法@Caching(@CacheEvict单键+列表缓存),convertValue支持5种类型转换(STRING/NUMBER/BOOLEAN/JSON/DATE),validateParamKey参数校验,mvn compile通过 | <待填入> |
+| P0-001-007-002-001-001 | 定义Service接口 | 2026-05-30T23:00 | ✅ | SysParamService.java(@Service)接口定义:getValue泛型方法+getStr+setParam+deleteParam+listByCategory,所有读方法@Cacheable(sys:param缓存永不过期),写方法@Caching(@CacheEvict单键+列表缓存),convertValue支持5种类型转换(STRING/NUMBER/BOOLEAN/JSON/DATE),validateParamKey参数校验,mvn compile通过 | 0c57c72f |
 
 ---
 
