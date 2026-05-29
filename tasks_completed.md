@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：24 条
+> **归档总数**：25 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -55,6 +55,7 @@
 | P0-001-001-003-001-005-002 | 验证staging环境配置 | 2026-05-28T23:05 | ✅ | staging profile启动验证:port=8082绑定正确,5项配置值全部正确加载,DB_URL/REDIS_HOST环境变量注入,无硬编码敏感信息,mvn compile通过 | (验证任务) |
 | P0-001-001-003-002-001 | 编写prod环境配置 | 2026-05-29T00:15 | ✅ | 创建application-prod.yml(server.port=8080/${DB_PASSWORD}/${REDIS_PASSWORD}/${JWT_SECRET}/NoLoggingImpl/日志WARN/Swagger关闭/HikariCP生产连接池),mvn compile通过 | 8d73fa3c |
 | P0-001-001-003-002-002 | 验证配置生效 | 2026-05-29T10:56 | ✅ | ProdConfigValidationTest 10项测试全部PASS(server.port=8080/环境变量注入/WARN日志/无硬编码/Swagger关闭/NoLoggingImpl),mvn compile+test BUILD SUCCESS | 7a8f5b9f |
+| P0-001-001-003-002-003 | 配置安全加固 | 2026-05-29T11:04 | ✅ | application-prod.yml安全加固验证:server.port=8080/敏感配置全部${DB_PASSWORD}/${REDIS_PASSWORD}/${JWT_SECRET}环境变量注入/logging.com.erp=WARN/Swagger关闭/NoLoggingImpl,ProdConfigValidationTest 10/10 PASS,mvn compile+test BUILD SUCCESS | f1fb3150 |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -80,10 +81,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 24 | 0 | 1.12% |
+| P0 | 14 | 2,147 | 25 | 0 | 1.16% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **24** | **0** | **0.51%** |
+| **合计** | **46** | **4,716** | **25** | **0** | **0.53%** |
 
 ---
 
