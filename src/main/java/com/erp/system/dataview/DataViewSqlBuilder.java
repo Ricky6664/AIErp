@@ -266,15 +266,15 @@ public class DataViewSqlBuilder {
      */
     private void validateSqlWhitelist(String sql) {
         if (sql == null || sql.isBlank()) {
-            throw new BusinessException(ErrorCode.PARAM_INVALID, "生成的SQL为空");
+            throw new BusinessException(ErrorCode.PARAM_INVALID);
         }
         String upperSql = sql.toUpperCase().trim();
         if (!upperSql.startsWith("SELECT")) {
-            throw new BusinessException(ErrorCode.PARAM_INVALID, "生成的SQL必须以SELECT开头");
+            throw new BusinessException(ErrorCode.PARAM_INVALID);
         }
         for (String keyword : FORBIDDEN_SQL_KEYWORDS) {
-            if (upperSql.contains(keyword)) {
-                throw new BusinessException(ErrorCode.PARAM_INVALID, "SQL包含禁止的关键字: " + keyword);
+            if (upperSql.matches(".*\\b" + keyword + "\\b.*")) {
+                throw new BusinessException(ErrorCode.PARAM_INVALID);
             }
         }
     }
@@ -285,12 +285,12 @@ public class DataViewSqlBuilder {
     private void validateSourceSql(String sourceSql) {
         String upperSql = sourceSql.toUpperCase().trim();
         for (String keyword : FORBIDDEN_SQL_KEYWORDS) {
-            if (upperSql.contains(keyword)) {
-                throw new BusinessException(ErrorCode.PARAM_INVALID, "来源SQL包含禁止的关键字: " + keyword);
+            if (upperSql.matches(".*\\b" + keyword + "\\b.*")) {
+                throw new BusinessException(ErrorCode.PARAM_INVALID);
             }
         }
         if (!upperSql.contains("SELECT") || !upperSql.contains("FROM")) {
-            throw new BusinessException(ErrorCode.PARAM_INVALID, "来源SQL必须包含SELECT和FROM子句");
+            throw new BusinessException(ErrorCode.PARAM_INVALID);
         }
     }
 
