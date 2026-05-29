@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：44 条
+> **归档总数**：45 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -75,6 +75,7 @@
 | P0-001-001-005-002-001 | 实现insertFill方法 | 2026-05-29T16:10 | ✅ | 创建MyMetaObjectHandler.java(@Component):insertFill自动填充createdAt/updatedAt/createdBy/updatedBy/tenantId/isDeleted(0),updateFill强制刷新updatedAt+strictUpdateFill更新updatedBy,从MybatisPlusConfig移除内联ErpMetaObjectHandler,mvn compile通过 | 008c18d1 |
 | P0-001-001-005-002-002 | 实现updateFill方法 | 2026-05-29T14:55 | ✅ | 修正字段命名为全局规范(createTime/updateTime/creatorId/updaterId),updateFill强制刷新updateTime+updaterId,insertFill同步修正字段名,Javadoc补充@TableField(fill=FieldFill)说明,mvn clean compile BUILD SUCCESS | 217bc44b |
 | P0-001-001-005-002-003 | 验证自动填充 | 2026-05-29T15:08 | ✅ | 修复isDeleted类型Integer→Boolean匹配全局规范,updateFill健壮性修复(先获取userId避免异常中断),新增MyMetaObjectHandlerTest(14项全PASS):insertFill 6字段验证/updateFill强制刷新验证/@Component注解/无硬编码敏感信息,mvn compile+test BUILD SUCCESS | a8a765fc |
+| P0-001-002-001-002-001 | 定义异常类 | 2026-05-29T15:15 | ✅ | 创建BaseException(abstract,extends RuntimeException,code+msg+data,占位符参数化消息)+BusinessException+AuthException+ParamException+PermissionException共5个异常类,mvn clean compile BUILD SUCCESS(37文件) | (待提交) |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -100,10 +101,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 43 | 0 | 2.00% |
+| P0 | 14 | 2,147 | 44 | 0 | 2.05% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **43** | **0** | **0.91%** |
+| **合计** | **46** | **4,716** | **44** | **0** | **0.93%** |
 
 ---
 
