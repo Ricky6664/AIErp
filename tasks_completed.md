@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：40 条
+> **归档总数**：41 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -71,6 +71,7 @@
 | P0-001-001-005-001-002 | 配置属性绑定 | 2026-05-29T14:30 | ✅ | 验证MybatisPlusConfig.java配置属性绑定完整:@Configuration+@Bean MybatisPlusInterceptor(TenantLine+Pagination overflow=true+OptimisticLocker顺序正确)+@Bean MetaObjectHandler自动填充,mvn compile BUILD SUCCESS | (验证任务) |
 | P0-001-002-001-001-001 | 定义错误码枚举类 | 2026-05-29T15:00 | ✅ | 创建IErrorCode接口+ErrorCode枚举(实现IErrorCode,按模块分段:10000系统级/20000认证授权/30000参数校验/40000业务逻辑/50000数据访问,含SUCCESS/UNAUTHORIZED/FORBIDDEN/NOT_FOUND/INTERNAL_ERROR/PARAM_INVALID)+修复lombok.config Jakarta命名空间,mvn compile BUILD SUCCESS | cdbab8b5 |
 | P0-001-002-001-001-002 | 定义错误码分类体系 | 2026-05-29T15:15 | ✅ | 验证ErrorCode枚举分类体系完整:IErrorCode接口(getCode+getMessage)/按模块5段(10000系统级5个+20000认证7个+30000参数6个+40000业务3个+50000数据4个)/常用6码(SUCCESS(0)/UNAUTHORIZED(20001)/FORBIDDEN(20003)/NOT_FOUND(10404)/INTERNAL_ERROR(10500)/PARAM_INVALID(30001))全部就位/26个错误码唯一无重复,mvn compile BUILD SUCCESS | 0819d94b |
+| P0-001-001-005-001-003 | 配置校验与启动检查 | 2026-05-29T15:35 | ✅ | 新增MybatisPlusConfigValidationTest验证测试(10项全PASS):@Configuration注解/@Bean注册MybatisPlusInterceptor(3个InnerInterceptor顺序TenantLine→Pagination(overflow=true)→OptimisticLocker)/@Bean MetaObjectHandler/无硬编码敏感信息;actuator HTTP 200;Spring Boot启动无错误 | eda8903a |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -96,10 +97,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 40 | 0 | 1.86% |
+| P0 | 14 | 2,147 | 41 | 0 | 1.91% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **40** | **0** | **0.85%** |
+| **合计** | **46** | **4,716** | **41** | **0** | **0.87%** |
 
 ---
 
