@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：139 条
+> **归档总数**：140 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -237,6 +237,7 @@
 | P0-001-008-001-001-003 | 验证文件上传 | 2026-05-30T15:00 | ✅ | FileUploadServiceVerificationTest(17项全PASS):扩展名黑名单(exe/bat/sh/cmd)5项+MIME魔数白名单(JPEG/PNG/PDF)4项+文件大小校验(空/null/超大/边界)4项+成功上传流程(UUID格式/日期目录/FileVO完整字段/sys_file元数据)4项;修复BusinessException args被框架静默丢弃问题,mvn compile+test 171/171 PASS | (pending) |
 | P0-001-008-001-002-001 | 实现文件下载逻辑 | 2026-05-30T07:05 | ✅ | FileDownloadService.java(@Service):download(fileId,response)查sys_file元数据+校验文件存在可读+Content-Type(MIME)/Content-Disposition(attachment)/Content-Length响应头+StreamingResponseBody流式输出(8KB缓冲防OOM)+Range断点续传(206 Partial Content/RandomAccessFile seek)+下载计数自增,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-008-001-002-002 | 实现文件下载核心逻辑 | 2026-05-30T07:08 | ✅ | FileDownloadService.handleFullDownload重构为BufferedInputStream直接流式输出(移除冗余StreamingResponseBody同步包装),handleRangeDownload保留RandomAccessFile断点续传,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-008-001-002-003 | 验证文件下载 | 2026-05-30T07:15 | ✅ | FileDownloadServiceVerificationTest(16项全PASS):参数校验(非法fileId)+文件不存在(DB/磁盘)+全量下载(Content-Type/Content-Disposition/Content-Length/内容一致性/计数递增/null MIME/中文文件名)+Range断点续传(206/Content-Range/部分内容/416 unsatisfiable/start-only),mvn test 16/16 PASS | (待提交) |
 
 ---
 
@@ -244,10 +245,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 138 | 2 | 6.43% |
+| P0 | 14 | 2,147 | 139 | 2 | 6.48% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **138** | **2** | **2.93%** |
+| **合计** | **46** | **4,716** | **139** | **2** | **2.95%** |
 
 ---
 
