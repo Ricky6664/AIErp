@@ -111,7 +111,7 @@
 | P0-001-004-001-001-001 | 定义@Configuration配置类@Bean注册方式 | 2026-05-29T22:00 | ✅ | SaTokenConfig(@Configuration)+SaServletFilter(@Bean拦截/api/**排除login/logout/doc.html/v3)+未登录RT.fail(ErrorCode.UNAUTHORIZED)+SaInterceptor路由拦截+isAnnotation注解鉴权双机制 | 1df2a8a5 |
 | P0-001-004-001-001-002 | 配置属性绑定 | 2026-05-29T19:01 | ✅ | SaTokenConfig.java @Value绑定exclude-paths(@ConfigurationProperties风格)+application.yml sa-token.exclude-paths配置项,mvn compile BUILD SUCCESS | <pending> |
 | P0-001-004-001-002-001 | 定义接口路由与方法签名 | 2026-05-29T19:10 | ✅ | StpInterfaceImpl(@Component implements StpInterface)+getPermissionList/getRoleList Redis缓存(satoken:permission/role:{loginId},5minTTL)+clearCache+spring-boot-starter-data-redis依赖,mvn compile BUILD SUCCESS | f4fcdc9f |
-| P0-001-004-001-002-002 | 实现接口逻辑 | 2026-05-29T20:10 | ✅ | StpInterfaceImpl.java完整实现：getPermissionList/getRoleList Redis缓存优先+DB回退+clearCache清除缓存,mvn compile通过 | (pending) |
+| P0-001-004-001-002-002 | 实现接口逻辑 | 2026-05-29T20:10 | ✅ | StpInterfaceImpl.java完整实现：getPermissionList/getRoleList Redis缓存优先+DB回退+clearCache清除缓存,mvn compile通过 | d83c1532 |
 
 ### 写入格式（工人必须严格遵守）
 
