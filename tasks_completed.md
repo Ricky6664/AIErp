@@ -113,6 +113,7 @@
 | P0-001-004-001-002-001 | 定义接口路由与方法签名 | 2026-05-29T19:10 | ✅ | StpInterfaceImpl(@Component implements StpInterface)+getPermissionList/getRoleList Redis缓存(satoken:permission/role:{loginId},5minTTL)+clearCache+spring-boot-starter-data-redis依赖,mvn compile BUILD SUCCESS | f4fcdc9f |
 | P0-001-004-001-002-002 | 实现接口逻辑 | 2026-05-29T20:10 | ✅ | StpInterfaceImpl.java完整实现：getPermissionList/getRoleList Redis缓存优先+DB回退+clearCache清除缓存,mvn compile通过 | d83c1532 |
 | P0-001-004-002-001-001 | 定义接口路由与方法签名 | 2026-05-29T22:30 | ✅ | 创建SaInterceptorConfig.java(@Configuration+WebMvcConfigurer+SaInterceptor+pathPatterns+CORS localhost:5173 Authorization),mvn compile通过 | 7ceff390 |
+| P0-001-004-002-001-002 | 实现接口逻辑 | 2026-05-29T23:00 | ✅ | SaInterceptorConfig.java完整实现验证：addInterceptors(SaInterceptor+SaRouter.match+notMatch+check)+addCorsMappings(allowCredentials+exposedHeaders), application.yml sa-token配置timeout=2592000/active-timeout=1800,mvn compile通过 | <pending> |
 
 ### 写入格式（工人必须严格遵守）
 
