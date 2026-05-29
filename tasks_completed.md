@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：79 条
+> **归档总数**：80 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -126,6 +126,7 @@
 | P0-001-005-001-002-002 | 添加索引与约束 | 2026-05-29T22:00 | ✅ | V1__create_sys_code_rule.sql新增uk_segment_rule_order唯一部分索引(rule_id,segment_order,tenant_id WHERE is_deleted=FALSE)防止同规则同租户段排序重复,从表约束汇总:PK+FK+idx_segment_order+uk_segment_rule_order,mvn compile BUILD SUCCESS | 8f764bda |
 | P0-001-005-001-003-001 | 编写CREATE INDEX语句 | 2026-05-29T22:30 | ✅ | 验证V1__create_sys_code_rule.sql DDL完整:uk_rule_module(rule_code,tenant_id)唯一索引+idx_segment_order(rule_id,segment_order)复合索引+uk_segment_rule_order唯一部分索引+所有字段注释+Flyway格式,mvn compile通过 | 44ca7b1c |
 | P0-001-005-001-003-002 | 执行DDL脚本 | 2026-05-29T23:00 | ✅ | 在erp_dev库执行V1__create_sys_code_rule.sql:sys_code_rule主表(17字段)+sys_code_rule_segment从表(16字段)+5个索引全部创建成功,information_schema验证通过 | 37efc091 |
+| P0-001-004-003-001-001 | 定义@Configuration配置类@Bean注册方式 | 2026-05-29T23:30 | ✅ | pom.xml新增sa-token-redis-jackson依赖(1.39.0)+application.yml新增Redis Lettuce连接池配置(max-active=8/max-idle=8/min-idle=0)+application-dev.yml对齐pool值 | 238676c5 |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -151,10 +152,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 78 | 2 | 3.63% |
+| P0 | 14 | 2,147 | 79 | 2 | 3.68% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **78** | **2** | **1.65%** |
+| **合计** | **46** | **4,716** | **79** | **2** | **1.68%** |
 
 ---
 
