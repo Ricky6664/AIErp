@@ -218,17 +218,17 @@ C7 - 跨模块文件冲突约束：
 
 1. 再读 `config.ini`
 2. `single_stop=true` 或 `multi_stop=true` → 输出"停止开关已开启"→ 直接退出
-3. 否则 → **必须先用 PowerShell 工具执行以下命令**，然后立即退出：
+3. 否则 → **用 Bash 工具执行以下命令**（这是退出前的最后一步，必须执行）：
 
-```powershell
-Start-Process -FilePath "cmd.exe" -ArgumentList '/c "D:\ClaudeCode\ErpProject\AiErp\auto.bat" {WORKER_ID}' -WorkingDirectory "D:\ClaudeCode\ErpProject\AiErp"
+```
+cmd.exe /c "D:\ClaudeCode\ErpProject\AiErp\auto.bat" W1
 ```
 
-> 将 `{WORKER_ID}` 替换为你的工人 ID（如 W1）。此命令会打开一个新的 cmd 窗口接力执行下一个任务。**这是你退出前的最后一步，必须执行。**
+> 将 `W1` 替换为你的工人 ID。**执行完此命令后立即退出。**
 
 **🚫 绝对禁止：**
 - ❌ 回到 Step 2 认领下一个任务
-- ❌ 跳过上面的 Start-Process 命令
+- ❌ 跳过上面的 auto.bat 命令
 
 ---
 

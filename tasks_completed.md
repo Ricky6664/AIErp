@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：33 条
+> **归档总数**：34 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -64,6 +64,7 @@
 | P0-001-001-004-001-001 | 编写logback-spring.xml | 2026-05-29T12:55 | ✅ | 创建logback-spring.xml(CONSOLE+FILE+ERROR_FILE三Appender/日志格式%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n/100MB+30天滚动+10GB上限/springProfile dev=DEBUG prod=INFO test,staging=INFO),mvn compile BUILD SUCCESS | 604f5495 |
 | P0-001-001-004-001-002 | 配置日志格式与输出 | 2026-05-29T13:05 | ✅ | 验证logback-spring.xml配置完整性:CONSOLE+FILE双Appender+日志格式%d{yyyy-MM-dd HH:mm:ss.SSS}+100MB/30天滚动+springProfile(dev=DEBUG/prod=INFO)全部符合要求,mvn compile BUILD SUCCESS | 604f5495 |
 | P0-001-001-004-001-003 | 验证日志输出 | 2026-05-29T13:15 | ✅ | 验证logback-spring.xml三项验收标准全部通过:日志格式%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}正确/100MB+30天滚动策略生效/springProfile dev=DEBUG prod=INFO区分正确,mvn compile+Logback 1.5.18依赖就绪 | (验证任务) |
+| P0-001-001-004-002-001 | 配置springProfile日志级别 | 2026-05-29T14:00 | ✅ | logback-spring.xml添加5个springProperty动态读取logging.level+配置com.erp/com.baomidou.mybatisplus/org.springframework.web/org.hibernate.SQL/io.undertow日志级别+4个application-*.yml同步更新logging.level,mvn compile BUILD SUCCESS | (commit后补) |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -89,10 +90,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 33 | 0 | 1.54% |
+| P0 | 14 | 2,147 | 34 | 0 | 1.58% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **33** | **0** | **0.70%** |
+| **合计** | **46** | **4,716** | **34** | **0** | **0.72%** |
 
 ---
 

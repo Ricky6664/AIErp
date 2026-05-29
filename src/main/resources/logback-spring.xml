@@ -24,6 +24,16 @@
               value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{36}) - %msg%n"/>
 
     <!-- ============================================================ -->
+    <!-- 动态日志级别（从 application.yml 各环境配置读取）                -->
+    <!-- 用途: 各环境可通过 application-{profile}.yml 覆盖日志级别       -->
+    <!-- ============================================================ -->
+    <springProperty scope="context" name="LOG_LEVEL_ERP" source="logging.level.com.erp" defaultValue="INFO"/>
+    <springProperty scope="context" name="LOG_LEVEL_MYBATIS_PLUS" source="logging.level.com.baomidou.mybatisplus" defaultValue="WARN"/>
+    <springProperty scope="context" name="LOG_LEVEL_SPRING_WEB" source="logging.level.org.springframework.web" defaultValue="INFO"/>
+    <springProperty scope="context" name="LOG_LEVEL_HIBERNATE_SQL" source="logging.level.org.hibernate.SQL" defaultValue="WARN"/>
+    <springProperty scope="context" name="LOG_LEVEL_UNDERTOW" source="logging.level.io.undertow" defaultValue="WARN"/>
+
+    <!-- ============================================================ -->
     <!-- CONSOLE Appender（控制台输出）                                 -->
     <!-- 用途: 开发调试、容器日志采集                                     -->
     <!-- ============================================================ -->
@@ -95,21 +105,37 @@
 
     <!-- ============================================================ -->
     <!-- springProfile: dev（开发环境）                                 -->
-    <!-- 日志级别: 业务代码 DEBUG、框架 INFO                            -->
+    <!-- 日志级别: 业务代码 DEBUG（从yml读取）、框架按组件配置           -->
     <!-- 输出目标: CONSOLE（开发环境无需持久化文件）                     -->
     <!-- ============================================================ -->
     <springProfile name="dev">
         <property name="LOG_PATH" value="logs"/>
 
-        <logger name="com.erp" level="DEBUG" additivity="false">
+        <!-- 业务代码: 从 application-dev.yml 读取（默认 DEBUG） -->
+        <logger name="com.erp" level="${LOG_LEVEL_ERP}" additivity="false">
             <appender-ref ref="CONSOLE"/>
         </logger>
-        <logger name="com.baomidou.mybatisplus" level="DEBUG" additivity="false">
+        <!-- MyBatis-Plus: 从 yml 读取（默认 WARN） -->
+        <logger name="com.baomidou.mybatisplus" level="${LOG_LEVEL_MYBATIS_PLUS}" additivity="false">
             <appender-ref ref="CONSOLE"/>
         </logger>
+        <!-- Spring Web: 从 yml 读取（默认 INFO） -->
+        <logger name="org.springframework.web" level="${LOG_LEVEL_SPRING_WEB}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <!-- Hibernate SQL: 从 yml 读取（默认 WARN） -->
+        <logger name="org.hibernate.SQL" level="${LOG_LEVEL_HIBERNATE_SQL}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <!-- Undertow 服务器: 从 yml 读取（默认 WARN） -->
+        <logger name="io.undertow" level="${LOG_LEVEL_UNDERTOW}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <!-- Spring 框架（非 Web）: INFO -->
         <logger name="org.springframework" level="INFO" additivity="false">
             <appender-ref ref="CONSOLE"/>
         </logger>
+        <!-- Apache 组件: WARN -->
         <logger name="org.apache" level="WARN" additivity="false">
             <appender-ref ref="CONSOLE"/>
         </logger>
@@ -121,35 +147,57 @@
 
     <!-- ============================================================ -->
     <!-- springProfile: prod（生产环境）                                -->
-    <!-- 日志级别: 业务代码 INFO、框架 WARN                             -->
+    <!-- 日志级别: 业务代码 INFO（从yml读取）、框架按组件配置            -->
     <!-- 输出目标: CONSOLE + FILE + ERROR_FILE                         -->
     <!-- 安全: 生产环境禁止输出 DEBUG 级别日志                           -->
     <!-- ============================================================ -->
     <springProfile name="prod">
         <property name="LOG_PATH" value="/data/logs"/>
 
-        <logger name="com.erp" level="INFO" additivity="false">
+        <!-- 业务代码: 从 application-prod.yml 读取（默认 INFO） -->
+        <logger name="com.erp" level="${LOG_LEVEL_ERP}" additivity="false">
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="FILE"/>
             <appender-ref ref="ERROR_FILE"/>
         </logger>
-        <logger name="com.baomidou.mybatisplus" level="WARN" additivity="false">
+        <!-- MyBatis-Plus: 从 yml 读取（默认 WARN） -->
+        <logger name="com.baomidou.mybatisplus" level="${LOG_LEVEL_MYBATIS_PLUS}" additivity="false">
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="FILE"/>
             <appender-ref ref="ERROR_FILE"/>
         </logger>
+        <!-- Spring Web: 从 yml 读取（默认 INFO） -->
+        <logger name="org.springframework.web" level="${LOG_LEVEL_SPRING_WEB}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </logger>
+        <!-- Hibernate SQL: 从 yml 读取（默认 WARN） -->
+        <logger name="org.hibernate.SQL" level="${LOG_LEVEL_HIBERNATE_SQL}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </logger>
+        <!-- Undertow 服务器: 从 yml 读取（默认 WARN） -->
+        <logger name="io.undertow" level="${LOG_LEVEL_UNDERTOW}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </logger>
+        <!-- Spring 框架（非 Web）: WARN -->
         <logger name="org.springframework" level="WARN" additivity="false">
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="FILE"/>
             <appender-ref ref="ERROR_FILE"/>
         </logger>
+        <!-- Apache 组件: WARN -->
         <logger name="org.apache" level="WARN" additivity="false">
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="FILE"/>
             <appender-ref ref="ERROR_FILE"/>
         </logger>
 
-        <root level="INFO">
+        <root level="WARN">
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="FILE"/>
             <appender-ref ref="ERROR_FILE"/>
@@ -158,24 +206,43 @@
 
     <!-- ============================================================ -->
     <!-- springProfile: test / staging（测试与预生产环境）              -->
-    <!-- 日志级别: 业务代码 INFO、框架 INFO                             -->
+    <!-- 日志级别: 业务代码 INFO（从yml读取）、框架按组件配置            -->
     <!-- 输出目标: CONSOLE + FILE                                      -->
     <!-- ============================================================ -->
     <springProfile name="test,staging">
         <property name="LOG_PATH" value="logs"/>
 
-        <logger name="com.erp" level="INFO" additivity="false">
+        <!-- 业务代码: 从 application-{profile}.yml 读取（默认 INFO） -->
+        <logger name="com.erp" level="${LOG_LEVEL_ERP}" additivity="false">
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="FILE"/>
         </logger>
-        <logger name="com.baomidou.mybatisplus" level="INFO" additivity="false">
+        <!-- MyBatis-Plus: 从 yml 读取（默认 WARN） -->
+        <logger name="com.baomidou.mybatisplus" level="${LOG_LEVEL_MYBATIS_PLUS}" additivity="false">
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="FILE"/>
         </logger>
+        <!-- Spring Web: 从 yml 读取（默认 INFO） -->
+        <logger name="org.springframework.web" level="${LOG_LEVEL_SPRING_WEB}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+        <!-- Hibernate SQL: 从 yml 读取（默认 WARN） -->
+        <logger name="org.hibernate.SQL" level="${LOG_LEVEL_HIBERNATE_SQL}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+        <!-- Undertow 服务器: 从 yml 读取（默认 WARN） -->
+        <logger name="io.undertow" level="${LOG_LEVEL_UNDERTOW}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+        <!-- Spring 框架（非 Web）: INFO -->
         <logger name="org.springframework" level="INFO" additivity="false">
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="FILE"/>
         </logger>
+        <!-- Apache 组件: WARN -->
         <logger name="org.apache" level="WARN" additivity="false">
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="FILE"/>

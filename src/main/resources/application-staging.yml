@@ -43,5 +43,9 @@ springdoc:
 logging:
   level:
     com.erp: INFO
+    com.baomidou.mybatisplus: WARN
+    org.springframework.web: INFO
     org.springframework: INFO
-    com.baomidou.mybatisplus: INFO
+    org.hibernate.SQL: WARN
+    io.undertow: WARN
+    org.apache: WARN

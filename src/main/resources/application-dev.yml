@@ -38,8 +38,12 @@ mybatis-plus:
 logging:
   level:
     com.erp: DEBUG
+    com.baomidou.mybatisplus: WARN
+    org.springframework.web: INFO
     org.springframework: INFO
-    com.baomidou.mybatisplus: DEBUG
+    org.hibernate.SQL: WARN
+    io.undertow: WARN
+    org.apache: WARN
 
 # ---- Actuator 端点配置 (开发环境用于验证) ----
 management:

@@ -58,8 +58,11 @@ springdoc:
 # ---- 日志配置 (生产环境WARN级别, 禁止DEBUG/INFO) ----
 logging:
   level:
-    com.erp: WARN
-    org.springframework: WARN
+    com.erp: INFO
     com.baomidou.mybatisplus: WARN
-    org.hibernate: WARN
+    org.springframework.web: INFO
+    org.springframework: WARN
+    org.hibernate.SQL: WARN
+    io.undertow: WARN
+    org.apache: WARN
     root: WARN
