@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：129 条
+> **归档总数**：131 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -225,6 +225,9 @@
 | P0-001-007-002-001-003 | 业务校验逻辑 | 2026-05-30T22:40 | ✅ | SysParamService.java新增业务校验:validateParamKey(category/key不能为空)+getValue增加type非空校验+setParam增加value非空校验+listByCategory增加category非空校验+deleteParam系统参数保护(已有),所有public方法入口参数校验覆盖,@Transactional在public方法,mvn compile通过 | 5ee6f0d9 |
 | P0-001-007-002-001-001 | 定义Service接口 | 2026-05-30T23:00 | ✅ | SysParamService.java(@Service)接口定义:getValue泛型方法+getStr+setParam+deleteParam+listByCategory,所有读方法@Cacheable(sys:param缓存永不过期),写方法@Caching(@CacheEvict单键+列表缓存),convertValue支持5种类型转换(STRING/NUMBER/BOOLEAN/JSON/DATE),validateParamKey参数校验,mvn compile通过 | 0c57c72f |
 | P0-001-007-001-002-001 | 编写CREATE INDEX语句 | 2026-05-30T23:45 | ✅ | 验证V3__create_sys_param.sql已由前置任务创建完整:CREATE TABLE+3个索引(uk_category_key/idx_category/idx_sys_param_tenant)+全部COMMENT+回滚脚本,mvn compile BUILD SUCCESS | (待提交) |
+| P0-001-007-002-003-001 | 定义接口路由与方法签名 | 2026-05-30 | ✅ | 创建ParamCacheRefresher.java(@EventListener监听ParamChangedEvent+Redis缓存清除+POST /api/system/params/refresh手动刷新)+ParamChangedEvent.java(自定义事件),支持多实例部署缓存同步,mvn clean compile BUILD SUCCESS | b2e4335e |
+| P0-001-007-002-003-002 | 实现接口逻辑 | 2026-05-30T06:00 | ✅ | ParamCacheRefresher.java完整实现:@EventListener方法+evictCache私有方法+POST /refresh手动刷新端点+StringRedisTemplate键扫描清除,编译通过 | b2e4335e |
+| P0-001-007-003-001-001 | 定义接口路由与方法签名 | 2026-05-30T07:30 | ✅ | SysParamController.java(@RestController /api/system/params):5个CRUD端点(listByCategory/getByCategoryAndKey/create/update/delete),全部@RequirePermission+@Operation齐全,RESTful路径规范,is_system=1删除保护由Service层实现,/refresh端点由ParamCacheRefresher处理 | <pending> |
 
 ---
 
@@ -232,10 +235,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 130 | 2 | 6.05% |
+| P0 | 14 | 2,147 | 132 | 2 | 6.15% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **130** | **2** | **2.76%** |
+| **合计** | **46** | **4,716** | **132** | **2** | **2.80%** |
 
 ---
 
