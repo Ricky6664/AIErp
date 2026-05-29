@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：125 条
+> **归档总数**：126 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -218,6 +218,7 @@
 | P0-001-006-003-003-003 | 验证分页排序 | 2026-05-30T05:50 | ✅ | DataViewPagingExecutor.java排序字段白名单校验(resolveSortField/sortOrder)+DataViewPagingExecutorVerificationTest.java(24用例):SQL白名单2项+字段转义1项+分页排序6项+排序字段白名单4项+排序方向3项+异常3项+边界4项,mvn test 92通过 | (待提交) |
 | P0-001-007-001-001-002 | 添加索引与约束 | 2026-05-30T18:30 | ✅ | V3__create_sys_param.sql新增COMMENT ON CONSTRAINT/INDEX 4条+索引清单与约束说明注释块,验证:uk_category_key含tenant_id+部分索引排除软删除+mvn compile通过 | 81f08a73 |
 | P0-001-006-004-001-002 | 实现新增修改删除方法 | 2026-05-30T19:00 | ✅ | SysDataViewController.java CREATE/UPDATE/DELETE方法已就位(已由P0-001-006-004-002-002实现),@RequirePermission+@Operation齐全,接口路径/api/system/data-views符合RESTful规范,mvn compile通过 | (验证任务) |
+| P0-001-006-004-001-003 | 实现查询方法 | 2026-05-30T20:00 | ✅ | SysDataViewController.java查询方法全部就位:POST/{viewCode}/execute(@OperLog)+GET/{viewCode}/meta+getById+pageList,SysDataViewServiceImpl.executeView+getViewMeta完整实现,@RequirePermission+@Operation齐全,mvn compile通过 | (验证任务) |
 
 ---
 
@@ -225,10 +226,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 125 | 2 | 5.82% |
+| P0 | 14 | 2,147 | 126 | 2 | 5.87% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **125** | **2** | **2.65%** |
+| **合计** | **46** | **4,716** | **126** | **2** | **2.67%** |
 
 ---
 
