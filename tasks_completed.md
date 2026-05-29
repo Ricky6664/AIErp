@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：80 条
+> **归档总数**：81 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -130,6 +130,7 @@
 | P0-001-004-003-001-002 | 配置属性绑定 | 2026-05-29T23:45 | ✅ | 验证pom.xml sa-token-redis-jackson依赖(1.39.0)+application.yml Redis Lettuce连接池(max-active=8/max-idle=8/min-idle=0)+Jackson日期序列化(yyyy-MM-dd HH:mm:ss)+Sa-Token Redis存储自动生效,mvn compile BUILD SUCCESS | (验证任务) |
 | P0-001-004-003-001-003 | 配置校验与启动检查 | 2026-05-29T23:55 | ✅ | 新增JacksonConfig禁用FAIL_ON_SELF_REFERENCES避免Session循环引用+SaTokenProperties类型安全配置绑定与@Validated启动校验+注册JavaTimeModule指定LocalDateTime序列化格式,mvn compile BUILD SUCCESS | 87e7830d |
 | P0-001-004-003-002-001 | 实现在线用户查询 | 2026-05-29T20:50 | ✅ | 创建SessionService(@Service)实现listOnline/fForceLogout/renewSession/getCurrentUser 4个方法+LoginUserVO(5字段@Builder)+mvn compile BUILD SUCCESS | <pending> |
+| P0-001-004-003-002-002 | 实现强制下线会话超时续期 | 2026-05-29T21:00 | ✅ | 验证SessionService 4个方法(forceLogout→logoutByTokenValue/renewSession→renewTimeout/getCurrentUser→getSession/listOnline→searchSessionId)全部实现且编译通过 | <pending> |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -155,10 +156,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 80 | 2 | 3.73% |
+| P0 | 14 | 2,147 | 81 | 2 | 3.77% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **80** | **2** | **1.70%** |
+| **合计** | **46** | **4,716** | **81** | **2** | **1.72%** |
 
 ---
 
