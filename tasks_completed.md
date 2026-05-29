@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：114 条
+> **归档总数**：115 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -161,6 +161,7 @@
 | P0-001-005-004-001-003 | 实现查询方法 | 2026-05-30 | ✅ | 验证SysCodeRuleController查询方法完整(getById/pageList/preview/generate),@RequirePermission+@Operation齐全,RESTful路径规范,mvn compile通过 | (验证任务) |
 | P0-001-005-004-002-001 | 定义接口路由与方法签名 | 2026-05-30T12:00 | ✅ | SysCodeRuleController.java预览/生成接口路由(previvew/generate)已就位,@RequirePermission+@Operation齐全,RESTful路径规范,mvn compile通过 | (pending) |
 | P0-001-005-004-002-002 | 实现接口逻辑 | 2026-05-30T12:30 | ✅ | SysCodeRuleController.java全部7个接口(CRUD+预览+生成)完整实现,所有方法@RequirePermission+@Operation齐全,RESTful规范,mvn compile通过 | (pending) |
+| P0-001-005-004-003-001 | 定义接口路由与方法签名 | 2026-05-30T13:00 | ✅ | SysCodeRuleController.java生成接口路由(generate+preview)已就位,@RequirePermission+@Operation齐全,RESTful路径规范,mvn compile通过 | (pending) |
 
 ### P0-001-006 - 数据视图引擎基础服务
 
@@ -212,10 +213,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 114 | 2 | 5.31% |
+| P0 | 14 | 2,147 | 115 | 2 | 5.36% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **114** | **2** | **2.42%** |
+| **合计** | **46** | **4,716** | **115** | **2** | **2.44%** |
 
 ---
 
