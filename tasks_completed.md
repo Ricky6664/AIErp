@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：134 条
+> **归档总数**：136 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -231,6 +231,8 @@
 | P0-001-007-002-002-002 | 实现高级转换方法 | 2026-05-30T18:30 | ✅ | ParamTypeConverter.java已完成(commit 173e887b):convert()方法支持STRING/NUMBER/BOOLEAN/JSON/DATE 5种类型,DATE双格式兼容,convertNumber支持Integer/Long/Double/Float/BigDecimal,convertBoolean支持true/1/yes,失败抛ParamException(30002),mvn compile通过 | 173e887b |
 | P0-001-007-003-001-002 | 实现查询逻辑 | 2026-05-30T08:00 | ✅ | SysParamController.java新增POST /refresh端点(StringRedisTemplate键扫描清除sys:param:*缓存)+@RequirePermission(system:param:manage),ParamCacheRefresher重构为@Component(保留@EventListener移除@RestController),全部6端点@RequirePermission+@Operation齐全,mvn compile通过 | 59ff6485 |
 | P0-001-007-003-002-001 | 定义接口路由与方法签名 | 2026-05-30T08:30 | ✅ | SysParamController.java新增PUT /batch批量更新端点(@RequirePermission(system:param:update)+@Operation),接受List<Map<String,String>>参数,RESTful路径/api/system/params/batch,mvn compile BUILD SUCCESS | fa9d0b16 |
+| P0-001-007-003-002-002 | 实现接口逻辑 | 2026-05-30T09:00 | ✅ | SysParamController.java batchUpdate方法从stub实现为完整业务逻辑:参数空列表校验(BusinessException PARAM_MISSING)+循环调用sysParamService.setParam批量更新+日志记录,mvn compile BUILD SUCCESS | 377206c8 |
+| P0-001-008-001-001-001 | 实现文件上传核心逻辑 | 2026-05-30T10:00 | ✅ | FileUploadService.java(@Service):upload(MultipartFile)实现MIME魔数检测(JPEG/PNG/PDF/XLS/OOXML)+扩展名黑名单(exe/bat/sh/cmd)+UUID文件名+日期分目录(yyyy/MM/dd)存储,FileVO+FileUploadProperties支持类,mvn compile通过 | a99f46bd |
 
 ---
 
@@ -238,10 +240,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 135 | 2 | 6.29% |
+| P0 | 14 | 2,147 | 136 | 2 | 6.33% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **135** | **2** | **2.86%** |
+| **合计** | **46** | **4,716** | **136** | **2** | **2.88%** |
 
 ---
 
