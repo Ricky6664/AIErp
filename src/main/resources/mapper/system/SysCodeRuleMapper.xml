@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.system.mapper.SysCodeRuleMapper">
+
+    <!-- ==================== 基础字段列表 ==================== -->
+    <sql id="Base_Column_List">
+        id, tenant_id, create_time, update_time, creator_id, updater_id,
+        is_deleted, owner_dept_id, owner_id, version,
+        rule_code, rule_name, module_code, description, separator, current_value, is_enabled
+    </sql>
+
+    <!-- ==================== SysCodeRule 基础映射 ==================== -->
+    <resultMap id="BaseResultMap" type="com.erp.system.entity.SysCodeRule">
+        <id column="id" property="id"/>
+        <result column="tenant_id" property="tenantId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="creator_id" property="creatorId"/>
+        <result column="updater_id" property="updaterId"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="owner_dept_id" property="ownerDeptId"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="version" property="version"/>
+        <result column="rule_code" property="ruleCode"/>
+        <result column="rule_name" property="ruleName"/>
+        <result column="module_code" property="moduleCode"/>
+        <result column="description" property="description"/>
+        <result column="separator" property="separator"/>
+        <result column="current_value" property="currentValue"/>
+        <result column="is_enabled" property="isEnabled"/>
+    </resultMap>
+
+    <!-- ==================== 联查结果映射(主表+段列表) ==================== -->
+    <resultMap id="RuleWithSegmentsResultMap" type="com.erp.system.vo.SysCodeRuleVO$DetailVO">
+        <id column="rule_id" property="id"/>
+        <result column="rule_code" property="ruleCode"/>
+        <result column="rule_name" property="ruleName"/>
+        <result column="module_code" property="moduleCode"/>
+        <result column="description" property="description"/>
+        <result column="separator" property="separator"/>
+        <result column="current_value" property="currentValue"/>
+        <result column="is_enabled" property="isEnabled"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <collection property="segments" ofType="com.erp.system.vo.SysCodeRuleVO$SegmentVO">
+            <id column="seg_id" property="id"/>
+            <result column="seg_rule_id" property="ruleId"/>
+            <result column="seg_type" property="segmentType"/>
+            <result column="seg_order" property="segmentOrder"/>
+            <result column="seg_value" property="segmentValue"/>
+            <result column="seg_length" property="segmentLength"/>
+            <result column="seg_format" property="segmentFormat"/>
+        </collection>
+    </resultMap>
+
+    <!-- ==================== 联查主从表 ==================== -->
+    <select id="selectRuleWithSegments" resultMap="RuleWithSegmentsResultMap">
+        SELECT
+            r.id          AS rule_id,
+            r.rule_code   AS rule_code,
+            r.rule_name   AS rule_name,
+            r.module_code AS module_code,
+            r.description AS description,
+            r.separator   AS separator,
+            r.current_value AS current_value,
+            r.is_enabled  AS is_enabled,
+            r.create_time AS create_time,
+            r.update_time AS update_time,
+            s.id          AS seg_id,
+            s.rule_id     AS seg_rule_id,
+            s.segment_type   AS seg_type,
+            s.segment_order  AS seg_order,
+            s.segment_value  AS seg_value,
+            s.segment_length AS seg_length,
+            s.segment_format AS seg_format
+        FROM sys_code_rule r
+        LEFT JOIN sys_code_rule_segment s ON r.id = s.rule_id AND s.is_deleted = 0
+        WHERE r.id = #{ruleId}
+          AND r.is_deleted = 0
+        ORDER BY s.segment_order ASC
+    </select>
+
+    <!-- ==================== 按规则编码查询 ==================== -->
+    <select id="selectByRuleCode" resultMap="BaseResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM sys_code_rule
+        WHERE rule_code = #{ruleCode}
+          AND is_deleted = 0
+    </select>
+
+    <!-- ==================== 乐观锁更新 current_value ==================== -->
+    <update id="updateCurrentVersion">
+        UPDATE sys_code_rule
+        SET current_value = #{newValue}
+        WHERE id = #{id}
+          AND current_value = #{oldValue}
+    </update>
+
+</mapper>
