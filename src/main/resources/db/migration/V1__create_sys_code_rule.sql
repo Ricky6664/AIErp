@@ -1,6 +1,6 @@
 -- ============================================================
 -- ERP AI 智能管理系统 - 编码规则配置表 DDL
--- 任务: P0-001-005-001-001-001, P0-001-005-001-002-001
+-- 任务: P0-001-005-001-001-001, P0-001-005-001-001-002, P0-001-005-001-002-001, P0-001-005-001-002-002
 -- 描述: 创建 sys_code_rule 主表和 sys_code_rule_segment 从表
 -- 数据库: PostgreSQL 15+
 -- ============================================================
@@ -75,6 +75,9 @@ CREATE TABLE sys_code_rule_segment (
 
 -- 外键关联索引
 CREATE INDEX idx_segment_order ON sys_code_rule_segment(rule_id, segment_order);
+
+-- 唯一部分索引（防止同规则同租户下段排序重复）
+CREATE UNIQUE INDEX uk_segment_rule_order ON sys_code_rule_segment(rule_id, segment_order, tenant_id) WHERE is_deleted = FALSE;
 
 COMMENT ON TABLE sys_code_rule_segment IS '编码规则段配置表';
 COMMENT ON COLUMN sys_code_rule_segment.id IS '主键ID';
