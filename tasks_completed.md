@@ -219,7 +219,7 @@
 | P0-001-007-001-001-002 | 添加索引与约束 | 2026-05-30T18:30 | ✅ | V3__create_sys_param.sql新增COMMENT ON CONSTRAINT/INDEX 4条+索引清单与约束说明注释块,验证:uk_category_key含tenant_id+部分索引排除软删除+mvn compile通过 | 81f08a73 |
 | P0-001-006-004-001-002 | 实现新增修改删除方法 | 2026-05-30T19:00 | ✅ | SysDataViewController.java CREATE/UPDATE/DELETE方法已就位(已由P0-001-006-004-002-002实现),@RequirePermission+@Operation齐全,接口路径/api/system/data-views符合RESTful规范,mvn compile通过 | (验证任务) |
 | P0-001-006-004-001-003 | 实现查询方法 | 2026-05-30T20:00 | ✅ | SysDataViewController.java查询方法全部就位:POST/{viewCode}/execute(@OperLog)+GET/{viewCode}/meta+getById+pageList,SysDataViewServiceImpl.executeView+getViewMeta完整实现,@RequirePermission+@Operation齐全,mvn compile通过 | 3589b755 |
-| P0-001-007-001-002-002 | 执行DDL脚本 | 2026-05-30T21:00 | ✅ | 验证V3__create_sys_param.sql完整:CREATE TABLE sys_param(9业务字段+10通用字段)+唯一索引uk_category_key(含tenant_id部分索引)+idx_category+idx_sys_param_tenant+全套COMMENT+回滚脚本,mvn compile BUILD SUCCESS | 4f0408af |
+| P0-001-007-001-002-002 | 执行DDL脚本 | 2026-05-30T21:00 | ✅ | 验证V3__create_sys_param.sql完整:CREATE TABLE sys_param(9业务字段+10通用字段)+唯一索引uk_category_key(含tenant_id部分索引)+idx_category+idx_sys_param_tenant+全套COMMENT+回滚脚本,mvn compile BUILD SUCCESS | 1d61228f |
 
 ---
 
