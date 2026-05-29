@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：56 条
+> **归档总数**：57 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -87,6 +87,7 @@
 | P0-001-002-002-002-002 | 实现静态工厂方法 | 2026-05-29T15:57 | ✅ | 验证PageResult<T>静态工厂方法完整:of(IPage<T>)转换MyBatis-Plus分页+of(List,total,pageNum,pageSize)手动构建+empty()空分页+@JsonInclude(NON_NULL)+字段(list/total/pageNum/pageSize/pages)齐全,前序任务已完整实现,mvn compile BUILD SUCCESS | fc34731f |
 | P0-001-002-002-002-003 | 编写单元测试 | 2026-05-29T16:01 | ✅ | 创建PageResultTest(34个测试全PASS):覆盖of(IPage)转换5项+of手动构建7项+empty()4项+字段Getter/Setter3项+@JsonInclude(NON_NULL)JSON序列化5项+Serializable序列化3项+类结构验证5项+RT组合2项,mvn test BUILD SUCCESS | 8009a101 |
 | P0-001-002-003-001-001 | 引入Hibernate Validator依赖配置MethodArgumentNotValidException全局捕获处理器 | 2026-05-29T16:11 | ✅ | pom.xml新增spring-boot-starter-validation依赖+创建ValidationError.java(field/message/rejectedValue+@JsonInclude(NON_NULL)+Serializable)+改造GlobalExceptionHandler(MethodArgumentNotValidException/BindException/ConstraintViolationException三类校验异常提取FieldError转List<ValidationError>返回RT<30001,参数校验失败>.data(errorList))+extractFieldName从ConstraintViolation路径提取字段名+30项单元测试全PASS(ValidationErrorTest 20项+GlobalExceptionHandlerValidationTest 10项),mvn compile BUILD SUCCESS | fab7724c |
+| P0-001-002-003-001-002 | 验证字段级校验 | 2026-05-29T16:16 | ✅ | 新增@Phone/@IdCard自定义校验注解+PhoneValidator/IdCardValidator(ConstraintValidator实现)+CustomValidationAnnotationTest(20项全PASS:@Phone合法/非法/null/空值+@IdCard 18位/15位/X/非法/null+Handler集成code=30001)+验证pom.xml validation依赖+GlobalExceptionHandler三类校验异常处理+ErrorCode.PARAM_INVALID(30001)全链路通过,mvn compile+test 50/50 PASS |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -112,10 +113,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 55 | 0 | 2.56% |
+| P0 | 14 | 2,147 | 56 | 0 | 2.61% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **55** | **0** | **1.17%** |
+| **合计** | **46** | **4,716** | **56** | **0** | **1.19%** |
 
 ---
 
