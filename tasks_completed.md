@@ -155,6 +155,7 @@
 | P0-001-005-003-003-003 | 验证编码预览 | 2026-05-30T00:10 | ✅ | 验证CodePreviewService.java预览逻辑正确:预览模式解析所有段不消耗序列号(SequenceSegmentParser返回X占位符)+自定义变量+分隔符拼接+null规则/空段异常处理,修复SequenceSegmentParserTest预览测试期望值(00001→XXXXX),47/47 codegen测试全PASS,mvn compile BUILD SUCCESS | 7ab1fe83 |
 | P0-001-005-003-004-001 | 实现编码生成逻辑 | 2026-05-30 | ✅ | 创建CodeGenerateService.java(Redis分布式锁code:lock:{ruleCode} 3s超时+规则加载+段排序+parser拼接+Redis INCR序列号日重置+finally释放锁+3次重试抛BusinessException),mvn compile BUILD SUCCESS | bde51146 |
 | P0-001-005-003-004-002 | 实现编码生成核心逻辑 | 2026-05-30 | ✅ | CodeGenerateService.java已在001任务中完整实现(分布式锁+规则加载+段排序+parser拼接+INCR序列号+重试),mvn compile BUILD SUCCESS,核心逻辑全部就绪 | bde51146 |
+| P0-001-005-003-004-003 | 验证编码生成 | 2026-05-30T00:17 | ✅ | 创建CodeGenerateServiceTest.java(24项全PASS):Redis分布式锁验证(5项)+编码生成逻辑验证(6项)+序列号key格式与日重置验证(5项)+失败重试验证(5项)+综合场景验证(3项),mvn compile BUILD SUCCESS,CodeGenerateService验收标准全部通过 | (pending) |
 
 ### 写入格式（工人必须严格遵守）
 **每条任务完成记录**（一行一条）：
