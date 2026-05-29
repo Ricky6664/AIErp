@@ -133,6 +133,7 @@
 | P0-001-004-003-002-002 | 实现强制下线会话超时续期 | 2026-05-29T21:00 | ✅ | 验证SessionService 4个方法(forceLogout→logoutByTokenValue/renewSession→renewTimeout/getCurrentUser→getSession/listOnline→searchSessionId)全部实现且编译通过 | <pending> |
 | P0-001-004-003-002-003 | 验证会话管理 | 2026-05-29T21:10 | ✅ | 验证SessionService 4个方法,发现并修复buildLoginUserVO token作用域Bug,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-005-001-003-003 | 验证索引与约束 | 2026-05-29T23:59 | ✅ | 验证V1__create_sys_code_rule.sql DDL完整:sys_code_rule(17字段)+sys_code_rule_segment(16字段)+uk_rule_module部分唯一索引(rule_code,tenant_id)+idx_segment_order(rule_id,segment_order)+uk_segment_rule_order(rule_id,segment_order,tenant_id)+全局规范字段命名验证+易错警示3项全部通过,mvn compile通过 | (pending) |
+| P0-001-005-002-001-001 | 定义Entity类 | 2026-05-29T21:16 | ✅ | 创建BaseEntity基类(11个通用字段+@TableLogic+@Version)+SysCodeRule实体(7业务字段)+SysCodeRuleSegment实体(6业务字段)+SysCodeRuleDTO(含CreateDTO/UpdateDTO/QueryDTO/SegmentDTO)+SysCodeRuleVO(含ListVO/DetailVO/SegmentVO),mvn compile BUILD SUCCESS (75 source files) | (pending) |
 
 
 ### 写入格式（工人必须严格遵守）
