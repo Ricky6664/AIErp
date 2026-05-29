@@ -90,7 +90,7 @@
 | P0-001-002-003-001-002 | 验证字段级校验 | 2026-05-29T16:16 | ✅ | 新增@Phone/@IdCard自定义校验注解+PhoneValidator/IdCardValidator(ConstraintValidator实现)+CustomValidationAnnotationTest(20项全PASS:@Phone合法/非法/null/空值+@IdCard 18位/15位/X/非法/null+Handler集成code=30001)+验证pom.xml validation依赖+GlobalExceptionHandler三类校验异常处理+ErrorCode.PARAM_INVALID(30001)全链路通过,mvn compile+test 50/50 PASS | c1cca8ec |
 | P0-001-002-003-002-001 | 定义注解元数据 | 2026-05-29T16:30 | ✅ | 新增@EnumValue(enumClass+method+@Repeatable)/EnumValueValidator(反射枚举值校验)+@NotEmptyList/NotEmptyListValidator(Collection非空校验)+Phone/IdCard i18n消息键化+messages.properties/messages_en_US.properties国际化配置,mvn compile BUILD SUCCESS | d95f5db4 |
 | P0-001-002-003-002-002 | 实现注解处理器 | 2026-05-29T16:42 | ✅ | 验证@Phone/@IdCard/@EnumValue/@NotEmptyList四个自定义注解+对应ConstraintValidator全部就位,所有注解@Target(FIELD/PARAMETER)+@Retention(RUNTIME)+i18n消息键化,CustomValidationAnnotationTest 20项全PASS,mvn compile BUILD SUCCESS | 3974dbc1 |
-| P0-001-003-001-001-001 | 定义@Configuration配置类@Bean注册方式 | 2026-05-29T17:00 | ✅ | 创建DataSourceConfig.java(@Configuration+@Bean DataSource)+HikariCP连接池7项参数(最小空闲5/最大20/空闲超时300000/最大生命周期1200000/连接超时30000/池名ErpHikariPool/泄露检测60000)+application-dev.yml添加hikari配置块,mvn compile BUILD SUCCESS | bb9c6a37 |
+| P0-001-003-001-001-001 | 定义@Configuration配置类@Bean注册方式 | 2026-05-29T17:00 | ✅ | 创建DataSourceConfig.java(@Configuration+@Bean DataSource)+HikariCP连接池7项参数(最小空闲5/最大20/空闲超时300000/最大生命周期1200000/连接超时30000/池名ErpHikariPool/泄露检测60000)+application-dev.yml添加hikari配置块,mvn compile BUILD SUCCESS | 93cd22c1 |
 
 ### 写入格式（工人必须严格遵守）
 
