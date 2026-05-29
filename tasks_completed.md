@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：111 条
+> **归档总数**：112 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -200,6 +200,7 @@
 
 | P0-001-006-002-003-002 | 实现ServiceImpl | 2026-05-30T00:05 | ✅ | SysDataViewServiceImpl.java实现(getViewMeta视图元数据+executeView动态SQL查询+validateSourceSql白名单+deleteFieldsByViewId级联删除+escapeFieldName转义),mvn compile通过 | dc88b0a9 |
 | P0-001-006-002-003-003 | 业务校验逻辑 | 2026-05-30T10:10 | ✅ | 验证SysDataViewService/SysDataViewServiceImpl业务校验逻辑:SQL白名单12关键字+字段双引号转义+分页≤100+默认create_time DESC+viewCode唯一性+SELECT/FROM必含+级联删除+getViewMeta/executeView,全7项验收通过,mvn compile通过 | (验证任务) |
+| P0-001-006-003-001-001 | 实现SQL动态构建 | 2026-05-30T10:30 | ✅ | DataViewSqlBuilder.java(@Component):buildSelectSql(viewId,queryParams)主方法+SQL白名单校验+动态WHERE(=,LIKE,BETWEEN)+PostgreSQL双引号转义+is_deleted=FALSE+pageSize≤100,mvn compile通过 | 6e6bf46e |
 
 ---
 
@@ -207,10 +208,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 110 | 2 | 5.12% |
+| P0 | 14 | 2,147 | 111 | 2 | 5.17% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **109** | **2** | **2.31%** |
+| **合计** | **46** | **4,716** | **110** | **2** | **2.33%** |
 
 ---
 
