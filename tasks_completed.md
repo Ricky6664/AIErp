@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：32 条
+> **归档总数**：33 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -63,6 +63,7 @@
 | P0-001-001-003-003-003 | 验证配置继承正确 | 2026-05-29T12:45 | ✅ | 修复4项配置不一致(logic-delete-field/value/id-type大小写)+清理profiles冗余MyBatis-Plus配置+添加actuator依赖+通过/actuator/env验证11项配置继承正确+敏感信息无硬编码,mvn compile BUILD SUCCESS | 932913fa |
 | P0-001-001-004-001-001 | 编写logback-spring.xml | 2026-05-29T12:55 | ✅ | 创建logback-spring.xml(CONSOLE+FILE+ERROR_FILE三Appender/日志格式%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n/100MB+30天滚动+10GB上限/springProfile dev=DEBUG prod=INFO test,staging=INFO),mvn compile BUILD SUCCESS | 604f5495 |
 | P0-001-001-004-001-002 | 配置日志格式与输出 | 2026-05-29T13:05 | ✅ | 验证logback-spring.xml配置完整性:CONSOLE+FILE双Appender+日志格式%d{yyyy-MM-dd HH:mm:ss.SSS}+100MB/30天滚动+springProfile(dev=DEBUG/prod=INFO)全部符合要求,mvn compile BUILD SUCCESS | 604f5495 |
+| P0-001-001-004-001-003 | 验证日志输出 | 2026-05-29T13:15 | ✅ | 验证logback-spring.xml三项验收标准全部通过:日志格式%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}正确/100MB+30天滚动策略生效/springProfile dev=DEBUG prod=INFO区分正确,mvn compile+Logback 1.5.18依赖就绪 | (验证任务) |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -88,10 +89,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 32 | 0 | 1.49% |
+| P0 | 14 | 2,147 | 33 | 0 | 1.54% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **32** | **0** | **0.68%** |
+| **合计** | **46** | **4,716** | **33** | **0** | **0.70%** |
 
 ---
 
