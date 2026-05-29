@@ -145,6 +145,7 @@
 | P0-001-005-003-001-001 | 实现固定段日期段序列段自定义变量段解析器 | 2026-05-29T14:00 | ✅ | 创建SegmentParser接口+4个实现(FixedSegmentParser固定字符串/DateSegmentParser DateTimeFormatter/SequenceSegmentParser左补零+SequenceGenerator接口/VariableSegmentParser上下文Map)+SegmentParserFactory路由+SegmentParseContext上下文,mvn compile通过 | (pending) |
 | P0-001-005-003-001-002 | 实现段解析器核心逻辑 | 2026-05-29T14:30 | ✅ | DateSegmentParser新增DateTimeFormatter缓存+格式校验BusinessException/SequenceSegmentParser新增3次重试(50ms递增)全失败抛BusinessException/SegmentParserFactory路由未知类型抛BusinessException,mvn compile通过 | 4408a5b8 |
 | P0-001-005-003-001-003 | 验证各段解析 | 2026-05-29T22:56 | ✅ | SegmentParserVerificationTest(22项全PASS固定段+日期段+变量段+工厂路由)+SequenceSegmentParserTest(9项全PASS默认位数+预览模式+重试+重试耗尽抛异常),31/31 PASS,mvn compile通过 | 2e1ce949 |
+| P0-001-005-003-002-001 | 实现Redis INCR分布式自增 | 2026-05-29T23:08 | ✅ | SequenceGenerator:Redis INCR原子自增(key=code:seq:{ruleCode}:{yyyyMMdd},EX=86400)+分布式锁(key=code:lock:{ruleCode})+DB乐观锁降级(updateCurrentVersion重试3次)+getNext补零;SequenceSegmentParserTest 9/9 PASS,mvn compile通过 | SHA_PLACEHOLDER |
 
 
 ### 写入格式（工人必须严格遵守）
