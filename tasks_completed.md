@@ -237,7 +237,7 @@
 | P0-001-008-001-001-003 | 验证文件上传 | 2026-05-30T15:00 | ✅ | FileUploadServiceVerificationTest(17项全PASS):扩展名黑名单(exe/bat/sh/cmd)5项+MIME魔数白名单(JPEG/PNG/PDF)4项+文件大小校验(空/null/超大/边界)4项+成功上传流程(UUID格式/日期目录/FileVO完整字段/sys_file元数据)4项;修复BusinessException args被框架静默丢弃问题,mvn compile+test 171/171 PASS | (pending) |
 | P0-001-008-001-002-001 | 实现文件下载逻辑 | 2026-05-30T07:05 | ✅ | FileDownloadService.java(@Service):download(fileId,response)查sys_file元数据+校验文件存在可读+Content-Type(MIME)/Content-Disposition(attachment)/Content-Length响应头+StreamingResponseBody流式输出(8KB缓冲防OOM)+Range断点续传(206 Partial Content/RandomAccessFile seek)+下载计数自增,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-008-001-002-002 | 实现文件下载核心逻辑 | 2026-05-30T07:08 | ✅ | FileDownloadService.handleFullDownload重构为BufferedInputStream直接流式输出(移除冗余StreamingResponseBody同步包装),handleRangeDownload保留RandomAccessFile断点续传,mvn compile BUILD SUCCESS | (pending) |
-| P0-001-008-001-002-003 | 验证文件下载 | 2026-05-30T07:15 | ✅ | FileDownloadServiceVerificationTest(16项全PASS):参数校验(非法fileId)+文件不存在(DB/磁盘)+全量下载(Content-Type/Content-Disposition/Content-Length/内容一致性/计数递增/null MIME/中文文件名)+Range断点续传(206/Content-Range/部分内容/416 unsatisfiable/start-only),mvn test 16/16 PASS | (待提交) |
+| P0-001-008-001-002-003 | 验证文件下载 | 2026-05-30T07:15 | ✅ | FileDownloadServiceVerificationTest(16项全PASS):参数校验(非法fileId)+文件不存在(DB/磁盘)+全量下载(Content-Type/Content-Disposition/Content-Length/内容一致性/计数递增/null MIME/中文文件名)+Range断点续传(206/Content-Range/部分内容/416 unsatisfiable/start-only),mvn test 16/16 PASS | 81d2e1d8 |
 
 ---
 
