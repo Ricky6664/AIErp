@@ -34,7 +34,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface IdCard {
 
-    String message() default "身份证号格式不正确";
+    String message() default "{validation.idcard.invalid}";
 
     Class<?>[] groups() default {};
 
