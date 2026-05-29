@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：27 条
+> **归档总数**：28 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -58,6 +58,7 @@
 | P0-001-001-003-002-003 | 配置安全加固 | 2026-05-29T11:04 | ✅ | application-prod.yml安全加固验证:server.port=8080/敏感配置全部${DB_PASSWORD}/${REDIS_PASSWORD}/${JWT_SECRET}环境变量注入/logging.com.erp=WARN/Swagger关闭/NoLoggingImpl,ProdConfigValidationTest 10/10 PASS,mvn compile+test BUILD SUCCESS | f1fb3150 |
 | P0-001-001-003-003-001-001 | 配置MyBatis-Plus全局项 | 2026-05-29T11:15 | ✅ | application.yml添加MyBatis-Plus全局配置(id-type=ASSIGN_ID/logic-delete-field=isDeleted/logic-delete-value=1/map-underscore-to-camel-case=true/cache-enabled=false),mvn compile BUILD SUCCESS | e9bbd1c2 |
 | P0-001-001-003-003-001-002 | 配置Sa-Token全局项 | 2026-05-29T12:00 | ✅ | application.yml添加Sa-Token全局配置(token-name=satoken/timeout=2592000/active-timeout=1800/is-concurrent=true/is-share=true/token-style=uuid/is-log=false),mvn compile BUILD SUCCESS | 7cf63892 |
+| P0-001-001-003-003-001-003 | 配置文件上传编码规则分页默认值 | 2026-05-29T12:25 | ✅ | application.yml添加spring.servlet.multipart(max-file-size=10MB/max-request-size=100MB)+file.upload(allowed-types/path)+page(default-size=20/max-size=100),mvn compile BUILD SUCCESS | (待提交) |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -83,10 +84,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 27 | 0 | 1.26% |
+| P0 | 14 | 2,147 | 28 | 0 | 1.30% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **27** | **0** | **0.57%** |
+| **合计** | **46** | **4,716** | **28** | **0** | **0.59%** |
 
 ---
 

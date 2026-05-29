@@ -6,12 +6,33 @@ spring:
     active: dev
   main:
     banner-mode: console
+  servlet:
+    multipart:
+      # 单文件最大上传大小
+      max-file-size: 10MB
+      # 单次请求最大上传大小
+      max-request-size: 100MB
   devtools:
     restart:
       enabled: true
       additional-paths: src/main/java
     livereload:
       enabled: true
+
+# ---- 文件上传公共配置 ----
+file:
+  upload:
+    # 允许的 MIME 类型白名单（逗号分隔）
+    allowed-types: image/jpeg,image/png,application/pdf,application/vnd.ms-excel
+    # 文件上传存储根路径
+    path: /data/erp/upload
+
+# ---- 分页默认值配置 ----
+page:
+  # 默认每页条数
+  default-size: 20
+  # 每页最大条数
+  max-size: 100
 
 # ---- MyBatis-Plus 全局配置（环境无关公共项） ----
 mybatis-plus:
