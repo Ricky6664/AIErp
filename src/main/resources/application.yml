@@ -45,12 +45,14 @@ page:
 
 # ---- MyBatis-Plus 全局配置（环境无关公共项） ----
 mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.erp.entity
   global-config:
     db-config:
       id-type: ASSIGN_ID
       logic-delete-field: isDeleted
-      logic-delete-value: 1
-      logic-not-delete-value: 0
+      logic-delete-value: true
+      logic-not-delete-value: false
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false

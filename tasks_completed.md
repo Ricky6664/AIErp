@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：29 条
+> **归档总数**：30 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -60,6 +60,7 @@
 | P0-001-001-003-003-001-002 | 配置Sa-Token全局项 | 2026-05-29T12:00 | ✅ | application.yml添加Sa-Token全局配置(token-name=satoken/timeout=2592000/active-timeout=1800/is-concurrent=true/is-share=true/token-style=uuid/is-log=false),mvn compile BUILD SUCCESS | 7cf63892 |
 | P0-001-001-003-003-001-003 | 配置文件上传编码规则分页默认值 | 2026-05-29T12:25 | ✅ | application.yml添加spring.servlet.multipart(max-file-size=10MB/max-request-size=100MB)+file.upload(allowed-types/path)+page(default-size=20/max-size=100),mvn compile BUILD SUCCESS | 9fe5387c |
 | P0-001-001-003-003-002 | 抽取公共配置到application.yml | 2026-05-29T12:30 | ✅ | application.yml抽取5项公共配置:profiles.active=${SPRING_PROFILES_ACTIVE:dev}/application.name=erp-ai/server.servlet.context-path=/api/jackson.date-format=yyyy-MM-dd HH:mm:ss/jackson.time-zone=GMT+8,清理4个profile文件冲突context-path,mvn compile BUILD SUCCESS | 5658bc98 |
+| P0-001-001-003-003-003 | 验证配置继承正确 | 2026-05-29T12:45 | ✅ | 修复4项配置不一致(logic-delete-field/value/id-type大小写)+清理profiles冗余MyBatis-Plus配置+添加actuator依赖+通过/actuator/env验证11项配置继承正确+敏感信息无硬编码,mvn compile BUILD SUCCESS | (待提交) |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -85,10 +86,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 29 | 0 | 1.35% |
+| P0 | 14 | 2,147 | 30 | 0 | 1.40% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **29** | **0** | **0.61%** |
+| **合计** | **46** | **4,716** | **30** | **0** | **0.64%** |
 
 ---
 

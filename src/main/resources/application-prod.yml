@@ -43,19 +43,9 @@ spring:
   jwt:
     secret: ${JWT_SECRET}
 
-# ---- MyBatis-Plus 配置 ----
+# ---- MyBatis-Plus 环境覆盖项（生产级日志实现, 其余继承 application.yml） ----
 mybatis-plus:
-  mapper-locations: classpath*:mapper/**/*.xml
-  type-aliases-package: com.erp.entity
-  global-config:
-    db-config:
-      id-type: assign_id
-      logic-delete-field: is_deleted
-      logic-delete-value: true
-      logic-not-delete-value: false
   configuration:
-    map-underscore-to-camel-case: true
-    cache-enabled: true
     log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
 
 # ---- Swagger/Knife4j 文档配置 (生产环境关闭) ----

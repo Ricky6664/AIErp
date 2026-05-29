@@ -29,19 +29,10 @@ spring:
           min-idle: 5
           max-wait: 3000ms
 
-# ---- MyBatis-Plus 配置 ----
+# ---- MyBatis-Plus 环境覆盖项（生产级日志实现, 其余继承 application.yml） ----
 mybatis-plus:
-  mapper-locations: classpath*:mapper/**/*.xml
-  type-aliases-package: com.erp.entity
-  global-config:
-    db-config:
-      id-type: assign_id
-      logic-delete-field: is_deleted
-      logic-delete-value: true
-      logic-not-delete-value: false
   configuration:
-    map-underscore-to-camel-case: true
-    cache-enabled: true
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
 
 # ---- Swagger/Knife4j 文档配置 (测试环境关闭) ----
 springdoc:

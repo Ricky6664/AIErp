@@ -138,6 +138,12 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- Spring Boot Actuator (配置验证与运行时监控) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<!-- Spring Boot Configuration Processor (配置元数据生成, 可选) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
