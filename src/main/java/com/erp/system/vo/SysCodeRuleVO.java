@@ -27,6 +27,8 @@ public class SysCodeRuleVO {
 
         private Integer isEnabled;
 
+        private String isEnabledName;
+
         private String description;
 
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -51,6 +53,8 @@ public class SysCodeRuleVO {
 
         private Integer isEnabled;
 
+        private String isEnabledName;
+
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private LocalDateTime createTime;
 
@@ -67,6 +71,8 @@ public class SysCodeRuleVO {
         private Long ruleId;
 
         private Integer segmentType;
+
+        private String segmentTypeName;
 
         private Integer segmentOrder;
 
