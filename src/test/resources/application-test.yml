@@ -1,0 +1,35 @@
+# ============================================================
+# ERP AI - Test profile override (src/test/resources/application-test.yml)
+# ============================================================
+# 覆盖主 application-test.yml 中的 PostgreSQL 配置, 使用 H2 内存数据库
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:erp_test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
+    username: sa
+    password:
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 5
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      connection-timeout: 30000
+      pool-name: ErpTestHikariPool
+      leak-detection-threshold: 0
+  sql:
+    init:
+      mode: never
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+
+logging:
+  level:
+    root: WARN
+    com.erp: WARN

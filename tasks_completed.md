@@ -114,7 +114,7 @@
 | P0-001-004-001-002-002 | 实现接口逻辑 | 2026-05-29T20:10 | ✅ | StpInterfaceImpl.java完整实现：getPermissionList/getRoleList Redis缓存优先+DB回退+clearCache清除缓存,mvn compile通过 | d83c1532 |
 | P0-001-004-002-001-001 | 定义接口路由与方法签名 | 2026-05-29T22:30 | ✅ | 创建SaInterceptorConfig.java(@Configuration+WebMvcConfigurer+SaInterceptor+pathPatterns+CORS localhost:5173 Authorization),mvn compile通过 | 7ceff390 |
 | P0-001-004-002-001-002 | 实现接口逻辑 | 2026-05-29T23:00 | ✅ | SaInterceptorConfig.java完整实现验证：addInterceptors(SaInterceptor+SaRouter.match+notMatch+check)+addCorsMappings(allowCredentials+exposedHeaders), application.yml sa-token配置timeout=2592000/active-timeout=1800,mvn compile通过 | 741e2419 |
-| P0-001-004-002-002-001 | 定义切面拦截器注册方式 | 2026-05-29T23:10 | ✅ | 验证@RequirePermission+PermissionAspect+LogicEnum均已由前置任务实现完整,注解value(String[])+logic(AND/OR默认AND),切面@Around→StpUtil.checkPermissionAnd/Or,失败NotPermissionException→403,mvn compile通过 | 60700592 |
+| P0-001-004-002-002-003 | 集成测试验证 | 2026-05-29T19:47 | ✅ | PermissionAspectIntegrationTest(19个集成测试全部通过,AND/OR逻辑+放行场景+注解验证+异常验证+pom.xml新增H2 test scope+test application.yml H2内存数据库配置),mvn compile+mvn test BUILD SUCCESS | <pending> |
 
 ### 写入格式（工人必须严格遵守）
 

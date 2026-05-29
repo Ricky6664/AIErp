@@ -1,0 +1,34 @@
+# ============================================================
+# ERP AI - Test configuration (src/test/resources/application.yml)
+# ============================================================
+# 覆盖主 application.yml 中的数据库配置, 使用 H2 内存数据库
+
+spring:
+  profiles:
+    active: test
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:erp_test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
+    username: sa
+    password:
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 5
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      connection-timeout: 30000
+      pool-name: ErpTestHikariPool
+      leak-detection-threshold: 0
+  sql:
+    init:
+      mode: never
+
+# 关闭不需要的自动配置
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+
+logging:
+  level:
+    root: WARN
+    com.erp: WARN
