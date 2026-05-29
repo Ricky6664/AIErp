@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：97 条
+> **归档总数**：98 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -156,6 +156,7 @@
 | P0-001-005-003-004-001 | 实现编码生成逻辑 | 2026-05-30 | ✅ | 创建CodeGenerateService.java(Redis分布式锁code:lock:{ruleCode} 3s超时+规则加载+段排序+parser拼接+Redis INCR序列号日重置+finally释放锁+3次重试抛BusinessException),mvn compile BUILD SUCCESS | bde51146 |
 | P0-001-005-003-004-002 | 实现编码生成核心逻辑 | 2026-05-30 | ✅ | CodeGenerateService.java已在001任务中完整实现(分布式锁+规则加载+段排序+parser拼接+INCR序列号+重试),mvn compile BUILD SUCCESS,核心逻辑全部就绪 | bde51146 |
 | P0-001-005-003-004-003 | 验证编码生成 | 2026-05-30T00:17 | ✅ | 创建CodeGenerateServiceTest.java(24项全PASS):Redis分布式锁验证(5项)+编码生成逻辑验证(6项)+序列号key格式与日重置验证(5项)+失败重试验证(5项)+综合场景验证(3项),mvn compile BUILD SUCCESS,CodeGenerateService验收标准全部通过 | (pending) |
+| P0-001-005-004-001-001 | 定义接口路由与方法签名 | 2026-05-30T00:10 | ✅ | 创建SysCodeRuleController.java(@RestController @RequestMapping /api/system/code-rules):8个CRUD+预览+生成接口,所有方法@RequirePermission+@Operation注解齐全,RESTful路径规范,mvn compile BUILD SUCCESS | (pending) |
 
 ### 写入格式（工人必须严格遵守）
 **每条任务完成记录**（一行一条）：
@@ -180,10 +181,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 97 | 2 | 4.52% |
+| P0 | 14 | 2,147 | 98 | 2 | 4.56% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **97** | **2** | **2.06%** |
+| **合计** | **46** | **4,716** | **98** | **2** | **2.08%** |
 
 ---
 
