@@ -27,7 +27,7 @@ public class SequenceSegmentParser implements SegmentParser {
     public String parse(SegmentParseContext context) {
         int digits = context.getSegmentLength() != null ? context.getSegmentLength() : 4;
         if (context.isPreview()) {
-            return String.format("%0" + digits + "d", 1);
+            return "X".repeat(digits);
         }
         long seq = nextWithRetry(context.getRuleCode());
         return String.format("%0" + digits + "d", seq);
