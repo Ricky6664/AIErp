@@ -14,7 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -71,6 +73,7 @@ public abstract class SysCodeRuleService
     @Transactional(rollbackFor = Exception.class)
     public SysCodeRuleVO.DetailVO create(SysCodeRuleDTO.CreateDTO dto) {
         validateRuleCodeUnique(dto.getRuleCode(), null);
+        validateSegments(dto.getSegments());
         SysCodeRule entity = toEntity(dto);
         save(entity);
         batchSaveSegments(entity.getId(), dto.getSegments());
@@ -88,6 +91,7 @@ public abstract class SysCodeRuleService
         updateById(entity);
 
         if (dto.getSegments() != null) {
+            validateSegments(dto.getSegments());
             deleteSegmentsByRuleId(id);
             batchSaveSegments(id, dto.getSegments());
         }
@@ -117,7 +121,7 @@ public abstract class SysCodeRuleService
 
     // ========== Segment 辅助方法 ==========
 
-    private void batchSaveSegments(Long ruleId, List<SysCodeRuleDTO.SegmentDTO> segmentDTOs) {
+    protected void batchSaveSegments(Long ruleId, List<SysCodeRuleDTO.SegmentDTO> segmentDTOs) {
         if (segmentDTOs == null || segmentDTOs.isEmpty()) {
             return;
         }
@@ -131,13 +135,13 @@ public abstract class SysCodeRuleService
         segmentMapper.insertBatch(segments, 50);
     }
 
-    private void deleteSegmentsByRuleId(Long ruleId) {
+    protected void deleteSegmentsByRuleId(Long ruleId) {
         LambdaQueryWrapper<SysCodeRuleSegment> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(SysCodeRuleSegment::getRuleId, ruleId);
         segmentMapper.delete(wrapper);
     }
 
-    private List<SysCodeRuleVO.SegmentVO> querySegmentsByRuleId(Long ruleId) {
+    protected List<SysCodeRuleVO.SegmentVO> querySegmentsByRuleId(Long ruleId) {
         LambdaQueryWrapper<SysCodeRuleSegment> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(SysCodeRuleSegment::getRuleId, ruleId);
         wrapper.orderByAsc(SysCodeRuleSegment::getSegmentOrder);
@@ -162,6 +166,40 @@ public abstract class SysCodeRuleService
         }
         if (getBaseMapper().selectCount(wrapper) > 0) {
             throw new BusinessException(ErrorCode.DATA_ALREADY_EXISTS, "规则编码已存在: " + ruleCode);
+        }
+    }
+
+    // ========== 段数据校验 ==========
+
+    private static final Set<Integer> VALID_SEGMENT_TYPES = Set.of(1, 2, 3, 4);
+
+    protected void validateSegments(List<SysCodeRuleDTO.SegmentDTO> segments) {
+        if (segments == null || segments.isEmpty()) {
+            throw new BusinessException(ErrorCode.PARAM_MISSING, "编码段不能为空");
+        }
+        Set<Integer> orders = new HashSet<>();
+        for (int i = 0; i < segments.size(); i++) {
+            SysCodeRuleDTO.SegmentDTO seg = segments.get(i);
+            if (seg.getSegmentType() == null || !VALID_SEGMENT_TYPES.contains(seg.getSegmentType())) {
+                throw new BusinessException(ErrorCode.PARAM_INVALID,
+                        "编码段[" + i + "]类型无效: " + seg.getSegmentType());
+            }
+            if (seg.getSegmentOrder() == null) {
+                throw new BusinessException(ErrorCode.PARAM_MISSING,
+                        "编码段[" + i + "]排序号不能为空");
+            }
+            if (!orders.add(seg.getSegmentOrder())) {
+                throw new BusinessException(ErrorCode.PARAM_DUPLICATE,
+                        "编码段排序号重复: " + seg.getSegmentOrder());
+            }
+            if (seg.getSegmentType() == 1 && (seg.getSegmentValue() == null || seg.getSegmentValue().isEmpty())) {
+                throw new BusinessException(ErrorCode.PARAM_MISSING,
+                        "固定段[" + i + "]的值不能为空");
+            }
+            if (seg.getSegmentType() == 3 && seg.getSegmentLength() == null) {
+                throw new BusinessException(ErrorCode.PARAM_MISSING,
+                        "序列段[" + i + "]的长度不能为空");
+            }
         }
     }
 

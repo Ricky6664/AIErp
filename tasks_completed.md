@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：89 条
+> **归档总数**：90 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -141,6 +141,7 @@
 | P0-001-005-002-002-003 | 编写自定义查询方法 | 2026-05-29T23:59 | ✅ | SysCodeRuleMapper自定义查询方法验证:selectRuleWithSegments联查+selectByRuleCode按编码查询+updateCurrentVersion乐观锁,前序任务代码已就位,mvn compile通过 | (验证任务) |
 | P0-001-005-002-003-001 | 定义Service接口 | 2026-05-29T12:00 | ✅ | SysCodeRuleService(BaseCrudService扩展:create/update+ruleCode唯一性校验+segment批量保存/delete级联删除+preview/generate/refreshCache抽象方法)+SysCodeRuleServiceImpl(Redis分布式锁+重试)+SysCodeRuleSegmentMapper,mvn compile通过 | 5dba5dc9 |
 | P0-001-005-002-003-002 | 实现ServiceImpl | 2026-05-29T12:30 | ✅ | SysCodeRuleServiceImpl验证完成:Redis分布式锁(code:lock:{ruleCode})+3次重试(100ms间隔)+BusinessException+refreshCache清除缓存+@Transactional写操作,框架就绪,编码生成逻辑待段解析器(P0-001-005-003)补充 | 31ddd74f |
+| P0-001-005-002-003-003 | 业务校验逻辑 | 2026-05-29T13:00 | ✅ | 段数据校验(validateSegments:类型1-4/排序去重/固定段值必填/序列段长度必填)+preview(查规则→查段→buildCode预览模式)+generate(分布式锁+3次重试+规则校验+Redis INCR序列生成+buildCode正式模式)+refreshCache(清除cache+seq),mvn compile通过 | 24ff9e21 |
 
 
 ### 写入格式（工人必须严格遵守）
