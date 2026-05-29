@@ -66,7 +66,7 @@
 | P0-001-001-004-001-003 | 验证日志输出 | 2026-05-29T13:15 | ✅ | 验证logback-spring.xml三项验收标准全部通过:日志格式%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}正确/100MB+30天滚动策略生效/springProfile dev=DEBUG prod=INFO区分正确,mvn compile+Logback 1.5.18依赖就绪 | (验证任务) |
 | P0-001-001-004-002-001 | 配置springProfile日志级别 | 2026-05-29T14:00 | ✅ | logback-spring.xml添加5个springProperty动态读取logging.level+配置com.erp/com.baomidou.mybatisplus/org.springframework.web/org.hibernate.SQL/io.undertow日志级别+4个application-*.yml同步更新logging.level,mvn compile BUILD SUCCESS | 301ffaae |
 | P0-001-001-004-002-002 | 配置动态日志级别 | 2026-05-29T13:40 | ✅ | 验证logback-spring.xml动态日志级别配置完整性:5个springProperty从application.yml读取(com.erp=DEBUG/INFO,com.baomidou.mybatisplus=WARN,org.springframework.web=INFO,org.hibernate.SQL=WARN,io.undertow=WARN)+application-dev.yml/prod.yml/test.yml/staging.yml日志级别配置正确,mvn compile BUILD SUCCESS | (验证任务) |
-| P0-001-001-004-002-003 | 验证日志级别生效 | 2026-05-29T13:47 | ✅ | 三阶段验收全部PASS:V1日志格式%d{yyyy-MM-dd HH:mm:ss.SSS}正确/V2滚动策略maxFileSize=100MB+maxHistory=30天/V3 springProfile dev+prod+test,staging三环境/V4 5个springProperty动态注入源+Logback 1.5.18 JoranConfigurator.doConfigure运行时加载无异常+application-dev.yml com.erp=DEBUG/application-prod.yml com.erp=INFO动态覆盖正确,mvn compile BUILD SUCCESS | (验证任务) |
+| P0-001-001-004-002-003 | 验证日志级别生效 | 2026-05-29T13:47 | ✅ | 三阶段验收全部PASS:V1日志格式%d{yyyy-MM-dd HH:mm:ss.SSS}正确/V2滚动策略maxFileSize=100MB+maxHistory=30天/V3 springProfile dev+prod+test,staging三环境/V4 5个springProperty动态注入源+Logback 1.5.18 JoranConfigurator.doConfigure运行时加载无异常+application-dev.yml com.erp=DEBUG/application-prod.yml com.erp=INFO动态覆盖正确,mvn compile BUILD SUCCESS | 0fc6c98e |
 
 ### 写入格式（工人必须严格遵守）
 
