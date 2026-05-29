@@ -1,5 +1,6 @@
 package com.erp.common.result;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,6 +37,7 @@ import java.io.Serializable;
  * @since 2026-05-29
  */
 @Schema(description = "统一响应包装对象")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -184,5 +186,18 @@ public class RT<T> implements Serializable {
      */
     public boolean isSuccess() {
         return this.code == 200;
+    }
+
+    /**
+     * 链式设置响应数据.
+     *
+     * <p>支持链式调用: {@code RT.ok().data(xxx)}</p>
+     *
+     * @param data 响应数据
+     * @return 当前实例(链式调用)
+     */
+    public RT<T> data(T data) {
+        this.data = data;
+        return this;
     }
 }
