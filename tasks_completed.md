@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：113 条
+> **归档总数**：114 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -202,6 +202,7 @@
 | P0-001-006-002-003-003 | 业务校验逻辑 | 2026-05-30T10:10 | ✅ | 验证SysDataViewService/SysDataViewServiceImpl业务校验逻辑:SQL白名单12关键字+字段双引号转义+分页≤100+默认create_time DESC+viewCode唯一性+SELECT/FROM必含+级联删除+getViewMeta/executeView,全7项验收通过,mvn compile通过 | (验证任务) |
 | P0-001-006-003-001-001 | 实现SQL动态构建 | 2026-05-30T10:30 | ✅ | DataViewSqlBuilder.java(@Component):buildSelectSql(viewId,queryParams)主方法+SQL白名单校验+动态WHERE(=,LIKE,BETWEEN)+PostgreSQL双引号转义+is_deleted=FALSE+pageSize≤100,mvn compile通过 | 6e6bf46e |
 | P0-001-006-003-001-002 | 实现SQL构建核心逻辑 | 2026-05-30T11:00 | ✅ | DataViewSqlBuilder.java核心逻辑完整(validateSqlWhitelist+validateSourceSql+escapeFieldName+resolveSortField+buildBetweenCondition),全3项验收通过,mvn compile通过 | (验证任务) |
+| P0-001-006-003-001-003 | 验证SQL构建 | 2026-05-30T11:35 | ✅ | DataViewSqlBuilderVerificationTest.java(34用例):SQL白名单11项+字段转义5项+分页排序7项+搜索类型4项+易错警示2项+边界2项+异常3项,发现并修复CREATE关键字词边界误判bug,mvn test通过 | 82ff6ca5 |
 
 ---
 
@@ -209,10 +210,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 112 | 2 | 5.21% |
+| P0 | 14 | 2,147 | 113 | 2 | 5.26% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **111** | **2** | **2.35%** |
+| **合计** | **46** | **4,716** | **113** | **2** | **2.39%** |
 
 ---
 
