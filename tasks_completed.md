@@ -93,7 +93,7 @@
 | P0-001-003-001-001-001 | 定义@Configuration配置类@Bean注册方式 | 2026-05-29T17:00 | ✅ | 创建DataSourceConfig.java(@Configuration+@Bean DataSource)+HikariCP连接池7项参数(最小空闲5/最大20/空闲超时300000/最大生命周期1200000/连接超时30000/池名ErpHikariPool/泄露检测60000)+application-dev.yml添加hikari配置块,mvn compile BUILD SUCCESS | 93cd22c1 |
 | P0-001-003-001-001-002 | 配置属性绑定 | 2026-05-29T17:10 | ✅ | 验证application-dev.yml HikariCP 7项配置属性全部正确绑定(前序任务已实现),mvn compile通过 | bb1ce616 |
 | P0-001-003-002-002-002 | 搜索字段组件渲染 | 2026-05-29T17:20 | ✅ | 创建QueryHelper.java通用查询条件构造器(buildLikeWrapper OR模糊查询+buildDateRangeWrapper日期范围+buildEnumWrapper枚举筛选+链式返回LambdaQueryWrapper),mvn compile通过 | 10f38f4d |
-| P0-001-003-002-001-001 | 定义Mapper接口 | 2026-05-29T17:40 | ✅ | 创建BaseMapperX.java扩展Mapper基类(继承BaseMapper<T>,提供selectPageByCondition/selectOneById/insertBatch/updateBatchById/deleteByIds 5个通用方法,基于MyBatis-Plus Db工具类实现批量操作),mvn compile通过 | TBD |
+| P0-001-003-002-001-001 | 定义Mapper接口 | 2026-05-29T17:40 | ✅ | 创建BaseMapperX.java扩展Mapper基类(继承BaseMapper<T>,提供selectPageByCondition/selectOneById/insertBatch/updateBatchById/deleteByIds 5个通用方法,基于MyBatis-Plus Db工具类实现批量操作),mvn compile通过 | 659d74c4 |
 
 ### 写入格式（工人必须严格遵守）
 
