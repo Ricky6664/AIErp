@@ -127,6 +127,7 @@
 | P0-001-005-001-003-001 | 编写CREATE INDEX语句 | 2026-05-29T22:30 | ✅ | 验证V1__create_sys_code_rule.sql DDL完整:uk_rule_module(rule_code,tenant_id)唯一索引+idx_segment_order(rule_id,segment_order)复合索引+uk_segment_rule_order唯一部分索引+所有字段注释+Flyway格式,mvn compile通过 | 44ca7b1c |
 | P0-001-005-001-003-002 | 执行DDL脚本 | 2026-05-29T23:00 | ✅ | 在erp_dev库执行V1__create_sys_code_rule.sql:sys_code_rule主表(17字段)+sys_code_rule_segment从表(16字段)+5个索引全部创建成功,information_schema验证通过 | 37efc091 |
 | P0-001-004-003-001-001 | 定义@Configuration配置类@Bean注册方式 | 2026-05-29T23:30 | ✅ | pom.xml新增sa-token-redis-jackson依赖(1.39.0)+application.yml新增Redis Lettuce连接池配置(max-active=8/max-idle=8/min-idle=0)+application-dev.yml对齐pool值 | 238676c5 |
+| P0-001-004-003-001-002 | 配置属性绑定 | 2026-05-29T23:45 | ✅ | 验证pom.xml sa-token-redis-jackson依赖(1.39.0)+application.yml Redis Lettuce连接池(max-active=8/max-idle=8/min-idle=0)+Jackson日期序列化(yyyy-MM-dd HH:mm:ss)+Sa-Token Redis存储自动生效,mvn compile BUILD SUCCESS | (验证任务) |
 
 ### 写入格式（工人必须严格遵守）
 
