@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
  *   <li>{@code creatorId} - 创建人(当前登录用户ID, {@code StpUtil.getLoginIdAsLong()})</li>
  *   <li>{@code updaterId} - 更新人(当前登录用户ID)</li>
  *   <li>{@code tenantId} - 租户ID(当前会话租户)</li>
- *   <li>{@code isDeleted} - 逻辑删除标记(0=未删除)</li>
+ *   <li>{@code isDeleted} - 逻辑删除标记(false=未删除)</li>
  * </ul>
  * </p>
  *
@@ -45,7 +45,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     private static final Logger log = LoggerFactory.getLogger(MyMetaObjectHandler.class);
 
     /** 逻辑删除 - 未删除 */
-    private static final int NOT_DELETED = 0;
+    private static final Boolean NOT_DELETED = false;
 
     @Override
     public void insertFill(MetaObject metaObject) {
@@ -63,16 +63,18 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         this.strictInsertFill(metaObject, "updaterId", Long.class, userId);
         // 租户ID
         this.strictInsertFill(metaObject, "tenantId", Long.class, tenantId);
-        // 逻辑删除标记: 0=未删除
-        this.strictInsertFill(metaObject, "isDeleted", Integer.class, NOT_DELETED);
+        // 逻辑删除标记: false=未删除
+        this.strictInsertFill(metaObject, "isDeleted", Boolean.class, NOT_DELETED);
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
+        // 先获取用户ID (避免异常中断后续填充)
+        Long userId = getCurrentUserId();
         // 更新时间: 每次更新强制刷新为当前时间
         this.setFieldValByName("updateTime", LocalDateTime.now(), metaObject);
         // 更新人: 每次更新强制刷新为当前登录用户
-        this.setFieldValByName("updaterId", getCurrentUserId(), metaObject);
+        this.setFieldValByName("updaterId", userId, metaObject);
     }
 
     /**
