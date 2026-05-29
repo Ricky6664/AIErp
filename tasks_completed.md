@@ -227,7 +227,7 @@
 | P0-001-007-001-002-001 | 编写CREATE INDEX语句 | 2026-05-30T23:45 | ✅ | 验证V3__create_sys_param.sql已由前置任务创建完整:CREATE TABLE+3个索引(uk_category_key/idx_category/idx_sys_param_tenant)+全部COMMENT+回滚脚本,mvn compile BUILD SUCCESS | (待提交) |
 | P0-001-007-002-003-001 | 定义接口路由与方法签名 | 2026-05-30 | ✅ | 创建ParamCacheRefresher.java(@EventListener监听ParamChangedEvent+Redis缓存清除+POST /api/system/params/refresh手动刷新)+ParamChangedEvent.java(自定义事件),支持多实例部署缓存同步,mvn clean compile BUILD SUCCESS | b2e4335e |
 | P0-001-007-002-003-002 | 实现接口逻辑 | 2026-05-30T06:00 | ✅ | ParamCacheRefresher.java完整实现:@EventListener方法+evictCache私有方法+POST /refresh手动刷新端点+StringRedisTemplate键扫描清除,编译通过 | b2e4335e |
-| P0-001-007-003-001-001 | 定义接口路由与方法签名 | 2026-05-30T07:30 | ✅ | SysParamController.java(@RestController /api/system/params):5个CRUD端点(listByCategory/getByCategoryAndKey/create/update/delete),全部@RequirePermission+@Operation齐全,RESTful路径规范,is_system=1删除保护由Service层实现,/refresh端点由ParamCacheRefresher处理 | <pending> |
+| P0-001-007-003-001-001 | 定义接口路由与方法签名 | 2026-05-30T07:30 | ✅ | SysParamController.java(@RestController /api/system/params):5个CRUD端点(listByCategory/getByCategoryAndKey/create/update/delete),全部@RequirePermission+@Operation齐全,RESTful路径规范,is_system=1删除保护由Service层实现,/refresh端点由ParamCacheRefresher处理 | 8966b471 |
 
 ---
 
