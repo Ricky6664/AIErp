@@ -114,6 +114,7 @@
 | P0-001-004-001-002-002 | 实现接口逻辑 | 2026-05-29T20:10 | ✅ | StpInterfaceImpl.java完整实现：getPermissionList/getRoleList Redis缓存优先+DB回退+clearCache清除缓存,mvn compile通过 | d83c1532 |
 | P0-001-004-002-001-001 | 定义接口路由与方法签名 | 2026-05-29T22:30 | ✅ | 创建SaInterceptorConfig.java(@Configuration+WebMvcConfigurer+SaInterceptor+pathPatterns+CORS localhost:5173 Authorization),mvn compile通过 | 7ceff390 |
 | P0-001-004-002-001-002 | 实现接口逻辑 | 2026-05-29T23:00 | ✅ | SaInterceptorConfig.java完整实现验证：addInterceptors(SaInterceptor+SaRouter.match+notMatch+check)+addCorsMappings(allowCredentials+exposedHeaders), application.yml sa-token配置timeout=2592000/active-timeout=1800,mvn compile通过 | 741e2419 |
+| P0-001-004-002-002-001 | 定义切面拦截器注册方式 | 2026-05-29T23:10 | ✅ | 验证@RequirePermission+PermissionAspect+LogicEnum均已由前置任务实现完整,注解value(String[])+logic(AND/OR默认AND),切面@Around→StpUtil.checkPermissionAnd/Or,失败NotPermissionException→403,mvn compile通过 | <pending> |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -139,10 +140,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 73 | 2 | 3.40% |
+| P0 | 14 | 2,147 | 74 | 2 | 3.45% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **72** | **2** | **1.53%** |
+| **合计** | **46** | **4,716** | **74** | **2** | **1.57%** |
 
 ---
 
