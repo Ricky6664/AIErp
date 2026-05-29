@@ -120,7 +120,7 @@
 
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | Git SHA |
 |---------|---------|---------|:---:|------|---------|
-| P0-001-005-001-001-001 | 编写CREATE TABLE sys_code_rule主语句 | 2026-05-29T20:00 | ✅ | 创建V1__create_sys_code_rule.sql:sys_code_rule主表(id/rule_code/rule_name/module_code/description/separator/current_value/is_enabled+10个通用字段)+sys_code_rule_segment从表(rule_id FK/segment_type/segment_order/segment_value/segment_length/segment_format+10个通用字段)+uk_rule_module部分唯一索引(rule_code,tenant_id)WHERE is_deleted=false+idx_segment_order索引(rule_id,segment_order)+COMMENT完整,mvn compile BUILD SUCCESS | TBD |
+| P0-001-005-001-001-001 | 编写CREATE TABLE sys_code_rule主语句 | 2026-05-29T20:00 | ✅ | 创建V1__create_sys_code_rule.sql:sys_code_rule主表(id/rule_code/rule_name/module_code/description/separator/current_value/is_enabled+10个通用字段)+sys_code_rule_segment从表(rule_id FK/segment_type/segment_order/segment_value/segment_length/segment_format+10个通用字段)+uk_rule_module部分唯一索引(rule_code,tenant_id)WHERE is_deleted=false+idx_segment_order索引(rule_id,segment_order)+COMMENT完整,mvn compile BUILD SUCCESS | 5510b3ce |
 
 ### 写入格式（工人必须严格遵守）
 
