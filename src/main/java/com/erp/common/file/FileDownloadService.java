@@ -12,8 +12,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -25,7 +25,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * 文件下载服务.
+ * 文件下载服务 — 核心下载逻辑.
+ *
+ * <p>流式读取文件并写入 HttpServletResponse, 避免将大文件加载到内存.
+ * 支持全量下载与 Range 断点续传 (HTTP 206 Partial Content).</p>
  *
  * @author AI
  * @since 2026-05-30
@@ -93,22 +96,21 @@ public class FileDownloadService {
     }
 
     /**
-     * 全量下载, 使用 StreamingResponseBody 流式输出.
+     * 全量下载, 流式输出到 response 避免内存溢出.
+     *
+     * <p>使用 8KB 缓冲区从文件逐块读取并写入输出流,
+     * 文件再大也不会占用堆内存.</p>
      */
     private void handleFullDownload(Path filePath, long fileSize, HttpServletResponse response) {
         response.setContentLengthLong(fileSize);
-        StreamingResponseBody stream = out -> {
-            try (InputStream in = Files.newInputStream(filePath)) {
-                byte[] buf = new byte[BUFFER_SIZE];
-                int read;
-                while ((read = in.read(buf)) != -1) {
-                    out.write(buf, 0, read);
-                }
-                out.flush();
+        try (OutputStream out = response.getOutputStream();
+             InputStream in = new BufferedInputStream(Files.newInputStream(filePath), BUFFER_SIZE)) {
+            byte[] buf = new byte[BUFFER_SIZE];
+            int read;
+            while ((read = in.read(buf)) != -1) {
+                out.write(buf, 0, read);
             }
-        };
-        try {
-            stream.writeTo(response.getOutputStream());
+            out.flush();
         } catch (IOException e) {
             log.error("文件下载流式输出失败: {}", filePath, e);
             throw new BusinessException(ErrorCode.INTERNAL_ERROR);
