@@ -72,7 +72,7 @@ class SequenceSegmentParserTest {
     }
 
     @Test
-    @DisplayName("预览模式返回固定值1")
+    @DisplayName("预览模式返回占位符不消耗序列号")
     void shouldReturnPreviewValue() {
         SegmentParseContext ctx = SegmentParseContext.builder()
                 .ruleCode("RULE001")
@@ -82,7 +82,7 @@ class SequenceSegmentParserTest {
 
         String result = parser.parse(ctx);
 
-        assertEquals("00001", result);
+        assertEquals("XXXXX", result);
         verify(sequenceGenerator, never()).next(anyString());
     }
 
