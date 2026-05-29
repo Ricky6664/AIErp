@@ -85,7 +85,7 @@
 | P0-001-002-002-001-003 | 编写单元测试 | 2026-05-29T12:15 | ✅ | 创建RTTest(36个测试全PASS):覆盖ok/fail静态方法+链式调用+@JsonInclude(NON_NULL)序列化+System.currentTimeMillis()时间戳+Serializable+isSuccess+便捷方法(error/paramError/unauthorized/forbidden)+类结构验证,mvn test BUILD SUCCESS | 14867a12 |
 | P0-001-002-002-002-001 | 定义泛型类结构 | 2026-05-29T15:55 | ✅ | 创建PageResult<T>分页响应类:字段list/total/pageNum/pageSize/pages+of(IPage<T>)从MyBatis-Plus转换+of(List,total,pageNum,pageSize)手动构建+empty()空分页+@JsonInclude(NON_NULL)+@Schema注解,mvn compile BUILD SUCCESS | fc34731f |
 | P0-001-002-002-002-002 | 实现静态工厂方法 | 2026-05-29T15:57 | ✅ | 验证PageResult<T>静态工厂方法完整:of(IPage<T>)转换MyBatis-Plus分页+of(List,total,pageNum,pageSize)手动构建+empty()空分页+@JsonInclude(NON_NULL)+字段(list/total/pageNum/pageSize/pages)齐全,前序任务已完整实现,mvn compile BUILD SUCCESS | fc34731f |
-| P0-001-002-002-002-003 | 编写单元测试 | 2026-05-29T16:01 | ✅ | 创建PageResultTest(34个测试全PASS):覆盖of(IPage)转换5项+of手动构建7项+empty()4项+字段Getter/Setter3项+@JsonInclude(NON_NULL)JSON序列化5项+Serializable序列化3项+类结构验证5项+RT组合2项,mvn test BUILD SUCCESS | (commit后更新) |
+| P0-001-002-002-002-003 | 编写单元测试 | 2026-05-29T16:01 | ✅ | 创建PageResultTest(34个测试全PASS):覆盖of(IPage)转换5项+of手动构建7项+empty()4项+字段Getter/Setter3项+@JsonInclude(NON_NULL)JSON序列化5项+Serializable序列化3项+类结构验证5项+RT组合2项,mvn test BUILD SUCCESS | 8009a101 |
 
 ### 写入格式（工人必须严格遵守）
 
