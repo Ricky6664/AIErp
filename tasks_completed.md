@@ -74,7 +74,7 @@
 | P0-001-001-005-001-003 | 配置校验与启动检查 | 2026-05-29T15:35 | ✅ | 新增MybatisPlusConfigValidationTest验证测试(10项全PASS):@Configuration注解/@Bean注册MybatisPlusInterceptor(3个InnerInterceptor顺序TenantLine→Pagination(overflow=true)→OptimisticLocker)/@Bean MetaObjectHandler/无硬编码敏感信息;actuator HTTP 200;Spring Boot启动无错误 | eda8903a |
 | P0-001-001-005-002-001 | 实现insertFill方法 | 2026-05-29T16:10 | ✅ | 创建MyMetaObjectHandler.java(@Component):insertFill自动填充createdAt/updatedAt/createdBy/updatedBy/tenantId/isDeleted(0),updateFill强制刷新updatedAt+strictUpdateFill更新updatedBy,从MybatisPlusConfig移除内联ErpMetaObjectHandler,mvn compile通过 | 008c18d1 |
 | P0-001-001-005-002-002 | 实现updateFill方法 | 2026-05-29T14:55 | ✅ | 修正字段命名为全局规范(createTime/updateTime/creatorId/updaterId),updateFill强制刷新updateTime+updaterId,insertFill同步修正字段名,Javadoc补充@TableField(fill=FieldFill)说明,mvn clean compile BUILD SUCCESS | 217bc44b |
-| P0-001-001-005-002-003 | 验证自动填充 | 2026-05-29T15:08 | ✅ | 修复isDeleted类型Integer→Boolean匹配全局规范,updateFill健壮性修复(先获取userId避免异常中断),新增MyMetaObjectHandlerTest(14项全PASS):insertFill 6字段验证/updateFill强制刷新验证/@Component注解/无硬编码敏感信息,mvn compile+test BUILD SUCCESS | pending |
+| P0-001-001-005-002-003 | 验证自动填充 | 2026-05-29T15:08 | ✅ | 修复isDeleted类型Integer→Boolean匹配全局规范,updateFill健壮性修复(先获取userId避免异常中断),新增MyMetaObjectHandlerTest(14项全PASS):insertFill 6字段验证/updateFill强制刷新验证/@Component注解/无硬编码敏感信息,mvn compile+test BUILD SUCCESS | a8a765fc |
 
 ### 写入格式（工人必须严格遵守）
 
