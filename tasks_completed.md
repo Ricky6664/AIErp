@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：46 条
+> **归档总数**：47 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -77,6 +77,7 @@
 | P0-001-001-005-002-003 | 验证自动填充 | 2026-05-29T15:08 | ✅ | 修复isDeleted类型Integer→Boolean匹配全局规范,updateFill健壮性修复(先获取userId避免异常中断),新增MyMetaObjectHandlerTest(14项全PASS):insertFill 6字段验证/updateFill强制刷新验证/@Component注解/无硬编码敏感信息,mvn compile+test BUILD SUCCESS | a8a765fc |
 | P0-001-002-001-002-001 | 定义异常类 | 2026-05-29T15:15 | ✅ | 创建BaseException(abstract,extends RuntimeException,code+msg+data,占位符参数化消息)+BusinessException+AuthException+ParamException+PermissionException共5个异常类,mvn clean compile BUILD SUCCESS(37文件) | d2d952ca |
 | P0-001-002-001-002-002 | 实现自定义异常类异常处理逻辑 | 2026-05-29T15:18 | ✅ | 创建RT<T>统一响应类+GlobalExceptionHandler(捕获Business/Param/Auth/Permission+Spring参数校验+Sa-Token+兜底异常,日志记录完整),mvn clean compile BUILD SUCCESS(39文件) | 8158d90d |
+| P0-001-002-001-003-001 | 定义Controller类@RequestMapping路径注入Service | 2026-05-29T15:20 | ✅ | 完善GlobalExceptionHandler(@RestControllerAdvice)新增ConstraintViolationException处理,补全12类异常(4种自定义+Spring校验5种+Sa-Token 3种+HTTP方法/资源+兜底)统一返回RT+日志记录,mvn clean compile BUILD SUCCESS(39文件) | (待回填) |
 
 ### 写入格式（工人必须严格遵守）
 

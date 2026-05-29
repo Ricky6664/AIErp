@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
 import java.util.stream.Collectors;
 
 /**
@@ -33,7 +35,7 @@ import java.util.stream.Collectors;
  *   <li>{@link ParamException} — 业务层参数校验异常</li>
  *   <li>{@link AuthException} — 认证异常</li>
  *   <li>{@link PermissionException} — 权限异常</li>
- *   <li>Spring 参数校验异常({@link MethodArgumentNotValidException}, {@link BindException} 等)</li>
+ *   <li>Spring 参数校验异常({@link MethodArgumentNotValidException}, {@link BindException}, {@link ConstraintViolationException} 等)</li>
  *   <li>Sa-Token 认证授权异常({@link NotLoginException}, {@link NotPermissionException} 等)</li>
  *   <li>{@link Exception} — 未知异常兜底</li>
  * </ol>
@@ -146,6 +148,26 @@ public class GlobalExceptionHandler {
                 .collect(Collectors.joining("; "));
         log.warn("[BindException] uri={}, message={}", request.getRequestURI(), msg);
         return RT.fail(ErrorCode.PARAM_FORMAT_ERROR.getCode(), msg);
+    }
+
+    /**
+     * 参数约束违反异常(@Validated + @RequestParam / @PathVariable / 方法级校验).
+     *
+     * <p>级别: WARN. 由 {@code @Validated} 注解在方法参数或类级别触发,
+     * 与 {@link MethodArgumentNotValidException} 互补.</p>
+     *
+     * @param e       约束违反异常
+     * @param request 请求
+     * @return 统一响应
+     */
+    @ExceptionHandler(ConstraintViolationException.class)
+    @ResponseStatus(HttpStatus.OK)
+    public RT<Void> handleConstraintViolationException(ConstraintViolationException e, HttpServletRequest request) {
+        String msg = e.getConstraintViolations().stream()
+                .map(ConstraintViolation::getMessage)
+                .collect(Collectors.joining("; "));
+        log.warn("[ConstraintViolationException] uri={}, message={}", request.getRequestURI(), msg);
+        return RT.fail(ErrorCode.PARAM_INVALID.getCode(), msg);
     }
 
     /**
