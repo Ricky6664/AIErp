@@ -1,5 +1,7 @@
 package com.erp.common.result;
 
+import com.erp.common.enums.ErrorCode;
+import com.erp.common.exception.IErrorCode;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -118,7 +120,7 @@ public class RT<T> implements Serializable {
      * @param <T>       数据类型
      * @return 失败响应
      */
-    public static <T> RT<T> fail(com.erp.common.exception.IErrorCode errorCode) {
+    public static <T> RT<T> fail(IErrorCode errorCode) {
         return fail(errorCode.getCode(), errorCode.getMessage());
     }
 
@@ -130,7 +132,7 @@ public class RT<T> implements Serializable {
      * @param <T>       数据类型
      * @return 失败响应
      */
-    public static <T> RT<T> fail(com.erp.common.exception.IErrorCode errorCode, String detail) {
+    public static <T> RT<T> fail(IErrorCode errorCode, String detail) {
         String msg = detail == null || detail.isEmpty()
                 ? errorCode.getMessage()
                 : errorCode.getMessage() + ": " + detail;
