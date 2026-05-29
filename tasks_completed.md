@@ -57,7 +57,7 @@
 | P0-001-001-003-002-002 | 验证配置生效 | 2026-05-29T10:56 | ✅ | ProdConfigValidationTest 10项测试全部PASS(server.port=8080/环境变量注入/WARN日志/无硬编码/Swagger关闭/NoLoggingImpl),mvn compile+test BUILD SUCCESS | 7a8f5b9f |
 | P0-001-001-003-002-003 | 配置安全加固 | 2026-05-29T11:04 | ✅ | application-prod.yml安全加固验证:server.port=8080/敏感配置全部${DB_PASSWORD}/${REDIS_PASSWORD}/${JWT_SECRET}环境变量注入/logging.com.erp=WARN/Swagger关闭/NoLoggingImpl,ProdConfigValidationTest 10/10 PASS,mvn compile+test BUILD SUCCESS | f1fb3150 |
 | P0-001-001-003-003-001-001 | 配置MyBatis-Plus全局项 | 2026-05-29T11:15 | ✅ | application.yml添加MyBatis-Plus全局配置(id-type=ASSIGN_ID/logic-delete-field=isDeleted/logic-delete-value=1/map-underscore-to-camel-case=true/cache-enabled=false),mvn compile BUILD SUCCESS | e9bbd1c2 |
-| P0-001-001-003-003-001-002 | 配置Sa-Token全局项 | 2026-05-29T12:00 | ✅ | application.yml添加Sa-Token全局配置(token-name=satoken/timeout=2592000/active-timeout=1800/is-concurrent=true/is-share=true/token-style=uuid/is-log=false),mvn compile BUILD SUCCESS | (pending) |
+| P0-001-001-003-003-001-002 | 配置Sa-Token全局项 | 2026-05-29T12:00 | ✅ | application.yml添加Sa-Token全局配置(token-name=satoken/timeout=2592000/active-timeout=1800/is-concurrent=true/is-share=true/token-style=uuid/is-log=false),mvn compile BUILD SUCCESS | 7cf63892 |
 
 ### 写入格式（工人必须严格遵守）
 
