@@ -22,6 +22,14 @@ spring:
       additional-paths: src/main/java
     livereload:
       enabled: true
+  # ---- Redis Lettuce 连接池公共配置 ----
+  data:
+    redis:
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
 
 # ---- 服务器公共配置 ----
 server:
