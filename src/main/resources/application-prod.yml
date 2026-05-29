@@ -7,8 +7,6 @@
 # ---- 服务器配置 ----
 server:
   port: 8080
-  servlet:
-    context-path: /
   shutdown: graceful
 
 # ---- 生产环境核心配置 ----
