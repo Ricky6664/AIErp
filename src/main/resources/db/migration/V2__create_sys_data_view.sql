@@ -1,7 +1,7 @@
 -- ============================================================
 -- ERP AI 智能管理系统 - 数据视图配置表 DDL
--- 任务: P0-001-006-001-001-001 / P0-001-006-001-001-002
--- 描述: 创建 sys_data_view 主表和 sys_data_view_field 从表，添加主键与索引约束
+-- 任务: P0-001-006-001-001-001 / P0-001-006-001-001-002 / P0-001-006-001-002-001 / P0-001-006-001-002-002 / P0-001-006-001-003-001
+-- 描述: 创建 sys_data_view 主表和 sys_data_view_field 从表，添加主键、索引、约束及性能优化索引
 -- 数据库: PostgreSQL 15+
 -- ============================================================
 
@@ -86,6 +86,18 @@ CREATE UNIQUE INDEX uk_field_view_code ON sys_data_view_field(view_id, field_cod
 
 -- 租户级查询索引
 CREATE INDEX idx_sys_data_view_field_tenant ON sys_data_view_field(tenant_id) WHERE is_deleted = FALSE;
+
+-- ============================================================
+-- 3. 附加性能优化索引
+-- ============================================================
+
+-- sys_data_view 主表额外索引
+CREATE INDEX idx_sdv_source_table ON sys_data_view(source_table) WHERE is_deleted = FALSE;
+CREATE INDEX idx_sdv_created_at ON sys_data_view(created_at) WHERE is_deleted = FALSE;
+
+-- sys_data_view_field 从表额外索引
+CREATE INDEX idx_sdvf_field_code ON sys_data_view_field(field_code) WHERE is_deleted = FALSE;
+CREATE INDEX idx_sdvf_is_searchable ON sys_data_view_field(view_id, is_searchable) WHERE is_deleted = FALSE;
 
 COMMENT ON TABLE sys_data_view_field IS '数据视图字段配置表';
 COMMENT ON COLUMN sys_data_view_field.id IS '主键ID';
