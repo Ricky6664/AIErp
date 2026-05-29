@@ -110,7 +110,7 @@
 | P0-001-004-002-002-002 | 实现核心处理逻辑 | 2026-05-29T20:00 | ✅ | LogicEnum(AND/OR)+@RequirePermission(value权限码数组,logic逻辑运算符默认AND)+PermissionAspect(@Around拦截,StpUtil.checkPermissionAnd/Or校验,失败NotPermissionException→403),mvn compile通过 | 06c219e8 |
 | P0-001-004-001-001-001 | 定义@Configuration配置类@Bean注册方式 | 2026-05-29T22:00 | ✅ | SaTokenConfig(@Configuration)+SaServletFilter(@Bean拦截/api/**排除login/logout/doc.html/v3)+未登录RT.fail(ErrorCode.UNAUTHORIZED)+SaInterceptor路由拦截+isAnnotation注解鉴权双机制 | 1df2a8a5 |
 | P0-001-004-001-001-002 | 配置属性绑定 | 2026-05-29T19:01 | ✅ | SaTokenConfig.java @Value绑定exclude-paths(@ConfigurationProperties风格)+application.yml sa-token.exclude-paths配置项,mvn compile BUILD SUCCESS | <pending> |
-| P0-001-004-001-002-001 | 定义接口路由与方法签名 | 2026-05-29T19:10 | ✅ | StpInterfaceImpl(@Component implements StpInterface)+getPermissionList/getRoleList Redis缓存(satoken:permission/role:{loginId},5minTTL)+clearCache+spring-boot-starter-data-redis依赖,mvn compile BUILD SUCCESS | <pending> |
+| P0-001-004-001-002-001 | 定义接口路由与方法签名 | 2026-05-29T19:10 | ✅ | StpInterfaceImpl(@Component implements StpInterface)+getPermissionList/getRoleList Redis缓存(satoken:permission/role:{loginId},5minTTL)+clearCache+spring-boot-starter-data-redis依赖,mvn compile BUILD SUCCESS | f4fcdc9f |
 
 ### 写入格式（工人必须严格遵守）
 
