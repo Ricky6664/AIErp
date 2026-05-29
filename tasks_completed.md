@@ -128,6 +128,8 @@
 | P0-001-005-001-003-002 | 执行DDL脚本 | 2026-05-29T23:00 | ✅ | 在erp_dev库执行V1__create_sys_code_rule.sql:sys_code_rule主表(17字段)+sys_code_rule_segment从表(16字段)+5个索引全部创建成功,information_schema验证通过 | 37efc091 |
 | P0-001-004-003-001-001 | 定义@Configuration配置类@Bean注册方式 | 2026-05-29T23:30 | ✅ | pom.xml新增sa-token-redis-jackson依赖(1.39.0)+application.yml新增Redis Lettuce连接池配置(max-active=8/max-idle=8/min-idle=0)+application-dev.yml对齐pool值 | 238676c5 |
 | P0-001-004-003-001-002 | 配置属性绑定 | 2026-05-29T23:45 | ✅ | 验证pom.xml sa-token-redis-jackson依赖(1.39.0)+application.yml Redis Lettuce连接池(max-active=8/max-idle=8/min-idle=0)+Jackson日期序列化(yyyy-MM-dd HH:mm:ss)+Sa-Token Redis存储自动生效,mvn compile BUILD SUCCESS | (验证任务) |
+| P0-001-004-003-001-003 | 配置校验与启动检查 | 2026-05-29T23:55 | ✅ | 新增JacksonConfig禁用FAIL_ON_SELF_REFERENCES避免Session循环引用+SaTokenProperties类型安全配置绑定与@Validated启动校验+注册JavaTimeModule指定LocalDateTime序列化格式,mvn compile BUILD SUCCESS | 87e7830d |
+| P0-001-004-003-002-001 | 实现在线用户查询 | 2026-05-29T20:50 | ✅ | 创建SessionService(@Service)实现listOnline/fForceLogout/renewSession/getCurrentUser 4个方法+LoginUserVO(5字段@Builder)+mvn compile BUILD SUCCESS | <pending> |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -153,10 +155,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 79 | 2 | 3.68% |
+| P0 | 14 | 2,147 | 80 | 2 | 3.73% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **79** | **2** | **1.68%** |
+| **合计** | **46** | **4,716** | **80** | **2** | **1.70%** |
 
 ---
 
