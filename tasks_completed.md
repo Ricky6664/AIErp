@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-29
-> **归档总数**：52 条
+> **归档总数**：53 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -83,6 +83,7 @@
 | P0-001-002-002-001-001 | 定义泛型类结构 | 2026-05-29T15:40 | ✅ | RT<T>增强:添加@JsonInclude(NON_NULL)忽略null字段序列化+链式data()方法支持RT.ok().data(xxx)+import jackson annotation,mvn compile BUILD SUCCESS | 7bf0be2a |
 | P0-001-002-002-001-002 | 实现静态工厂方法 | 2026-05-29T16:00 | ✅ | RT<T>静态工厂方法完整实现:ok(T data)/ok()/fail(IErrorCode)/fail(int,String)/error/paramError/unauthorized/forbidden+链式data()方法+@JsonInclude(NON_NULL)+System.currentTimeMillis()时间戳+IErrorCode/ErrorCode正确import,mvn compile BUILD SUCCESS | a19db69e |
 | P0-001-002-002-001-003 | 编写单元测试 | 2026-05-29T12:15 | ✅ | 创建RTTest(36个测试全PASS):覆盖ok/fail静态方法+链式调用+@JsonInclude(NON_NULL)序列化+System.currentTimeMillis()时间戳+Serializable+isSuccess+便捷方法(error/paramError/unauthorized/forbidden)+类结构验证,mvn test BUILD SUCCESS | 14867a12 |
+| P0-001-002-002-002-001 | 定义泛型类结构 | 2026-05-29T15:55 | ✅ | 创建PageResult<T>分页响应类:字段list/total/pageNum/pageSize/pages+of(IPage<T>)从MyBatis-Plus转换+of(List,total,pageNum,pageSize)手动构建+empty()空分页+@JsonInclude(NON_NULL)+@Schema注解,mvn compile BUILD SUCCESS | pending |
 
 ### 写入格式（工人必须严格遵守）
 
@@ -108,10 +109,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 48 | 0 | 2.24% |
+| P0 | 14 | 2,147 | 49 | 0 | 2.28% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **48** | **0** | **1.02%** |
+| **合计** | **46** | **4,716** | **49** | **0** | **1.04%** |
 
 ---
 
