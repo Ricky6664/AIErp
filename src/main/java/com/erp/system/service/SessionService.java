@@ -62,7 +62,7 @@ public class SessionService {
         for (String sessionId : sessionIds) {
             try {
                 SaSession session = StpUtil.getSessionBySessionId(sessionId);
-                LoginUserVO vo = buildLoginUserVO(session);
+                LoginUserVO vo = buildLoginUserVO(session, sessionId);
                 result.add(vo);
             } catch (Exception e) {
                 log.warn("获取会话信息失败: sessionId={}", sessionId, e);
@@ -102,11 +102,10 @@ public class SessionService {
      */
     public LoginUserVO getCurrentUser() {
         SaSession session = StpUtil.getSession();
-        return buildLoginUserVO(session);
+        return buildLoginUserVO(session, StpUtil.getTokenValue());
     }
 
-    private LoginUserVO buildLoginUserVO(SaSession session) {
-        String token = StpUtil.getTokenValue();
+    private LoginUserVO buildLoginUserVO(SaSession session, String token) {
         Object loginId = session.getLoginId();
         LoginUserVO.LoginUserVOBuilder builder = LoginUserVO.builder()
                 .token(token)
