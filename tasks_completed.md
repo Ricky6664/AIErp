@@ -79,7 +79,7 @@
 | P0-001-002-001-002-002 | 实现自定义异常类异常处理逻辑 | 2026-05-29T15:18 | ✅ | 创建RT<T>统一响应类+GlobalExceptionHandler(捕获Business/Param/Auth/Permission+Spring参数校验+Sa-Token+兜底异常,日志记录完整),mvn clean compile BUILD SUCCESS(39文件) | 8158d90d |
 | P0-001-002-001-003-001 | 定义Controller类@RequestMapping路径注入Service | 2026-05-29T15:20 | ✅ | 完善GlobalExceptionHandler(@RestControllerAdvice)新增ConstraintViolationException处理,补全12类异常(4种自定义+Spring校验5种+Sa-Token 3种+HTTP方法/资源+兜底)统一返回RT+日志记录,mvn clean compile BUILD SUCCESS(39文件) | a123fce3 |
 | P0-001-002-001-003-002 | 实现接口方法 | 2026-05-29T15:30 | ✅ | 验证GlobalExceptionHandler实现完整(12类异常处理+RT统一响应+日志记录),前序任务已完整实现,mvn compile BUILD SUCCESS | a123fce3 |
-| P0-001-002-001-003-003 | 补充接口文档注解 | 2026-05-29T15:33 | ✅ | GlobalExceptionHandler添加@Tag+17个@Operation注解,RT类添加@Schema字段注解,Knife4j文档注解完整,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-002-001-003-003 | 补充接口文档注解 | 2026-05-29T15:33 | ✅ | GlobalExceptionHandler添加@Tag+17个@Operation注解,RT类添加@Schema字段注解,Knife4j文档注解完整,mvn compile BUILD SUCCESS | c00cddb5 |
 
 ### 写入格式（工人必须严格遵守）
 
