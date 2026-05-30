@@ -24,6 +24,24 @@ export const useAppStore = defineStore('app', {
     activeMenu: ''
   }),
 
+  getters: {
+    isMobile(state): boolean {
+      return state.device === 'mobile'
+    },
+
+    sidebarStatus(state): 'closed' | 'opened' {
+      return state.sidebarCollapsed ? 'closed' : 'opened'
+    },
+
+    currentTheme(state): ThemeType {
+      return state.theme
+    },
+
+    locale(state): string {
+      return state.language
+    }
+  },
+
   actions: {
     toggleSidebar(): void {
       this.sidebarCollapsed = !this.sidebarCollapsed
