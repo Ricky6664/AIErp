@@ -23,6 +23,7 @@
     ]
   },
   "dependencies": {
+    "element-plus": "^2.14.1",
     "vue": "^3.5.34"
   },
   "devDependencies": {
@@ -39,6 +40,8 @@
     "lint-staged": "^17.0.5",
     "prettier": "^3.8.3",
     "typescript": "~6.0.2",
+    "unplugin-auto-import": "^21.0.0",
+    "unplugin-vue-components": "^32.1.0",
     "vite": "^8.0.12",
     "vue-tsc": "^3.2.8"
   }
