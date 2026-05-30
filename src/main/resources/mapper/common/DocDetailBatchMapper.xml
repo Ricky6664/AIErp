@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.common.mapper.DocDetailBatchMapper">
+
+    <!-- ==================== 基础字段列表 ==================== -->
+    <sql id="Base_Column_List">
+        id, tenant_id, created_at, updated_at, created_by, updated_by,
+        is_deleted, owner_dept_id, owner_id, version,
+        detail_id, batch_no, production_date, expiry_date, supplier_batch_no, quantity
+    </sql>
+
+    <!-- ==================== DocDetailBatch 基础映射 ==================== -->
+    <resultMap id="BaseResultMap" type="com.erp.common.entity.DocDetailBatch">
+        <id column="id" property="id"/>
+        <result column="tenant_id" property="tenantId"/>
+        <result column="created_at" property="createTime"/>
+        <result column="updated_at" property="updateTime"/>
+        <result column="created_by" property="creatorId"/>
+        <result column="updated_by" property="updaterId"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="owner_dept_id" property="ownerDeptId"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="version" property="version"/>
+        <result column="detail_id" property="detailId"/>
+        <result column="batch_no" property="batchNo"/>
+        <result column="production_date" property="productionDate"/>
+        <result column="expiry_date" property="expiryDate"/>
+        <result column="supplier_batch_no" property="supplierBatchNo"/>
+        <result column="quantity" property="quantity"/>
+    </resultMap>
+
+    <!-- ==================== 按明细ID查询批次列表 ==================== -->
+    <select id="selectByDetailId" resultMap="BaseResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM doc_detail_batch
+        WHERE detail_id = #{detailId}
+          AND is_deleted = FALSE
+    </select>
+
+</mapper>
