@@ -6,6 +6,8 @@ import 'nprogress/nprogress.css'
 import { useUserStore } from '@/stores/modules/user'
 import { useAppStore } from '@/stores/modules/app'
 
+import type { ApiResponse } from '@/types/api'
+
 declare module 'axios' {
   interface InternalAxiosRequestConfig {
     retry?: number
@@ -111,27 +113,28 @@ service.interceptors.request.use(
 
 // 响应拦截器
 service.interceptors.response.use(
-  (response: AxiosResponse) => {
+  (response: AxiosResponse<ApiResponse>) => {
     removePending(response.config)
     endLoading(response.config)
 
-    const { code, data, msg } = response.data
+    const { code, data, message } = response.data
 
     if (code === 0) {
-      return data
+      return data as any
     }
 
     switch (code) {
-      case 401:
+      case 20001:
         handleTokenExpired()
         break
-      case 403:
-        ElMessage.error('权限不足')
+      case 40001:
+      case 40003:
+        ElMessage.error(message || '权限不足')
         break
       default:
-        ElMessage.error(msg || '请求失败')
+        ElMessage.error(message || '请求失败')
     }
-    return Promise.reject(new Error(msg || 'Error'))
+    return Promise.reject(new Error(message || 'Error'))
   },
   async (error) => {
     const config = error.config as InternalAxiosRequestConfig | undefined

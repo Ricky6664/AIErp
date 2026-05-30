@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30T22:40
-> **归档总数**：220 条
+> **归档总数**：221 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -341,6 +341,7 @@
 | P0-002-003-001-004-003 | 实现Getters | 2026-05-30T22:15 | ✅ | paramStore实现三个getters:getDictByType/getDictLabel/getConfig,函数式箭头语法,空值兜底返回空数组/空字符串,pnpm build通过 | d2e50675 |
 | P0-002-003-002-001-002 | 实现核心处理逻辑 | 2026-05-30T22:45 | ✅ | 更新request.ts:扩展InternalAxiosRequestConfig类型添加metadata字段(requestKey/startTime/skipCancel)+请求拦截器生成requestKey(method:url:params:data格式+JSON.stringify空值兜底)+赋值config.metadata,npx tsc --noEmit通过 | 6b432623 |
 | P0-002-003-002-001-003 | 集成测试验证 | 2026-05-30T22:50 | ✅ | 验证Axios实例7项全部通过:baseURL配置(`/api`)/timeout(30000)/Token注入(Authorization:Bearer)/语言注入(Accept-Language:zh-CN)/数据解包(code===0→data)/错误提示(ElMessage.error)/TypeScript零错误(tsc --noEmit) | |
+| P0-002-003-002-002-001 | 定义切面拦截器注册方式 | 2026-05-30T23:10 | ✅ | 创建types/api.d.ts(ApiResponse<T>/PageResult<T>类型定义)+更新request.ts响应拦截器(code===0返回data/code===20001 Token过期/code===40001/40003权限不足)+AxiosResponse<ApiResponse>类型标注+tsc--noEmit编译通过 | |
 
 ---
 
@@ -348,10 +349,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 220 | 2 | 10.24% |
+| P0 | 14 | 2,147 | 221 | 2 | 10.29% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **220** | **2** | **4.66%** |
+| **合计** | **46** | **4,716** | **221** | **2** | **4.69%** |
 
 ---
 
