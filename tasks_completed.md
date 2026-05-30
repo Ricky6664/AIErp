@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：149 条
+> **归档总数**：153 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -251,6 +251,7 @@
 | P0-001-008-003-001-002 | 导出异常处理 | 2026-05-30 | ✅ | ExcelExportUtil.java增强异常处理:导出中异常catch Exception→reset response→writeErrorResponse写RT.fail JSON(Content-Type改为application/json),避免Excel响应头与JSON错误体不匹配;前置校验仍throw BusinessException由GlobalExceptionHandler处理,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-008-003-002-001 | 实现导出功能 | 2026-05-30T12:20 | ✅ | ExcelImportUtil.java:泛型importExcel(MultipartFile,Class<T>)方法,EasyExcel.read().sheet().doRead()同步读取,ImportReadListener(AnalysisEventListener)逐行收集数据+onException捕获解析错误,MAX_ROWS=10000限制,BusinessException超量拒绝,ImportResult(successList+errorList with row+reason),错误行不阻断导入;ImportResult.java支持类,mvn clean compile 126源文件BUILD SUCCESS | (pending) |
 | P0-001-008-003-002-002 | 实现导入功能 | 2026-05-30T13:00 | ✅ | ExcelImportUtil.java完整实现:importExcel()泛型方法+EasyExcel.read().sheet().doRead()+ImportReadListener逐行收集+MAX_ROWS=10000+ImportResult(successList+errorList行号+原因)+错误行不阻断+onException不重抛 | 79ae6ef1 |
+| P0-001-008-003-003-001 | 定义导入接口路由 | 2026-05-30T10:30 | ✅ | ImportTemplateController.java(@RestController /api/common/templates):GET /{module}/download空模板+GET /{module}/sample示例数据,@RequirePermission(common:template:download),EasyExcel.write()生成模板含@ExcelProperty表头+示例行,Content-Type=application/vnd.ms-excel,mvn compile BUILD SUCCESS | (pending) |
 
 ---
 
@@ -258,10 +259,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 151 | 2 | 7.03% |
+| P0 | 14 | 2,147 | 152 | 2 | 7.08% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **151** | **2** | **3.20%** |
+| **合计** | **46** | **4,716** | **152** | **2** | **3.22%** |
 
 ---
 
