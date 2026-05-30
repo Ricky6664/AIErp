@@ -1,4 +1,1 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-cd erp-ai-web && pnpm exec lint-staged
+cd erp-ai-web && npx lint-staged
