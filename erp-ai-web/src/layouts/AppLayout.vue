@@ -21,7 +21,7 @@
 
       <!-- 标签页导航 -->
       <div class="app-layout__tabs">
-        <TabNav />
+        <TabNav :active-path="activePath" :views="visitedViews" />
       </div>
 
       <!-- 内容区域 -->
@@ -40,6 +40,7 @@
 
 <script setup lang="ts">
 import { computed, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import Sidebar from './components/Sidebar/index.vue'
 import Navbar from './components/Navbar.vue'
 import TabNav from './components/TabNav/index.vue'
@@ -49,6 +50,7 @@ import { useResponsive } from '@/composables/useResponsive'
 
 defineOptions({ name: 'AppLayout' })
 
+const currentRoute = useRoute()
 const layoutStore = useLayoutStore()
 const tagsViewStore = useTagsViewStore()
 
@@ -56,6 +58,8 @@ const { isMobile } = useResponsive()
 
 const isCollapsed = computed(() => layoutStore.isCollapsed)
 const cachedViews = computed(() => tagsViewStore.cachedViews)
+const activePath = computed(() => currentRoute.fullPath)
+const visitedViews = computed(() => tagsViewStore.visitedViews)
 
 // 移动端自动折叠侧边栏
 watch(

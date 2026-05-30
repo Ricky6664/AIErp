@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30T19:55
-> **归档总数**：199 条
+> **归档总数**：200 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -316,6 +316,7 @@
 | P0-002-002-002-003-002 | 配置后端菜单数据 | 2026-05-30T19:23 | ✅ | 创建erp-ai-web/src/layouts/components/Sidebar/menuConfig.ts(filterMenuRoutes/filter hideMenu=true+DEFAULT_OPEN_MENUS+SIDEBAR_LOGO);vue-tsc --noEmit零错误 | 03bb1303 |
 | P0-002-002-003-001-001 | 定义Pinia store | 2026-05-30T19:35 | ✅ | 重写tagsView.ts为Setup Store:TagView接口(8字段)/visitedViews+cachedViews ref/computed affixTags/addView/delView/delOtherViews/delAllViews/updateVisitedView;vue-tsc+vite build通过(532模块553ms) | (pending) |
 | P0-002-002-003-001-003 | 实现右键菜单 | 2026-05-30T19:55 | ✅ | 创建ContextMenu.vue:Teleport to body+6个菜单项(刷新/关闭当前/关闭其他/关闭左/右/全部)+边界检测+affix禁用+click outside关闭+defineExpose;导出TagView接口;vue-tsc+vite build通过 | e17f54ed |
+| P0-002-002-003-002-001 | 定义组件propsemits | 2026-05-30T19:42 | ✅ | 创建TabNav/types.ts(TabNavProps+TabNavEmits接口)+更新TabNav/index.vue(defineProps activePath/views+defineEmits select/close/refresh/contextmenu)+更新AppLayout.vue传递props;vue-tsc+vite build通过 | (pending) |
 
 ---
 
@@ -323,10 +324,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 198 | 2 | 9.23% |
+| P0 | 14 | 2,147 | 199 | 2 | 9.27% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **197** | **2** | **4.17%** |
+| **合计** | **46** | **4,716** | **198** | **2** | **4.20%** |
 
 ---
 
