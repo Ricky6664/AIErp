@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-30T18:35
-> **归档总数**：183 条
+> **最后更新**：2026-05-30T18:50
+> **归档总数**：184 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -306,16 +306,17 @@
 
 | P0-002-002-001-003-001 | 定义路由配置项 | 2026-05-30T18:50 | ✅ | 创建erp-ai-web/src/router/constants.ts(WHITE_LIST/LOGIN_PATH/HOME_PATH/NOT_FOUND_PATH/TOKEN_KEY/ROUTES_LOADED_KEY);创建erp-ai-web/src/stores/modules/permission.ts(PermissionState/routes/isRoutesLoaded/permissions/hasPermission/resetPermission);vue-tsc零错误 | 1866bfb3 |
 | P0-002-002-001-003-002 | 实现路由注册与守卫 | 2026-05-30T18:35 | ✅ | 创建erp-ai-web/src/router/guards.ts:setupRouterGuards函数(beforeEach全局守卫:白名单放行→Token校验→动态路由加载→权限校验→标题设置→next全分支覆盖);更新router/index.ts导入并调用setupRouterGuards;创建stores/modules/user.ts最小依赖桩 | 73225336 |
+| P0-002-002-002-001-001 | 实现布局容器结构 | 2026-05-30T18:50 | ✅ | 创建erp-ai-web/src/layouts/AppLayout.vue:el-container嵌套(el-aside+el-container含el-header+tabs+el-main),aside动态宽度(64px/220px),keep-alive include绑定cachedViews,transition fade-transform动画,router-view key=fullPath;创建stores/modules/layout.ts+tagsView.ts桩;创建components/Sidebar/Navbar/TabNav桩 | (pending) |
 ---
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 188 | 2 | 8.75% |
+| P0 | 14 | 2,147 | 189 | 2 | 8.75% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **188** | **2** | **3.99%** |
+| **合计** | **46** | **4,716** | **189** | **2** | **3.99%** |
 
 ---
 
