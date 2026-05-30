@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：172 条
+> **归档总数**：173 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -282,6 +282,7 @@
 | P0-002-001-001-003-001 | 安装Husky与lint-staged配置pre-commit脚本 | 2026-05-30 | ✅ | pnpm add -D husky@9.1.7+lint-staged@17.0.5,初始化.husky/pre-commit(cd erp-ai-web && npx lint-staged),配置lint-staged(*.{vue,ts,tsx}:eslint+prettier,*.{css,scss}:prettier,*.{json,md}:prettier),验证拦截不规范代码提交 | 01bc3293 |
 | P0-002-001-001-003-002 | 配置commitlint | 2026-05-30 | ✅ | 安装@commitlint/cli@21.0.2+@commitlint/config-conventional@21.0.2,创建commitlint.config.js(10种type CJS格式)+.husky/commit-msg(pnpm exec commitlint --edit "$1"),验证不规范提交被拒绝规范提交通过 | a79a2851 |
 | P0-002-001-001-003-003 | 验证Git钩子 | 2026-05-30 | ✅ | 验证Husky+lint-staged+commitlint完整可用:pre-commit拦截不规范代码(ESLint报错),commit-msg拒绝不规范提交信息(type-empty),规范代码+规范message正常提交,lint-staged仅检查暂存文件,钩子流程<1秒,全8项验收通过 | 26de093f |
+| P0-002-001-002-001-001 | 安装Element Plus依赖配置按需引入 | 2026-05-30 | ✅ | pnpm add element-plus+unplugin-vue-components+unplugin-auto-import,vite.config.ts配置AutoImport(imports:vue/vue-router/pinia)+Components(ElementPlusResolver),.gitignore添加dts声明文件,pnpm build通过(129K<500KB) | 79f4a1e5 |
 
 ---
 
@@ -289,10 +290,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 170 | 2 | 7.91% |
+| P0 | 14 | 2,147 | 171 | 2 | 7.97% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **170** | **2** | **3.60%** |
+| **合计** | **46** | **4,716** | **171** | **2** | **3.63%** |
 
 ---
 
