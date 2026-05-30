@@ -281,7 +281,7 @@
 | P0-002-001-001-002-003 | 验证代码规范 | 2026-05-30 | ✅ | 验证ESLint/Prettier/VSCode配置完整可用:pnpm lint退出码0,pnpm format格式化src/文件正常,ESLint检测var声明报no-var,VSCode保存自动修复,.eslintignore忽略dist/.prettierignore忽略pnpm-lock.yaml,pnpm build通过(18模块145ms) | (验证任务) |
 | P0-002-001-001-003-001 | 安装Husky与lint-staged配置pre-commit脚本 | 2026-05-30 | ✅ | pnpm add -D husky@9.1.7+lint-staged@17.0.5,初始化.husky/pre-commit(cd erp-ai-web && npx lint-staged),配置lint-staged(*.{vue,ts,tsx}:eslint+prettier,*.{css,scss}:prettier,*.{json,md}:prettier),验证拦截不规范代码提交 | 01bc3293 |
 | P0-002-001-001-003-002 | 配置commitlint | 2026-05-30 | ✅ | 安装@commitlint/cli@21.0.2+@commitlint/config-conventional@21.0.2,创建commitlint.config.js(10种type CJS格式)+.husky/commit-msg(pnpm exec commitlint --edit "$1"),验证不规范提交被拒绝规范提交通过 | a79a2851 |
-| P0-002-001-001-003-003 | 验证Git钩子 | 2026-05-30 | ✅ | 验证Husky+lint-staged+commitlint完整可用:pre-commit拦截不规范代码(ESLint报错),commit-msg拒绝不规范提交信息(type-empty),规范代码+规范message正常提交,lint-staged仅检查暂存文件,钩子流程<1秒,全8项验收通过 | (验证任务) |
+| P0-002-001-001-003-003 | 验证Git钩子 | 2026-05-30 | ✅ | 验证Husky+lint-staged+commitlint完整可用:pre-commit拦截不规范代码(ESLint报错),commit-msg拒绝不规范提交信息(type-empty),规范代码+规范message正常提交,lint-staged仅检查暂存文件,钩子流程<1秒,全8项验收通过 | 26de093f |
 
 ---
 
