@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@vxe-ui/core':
+        specifier: ^4.4.13
+        version: 4.4.13(vue@3.5.35(typescript@6.0.3))
       element-plus:
         specifier: ^2.14.1
         version: 2.14.1(vue@3.5.35(typescript@6.0.3))

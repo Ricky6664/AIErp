@@ -3,7 +3,7 @@
  * @param app - Vue 应用实例
  */
 
-import type { App } from 'vue'
+import type { App, Plugin } from 'vue'
 import VxeUI from 'vxe-pc-ui'
 import VxeTable from 'vxe-table'
 
@@ -31,7 +31,21 @@ export interface VxeDefaultConfig {
  * @param app - Vue 应用实例
  */
 export function setupVxeTable(app: App): void {
-  app.use(VxeUI).use(VxeTable)
+  app.use(VxeUI as unknown as Plugin).use(VxeTable as unknown as Plugin)
+
+  VxeUI.setup({
+    table: {
+      border: true,
+      resizable: true,
+      showOverflow: true,
+      emptyText: '暂无数据',
+      autoResize: true
+    },
+    pager: {
+      pageSize: 20,
+      pageSizes: [10, 20, 50, 100]
+    }
+  })
 }
 
 /**
