@@ -6,6 +6,7 @@ export interface MenuItem {
   path: string
   component?: string
   icon?: string
+  iconType?: 'element' | 'svg' | 'external'
   sort: number
   type: number
   permissions?: string
