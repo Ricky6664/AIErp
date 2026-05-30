@@ -252,7 +252,7 @@
 | P0-001-008-003-002-001 | 实现导出功能 | 2026-05-30T12:20 | ✅ | ExcelImportUtil.java:泛型importExcel(MultipartFile,Class<T>)方法,EasyExcel.read().sheet().doRead()同步读取,ImportReadListener(AnalysisEventListener)逐行收集数据+onException捕获解析错误,MAX_ROWS=10000限制,BusinessException超量拒绝,ImportResult(successList+errorList with row+reason),错误行不阻断导入;ImportResult.java支持类,mvn clean compile 126源文件BUILD SUCCESS | (pending) |
 | P0-001-008-003-002-002 | 实现导入功能 | 2026-05-30T13:00 | ✅ | ExcelImportUtil.java完整实现:importExcel()泛型方法+EasyExcel.read().sheet().doRead()+ImportReadListener逐行收集+MAX_ROWS=10000+ImportResult(successList+errorList行号+原因)+错误行不阻断+onException不重抛 | 79ae6ef1 |
 | P0-001-008-003-003-001 | 定义导入接口路由 | 2026-05-30T10:30 | ✅ | ImportTemplateController.java(@RestController /api/common/templates):GET /{module}/download空模板+GET /{module}/sample示例数据,@RequirePermission(common:template:download),EasyExcel.write()生成模板含@ExcelProperty表头+示例行,Content-Type=application/vnd.ms-excel,mvn compile BUILD SUCCESS | (pending) |
-| P0-001-008-003-003-002 | 实现导入逻辑 | 2026-05-30T11:00 | ✅ | downloadTemplate增强:含示例数据行(空模板含@ExcelProperty表头+示例数据行),新增异常处理,与downloadSample逻辑对齐,mvn compile通过 | (pending) |
+| P0-001-008-003-003-002 | 实现导入逻辑 | 2026-05-30T11:00 | ✅ | downloadTemplate增强:含示例数据行(空模板含@ExcelProperty表头+示例数据行),新增异常处理,与downloadSample逻辑对齐,mvn compile通过 | efbd5d20 |
 
 ---
 
