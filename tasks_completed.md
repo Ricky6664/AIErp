@@ -318,7 +318,7 @@
 | P0-002-002-003-001-003 | 实现右键菜单 | 2026-05-30T19:55 | ✅ | 创建ContextMenu.vue:Teleport to body+6个菜单项(刷新/关闭当前/关闭其他/关闭左/右/全部)+边界检测+affix禁用+click outside关闭+defineExpose;导出TagView接口;vue-tsc+vite build通过 | e17f54ed |
 | P0-002-002-003-002-001 | 定义组件propsemits | 2026-05-30T19:42 | ✅ | 创建TabNav/types.ts(TabNavProps+TabNavEmits接口)+更新TabNav/index.vue(defineProps activePath/views+defineEmits select/close/refresh/contextmenu)+更新AppLayout.vue传递props;vue-tsc+vite build通过 | 027b5e53 |
 | P0-002-002-003-002-002 | 实现组件模板结构 | 2026-05-30T20:15 | ✅ | TabNav/index.vue template+scoped样式:横向滚动容器(overflow-x:auto+隐藏滚动条)+v-for标签列表(key=fullPath)+active高亮(primary色背景)+affix标签隐藏关闭按钮+@click.stop防冒泡+ContextMenu集成;vue-tsc+vite build通过 | 12398a89 |
-| P0-002-002-003-002-003 | 实现组件逻辑 | 2026-05-30T20:40 | ✅ | TabNav/index.vue自包含组件:watch route.fullPath自动addView+handleSelect路由跳转+handleClose关闭标签+handleContextmenu右键菜单+scrollToActiveTag自动滚动+AppLayout.vue移除props;pnpm build通过(532模块533ms) | d7eb2eda |
+| P0-002-002-003-002-003 | 实现组件逻辑 | 2026-05-30T20:40 | ✅ | TabNav/index.vue自包含组件:watch route.fullPath自动addView+handleSelect路由跳转+handleClose关闭标签+handleContextmenu右键菜单+scrollToActiveTag自动滚动+AppLayout.vue移除props;pnpm build通过(532模块533ms) | ba0c7a4a |
 
 ---
 
