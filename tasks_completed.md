@@ -284,7 +284,7 @@
 | P0-002-001-001-003-003 | 验证Git钩子 | 2026-05-30 | ✅ | 验证Husky+lint-staged+commitlint完整可用:pre-commit拦截不规范代码(ESLint报错),commit-msg拒绝不规范提交信息(type-empty),规范代码+规范message正常提交,lint-staged仅检查暂存文件,钩子流程<1秒,全8项验收通过 | 26de093f |
 | P0-002-001-002-001-001 | 安装Element Plus依赖配置按需引入 | 2026-05-30 | ✅ | pnpm add element-plus+unplugin-vue-components+unplugin-auto-import,vite.config.ts配置AutoImport(imports:vue/vue-router/pinia)+Components(ElementPlusResolver),.gitignore添加dts声明文件,pnpm build通过(129K<500KB) | 79f4a1e5 |
 | P0-002-001-002-001-002 | 配置主题定制 | 2026-05-30 | ✅ | 创建src/styles/element-plus.scss覆盖CSS变量(品牌色/字体/圆角/间距/过渡),vite.config.ts配置ElementPlusResolver({importStyle:'sass'})+@路径别名,main.ts引入主题文件,tsconfig.app.json配置paths映射,安装sass依赖,pnpm build通过(19模块315ms) | f239017e |
-| P0-002-001-002-001-003 | 验证组件库可用 | 2026-05-30 | ✅ | 验证Element Plus按需引入+主题定制完整可用:ElButton/ElInput组件自动引入(components.d.ts含ElButton/ElInput),ref/computed/ElMessage自动导入(auto-imports.d.ts含全部类型),主题色#409EFF覆盖生效,pnpm build通过(195KB<500KB),auto-imports.d.ts+components.d.ts自动生成,全7项验收通过 | (pending) |
+| P0-002-001-002-001-003 | 验证组件库可用 | 2026-05-30 | ✅ | 验证Element Plus按需引入+主题定制完整可用:ElButton/ElInput组件自动引入(components.d.ts含ElButton/ElInput),ref/computed/ElMessage自动导入(auto-imports.d.ts含全部类型),主题色#409EFF覆盖生效,pnpm build通过(195KB<500KB),auto-imports.d.ts+components.d.ts自动生成,全7项验收通过 | 78d1341f |
 
 ---
 
