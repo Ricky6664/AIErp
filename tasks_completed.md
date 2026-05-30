@@ -280,6 +280,7 @@
 | P0-002-001-001-002-002 | 配置VSCode设置 | 2026-05-30 | ✅ | 创建.vscode/settings.json(formatOnSave+defaultFormatter Prettier+codeActionsOnSave ESLint+各文件类型格式化器)+更新.vscode/extensions.json(推荐Volar+ESLint+Prettier) | d0cd6ea2 |
 | P0-002-001-001-002-003 | 验证代码规范 | 2026-05-30 | ✅ | 验证ESLint/Prettier/VSCode配置完整可用:pnpm lint退出码0,pnpm format格式化src/文件正常,ESLint检测var声明报no-var,VSCode保存自动修复,.eslintignore忽略dist/.prettierignore忽略pnpm-lock.yaml,pnpm build通过(18模块145ms) | (验证任务) |
 | P0-002-001-001-003-001 | 安装Husky与lint-staged配置pre-commit脚本 | 2026-05-30 | ✅ | pnpm add -D husky@9.1.7+lint-staged@17.0.5,初始化.husky/pre-commit(cd erp-ai-web && npx lint-staged),配置lint-staged(*.{vue,ts,tsx}:eslint+prettier,*.{css,scss}:prettier,*.{json,md}:prettier),验证拦截不规范代码提交 | 01bc3293 |
+| P0-002-001-001-003-002 | 配置commitlint | 2026-05-30 | ✅ | 安装@commitlint/cli@21.0.2+@commitlint/config-conventional@21.0.2,创建commitlint.config.js(10种type CJS格式)+.husky/commit-msg(pnpm exec commitlint --edit "$1"),验证不规范提交被拒绝规范提交通过 | (待提交) |
 
 ---
 
@@ -287,10 +288,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 169 | 2 | 7.87% |
+| P0 | 14 | 2,147 | 170 | 2 | 7.91% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **169** | **2** | **3.58%** |
+| **合计** | **46** | **4,716** | **170** | **2** | **3.60%** |
 
 ---
 
