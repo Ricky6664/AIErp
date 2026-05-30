@@ -328,7 +328,7 @@
 | P0-002-002-004-002-001-003 | 实现菜单权限过滤 | 2026-05-30T21:45 | ✅ | 创建utils/permission.ts(hasPermission含superadmin优先判断+filterRoutesByPermission递归过滤纯函数父菜单联动隐藏);更新Sidebar/index.vue(computed filteredMenus集成filterRoutesByPermission+routeToMenuItem);pnpm build通过 | (pending) |
 | P0-002-002-004-002-002 | 实现菜单交互 | 2026-05-30T22:00 | ✅ | 重写Sidebar/index.vue:Logo区域(SIDEBAR_LOGO折叠/展开切换+点击回首页)+el-scrollbar包裹菜单+handleMenuSelect(外链window.open/普通router.push)+activeMenu computed(meta.activeMenu优先+route.path)+layoutStore.isCollapsed联动+unique-opened手风琴+collapse-transition动画;pnpm build通过 | (pending) |
 | P0-002-002-004-002-003 | 实现菜单权限过滤 | 2026-05-30T22:15 | ✅ | 创建directives/permission.ts(v-permission指令mounted钩子removeChild移除无权限DOM)+directives/index.ts(setupDirectives全局注册)+main.ts注册pinia+setupDirectives;pnpm build通过 | 250a3cda |
-| P0-002-003-001-001-001 | 定义State类型与初始值 | 2026-05-30T22:00 | ✅ | 创建types/user.d.ts(IUserState/UserInfoVO接口)+重写stores/modules/user.ts(Options API+state初始值+token持久化erp_user+persist.pick['token']);pnpm build通过 | (pending) |
+| P0-002-003-001-001-001 | 定义State类型与初始值 | 2026-05-30T22:00 | ✅ | 创建types/user.d.ts(IUserState/UserInfoVO接口)+重写stores/modules/user.ts(Options API+state初始值+token持久化erp_user+persist.pick['token']);pnpm build通过 | 9dfe5339 |
 
 ---
 
