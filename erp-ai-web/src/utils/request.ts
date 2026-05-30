@@ -5,6 +5,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { useUserStore } from '@/stores/modules/user'
 import { useAppStore } from '@/stores/modules/app'
+import { handleTokenRefresh } from './request/tokenRefresh'
 
 import type { ApiResponse } from '@/types/api'
 
@@ -68,19 +69,6 @@ const service: AxiosInstance = axios.create({
   headers: { 'Content-Type': 'application/json' }
 })
 
-let isRefreshing = false
-let refreshSubscribers: ((token: string) => void)[] = []
-
-function onTokenRefreshed(newToken: string): void {
-  refreshSubscribers.forEach((cb) => cb(newToken))
-  refreshSubscribers = []
-  isRefreshing = false
-}
-
-function subscribeTokenRefresh(cb: (token: string) => void): void {
-  refreshSubscribers.push(cb)
-}
-
 // 请求拦截器
 service.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
@@ -103,13 +91,6 @@ service.interceptors.request.use(
     return Promise.reject(error)
   }
 )
-
-// handleTokenRefresh — Token过期刷新入口（由P0-002-003-002-003实现）
-async function handleTokenRefresh(_config: InternalAxiosRequestConfig): Promise<any> {
-  if (isRefreshing) return
-  isRefreshing = true
-  // 由P0-002-003-002-003 Token刷新机制任务实现
-}
 
 // 响应拦截器
 service.interceptors.response.use(
@@ -193,5 +174,4 @@ service.interceptors.response.use(
   }
 )
 
-export { onTokenRefreshed, subscribeTokenRefresh }
 export default service
