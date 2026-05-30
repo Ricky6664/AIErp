@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：147 条
+> **归档总数**：148 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -247,6 +247,7 @@
 | P0-001-008-002-002-003 | 集成测试验证 | 2026-05-30T18:00 | ✅ | 验证OperLogAspect切面完整:@Aspect @Component @Around正常/@Async异步保存/@EnableAsync已配置/操作人(StpUtil)/IP(X-Forwarded-For→RemoteAddr)/HTTP方法/URL/耗时/成功失败/异常堆栈截取2000字符/SysOperLog表字段映射正确,mvn compile BUILD SUCCESS | 6cf9dc64 |
 | P0-001-008-002-003-001 | 定义接口路由与方法签名 | 2026-05-30T18:15 | ✅ | SysOperLogController.java(@RestController @RequestMapping /api/system/oper-logs):GET/page分页(operatorId/module/startTime/endTime/operatorIp/create_time DESC)+GET/{id}详情+DELETE/clean清空+GET/export导出,全部@RequirePermission(system:oper-log:query),mvn compile通过 | (pending) |
 | P0-001-008-002-003-002 | 实现查询逻辑 | 2026-05-30 | ✅ | SysOperLogController.java重构使用SysOperLogService(替代直接注入Mapper),SysOperLogService新增pageList/getById/clean/exportList方法,SysOperLogServiceImpl实现全部查询方法(buildQueryWrapper提取公共条件构造),mvn compile通过 | (pending) |
+| P0-001-008-003-001-001 | 实现导出逻辑 | 2026-05-30T10:06 | ✅ | ExcelExportUtil.java:泛型export(response,fileName,clazz,data)方法,基于EasyExcel 3.3.3,分批写入(BATCH_SIZE=5000),单表MAX_ROWS=10000限制,URLEncoder文件名编码,Content-Type=application/vnd.ms-excel,异常throw BusinessException→GlobalExceptionHandler→RT.fail,pom.xml新增easyexcel依赖,mvn compile BUILD SUCCESS | (pending) |
 
 ---
 
@@ -254,7 +255,7 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 148 | 2 | 6.89% |
+| P0 | 14 | 2,147 | 149 | 2 | 6.94% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **148** | **2** | **3.14%** |
