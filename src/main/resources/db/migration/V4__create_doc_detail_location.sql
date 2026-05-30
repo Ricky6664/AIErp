@@ -1,6 +1,6 @@
 -- ============================================================
 -- ERP AI 智能管理系统 - 库位子表 DDL
--- 任务: P0-001-009-001-001-001
+-- 任务: P0-001-009-001-001-001, P0-001-009-001-001-002
 -- 描述: 创建 doc_detail_location 库位辅助属性子表
 -- 数据库: PostgreSQL 15+
 -- ============================================================
@@ -78,7 +78,27 @@ COMMENT ON INDEX uk_ddl_detail_location IS '唯一索引：明细ID+库位编码
 --   - 唯一索引包含 tenant_id 以支持多租户隔离
 --   - 所有索引使用部分索引（WHERE is_deleted = FALSE）排除软删除数据
 -- ============================================================
+
+-- ============================================================
+-- ALTER TABLE ADD CONSTRAINT（P0-001-009-001-001-002）
+-- 外键说明：
+--   - detail_id 为逻辑外键，关联各业务单据明细表（采购/销售/库存等）
+--   - 因父表分属不同模块且尚不存在，外键关联以索引 idx_ddl_detail_id 实现
+--   - 业务层通过 Service 保证引用完整性
+-- 检查约束：
+--   1. chk_ddl_quantity — 数量非负
+--   2. chk_ddl_is_default — is_default 取值限定 0/1
+-- ============================================================
+
+ALTER TABLE doc_detail_location ADD CONSTRAINT chk_ddl_quantity CHECK (quantity >= 0);
+ALTER TABLE doc_detail_location ADD CONSTRAINT chk_ddl_is_default CHECK (is_default IN (0, 1));
+
+COMMENT ON CONSTRAINT chk_ddl_quantity ON doc_detail_location IS '数量非负检查约束';
+COMMENT ON CONSTRAINT chk_ddl_is_default ON doc_detail_location IS '默认库位取值约束(0=否,1=是)';
+
 --
 -- 回滚脚本（如需回滚，执行以下语句）:
+-- ALTER TABLE doc_detail_location DROP CONSTRAINT IF EXISTS chk_ddl_quantity;
+-- ALTER TABLE doc_detail_location DROP CONSTRAINT IF EXISTS chk_ddl_is_default;
 -- DROP TABLE IF EXISTS doc_detail_location CASCADE;
 -- ============================================================
