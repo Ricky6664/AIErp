@@ -334,7 +334,7 @@
 | P0-002-003-001-002-001 | 定义State类型与初始值 | 2026-05-30T22:50 | ✅ | 创建types/app.d.ts(DeviceType/ThemeType/IAppState)+stores/modules/app.ts(defineStore Options API+5个state字段+persist持久化erp_app),tsc --noEmit通过 | 065de044 |
 | P0-002-003-001-002-002 | 实现Actions | 2026-05-30 | ✅ | 实现appStore 5个Actions:toggleSidebar(翻转sidebarCollapsed+persist自动处理)/setDevice(设置device+mobile自动折叠侧边栏)/setTheme(更新state+document data-theme属性+dark+el-dark class)/setLanguage(更新state+同步i18n locale lazy ref)/setActiveMenu(记录当前路径),pnpm build通过 | (pending) |
 | P0-002-003-001-002-003 | 实现Getters | 2026-05-30 | ✅ | 实现appStore 4个Getters:isMobile(state.device==='mobile'→boolean)/sidebarStatus(sidebarCollapsed?'closed':'opened')/currentTheme(state.theme→ThemeType)/locale(state.language→string),所有getter类型安全无DOM操作,pnpm build通过 | 32c2d901 |
-| P0-002-003-001-003-001 | 定义前端路由配置 | 2026-05-30T22:10 | ✅ | router/index.ts(Router实例+scrollBehavior)+modules/static.ts(staticRoutes:LOGIN/404/403/ROOT/HOME)+modules/dynamic.ts(import.meta.glob动态导入resolveComponent)+types.ts(RouteMeta扩展activeMenu);vue-tsc+vite build通过 | (pending) |
+| P0-002-003-001-003-001 | 定义前端路由配置 | 2026-05-30T22:10 | ✅ | router/index.ts(Router实例+scrollBehavior)+modules/static.ts(staticRoutes:LOGIN/404/403/ROOT/HOME)+modules/dynamic.ts(import.meta.glob动态导入resolveComponent)+types.ts(RouteMeta扩展activeMenu);vue-tsc+vite build通过 | 21d87b7c |
 
 ---
 
