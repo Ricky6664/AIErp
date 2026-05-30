@@ -11,5 +11,6 @@ declare module 'vue-router' {
     permissions?: string[]
     openType?: number
     affix?: boolean
+    activeMenu?: string
   }
 }
