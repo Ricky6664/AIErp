@@ -50,7 +50,7 @@ public class FilePreviewService {
 
     /** 可直接流式输出的文档类型 */
     private static final Set<String> INLINE_DOC_TYPES = Set.of(
-            "application/pdf", "text/plain", "text/html", "text/css", "text/javascript",
+            "application/pdf", "text/html", "text/css", "text/javascript",
             "application/json", "application/xml"
     );
 
