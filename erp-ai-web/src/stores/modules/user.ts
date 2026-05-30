@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
 import type { IUserState } from '@/types/user'
+import type { LoginDTO } from '@/api/types/auth'
 import router from '@/router'
+import { loginApi, getUserInfoApi } from '@/api/modules/auth'
 
 export const useUserStore = defineStore('user', {
   state: (): IUserState & { menus: unknown[] } => ({
@@ -17,17 +19,30 @@ export const useUserStore = defineStore('user', {
   },
 
   actions: {
-    async getUserInfo() {
-      /* 用户信息获取逻辑在后续任务中实现 */
+    async login(credentials: LoginDTO) {
+      const data = await loginApi(credentials)
+      this.token = data.token
+      await this.getInfo()
     },
-    resetUser() {
+
+    async getInfo() {
+      try {
+        const data = await getUserInfoApi()
+        this.userInfo = data.userInfo
+        this.permissions = data.permissions ?? []
+        this.roles = data.roles ?? []
+      } catch {
+        this.logout()
+      }
+    },
+
+    logout() {
+      this.token = ''
       this.userInfo = null
       this.permissions = []
       this.roles = []
-    },
-    async logout() {
-      this.resetUser()
-      router.push('/login')
+      localStorage.removeItem('erp_user')
+      router.replace('/login')
     }
   },
 

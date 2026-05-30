@@ -26,7 +26,7 @@ export function setupRouterGuards(router: Router) {
     if (!permissionStore.isRoutesLoaded) {
       try {
         const userStore = useUserStore()
-        await userStore.getUserInfo()
+        await userStore.getInfo()
         await permissionStore.generateRoutes(userStore.menus)
         return next({ ...to, replace: true })
       } catch {
