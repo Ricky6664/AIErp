@@ -343,7 +343,7 @@
 | P0-002-003-002-001-003 | 集成测试验证 | 2026-05-30T22:50 | ✅ | 验证Axios实例7项全部通过:baseURL配置(`/api`)/timeout(30000)/Token注入(Authorization:Bearer)/语言注入(Accept-Language:zh-CN)/数据解包(code===0→data)/错误提示(ElMessage.error)/TypeScript零错误(tsc --noEmit) | |
 | P0-002-003-002-002-001 | 定义切面拦截器注册方式 | 2026-05-30T23:10 | ✅ | 创建types/api.d.ts(ApiResponse<T>/PageResult<T>类型定义)+更新request.ts响应拦截器(code===0返回data/code===20001 Token过期/code===40001/40003权限不足)+AxiosResponse<ApiResponse>类型标注+tsc--noEmit编译通过 | |
 | P0-002-003-002-002-003 | 集成测试验证 | 2026-05-30T23:45 | ✅ | 静态验证响应拦截器8项清单全部通过(code===0解包/20001刷新/40001权限/HTTP 401-500错误/超时/网络异常)+pnpm build编译通过 | f38ca9ee |
-| P0-002-003-002-003-001 | 实现401拦截与Token刷新请求 | 2026-05-30T22:50 | ✅ | handleTokenRefresh核心函数:isRefreshing防并发锁+refreshAxios独立实例避免死循环+pendingRequests队列管理+refresh失败调用logout跳转登录页+pnpm build编译通过 | (待填入) |
+| P0-002-003-002-003-001 | 实现401拦截与Token刷新请求 | 2026-05-30T22:50 | ✅ | handleTokenRefresh核心函数:isRefreshing防并发锁+refreshAxios独立实例避免死循环+pendingRequests队列管理+refresh失败调用logout跳转登录页+pnpm build编译通过 | fabcaddb |
 
 ---
 
