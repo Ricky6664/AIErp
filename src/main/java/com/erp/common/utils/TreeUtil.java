@@ -1,6 +1,9 @@
 package com.erp.common.utils;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -69,26 +72,42 @@ public final class TreeUtil {
             Function<T, Long> parentGetter,
             Function<T, TreeNode<T>> converter,
             long rootParentId) {
-        // TODO: 实现逻辑见 P0-001-008-004-001-002
-        throw new UnsupportedOperationException("Not yet implemented");
+        if (list == null || list.isEmpty()) {
+            return List.of();
+        }
+
+        // 按 parentId 分组，一次遍历 O(n)
+        Map<Long, List<TreeNode<T>>> parentToChildren = new LinkedHashMap<>();
+        for (T item : list) {
+            TreeNode<T> node = converter.apply(item);
+            parentToChildren.computeIfAbsent(node.getParentId(), k -> new ArrayList<>()).add(node);
+        }
+
+        List<TreeNode<T>> roots = parentToChildren.getOrDefault(rootParentId, List.of());
+        for (TreeNode<T> root : roots) {
+            buildChildren(root, parentToChildren);
+        }
+
+        return roots;
     }
 
     /**
      * 递归构建子节点.
      *
-     * @param parentNode   父节点
-     * @param allNodes     所有节点列表
-     * @param idGetter     获取节点 ID 的函数
-     * @param parentGetter 获取父节点 ID 的函数
-     * @param <T>          原始数据类型
+     * @param parentNode         父节点
+     * @param parentToChildren   按 parentId 分组的节点映射
+     * @param <T>                原始数据类型
      */
     private static <T> void buildChildren(
             TreeNode<T> parentNode,
-            List<TreeNode<T>> allNodes,
-            Function<T, Long> idGetter,
-            Function<T, Long> parentGetter) {
-        // TODO: 实现逻辑见 P0-001-008-004-001-002
-        throw new UnsupportedOperationException("Not yet implemented");
+            Map<Long, List<TreeNode<T>>> parentToChildren) {
+        List<TreeNode<T>> children = parentToChildren.get(parentNode.getId());
+        if (children != null && !children.isEmpty()) {
+            parentNode.setChildren(children);
+            for (TreeNode<T> child : children) {
+                buildChildren(child, parentToChildren);
+            }
+        }
     }
 
     /**
@@ -99,8 +118,24 @@ public final class TreeUtil {
      * @return 展平后的节点列表
      */
     public static <T> List<TreeNode<T>> flatten(List<TreeNode<T>> nodes) {
-        // TODO: 实现逻辑见 P0-001-008-004-001-002
-        throw new UnsupportedOperationException("Not yet implemented");
+        if (nodes == null || nodes.isEmpty()) {
+            return List.of();
+        }
+        List<TreeNode<T>> result = new ArrayList<>();
+        flattenDfs(nodes, result);
+        return result;
+    }
+
+    /**
+     * 深度优先展平递归.
+     */
+    private static <T> void flattenDfs(List<TreeNode<T>> nodes, List<TreeNode<T>> result) {
+        for (TreeNode<T> node : nodes) {
+            result.add(node);
+            if (node.getChildren() != null && !node.getChildren().isEmpty()) {
+                flattenDfs(node.getChildren(), result);
+            }
+        }
     }
 
     /**
@@ -118,7 +153,22 @@ public final class TreeUtil {
     public static <T> List<TreeNode<T>> filterByPermission(
             List<TreeNode<T>> nodes,
             Predicate<TreeNode<T>> predicate) {
-        // TODO: 实现逻辑见 P0-001-008-004-001-002
-        throw new UnsupportedOperationException("Not yet implemented");
+        if (nodes == null || nodes.isEmpty()) {
+            return List.of();
+        }
+        List<TreeNode<T>> result = new ArrayList<>();
+        for (TreeNode<T> node : nodes) {
+            List<TreeNode<T>> filteredChildren = filterByPermission(
+                    node.getChildren() != null ? node.getChildren() : List.of(),
+                    predicate);
+
+            if (predicate.test(node)) {
+                node.setChildren(filteredChildren);
+                result.add(node);
+            } else if (!filteredChildren.isEmpty()) {
+                result.addAll(filteredChildren);
+            }
+        }
+        return result;
     }
 }
