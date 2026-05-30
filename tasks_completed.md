@@ -305,7 +305,7 @@
 | P0-002-002-001-002-002 | 配置后端菜单数据 | 2026-05-30T18:45 | ✅ | 创建erp-ai-web/src/api/types/menu.ts:MenuItem接口(id/parentId/name/path/component/icon/sort/type/permissions/visible/keepAlive/openType/children)+MenuResponse接口(menus/permissions);创建erp-ai-web/src/utils/menuTransform.ts:transformMenuToRoutes函数(过滤type=2按钮/排序/递归转换/目录→AppLayout/菜单→resolveComponent/纯函数不修改原始数据);vue-tsc类型检查通过 | adde8bf6
 
 | P0-002-002-001-003-001 | 定义路由配置项 | 2026-05-30T18:50 | ✅ | 创建erp-ai-web/src/router/constants.ts(WHITE_LIST/LOGIN_PATH/HOME_PATH/NOT_FOUND_PATH/TOKEN_KEY/ROUTES_LOADED_KEY);创建erp-ai-web/src/stores/modules/permission.ts(PermissionState/routes/isRoutesLoaded/permissions/hasPermission/resetPermission);vue-tsc零错误 | 1866bfb3 |
-| P0-002-002-001-003-002 | 实现路由注册与守卫 | 2026-05-30T18:35 | ✅ | 创建erp-ai-web/src/router/guards.ts:setupRouterGuards函数(beforeEach全局守卫:白名单放行→Token校验→动态路由加载→权限校验→标题设置→next全分支覆盖);更新router/index.ts导入并调用setupRouterGuards;创建stores/modules/user.ts最小依赖桩 | (pending) |
+| P0-002-002-001-003-002 | 实现路由注册与守卫 | 2026-05-30T18:35 | ✅ | 创建erp-ai-web/src/router/guards.ts:setupRouterGuards函数(beforeEach全局守卫:白名单放行→Token校验→动态路由加载→权限校验→标题设置→next全分支覆盖);更新router/index.ts导入并调用setupRouterGuards;创建stores/modules/user.ts最小依赖桩 | 73225336 |
 ---
 
 ## 汇总统计
