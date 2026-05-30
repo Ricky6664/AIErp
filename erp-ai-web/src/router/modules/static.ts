@@ -13,7 +13,7 @@ export const ROOT_ROUTE: RouteRecordRaw = {
   path: '/',
   name: 'Root',
   redirect: '/home',
-  meta: { hideMenu: true, hideTab: true }
+  meta: { title: '根路径', hideMenu: true, hideTab: true }
 }
 
 // 首页 - 使用AdminLayout布局

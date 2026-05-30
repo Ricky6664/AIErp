@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw, RouterScrollBehavior } from 'vue-router'
+import './types'
 import { staticRoutes } from './modules/static'
 
 const scrollBehavior: RouterScrollBehavior = (to, _from, savedPosition) => {
