@@ -10,12 +10,12 @@
             'tab-nav__item--active': tag.fullPath === activePath,
             'tab-nav__item--affix': tag.affix
           }"
-          @click="emit('select', tag.fullPath)"
-          @contextmenu="emit('contextmenu', $event, tag)"
+          @click="handleSelect(tag.fullPath)"
+          @contextmenu="handleContextmenu($event, tag)"
         >
           <span class="tab-nav__title">{{ tag.title }}</span>
 
-          <el-icon v-if="!tag.affix" class="tab-nav__close" @click.stop="emit('close', tag)">
+          <el-icon v-if="!tag.affix" class="tab-nav__close" @click.stop="handleClose(tag)">
             <Close />
           </el-icon>
         </div>
@@ -27,38 +27,59 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed, watch, nextTick } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { Close } from '@element-plus/icons-vue'
-import type { TagView } from '@/stores/modules/tagsView'
 import ContextMenu from './ContextMenu.vue'
+import { useTagsViewStore } from '@/stores/modules/tagsView'
+import type { TagView } from '@/stores/modules/tagsView'
 
 defineOptions({ name: 'TabNav' })
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = withDefaults(
-  defineProps<{
-    activePath: string
-    views: readonly TagView[]
-  }>(),
-  {
-    activePath: '',
-    views: () => []
-  }
-)
-
-const emit = defineEmits<{
-  (e: 'select', path: string): void
-  (e: 'close', tag: TagView): void
-  (e: 'refresh', path: string): void
-  (e: 'contextmenu', event: MouseEvent, tag: TagView): void
-}>()
+const route = useRoute()
+const router = useRouter()
+const tagsViewStore = useTagsViewStore()
 
 const scrollRef = ref<HTMLElement>()
 const contextMenuRef = ref<InstanceType<typeof ContextMenu>>()
 const selectedTag = ref<TagView>()
 
-void scrollRef.value
-void contextMenuRef.value
+const views = computed(() => tagsViewStore.visitedViews)
+const activePath = computed(() => route.fullPath)
+
+watch(
+  () => route.fullPath,
+  () => {
+    if (route.meta?.hideTab) return
+    if (!route.name) return
+    tagsViewStore.addView(route)
+    nextTick(() => scrollToActiveTag())
+  },
+  { immediate: true }
+)
+
+function handleSelect(path: string) {
+  if (path !== route.fullPath) {
+    router.push(path)
+  }
+}
+
+function handleClose(tag: TagView) {
+  tagsViewStore.closeSelectedTag(tag)
+}
+
+function handleContextmenu(event: MouseEvent, tag: TagView) {
+  selectedTag.value = tag
+  contextMenuRef.value?.open(event)
+}
+
+function scrollToActiveTag() {
+  if (!scrollRef.value) return
+  const activeEl = scrollRef.value.querySelector('.tab-nav__item--active')
+  if (activeEl) {
+    activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' })
+  }
+}
 </script>
 
 <style lang="scss" scoped>
