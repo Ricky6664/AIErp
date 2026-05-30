@@ -14,8 +14,13 @@ export const useUserStore = defineStore('user', {
   }),
 
   getters: {
-    nickname: (state) => state.userInfo?.nickname ?? '',
-    avatar: (state) => state.userInfo?.avatar ?? ''
+    isLoggedIn: (state): boolean => !!state.token,
+    hasPermission:
+      (state) =>
+      (perm: string): boolean =>
+        state.permissions.includes(perm),
+    avatar: (state): string => state.userInfo?.avatar || '/default-avatar.png',
+    nickname: (state): string => state.userInfo?.nickname || state.userInfo?.username || '用户'
   },
 
   actions: {
