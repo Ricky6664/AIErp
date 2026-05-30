@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-30T19:17
-> **归档总数**：195 条
+> **最后更新**：2026-05-30T19:23
+> **归档总数**：196 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -313,6 +313,7 @@
 | P0-002-002-002-002-002 | 各功能区域交互 | 2026-05-30T19:25 | ✅ | 更新Navbar.vue(ElMessageBox确认退出登录+el-popover消息铃铛下拉+SearchDialog组件ref调用);创建SearchDialog.vue(Teleport to body+Ctrl+K快捷键+el-dialog搜索弹窗);安装@element-plus/icons-vue;修复menuTransform.ts类型错误;vue-tsc+vite build通过(532模块546ms) | (pending) |
 | P0-002-002-002-002-003 | 导航栏响应式适配 | 2026-05-30T19:17 | ✅ | 创建useResponsive.ts composable(768/1024断点+resize监听+isMobile/isTablet);创建navbar-responsive.scss(移动端overlay模式+平板适配);更新AppLayout.vue(useResponsive集成+overlay遮罩+移动端自动折叠);更新app-layout.scss(移除min-width+overlay base样式);pnpm build通过 | e879a367 |
 | P0-002-002-002-003-001 | 定义前端路由配置 | 2026-05-30T19:30 | ✅ | 创建erp-ai-web/src/layouts/components/Sidebar/types.ts(SidebarProps/MenuItemData接口+routeToMenuItem函数);更新Sidebar/index.vue(导入SidebarProps+defineProps);更新AppLayout.vue(传递isCollapsed prop);vue-tsc+vite build通过(532模块552ms) | (pending) |
+| P0-002-002-002-003-002 | 配置后端菜单数据 | 2026-05-30T19:23 | ✅ | 创建erp-ai-web/src/layouts/components/Sidebar/menuConfig.ts(filterMenuRoutes/filter hideMenu=true+DEFAULT_OPEN_MENUS+SIDEBAR_LOGO);vue-tsc --noEmit零错误 | (pending) |
 
 ---
 
@@ -320,10 +321,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 195 | 2 | 9.08% |
+| P0 | 14 | 2,147 | 196 | 2 | 9.13% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **195** | **2** | **4.13%** |
+| **合计** | **46** | **4,716** | **196** | **2** | **4.15%** |
 
 ---
 
