@@ -11,7 +11,7 @@ export function transformMenuToRoutes(menus: MenuItem[]): RouteRecordRaw[] {
     .filter((menu) => menu.type !== 2)
     .sort((a, b) => a.sort - b.sort)
     .map((menu) => {
-      const route: RouteRecordRaw = {
+      const base = {
         path: menu.path,
         name: menu.path.replace(/\//g, '-').replace(/^-/, ''),
         meta: {
@@ -23,16 +23,21 @@ export function transformMenuToRoutes(menus: MenuItem[]): RouteRecordRaw[] {
           openType: menu.openType
         }
       }
+
       if (menu.type === 0) {
-        route.component = AppLayout
-        if (menu.children?.length) {
-          route.children = transformMenuToRoutes(menu.children)
-          route.redirect = menu.children[0].path
-        }
+        return {
+          ...base,
+          component: AppLayout,
+          children: menu.children?.length ? transformMenuToRoutes(menu.children) : [],
+          redirect: menu.children?.[0]?.path ?? ''
+        } as RouteRecordRaw
       }
       if (menu.type === 1 && menu.component) {
-        route.component = resolveComponent(menu.component)
+        return {
+          ...base,
+          component: resolveComponent(menu.component)
+        } as RouteRecordRaw
       }
-      return route
+      return { ...base, redirect: '' } as RouteRecordRaw
     })
 }

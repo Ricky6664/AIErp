@@ -15,17 +15,41 @@
     <div class="navbar__right">
       <!-- 全局搜索 -->
       <el-tooltip content="搜索" placement="bottom">
-        <el-icon class="navbar__action-btn" :size="18">
+        <el-icon class="navbar__action-btn" :size="18" @click="searchDialogRef?.toggle()">
           <Search />
         </el-icon>
       </el-tooltip>
 
       <!-- 消息铃铛 -->
-      <el-badge :value="unreadCount" :hidden="!unreadCount" class="navbar__badge">
-        <el-icon class="navbar__action-btn" :size="18">
-          <Bell />
-        </el-icon>
-      </el-badge>
+      <el-popover
+        placement="bottom-end"
+        :width="320"
+        trigger="click"
+        @show="handleMessagePopoverShow"
+      >
+        <template #reference>
+          <el-badge :value="unreadCount" :hidden="!unreadCount" class="navbar__badge">
+            <el-icon class="navbar__action-btn" :size="18">
+              <Bell />
+            </el-icon>
+          </el-badge>
+        </template>
+        <div class="navbar__message-list">
+          <template v-if="messages.length > 0">
+            <div
+              v-for="msg in messages"
+              :key="msg.id"
+              class="navbar__message-item"
+              :class="{ 'is-unread': !msg.read }"
+              @click="handleMessageClick(msg)"
+            >
+              <div class="navbar__message-title">{{ msg.title }}</div>
+              <div class="navbar__message-time">{{ msg.time }}</div>
+            </div>
+          </template>
+          <div v-else class="navbar__message-empty">暂无消息</div>
+        </div>
+      </el-popover>
 
       <!-- 用户头像+下拉菜单 -->
       <el-dropdown trigger="click" @command="handleUserCommand">
@@ -50,14 +74,19 @@
         </el-icon>
       </el-tooltip>
     </div>
+
+    <!-- 全局搜索弹窗 -->
+    <SearchDialog ref="searchDialogRef" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { ElMessageBox } from 'element-plus'
 import { Fold, Expand, Search, Bell, FullScreen } from '@element-plus/icons-vue'
 import Breadcrumb from './Breadcrumb.vue'
+import SearchDialog from './SearchDialog.vue'
 import { useLayoutStore } from '@/stores/modules/layout'
 import { useUserStore } from '@/stores/modules/user'
 
@@ -67,11 +96,36 @@ const router = useRouter()
 const layoutStore = useLayoutStore()
 const userStore = useUserStore()
 
+const searchDialogRef = ref<InstanceType<typeof SearchDialog>>()
 const unreadCount = ref<number>(0)
 
-function handleUserCommand(command: string) {
+interface MessageItem {
+  id: number
+  title: string
+  time: string
+  read: boolean
+}
+
+const messages = ref<MessageItem[]>([])
+
+function handleMessagePopoverShow() {
+  // 消息列表加载逻辑在后续消息模块接入API后完善
+}
+
+function handleMessageClick(msg: MessageItem) {
+  msg.read = true
+  unreadCount.value = messages.value.filter((m) => !m.read).length
+}
+
+async function handleUserCommand(command: string) {
   if (command === 'logout') {
-    userStore.logout()
+    await ElMessageBox.confirm('确定要退出登录吗？', '提示', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning'
+    })
+    await userStore.logout()
+    await router.push('/login')
   } else if (command === 'profile') {
     router.push('/profile')
   }
@@ -113,11 +167,54 @@ function handleUserCommand(command: string) {
     }
   }
 
+  &__badge {
+    cursor: pointer;
+  }
+
   &__user {
     display: flex;
     align-items: center;
     gap: 8px;
     cursor: pointer;
+  }
+
+  &__message-list {
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  &__message-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--el-border-color-lighter);
+    cursor: pointer;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &.is-unread {
+      .navbar__message-title {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__message-title {
+    font-size: 14px;
+    color: var(--el-text-color-primary);
+  }
+
+  &__message-time {
+    font-size: 12px;
+    color: var(--el-text-color-secondary);
+    margin-top: 4px;
+  }
+
+  &__message-empty {
+    text-align: center;
+    padding: 16px 0;
+    color: var(--el-text-color-secondary);
+    font-size: 14px;
   }
 }
 </style>

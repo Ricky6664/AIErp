@@ -23,6 +23,7 @@
     ]
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
     "@vueuse/core": "^14.3.0",
     "@vxe-ui/core": "^4.4.13",
     "axios": "^1.16.1",
