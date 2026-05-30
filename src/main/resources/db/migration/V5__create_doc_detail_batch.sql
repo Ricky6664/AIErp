@@ -80,3 +80,27 @@ COMMENT ON INDEX uk_detail_batch IS '唯一索引：明细ID+批次号+租户ID�
 --   - 所有索引使用部分索引（WHERE is_deleted = FALSE）排除软删除数据
 --   - ALTER TABLE ADD CONSTRAINT 由下级任务 P0-001-009-002-001-002 完成
 -- ============================================================
+
+-- ============================================================
+-- ALTER TABLE ADD CONSTRAINT（P0-001-009-002-001-002）
+-- 外键说明：
+--   - detail_id 为逻辑外键，关联各业务单据明细表（采购/销售/库存等）
+--   - 因父表分属不同模块且尚不存在，外键关联以索引 idx_ddb_detail_id 实现
+--   - 业务层通过 Service 保证引用完整性
+-- 检查约束：
+--   1. chk_ddb_quantity — 数量非负
+--   2. chk_ddb_date — 有效期不早于生产日期（两者均非空时校验）
+-- ============================================================
+
+ALTER TABLE doc_detail_batch ADD CONSTRAINT chk_ddb_quantity CHECK (quantity >= 0);
+ALTER TABLE doc_detail_batch ADD CONSTRAINT chk_ddb_date CHECK (expiry_date IS NULL OR production_date IS NULL OR expiry_date >= production_date);
+
+COMMENT ON CONSTRAINT chk_ddb_quantity ON doc_detail_batch IS '数量非负检查约束';
+COMMENT ON CONSTRAINT chk_ddb_date ON doc_detail_batch IS '日期检查约束：有效期不早于生产日期';
+
+--
+-- 回滚脚本（如需回滚，执行以下语句）:
+-- ALTER TABLE doc_detail_batch DROP CONSTRAINT IF EXISTS chk_ddb_quantity;
+-- ALTER TABLE doc_detail_batch DROP CONSTRAINT IF EXISTS chk_ddb_date;
+-- DROP TABLE IF EXISTS doc_detail_batch CASCADE;
+-- ============================================================
