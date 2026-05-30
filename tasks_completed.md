@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：155 条
+> **归档总数**：156 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -256,6 +256,8 @@
 | P0-001-008-004-001-001 | 定义函数签名与类型 | 2026-05-30T14:00 | ✅ | TreeNode<T>(id/parentId/data/children+isLeaf/isRoot)+TreeUtil(final+private构造):buildTree(2个重载默认rootParentId=0)+buildChildren递归+flatten展平+filterByPermission过滤,方法签名完整,mvn compile通过 | (pending) |
 | P0-001-008-004-001-002 | 实现核心处理逻辑 | 2026-05-30T15:00 | ✅ | buildTree(O(n) LinkedHashMap分组)+buildChildren(递归Map查找)+flatten(DFS展平)+filterByPermission(子节点上移),所有方法null/empty安全,mvn compile通过 | 737cbd36 |
 | P0-001-009-001-001-001 | 编写CREATE INDEX语句 | 2026-05-30T10:55 | ✅ | V4__create_doc_detail_location.sql(DDL含5索引)+DocDetailLocation.java(extends BaseEntity)+DocDetailLocationMapper.java(extends BaseMapperX+selectByDetailId),mvn compile通过 | (pending) |
+| P0-001-009-001-001-002 | 编写ALTER TABLE ADD CONSTRAINT语句 | 2026-05-30T11:02 | ✅ | V4增强:ALTER TABLE ADD CONSTRAINT chk_ddl_quantity(quantity>=0)+chk_ddl_is_default(is_default IN 0/1)+COMMENT ON CONSTRAINT+逻辑外键说明,mvn compile通过 | 4cc25117 |
+| P0-001-009-001-002-001 | 定义Mapper接口 | 2026-05-30T11:10 | ✅ | DocDetailLocationMapper extends BaseMapperX,selectByDetailId方法,@Mapper注解,代码已在前序任务创建并编译通过 | 87ee7b44 |
 
 ---
 
@@ -263,10 +265,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 155 | 2 | 7.22% |
+| P0 | 14 | 2,147 | 157 | 2 | 7.31% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **154** | **2** | **3.24%** |
+| **合计** | **46** | **4,716** | **156** | **2** | **3.31%** |
 
 ---
 
