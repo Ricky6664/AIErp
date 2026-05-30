@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：160 条
+> **归档总数**：161 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -263,6 +263,7 @@
 | P0-001-009-002-001-002 | 编写ALTER TABLE ADD CONSTRAINT语句 | 2026-05-30T12:00 | ✅ | V5增强:ALTER TABLE ADD CONSTRAINT chk_ddb_quantity(quantity>=0)+chk_ddb_date(expiry_date>=production_date或NULL)+COMMENT ON CONSTRAINT+逻辑外键说明,mvn compile通过 | 1e17fb32 |
 | P0-001-009-002-002-001 | 定义Mapper接口 | 2026-05-30T12:15 | ✅ | DocDetailBatchMapper extends BaseMapperX,selectByDetailId,@Mapper注解,代码已在前序任务(e20f4fd2)中创建并编译通过 | (pending) |
 | P0-001-009-002-002-002 | 编写XML映射文件 | 2026-05-30T12:30 | ✅ | DocDetailBatchMapper.xml:BaseResultMap全字段映射(16字段)+Base_Column_List SQL片段+selectByDetailId自定义查询(WHERE is_deleted=FALSE),mvn compile通过 | (pending) |
+| P0-001-009-003-001-001 | 编写CREATE INDEX语句 | 2026-05-30T12:16 | ✅ | V6__create_doc_detail_serial.sql(DDL含5索引)+DocDetailSerial.java(extends BaseEntity+4业务字段)+DocDetailSerialMapper.java(extends BaseMapperX+selectByDetailId),mvn compile通过 | (pending) |
 
 ---
 
@@ -270,10 +271,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 161 | 2 | 7.50% |
+| P0 | 14 | 2,147 | 162 | 2 | 7.55% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **160** | **2** | **3.39%** |
+| **合计** | **46** | **4,716** | **161** | **2** | **3.41%** |
 
 ---
 
