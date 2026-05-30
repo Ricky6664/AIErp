@@ -242,7 +242,7 @@
 | P0-001-008-001-003-002 | 实现文件预览核心逻辑 | 2026-05-30T09:30 | ✅ | FilePreviewService.java核心逻辑增强:handleTextPreview改为流式输出(streamFile+8KB缓冲)避免大文件OOM,Content-Disposition:inline+Content-Length正确设置,移除未使用import(RequestContextHolder/ServletRequestAttributes/StringJoiner),mvn compile通过 | 0df94857 |
 | P0-001-008-001-003-003 | 验证文件预览 | 2026-05-30T09:07 | ✅ | FilePreviewServiceVerificationTest(22项全PASS):参数校验2项+文件不存在2项+图片预览4项(Content-Disposition:inline/Content-Type/内容一致性/Content-Length)+PDF预览3项+TXT预览3项(UTF-8文本)+Office预览3项(DOC/XLS/PPT返回JSON下载链接)+不支持格式2项+中文文件名1项+内联文档2项(JSON/HTML);修复text/plain从INLINE_DOC_TYPES移除使其走handleTextPreview设置charset=UTF-8 | f34f2922 |
 | P0-001-008-002-001-002 | 实现注解处理器 | 2026-05-30T12:30 | ✅ | OperLog.java注解定义完整:@Target(METHOD)/@Retention(RUNTIME)/@Documented,6属性(module/action/description/saveRequestData/saveResponseData/isSaveErrorTrace)默认值正确,配合OperLogAspect使用,mvn compile通过 | 9002503a |
-| P0-001-008-002-002-001 | 定义切面拦截器注册方式 | 2026-05-30T17:24 | ✅ | OperLogAspect.java(@Aspect @Component @Slf4j):@Around(@annotation(OperLog))记录操作人(StpUtil.getLoginId)/IP(X-Forwarded-For+RemoteAddr)/HTTP方法/URL/耗时/成功失败/异常堆栈截取2000字符,finally块异步调用SysOperLogService.save();SysOperLog实体+SysOperLogService接口+@EnableAsync;mvn compile BUILD SUCCESS | (待提交) |
+| P0-001-008-002-002-001 | 定义切面拦截器注册方式 | 2026-05-30T17:24 | ✅ | OperLogAspect.java(@Aspect @Component @Slf4j):@Around(@annotation(OperLog))记录操作人(StpUtil.getLoginId)/IP(X-Forwarded-For+RemoteAddr)/HTTP方法/URL/耗时/成功失败/异常堆栈截取2000字符,finally块异步调用SysOperLogService.save();SysOperLog实体+SysOperLogService接口+@EnableAsync;mvn compile BUILD SUCCESS | 51ffa9fe |
 
 ---
 
