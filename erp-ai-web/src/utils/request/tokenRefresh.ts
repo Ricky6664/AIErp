@@ -9,32 +9,58 @@ interface TokenVO {
   refreshToken: string
 }
 
+interface PendingRequest {
+  resolve: (value: any) => void
+  reject: (reason?: any) => void
+  config: InternalAxiosRequestConfig
+}
+
 const refreshAxios = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL as string,
   timeout: 10000
 })
 
 let isRefreshing = false
-let pendingRequests: ((token: string) => void)[] = []
+const pendingQueue: PendingRequest[] = []
 
 function addToQueue(config: InternalAxiosRequestConfig): Promise<any> {
-  return new Promise((resolve) => {
-    pendingRequests.push((newToken: string) => {
-      config.headers.Authorization = `Bearer ${newToken}`
-      resolve(axios(config))
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => {
+      const idx = pendingQueue.findIndex((item) => item.config === config)
+      if (idx !== -1) {
+        pendingQueue.splice(idx, 1)
+      }
+      reject(new Error('请求排队超时'))
+    }, 30000)
+    pendingQueue.push({
+      resolve: (v) => {
+        clearTimeout(timer)
+        resolve(v)
+      },
+      reject: (r) => {
+        clearTimeout(timer)
+        reject(r)
+      },
+      config
     })
   })
 }
 
 function replayRequests(newToken: string): void {
-  pendingRequests.forEach((cb) => cb(newToken))
-  pendingRequests = []
+  pendingQueue.forEach((item) => {
+    item.config.headers.Authorization = `Bearer ${newToken}`
+    axios(item.config).then(item.resolve).catch(item.reject)
+  })
+  pendingQueue.length = 0
   isRefreshing = false
 }
 
 function handleRefreshFailure(): void {
   isRefreshing = false
-  pendingRequests = []
+  pendingQueue.forEach((item) => {
+    item.reject(new Error('Token刷新失败，请重新登录'))
+  })
+  pendingQueue.length = 0
   const userStore = useUserStore()
   userStore.logout()
   ElMessage.error('登录已过期，请重新登录')
