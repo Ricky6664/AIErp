@@ -308,16 +308,17 @@
 | P0-002-002-001-003-002 | 实现路由注册与守卫 | 2026-05-30T18:35 | ✅ | 创建erp-ai-web/src/router/guards.ts:setupRouterGuards函数(beforeEach全局守卫:白名单放行→Token校验→动态路由加载→权限校验→标题设置→next全分支覆盖);更新router/index.ts导入并调用setupRouterGuards;创建stores/modules/user.ts最小依赖桩 | 73225336 |
 | P0-002-002-002-001-001 | 实现布局容器结构 | 2026-05-30T18:50 | ✅ | 创建erp-ai-web/src/layouts/AppLayout.vue:el-container嵌套(el-aside+el-container含el-header+tabs+el-main),aside动态宽度(64px/220px),keep-alive include绑定cachedViews,transition fade-transform动画,router-view key=fullPath;创建stores/modules/layout.ts+tagsView.ts桩;创建components/Sidebar/Navbar/TabNav桩 | (pending) |
 | P0-002-002-002-001-002 | 实现布局状态管理 | 2026-05-30T19:00 | ✅ | 重写erp-ai-web/src/stores/modules/layout.ts:Setup Store语法,isCollapsed(boolean)+localStorage持久化(watch),isFullscreen(boolean)+Fullscreen API(async/await),toggleCollapse/toggleFullscreen actions,initFullscreenListener事件监听,vite build通过 | (pending) |
+| P0-002-002-002-001-003 | 布局样式与动画 | 2026-05-30T19:05 | ✅ | 创建erp-ai-web/src/layouts/styles/app-layout.scss(侧边栏transition width 0.3s/sticky header z-index 100/min-width 1024px/overflow-y auto/fade-transform动画)+AppLayout.vue导入样式,vite build通过 | (pending) |
 ---
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 190 | 2 | 8.75% |
+| P0 | 14 | 2,147 | 191 | 2 | 8.80% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **190** | **2** | **4.01%** |
+| **合计** | **46** | **4,716** | **191** | **2** | **4.05%** |
 
 ---
 

@@ -47,3 +47,7 @@ const tagsViewStore = useTagsViewStore()
 const isCollapsed = computed(() => layoutStore.isCollapsed)
 const cachedViews = computed(() => tagsViewStore.cachedViews)
 </script>
+
+<style lang="scss">
+@use './styles/app-layout.scss';
+</style>
