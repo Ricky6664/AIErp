@@ -268,6 +268,7 @@
 | P0-001-009-003-002-001 | 定义Mapper接口 | 2026-05-30T12:35 | ✅ | DocDetailSerialMapper extends BaseMapperX<DocDetailSerial>,声明selectByDetailId自定义查询方法,mvn compile通过 | (pending) |
 | P0-001-009-003-002-002 | 编写XML映射文件 | 2026-05-30T12:27 | ✅ | DocDetailSerialMapper.xml:BaseResultMap全字段映射(14字段)+Base_Column_List SQL片段+selectByDetailId自定义查询(WHERE is_deleted=FALSE),mvn compile BUILD SUCCESS | 5cb4a7cf |
 | P0-001-009-004-001-001 | 定义Service接口 | 2026-05-30T12:38 | ✅ | DetailSubTableService<D,L,B,S>抽象泛型基类:saveSubTables(@Transactional先删后增)+deleteByDetailId(QueryWrapper批量删除)+getByDetailId(三表联查)+validateInventoryQuantity库存校验+DetailSubTableDTO从表容器,mvn compile BUILD SUCCESS | 3631ee5f |
+| P0-001-009-004-001-002 | 实现ServiceImpl | 2026-05-30T13:00 | ✅ | DetailSubTableService实现已验证:saveSubTables/deleteByDetailId/getByDetailId三方法全部实现,validateInventoryQuantity库存校验钩子,mvn compile BUILD SUCCESS | |
 
 ---
 
