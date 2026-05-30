@@ -72,7 +72,26 @@ COMMENT ON INDEX uk_serial_no IS '唯一索引：序列号+租户ID（仅未删�
 --   - ALTER TABLE ADD CONSTRAINT 由下级任务 P0-001-009-003-001-002 完成
 -- ============================================================
 
+-- ============================================================
+-- ALTER TABLE ADD CONSTRAINT（P0-001-009-003-001-002）
+-- 外键说明：
+--   - detail_id 为逻辑外键，关联各业务单据明细表（采购/销售/库存等）
+--   - 因父表分属不同模块且尚不存在，外键关联以索引 idx_dds_detail_id 实现
+--   - 业务层通过 Service 保证引用完整性
+-- 检查约束：
+--   1. chk_dds_status — 序列号状态仅允许 1在库、2出库、3报废
+--   2. chk_dds_serial_no — 序列号不允许空字符串
+-- ============================================================
+
+ALTER TABLE doc_detail_serial ADD CONSTRAINT chk_dds_status CHECK (status BETWEEN 1 AND 3);
+ALTER TABLE doc_detail_serial ADD CONSTRAINT chk_dds_serial_no CHECK (serial_no <> '');
+
+COMMENT ON CONSTRAINT chk_dds_status ON doc_detail_serial IS '序列号状态检查约束：1在库、2出库、3报废';
+COMMENT ON CONSTRAINT chk_dds_serial_no ON doc_detail_serial IS '序列号非空检查约束';
+
 --
 -- 回滚脚本（如需回滚，执行以下语句）:
+-- ALTER TABLE doc_detail_serial DROP CONSTRAINT IF EXISTS chk_dds_status;
+-- ALTER TABLE doc_detail_serial DROP CONSTRAINT IF EXISTS chk_dds_serial_no;
 -- DROP TABLE IF EXISTS doc_detail_serial CASCADE;
 -- ============================================================
