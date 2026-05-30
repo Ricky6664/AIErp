@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-30T19:55
-> **归档总数**：201 条
+> **最后更新**：2026-05-30T21:00
+> **归档总数**：202 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -319,6 +319,7 @@
 | P0-002-002-003-002-001 | 定义组件propsemits | 2026-05-30T19:42 | ✅ | 创建TabNav/types.ts(TabNavProps+TabNavEmits接口)+更新TabNav/index.vue(defineProps activePath/views+defineEmits select/close/refresh/contextmenu)+更新AppLayout.vue传递props;vue-tsc+vite build通过 | 027b5e53 |
 | P0-002-002-003-002-002 | 实现组件模板结构 | 2026-05-30T20:15 | ✅ | TabNav/index.vue template+scoped样式:横向滚动容器(overflow-x:auto+隐藏滚动条)+v-for标签列表(key=fullPath)+active高亮(primary色背景)+affix标签隐藏关闭按钮+@click.stop防冒泡+ContextMenu集成;vue-tsc+vite build通过 | 12398a89 |
 | P0-002-002-003-002-003 | 实现组件逻辑 | 2026-05-30T20:40 | ✅ | TabNav/index.vue自包含组件:watch route.fullPath自动addView+handleSelect路由跳转+handleClose关闭标签+handleContextmenu右键菜单+scrollToActiveTag自动滚动+AppLayout.vue移除props;pnpm build通过(532模块533ms) | ba0c7a4a |
+| P0-002-002-003-003-001 | 实现keep-alive缓存策略 | 2026-05-30T21:00 | ✅ | AppLayout.vue添加:max="MAX_CACHED_VIEWS"(10)限制最大缓存数;tagsView.ts导出MAX_CACHED_VIEWS常量+LRU淘汰逻辑(超出shift最早项);vue-tsc通过 | 465f2cec |
 
 ---
 
@@ -326,10 +327,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 201 | 2 | 9.36% |
+| P0 | 14 | 2,147 | 202 | 2 | 9.41% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **200** | **2** | **4.24%** |
+| **合计** | **46** | **4,716** | **202** | **2** | **4.28%** |
 
 ---
 
