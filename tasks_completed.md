@@ -250,6 +250,7 @@
 | P0-001-008-003-001-001 | 实现导出逻辑 | 2026-05-30T10:06 | ✅ | ExcelExportUtil.java:泛型export(response,fileName,clazz,data)方法,基于EasyExcel 3.3.3,分批写入(BATCH_SIZE=5000),单表MAX_ROWS=10000限制,URLEncoder文件名编码,Content-Type=application/vnd.ms-excel,异常throw BusinessException→GlobalExceptionHandler→RT.fail,pom.xml新增easyexcel依赖,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-008-003-001-002 | 导出异常处理 | 2026-05-30 | ✅ | ExcelExportUtil.java增强异常处理:导出中异常catch Exception→reset response→writeErrorResponse写RT.fail JSON(Content-Type改为application/json),避免Excel响应头与JSON错误体不匹配;前置校验仍throw BusinessException由GlobalExceptionHandler处理,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-008-003-002-001 | 实现导出功能 | 2026-05-30T12:20 | ✅ | ExcelImportUtil.java:泛型importExcel(MultipartFile,Class<T>)方法,EasyExcel.read().sheet().doRead()同步读取,ImportReadListener(AnalysisEventListener)逐行收集数据+onException捕获解析错误,MAX_ROWS=10000限制,BusinessException超量拒绝,ImportResult(successList+errorList with row+reason),错误行不阻断导入;ImportResult.java支持类,mvn clean compile 126源文件BUILD SUCCESS | (pending) |
+| P0-001-008-003-002-002 | 实现导入功能 | 2026-05-30T13:00 | ✅ | ExcelImportUtil.java完整实现:importExcel()泛型方法+EasyExcel.read().sheet().doRead()+ImportReadListener逐行收集+MAX_ROWS=10000+ImportResult(successList+errorList行号+原因)+错误行不阻断+onException不重抛 | 79ae6ef1 |
 
 ---
 
@@ -257,10 +258,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 150 | 2 | 6.99% |
+| P0 | 14 | 2,147 | 151 | 2 | 7.03% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **149** | **2** | **3.16%** |
+| **合计** | **46** | **4,716** | **151** | **2** | **3.20%** |
 
 ---
 
