@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30T21:35
-> **归档总数**：205 条
+> **归档总数**：206 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -326,6 +326,7 @@
 | P0-002-002-004-002-001-001 | 实现递归菜单组件 | 2026-05-30T21:50 | ✅ | 创建SidebarItem.vue递归菜单组件:defineOptions({name:'SidebarItem'})+visibleChildren computed过滤hideMenu+hasVisibleChildren判断渲染el-sub-menu或el-menu-item+v-for key=path;创建MenuItemIcon.vue(stub);pnpm build通过(532模块) | 0cb40b74 |
 | P0-002-002-004-002-001-002 | 实现菜单图标+外链 | 2026-05-30T21:15 | ✅ | 重写MenuItemIcon.vue支持3种图标类型(element:ElPlus动态组件/svg:SvgIcon组件/external:img标签);创建components/SvgIcon/index.vue(import.meta.glob eager加载SVG raw字符串);更新SidebarItem.vue外链处理(a标签target=_blank+rel=noopener noreferrer);更新types.ts添加iconType字段;pnpm build通过(532模块) | (pending) |
 | P0-002-002-004-002-001-003 | 实现菜单权限过滤 | 2026-05-30T21:45 | ✅ | 创建utils/permission.ts(hasPermission含superadmin优先判断+filterRoutesByPermission递归过滤纯函数父菜单联动隐藏);更新Sidebar/index.vue(computed filteredMenus集成filterRoutesByPermission+routeToMenuItem);pnpm build通过 | (pending) |
+| P0-002-002-004-002-002 | 实现菜单交互 | 2026-05-30T22:00 | ✅ | 重写Sidebar/index.vue:Logo区域(SIDEBAR_LOGO折叠/展开切换+点击回首页)+el-scrollbar包裹菜单+handleMenuSelect(外链window.open/普通router.push)+activeMenu computed(meta.activeMenu优先+route.path)+layoutStore.isCollapsed联动+unique-opened手风琴+collapse-transition动画;pnpm build通过 | (pending) |
 
 ---
 
@@ -333,7 +334,7 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 207 | 2 | 9.64% |
+| P0 | 14 | 2,147 | 208 | 2 | 9.69% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **204** | **2** | **4.33%** |
