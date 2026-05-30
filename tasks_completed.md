@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：169 条
+> **归档总数**：170 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -277,7 +277,8 @@
 |---------|---------|---------|:---:|------|---------|
 | P0-002-001-001-001-002 | 验证项目可运行 | 2026-05-30 | ✅ | 验证项目可运行:pnpm install(48包安装成功)+pnpm dev(VITE v8.0.14 localhost:5173)+pnpm build(vue-tsc+vite 18模块构建,dist含index.html+assets/.js/.css)+pnpm preview(localhost:4173正常),全5项验收通过 | 52664d4e |
 | P0-002-001-001-002-001 | 安装ESLint+Prettier依赖+编写配置 | 2026-05-30 | ✅ | 安装eslint@8.57.1+prettier@3.8.3+插件,创建.eslintrc.cjs/.prettierrc/.eslintignore/.prettierignore,pnpm lint无报错,pnpm format格式化正常,pnpm build通过 | a9668d33 |
-| P0-002-001-001-002-002 | 配置VSCode设置 | 2026-05-30 | ✅ | 创建.vscode/settings.json(formatOnSave+defaultFormatter Prettier+codeActionsOnSave ESLint+各文件类型格式化器)+更新.vscode/extensions.json(推荐Volar+ESLint+Prettier) | <pending> |
+| P0-002-001-001-002-002 | 配置VSCode设置 | 2026-05-30 | ✅ | 创建.vscode/settings.json(formatOnSave+defaultFormatter Prettier+codeActionsOnSave ESLint+各文件类型格式化器)+更新.vscode/extensions.json(推荐Volar+ESLint+Prettier) | d0cd6ea2 |
+| P0-002-001-001-002-003 | 验证代码规范 | 2026-05-30 | ✅ | 验证ESLint/Prettier/VSCode配置完整可用:pnpm lint退出码0,pnpm format格式化src/文件正常,ESLint检测var声明报no-var,VSCode保存自动修复,.eslintignore忽略dist/.prettierignore忽略pnpm-lock.yaml,pnpm build通过(18模块145ms) | (验证任务) |
 
 ---
 
