@@ -1,6 +1,57 @@
 import axios from 'axios'
 import type { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse } from 'axios'
 import { ElMessage } from 'element-plus'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
+declare module 'axios' {
+  interface InternalAxiosRequestConfig {
+    retry?: number
+    retryDelay?: number
+    __retryCount?: number
+    silent?: boolean
+  }
+}
+
+NProgress.configure({ showSpinner: false })
+
+const pendingMap = new Map<string, AbortController>()
+let requestCount = 0
+
+function getRequestKey(config: InternalAxiosRequestConfig): string {
+  const { url, method, params, data } = config
+  return [url, method, JSON.stringify(params), JSON.stringify(data)].join('&')
+}
+
+function addPending(config: InternalAxiosRequestConfig): void {
+  const key = getRequestKey(config)
+  if (pendingMap.has(key)) {
+    pendingMap.get(key)!.abort()
+  }
+  const controller = new AbortController()
+  config.signal = controller.signal
+  pendingMap.set(key, controller)
+}
+
+function removePending(config: InternalAxiosRequestConfig): void {
+  const key = getRequestKey(config)
+  pendingMap.delete(key)
+}
+
+function startLoading(config: InternalAxiosRequestConfig): void {
+  if (config.silent || (config.__retryCount && config.__retryCount > 0)) return
+  if (requestCount === 0) NProgress.start()
+  requestCount++
+}
+
+function endLoading(config?: InternalAxiosRequestConfig): void {
+  if (config?.silent) return
+  requestCount--
+  if (requestCount <= 0) {
+    requestCount = 0
+    NProgress.done()
+  }
+}
 
 const service: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL as string,
@@ -16,8 +67,6 @@ function handleTokenExpired(): void {
     return
   }
   isRefreshing = true
-  // Token 刷新逻辑（后续任务 P0-002-001-002-003-003 完善）
-  // 刷新成功后调用 onTokenRefreshed(newToken) 重放队列
 }
 
 function onTokenRefreshed(newToken: string): void {
@@ -33,15 +82,22 @@ function subscribeTokenRefresh(cb: (token: string) => void): void {
 // 请求拦截器
 service.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    // Token 注入逻辑（后续任务完善）
+    addPending(config)
+    startLoading(config)
     return config
   },
-  (error) => Promise.reject(error)
+  (error) => {
+    endLoading(error.config)
+    return Promise.reject(error)
+  }
 )
 
 // 响应拦截器
 service.interceptors.response.use(
   (response: AxiosResponse) => {
+    removePending(response.config)
+    endLoading(response.config)
+
     const { code, data, msg } = response.data
 
     if (code === 0) {
@@ -54,14 +110,40 @@ service.interceptors.response.use(
         break
       case 403:
         ElMessage.error('权限不足')
-        // TODO: 路由模块创建后添加 router.push('/403')
         break
       default:
         ElMessage.error(msg || '请求失败')
     }
     return Promise.reject(new Error(msg || 'Error'))
   },
-  (error) => {
+  async (error) => {
+    const config = error.config as InternalAxiosRequestConfig | undefined
+
+    if (config && !axios.isCancel(error) && error.code !== 'ERR_CANCELED') {
+      removePending(config)
+    }
+
+    if (
+      config &&
+      config.retry &&
+      (!config.method || config.method.toLowerCase() === 'get') &&
+      !axios.isCancel(error) &&
+      error.code !== 'ERR_CANCELED'
+    ) {
+      config.__retryCount = config.__retryCount || 0
+      if (config.__retryCount < config.retry) {
+        config.__retryCount++
+        await new Promise((resolve) => setTimeout(resolve, config.retryDelay || 1000))
+        return service(config)
+      }
+    }
+
+    endLoading(config)
+
+    if (axios.isCancel(error) || error.code === 'ERR_CANCELED') {
+      return Promise.reject(error)
+    }
+
     if (error.code === 'ECONNABORTED') {
       ElMessage.error('请求超时，请稍后重试')
     } else if (!error.response) {
