@@ -74,7 +74,7 @@ public class SysDataViewController {
 
     @Operation(summary = "执行数据视图动态查询")
     @RequirePermission("system:data-view:execute")
-    @OperLog(value = "执行数据视图查询", type = "QUERY", recordResult = false)
+    @OperLog(module = "数据视图", action = "查", description = "执行数据视图查询", saveResponseData = false)
     @PostMapping("/{viewCode}/execute")
     public RT<PageResult<Map<String, Object>>> execute(@PathVariable String viewCode, @RequestBody Map<String, Object> queryParams) {
         return RT.ok(sysDataViewService.executeView(viewCode, queryParams));

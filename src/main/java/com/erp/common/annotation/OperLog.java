@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * 操作日志注解.
  *
- * <p>标注在方法上, 自动记录操作日志(通过AOP切面实现).</p>
+ * <p>标注在方法上, 配合 OperLogAspect 切面自动记录操作日志.</p>
  *
  * @author AI
  * @since 2026-05-30
@@ -19,15 +19,21 @@ import java.lang.annotation.Target;
 @Documented
 public @interface OperLog {
 
-    /** 操作描述, 默认取方法上的 @Operation summary. */
-    String value() default "";
+    /** 所属模块. */
+    String module() default "";
 
-    /** 操作类型: CREATE/UPDATE/DELETE/QUERY/EXPORT/IMPORT/OTHER */
-    String type() default "OTHER";
+    /** 操作类型: 增/删/改/查/导出/导入. */
+    String action() default "";
 
-    /** 是否记录请求参数, 默认 true. */
-    boolean recordParams() default true;
+    /** 操作描述. */
+    String description() default "";
 
-    /** 是否记录响应结果, 默认 false(查询结果数据量大). */
-    boolean recordResult() default false;
+    /** 是否保存请求数据, 默认 true. */
+    boolean saveRequestData() default true;
+
+    /** 是否保存响应数据, 默认 false(查询结果数据量大). */
+    boolean saveResponseData() default false;
+
+    /** 是否保存异常堆栈, 默认 false(避免超过数据库字段长度). */
+    boolean isSaveErrorTrace() default false;
 }
