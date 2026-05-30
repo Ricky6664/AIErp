@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-30T19:23
-> **归档总数**：197 条
+> **最后更新**：2026-05-30T19:45
+> **归档总数**：198 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -315,6 +315,7 @@
 | P0-002-002-002-003-001 | 定义前端路由配置 | 2026-05-30T19:30 | ✅ | 创建erp-ai-web/src/layouts/components/Sidebar/types.ts(SidebarProps/MenuItemData接口+routeToMenuItem函数);更新Sidebar/index.vue(导入SidebarProps+defineProps);更新AppLayout.vue(传递isCollapsed prop);vue-tsc+vite build通过(532模块552ms) | (pending) |
 | P0-002-002-002-003-002 | 配置后端菜单数据 | 2026-05-30T19:23 | ✅ | 创建erp-ai-web/src/layouts/components/Sidebar/menuConfig.ts(filterMenuRoutes/filter hideMenu=true+DEFAULT_OPEN_MENUS+SIDEBAR_LOGO);vue-tsc --noEmit零错误 | 03bb1303 |
 | P0-002-002-003-001-001 | 定义Pinia store | 2026-05-30T19:35 | ✅ | 重写tagsView.ts为Setup Store:TagView接口(8字段)/visitedViews+cachedViews ref/computed affixTags/addView/delView/delOtherViews/delAllViews/updateVisitedView;vue-tsc+vite build通过(532模块553ms) | (pending) |
+| P0-002-002-003-001-002 | 实现标签页操作方法 | 2026-05-30T19:45 | ✅ | 追加isActiveView/closeSelectedTag(优先右侧→左侧→首页)/refreshSelectedPage(exclude+redirect+nextTick+include)/closeLeftTags/closeRightTags/closeOtherTags/closeAllTags/syncCachedViews到tagsView.ts;vue-tsc+vite build通过(532模块551ms) | (pending) |
 
 ---
 
