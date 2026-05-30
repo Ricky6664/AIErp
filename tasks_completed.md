@@ -315,7 +315,7 @@
 | P0-002-002-002-003-001 | 定义前端路由配置 | 2026-05-30T19:30 | ✅ | 创建erp-ai-web/src/layouts/components/Sidebar/types.ts(SidebarProps/MenuItemData接口+routeToMenuItem函数);更新Sidebar/index.vue(导入SidebarProps+defineProps);更新AppLayout.vue(传递isCollapsed prop);vue-tsc+vite build通过(532模块552ms) | (pending) |
 | P0-002-002-002-003-002 | 配置后端菜单数据 | 2026-05-30T19:23 | ✅ | 创建erp-ai-web/src/layouts/components/Sidebar/menuConfig.ts(filterMenuRoutes/filter hideMenu=true+DEFAULT_OPEN_MENUS+SIDEBAR_LOGO);vue-tsc --noEmit零错误 | 03bb1303 |
 | P0-002-002-003-001-001 | 定义Pinia store | 2026-05-30T19:35 | ✅ | 重写tagsView.ts为Setup Store:TagView接口(8字段)/visitedViews+cachedViews ref/computed affixTags/addView/delView/delOtherViews/delAllViews/updateVisitedView;vue-tsc+vite build通过(532模块553ms) | (pending) |
-| P0-002-002-003-001-003 | 实现右键菜单 | 2026-05-30T19:55 | ✅ | 创建ContextMenu.vue:Teleport to body+6个菜单项(刷新/关闭当前/关闭其他/关闭左/右/全部)+边界检测+affix禁用+click outside关闭+defineExpose;导出TagView接口;vue-tsc+vite build通过 | (pending) |
+| P0-002-002-003-001-003 | 实现右键菜单 | 2026-05-30T19:55 | ✅ | 创建ContextMenu.vue:Teleport to body+6个菜单项(刷新/关闭当前/关闭其他/关闭左/右/全部)+边界检测+affix禁用+click outside关闭+defineExpose;导出TagView接口;vue-tsc+vite build通过 | e17f54ed |
 
 ---
 
