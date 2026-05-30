@@ -297,7 +297,7 @@
 | P0-002-001-003-002-002 | 在代码中使用环境变量 | 2026-05-30T17:40 | ✅ | 创建src/env.d.ts(ImportMetaEnv完整声明VITE_APP_TITLE/API_BASE_URL/USE_MOCK/WS_URL)+main.ts(document.title环境变量+Mock开关VITE_USE_MOCK动态导入)+index.html(%VITE_APP_TITLE%占位符)+src/mock/index.ts(setupMock stub),request.ts已使用VITE_API_BASE_URL,pnpm build通过(532模块551ms)
 | P0-002-001-003-002-003 | 验证环境切换 | 2026-05-30T18:05 | ✅ | 验证环境变量切换:.env.development/.env.production文件存在且变量正确,git status确认.env.local未被追踪,dev构建(--mode development)加载开发变量(title=ERP-AI开发环境),prod构建加载生产变量(title=ERP-AI),.env.local覆盖优先级符合Vite规范,非VITE_变量不可读取(Vite内置行为),pnpm build通过(530模块533ms) | 69affc3d |
 | P0-002-001-004-001-001 | 编写.vue模块声明 | 2026-05-30T18:15 | ✅ | 创建src/types/shims-vue.d.ts:declare module '*.vue'使用DefineComponent<{},{},any>泛型,tsc--noEmit通过,TypeScript正确识别.vue文件导入 | |
-| P0-002-001-004-001-002 | 编写env.d.ts环境变量声明 | 2026-05-30T18:20 | ✅ | 更新src/env.d.ts:ImportMetaEnv接口含6个VITE_变量(VITE_APP_TITLE/API_BASE_URL/USE_MOCK/APP_ENV/WS_URL/CDN_BASE_URL)+JSDoc注释+readonly修饰,ImportMeta扩展,t sc--noEmit+vite build通过 | |
+| P0-002-001-004-001-002 | 编写env.d.ts环境变量声明 | 2026-05-30T18:20 | ✅ | 更新src/env.d.ts:ImportMetaEnv接口含6个VITE_变量(VITE_APP_TITLE/API_BASE_URL/USE_MOCK/APP_ENV/WS_URL/CDN_BASE_URL)+JSDoc注释+readonly修饰,ImportMeta扩展,t sc--noEmit+vite build通过 | 2d400ca3 |
 
 ---
 
