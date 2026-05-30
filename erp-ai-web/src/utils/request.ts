@@ -3,6 +3,8 @@ import type { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse } from 'a
 import { ElMessage } from 'element-plus'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import { useUserStore } from '@/stores/modules/user'
+import { useAppStore } from '@/stores/modules/app'
 
 declare module 'axios' {
   interface InternalAxiosRequestConfig {
@@ -55,7 +57,7 @@ function endLoading(config?: InternalAxiosRequestConfig): void {
 
 const service: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL as string,
-  timeout: 15000,
+  timeout: 30000,
   headers: { 'Content-Type': 'application/json' }
 })
 
@@ -82,6 +84,13 @@ function subscribeTokenRefresh(cb: (token: string) => void): void {
 // 请求拦截器
 service.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
+    const userStore = useUserStore()
+    if (userStore.token) {
+      config.headers.Authorization = `Bearer ${userStore.token}`
+    }
+    const appStore = useAppStore()
+    config.headers['Accept-Language'] = appStore.language
+
     addPending(config)
     startLoading(config)
     return config

@@ -1,4 +1,4 @@
-# Auto-Continuous Launcher - 1 task per session, new window per task
+﻿# Auto-Continuous Launcher - 1 task per session, new window per task
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $logFile = Join-Path $scriptDir 'auto.log'
@@ -191,16 +191,17 @@ $wdLines = [System.Collections.ArrayList]::new()
 [void]$wdLines.Add('        WLog "SAFETY: Verification failed: $_"')
 [void]$wdLines.Add('    }')
 [void]$wdLines.Add('    if (-not $safeToKill) {')
+[void]$wdLines.Add('        try { Remove-Item $watchdogPidFile -Force -ErrorAction SilentlyContinue } catch {}')
 [void]$wdLines.Add('        WLog "Spawning new window without killing (unsafe)..."')
 [void]$wdLines.Add('        try {')
 [void]$wdLines.Add('            $proc = Start-Process -FilePath $batFile -ArgumentList $workerId -WorkingDirectory $scriptDir -PassThru')
 [void]$wdLines.Add('            WLog "New window launched (PID: $($proc.Id))"')
 [void]$wdLines.Add('        } catch { WLog "ERROR spawning: $_" }')
-[void]$wdLines.Add('        try { Remove-Item $watchdogPidFile -Force -ErrorAction SilentlyContinue } catch {}')
 [void]$wdLines.Add('        WLog "Done (skip kill). Exiting."')
 [void]$wdLines.Add('        exit 0')
 [void]$wdLines.Add('    }')
 [void]$wdLines.Add('')
+[void]$wdLines.Add('    try { Remove-Item $watchdogPidFile -Force -ErrorAction SilentlyContinue } catch {}')
 [void]$wdLines.Add('    # Spawn new window FIRST (before killing, so we don''t die with the old tree)')
 [void]$wdLines.Add('    WLog "Spawning new window FIRST..."')
 [void]$wdLines.Add('    try {')
@@ -270,7 +271,6 @@ $wdLines = [System.Collections.ArrayList]::new()
 [void]$wdLines.Add('        }')
 [void]$wdLines.Add('    } catch {}')
 [void]$wdLines.Add('')
-[void]$wdLines.Add('    try { Remove-Item $watchdogPidFile -Force -ErrorAction SilentlyContinue } catch {}')
 [void]$wdLines.Add('    WLog "Done. Exiting."')
 [void]$wdLines.Add('    exit 0')
 [void]$wdLines.Add('}')
