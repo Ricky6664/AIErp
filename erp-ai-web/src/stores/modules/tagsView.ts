@@ -10,10 +10,13 @@ export interface TagView {
   name: string | symbol | null | undefined
   title: string
   icon?: string
-  affix?: boolean // 固定标签(不可关闭)
-  keepAlive?: boolean // 是否缓存
+  affix?: boolean
+  keepAlive?: boolean
   query?: Record<string, string>
 }
+
+/** keep-alive最大缓存组件数 */
+export const MAX_CACHED_VIEWS = 10
 
 export const useTagsViewStore = defineStore('tagsView', () => {
   // 已打开的标签列表
@@ -53,6 +56,12 @@ export const useTagsViewStore = defineStore('tagsView', () => {
     if (!route.meta?.keepAlive) return
     if (cachedViews.value.includes(name)) return
     cachedViews.value.push(name)
+
+    // LRU淘汰：超过最大缓存数时移除最早的
+    if (cachedViews.value.length > MAX_CACHED_VIEWS) {
+      const removed = cachedViews.value.shift()
+      console.log(`[KeepAlive] LRU淘汰: ${removed}`)
+    }
   }
 
   /** 关闭标签 */

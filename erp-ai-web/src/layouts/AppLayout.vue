@@ -28,7 +28,7 @@
       <el-main class="app-layout__content">
         <router-view v-slot="{ Component, route }">
           <transition name="fade-transform" mode="out-in">
-            <keep-alive :include="cachedViews">
+            <keep-alive :include="cachedViews" :max="MAX_CACHED_VIEWS">
               <component :is="Component" :key="route.fullPath" />
             </keep-alive>
           </transition>
@@ -45,6 +45,7 @@ import Navbar from './components/Navbar.vue'
 import TabNav from './components/TabNav/index.vue'
 import { useLayoutStore } from '@/stores/modules/layout'
 import { useTagsViewStore } from '@/stores/modules/tagsView'
+import { MAX_CACHED_VIEWS } from '@/stores/modules/tagsView'
 import { useResponsive } from '@/composables/useResponsive'
 
 defineOptions({ name: 'AppLayout' })
