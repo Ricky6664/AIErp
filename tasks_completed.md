@@ -295,7 +295,7 @@
 | P0-002-001-003-001-003 | 验证HMR与构建 | 2026-05-30T17:19 | ✅ | 验证HMR与生产构建:pnpm build成功(exit 0,595ms,530模块)/dist产物1.7MB<2MB/build.target:es2015生效(无?./??语法)/chunkSizeWarningLimit:1500正常(最大chunk 1087KB无警告)/manualChunks代码分离(应用→index,库→vue chunk)/dev server启动823ms(@vitejs/plugin-vue+HMR默认启用),全7项验收通过 | f50ea8ed |
 | P0-002-001-003-002-001 | 编写.env.dev.env.prod.env.local | 2026-05-30T17:25 | ✅ | 创建.env(VITE_APP_TITLE)/.env.development(VITE_APP_TITLE/API_BASE_URL/USE_MOCK/WS_URL)/.env.production(生产值)/.env.local(gitignore本地覆盖),全部VITE_前缀 | da924e1b |
 | P0-002-001-003-002-002 | 在代码中使用环境变量 | 2026-05-30T17:40 | ✅ | 创建src/env.d.ts(ImportMetaEnv完整声明VITE_APP_TITLE/API_BASE_URL/USE_MOCK/WS_URL)+main.ts(document.title环境变量+Mock开关VITE_USE_MOCK动态导入)+index.html(%VITE_APP_TITLE%占位符)+src/mock/index.ts(setupMock stub),request.ts已使用VITE_API_BASE_URL,pnpm build通过(532模块551ms)
-| P0-002-001-003-002-003 | 验证环境切换 | 2026-05-30T18:05 | ✅ | 验证环境变量切换:.env.development/.env.production文件存在且变量正确,git status确认.env.local未被追踪,dev构建(--mode development)加载开发变量(title=ERP-AI开发环境),prod构建加载生产变量(title=ERP-AI),.env.local覆盖优先级符合Vite规范,非VITE_变量不可读取(Vite内置行为),pnpm build通过(530模块533ms)
+| P0-002-001-003-002-003 | 验证环境切换 | 2026-05-30T18:05 | ✅ | 验证环境变量切换:.env.development/.env.production文件存在且变量正确,git status确认.env.local未被追踪,dev构建(--mode development)加载开发变量(title=ERP-AI开发环境),prod构建加载生产变量(title=ERP-AI),.env.local覆盖优先级符合Vite规范,非VITE_变量不可读取(Vite内置行为),pnpm build通过(530模块533ms) | 69affc3d |
 
 ---
 
