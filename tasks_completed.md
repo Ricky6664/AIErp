@@ -336,7 +336,7 @@
 | P0-002-003-001-002-003 | 实现Getters | 2026-05-30 | ✅ | 实现appStore 4个Getters:isMobile(state.device==='mobile'→boolean)/sidebarStatus(sidebarCollapsed?'closed':'opened')/currentTheme(state.theme→ThemeType)/locale(state.language→string),所有getter类型安全无DOM操作,pnpm build通过 | 32c2d901 |
 | P0-002-003-001-003-001 | 定义前端路由配置 | 2026-05-30T22:10 | ✅ | router/index.ts(Router实例+scrollBehavior)+modules/static.ts(staticRoutes:LOGIN/404/403/ROOT/HOME)+modules/dynamic.ts(import.meta.glob动态导入resolveComponent)+types.ts(RouteMeta扩展activeMenu);vue-tsc+vite build通过 | 21d87b7c |
 | P0-002-003-001-003-002 | 配置后端菜单数据 | 2026-05-30T22:35 | ✅ | Flyway迁移V7__init_menu.sql:CREATE TABLE sys_menu(12业务字段+通用字段)+索引3个+INSERT菜单数据(系统管理/用户管理/角色管理/菜单管理/部门管理/岗位管理/字典管理/组织架构/公司管理/基础数据/编码规则/系统参数)三级树形结构 | (pending) |
-| P0-002-003-001-004-001 | 定义State类型与初始值 | 2026-05-30T23:00 | ✅ | 创建types/dict.d.ts(DictItem+IParamState接口)+stores/modules/param.ts(defineStore Options API+3个state字段+无persist持久化);tsc --noEmit通过 | (pending) |
+| P0-002-003-001-004-001 | 定义State类型与初始值 | 2026-05-30T23:00 | ✅ | 创建types/dict.d.ts(DictItem+IParamState接口)+stores/modules/param.ts(defineStore Options API+3个state字段+无persist持久化);tsc --noEmit通过 | 2d0561a0 |
 
 ---
 
