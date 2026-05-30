@@ -339,7 +339,7 @@
 | P0-002-003-001-004-001 | 定义State类型与初始值 | 2026-05-30T23:00 | ✅ | 创建types/dict.d.ts(DictItem+IParamState接口)+stores/modules/param.ts(defineStore Options API+3个state字段+无persist持久化);tsc --noEmit通过 | 2d0561a0 |
 | P0-002-003-001-004-002 | 实现Actions | 2026-05-30T22:10 | ✅ | paramStore实现loadDict/refreshDict/loadSystemConfig三个action+pendingPromises Map防重复请求+创建api/modules/system.ts(getDictDataApi/getSystemConfigApi);pnpm build通过 | e5476d33 |
 | P0-002-003-001-004-003 | 实现Getters | 2026-05-30T22:15 | ✅ | paramStore实现三个getters:getDictByType/getDictLabel/getConfig,函数式箭头语法,空值兜底返回空数组/空字符串,pnpm build通过 | d2e50675 |
-| P0-002-003-002-001-002 | 实现核心处理逻辑 | 2026-05-30T22:45 | ✅ | 更新request.ts:扩展InternalAxiosRequestConfig类型添加metadata字段(requestKey/startTime/skipCancel)+请求拦截器生成requestKey(method:url:params:data格式+JSON.stringify空值兜底)+赋值config.metadata,npx tsc --noEmit通过 | (pending) |
+| P0-002-003-002-001-002 | 实现核心处理逻辑 | 2026-05-30T22:45 | ✅ | 更新request.ts:扩展InternalAxiosRequestConfig类型添加metadata字段(requestKey/startTime/skipCancel)+请求拦截器生成requestKey(method:url:params:data格式+JSON.stringify空值兜底)+赋值config.metadata,npx tsc --noEmit通过 | 6b432623 |
 
 ---
 
