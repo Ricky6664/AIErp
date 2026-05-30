@@ -1,8 +1,6 @@
 package com.erp.system.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.erp.common.annotation.RequirePermission;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.BusinessException;
@@ -10,7 +8,7 @@ import com.erp.common.query.PageQuery;
 import com.erp.common.result.PageResult;
 import com.erp.common.result.RT;
 import com.erp.system.entity.SysOperLog;
-import com.erp.system.mapper.SysOperLogMapper;
+import com.erp.system.service.SysOperLogService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -18,7 +16,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,7 +33,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SysOperLogController {
 
-    private final SysOperLogMapper sysOperLogMapper;
+    private final SysOperLogService sysOperLogService;
 
     @Operation(summary = "分页查询操作日志")
     @RequirePermission("system:oper-log:query")
@@ -48,15 +45,7 @@ public class SysOperLogController {
             @Parameter(description = "结束时间") @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime endTime,
             @Parameter(description = "操作IP") @RequestParam(required = false) String operatorIp,
             @Valid PageQuery query) {
-        LambdaQueryWrapper<SysOperLog> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(operatorId != null, SysOperLog::getOperatorId, operatorId)
-                .eq(StringUtils.hasText(module), SysOperLog::getModule, module)
-                .ge(startTime != null, SysOperLog::getCreateTime, startTime)
-                .le(endTime != null, SysOperLog::getCreateTime, endTime)
-                .eq(StringUtils.hasText(operatorIp), SysOperLog::getOperatorIp, operatorIp)
-                .orderByDesc(SysOperLog::getCreateTime);
-        Page<SysOperLog> page = query.toPage();
-        IPage<SysOperLog> result = sysOperLogMapper.selectPageByCondition(page, wrapper);
+        IPage<SysOperLog> result = sysOperLogService.pageList(operatorId, module, startTime, endTime, operatorIp, query);
         return RT.ok(PageResult.of(result));
     }
 
@@ -65,7 +54,7 @@ public class SysOperLogController {
     @GetMapping("/{id}")
     public RT<SysOperLog> getById(
             @Parameter(description = "日志ID") @PathVariable Long id) {
-        SysOperLog log = sysOperLogMapper.selectOneById(id);
+        SysOperLog log = sysOperLogService.getById(id);
         if (log == null) {
             throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "操作日志不存在: id=" + id);
         }
@@ -76,8 +65,7 @@ public class SysOperLogController {
     @RequirePermission("system:oper-log:query")
     @DeleteMapping("/clean")
     public RT<Void> clean() {
-        sysOperLogMapper.delete(new LambdaQueryWrapper<>());
-        log.info("操作日志已全部清空");
+        sysOperLogService.clean();
         return RT.ok();
     }
 
@@ -90,14 +78,7 @@ public class SysOperLogController {
             @Parameter(description = "开始时间") @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime startTime,
             @Parameter(description = "结束时间") @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime endTime,
             @Parameter(description = "操作IP") @RequestParam(required = false) String operatorIp) {
-        LambdaQueryWrapper<SysOperLog> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(operatorId != null, SysOperLog::getOperatorId, operatorId)
-                .eq(StringUtils.hasText(module), SysOperLog::getModule, module)
-                .ge(startTime != null, SysOperLog::getCreateTime, startTime)
-                .le(endTime != null, SysOperLog::getCreateTime, endTime)
-                .eq(StringUtils.hasText(operatorIp), SysOperLog::getOperatorIp, operatorIp)
-                .orderByDesc(SysOperLog::getCreateTime);
-        List<SysOperLog> list = sysOperLogMapper.selectList(wrapper);
+        List<SysOperLog> list = sysOperLogService.exportList(operatorId, module, startTime, endTime, operatorIp);
         return RT.ok(list);
     }
 }
