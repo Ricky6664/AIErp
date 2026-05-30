@@ -240,7 +240,7 @@
 | P0-001-008-001-002-003 | 验证文件下载 | 2026-05-30T07:15 | ✅ | FileDownloadServiceVerificationTest(16项全PASS):参数校验(非法fileId)+文件不存在(DB/磁盘)+全量下载(Content-Type/Content-Disposition/Content-Length/内容一致性/计数递增/null MIME/中文文件名)+Range断点续传(206/Content-Range/部分内容/416 unsatisfiable/start-only),mvn test 16/16 PASS | 81d2e1d8 |
 | P0-001-008-001-003-001 | 实现文件预览逻辑 | 2026-05-30T08:57 | ✅ | FilePreviewService.java(@Service):preview(fileId,response)查sys_file元数据+图片(image/*)直接流式输出+PDF/文本(text/*)直接内联流式+Office(msword/excel/powerpoint/officedocument)返回JSON下载提示+不支持格式返回JSON下载链接+Content-Disposition:inline(浏览器内联展示)+streamFile(8KB缓冲防OOM),mvn compile BUILD SUCCESS | 679a805d |
 | P0-001-008-001-003-002 | 实现文件预览核心逻辑 | 2026-05-30T09:30 | ✅ | FilePreviewService.java核心逻辑增强:handleTextPreview改为流式输出(streamFile+8KB缓冲)避免大文件OOM,Content-Disposition:inline+Content-Length正确设置,移除未使用import(RequestContextHolder/ServletRequestAttributes/StringJoiner),mvn compile通过 | 0df94857 |
-| P0-001-008-001-003-003 | 验证文件预览 | 2026-05-30T09:07 | ✅ | FilePreviewServiceVerificationTest(22项全PASS):参数校验2项+文件不存在2项+图片预览4项(Content-Disposition:inline/Content-Type/内容一致性/Content-Length)+PDF预览3项+TXT预览3项(UTF-8文本)+Office预览3项(DOC/XLS/PPT返回JSON下载链接)+不支持格式2项+中文文件名1项+内联文档2项(JSON/HTML);修复text/plain从INLINE_DOC_TYPES移除使其走handleTextPreview设置charset=UTF-8 | (pending) |
+| P0-001-008-001-003-003 | 验证文件预览 | 2026-05-30T09:07 | ✅ | FilePreviewServiceVerificationTest(22项全PASS):参数校验2项+文件不存在2项+图片预览4项(Content-Disposition:inline/Content-Type/内容一致性/Content-Length)+PDF预览3项+TXT预览3项(UTF-8文本)+Office预览3项(DOC/XLS/PPT返回JSON下载链接)+不支持格式2项+中文文件名1项+内联文档2项(JSON/HTML);修复text/plain从INLINE_DOC_TYPES移除使其走handleTextPreview设置charset=UTF-8 | f34f2922 |
 
 ---
 
