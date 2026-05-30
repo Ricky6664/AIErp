@@ -271,16 +271,22 @@
 | P0-001-009-004-001-002 | 实现ServiceImpl | 2026-05-30T13:00 | ✅ | DetailSubTableService实现已验证:saveSubTables/deleteByDetailId/getByDetailId三方法全部实现,validateInventoryQuantity库存校验钩子,mvn compile BUILD SUCCESS | |
 | P0-001-009-004-001-003 | 业务辅助方法 | 2026-05-30T13:18 | ✅ | DetailSubTableService业务辅助方法:selectLocationsByDetailId/selectBatchesByDetailId/selectSerialsByDetailId三表独立查询+deleteLocationsByDetailId/deleteBatchesByDetailId/deleteSerialsByDetailId三表独立删除+validateInventoryQuantity库存数量SUM聚合校验+isSubTableDataEmpty辅助判断,mvn compile BUILD SUCCESS | 05e7182f |
 
+### P0-002 - 前端项目框架搭建
+
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | Git SHA |
+|---------|---------|---------|:---:|------|---------|
+| P0-002-001-001-001-001 | 执行pnpm create vite初始化项目 | 2026-05-30T12:53 | ✅ | pnpm create vite@latest erp-ai-web --template vue-ts创建Vue3+TS项目骨架,配置package.json(name:erp-ai-web v0.1.0/scripts:dev+build+preview+lint+format),pnpm install 48包,pnpm build成功(dist 63KB),Vite 8+TS 6+Vue 3.5 | 6e32627f |
+
 ---
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 166 | 2 | 7.73% |
+| P0 | 14 | 2,147 | 167 | 2 | 7.78% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **166** | **2** | **3.52%** |
+| **合计** | **46** | **4,716** | **167** | **2** | **3.54%** |
 
 ---
 
