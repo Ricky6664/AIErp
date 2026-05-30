@@ -1,5 +1,12 @@
 <template>
-  <el-container class="app-layout">
+  <el-container class="app-layout" :class="{ 'is-mobile': isMobile }">
+    <!-- 移动端遮罩层 -->
+    <div
+      v-if="isMobile && !isCollapsed"
+      class="app-layout__overlay"
+      @click="layoutStore.toggleCollapse()"
+    />
+
     <!-- 左侧边栏 -->
     <el-aside :width="isCollapsed ? '64px' : '220px'" class="app-layout__aside">
       <Sidebar />
@@ -32,22 +39,37 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import Sidebar from './components/Sidebar/index.vue'
 import Navbar from './components/Navbar.vue'
 import TabNav from './components/TabNav/index.vue'
 import { useLayoutStore } from '@/stores/modules/layout'
 import { useTagsViewStore } from '@/stores/modules/tagsView'
+import { useResponsive } from '@/composables/useResponsive'
 
 defineOptions({ name: 'AppLayout' })
 
 const layoutStore = useLayoutStore()
 const tagsViewStore = useTagsViewStore()
 
+const { isMobile } = useResponsive()
+
 const isCollapsed = computed(() => layoutStore.isCollapsed)
 const cachedViews = computed(() => tagsViewStore.cachedViews)
+
+// 移动端自动折叠侧边栏
+watch(
+  isMobile,
+  (mobile) => {
+    if (mobile && !layoutStore.isCollapsed) {
+      layoutStore.toggleCollapse()
+    }
+  },
+  { immediate: true }
+)
 </script>
 
 <style lang="scss">
 @use './styles/app-layout.scss';
+@use './styles/navbar-responsive.scss';
 </style>

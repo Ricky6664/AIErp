@@ -2,7 +2,7 @@
 .app-layout {
   width: 100%;
   height: 100vh;
-  min-width: 1024px; // 防止布局在小屏下崩溃
+  min-width: unset; // 桌面端由上级容器控制；移动端通过 media query 覆盖
   overflow: hidden;
 
   &__aside {
@@ -48,6 +48,14 @@
     overflow-x: hidden;
     padding: 16px;
     background-color: var(--el-fill-color-lighter);
+  }
+
+  &__overlay {
+    display: none; // 默认隐藏，移动端展开时通过 media query 显示
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 199;
   }
 }
 

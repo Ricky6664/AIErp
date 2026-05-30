@@ -1,0 +1,43 @@
+// 导航栏响应式适配
+// 断点常量与 useResponsive.ts 中的 MOBILE_MAX / TABLET_MAX 保持一致
+
+// 移动端适配 (<=768px)
+@media (max-width: 768px) {
+  .navbar {
+    &__username {
+      display: none;
+    }
+
+    &__right {
+      gap: 8px;
+    }
+  }
+
+  .app-layout {
+    min-width: unset;
+
+    &__aside {
+      position: fixed;
+      z-index: 200;
+      height: 100vh;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &__overlay {
+      display: block;
+    }
+  }
+}
+
+// 平板适配 (769px - 1024px)
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    &__username {
+      display: none;
+    }
+  }
+
+  .app-layout {
+    min-width: unset;
+  }
+}
