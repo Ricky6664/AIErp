@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30T22:00
-> **归档总数**：215 条
+> **归档总数**：216 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -337,6 +337,7 @@
 | P0-002-003-001-003-001 | 定义前端路由配置 | 2026-05-30T22:10 | ✅ | router/index.ts(Router实例+scrollBehavior)+modules/static.ts(staticRoutes:LOGIN/404/403/ROOT/HOME)+modules/dynamic.ts(import.meta.glob动态导入resolveComponent)+types.ts(RouteMeta扩展activeMenu);vue-tsc+vite build通过 | 21d87b7c |
 | P0-002-003-001-003-002 | 配置后端菜单数据 | 2026-05-30T22:35 | ✅ | Flyway迁移V7__init_menu.sql:CREATE TABLE sys_menu(12业务字段+通用字段)+索引3个+INSERT菜单数据(系统管理/用户管理/角色管理/菜单管理/部门管理/岗位管理/字典管理/组织架构/公司管理/基础数据/编码规则/系统参数)三级树形结构 | (pending) |
 | P0-002-003-001-004-001 | 定义State类型与初始值 | 2026-05-30T23:00 | ✅ | 创建types/dict.d.ts(DictItem+IParamState接口)+stores/modules/param.ts(defineStore Options API+3个state字段+无persist持久化);tsc --noEmit通过 | 2d0561a0 |
+| P0-002-003-001-004-002 | 实现Actions | 2026-05-30T22:10 | ✅ | paramStore实现loadDict/refreshDict/loadSystemConfig三个action+pendingPromises Map防重复请求+创建api/modules/system.ts(getDictDataApi/getSystemConfigApi);pnpm build通过 | e5476d33 |
 
 ---
 
@@ -344,7 +345,7 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 215 | 2 | 10.02% |
+| P0 | 14 | 2,147 | 216 | 2 | 10.06% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **211** | **2** | **4.47%** |
