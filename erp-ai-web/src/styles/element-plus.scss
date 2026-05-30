@@ -1,0 +1,25 @@
+/* Element Plus 主题变量覆盖 */
+:root {
+  /* 品牌色 */
+  --el-color-primary: #409eff;
+  --el-color-success: #67c23a;
+  --el-color-warning: #e6a23c;
+  --el-color-danger: #f56c6c;
+  --el-color-info: #909399;
+
+  /* 字体 */
+  --el-font-size-base: 14px;
+  --el-font-family:
+    'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial,
+    sans-serif;
+
+  /* 圆角 */
+  --el-border-radius-base: 4px;
+  --el-border-radius-small: 2px;
+
+  /* 间距 */
+  --el-padding-base: 8px;
+
+  /* 过渡 */
+  --el-transition-duration: 0.3s;
+}
