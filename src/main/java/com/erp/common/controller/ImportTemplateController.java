@@ -47,9 +47,17 @@ public class ImportTemplateController {
             HttpServletResponse response) throws IOException {
         Class<?> templateClass = getTemplateClass(module);
         setExcelResponseHeaders(response, module + "-import-template");
-        EasyExcel.write(response.getOutputStream(), templateClass)
-                .sheet("导入模板")
-                .doWrite(List.of());
+        try {
+            Object sampleRow = templateClass.getDeclaredConstructor().newInstance();
+            EasyExcel.write(response.getOutputStream(), templateClass)
+                    .sheet("导入模板")
+                    .doWrite(List.of(sampleRow));
+        } catch (BusinessException e) {
+            throw e;
+        } catch (Exception e) {
+            log.error("创建模板示例行失败: module={}, class={}", module, templateClass.getName(), e);
+            throw new BusinessException(ErrorCode.INTERNAL_ERROR, "生成导入模板失败");
+        }
     }
 
     @Operation(summary = "下载示例数据")
