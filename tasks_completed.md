@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30T22:00
-> **归档总数**：213 条
+> **归档总数**：214 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -335,6 +335,7 @@
 | P0-002-003-001-002-002 | 实现Actions | 2026-05-30 | ✅ | 实现appStore 5个Actions:toggleSidebar(翻转sidebarCollapsed+persist自动处理)/setDevice(设置device+mobile自动折叠侧边栏)/setTheme(更新state+document data-theme属性+dark+el-dark class)/setLanguage(更新state+同步i18n locale lazy ref)/setActiveMenu(记录当前路径),pnpm build通过 | (pending) |
 | P0-002-003-001-002-003 | 实现Getters | 2026-05-30 | ✅ | 实现appStore 4个Getters:isMobile(state.device==='mobile'→boolean)/sidebarStatus(sidebarCollapsed?'closed':'opened')/currentTheme(state.theme→ThemeType)/locale(state.language→string),所有getter类型安全无DOM操作,pnpm build通过 | 32c2d901 |
 | P0-002-003-001-003-001 | 定义前端路由配置 | 2026-05-30T22:10 | ✅ | router/index.ts(Router实例+scrollBehavior)+modules/static.ts(staticRoutes:LOGIN/404/403/ROOT/HOME)+modules/dynamic.ts(import.meta.glob动态导入resolveComponent)+types.ts(RouteMeta扩展activeMenu);vue-tsc+vite build通过 | 21d87b7c |
+| P0-002-003-001-003-002 | 配置后端菜单数据 | 2026-05-30T22:35 | ✅ | Flyway迁移V7__init_menu.sql:CREATE TABLE sys_menu(12业务字段+通用字段)+索引3个+INSERT菜单数据(系统管理/用户管理/角色管理/菜单管理/部门管理/岗位管理/字典管理/组织架构/公司管理/基础数据/编码规则/系统参数)三级树形结构 | (pending) |
 
 ---
 
@@ -342,10 +343,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 213 | 2 | 9.92% |
+| P0 | 14 | 2,147 | 214 | 2 | 9.97% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **209** | **2** | **4.43%** |
+| **合计** | **46** | **4,716** | **210** | **2** | **4.45%** |
 
 ---
 
