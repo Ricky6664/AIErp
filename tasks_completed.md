@@ -309,16 +309,18 @@
 | P0-002-002-002-001-001 | 实现布局容器结构 | 2026-05-30T18:50 | ✅ | 创建erp-ai-web/src/layouts/AppLayout.vue:el-container嵌套(el-aside+el-container含el-header+tabs+el-main),aside动态宽度(64px/220px),keep-alive include绑定cachedViews,transition fade-transform动画,router-view key=fullPath;创建stores/modules/layout.ts+tagsView.ts桩;创建components/Sidebar/Navbar/TabNav桩 | (pending) |
 | P0-002-002-002-001-002 | 实现布局状态管理 | 2026-05-30T19:00 | ✅ | 重写erp-ai-web/src/stores/modules/layout.ts:Setup Store语法,isCollapsed(boolean)+localStorage持久化(watch),isFullscreen(boolean)+Fullscreen API(async/await),toggleCollapse/toggleFullscreen actions,initFullscreenListener事件监听,vite build通过 | (pending) |
 | P0-002-002-002-001-003 | 布局样式与动画 | 2026-05-30T19:05 | ✅ | 创建erp-ai-web/src/layouts/styles/app-layout.scss(侧边栏transition width 0.3s/sticky header z-index 100/min-width 1024px/overflow-y auto/fade-transform动画)+AppLayout.vue导入样式,vite build通过 | (pending) |
+| P0-002-002-002-002-001 | 导航栏布局结构 | 2026-05-30T19:10 | ✅ | 重写Navbar.vue:flex布局space-between(左侧折叠按钮Fold/Expand图标切换+面包屑,右侧全局搜索+消息铃铛el-badge+用户头像el-dropdown trigger=click+全屏切换);创建Breadcrumb.vue(route.matched面包屑);重写user.ts(Setup Store+avatar/nickname computed+logout action+router.push);vue-tsc零错误+vite build通过(532模块559ms) | (pending) |
+
 ---
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 191 | 2 | 8.80% |
+| P0 | 14 | 2,147 | 192 | 2 | 8.94% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **191** | **2** | **4.05%** |
+| **合计** | **46** | **4,716** | **192** | **2** | **4.07%** |
 
 ---
 
