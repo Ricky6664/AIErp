@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：173 条
+> **归档总数**：174 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -285,6 +285,7 @@
 | P0-002-001-002-001-001 | 安装Element Plus依赖配置按需引入 | 2026-05-30 | ✅ | pnpm add element-plus+unplugin-vue-components+unplugin-auto-import,vite.config.ts配置AutoImport(imports:vue/vue-router/pinia)+Components(ElementPlusResolver),.gitignore添加dts声明文件,pnpm build通过(129K<500KB) | 79f4a1e5 |
 | P0-002-001-002-001-002 | 配置主题定制 | 2026-05-30 | ✅ | 创建src/styles/element-plus.scss覆盖CSS变量(品牌色/字体/圆角/间距/过渡),vite.config.ts配置ElementPlusResolver({importStyle:'sass'})+@路径别名,main.ts引入主题文件,tsconfig.app.json配置paths映射,安装sass依赖,pnpm build通过(19模块315ms) | f239017e |
 | P0-002-001-002-001-003 | 验证组件库可用 | 2026-05-30 | ✅ | 验证Element Plus按需引入+主题定制完整可用:ElButton/ElInput组件自动引入(components.d.ts含ElButton/ElInput),ref/computed/ElMessage自动导入(auto-imports.d.ts含全部类型),主题色#409EFF覆盖生效,pnpm build通过(195KB<500KB),auto-imports.d.ts+components.d.ts自动生成,全7项验收通过 | 78d1341f |
+| P0-002-001-002-002-001 | 定义函数签名与类型 | 2026-05-30T14:05 | ✅ | 创建src/plugins/vxe-table.ts(setupVxeTable函数+VxeI18nConfig/VxeDefaultConfig接口+VxeTablePlugin类型)+src/types/global.d.ts(VxeTablePropTypes扩展),pnpm add vxe-table@4.19.4+vxe-pc-ui@4.14.25,vue-tsc --noEmit通过 | (pending) |
 
 ---
 
@@ -292,10 +293,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 173 | 2 | 8.06% |
+| P0 | 14 | 2,147 | 174 | 2 | 8.11% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **173** | **2** | **3.67%** |
+| **合计** | **46** | **4,716** | **174** | **2** | **3.69%** |
 
 ---
 
