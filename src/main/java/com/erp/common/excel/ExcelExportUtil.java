@@ -5,6 +5,8 @@ import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.write.metadata.WriteSheet;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.BusinessException;
+import com.erp.common.result.RT;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
@@ -57,9 +59,31 @@ public final class ExcelExportUtil {
 
         try {
             doExport(response, fileName, clazz, data);
-        } catch (IOException e) {
-            log.error("Excel 导出 IO 失败: fileName={}", fileName, e);
-            throw new BusinessException(ErrorCode.INTERNAL_ERROR);
+        } catch (Exception e) {
+            log.error("Excel 导出失败: fileName={}", fileName, e);
+            writeErrorResponse(response, RT.fail(ErrorCode.INTERNAL_ERROR, "导出失败"));
+        }
+    }
+
+    /**
+     * 写入错误响应 (RT.fail JSON).
+     *
+     * <p>尝试重置已设置的 Excel 响应头, 改为 JSON 格式返回错误信息.
+     * 若响应已提交则无法重置, 仅记录日志.</p>
+     *
+     * @param response    HttpServletResponse
+     * @param errorResult 错误响应体
+     */
+    private static void writeErrorResponse(HttpServletResponse response, RT<?> errorResult) {
+        try {
+            if (!response.isCommitted()) {
+                response.reset();
+                response.setContentType("application/json");
+                response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+                new ObjectMapper().writeValue(response.getOutputStream(), errorResult);
+            }
+        } catch (Exception ex) {
+            log.error("写入导出错误响应失败", ex);
         }
     }
 
