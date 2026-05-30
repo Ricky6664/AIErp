@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30T21:00
-> **归档总数**：202 条
+> **归档总数**：204 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -320,6 +320,8 @@
 | P0-002-002-003-002-002 | 实现组件模板结构 | 2026-05-30T20:15 | ✅ | TabNav/index.vue template+scoped样式:横向滚动容器(overflow-x:auto+隐藏滚动条)+v-for标签列表(key=fullPath)+active高亮(primary色背景)+affix标签隐藏关闭按钮+@click.stop防冒泡+ContextMenu集成;vue-tsc+vite build通过 | 12398a89 |
 | P0-002-002-003-002-003 | 实现组件逻辑 | 2026-05-30T20:40 | ✅ | TabNav/index.vue自包含组件:watch route.fullPath自动addView+handleSelect路由跳转+handleClose关闭标签+handleContextmenu右键菜单+scrollToActiveTag自动滚动+AppLayout.vue移除props;pnpm build通过(532模块533ms) | ba0c7a4a |
 | P0-002-002-003-003-001 | 实现keep-alive缓存策略 | 2026-05-30T21:00 | ✅ | AppLayout.vue添加:max="MAX_CACHED_VIEWS"(10)限制最大缓存数;tagsView.ts导出MAX_CACHED_VIEWS常量+LRU淘汰逻辑(超出shift最早项);vue-tsc通过 | 465f2cec |
+| P0-002-002-003-003-002 | 实现缓存刷新机制 | 2026-05-30T21:10 | ✅ | 创建redirect路由+组件(exclude→redirect→include流程);修复refreshSelectedPage方法;pnpm build通过(532模块) | fdd2343b |
+| P0-002-002-004-001-001 | 定义前端路由配置 | 2026-05-30T21:20 | ✅ | 创建api/modules/menu.ts:getMenuList()调用getInfo接口+flattenMenuTree()扁平化嵌套菜单树+extractPermissions()提取权限标识;pnpm build通过 | - |
 
 ---
 
@@ -327,10 +329,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 202 | 2 | 9.41% |
+| P0 | 14 | 2,147 | 204 | 2 | 9.50% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **202** | **2** | **4.28%** |
+| **合计** | **46** | **4,716** | **203** | **2** | **4.30%** |
 
 ---
 
