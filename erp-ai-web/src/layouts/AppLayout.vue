@@ -9,7 +9,7 @@
 
     <!-- 左侧边栏 -->
     <el-aside :width="isCollapsed ? '64px' : '220px'" class="app-layout__aside">
-      <Sidebar />
+      <Sidebar :is-collapsed="isCollapsed" />
     </el-aside>
 
     <!-- 右侧主区域 -->

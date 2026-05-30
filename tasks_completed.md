@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30T19:17
-> **归档总数**：194 条
+> **归档总数**：195 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -311,7 +311,8 @@
 | P0-002-002-002-001-003 | 布局样式与动画 | 2026-05-30T19:05 | ✅ | 创建erp-ai-web/src/layouts/styles/app-layout.scss(侧边栏transition width 0.3s/sticky header z-index 100/min-width 1024px/overflow-y auto/fade-transform动画)+AppLayout.vue导入样式,vite build通过 | (pending) |
 | P0-002-002-002-002-001 | 导航栏布局结构 | 2026-05-30T19:10 | ✅ | 重写Navbar.vue:flex布局space-between(左侧折叠按钮Fold/Expand图标切换+面包屑,右侧全局搜索+消息铃铛el-badge+用户头像el-dropdown trigger=click+全屏切换);创建Breadcrumb.vue(route.matched面包屑);重写user.ts(Setup Store+avatar/nickname computed+logout action+router.push);vue-tsc零错误+vite build通过(532模块559ms) | (pending) |
 | P0-002-002-002-002-002 | 各功能区域交互 | 2026-05-30T19:25 | ✅ | 更新Navbar.vue(ElMessageBox确认退出登录+el-popover消息铃铛下拉+SearchDialog组件ref调用);创建SearchDialog.vue(Teleport to body+Ctrl+K快捷键+el-dialog搜索弹窗);安装@element-plus/icons-vue;修复menuTransform.ts类型错误;vue-tsc+vite build通过(532模块546ms) | (pending) |
-| P0-002-002-002-002-003 | 导航栏响应式适配 | 2026-05-30T19:17 | ✅ | 创建useResponsive.ts composable(768/1024断点+resize监听+isMobile/isTablet);创建navbar-responsive.scss(移动端overlay模式+平板适配);更新AppLayout.vue(useResponsive集成+overlay遮罩+移动端自动折叠);更新app-layout.scss(移除min-width+overlay base样式);pnpm build通过 | (pending) |
+| P0-002-002-002-002-003 | 导航栏响应式适配 | 2026-05-30T19:17 | ✅ | 创建useResponsive.ts composable(768/1024断点+resize监听+isMobile/isTablet);创建navbar-responsive.scss(移动端overlay模式+平板适配);更新AppLayout.vue(useResponsive集成+overlay遮罩+移动端自动折叠);更新app-layout.scss(移除min-width+overlay base样式);pnpm build通过 | e879a367 |
+| P0-002-002-002-003-001 | 定义前端路由配置 | 2026-05-30T19:30 | ✅ | 创建erp-ai-web/src/layouts/components/Sidebar/types.ts(SidebarProps/MenuItemData接口+routeToMenuItem函数);更新Sidebar/index.vue(导入SidebarProps+defineProps);更新AppLayout.vue(传递isCollapsed prop);vue-tsc+vite build通过(532模块552ms) | (pending) |
 
 ---
 
@@ -319,10 +320,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 194 | 2 | 9.03% |
+| P0 | 14 | 2,147 | 195 | 2 | 9.08% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **194** | **2** | **4.11%** |
+| **合计** | **46** | **4,716** | **195** | **2** | **4.13%** |
 
 ---
 
