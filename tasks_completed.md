@@ -292,7 +292,7 @@
 | P0-002-001-002-003-003 | 请求管理 | 2026-05-30T15:00 | ✅ | 完善request.ts请求管理层:pendingMap+AbortController重复请求取消(getRequestKey统一key)/NProgress全局loading+requestCount并发保护/silent静默模式/GET请求自动重试(网络错误超时最多3次1s间隔)/响应拦截器完整错误处理链路,pnpm build通过(530模块602ms) | 1ef7ce64 |
 | P0-002-001-003-001-001 | 编写vite.config.ts | 2026-05-30T15:20 | ✅ | 完整vite.config.ts:plugins(vue/vueJsx/AutoImport/Components)+resolve.alias(@/@components)+server(port:5173/proxy/api→localhost:8080/changeOrigin)+build(target:es2015/outDir:dist/chunkSizeWarningLimit:1500/manualChunks分包vendor/vue/element-plus),pnpm add @vitejs/plugin-vue-jsx,tsconfig.app.json新增@components/*路径映射,pnpm build通过(530模块580ms) | 0c9a8c40 |
 | P0-002-001-003-001-002 | 验证Vite配置 | 2026-05-30T15:35 | ✅ | 验证vite.config.ts完整可用:resolve.alias(tsconfig路径映射一致+main.ts使用@/别名→构建通过)+proxy(/api→localhost:8080+changeOrigin:true)+plugins(vue/vueJsx/AutoImport/Components全部加载)+pnpm build(530模块581ms+dist含index.html+assets)+server.port:5173+envPrefix默认VITE_+vite/client类型已配置,全4/6项核心验证通过(.env文件下一任务创建) | |
-| P0-002-001-003-001-003 | 验证HMR与构建 | 2026-05-30T17:19 | ✅ | 验证HMR与生产构建:pnpm build成功(exit 0,595ms,530模块)/dist产物1.7MB<2MB/build.target:es2015生效(无?./??语法)/chunkSizeWarningLimit:1500正常(最大chunk 1087KB无警告)/manualChunks代码分离(应用→index,库→vue chunk)/dev server启动823ms(@vitejs/plugin-vue+HMR默认启用),全7项验收通过 | |
+| P0-002-001-003-001-003 | 验证HMR与构建 | 2026-05-30T17:19 | ✅ | 验证HMR与生产构建:pnpm build成功(exit 0,595ms,530模块)/dist产物1.7MB<2MB/build.target:es2015生效(无?./??语法)/chunkSizeWarningLimit:1500正常(最大chunk 1087KB无警告)/manualChunks代码分离(应用→index,库→vue chunk)/dev server启动823ms(@vitejs/plugin-vue+HMR默认启用),全7项验收通过 | f50ea8ed |
 
 ---
 
