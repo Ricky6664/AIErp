@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：140 条
+> **归档总数**：141 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -238,7 +238,8 @@
 | P0-001-008-001-002-001 | 实现文件下载逻辑 | 2026-05-30T07:05 | ✅ | FileDownloadService.java(@Service):download(fileId,response)查sys_file元数据+校验文件存在可读+Content-Type(MIME)/Content-Disposition(attachment)/Content-Length响应头+StreamingResponseBody流式输出(8KB缓冲防OOM)+Range断点续传(206 Partial Content/RandomAccessFile seek)+下载计数自增,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-008-001-002-002 | 实现文件下载核心逻辑 | 2026-05-30T07:08 | ✅ | FileDownloadService.handleFullDownload重构为BufferedInputStream直接流式输出(移除冗余StreamingResponseBody同步包装),handleRangeDownload保留RandomAccessFile断点续传,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-008-001-002-003 | 验证文件下载 | 2026-05-30T07:15 | ✅ | FileDownloadServiceVerificationTest(16项全PASS):参数校验(非法fileId)+文件不存在(DB/磁盘)+全量下载(Content-Type/Content-Disposition/Content-Length/内容一致性/计数递增/null MIME/中文文件名)+Range断点续传(206/Content-Range/部分内容/416 unsatisfiable/start-only),mvn test 16/16 PASS | 81d2e1d8 |
-| P0-001-008-001-003-001 | 实现文件预览逻辑 | 2026-05-30T08:57 | ✅ | FilePreviewService.java(@Service):preview(fileId,response)查sys_file元数据+图片(image/*)直接流式输出+PDF/文本(text/*)直接内联流式+Office(msword/excel/powerpoint/officedocument)返回JSON下载提示+不支持格式返回JSON下载链接+Content-Disposition:inline(浏览器内联展示)+streamFile(8KB缓冲防OOM),mvn compile BUILD SUCCESS | (pending) |
+| P0-001-008-001-003-001 | 实现文件预览逻辑 | 2026-05-30T08:57 | ✅ | FilePreviewService.java(@Service):preview(fileId,response)查sys_file元数据+图片(image/*)直接流式输出+PDF/文本(text/*)直接内联流式+Office(msword/excel/powerpoint/officedocument)返回JSON下载提示+不支持格式返回JSON下载链接+Content-Disposition:inline(浏览器内联展示)+streamFile(8KB缓冲防OOM),mvn compile BUILD SUCCESS | 679a805d |
+| P0-001-008-001-003-002 | 实现文件预览核心逻辑 | 2026-05-30T09:30 | ✅ | FilePreviewService.java核心逻辑增强:handleTextPreview改为流式输出(streamFile+8KB缓冲)避免大文件OOM,Content-Disposition:inline+Content-Length正确设置,移除未使用import(RequestContextHolder/ServletRequestAttributes/StringJoiner),mvn compile通过 | (pending) |
 
 ---
 
@@ -246,10 +247,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 140 | 2 | 6.52% |
+| P0 | 14 | 2,147 | 141 | 2 | 6.57% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **140** | **2** | **2.97%** |
+| **合计** | **46** | **4,716** | **141** | **2** | **2.99%** |
 
 ---
 

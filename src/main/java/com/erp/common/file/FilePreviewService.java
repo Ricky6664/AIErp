@@ -10,8 +10,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -23,7 +21,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Set;
-import java.util.StringJoiner;
 
 /**
  * 文件预览服务.
@@ -154,21 +151,16 @@ public class FilePreviewService {
     }
 
     /**
-     * 纯文本预览 — 以 UTF-8 读取并输出文本内容.
+     * 纯文本预览 — 流式输出文本内容, 避免大文件 OOM.
      */
     private void handleTextPreview(Path filePath, HttpServletResponse response) {
         response.setContentType("text/plain;charset=UTF-8");
         try {
-            String content = Files.readString(filePath, StandardCharsets.UTF_8);
-            response.setContentLengthLong(content.getBytes(StandardCharsets.UTF_8).length);
-            try (OutputStream out = response.getOutputStream()) {
-                out.write(content.getBytes(StandardCharsets.UTF_8));
-                out.flush();
-            }
+            response.setContentLengthLong(Files.size(filePath));
         } catch (IOException e) {
-            log.error("文本文件预览失败: {}", filePath, e);
-            throw new BusinessException(ErrorCode.INTERNAL_ERROR);
+            log.warn("无法获取文本文件大小, 将不设置 Content-Length: {}", filePath);
         }
+        streamFile(filePath, response);
     }
 
     /**
