@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-30T17:25
-> **归档总数**：178 条
+> **最后更新**：2026-05-30T18:15
+> **归档总数**：179 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -296,6 +296,7 @@
 | P0-002-001-003-002-001 | 编写.env.dev.env.prod.env.local | 2026-05-30T17:25 | ✅ | 创建.env(VITE_APP_TITLE)/.env.development(VITE_APP_TITLE/API_BASE_URL/USE_MOCK/WS_URL)/.env.production(生产值)/.env.local(gitignore本地覆盖),全部VITE_前缀 | da924e1b |
 | P0-002-001-003-002-002 | 在代码中使用环境变量 | 2026-05-30T17:40 | ✅ | 创建src/env.d.ts(ImportMetaEnv完整声明VITE_APP_TITLE/API_BASE_URL/USE_MOCK/WS_URL)+main.ts(document.title环境变量+Mock开关VITE_USE_MOCK动态导入)+index.html(%VITE_APP_TITLE%占位符)+src/mock/index.ts(setupMock stub),request.ts已使用VITE_API_BASE_URL,pnpm build通过(532模块551ms)
 | P0-002-001-003-002-003 | 验证环境切换 | 2026-05-30T18:05 | ✅ | 验证环境变量切换:.env.development/.env.production文件存在且变量正确,git status确认.env.local未被追踪,dev构建(--mode development)加载开发变量(title=ERP-AI开发环境),prod构建加载生产变量(title=ERP-AI),.env.local覆盖优先级符合Vite规范,非VITE_变量不可读取(Vite内置行为),pnpm build通过(530模块533ms) | 69affc3d |
+| P0-002-001-004-001-001 | 编写.vue模块声明 | 2026-05-30T18:15 | ✅ | 创建src/types/shims-vue.d.ts:declare module '*.vue'使用DefineComponent<{},{},any>泛型,tsc--noEmit通过,TypeScript正确识别.vue文件导入 | |
 
 ---
 
@@ -303,10 +304,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 181 | 2 | 8.43% |
+| P0 | 14 | 2,147 | 182 | 2 | 8.47% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **180** | **2** | **3.82%** |
+| **合计** | **46** | **4,716** | **181** | **2** | **3.84%** |
 
 ---
 
