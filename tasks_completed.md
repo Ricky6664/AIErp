@@ -277,6 +277,7 @@
 |---------|---------|---------|:---:|------|---------|
 | P0-002-001-001-001-002 | 验证项目可运行 | 2026-05-30 | ✅ | 验证项目可运行:pnpm install(48包安装成功)+pnpm dev(VITE v8.0.14 localhost:5173)+pnpm build(vue-tsc+vite 18模块构建,dist含index.html+assets/.js/.css)+pnpm preview(localhost:4173正常),全5项验收通过 | 52664d4e |
 | P0-002-001-001-002-001 | 安装ESLint+Prettier依赖+编写配置 | 2026-05-30 | ✅ | 安装eslint@8.57.1+prettier@3.8.3+插件,创建.eslintrc.cjs/.prettierrc/.eslintignore/.prettierignore,pnpm lint无报错,pnpm format格式化正常,pnpm build通过 | a9668d33 |
+| P0-002-001-001-002-002 | 配置VSCode设置 | 2026-05-30 | ✅ | 创建.vscode/settings.json(formatOnSave+defaultFormatter Prettier+codeActionsOnSave ESLint+各文件类型格式化器)+更新.vscode/extensions.json(推荐Volar+ESLint+Prettier) | <pending> |
 
 ---
 
