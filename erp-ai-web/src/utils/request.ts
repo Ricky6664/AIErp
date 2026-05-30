@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse } from 'axios'
+import type { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
 import { ElMessage } from 'element-plus'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -71,13 +71,6 @@ const service: AxiosInstance = axios.create({
 let isRefreshing = false
 let refreshSubscribers: ((token: string) => void)[] = []
 
-function handleTokenExpired(): void {
-  if (isRefreshing) {
-    return
-  }
-  isRefreshing = true
-}
-
 function onTokenRefreshed(newToken: string): void {
   refreshSubscribers.forEach((cb) => cb(newToken))
   refreshSubscribers = []
@@ -111,32 +104,42 @@ service.interceptors.request.use(
   }
 )
 
+// handleTokenRefresh — Token过期刷新入口（由P0-002-003-002-003实现）
+async function handleTokenRefresh(_config: InternalAxiosRequestConfig): Promise<any> {
+  if (isRefreshing) return
+  isRefreshing = true
+  // 由P0-002-003-002-003 Token刷新机制任务实现
+}
+
 // 响应拦截器
 service.interceptors.response.use(
-  (response: AxiosResponse<ApiResponse>) => {
+  (response: AxiosResponse<ApiResponse<any>>) => {
     removePending(response.config)
     endLoading(response.config)
 
     const { code, data, message } = response.data
 
+    // 1. 业务成功：code === 0，返回解包后的数据
     if (code === 0) {
-      return data as any
+      return data
     }
 
-    switch (code) {
-      case 20001:
-        handleTokenExpired()
-        break
-      case 40001:
-      case 40003:
-        ElMessage.error(message || '权限不足')
-        break
-      default:
-        ElMessage.error(message || '请求失败')
+    // 2. Token过期：code === 20001，触发刷新流程
+    if (code === 20001) {
+      return handleTokenRefresh(response.config)
     }
-    return Promise.reject(new Error(message || 'Error'))
+
+    // 3. 权限不足：code === 40001 或 40003
+    if (code === 40001 || code === 40003) {
+      ElMessage.error('权限不足，请联系管理员')
+      return Promise.reject(new Error(message))
+    }
+
+    // 4. 其他业务错误：显示后端返回的message
+    ElMessage.error(message || '请求失败')
+    return Promise.reject(new Error(message))
   },
-  async (error) => {
+  async (error: AxiosError) => {
     const config = error.config as InternalAxiosRequestConfig | undefined
 
     if (config && !axios.isCancel(error) && error.code !== 'ERR_CANCELED') {
@@ -164,20 +167,27 @@ service.interceptors.response.use(
       return Promise.reject(error)
     }
 
-    if (error.code === 'ECONNABORTED') {
+    if (error.response) {
+      const status = error.response.status as number
+      switch (status) {
+        case 401:
+          return handleTokenRefresh(config!)
+        case 403:
+          ElMessage.error('没有权限访问该资源')
+          break
+        case 404:
+          ElMessage.error('请求的资源不存在')
+          break
+        case 500:
+          ElMessage.error('服务器内部错误')
+          break
+        default:
+          ElMessage.error(`请求失败(${status})`)
+      }
+    } else if (error.code === 'ECONNABORTED') {
       ElMessage.error('请求超时，请稍后重试')
     } else if (!error.response) {
-      ElMessage.error('网络异常，请检查网络连接')
-    } else {
-      const status = error.response.status
-      const messages: Record<number, string> = {
-        400: '请求参数错误',
-        404: '请求资源不存在',
-        500: '服务器内部错误',
-        502: '网关错误',
-        503: '服务不可用'
-      }
-      ElMessage.error(messages[status] || `请求失败(${status})`)
+      ElMessage.error('网络连接异常，请检查网络')
     }
     return Promise.reject(error)
   }
