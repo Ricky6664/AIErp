@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30T22:00
-> **归档总数**：210 条
+> **归档总数**：211 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -331,6 +331,7 @@
 | P0-002-003-001-001-001 | 定义State类型与初始值 | 2026-05-30T22:00 | ✅ | 创建types/user.d.ts(IUserState/UserInfoVO接口)+重写stores/modules/user.ts(Options API+state初始值+token持久化erp_user+persist.pick['token']);pnpm build通过 | 9dfe5339 |
 | P0-002-003-001-001-002 | 实现Actions | 2026-05-30T22:00 | ✅ | 实现userStore的login(loginApi→存token→getInfo)/getInfo(getUserInfoApi→存userInfo+permissions+roles→失败自动logout)/logout(清空state+localStorage.removeItem+router.replace)三个action,创建api/modules/auth.ts+api/types/auth.ts(LoginDTO/LoginResponse/UserInfoResponse),更新guards.ts方法名引用,pnpm build通过 | bbc1dbcf |
 | P0-002-003-001-001-003 | 实现Getters | 2026-05-30T22:30 | ✅ | 实现userStore四个getter:isLoggedIn(!!state.token)/hasPermission(perm=>permissions.includes)/avatar(userInfo?.avatar||'/default-avatar.png')/nickname(nickname||username||'用户'),pnpm build通过 | 0401ac22 |
+| P0-002-003-001-002-001 | 定义State类型与初始值 | 2026-05-30T22:50 | ✅ | 创建types/app.d.ts(DeviceType/ThemeType/IAppState)+stores/modules/app.ts(defineStore Options API+5个state字段+persist持久化erp_app),tsc --noEmit通过 | — |
 
 ---
 

@@ -1,0 +1,10 @@
+export type DeviceType = 'desktop' | 'mobile'
+export type ThemeType = 'light' | 'dark'
+
+export interface IAppState {
+  sidebarCollapsed: boolean
+  device: DeviceType
+  theme: ThemeType
+  language: string
+  activeMenu: string
+}
