@@ -11,6 +11,7 @@ export interface MenuItemData {
   title: string
   titleI18n?: string
   icon?: string
+  iconType?: 'element' | 'svg' | 'external'
   children?: MenuItemData[]
   hideMenu?: boolean
   meta?: Record<string, any>
@@ -23,6 +24,7 @@ export function routeToMenuItem(route: RouteRecordRaw): MenuItemData {
     title: (route.meta?.title as string) || '',
     titleI18n: route.meta?.titleI18n as string | undefined,
     icon: route.meta?.icon as string | undefined,
+    iconType: route.meta?.iconType as 'element' | 'svg' | 'external' | undefined,
     hideMenu: route.meta?.hideMenu as boolean | undefined,
     children: route.children?.map(routeToMenuItem),
     meta: route.meta
