@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：154 条
+> **归档总数**：155 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -253,6 +253,7 @@
 | P0-001-008-003-002-002 | 实现导入功能 | 2026-05-30T13:00 | ✅ | ExcelImportUtil.java完整实现:importExcel()泛型方法+EasyExcel.read().sheet().doRead()+ImportReadListener逐行收集+MAX_ROWS=10000+ImportResult(successList+errorList行号+原因)+错误行不阻断+onException不重抛 | 79ae6ef1 |
 | P0-001-008-003-003-001 | 定义导入接口路由 | 2026-05-30T10:30 | ✅ | ImportTemplateController.java(@RestController /api/common/templates):GET /{module}/download空模板+GET /{module}/sample示例数据,@RequirePermission(common:template:download),EasyExcel.write()生成模板含@ExcelProperty表头+示例行,Content-Type=application/vnd.ms-excel,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-008-003-003-002 | 实现导入逻辑 | 2026-05-30T11:00 | ✅ | downloadTemplate增强:含示例数据行(空模板含@ExcelProperty表头+示例数据行),新增异常处理,与downloadSample逻辑对齐,mvn compile通过 | efbd5d20 |
+| P0-001-008-004-001-001 | 定义函数签名与类型 | 2026-05-30T14:00 | ✅ | TreeNode<T>(id/parentId/data/children+isLeaf/isRoot)+TreeUtil(final+private构造):buildTree(2个重载默认rootParentId=0)+buildChildren递归+flatten展平+filterByPermission过滤,方法签名完整,mvn compile通过 | (pending) |
 
 ---
 
