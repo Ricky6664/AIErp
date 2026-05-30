@@ -259,7 +259,7 @@
 | P0-001-009-001-001-002 | 编写ALTER TABLE ADD CONSTRAINT语句 | 2026-05-30T11:02 | ✅ | V4增强:ALTER TABLE ADD CONSTRAINT chk_ddl_quantity(quantity>=0)+chk_ddl_is_default(is_default IN 0/1)+COMMENT ON CONSTRAINT+逻辑外键说明,mvn compile通过 | 4cc25117 |
 | P0-001-009-001-002-001 | 定义Mapper接口 | 2026-05-30T11:10 | ✅ | DocDetailLocationMapper extends BaseMapperX,selectByDetailId方法,@Mapper注解,代码已在前序任务创建并编译通过 | 87ee7b44 |
 | P0-001-009-001-002-002 | 编写XML映射文件 | 2026-05-30T11:20 | ✅ | DocDetailLocationMapper.xml:BaseResultMap全字段映射+Base_Column_List SQL片段+selectByDetailId自定义查询(WHERE is_deleted=FALSE),mvn compile通过 | 25ac9932 |
-| P0-001-009-002-001-001 | 编写CREATE INDEX语句 | 2026-05-30T11:55 | ✅ | V5__create_doc_detail_batch.sql(DDL含6索引)+DocDetailBatch.java(extends BaseEntity)+DocDetailBatchMapper.java(extends BaseMapperX+selectByDetailId),mvn compile通过 | (pending) |
+| P0-001-009-002-001-001 | 编写CREATE INDEX语句 | 2026-05-30T11:55 | ✅ | V5__create_doc_detail_batch.sql(DDL含6索引)+DocDetailBatch.java(extends BaseEntity)+DocDetailBatchMapper.java(extends BaseMapperX+selectByDetailId),mvn compile通过 | e20f4fd2 |
 
 ---
 
