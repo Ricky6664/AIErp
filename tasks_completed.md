@@ -290,6 +290,7 @@
 | P0-002-001-002-003-001 | 定义实例与基础配置 | 2026-05-30T14:30 | ✅ | pnpm add pinia axios nprogress @vueuse/core dayjs echarts lodash-es pinia-plugin-persistedstate + @types/nprogress @types/lodash-es(-D),创建src/stores/index.ts(Pinia实例+persistedstate插件),创建src/utils/request.ts(Axios实例baseURL/env+timeout 15s+拦截器骨架),pnpm build通过 | e990ab57 |
 | P0-002-001-002-003-002 | 响应拦截逻辑 | 2026-05-30T14:45 | ✅ | 完善request.ts响应拦截器:code===0返回data剥离外层包装/401触发Token刷新(并发防重isRefreshing+refreshSubscribers队列)/403权限不足提示/其他业务错误ElMessage+Promise.reject/网络错误超时HTTP状态码中文提示映射,导出onTokenRefreshed+subscribeTokenRefresh,pnpm build通过(530模块599ms) | 1cac7a4c |
 | P0-002-001-002-003-003 | 请求管理 | 2026-05-30T15:00 | ✅ | 完善request.ts请求管理层:pendingMap+AbortController重复请求取消(getRequestKey统一key)/NProgress全局loading+requestCount并发保护/silent静默模式/GET请求自动重试(网络错误超时最多3次1s间隔)/响应拦截器完整错误处理链路,pnpm build通过(530模块602ms) | 1ef7ce64 |
+| P0-002-001-003-001-001 | 编写vite.config.ts | 2026-05-30T15:20 | ✅ | 完整vite.config.ts:plugins(vue/vueJsx/AutoImport/Components)+resolve.alias(@/@components)+server(port:5173/proxy/api→localhost:8080/changeOrigin)+build(target:es2015/outDir:dist/chunkSizeWarningLimit:1500/manualChunks分包vendor/vue/element-plus),pnpm add @vitejs/plugin-vue-jsx,tsconfig.app.json新增@components/*路径映射,pnpm build通过(530模块580ms) | {sha} |
 
 ---
 
