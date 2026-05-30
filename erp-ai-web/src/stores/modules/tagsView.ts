@@ -4,7 +4,7 @@ import type { RouteLocationNormalized } from 'vue-router'
 import router from '@/router'
 
 /** 标签页视图数据 */
-interface TagView {
+export interface TagView {
   path: string
   fullPath: string
   name: string | symbol | null | undefined
