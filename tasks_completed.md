@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30T22:00
-> **归档总数**：211 条
+> **归档总数**：212 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -332,6 +332,7 @@
 | P0-002-003-001-001-002 | 实现Actions | 2026-05-30T22:00 | ✅ | 实现userStore的login(loginApi→存token→getInfo)/getInfo(getUserInfoApi→存userInfo+permissions+roles→失败自动logout)/logout(清空state+localStorage.removeItem+router.replace)三个action,创建api/modules/auth.ts+api/types/auth.ts(LoginDTO/LoginResponse/UserInfoResponse),更新guards.ts方法名引用,pnpm build通过 | bbc1dbcf |
 | P0-002-003-001-001-003 | 实现Getters | 2026-05-30T22:30 | ✅ | 实现userStore四个getter:isLoggedIn(!!state.token)/hasPermission(perm=>permissions.includes)/avatar(userInfo?.avatar||'/default-avatar.png')/nickname(nickname||username||'用户'),pnpm build通过 | 0401ac22 |
 | P0-002-003-001-002-001 | 定义State类型与初始值 | 2026-05-30T22:50 | ✅ | 创建types/app.d.ts(DeviceType/ThemeType/IAppState)+stores/modules/app.ts(defineStore Options API+5个state字段+persist持久化erp_app),tsc --noEmit通过 | 065de044 |
+| P0-002-003-001-002-002 | 实现Actions | 2026-05-30 | ✅ | 实现appStore 5个Actions:toggleSidebar(翻转sidebarCollapsed+persist自动处理)/setDevice(设置device+mobile自动折叠侧边栏)/setTheme(更新state+document data-theme属性+dark+el-dark class)/setLanguage(更新state+同步i18n locale lazy ref)/setActiveMenu(记录当前路径),pnpm build通过 | (pending) |
 
 ---
 
