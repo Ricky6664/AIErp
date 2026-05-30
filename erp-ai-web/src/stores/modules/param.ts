@@ -11,6 +11,27 @@ export const useParamStore = defineStore('param', {
     loading: false
   }),
 
+  getters: {
+    getDictByType:
+      (state) =>
+      (dictType: string): DictItem[] =>
+        state.dictMap[dictType] || [],
+
+    getDictLabel:
+      (state) =>
+      (dictType: string, dictValue: string | number): string => {
+        const items = state.dictMap[dictType]
+        if (!items) return String(dictValue)
+        const item = items.find((item) => String(item.dictValue) === String(dictValue))
+        return item?.dictLabel ?? String(dictValue)
+      },
+
+    getConfig:
+      (state) =>
+      (key: string): string =>
+        state.systemConfig[key] || ''
+  },
+
   actions: {
     async loadDict(dictType: string): Promise<void> {
       if (this.dictMap[dictType]) return
