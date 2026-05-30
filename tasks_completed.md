@@ -288,7 +288,7 @@
 | P0-002-001-002-002-001 | 定义函数签名与类型 | 2026-05-30T14:05 | ✅ | 创建src/plugins/vxe-table.ts(setupVxeTable函数+VxeI18nConfig/VxeDefaultConfig接口+VxeTablePlugin类型)+src/types/global.d.ts(VxeTablePropTypes扩展),pnpm add vxe-table@4.19.4+vxe-pc-ui@4.14.25,vue-tsc --noEmit通过 | 433c4cdf |
 | P0-002-001-002-002-002 | 实现核心处理逻辑 | 2026-05-30T14:18 | ✅ | pnpm add @vxe-ui/core,vxe-table.ts:VxeUI.setup()全局默认参数(border/resizable/showOverflow/autoResize/emptyText+pager),main.ts:引入vxe-pc-ui/vxe-table样式+setupVxeTable(app),pnpm build通过(530模块582ms) | fa9edfa4 |
 | P0-002-001-002-003-001 | 定义实例与基础配置 | 2026-05-30T14:30 | ✅ | pnpm add pinia axios nprogress @vueuse/core dayjs echarts lodash-es pinia-plugin-persistedstate + @types/nprogress @types/lodash-es(-D),创建src/stores/index.ts(Pinia实例+persistedstate插件),创建src/utils/request.ts(Axios实例baseURL/env+timeout 15s+拦截器骨架),pnpm build通过 | e990ab57 |
-| P0-002-001-002-003-002 | 响应拦截逻辑 | 2026-05-30T14:45 | ✅ | 完善request.ts响应拦截器:code===0返回data剥离外层包装/401触发Token刷新(并发防重isRefreshing+refreshSubscribers队列)/403权限不足提示/其他业务错误ElMessage+Promise.reject/网络错误超时HTTP状态码中文提示映射,导出onTokenRefreshed+subscribeTokenRefresh,pnpm build通过(530模块599ms) | 待提交 |
+| P0-002-001-002-003-002 | 响应拦截逻辑 | 2026-05-30T14:45 | ✅ | 完善request.ts响应拦截器:code===0返回data剥离外层包装/401触发Token刷新(并发防重isRefreshing+refreshSubscribers队列)/403权限不足提示/其他业务错误ElMessage+Promise.reject/网络错误超时HTTP状态码中文提示映射,导出onTokenRefreshed+subscribeTokenRefresh,pnpm build通过(530模块599ms) | 1cac7a4c |
 
 ---
 
