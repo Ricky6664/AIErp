@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-30
-> **归档总数**：174 条
+> **最后更新**：2026-05-30T14:18
+> **归档总数**：176 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -286,6 +286,8 @@
 | P0-002-001-002-001-002 | 配置主题定制 | 2026-05-30 | ✅ | 创建src/styles/element-plus.scss覆盖CSS变量(品牌色/字体/圆角/间距/过渡),vite.config.ts配置ElementPlusResolver({importStyle:'sass'})+@路径别名,main.ts引入主题文件,tsconfig.app.json配置paths映射,安装sass依赖,pnpm build通过(19模块315ms) | f239017e |
 | P0-002-001-002-001-003 | 验证组件库可用 | 2026-05-30 | ✅ | 验证Element Plus按需引入+主题定制完整可用:ElButton/ElInput组件自动引入(components.d.ts含ElButton/ElInput),ref/computed/ElMessage自动导入(auto-imports.d.ts含全部类型),主题色#409EFF覆盖生效,pnpm build通过(195KB<500KB),auto-imports.d.ts+components.d.ts自动生成,全7项验收通过 | 78d1341f |
 | P0-002-001-002-002-001 | 定义函数签名与类型 | 2026-05-30T14:05 | ✅ | 创建src/plugins/vxe-table.ts(setupVxeTable函数+VxeI18nConfig/VxeDefaultConfig接口+VxeTablePlugin类型)+src/types/global.d.ts(VxeTablePropTypes扩展),pnpm add vxe-table@4.19.4+vxe-pc-ui@4.14.25,vue-tsc --noEmit通过 | 433c4cdf |
+| P0-002-001-002-002-002 | 实现核心处理逻辑 | 2026-05-30T14:18 | ✅ | pnpm add @vxe-ui/core,vxe-table.ts:VxeUI.setup()全局默认参数(border/resizable/showOverflow/autoResize/emptyText+pager),main.ts:引入vxe-pc-ui/vxe-table样式+setupVxeTable(app),pnpm build通过(530模块582ms) | fa9edfa4 |
+| P0-002-001-002-003-001 | 定义实例与基础配置 | 2026-05-30T14:30 | ✅ | pnpm add pinia axios nprogress @vueuse/core dayjs echarts lodash-es pinia-plugin-persistedstate + @types/nprogress @types/lodash-es(-D),创建src/stores/index.ts(Pinia实例+persistedstate插件),创建src/utils/request.ts(Axios实例baseURL/env+timeout 15s+拦截器骨架),pnpm build通过 | |
 
 ---
 
@@ -293,10 +295,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 174 | 2 | 8.11% |
+| P0 | 14 | 2,147 | 176 | 2 | 8.20% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **174** | **2** | **3.69%** |
+| **合计** | **46** | **4,716** | **176** | **2** | **3.73%** |
 
 ---
 
