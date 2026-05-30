@@ -249,6 +249,7 @@
 | P0-001-008-002-003-002 | 实现查询逻辑 | 2026-05-30 | ✅ | SysOperLogController.java重构使用SysOperLogService(替代直接注入Mapper),SysOperLogService新增pageList/getById/clean/exportList方法,SysOperLogServiceImpl实现全部查询方法(buildQueryWrapper提取公共条件构造),mvn compile通过 | (pending) |
 | P0-001-008-003-001-001 | 实现导出逻辑 | 2026-05-30T10:06 | ✅ | ExcelExportUtil.java:泛型export(response,fileName,clazz,data)方法,基于EasyExcel 3.3.3,分批写入(BATCH_SIZE=5000),单表MAX_ROWS=10000限制,URLEncoder文件名编码,Content-Type=application/vnd.ms-excel,异常throw BusinessException→GlobalExceptionHandler→RT.fail,pom.xml新增easyexcel依赖,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-008-003-001-002 | 导出异常处理 | 2026-05-30 | ✅ | ExcelExportUtil.java增强异常处理:导出中异常catch Exception→reset response→writeErrorResponse写RT.fail JSON(Content-Type改为application/json),避免Excel响应头与JSON错误体不匹配;前置校验仍throw BusinessException由GlobalExceptionHandler处理,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-008-003-002-001 | 实现导出功能 | 2026-05-30T12:20 | ✅ | ExcelImportUtil.java:泛型importExcel(MultipartFile,Class<T>)方法,EasyExcel.read().sheet().doRead()同步读取,ImportReadListener(AnalysisEventListener)逐行收集数据+onException捕获解析错误,MAX_ROWS=10000限制,BusinessException超量拒绝,ImportResult(successList+errorList with row+reason),错误行不阻断导入;ImportResult.java支持类,mvn clean compile 126源文件BUILD SUCCESS | (pending) |
 
 ---
 
