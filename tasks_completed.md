@@ -293,7 +293,8 @@
 | P0-002-001-003-001-001 | 编写vite.config.ts | 2026-05-30T15:20 | ✅ | 完整vite.config.ts:plugins(vue/vueJsx/AutoImport/Components)+resolve.alias(@/@components)+server(port:5173/proxy/api→localhost:8080/changeOrigin)+build(target:es2015/outDir:dist/chunkSizeWarningLimit:1500/manualChunks分包vendor/vue/element-plus),pnpm add @vitejs/plugin-vue-jsx,tsconfig.app.json新增@components/*路径映射,pnpm build通过(530模块580ms) | 0c9a8c40 |
 | P0-002-001-003-001-002 | 验证Vite配置 | 2026-05-30T15:35 | ✅ | 验证vite.config.ts完整可用:resolve.alias(tsconfig路径映射一致+main.ts使用@/别名→构建通过)+proxy(/api→localhost:8080+changeOrigin:true)+plugins(vue/vueJsx/AutoImport/Components全部加载)+pnpm build(530模块581ms+dist含index.html+assets)+server.port:5173+envPrefix默认VITE_+vite/client类型已配置,全4/6项核心验证通过(.env文件下一任务创建) | |
 | P0-002-001-003-001-003 | 验证HMR与构建 | 2026-05-30T17:19 | ✅ | 验证HMR与生产构建:pnpm build成功(exit 0,595ms,530模块)/dist产物1.7MB<2MB/build.target:es2015生效(无?./??语法)/chunkSizeWarningLimit:1500正常(最大chunk 1087KB无警告)/manualChunks代码分离(应用→index,库→vue chunk)/dev server启动823ms(@vitejs/plugin-vue+HMR默认启用),全7项验收通过 | f50ea8ed |
-| P0-002-001-003-002-001 | 编写.env.dev.env.prod.env.local | 2026-05-30T17:25 | ✅ | 创建.env(VITE_APP_TITLE)/.env.development(VITE_APP_TITLE/API_BASE_URL/USE_MOCK/WS_URL)/.env.production(生产值)/.env.local(gitignore本地覆盖),全部VITE_前缀 | |
+| P0-002-001-003-002-001 | 编写.env.dev.env.prod.env.local | 2026-05-30T17:25 | ✅ | 创建.env(VITE_APP_TITLE)/.env.development(VITE_APP_TITLE/API_BASE_URL/USE_MOCK/WS_URL)/.env.production(生产值)/.env.local(gitignore本地覆盖),全部VITE_前缀 | da924e1b |
+| P0-002-001-003-002-002 | 在代码中使用环境变量 | 2026-05-30T17:40 | ✅ | 创建src/env.d.ts(ImportMetaEnv完整声明VITE_APP_TITLE/API_BASE_URL/USE_MOCK/WS_URL)+main.ts(document.title环境变量+Mock开关VITE_USE_MOCK动态导入)+index.html(%VITE_APP_TITLE%占位符)+src/mock/index.ts(setupMock stub),request.ts已使用VITE_API_BASE_URL,pnpm build通过(532模块551ms)
 
 ---
 
