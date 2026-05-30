@@ -1,4 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router'
+import { REDIRECT_ROUTE } from './redirect'
 
 // 登录页 - 无需鉴权，独立布局
 export const LOGIN_ROUTE: RouteRecordRaw = {
@@ -66,6 +67,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
   ROOT_ROUTE,
   HOME_ROUTE,
+  REDIRECT_ROUTE,
   ERROR_404,
   ERROR_403,
   NO_PERMISSION

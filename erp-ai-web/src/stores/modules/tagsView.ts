@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref, computed, nextTick } from 'vue'
+import { ref, computed } from 'vue'
 import type { RouteLocationNormalized } from 'vue-router'
 import router from '@/router'
 
@@ -110,13 +110,18 @@ export const useTagsViewStore = defineStore('tagsView', () => {
     }
   }
 
-  /** 刷新当前页面(通过exclude+nextTick+include实现) */
+  /** 刷新当前页面(通过exclude→redirect→include实现) */
   async function refreshSelectedPage(route: RouteLocationNormalized) {
     const name = route.name as string
-    delCachedView({ name } as TagView)
-    await router.replace({ path: '/redirect' + route.fullPath })
-    await nextTick()
-    addCachedView(route)
+    // 1. 从缓存列表移除(exclude)
+    const index = cachedViews.value.indexOf(name)
+    if (index > -1) cachedViews.value.splice(index, 1)
+
+    // 2. 导航到redirect中转页
+    await router.replace({
+      path: '/redirect' + route.fullPath
+    })
+    // redirect组件replace回原路径后，在路由守卫中重新addCachedView
   }
 
   /** 关闭左侧标签 */
