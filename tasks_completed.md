@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：145 条
+> **归档总数**：147 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -245,6 +245,7 @@
 | P0-001-008-002-002-001 | 定义切面拦截器注册方式 | 2026-05-30T17:24 | ✅ | OperLogAspect.java(@Aspect @Component @Slf4j):@Around(@annotation(OperLog))记录操作人(StpUtil.getLoginId)/IP(X-Forwarded-For+RemoteAddr)/HTTP方法/URL/耗时/成功失败/异常堆栈截取2000字符,finally块异步调用SysOperLogService.save();SysOperLog实体+SysOperLogService接口+@EnableAsync;mvn compile BUILD SUCCESS | 51ffa9fe |
 | P0-001-008-002-002-002 | 实现核心处理逻辑 | 2026-05-30T17:45 | ✅ | SysOperLogMapper.java(BaseMapperX<SysOperLog>)+SysOperLogServiceImpl.java(@Async @Service:异步insert到sys_oper_log表),OperLogAspect核心逻辑完整(记录操作人/IP/HTTP方法/URL/耗时/成功失败/异常堆栈截取2000字符/finally块调用@Async save),mvn compile BUILD SUCCESS | fda70d58 |
 | P0-001-008-002-002-003 | 集成测试验证 | 2026-05-30T18:00 | ✅ | 验证OperLogAspect切面完整:@Aspect @Component @Around正常/@Async异步保存/@EnableAsync已配置/操作人(StpUtil)/IP(X-Forwarded-For→RemoteAddr)/HTTP方法/URL/耗时/成功失败/异常堆栈截取2000字符/SysOperLog表字段映射正确,mvn compile BUILD SUCCESS | 6cf9dc64 |
+| P0-001-008-002-003-001 | 定义接口路由与方法签名 | 2026-05-30T18:15 | ✅ | SysOperLogController.java(@RestController @RequestMapping /api/system/oper-logs):GET/page分页(operatorId/module/startTime/endTime/operatorIp/create_time DESC)+GET/{id}详情+DELETE/clean清空+GET/export导出,全部@RequirePermission(system:oper-log:query),mvn compile通过 | (pending) |
 
 ---
 
@@ -252,10 +253,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 146 | 2 | 6.80% |
+| P0 | 14 | 2,147 | 147 | 2 | 6.85% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **146** | **2** | **3.10%** |
+| **合计** | **46** | **4,716** | **147** | **2** | **3.12%** |
 
 ---
 
