@@ -325,6 +325,7 @@
 | P0-002-002-004-001-002 | 配置后端菜单数据 | 2026-05-30T21:35 | ✅ | 创建utils/menuPipeline.ts:isExternalIcon/isSvgIcon/normalizePath/processMenuData/getCachedMenus/clearMenuCache;MenuItem增加iconType字段;vue-tsc通过 | 0d8af4a2 |
 | P0-002-002-004-002-001-001 | 实现递归菜单组件 | 2026-05-30T21:50 | ✅ | 创建SidebarItem.vue递归菜单组件:defineOptions({name:'SidebarItem'})+visibleChildren computed过滤hideMenu+hasVisibleChildren判断渲染el-sub-menu或el-menu-item+v-for key=path;创建MenuItemIcon.vue(stub);pnpm build通过(532模块) | 0cb40b74 |
 | P0-002-002-004-002-001-002 | 实现菜单图标+外链 | 2026-05-30T21:15 | ✅ | 重写MenuItemIcon.vue支持3种图标类型(element:ElPlus动态组件/svg:SvgIcon组件/external:img标签);创建components/SvgIcon/index.vue(import.meta.glob eager加载SVG raw字符串);更新SidebarItem.vue外链处理(a标签target=_blank+rel=noopener noreferrer);更新types.ts添加iconType字段;pnpm build通过(532模块) | (pending) |
+| P0-002-002-004-002-001-003 | 实现菜单权限过滤 | 2026-05-30T21:45 | ✅ | 创建utils/permission.ts(hasPermission含superadmin优先判断+filterRoutesByPermission递归过滤纯函数父菜单联动隐藏);更新Sidebar/index.vue(computed filteredMenus集成filterRoutesByPermission+routeToMenuItem);pnpm build通过 | (pending) |
 
 ---
 
@@ -332,10 +333,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 206 | 2 | 9.60% |
+| P0 | 14 | 2,147 | 207 | 2 | 9.64% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **203** | **2** | **4.30%** |
+| **合计** | **46** | **4,716** | **204** | **2** | **4.33%** |
 
 ---
 
