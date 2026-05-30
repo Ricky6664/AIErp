@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30T22:40
-> **归档总数**：219 条
+> **归档总数**：220 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -340,6 +340,7 @@
 | P0-002-003-001-004-002 | 实现Actions | 2026-05-30T22:10 | ✅ | paramStore实现loadDict/refreshDict/loadSystemConfig三个action+pendingPromises Map防重复请求+创建api/modules/system.ts(getDictDataApi/getSystemConfigApi);pnpm build通过 | e5476d33 |
 | P0-002-003-001-004-003 | 实现Getters | 2026-05-30T22:15 | ✅ | paramStore实现三个getters:getDictByType/getDictLabel/getConfig,函数式箭头语法,空值兜底返回空数组/空字符串,pnpm build通过 | d2e50675 |
 | P0-002-003-002-001-002 | 实现核心处理逻辑 | 2026-05-30T22:45 | ✅ | 更新request.ts:扩展InternalAxiosRequestConfig类型添加metadata字段(requestKey/startTime/skipCancel)+请求拦截器生成requestKey(method:url:params:data格式+JSON.stringify空值兜底)+赋值config.metadata,npx tsc --noEmit通过 | 6b432623 |
+| P0-002-003-002-001-003 | 集成测试验证 | 2026-05-30T22:50 | ✅ | 验证Axios实例7项全部通过:baseURL配置(`/api`)/timeout(30000)/Token注入(Authorization:Bearer)/语言注入(Accept-Language:zh-CN)/数据解包(code===0→data)/错误提示(ElMessage.error)/TypeScript零错误(tsc --noEmit) | |
 
 ---
 
@@ -347,10 +348,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 219 | 2 | 10.19% |
+| P0 | 14 | 2,147 | 220 | 2 | 10.24% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **219** | **2** | **4.64%** |
+| **合计** | **46** | **4,716** | **220** | **2** | **4.66%** |
 
 ---
 
