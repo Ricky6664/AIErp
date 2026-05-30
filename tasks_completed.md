@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30
-> **归档总数**：156 条
+> **归档总数**：157 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -258,6 +258,7 @@
 | P0-001-009-001-001-001 | 编写CREATE INDEX语句 | 2026-05-30T10:55 | ✅ | V4__create_doc_detail_location.sql(DDL含5索引)+DocDetailLocation.java(extends BaseEntity)+DocDetailLocationMapper.java(extends BaseMapperX+selectByDetailId),mvn compile通过 | (pending) |
 | P0-001-009-001-001-002 | 编写ALTER TABLE ADD CONSTRAINT语句 | 2026-05-30T11:02 | ✅ | V4增强:ALTER TABLE ADD CONSTRAINT chk_ddl_quantity(quantity>=0)+chk_ddl_is_default(is_default IN 0/1)+COMMENT ON CONSTRAINT+逻辑外键说明,mvn compile通过 | 4cc25117 |
 | P0-001-009-001-002-001 | 定义Mapper接口 | 2026-05-30T11:10 | ✅ | DocDetailLocationMapper extends BaseMapperX,selectByDetailId方法,@Mapper注解,代码已在前序任务创建并编译通过 | 87ee7b44 |
+| P0-001-009-001-002-002 | 编写XML映射文件 | 2026-05-30T11:20 | ✅ | DocDetailLocationMapper.xml:BaseResultMap全字段映射+Base_Column_List SQL片段+selectByDetailId自定义查询(WHERE is_deleted=FALSE),mvn compile通过 | (pending) |
 
 ---
 
@@ -265,10 +266,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 157 | 2 | 7.31% |
+| P0 | 14 | 2,147 | 158 | 2 | 7.36% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **156** | **2** | **3.31%** |
+| **合计** | **46** | **4,716** | **157** | **2** | **3.33%** |
 
 ---
 
