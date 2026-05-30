@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30T22:40
-> **归档总数**：218 条
+> **归档总数**：219 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -339,7 +339,7 @@
 | P0-002-003-001-004-001 | 定义State类型与初始值 | 2026-05-30T23:00 | ✅ | 创建types/dict.d.ts(DictItem+IParamState接口)+stores/modules/param.ts(defineStore Options API+3个state字段+无persist持久化);tsc --noEmit通过 | 2d0561a0 |
 | P0-002-003-001-004-002 | 实现Actions | 2026-05-30T22:10 | ✅ | paramStore实现loadDict/refreshDict/loadSystemConfig三个action+pendingPromises Map防重复请求+创建api/modules/system.ts(getDictDataApi/getSystemConfigApi);pnpm build通过 | e5476d33 |
 | P0-002-003-001-004-003 | 实现Getters | 2026-05-30T22:15 | ✅ | paramStore实现三个getters:getDictByType/getDictLabel/getConfig,函数式箭头语法,空值兜底返回空数组/空字符串,pnpm build通过 | d2e50675 |
-| P0-002-003-002-001-001 | 定义切面/拦截器注册方式 | 2026-05-30T22:40 | ✅ | 完善request.ts:timeout 30000ms+请求拦截器Authorization Bearer token注入+Accept-Language语言头注入(useAppStore)+Pinia store延迟调用(函数内部使用避免未初始化),pnpm build通过 | (pending) |
+| P0-002-003-002-001-002 | 实现核心处理逻辑 | 2026-05-30T22:45 | ✅ | 更新request.ts:扩展InternalAxiosRequestConfig类型添加metadata字段(requestKey/startTime/skipCancel)+请求拦截器生成requestKey(method:url:params:data格式+JSON.stringify空值兜底)+赋值config.metadata,npx tsc --noEmit通过 | (pending) |
 
 ---
 
@@ -347,10 +347,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 218 | 2 | 10.15% |
+| P0 | 14 | 2,147 | 219 | 2 | 10.19% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **213** | **2** | **4.52%** |
+| **合计** | **46** | **4,716** | **219** | **2** | **4.64%** |
 
 ---
 

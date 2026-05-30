@@ -12,6 +12,11 @@ declare module 'axios' {
     retryDelay?: number
     __retryCount?: number
     silent?: boolean
+    metadata?: {
+      requestKey: string
+      startTime: number
+      skipCancel?: boolean
+    }
   }
 }
 
@@ -90,6 +95,9 @@ service.interceptors.request.use(
     }
     const appStore = useAppStore()
     config.headers['Accept-Language'] = appStore.language
+
+    const requestKey = `${config.method?.toUpperCase()}:${config.url}:${JSON.stringify(config.params ?? '')}:${JSON.stringify(config.data ?? '')}`
+    config.metadata = { requestKey, startTime: Date.now() }
 
     addPending(config)
     startLoading(config)
