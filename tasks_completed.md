@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-30T21:35
-> **归档总数**：207 条
+> **最后更新**：2026-05-30T23:00
+> **归档总数**：208 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -328,6 +328,7 @@
 | P0-002-002-004-002-001-003 | 实现菜单权限过滤 | 2026-05-30T21:45 | ✅ | 创建utils/permission.ts(hasPermission含superadmin优先判断+filterRoutesByPermission递归过滤纯函数父菜单联动隐藏);更新Sidebar/index.vue(computed filteredMenus集成filterRoutesByPermission+routeToMenuItem);pnpm build通过 | (pending) |
 | P0-002-002-004-002-002 | 实现菜单交互 | 2026-05-30T22:00 | ✅ | 重写Sidebar/index.vue:Logo区域(SIDEBAR_LOGO折叠/展开切换+点击回首页)+el-scrollbar包裹菜单+handleMenuSelect(外链window.open/普通router.push)+activeMenu computed(meta.activeMenu优先+route.path)+layoutStore.isCollapsed联动+unique-opened手风琴+collapse-transition动画;pnpm build通过 | (pending) |
 | P0-002-002-004-002-003 | 实现菜单权限过滤 | 2026-05-30T22:15 | ✅ | 创建directives/permission.ts(v-permission指令mounted钩子removeChild移除无权限DOM)+directives/index.ts(setupDirectives全局注册)+main.ts注册pinia+setupDirectives;pnpm build通过 | 250a3cda |
+| P0-002-003-001-001-001 | 定义State类型与初始值 | 2026-05-30T22:00 | ✅ | 创建types/user.d.ts(IUserState/UserInfoVO接口)+重写stores/modules/user.ts(Options API+state初始值+token持久化erp_user+persist.pick['token']);pnpm build通过 | (pending) |
 
 ---
 
@@ -335,10 +336,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 209 | 2 | 9.73% |
+| P0 | 14 | 2,147 | 210 | 2 | 9.78% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **205** | **2** | **4.35%** |
+| **合计** | **46** | **4,716** | **206** | **2** | **4.37%** |
 
 ---
 
