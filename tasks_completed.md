@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-30T18:15
-> **归档总数**：180 条
+> **最后更新**：2026-05-30T18:30
+> **归档总数**：181 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -300,6 +300,7 @@
 | P0-002-001-004-001-002 | 编写env.d.ts环境变量声明 | 2026-05-30T18:20 | ✅ | 更新src/env.d.ts:ImportMetaEnv接口含6个VITE_变量(VITE_APP_TITLE/API_BASE_URL/USE_MOCK/APP_ENV/WS_URL/CDN_BASE_URL)+JSDoc注释+readonly修饰,ImportMeta扩展,tsc--noEmit+vite build通过 | 2d400ca3 |
 | P0-002-001-004-001-003 | 编写扩展类型声明 | 2026-05-30T18:25 | ✅ | 更新src/types/global.d.ts:新增RecordObject<T>/PageQuery/PageResult<T>/ApiResult<T>四个全局类型+NProgress Window扩展,tsc--noEmit通过 | 01f4ab78 |
 | P0-002-002-001-001-001 | 定义路由配置项 | 2026-05-30T17:59 | ✅ | 创建erp-ai-web/src/router/modules/static.ts:6个静态路由常量(LOGIN_ROUTE/ROOT_ROUTE/HOME_ROUTE/ERROR_404/ERROR_403/NO_PERMISSION)+staticRoutes集合,懒加载+meta配置完整,vue-tsc编译通过 | (pending) |
+| P0-002-002-001-001-002 | 实现路由注册与守卫 | 2026-05-30T18:30 | ✅ | 创建erp-ai-web/src/router/index.ts:createRouter实例(createWebHistory+staticRoutes+scrollBehavior+strict:true),pnpm add vue-router@4,router导出供main.ts使用,pnpm build通过(532模块547ms) | (pending) |
 
 ---
 
@@ -307,10 +308,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 185 | 2 | 8.61% |
+| P0 | 14 | 2,147 | 186 | 2 | 8.66% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **184** | **2** | **3.90%** |
+| **合计** | **46** | **4,716** | **185** | **2** | **3.92%** |
 
 ---
 
