@@ -1,7 +1,7 @@
-# tasks_completed.md — 已完成任务归档
+﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-30T18:30
-> **归档总数**：181 条
+> **最后更新**：2026-05-30T18:50
+> **归档总数**：182 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -302,18 +302,19 @@
 | P0-002-002-001-001-001 | 定义路由配置项 | 2026-05-30T17:59 | ✅ | 创建erp-ai-web/src/router/modules/static.ts:6个静态路由常量(LOGIN_ROUTE/ROOT_ROUTE/HOME_ROUTE/ERROR_404/ERROR_403/NO_PERMISSION)+staticRoutes集合,懒加载+meta配置完整,vue-tsc编译通过 | (pending) |
 | P0-002-002-001-001-002 | 实现路由注册与守卫 | 2026-05-30T18:30 | ✅ | 创建erp-ai-web/src/router/index.ts:createRouter实例(createWebHistory+staticRoutes+scrollBehavior+strict:true),pnpm add vue-router@4,router导出供main.ts使用,pnpm build通过(532模块547ms) | c9d12117 |
 | P0-002-002-001-002-001 | 定义前端路由配置 | 2026-05-30T18:35 | ✅ | 创建erp-ai-web/src/router/types.ts:RouteMeta类型扩展(title/titleI18n/icon/keepAlive/hideMenu/hideTab/permissions/openType/affix);创建erp-ai-web/src/router/modules/dynamic.ts:import.meta.glob组件映射+resolveComponent(含404降级);router/index.ts导入types.ts;修复ROOT_ROUTE缺失title;pnpm build通过 | 3bd8f97d |
-| P0-002-002-001-002-002 | 配置后端菜单数据 | 2026-05-30T18:45 | ✅ | 创建erp-ai-web/src/api/types/menu.ts:MenuItem接口(id/parentId/name/path/component/icon/sort/type/permissions/visible/keepAlive/openType/children)+MenuResponse接口(menus/permissions);创建erp-ai-web/src/utils/menuTransform.ts:transformMenuToRoutes函数(过滤type=2按钮/排序/递归转换/目录→AppLayout/菜单→resolveComponent/纯函数不修改原始数据);vue-tsc类型检查通过 | (pending)
+| P0-002-002-001-002-002 | 配置后端菜单数据 | 2026-05-30T18:45 | ✅ | 创建erp-ai-web/src/api/types/menu.ts:MenuItem接口(id/parentId/name/path/component/icon/sort/type/permissions/visible/keepAlive/openType/children)+MenuResponse接口(menus/permissions);创建erp-ai-web/src/utils/menuTransform.ts:transformMenuToRoutes函数(过滤type=2按钮/排序/递归转换/目录→AppLayout/菜单→resolveComponent/纯函数不修改原始数据);vue-tsc类型检查通过 | adde8bf6
 
+| P0-002-002-001-003-001 | 定义路由配置项 | 2026-05-30T18:50 | ✅ | 创建erp-ai-web/src/router/constants.ts(WHITE_LIST/LOGIN_PATH/HOME_PATH/NOT_FOUND_PATH/TOKEN_KEY/ROUTES_LOADED_KEY);创建erp-ai-web/src/stores/modules/permission.ts(PermissionState/routes/isRoutesLoaded/permissions/hasPermission/resetPermission);vue-tsc零错误 | (pending) |
 ---
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 186 | 2 | 8.66% |
+| P0 | 14 | 2,147 | 187 | 2 | 8.70% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **185** | **2** | **3.92%** |
+| **合计** | **46** | **4,716** | **186** | **2** | **3.94%** |
 
 ---
 
