@@ -418,7 +418,7 @@
 | P0-003-002-001-001-002 | 编写默认值与约束 | 2026-05-31T18:42 | ✅ | db/migration/V20260531002__task_P0_003_002_001_001_002.sql:创建erp_base.public_default_value_spec默认值规范表+erp_base.public_constraint_spec约束规范表+fn_validate_common_fields/fn_batch_validate_schema两个PL/pgSQL校验函数+完整建表DDL模板+docs/specs/P0_003_002_001_001_002_spec.md:默认值与约束规范验证文档 | 15cb2b8a |
 | P0-003-002-001-001-003 | 验证规范 | 2026-05-31T18:50 | ✅ | db/migration/V20260531003__task_P0_003_002_001_001_003.sql:验证SQL脚本(7步验证含表结构/数据完整性/约束合规性/COMMENT完整性/函数验证/Flyway历史/综合汇总)+docs/specs/P0_003_002_001_001_003_spec.md:验证规范文档(32项验证清单/10项核心检查) | 2c67a3d3 |
 | P0-003-002-002-001-001 | 编写CREATE TABLE语句 | 2026-05-31T18:50 | ✅ | db/migration/V20260531004__task_P0_003_002_002_001_001.sql:10张系统核心表DDL(sys_user/sys_role/sys_menu/sys_user_role/sys_user_dept/sys_role_menu/sys_role_data_scope/sys_role_field_permission/sys_user_group/sys_user_group_member),decimal(18,8)统一精度,COMMENT注释完整,无外键约束 | b1324ef0 |
-| P0-003-002-002-001-002 | 编写系统核心表索引与约束 | 2026-05-31T18:50 | ✅ | db/migration/V20260531005__task_P0_003_002_002_001_002.sql:10张表索引与约束(12UK含WHERE is_deleted=false+22IDX),全部tenant_id首列联合索引,命名规范uk_/idx_+docs/specs/P0_003_002_002_001_002_spec.md | — |
+| P0-003-002-002-001-002 | 编写系统核心表索引与约束 | 2026-05-31T18:50 | ✅ | db/migration/V20260531005__task_P0_003_002_002_001_002.sql:10张表索引与约束(12UK含WHERE is_deleted=false+22IDX),全部tenant_id首列联合索引,命名规范uk_/idx_+docs/specs/P0_003_002_002_001_002_spec.md | 28270e3d |
 
 ---
 
