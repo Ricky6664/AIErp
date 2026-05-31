@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-31T11:15
-> **归档总数**：230 条
+> **最后更新**：2026-05-31T12:00
+> **归档总数**：231 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -352,6 +352,7 @@
 | P0-002-003-003-001-002 | 实现接口逻辑 | 2026-05-31T11:00 | ✅ | 为org/product/sale三个模块新增batchDelete/import(FormData+60s超时)/export(responseType:blob)完整请求逻辑+ImportResultVO类型,tsc --noEmit通过 | (pending) |
 | P0-002-003-003-002-001 | 定义泛型类结构 | 2026-05-31T11:15 | ✅ | ApiResponse<T=unknown>/PageResult<T=unknown>/PageQuery三个泛型接口定义,泛型默认值由any改为unknown增强类型安全 | 83693563 |
 | P0-002-003-003-002-002 | 实现静态工厂方法 | 2026-05-31T11:55 | ✅ | api.d.ts新增isSuccess/getErrorMessage/assertSuccess类型签名+apiHelper.ts运行时实现(code===0严格比较+asserts类型守卫+named export),tsc --noEmit通过 | 7c6bef74 |
+| P0-002-003-003-002-003 | 编写单元测试 | 2026-05-31T12:00 | ✅ | 安装vitest@4.1.7,创建vitest.config.ts+src/types/__tests__/api.test-d.ts(13测试26断言),覆盖ApiResponse/PageResult/PageQuery+isSuccess/getErrorMessage/assertSuccess类型检查,pnpm test:type 26passed+0 type errors+pnpm build通过 | (pending) |
 
 ---
 
@@ -359,10 +360,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 230 | 2 | 10.71% |
+| P0 | 14 | 2,147 | 231 | 2 | 10.76% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **228** | **2** | **4.84%** |
+| **合计** | **46** | **4,716** | **229** | **2** | **4.86%** |
 
 ---
 
