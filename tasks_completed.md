@@ -363,7 +363,7 @@
 | P0-002-004-001-004-002 | 实现高级工具 | 2026-05-31T15:30 | ✅ | erp-ai-web/src/utils/debounce.ts追加once(首次执行缓存结果,出错重置可重试)/beforeAfter(before→fn→after钩子)/withCount(Vue ref计数器)/useDebounce(composable响应式防抖+onUnmounted清理)/useThrottle(composable响应式节流+onUnmounted清理),pnpm build通过,4项验收标准全部通过 | (pending) |
 | P0-002-004-002-001-001 | 定义指令钩子函数 | 2026-05-31T16:00 | ✅ | erp-ai-web/src/directives/permission.ts:定义PermissionValue类型(string|string[]),导出checkPermission函数+permissionDirective指令(Directive<HTMLElement,PermissionValue>),实现mounted/updated/unmounted钩子,支持单权限码和数组任一匹配,pnpm tsc --noEmit 0错误+vite build通过 | 4f8456fb |
 | P0-002-004-002-001-002 | 实现指令逻辑 | 2026-05-31T16:30 | ✅ | erp-ai-web/src/directives/permission.ts:切换useUserStore权限源+admin角色跳过检查+removeElement独立函数+空值保护+Array.some任一匹配+el.parentNode?.removeChild DOM移除,tsc --noEmit 0错误 | (pending) |
-| P0-002-004-002-002-001 | 定义指令钩子函数 | 2026-05-31T17:00 | ✅ | erp-ai-web/src/directives/debounce.ts:实现v-debounce指令mounted/updated/unmounted钩子+parseDelay解析arg延迟+createDebounceHandler防抖处理+注册到setupDirectives,tsc --noEmit 0错误 | (pending) |
+| P0-002-004-002-002-001 | 定义指令钩子函数 | 2026-05-31T17:00 | ✅ | erp-ai-web/src/directives/debounce.ts:实现v-debounce指令mounted/updated/unmounted钩子+parseDelay解析arg延迟+createDebounceHandler防抖处理+注册到setupDirectives,tsc --noEmit 0错误 | 8fa6d7f3 |
 
 ---
 
