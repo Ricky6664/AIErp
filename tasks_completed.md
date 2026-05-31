@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-31T12:00
-> **归档总数**：231 条
+> **归档总数**：232 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -354,6 +354,7 @@
 | P0-002-003-003-002-002 | 实现静态工厂方法 | 2026-05-31T11:55 | ✅ | api.d.ts新增isSuccess/getErrorMessage/assertSuccess类型签名+apiHelper.ts运行时实现(code===0严格比较+asserts类型守卫+named export),tsc --noEmit通过 | 7c6bef74 |
 | P0-002-003-003-002-003 | 编写单元测试 | 2026-05-31T12:00 | ✅ | 安装vitest@4.1.7,创建vitest.config.ts+src/types/__tests__/api.test-d.ts(13测试26断言),覆盖ApiResponse/PageResult/PageQuery+isSuccess/getErrorMessage/assertSuccess类型检查,pnpm test:type 26passed+0 type errors+pnpm build通过 | (pending) |
 | P0-002-004-001-001-001 | 实现基础日期方法 | 2026-05-31T12:20 | ✅ | erp-ai-web/src/utils/date.ts:formatDate/parseDate/dateRange/relativeTime,dayjs+relativeTime插件+zh-cn locale,纯函数无副作用,5项验收标准全部通过,pnpm build通过 | (pending) |
+| P0-002-004-001-001-002 | 实现快捷选项生成 | 2026-05-31T12:45 | ✅ | erp-ai-web/src/utils/date.ts新增getDateShortcuts/getMonthRange/getQuarterRange+DateShortcut接口,7个快捷选项(今天/本周/本月/本季度/本年/最近7天/最近30天),本周周一为起始日+周日边界处理,value函数实时计算,纯函数设计,4项验收标准通过,pnpm build通过 | (pending) |
 
 ---
 

@@ -57,3 +57,71 @@ export function relativeTime(date: Date | string | number): string {
   if (now.year() === d.year()) return d.format('MM-DD')
   return d.format('YYYY-MM-DD')
 }
+
+export interface DateShortcut {
+  text: string
+  value: () => [Date, Date]
+}
+
+export function getDateShortcuts(): DateShortcut[] {
+  const today: DateShortcut = {
+    text: '今天',
+    value: () => [dayjs().startOf('day').toDate(), dayjs().endOf('day').toDate()]
+  }
+
+  const thisWeek: DateShortcut = {
+    text: '本周',
+    value: () => {
+      let weekStart = dayjs().startOf('week').add(1, 'day')
+      if (weekStart.isAfter(dayjs())) {
+        weekStart = weekStart.subtract(7, 'day')
+      }
+      const weekEnd = weekStart.add(6, 'day').endOf('day')
+      return [weekStart.startOf('day').toDate(), weekEnd.toDate()]
+    }
+  }
+
+  const thisMonth: DateShortcut = {
+    text: '本月',
+    value: () => getMonthRange(0)
+  }
+
+  const thisQuarter: DateShortcut = {
+    text: '本季度',
+    value: () => getQuarterRange(0)
+  }
+
+  const thisYear: DateShortcut = {
+    text: '本年',
+    value: () => [dayjs().startOf('year').toDate(), dayjs().endOf('year').toDate()]
+  }
+
+  const last7Days: DateShortcut = {
+    text: '最近7天',
+    value: () => [dayjs().subtract(6, 'day').startOf('day').toDate(), dayjs().endOf('day').toDate()]
+  }
+
+  const last30Days: DateShortcut = {
+    text: '最近30天',
+    value: () => [
+      dayjs().subtract(29, 'day').startOf('day').toDate(),
+      dayjs().endOf('day').toDate()
+    ]
+  }
+
+  return [today, thisWeek, thisMonth, thisQuarter, thisYear, last7Days, last30Days]
+}
+
+export function getMonthRange(offset: number): [Date, Date] {
+  const target = dayjs().add(offset, 'month')
+  return [target.startOf('month').toDate(), target.endOf('month').toDate()]
+}
+
+export function getQuarterRange(offset: number): [Date, Date] {
+  const now = dayjs()
+  const currentQuarter = Math.floor(now.month() / 3)
+  const targetMonth = (currentQuarter + offset) * 3
+  const start = dayjs().month(targetMonth).startOf('month')
+  const end = start.add(2, 'month').endOf('month')
+  return [start.toDate(), end.toDate()]
+}
