@@ -1,0 +1,138 @@
+// ============================================================
+// 布局工具类 — flex / grid / scroll / spacing
+// P0-002-006-004-001-001
+// ============================================================
+
+// Flex布局
+.erp-flex {
+  display: flex;
+}
+.erp-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.erp-flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.erp-flex-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.erp-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.erp-flex-wrap {
+  flex-wrap: wrap;
+}
+.erp-flex-1 {
+  flex: 1;
+}
+
+// Grid自适应布局
+.erp-grid-auto-fill {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+}
+
+// 固定高度滚动容器
+.erp-fixed-scroll {
+  height: 100%;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #c0c4cc;
+    border-radius: 3px;
+  }
+}
+
+// 间距工具类 — @each批量生成
+$spacing-sizes: (
+  xs: var(--spacing-xs),
+  sm: var(--spacing-sm),
+  md: var(--spacing-md),
+  lg: var(--spacing-lg),
+  xl: var(--spacing-xl)
+);
+
+@each $name, $value in $spacing-sizes {
+  .erp-p-#{$name} {
+    padding: $value;
+  }
+  .erp-pt-#{$name} {
+    padding-top: $value;
+  }
+  .erp-pr-#{$name} {
+    padding-right: $value;
+  }
+  .erp-pb-#{$name} {
+    padding-bottom: $value;
+  }
+  .erp-pl-#{$name} {
+    padding-left: $value;
+  }
+  .erp-px-#{$name} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  .erp-py-#{$name} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+
+  .erp-m-#{$name} {
+    margin: $value;
+  }
+  .erp-mt-#{$name} {
+    margin-top: $value;
+  }
+  .erp-mr-#{$name} {
+    margin-right: $value;
+  }
+  .erp-mb-#{$name} {
+    margin-bottom: $value;
+  }
+  .erp-ml-#{$name} {
+    margin-left: $value;
+  }
+  .erp-mx-#{$name} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  .erp-my-#{$name} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+}
+
+// 圆角工具类
+$radius-sizes: (
+  sm: var(--radius-sm),
+  md: var(--radius-md),
+  lg: var(--radius-lg)
+);
+
+@each $name, $value in $radius-sizes {
+  .erp-radius-#{$name} {
+    border-radius: $value;
+  }
+}
+
+// 阴影工具类
+.erp-shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.erp-shadow-md {
+  box-shadow: var(--shadow-md);
+}
+.erp-shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
