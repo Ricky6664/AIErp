@@ -358,7 +358,8 @@
 | P0-002-004-001-002-001 | 实现数字格式化方法 | 2026-05-31T13:00 | ✅ | erp-ai-web/src/utils/number.ts:formatMoney/formatPercent/formatQty/formatFileSize+FormatNumberOptions接口,Intl.NumberFormat('zh-CN')千分位,纯函数无副作用,pnpm build通过,5项验收标准全部通过 | (pending) |
 | P0-002-004-001-002-002 | 实现精度计算方法 | 2026-05-31T13:20 | ✅ | erp-ai-web/src/utils/number.ts追加add/subtract/multiply/divide/round+RoundingMode类型+toSafeDecimal内部辅助,decimal.js精度计算,divide除零保护,round银行家舍入(ROUND_HALF_EVEN)支持4种模式,5项验收标准全部通过,pnpm test:type通过 | (pending) |
 | P0-002-004-001-003-001 | 实现对象方法 | 2026-05-31T14:00 | ✅ | erp-ai-web/src/utils/object.ts:deepClone/deepMerge/pick/omit,WeakMap防循环引用,Date/RegExp/Map/Set类型支持,纯函数无副作用,pnpm build通过,4项验收标准全部通过 | (pending) |
-| P0-002-004-001-003-002 | 实现数组方法 | 2026-05-31T14:30 | ✅ | erp-ai-web/src/utils/array.ts:arrayToTree/treeToArray/uniqueArray/flatten/groupBy,Map O(n)树构建+栈迭代展平+Set/JSON兜底去重+Record分组,全类型安全纯函数,pnpm build通过,4项验收标准通过 | (pending) |
+| P0-002-004-001-003-002 | 实现数组方法 | 2026-05-31T14:30 | ✅ | erp-ai-web/src/utils/array.ts:arrayToTree/treeToArray/uniqueArray/flatten/groupBy,Map O(n)树构建+栈迭代展平+Set/JSON兜底去重+Record分组,全类型安全纯函数,pnpm build通过,4项验收标准通过 | e5af4143 |
+| P0-002-004-001-004-001 | 实现debounce/throttle | 2026-05-31T15:00 | ✅ | erp-ai-web/src/utils/debounce.ts:debounce/throttle,leading/trailing配置+cancel/flush方法+fn.apply(this,args)透传+TypeError校验,纯函数无依赖,pnpm build通过,4项验收标准全部通过 | (pending) |
 
 ---
 
@@ -366,10 +367,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 236 | 2 | 10.98% |
+| P0 | 14 | 2,147 | 237 | 2 | 11.04% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **236** | **2** | **5.01%** |
+| **合计** | **46** | **4,716** | **237** | **2** | **5.03%** |
 
 ---
 
