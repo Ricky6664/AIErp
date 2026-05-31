@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-31T18:50
-> **归档总数**：288 条
+> **归档总数**：289 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -420,6 +420,7 @@
 | P0-003-002-002-001-001 | 编写CREATE TABLE语句 | 2026-05-31T18:50 | ✅ | db/migration/V20260531004__task_P0_003_002_002_001_001.sql:10张系统核心表DDL(sys_user/sys_role/sys_menu/sys_user_role/sys_user_dept/sys_role_menu/sys_role_data_scope/sys_role_field_permission/sys_user_group/sys_user_group_member),decimal(18,8)统一精度,COMMENT注释完整,无外键约束 | b1324ef0 |
 | P0-003-002-002-001-002 | 编写系统核心表索引与约束 | 2026-05-31T18:50 | ✅ | db/migration/V20260531005__task_P0_003_002_002_001_002.sql:10张表索引与约束(12UK含WHERE is_deleted=false+22IDX),全部tenant_id首列联合索引,命名规范uk_/idx_+docs/specs/P0_003_002_002_001_002_spec.md | 28270e3d |
 | P0-003-002-002-001-003 | 验证编写系统核心表DDL | 2026-05-31T19:00 | ✅ | db/migration/V20260526001__task_P0_003_002_002_001_003.sql:8部分验证SQL(表存在性/字段完整性/约束/索引/COMMENT/Flyway/外键/综合摘要)+docs/specs/P0_003_002_002_001_003_spec.md:静态审查全部通过,10表DDL规范一致,31索引合规,COMMENT覆盖率100% | 3212f364 |
+| P0-003-002-003-001-001 | 编写CREATE TABLE语句 | 2026-05-31T19:10 | ✅ | db/migration/V20260531006__task_P0_003_002_003_001_001.sql:2张认证相关表DDL(sys_login_log/sys_oper_log),decimal(18,8)统一精度,COMMENT注释完整,无外键约束+docs/specs/P0_003_002_003_001_001_spec.md | ———— |
 
 ---
 
