@@ -372,7 +372,7 @@
 | P0-002-005-001-001-001 | 定义语言包结构 | 2026-05-31T17:42 | ✅ | erp-ai-web/src/i18n/index.ts:createI18n实例(legacy:false)+中英文messages(zh-CN/en-US)+fallbackLocale回退+missing回调console.warn+setLanguage同步ElementPlus/dayjs/HTML lang+locale存储,locale存根文件(vue-i18n 9.14.5),vue-tsc --noEmit 0错误 | 76d9d752 |
 | P0-002-005-001-001-002 | 编写中文词条 | 2026-05-31T18:30 | ✅ | erp-ai-web/src/main.ts:引入注册i18n(Pinia-i18n顺序)+provideEpLocale Element Plus locale上下文;env.d.ts:vue-i18n DefineLocaleMessage类型+element-plus .mjs模块声明;i18n/locales/zh-CN.ts+en-US.ts:充实common/status/validation三类70+词条;修复i18n/index.ts用localeContextKey+buildLocaleContext替代废弃locale函数,vue-tsc -b 0错误 | 9fc34c44 |
 | P0-002-004-003-002-001 | 定义封装函数签名 | 2026-05-31T18:45 | ✅ | erp-ai-web/src/utils/notification.ts:定义NotificationContent/NotificationType/NotificationPosition/NotifyOptions类型+defaultOptions默认配置+iconMap图标映射+notify/notifySuccess/notifyError/notifyWarning/notifyInfo/clearAllNotifications函数签名,vue-tsc -b 0错误 | 64ac7e60 |
-| P0-002-004-003-002-002 | 实现封装逻辑 | 2026-05-31T19:00 | ✅ | erp-ai-web/src/utils/notification.ts:实现notifyImpl去重逻辑(activeNotifications Map)+统一配置(duration=4500ms/position='top-right'/showClose=true)+统一图标iconMap+clearAllNotifications遍历Map逐实例close+边界处理(title空warn/duration=0不自动关闭/无name跳过去重),vue-tsc -b 0错误 | 待回填 |
+| P0-002-004-003-002-002 | 实现封装逻辑 | 2026-05-31T19:00 | ✅ | erp-ai-web/src/utils/notification.ts:实现notifyImpl去重逻辑(activeNotifications Map)+统一配置(duration=4500ms/position='top-right'/showClose=true)+统一图标iconMap+clearAllNotifications遍历Map逐实例close+边界处理(title空warn/duration=0不自动关闭/无name跳过去重),vue-tsc -b 0错误 | 71770a62 |
 
 ---
 
