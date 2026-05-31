@@ -405,16 +405,22 @@
 | P0-002-006-006-001-001 | 编写外部资源域适配配置 | 2026-05-31T21:15 | ✅ | 创建cdn-fallback.ts(国内/国外CDN自动切换+超时回退+preload预加载)+.env.development/.env.production添加VITE_EXTERNAL_CDN_BASE/VITE_CDN_FALLBACK_URL+index.html添加preconnect | 8d86e81d |
 | P0-002-006-006-001-002 | 验证CDN切换 | 2026-05-31T18:32 | ✅ | 验证7项CDN切换+编译+构建全部通过:cdn-fallback.ts国内CDN fonts.loli.net正确/超时3000ms+自动切换备用源/环境变量VITE_EXTERNAL_CDN_BASE正确/index.html preconnect生效/TypeScript编译零错误/Vite构建成功(4.72s) | 56b53ae1 |
 
+### P0-003 - 数据库基础架构搭建
+
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
+|---------|---------|---------|:---:|------|-----|
+| P0-003-001-001-001-001 | 编写CREATE DATABASE语句 | 2026-05-31T20:11 | ✅ | db/migration/V20260526001__schema_related.sql:PostgreSQL创建erp_db数据库(UTF8编码/zh_CN.UTF-8区域/200连接)+erp_base/erp_tenant双Schema多租户隔离+幂等性设计(DO$$IF NOT EXISTS/IF NOT EXISTS)+ALTER DATABASE搜索路径配置+COMMENT注释完整,docs/specs/P0_003_001_001_001_001_spec.md:数据库配置/Schema设计/多租户策略/执行说明/验证方法/技术决策记录 | (pending) |
+
 ---
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 276 | 2 | 12.86% |
+| P0 | 14 | 2,147 | 277 | 2 | 12.91% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **275** | **2** | **5.83%** |
+| **合计** | **46** | **4,716** | **277** | **2** | **5.87%** |
 
 ---
 
