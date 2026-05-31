@@ -1,6 +1,6 @@
 import type { App } from 'vue'
-import { permission } from './permission'
+import { permissionDirective } from './permission'
 
 export function setupDirectives(app: App) {
-  app.directive('permission', permission)
+  app.directive('permission', permissionDirective)
 }
