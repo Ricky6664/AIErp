@@ -47,12 +47,13 @@ function addToQueue(config: InternalAxiosRequestConfig): Promise<any> {
 }
 
 function replayRequests(newToken: string): void {
-  pendingQueue.forEach((item) => {
-    item.config.headers.Authorization = `Bearer ${newToken}`
-    axios(item.config).then(item.resolve).catch(item.reject)
-  })
+  const queue = [...pendingQueue]
   pendingQueue.length = 0
-  isRefreshing = false
+
+  queue.forEach(({ resolve, reject, config }) => {
+    config.headers.Authorization = `Bearer ${newToken}`
+    axios(config).then(resolve).catch(reject)
+  })
 }
 
 function handleRefreshFailure(): void {
@@ -81,7 +82,8 @@ export async function handleTokenRefresh(config: InternalAxiosRequestConfig): Pr
     userStore.token = accessToken
     localStorage.setItem('erp_refresh_token', newRefreshToken)
     config.headers.Authorization = `Bearer ${accessToken}`
-    replayRequests(accessToken)
+    replayRequests(userStore.token)
+    isRefreshing = false
     return axios(config)
   } catch {
     handleRefreshFailure()

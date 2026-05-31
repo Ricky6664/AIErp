@@ -345,6 +345,7 @@
 | P0-002-003-002-002-003 | 集成测试验证 | 2026-05-30T23:45 | ✅ | 静态验证响应拦截器8项清单全部通过(code===0解包/20001刷新/40001权限/HTTP 401-500错误/超时/网络异常)+pnpm build编译通过 | f38ca9ee |
 | P0-002-003-002-003-001 | 实现401拦截与Token刷新请求 | 2026-05-30T22:50 | ✅ | handleTokenRefresh核心函数:isRefreshing防并发锁+refreshAxios独立实例避免死循环+pendingRequests队列管理+refresh失败调用logout跳转登录页+pnpm build编译通过 | fabcaddb |
 | P0-002-003-002-003-002-001 | 实现请求排队机制 | 2026-05-30T23:00 | ✅ | PendingRequest接口定义+pendingQueue数组+addToQueue(Promise挂起+30s超时保护+超时从队列移除)+replayRequests/handleRefreshFailure适配新数据结构+tsc --noEmit通过 | ceec0f6c |
+| P0-002-003-002-003-002-002 | 实现刷新后批量重发 | 2026-05-31 | ✅ | replayRequests重构:先复制队列再清空(const queue=[...pendingQueue];pendingQueue.length=0)+解构遍历forEach({resolve,reject,config})+替换Authorization为新token+axios重发+isRefreshing移至handleTokenRefresh中replayRequests后重置+pnpm build通过 | |
 
 ---
 
@@ -352,10 +353,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 224 | 2 | 10.43% |
+| P0 | 14 | 2,147 | 225 | 2 | 10.48% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **222** | **2** | **4.71%** |
+| **合计** | **46** | **4,716** | **223** | **2** | **4.73%** |
 
 ---
 
