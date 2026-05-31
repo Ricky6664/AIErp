@@ -5,7 +5,8 @@ import type {
   ProductCreateDTO,
   ProductUpdateDTO,
   ProductListVO,
-  ProductDetailVO
+  ProductDetailVO,
+  ImportResultVO
 } from '@/api/types/product'
 
 /** 分页查询商品列表 */
@@ -31,4 +32,27 @@ export function updateProduct(data: ProductUpdateDTO): Promise<void> {
 /** 删除商品 */
 export function deleteProduct(id: number): Promise<void> {
   return request.delete(`/api/product/${id}`)
+}
+
+/** 批量删除商品 */
+export function batchDeleteProduct(ids: number[]): Promise<void> {
+  return request.put('/api/product/batch-delete', { ids })
+}
+
+/** 导入商品 */
+export function importProduct(file: File): Promise<ImportResultVO> {
+  const formData = new FormData()
+  formData.append('file', file)
+  return request.post('/api/product/import', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+    timeout: 60000
+  })
+}
+
+/** 导出商品 */
+export function exportProduct(params: ProductQueryDTO): Promise<Blob> {
+  return request.get('/api/product/export', {
+    params,
+    responseType: 'blob'
+  })
 }

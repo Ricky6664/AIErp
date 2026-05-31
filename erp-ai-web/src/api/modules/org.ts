@@ -5,7 +5,8 @@ import type {
   CompanyCreateDTO,
   CompanyUpdateDTO,
   CompanyListVO,
-  CompanyDetailVO
+  CompanyDetailVO,
+  ImportResultVO
 } from '@/api/types/org'
 
 /** 分页查询公司列表 */
@@ -31,4 +32,27 @@ export function updateCompany(data: CompanyUpdateDTO): Promise<void> {
 /** 删除公司 */
 export function deleteCompany(id: number): Promise<void> {
   return request.delete(`/api/org/company/${id}`)
+}
+
+/** 批量删除公司 */
+export function batchDeleteCompany(ids: number[]): Promise<void> {
+  return request.put('/api/org/company/batch-delete', { ids })
+}
+
+/** 导入公司 */
+export function importCompany(file: File): Promise<ImportResultVO> {
+  const formData = new FormData()
+  formData.append('file', file)
+  return request.post('/api/org/company/import', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+    timeout: 60000
+  })
+}
+
+/** 导出公司 */
+export function exportCompany(params: CompanyQueryDTO): Promise<Blob> {
+  return request.get('/api/org/company/export', {
+    params,
+    responseType: 'blob'
+  })
 }

@@ -5,7 +5,8 @@ import type {
   SaleOrderCreateDTO,
   SaleOrderUpdateDTO,
   SaleOrderListVO,
-  SaleOrderDetailVO
+  SaleOrderDetailVO,
+  ImportResultVO
 } from '@/api/types/sale'
 
 /** 分页查询销售订单列表 */
@@ -31,4 +32,27 @@ export function updateSaleOrder(data: SaleOrderUpdateDTO): Promise<void> {
 /** 删除销售订单 */
 export function deleteSaleOrder(id: number): Promise<void> {
   return request.delete(`/api/sale/order/${id}`)
+}
+
+/** 批量删除销售订单 */
+export function batchDeleteSaleOrder(ids: number[]): Promise<void> {
+  return request.put('/api/sale/order/batch-delete', { ids })
+}
+
+/** 导入销售订单 */
+export function importSaleOrder(file: File): Promise<ImportResultVO> {
+  const formData = new FormData()
+  formData.append('file', file)
+  return request.post('/api/sale/order/import', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+    timeout: 60000
+  })
+}
+
+/** 导出销售订单 */
+export function exportSaleOrder(params: SaleOrderQueryDTO): Promise<Blob> {
+  return request.get('/api/sale/order/export', {
+    params,
+    responseType: 'blob'
+  })
 }

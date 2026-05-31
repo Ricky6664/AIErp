@@ -55,3 +55,10 @@ export interface SaleOrderItemVO {
   unitPrice: number
   subtotal: number
 }
+
+/** 导入结果 */
+export interface ImportResultVO {
+  successCount: number
+  failCount: number
+  errorMessages?: string[]
+}

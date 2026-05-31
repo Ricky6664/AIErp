@@ -47,3 +47,10 @@ export interface ProductDetailVO extends ProductListVO {
   remark?: string
   updateTime: string
 }
+
+/** 导入结果 */
+export interface ImportResultVO {
+  successCount: number
+  failCount: number
+  errorMessages?: string[]
+}

@@ -45,3 +45,10 @@ export interface CompanyDetailVO extends CompanyListVO {
   remark?: string
   updateTime: string
 }
+
+/** 导入结果 */
+export interface ImportResultVO {
+  successCount: number
+  failCount: number
+  errorMessages?: string[]
+}
