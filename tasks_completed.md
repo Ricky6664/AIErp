@@ -423,7 +423,7 @@
 | P0-003-002-003-001-001 | 编写CREATE TABLE语句 | 2026-05-31T19:10 | ✅ | db/migration/V20260531006__task_P0_003_002_003_001_001.sql:2张认证相关表DDL(sys_login_log/sys_oper_log),decimal(18,8)统一精度,COMMENT注释完整,无外键约束+docs/specs/P0_003_002_003_001_001_spec.md | 312f831b |
 | P0-003-002-003-001-002 | 编写认证相关表索引与约束 | 2026-05-31T19:25 | ✅ | db/migration/V20260531007__task_P0_003_002_003_001_002.sql:2张表12个索引(sys_login_log 6个+sys_oper_log 6个),全部tenant_id首列联合索引,命名idx_前缀,Flyway V20260531007无冲突+docs/specs/P0_003_002_003_001_002_spec.md | 245382e2 |
 | P0-003-002-003-001-003 | 验证编写认证相关表DDL | 2026-05-31T19:40 | ✅ | db/migration/V20260526001__task_P0_003_002_003_001_003.sql:9部分验证SQL(表存在性/字段完整性/索引/COMMENT/Flyway/外键/主键)共195行+docs/specs/P0_003_002_003_001_003_spec.md:静态审查全部通过,2表DDL规范一致,12索引全部tenant_id首列,COMMENT覆盖率100% | fdbddb0c |
-| P0-003-002-004-001-001 | 编写CREATE TABLE语句（系统管理表） | 2026-05-31T19:50 | ✅ | db/migration/V20260531008__task_P0_003_002_004_001_001.sql:10张系统管理表DDL(sys_param/sys_dict_type/sys_dict_data/sys_code_rule/sys_code_rule_segment/sys_operation_log/sys_data_view/sys_data_view_field/sys_notice/sys_doc_config),decimal(18,8)统一精度,COMMENT注释完整,无外键约束+docs/specs/P0_003_002_004_001_001_spec.md | (待提交) |
+| P0-003-002-004-001-001 | 编写CREATE TABLE语句（系统管理表） | 2026-05-31T19:50 | ✅ | db/migration/V20260531008__task_P0_003_002_004_001_001.sql:10张系统管理表DDL(sys_param/sys_dict_type/sys_dict_data/sys_code_rule/sys_code_rule_segment/sys_operation_log/sys_data_view/sys_data_view_field/sys_notice/sys_doc_config),decimal(18,8)统一精度,COMMENT注释完整,无外键约束+docs/specs/P0_003_002_004_001_001_spec.md | 17f573b7 |
 
 ---
 
