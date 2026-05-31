@@ -396,7 +396,7 @@
 | P0-002-006-004-001-001 | 编写SCSS工具类 | 2026-05-31T18:15 | ✅ | 创建_layout.scss:flex/grid/scroll/spacing/radius/shadow工具类,@each批量生成间距,import到main.ts,pnpm build通过 | c1ea8e84 |
 | P0-002-006-004-001-002 | 验证布局工具类 | 2026-05-31T18:25 | ✅ | 验证84个erp-布局类全部通过编译,flex/grid/scroll/spacing/radius/shadow正确,与Tailwind共存无冲突,1项NOTE(响应式变体无@media) | 6550fb72 |
 | P0-002-006-004-002-001 | 编写SCSS工具类 | 2026-05-31T18:35 | ✅ | 创建_text.scss:省略/颜色/字体/对齐/过渡6类工具类,@each循环生成,import到main.ts,pnpm build通过 | 157cb739 |
-| P0-002-006-004-002-002 | 验证文本装饰工具类 | 2026-05-31T18:45 | ✅ | 验证文本省略/颜色/背景/字体/对齐/过渡/阴影工具类,修复erp-transition-all使用transition:all改为指定属性,pnpm build通过 | |
+| P0-002-006-004-002-002 | 验证文本装饰工具类 | 2026-05-31T18:45 | ✅ | 验证文本省略/颜色/背景/字体/对齐/过渡/阴影工具类,修复erp-transition-all使用transition:all改为指定属性,pnpm build通过 | ce69c4e3 |
 
 ---
 
