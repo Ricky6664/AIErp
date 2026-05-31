@@ -6,6 +6,7 @@ interface DebounceEl extends HTMLElement {
   _debounceHandler?: (event: Event) => void
   _debounceTimer?: ReturnType<typeof setTimeout>
   _debounceEvent?: string
+  _debounceDelay?: number
 }
 
 /**
@@ -17,6 +18,7 @@ export const debounceDirective: Directive<DebounceEl, DebounceCallback> = {
     const delay = parseDelay(binding.arg)
     const eventType = 'click'
     el._debounceEvent = eventType
+    el._debounceDelay = delay
 
     el._debounceHandler = createDebounceHandler(el, binding.value, delay)
 
@@ -24,17 +26,16 @@ export const debounceDirective: Directive<DebounceEl, DebounceCallback> = {
   },
 
   updated(el: DebounceEl, binding: DirectiveBinding<DebounceCallback>) {
-    const valueChanged = binding.value !== binding.oldValue
-    const argChanged = binding.arg !== binding.oldArg
+    const newDelay = parseDelay(binding.arg)
 
-    if (valueChanged || argChanged) {
-      const delay = parseDelay(binding.arg)
+    if (binding.value !== binding.oldValue || el._debounceDelay !== newDelay) {
+      el._debounceDelay = newDelay
 
       if (el._debounceEvent && el._debounceHandler) {
         el.removeEventListener(el._debounceEvent, el._debounceHandler)
       }
 
-      el._debounceHandler = createDebounceHandler(el, binding.value, delay)
+      el._debounceHandler = createDebounceHandler(el, binding.value, newDelay)
 
       if (el._debounceEvent) {
         el.addEventListener(el._debounceEvent, el._debounceHandler)
@@ -43,16 +44,7 @@ export const debounceDirective: Directive<DebounceEl, DebounceCallback> = {
   },
 
   unmounted(el: DebounceEl) {
-    if (el._debounceTimer) {
-      clearTimeout(el._debounceTimer)
-      el._debounceTimer = undefined
-    }
-    if (el._debounceEvent && el._debounceHandler) {
-      el.removeEventListener(el._debounceEvent, el._debounceHandler)
-    }
-    delete el._debounceHandler
-    delete el._debounceTimer
-    delete el._debounceEvent
+    cleanupDebounce(el)
   }
 }
 
@@ -75,4 +67,17 @@ function createDebounceHandler(
       callback?.()
     }, delay)
   }
+}
+
+function cleanupDebounce(el: DebounceEl): void {
+  if (el._debounceTimer) {
+    clearTimeout(el._debounceTimer)
+    el._debounceTimer = undefined
+  }
+  if (el._debounceEvent && el._debounceHandler) {
+    el.removeEventListener(el._debounceEvent, el._debounceHandler)
+  }
+  delete el._debounceHandler
+  delete el._debounceTimer
+  delete el._debounceEvent
 }
