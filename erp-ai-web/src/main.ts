@@ -5,6 +5,7 @@ import 'vxe-pc-ui/lib/style.css'
 import 'vxe-table/lib/style.css'
 import { setupVxeTable } from '@/plugins/vxe-table'
 import pinia from '@/stores'
+import { i18n, setLanguage, provideEpLocale, initialLocale } from '@/i18n'
 import { setupDirectives } from '@/directives'
 import App from './App.vue'
 
@@ -24,6 +25,10 @@ const app = createApp(App)
 
 setupVxeTable(app)
 app.use(pinia)
+app.use(i18n)
+provideEpLocale(app)
 setupDirectives(app)
+
+setLanguage(initialLocale)
 
 app.mount('#app')

@@ -1,5 +1,7 @@
+// @ts-expect-error TS2305 — vue-i18n createI18n type export incompatible with TS 6.x
 import { createI18n } from 'vue-i18n'
-import { locale as elLocale } from 'element-plus'
+import { ref } from 'vue'
+import { localeContextKey, buildLocaleContext } from 'element-plus'
 import dayjs from 'dayjs'
 import zhCN from './locales/zh-CN'
 import enUS from './locales/en-US'
@@ -15,7 +17,7 @@ function getInitialLocale(): string {
   return 'zh-CN'
 }
 
-const initialLocale = getInitialLocale()
+export const initialLocale = getInitialLocale()
 
 export const i18n = createI18n({
   legacy: false,
@@ -30,19 +32,28 @@ export const i18n = createI18n({
   }
 })
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const epLocale = ref<any>(null)
+
+export function provideEpLocale(app: {
+  provide: (key: symbol | string, value: unknown) => void
+}): void {
+  app.provide(localeContextKey, buildLocaleContext(epLocale))
+}
+
 export async function setLanguage(locale: string): Promise<void> {
   i18n.global.locale.value = locale
   localStorage.setItem('locale', locale)
   document.documentElement.lang = locale
 
   if (locale === 'zh-CN') {
-    const [{ default: elMsg }] = await Promise.all([import('element-plus/dist/locale/zh-cn.mjs')])
-    elLocale(elMsg)
+    const { default: elMsg } = await import('element-plus/dist/locale/zh-cn.mjs')
+    epLocale.value = elMsg
     await import('dayjs/locale/zh-cn')
     dayjs.locale('zh-cn')
   } else {
-    const [{ default: elMsg }] = await Promise.all([import('element-plus/dist/locale/en.mjs')])
-    elLocale(elMsg)
+    const { default: elMsg } = await import('element-plus/dist/locale/en.mjs')
+    epLocale.value = elMsg
     await import('dayjs/locale/en')
     dayjs.locale('en')
   }
