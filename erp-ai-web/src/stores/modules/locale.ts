@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { i18n, epLocale } from '@/i18n'
 import dayjs from 'dayjs'
 
@@ -30,10 +30,21 @@ const localeModules = import.meta.glob<{ default: Record<string, unknown> }>(
 export const useLocaleStore = defineStore('locale', () => {
   const language = ref<string>(getInitialLocale())
   const loadedLocales = ref<string[]>(['zh-CN'])
-  const availableLanguages = ref<Array<{ code: string; label: string }>>([
+  const availableLanguages = computed<Array<{ code: string; label: string }>>(() => [
     { code: 'zh-CN', label: '中文' },
     { code: 'en-US', label: 'English' }
   ])
+
+  const currentLanguage = computed(() => language.value)
+
+  const currentLanguageLabel = computed(() => {
+    const found = availableLanguages.value.find((l) => l.code === language.value)
+    return found?.label ?? ''
+  })
+
+  function isLocaleLoaded(locale: string): boolean {
+    return loadedLocales.value.includes(locale)
+  }
 
   async function loadLocaleMessages(locale: string): Promise<void> {
     const modulePath = `../../i18n/locales/${locale}.ts`
@@ -73,6 +84,9 @@ export const useLocaleStore = defineStore('locale', () => {
     language,
     loadedLocales,
     availableLanguages,
+    currentLanguage,
+    currentLanguageLabel,
+    isLocaleLoaded,
     setLanguage,
     loadLocaleMessages
   }
