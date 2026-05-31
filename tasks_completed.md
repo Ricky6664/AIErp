@@ -403,7 +403,7 @@
 | P0-002-006-005-003-001 | 配置vite.config.ts构建优化 | 2026-05-31T21:00 | ✅ | minify:terser+terserOptions配置(drop_console/drop_debugger生产移除)+sourcemap环境条件控制+defineConfig箭头函数形式+安装terser 5.48.0+manualChunks函数形式分包vue/elementPlus/vendor(Vite 8/Rolldown兼容),pnpm build通过(5.04s) | 8827ef9f |
 | P0-002-006-005-003-002 | 验证构建优化 | 2026-05-31T19:00 | ✅ | 验证7项构建配置+修复element-plus分包顺序(@element-plus/icons-vue被vue规则误捕获)+修复console策略(drop_console→pure_funcs保留warn/error)+vue chunk 332KB gzipped(略超300KB因@vueuse受Rolldown限制无法分离) | 8c06e7e9 |
 | P0-002-006-006-001-001 | 编写外部资源域适配配置 | 2026-05-31T21:15 | ✅ | 创建cdn-fallback.ts(国内/国外CDN自动切换+超时回退+preload预加载)+.env.development/.env.production添加VITE_EXTERNAL_CDN_BASE/VITE_CDN_FALLBACK_URL+index.html添加preconnect | 8d86e81d |
-| P0-002-006-006-001-002 | 验证CDN切换 | 2026-05-31T18:32 | ✅ | 验证7项CDN切换+编译+构建全部通过:cdn-fallback.ts国内CDN fonts.loli.net正确/超时3000ms+自动切换备用源/环境变量VITE_EXTERNAL_CDN_BASE正确/index.html preconnect生效/TypeScript编译零错误/Vite构建成功(4.72s) | (验证任务) |
+| P0-002-006-006-001-002 | 验证CDN切换 | 2026-05-31T18:32 | ✅ | 验证7项CDN切换+编译+构建全部通过:cdn-fallback.ts国内CDN fonts.loli.net正确/超时3000ms+自动切换备用源/环境变量VITE_EXTERNAL_CDN_BASE正确/index.html preconnect生效/TypeScript编译零错误/Vite构建成功(4.72s) | 56b53ae1 |
 
 ---
 
