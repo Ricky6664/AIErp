@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-31T17:05
-> **归档总数**：254 条
+> **归档总数**：255 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -381,6 +381,7 @@
 | P0-002-005-002-002-001 | 编写状态文本词条 | 2026-05-31T20:30 | ✅ | erp-ai-web/src/i18n/locales/zh-CN/status.ts:嵌套对象结构status.{domain}.{code},四个业务域(audit/enable/order/payment),audit.pending/approved/rejected+enable.enabled/disabled+order.draft/submitted/confirmed/completed/cancelled+payment.unpaid/paid/refunded,export default+StatusLocale类型导出,vue-tsc --noEmit 0错误 | cbbcc48f |
 | P0-002-005-002-002-002 | 实现状态文本渲染函数 | 2026-05-31T17:05 | ✅ | erp-ai-web/src/utils/status.ts:renderStatusText(statusType,statusCode)封装i18n.global.t调用,StatusType联合类型(audit/enable/order/payment),Key格式status.{domain}.{code},未匹配返回[statusType.statusCode]默认文本+DEV环境console.warn,具名导出+StatusType类型导出,vue-tsc --noEmit 0错误 | a607a329 |
 | P0-002-005-002-002-003 | 验证状态展示 | 2026-05-31T17:30 | ✅ | 修复en-US/status.ts扁平结构→嵌套结构(与zh-CN一致),13个状态码中英文全覆盖验证通过,TypeScript编译通过,测试报告已记录 | 7d4aa0f0 |
+| P0-002-005-002-003-001 | 编写校验提示词条 | 2026-05-31T17:05 | ✅ | 重写validation.ts:嵌套结构required/format(phone/email/idCard/url)/length(min/max/range)/range(min/max/between)/custom(duplicate/invalid),占位符${label}/${min}/${max},export default+ValidationLocale类型导出 | (pending) |
 
 ---
 
@@ -388,10 +389,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 256 | 2 | 11.92% |
+| P0 | 14 | 2,147 | 257 | 2 | 11.97% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **256** | **2** | **5.43%** |
+| **合计** | **46** | **4,716** | **257** | **2** | **5.45%** |
 
 ---
 
