@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-31T16:30
-> **归档总数**：240 条
+> **最后更新**：2026-05-31T17:00
+> **归档总数**：241 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -363,6 +363,7 @@
 | P0-002-004-001-004-002 | 实现高级工具 | 2026-05-31T15:30 | ✅ | erp-ai-web/src/utils/debounce.ts追加once(首次执行缓存结果,出错重置可重试)/beforeAfter(before→fn→after钩子)/withCount(Vue ref计数器)/useDebounce(composable响应式防抖+onUnmounted清理)/useThrottle(composable响应式节流+onUnmounted清理),pnpm build通过,4项验收标准全部通过 | (pending) |
 | P0-002-004-002-001-001 | 定义指令钩子函数 | 2026-05-31T16:00 | ✅ | erp-ai-web/src/directives/permission.ts:定义PermissionValue类型(string|string[]),导出checkPermission函数+permissionDirective指令(Directive<HTMLElement,PermissionValue>),实现mounted/updated/unmounted钩子,支持单权限码和数组任一匹配,pnpm tsc --noEmit 0错误+vite build通过 | 4f8456fb |
 | P0-002-004-002-001-002 | 实现指令逻辑 | 2026-05-31T16:30 | ✅ | erp-ai-web/src/directives/permission.ts:切换useUserStore权限源+admin角色跳过检查+removeElement独立函数+空值保护+Array.some任一匹配+el.parentNode?.removeChild DOM移除,tsc --noEmit 0错误 | (pending) |
+| P0-002-004-002-002-001 | 定义指令钩子函数 | 2026-05-31T17:00 | ✅ | erp-ai-web/src/directives/debounce.ts:实现v-debounce指令mounted/updated/unmounted钩子+parseDelay解析arg延迟+createDebounceHandler防抖处理+注册到setupDirectives,tsc --noEmit 0错误 | (pending) |
 
 ---
 
@@ -370,10 +371,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 240 | 2 | 11.13% |
+| P0 | 14 | 2,147 | 241 | 2 | 11.18% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **240** | **2** | **5.07%** |
+| **合计** | **46** | **4,716** | **241** | **2** | **5.09%** |
 
 ---
 
