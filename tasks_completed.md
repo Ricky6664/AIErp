@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-31T17:00
-> **归档总数**：249 条
+> **最后更新**：2026-05-31T19:15
+> **归档总数**：250 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -373,6 +373,7 @@
 | P0-002-005-001-001-002 | 编写中文词条 | 2026-05-31T18:30 | ✅ | erp-ai-web/src/main.ts:引入注册i18n(Pinia-i18n顺序)+provideEpLocale Element Plus locale上下文;env.d.ts:vue-i18n DefineLocaleMessage类型+element-plus .mjs模块声明;i18n/locales/zh-CN.ts+en-US.ts:充实common/status/validation三类70+词条;修复i18n/index.ts用localeContextKey+buildLocaleContext替代废弃locale函数,vue-tsc -b 0错误 | 9fc34c44 |
 | P0-002-004-003-002-001 | 定义封装函数签名 | 2026-05-31T18:45 | ✅ | erp-ai-web/src/utils/notification.ts:定义NotificationContent/NotificationType/NotificationPosition/NotifyOptions类型+defaultOptions默认配置+iconMap图标映射+notify/notifySuccess/notifyError/notifyWarning/notifyInfo/clearAllNotifications函数签名,vue-tsc -b 0错误 | 64ac7e60 |
 | P0-002-004-003-002-002 | 实现封装逻辑 | 2026-05-31T19:00 | ✅ | erp-ai-web/src/utils/notification.ts:实现notifyImpl去重逻辑(activeNotifications Map)+统一配置(duration=4500ms/position='top-right'/showClose=true)+统一图标iconMap+clearAllNotifications遍历Map逐实例close+边界处理(title空warn/duration=0不自动关闭/无name跳过去重),vue-tsc -b 0错误 | 71770a62 |
+| P0-002-005-001-002-001 | 定义State类型与初始值 | 2026-05-31T19:15 | ✅ | erp-ai-web/src/stores/modules/locale.ts:LocaleState接口(language/loadedLocales/availableLanguages)+getInitialLocale优先级链(app-language > navigator.language > zh-CN)+Pinia Setup Store风格(defineStore+setup function)+loadedLocales初始['zh-CN']+availableLanguages中英文选项,vue-tsc -b 0错误 | 00b05893 |
 
 ---
 
@@ -380,10 +381,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 249 | 2 | 11.60% |
+| P0 | 14 | 2,147 | 250 | 2 | 11.64% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **249** | **2** | **5.28%** |
+| **合计** | **46** | **4,716** | **250** | **2** | **5.30%** |
 
 ---
 
