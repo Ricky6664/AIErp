@@ -378,7 +378,7 @@
 | P0-002-005-001-002-003 | 实现Getters | 2026-05-31T19:45 | ✅ | erp-ai-web/src/stores/modules/locale.ts:currentLanguage/currentLanguageLabel/availableLanguages computed getter+isLocaleLoaded函数式getter,availableLanguages从ref改为computed保持纯计算无副作用 | 3225c668 |
 | P0-002-005-002-001-001 | 实现导出功能 | 2026-05-31T17:15 | ✅ | erp-ai-web/src/i18n/locales/zh-CN/common.ts:52个通用词条(操作/状态/标签/表头/占位五大分类)+export default导出+CommonLocale类型导出,重构zh-CN.ts从common.ts导入消除重复,vue-tsc --noEmit 0错误 | 08b97536 |
 | P0-002-005-002-001-002 | 实现导入功能 | 2026-05-31T20:00 | ✅ | zh-CN/index.ts+en-US/index.ts:聚合common/status/validation三模块语言包索引+扩展运算符展开+zh-CN/status.ts+validation.ts提取独立模块文件+en-US/common.ts+status.ts+validation.ts提取英文模块+删除旧zh-CN.ts/en-US.ts单文件+中英文结构一致,vue-tsc --noEmit 0错误 | dc5cc10d |
-| P0-002-005-002-002-001 | 编写状态文本词条 | 2026-05-31T20:30 | ✅ | erp-ai-web/src/i18n/locales/zh-CN/status.ts:嵌套对象结构status.{domain}.{code},四个业务域(audit/enable/order/payment),audit.pending/approved/rejected+enable.enabled/disabled+order.draft/submitted/confirmed/completed/cancelled+payment.unpaid/paid/refunded,export default+StatusLocale类型导出,vue-tsc --noEmit 0错误 | (pending) |
+| P0-002-005-002-002-001 | 编写状态文本词条 | 2026-05-31T20:30 | ✅ | erp-ai-web/src/i18n/locales/zh-CN/status.ts:嵌套对象结构status.{domain}.{code},四个业务域(audit/enable/order/payment),audit.pending/approved/rejected+enable.enabled/disabled+order.draft/submitted/confirmed/completed/cancelled+payment.unpaid/paid/refunded,export default+StatusLocale类型导出,vue-tsc --noEmit 0错误 | cbbcc48f |
 
 ---
 
