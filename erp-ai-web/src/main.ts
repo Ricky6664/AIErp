@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import '../app.css'
 import './style.css'
 import '@/styles/variables.css'
 import '@/styles/element-plus.scss'

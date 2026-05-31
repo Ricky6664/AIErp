@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-31T17:30
-> **归档总数**：260 条
+> **归档总数**：261 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -385,6 +385,7 @@
 | P0-002-005-002-003-002 | 实现校验提示渲染函数 | 2026-05-31T17:30 | ✅ | erp-ai-web/src/utils/validation.ts:ValidationRule接口+replacePlaceholders(/\$\{(\w+)\}/g)+renderValidationMessage(rule,label)+getValidationMessages(rules,label)聚合,具名导出,vue-tsc零错误 | fbc0db22 |
 | P0-002-005-002-003-003 | 验证校验提示 | 2026-05-31T17:30 | ✅ | 修复en-US/validation.ts扁平结构→嵌套结构(与zh-CN一致),{field}占位符→${label}格式,代码路径审查10项验证全部通过,vue-tsc --noEmit 0错误,测试报告已记录 | b7b441c8 |
 | P0-002-006-001-001-001 | 编写root CSS变量 | 2026-05-31T17:45 | ✅ | 创建erp-ai-web/src/styles/variables.css(11个:root颜色变量+6个html.dark暗色模式覆盖),main.ts引入variables.css,vue-tsc编译通过 | — |
+| P0-002-006-001-001-002 | 配置Tailwind自定义颜色 | 2026-05-31T18:00 | ✅ | 安装tailwindcss+@tailwindcss/vite,创建app.css(@theme块11个颜色Token映射CSS变量),main.ts引入app.css,vite.config.ts添加tailwindcss插件,vue-tsc编译通过 | — |
 
 ---
 
