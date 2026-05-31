@@ -383,7 +383,7 @@
 | P0-002-005-002-002-003 | 验证状态展示 | 2026-05-31T17:30 | ✅ | 修复en-US/status.ts扁平结构→嵌套结构(与zh-CN一致),13个状态码中英文全覆盖验证通过,TypeScript编译通过,测试报告已记录 | 7d4aa0f0 |
 | P0-002-005-002-003-001 | 编写校验提示词条 | 2026-05-31T17:05 | ✅ | 重写validation.ts:嵌套结构required/format(phone/email/idCard/url)/length(min/max/range)/range(min/max/between)/custom(duplicate/invalid),占位符${label}/${min}/${max},export default+ValidationLocale类型导出 | (pending) |
 | P0-002-005-002-003-002 | 实现校验提示渲染函数 | 2026-05-31T17:30 | ✅ | erp-ai-web/src/utils/validation.ts:ValidationRule接口+replacePlaceholders(/\$\{(\w+)\}/g)+renderValidationMessage(rule,label)+getValidationMessages(rules,label)聚合,具名导出,vue-tsc零错误 | fbc0db22 |
-| P0-002-005-002-003-003 | 验证校验提示 | 2026-05-31T17:30 | ✅ | 修复en-US/validation.ts扁平结构→嵌套结构(与zh-CN一致),{field}占位符→${label}格式,代码路径审查10项验证全部通过,vue-tsc --noEmit 0错误,测试报告已记录 | (pending) |
+| P0-002-005-002-003-003 | 验证校验提示 | 2026-05-31T17:30 | ✅ | 修复en-US/validation.ts扁平结构→嵌套结构(与zh-CN一致),{field}占位符→${label}格式,代码路径审查10项验证全部通过,vue-tsc --noEmit 0错误,测试报告已记录 | b7b441c8 |
 
 ---
 
