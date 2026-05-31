@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-31T21:00
-> **归档总数**：275 条
+> **归档总数**：276 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -401,6 +401,7 @@
 | P0-002-006-005-001-002 | 验证虚拟滚动 | 2026-05-31T19:15 | ✅ | 7/7验证项全部通过:可视区域渲染/translateY定位/heightCache缓存/passive scroll/unmounted清理/类型完整无any/创建dev测试页(100k数据+运行全部测试按钮),pnpm build通过 | 695b7533 |
 | P0-002-006-005-002-002 | 验证图片懒加载 | 2026-05-31T19:50 | ✅ | 6项验证全部通过:首屏外不加载/200px预加载/unobserve清理/onerror回退SVG占位图/disconnect释放/URL更新重加载+修复DEFAULT_ERROR_IMG改为inline SVG data URI,pnpm build通过 | 15abd820 |
 | P0-002-006-005-003-001 | 配置vite.config.ts构建优化 | 2026-05-31T21:00 | ✅ | minify:terser+terserOptions配置(drop_console/drop_debugger生产移除)+sourcemap环境条件控制+defineConfig箭头函数形式+安装terser 5.48.0+manualChunks函数形式分包vue/elementPlus/vendor(Vite 8/Rolldown兼容),pnpm build通过(5.04s) | 8827ef9f |
+| P0-002-006-005-003-002 | 验证构建优化 | 2026-05-31T19:00 | ✅ | 验证7项构建配置+修复element-plus分包顺序(@element-plus/icons-vue被vue规则误捕获)+修复console策略(drop_console→pure_funcs保留warn/error)+vue chunk 332KB gzipped(略超300KB因@vueuse受Rolldown限制无法分离) | — |
 
 ---
 

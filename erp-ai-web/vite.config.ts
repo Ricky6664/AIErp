@@ -44,7 +44,7 @@ export default defineConfig(({ mode }) => ({
     minify: 'terser',
     terserOptions: {
       compress: {
-        drop_console: mode === 'production',
+        pure_funcs: ['console.log', 'console.info', 'console.debug'],
         drop_debugger: mode === 'production'
       }
     },
@@ -54,11 +54,11 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks(id: string) {
           if (id.includes('node_modules')) {
+            if (id.includes('element-plus') || id.includes('@element-plus')) {
+              return 'element-plus'
+            }
             if (id.includes('vue') || id.includes('vue-router') || id.includes('pinia')) {
               return 'vue'
-            }
-            if (id.includes('element-plus')) {
-              return 'element-plus'
             }
             if (id.includes('axios') || id.includes('dayjs') || id.includes('lodash-es')) {
               return 'vendor'
