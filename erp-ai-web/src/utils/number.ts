@@ -1,3 +1,8 @@
+import Decimal from 'decimal.js'
+
+/** 舍入模式 */
+export type RoundingMode = 'ROUND_HALF_UP' | 'ROUND_HALF_EVEN' | 'ROUND_DOWN' | 'ROUND_UP'
+
 /** 数字格式化选项 */
 export interface FormatNumberOptions {
   /** 小数位数，默认2 */
@@ -85,4 +90,99 @@ export function formatFileSize(bytes: number | null | undefined): string {
     unitIndex++
   }
   return size.toFixed(2) + ' ' + units[unitIndex]
+}
+
+/** decimal.js 舍入模式映射 */
+const DECIMAL_ROUNDING: Record<RoundingMode, Decimal.Rounding> = {
+  ROUND_HALF_UP: Decimal.ROUND_HALF_UP,
+  ROUND_HALF_EVEN: Decimal.ROUND_HALF_EVEN,
+  ROUND_DOWN: Decimal.ROUND_DOWN,
+  ROUND_UP: Decimal.ROUND_UP
+}
+
+function toSafeDecimal(value: number | string, label?: string): Decimal | null {
+  try {
+    const d = new Decimal(typeof value === 'string' ? value : value.toString())
+    if (d.isNaN()) {
+      if (label) console.warn('[number] ' + label + ' is NaN, using 0')
+      return null
+    }
+    return d
+  } catch {
+    if (label) console.warn('[number] Invalid ' + label + ': ' + String(value) + ', using 0')
+    return null
+  }
+}
+
+/**
+ * 精确加法（解决0.1+0.2!==0.3问题）
+ * @param a - 加数
+ * @param b - 被加数
+ * @returns 精确结果
+ */
+export function add(a: number | string, b: number | string): number {
+  const da = toSafeDecimal(a, 'add a')
+  const db = toSafeDecimal(b, 'add b')
+  if (!da || !db) return 0
+  return da.plus(db).toNumber()
+}
+
+/**
+ * 精确减法
+ * @param a - 被减数
+ * @param b - 减数
+ * @returns 精确结果
+ */
+export function subtract(a: number | string, b: number | string): number {
+  const da = toSafeDecimal(a, 'subtract a')
+  const db = toSafeDecimal(b, 'subtract b')
+  if (!da || !db) return 0
+  return da.minus(db).toNumber()
+}
+
+/**
+ * 精确乘法
+ * @param a - 乘数
+ * @param b - 被乘数
+ * @returns 精确结果
+ */
+export function multiply(a: number | string, b: number | string): number {
+  const da = toSafeDecimal(a, 'multiply a')
+  const db = toSafeDecimal(b, 'multiply b')
+  if (!da || !db) return 0
+  return da.times(db).toNumber()
+}
+
+/**
+ * 精确除法（含除零保护）
+ * @param a - 被除数
+ * @param b - 除数，为0时返回0
+ * @returns 精确结果，无限循环小数保留8位
+ */
+export function divide(a: number | string, b: number | string): number {
+  const da = toSafeDecimal(a, 'divide a')
+  const db = toSafeDecimal(b, 'divide b')
+  if (!da || !db) return 0
+  if (db.isZero()) {
+    console.warn('[number] divide by zero, returning 0')
+    return 0
+  }
+  return da.div(db).toDecimalPlaces(8).toNumber()
+}
+
+/**
+ * 银行家舍入（四舍六入五成双）
+ * @param value - 待舍入的值
+ * @param decimals - 保留小数位数
+ * @param mode - 舍入模式，默认ROUND_HALF_EVEN(银行家舍入)
+ * @returns 舍入后的结果
+ */
+export function round(
+  value: number | string,
+  decimals: number,
+  mode: RoundingMode = 'ROUND_HALF_EVEN'
+): number {
+  const d = toSafeDecimal(value, 'round value')
+  if (!d) return 0
+  return d.toDecimalPlaces(decimals, DECIMAL_ROUNDING[mode]).toNumber()
 }

@@ -356,6 +356,7 @@
 | P0-002-004-001-001-001 | 实现基础日期方法 | 2026-05-31T12:20 | ✅ | erp-ai-web/src/utils/date.ts:formatDate/parseDate/dateRange/relativeTime,dayjs+relativeTime插件+zh-cn locale,纯函数无副作用,5项验收标准全部通过,pnpm build通过 | (pending) |
 | P0-002-004-001-001-002 | 实现快捷选项生成 | 2026-05-31T12:45 | ✅ | erp-ai-web/src/utils/date.ts新增getDateShortcuts/getMonthRange/getQuarterRange+DateShortcut接口,7个快捷选项(今天/本周/本月/本季度/本年/最近7天/最近30天),本周周一为起始日+周日边界处理,value函数实时计算,纯函数设计,4项验收标准通过,pnpm build通过 | (pending) |
 | P0-002-004-001-002-001 | 实现数字格式化方法 | 2026-05-31T13:00 | ✅ | erp-ai-web/src/utils/number.ts:formatMoney/formatPercent/formatQty/formatFileSize+FormatNumberOptions接口,Intl.NumberFormat('zh-CN')千分位,纯函数无副作用,pnpm build通过,5项验收标准全部通过 | (pending) |
+| P0-002-004-001-002-002 | 实现精度计算方法 | 2026-05-31T13:20 | ✅ | erp-ai-web/src/utils/number.ts追加add/subtract/multiply/divide/round+RoundingMode类型+toSafeDecimal内部辅助,decimal.js精度计算,divide除零保护,round银行家舍入(ROUND_HALF_EVEN)支持4种模式,5项验收标准全部通过,pnpm test:type通过 | (pending) |
 
 ---
 
@@ -363,10 +364,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 233 | 2 | 10.85% |
+| P0 | 14 | 2,147 | 234 | 2 | 10.90% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **233** | **2** | **4.94%** |
+| **合计** | **46** | **4,716** | **234** | **2** | **4.96%** |
 
 ---
 
