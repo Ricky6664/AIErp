@@ -347,7 +347,7 @@
 | P0-002-003-002-003-002-001 | 实现请求排队机制 | 2026-05-30T23:00 | ✅ | PendingRequest接口定义+pendingQueue数组+addToQueue(Promise挂起+30s超时保护+超时从队列移除)+replayRequests/handleRefreshFailure适配新数据结构+tsc --noEmit通过 | ceec0f6c |
 | P0-002-003-002-003-002-003 | 实现刷新失败处理 | 2026-05-31 | ✅ | handleRefreshFailure重写:reject所有排队请求(登录已过期)+显式清空userStore(token/userInfo/permissions/roles)+清除localStorage(erp_user/erp_refresh_token)+重置isRefreshing+ElMessage.warning提示+router.replace跳转/login(防重复跳转)+catch块传递原始error+pnpm build通过 | |
 | P0-002-003-002-004-001 | 定义路由配置项 | 2026-05-31 | ✅ | 创建cancelRequest.ts:CancelConfig接口(generateKey/skipCancel/cancelMessage)+defaultConfig实现+pendingMap(addPending重复请求取消+removePending+取消+取消指定页面)+CANCEL_WHITELIST_PATTERNS白名单(/auth/login/refresh-token)+isWhitelisted(responseType blob自动白名单)+pnpm build通过 | |
-| P0-002-003-002-004-002 | 实现路由注册与守卫 | 2026-05-31 | ✅ | request.ts集成cancelRequest(addPending/removePending/isWhitelisted)+guards.ts beforeEach调用cancelPendingRequests路由切换取消+fix cancelRequest.ts removePending不abort+cancelError检测新增CanceledError判断+pnpm build通过 | |
+| P0-002-003-002-004-002 | 实现路由注册与守卫 | 2026-05-31 | ✅ | request.ts集成cancelRequest(addPending/removePending/isWhitelisted)+guards.ts beforeEach调用cancelPendingRequests路由切换取消+fix cancelRequest.ts removePending不abort+cancelError检测新增CanceledError判断+pnpm build通过 | 1570e76d |
 
 ---
 
