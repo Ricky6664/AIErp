@@ -351,7 +351,7 @@
 | P0-002-003-003-001-001 | 定义接口路由与方法签名 | 2026-05-31T10:52 | ✅ | 创建org/product/sale三个业务模块API类型定义(6文件)+对应API模块CRUD方法(RESTful URL+named export+TypeScript泛型),tsc --noEmit编译通过 | cbd471cd |
 | P0-002-003-003-001-002 | 实现接口逻辑 | 2026-05-31T11:00 | ✅ | 为org/product/sale三个模块新增batchDelete/import(FormData+60s超时)/export(responseType:blob)完整请求逻辑+ImportResultVO类型,tsc --noEmit通过 | (pending) |
 | P0-002-003-003-002-001 | 定义泛型类结构 | 2026-05-31T11:15 | ✅ | ApiResponse<T=unknown>/PageResult<T=unknown>/PageQuery三个泛型接口定义,泛型默认值由any改为unknown增强类型安全 | 83693563 |
-| P0-002-003-003-002-002 | 实现静态工厂方法 | 2026-05-31T11:55 | ✅ | api.d.ts新增isSuccess/getErrorMessage/assertSuccess类型签名+apiHelper.ts运行时实现(code===0严格比较+asserts类型守卫+named export),tsc --noEmit通过 | (pending) |
+| P0-002-003-003-002-002 | 实现静态工厂方法 | 2026-05-31T11:55 | ✅ | api.d.ts新增isSuccess/getErrorMessage/assertSuccess类型签名+apiHelper.ts运行时实现(code===0严格比较+asserts类型守卫+named export),tsc --noEmit通过 | 7c6bef74 |
 
 ---
 
