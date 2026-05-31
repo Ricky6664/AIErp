@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-30T23:45
-> **归档总数**：227 条
+> **最后更新**：2026-05-31T10:52
+> **归档总数**：228 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -348,6 +348,7 @@
 | P0-002-003-002-003-002-003 | 实现刷新失败处理 | 2026-05-31 | ✅ | handleRefreshFailure重写:reject所有排队请求(登录已过期)+显式清空userStore(token/userInfo/permissions/roles)+清除localStorage(erp_user/erp_refresh_token)+重置isRefreshing+ElMessage.warning提示+router.replace跳转/login(防重复跳转)+catch块传递原始error+pnpm build通过 | |
 | P0-002-003-002-004-001 | 定义路由配置项 | 2026-05-31 | ✅ | 创建cancelRequest.ts:CancelConfig接口(generateKey/skipCancel/cancelMessage)+defaultConfig实现+pendingMap(addPending重复请求取消+removePending+取消+取消指定页面)+CANCEL_WHITELIST_PATTERNS白名单(/auth/login/refresh-token)+isWhitelisted(responseType blob自动白名单)+pnpm build通过 | |
 | P0-002-003-002-004-002 | 实现路由注册与守卫 | 2026-05-31 | ✅ | request.ts集成cancelRequest(addPending/removePending/isWhitelisted)+guards.ts beforeEach调用cancelPendingRequests路由切换取消+fix cancelRequest.ts removePending不abort+cancelError检测新增CanceledError判断+pnpm build通过 | 1570e76d |
+| P0-002-003-003-001-001 | 定义接口路由与方法签名 | 2026-05-31T10:52 | ✅ | 创建org/product/sale三个业务模块API类型定义(6文件)+对应API模块CRUD方法(RESTful URL+named export+TypeScript泛型),tsc --noEmit编译通过 | cbd471cd |
 
 ---
 
@@ -355,10 +356,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 227 | 2 | 10.57% |
+| P0 | 14 | 2,147 | 228 | 2 | 10.62% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **225** | **2** | **4.77%** |
+| **合计** | **46** | **4,716** | **226** | **2** | **4.79%** |
 
 ---
 
