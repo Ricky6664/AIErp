@@ -409,7 +409,7 @@
 
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-003-001-001-001-001 | 编写CREATE DATABASE语句 | 2026-05-31T20:11 | ✅ | db/migration/V20260526001__schema_related.sql:PostgreSQL创建erp_db数据库(UTF8编码/zh_CN.UTF-8区域/200连接)+erp_base/erp_tenant双Schema多租户隔离+幂等性设计(DO$$IF NOT EXISTS/IF NOT EXISTS)+ALTER DATABASE搜索路径配置+COMMENT注释完整,docs/specs/P0_003_001_001_001_001_spec.md:数据库配置/Schema设计/多租户策略/执行说明/验证方法/技术决策记录 | (pending) |
+| P0-003-001-001-001-001 | 编写CREATE DATABASE语句 | 2026-05-31T20:11 | ✅ | db/migration/V20260526001__schema_related.sql:PostgreSQL创建erp_db数据库(UTF8编码/zh_CN.UTF-8区域/200连接)+erp_base/erp_tenant双Schema多租户隔离+幂等性设计(DO$$IF NOT EXISTS/IF NOT EXISTS)+ALTER DATABASE搜索路径配置+COMMENT注释完整,docs/specs/P0_003_001_001_001_001_spec.md:数据库配置/Schema设计/多租户策略/执行说明/验证方法/技术决策记录 | 482f1299 |
 
 ---
 
