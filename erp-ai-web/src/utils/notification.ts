@@ -49,17 +49,25 @@ const iconMap: Record<NotificationType, typeof CircleCheck> = {
   error: CircleClose
 }
 
+/** 活跃通知缓存（用于去重和批量关闭） */
+const activeNotifications = new Map<string, ReturnType<typeof ElNotification>>()
+
 /**
- * 显示通知
- * @param options 通知配置选项
+ * 内部统一通知调用（去重+统一配置）
  */
-export function notify(options: NotifyOptions): void {
-  const { title, message, type, duration, position, showClose, offset } = {
-    ...defaultOptions,
-    ...options
+function notifyImpl(options: NotifyOptions): void {
+  const merged = { ...defaultOptions, ...options }
+  const { title, message, type, duration, position, showClose, name, offset } = merged
+
+  if (title === '') {
+    console.warn('[notification] title is empty string')
   }
 
-  ElNotification({
+  if (name && activeNotifications.has(name)) {
+    return
+  }
+
+  const instance = ElNotification({
     title,
     message,
     type,
@@ -67,41 +75,60 @@ export function notify(options: NotifyOptions): void {
     position,
     showClose,
     offset,
-    icon: iconMap[type]
+    icon: iconMap[type],
+    onClose: () => {
+      if (name) {
+        activeNotifications.delete(name)
+      }
+    }
   })
+
+  if (name) {
+    activeNotifications.set(name, instance)
+  }
+}
+
+/**
+ * 显示通知
+ * @param options 通知配置选项
+ */
+export function notify(options: NotifyOptions): void {
+  notifyImpl(options)
 }
 
 /**
  * 快捷方法：成功通知
  */
 export function notifySuccess(title: string, message: NotificationContent): void {
-  notify({ title, message, type: 'success' })
+  notifyImpl({ title, message, type: 'success' })
 }
 
 /**
  * 快捷方法：错误通知
  */
 export function notifyError(title: string, message: NotificationContent): void {
-  notify({ title, message, type: 'error', duration: 0 })
+  notifyImpl({ title, message, type: 'error', duration: 0 })
 }
 
 /**
  * 快捷方法：警告通知
  */
 export function notifyWarning(title: string, message: NotificationContent): void {
-  notify({ title, message, type: 'warning' })
+  notifyImpl({ title, message, type: 'warning' })
 }
 
 /**
  * 快捷方法：信息通知
  */
 export function notifyInfo(title: string, message: NotificationContent): void {
-  notify({ title, message, type: 'info' })
+  notifyImpl({ title, message, type: 'info' })
 }
 
 /**
- * 关闭所有通知
+ * 关闭所有活跃通知
  */
 export function clearAllNotifications(): void {
-  ElNotification.closeAll()
+  const instances = Array.from(activeNotifications.values())
+  instances.forEach((instance) => instance.close())
+  activeNotifications.clear()
 }
