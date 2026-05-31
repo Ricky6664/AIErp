@@ -62,11 +62,20 @@ export const NO_PERMISSION: RouteRecordRaw = {
   meta: { title: '无权限', hideMenu: true, hideTab: true }
 }
 
+// 开发调试页面
+export const DEV_VIRTUAL_SCROLL: RouteRecordRaw = {
+  path: '/dev/virtual-scroll',
+  name: 'DevVirtualScroll',
+  component: () => import('@/views/dev/virtual-scroll-demo.vue'),
+  meta: { title: '虚拟滚动验证', hideMenu: false, hideTab: false }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
   ROOT_ROUTE,
   HOME_ROUTE,
+  DEV_VIRTUAL_SCROLL,
   REDIRECT_ROUTE,
   ERROR_404,
   ERROR_403,
