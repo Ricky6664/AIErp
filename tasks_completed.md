@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-31T17:00
-> **归档总数**：243 条
+> **归档总数**：244 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -366,7 +366,8 @@
 | P0-002-004-002-002-001 | 定义指令钩子函数 | 2026-05-31T17:00 | ✅ | erp-ai-web/src/directives/debounce.ts:实现v-debounce指令mounted/updated/unmounted钩子+parseDelay解析arg延迟+createDebounceHandler防抖处理+注册到setupDirectives,tsc --noEmit 0错误 | 8fa6d7f3 |
 | P0-002-004-002-002-002 | 实现指令逻辑 | 2026-05-31T17:30 | ✅ | erp-ai-web/src/directives/debounce.ts:提取cleanupDebounce独立函数+_debounceDelay缓存替代binding.oldArg+createDebounceHandler防抖setTimeout/clearTimeout+parseDelay parseInt NaN防护,tsc --noEmit 0错误 | e5a3eea7 |
 | P0-002-004-002-003-001 | 定义指令钩子函数 | 2026-05-31T17:45 | ✅ | erp-ai-web/src/directives/copy.ts:定义CopyValue/CopyEl类型+copyDirective指令mounted/updated/unmounted钩子+clipboard API复制+execCommand降级+注册到setupDirectives,tsc --noEmit 0错误 | daaf308c |
-| P0-002-004-002-003-002 | 实现指令逻辑 | 2026-05-31T18:10 | ✅ | erp-ai-web/src/directives/copy.ts:提取copyToClipboard独立函数(clipboard API+execCommand降级+left:-9999px防闪烁)+createCopyHandler独立函数(空值ElMessage.warning+成功success+失败error)+指令钩子调用,tsc --noEmit 0错误 | (pending) |
+| P0-002-004-002-003-002 | 实现指令逻辑 | 2026-05-31T18:10 | ✅ | erp-ai-web/src/directives/copy.ts:提取copyToClipboard独立函数(clipboard API+execCommand降级+left:-9999px防闪烁)+createCopyHandler独立函数(空值ElMessage.warning+成功success+失败error)+指令钩子调用,tsc --noEmit 0错误 | 5b4d5812 |
+| P0-002-004-003-001-001 | 定义封装函数签名 | 2026-05-31T17:10 | ✅ | erp-ai-web/src/utils/message.ts:定义MessageContent/MessageType/MessageOptions类型+defaultOptions默认配置+iconMap图标映射+showSuccess/showError/showWarning/showInfo/confirm函数签名,tsc --noEmit 0错误 | — |
 
 ---
 
@@ -374,7 +375,7 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 244 | 2 | 11.36% |
+| P0 | 14 | 2,147 | 245 | 2 | 11.41% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **244** | **2** | **5.17%** |
