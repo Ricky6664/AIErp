@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-31T21:00
-> **归档总数**：276 条
+> **归档总数**：277 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -402,6 +402,7 @@
 | P0-002-006-005-002-002 | 验证图片懒加载 | 2026-05-31T19:50 | ✅ | 6项验证全部通过:首屏外不加载/200px预加载/unobserve清理/onerror回退SVG占位图/disconnect释放/URL更新重加载+修复DEFAULT_ERROR_IMG改为inline SVG data URI,pnpm build通过 | 15abd820 |
 | P0-002-006-005-003-001 | 配置vite.config.ts构建优化 | 2026-05-31T21:00 | ✅ | minify:terser+terserOptions配置(drop_console/drop_debugger生产移除)+sourcemap环境条件控制+defineConfig箭头函数形式+安装terser 5.48.0+manualChunks函数形式分包vue/elementPlus/vendor(Vite 8/Rolldown兼容),pnpm build通过(5.04s) | 8827ef9f |
 | P0-002-006-005-003-002 | 验证构建优化 | 2026-05-31T19:00 | ✅ | 验证7项构建配置+修复element-plus分包顺序(@element-plus/icons-vue被vue规则误捕获)+修复console策略(drop_console→pure_funcs保留warn/error)+vue chunk 332KB gzipped(略超300KB因@vueuse受Rolldown限制无法分离) | 8c06e7e9 |
+| P0-002-006-006-001-001 | 编写外部资源域适配配置 | 2026-05-31T21:15 | ✅ | 创建cdn-fallback.ts(国内/国外CDN自动切换+超时回退+preload预加载)+.env.development/.env.production添加VITE_EXTERNAL_CDN_BASE/VITE_CDN_FALLBACK_URL+index.html添加preconnect | — |
 
 ---
 
@@ -409,10 +410,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 274 | 2 | 12.77% |
+| P0 | 14 | 2,147 | 275 | 2 | 12.81% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **274** | **2** | **5.81%** |
+| **合计** | **46** | **4,716** | **275** | **2** | **5.83%** |
 
 ---
 
