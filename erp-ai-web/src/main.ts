@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import './style.css'
+import '@/styles/variables.css'
 import '@/styles/element-plus.scss'
 import 'vxe-pc-ui/lib/style.css'
 import 'vxe-table/lib/style.css'

@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-31T17:30
-> **归档总数**：259 条
+> **归档总数**：260 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -384,6 +384,7 @@
 | P0-002-005-002-003-001 | 编写校验提示词条 | 2026-05-31T17:05 | ✅ | 重写validation.ts:嵌套结构required/format(phone/email/idCard/url)/length(min/max/range)/range(min/max/between)/custom(duplicate/invalid),占位符${label}/${min}/${max},export default+ValidationLocale类型导出 | (pending) |
 | P0-002-005-002-003-002 | 实现校验提示渲染函数 | 2026-05-31T17:30 | ✅ | erp-ai-web/src/utils/validation.ts:ValidationRule接口+replacePlaceholders(/\$\{(\w+)\}/g)+renderValidationMessage(rule,label)+getValidationMessages(rules,label)聚合,具名导出,vue-tsc零错误 | fbc0db22 |
 | P0-002-005-002-003-003 | 验证校验提示 | 2026-05-31T17:30 | ✅ | 修复en-US/validation.ts扁平结构→嵌套结构(与zh-CN一致),{field}占位符→${label}格式,代码路径审查10项验证全部通过,vue-tsc --noEmit 0错误,测试报告已记录 | b7b441c8 |
+| P0-002-006-001-001-001 | 编写root CSS变量 | 2026-05-31T17:45 | ✅ | 创建erp-ai-web/src/styles/variables.css(11个:root颜色变量+6个html.dark暗色模式覆盖),main.ts引入variables.css,vue-tsc编译通过 | — |
 
 ---
 
@@ -391,10 +392,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 259 | 2 | 12.06% |
+| P0 | 14 | 2,147 | 260 | 2 | 12.10% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **259** | **2** | **5.49%** |
+| **合计** | **46** | **4,716** | **260** | **2** | **5.51%** |
 
 ---
 

@@ -1,0 +1,29 @@
+:root {
+  /* 主色调 */
+  --color-primary: #409eff;
+  --color-success: #67c23a;
+  --color-warning: #e6a23c;
+  --color-danger: #f56c6c;
+  --color-info: #909399;
+
+  /* 文本颜色 */
+  --color-text-primary: #303133;
+  --color-text-regular: #606266;
+  --color-text-secondary: #909399;
+
+  /* 背景色 */
+  --color-bg: #ffffff;
+  --color-bg-page: #e6e6fa;
+
+  /* 边框色 */
+  --color-border: #dcdfe6;
+}
+
+html.dark {
+  --color-text-primary: #e5eaf3;
+  --color-text-regular: #cfd3dc;
+  --color-text-secondary: #a3a6ad;
+  --color-bg: #141414;
+  --color-bg-page: #1d1e1f;
+  --color-border: #4c4d4f;
+}
