@@ -7,7 +7,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { resolve } from 'path'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     vue(),
     vueJsx(),
@@ -41,23 +41,31 @@ export default defineConfig({
   build: {
     target: 'es2015',
     outDir: 'dist',
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: mode === 'production',
+        drop_debugger: mode === 'production'
+      }
+    },
+    sourcemap: mode !== 'production',
     chunkSizeWarningLimit: 1500,
     rollupOptions: {
       output: {
         manualChunks(id: string) {
           if (id.includes('node_modules')) {
-            if (id.includes('axios') || id.includes('dayjs') || id.includes('lodash-es')) {
-              return 'vendor'
-            }
             if (id.includes('vue') || id.includes('vue-router') || id.includes('pinia')) {
               return 'vue'
             }
             if (id.includes('element-plus')) {
               return 'element-plus'
             }
+            if (id.includes('axios') || id.includes('dayjs') || id.includes('lodash-es')) {
+              return 'vendor'
+            }
           }
         }
       }
     }
   }
-})
+}))
