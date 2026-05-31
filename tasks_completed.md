@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-31T17:00
-> **归档总数**：241 条
+> **归档总数**：242 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -365,6 +365,7 @@
 | P0-002-004-002-001-002 | 实现指令逻辑 | 2026-05-31T16:30 | ✅ | erp-ai-web/src/directives/permission.ts:切换useUserStore权限源+admin角色跳过检查+removeElement独立函数+空值保护+Array.some任一匹配+el.parentNode?.removeChild DOM移除,tsc --noEmit 0错误 | (pending) |
 | P0-002-004-002-002-001 | 定义指令钩子函数 | 2026-05-31T17:00 | ✅ | erp-ai-web/src/directives/debounce.ts:实现v-debounce指令mounted/updated/unmounted钩子+parseDelay解析arg延迟+createDebounceHandler防抖处理+注册到setupDirectives,tsc --noEmit 0错误 | 8fa6d7f3 |
 | P0-002-004-002-002-002 | 实现指令逻辑 | 2026-05-31T17:30 | ✅ | erp-ai-web/src/directives/debounce.ts:提取cleanupDebounce独立函数+_debounceDelay缓存替代binding.oldArg+createDebounceHandler防抖setTimeout/clearTimeout+parseDelay parseInt NaN防护,tsc --noEmit 0错误 | e5a3eea7 |
+| P0-002-004-002-003-001 | 定义指令钩子函数 | 2026-05-31T17:45 | ✅ | erp-ai-web/src/directives/copy.ts:定义CopyValue/CopyEl类型+copyDirective指令mounted/updated/unmounted钩子+clipboard API复制+execCommand降级+注册到setupDirectives,tsc --noEmit 0错误 | daaf308c |
 
 ---
 
@@ -372,10 +373,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 242 | 2 | 11.27% |
+| P0 | 14 | 2,147 | 243 | 2 | 11.32% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **242** | **2** | **5.13%** |
+| **合计** | **46** | **4,716** | **243** | **2** | **5.15%** |
 
 ---
 
