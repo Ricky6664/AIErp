@@ -1,6 +1,6 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-31T18:45
+> **最后更新**：2026-05-31T19:30
 > **归档总数**：273 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
@@ -398,7 +398,8 @@
 | P0-002-006-004-002-001 | 编写SCSS工具类 | 2026-05-31T18:35 | ✅ | 创建_text.scss:省略/颜色/字体/对齐/过渡6类工具类,@each循环生成,import到main.ts,pnpm build通过 | 157cb739 |
 | P0-002-006-004-002-002 | 验证文本装饰工具类 | 2026-05-31T18:45 | ✅ | 验证文本省略/颜色/背景/字体/对齐/过渡/阴影工具类,修复erp-transition-all使用transition:all改为指定属性,pnpm build通过 | ce69c4e3 |
 | P0-002-006-005-001-001 | 编写v-virtual-scroll指令 | 2026-05-31T19:00 | ✅ | 创建virtual-scroll.ts:实现可视区域渲染±buffer行/transform translateY定位/动态高度heightCache/ResizeObserver/passive scroll/注册到directives/index.ts,vue-tsc+vite build通过 | 989d3aec |
-| P0-002-006-005-001-002 | 验证虚拟滚动 | 2026-05-31T19:15 | ✅ | 7/7验证项全部通过:可视区域渲染/translateY定位/heightCache缓存/passive scroll/unmounted清理/类型完整无any/创建dev测试页(100k数据+运行全部测试按钮),pnpm build通过 | (pending) |
+| P0-002-006-005-001-002 | 验证虚拟滚动 | 2026-05-31T19:15 | ✅ | 7/7验证项全部通过:可视区域渲染/translateY定位/heightCache缓存/passive scroll/unmounted清理/类型完整无any/创建dev测试页(100k数据+运行全部测试按钮),pnpm build通过 | 695b7533 |
+| P0-002-006-005-002-001 | 编写v-lazy-img指令 | 2026-05-31T19:30 | ✅ | 创建lazy-img.ts:IntersectionObserver+rootMargin200px预加载+SVG占位图+onerror回退+TypeScript扩展HTMLImageElement+注册到directives/index.ts,vue-tsc+vite build通过 | a48a61bb |
 
 ---
 
@@ -406,10 +407,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 272 | 2 | 12.67% |
+| P0 | 14 | 2,147 | 273 | 2 | 12.72% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **272** | **2** | **5.77%** |
+| **合计** | **46** | **4,716** | **273** | **2** | **5.79%** |
 
 ---
 
