@@ -353,6 +353,7 @@
 | P0-002-003-003-002-001 | 定义泛型类结构 | 2026-05-31T11:15 | ✅ | ApiResponse<T=unknown>/PageResult<T=unknown>/PageQuery三个泛型接口定义,泛型默认值由any改为unknown增强类型安全 | 83693563 |
 | P0-002-003-003-002-002 | 实现静态工厂方法 | 2026-05-31T11:55 | ✅ | api.d.ts新增isSuccess/getErrorMessage/assertSuccess类型签名+apiHelper.ts运行时实现(code===0严格比较+asserts类型守卫+named export),tsc --noEmit通过 | 7c6bef74 |
 | P0-002-003-003-002-003 | 编写单元测试 | 2026-05-31T12:00 | ✅ | 安装vitest@4.1.7,创建vitest.config.ts+src/types/__tests__/api.test-d.ts(13测试26断言),覆盖ApiResponse/PageResult/PageQuery+isSuccess/getErrorMessage/assertSuccess类型检查,pnpm test:type 26passed+0 type errors+pnpm build通过 | (pending) |
+| P0-002-004-001-001-001 | 实现基础日期方法 | 2026-05-31T12:20 | ✅ | erp-ai-web/src/utils/date.ts:formatDate/parseDate/dateRange/relativeTime,dayjs+relativeTime插件+zh-cn locale,纯函数无副作用,5项验收标准全部通过,pnpm build通过 | (pending) |
 
 ---
 
@@ -360,10 +361,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 231 | 2 | 10.76% |
+| P0 | 14 | 2,147 | 232 | 2 | 10.81% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **229** | **2** | **4.86%** |
+| **合计** | **46** | **4,716** | **230** | **2** | **4.88%** |
 
 ---
 
