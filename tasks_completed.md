@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-31T17:00
-> **归档总数**：244 条
+> **归档总数**：245 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -369,6 +369,7 @@
 | P0-002-004-002-003-002 | 实现指令逻辑 | 2026-05-31T18:10 | ✅ | erp-ai-web/src/directives/copy.ts:提取copyToClipboard独立函数(clipboard API+execCommand降级+left:-9999px防闪烁)+createCopyHandler独立函数(空值ElMessage.warning+成功success+失败error)+指令钩子调用,tsc --noEmit 0错误 | 5b4d5812 |
 | P0-002-004-003-001-001 | 定义封装函数签名 | 2026-05-31T17:10 | ✅ | erp-ai-web/src/utils/message.ts:定义MessageContent/MessageType/MessageOptions类型+defaultOptions默认配置+iconMap图标映射+showSuccess/showError/showWarning/showInfo/confirm函数签名,tsc --noEmit 0错误 | cd72d608 |
 | P0-002-004-003-001-002 | 实现封装逻辑 | 2026-05-31T17:15 | ✅ | erp-ai-web/src/utils/message.ts:实现消息去重/统一配置/统一图标/confirm Promise化/VNode支持/边界处理,vue-tsc --noEmit 0错误 | a5fe20ce |
+| P0-002-005-001-001-001 | 定义语言包结构 | 2026-05-31T17:42 | ✅ | erp-ai-web/src/i18n/index.ts:createI18n实例(legacy:false)+中英文messages(zh-CN/en-US)+fallbackLocale回退+missing回调console.warn+setLanguage同步ElementPlus/dayjs/HTML lang+locale存储,locale存根文件(vue-i18n 9.14.5),vue-tsc --noEmit 0错误 | (pending) |
 
 ---
 
@@ -376,10 +377,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 245 | 2 | 11.41% |
+| P0 | 14 | 2,147 | 246 | 2 | 11.46% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **244** | **2** | **5.17%** |
+| **合计** | **46** | **4,716** | **245** | **2** | **5.20%** |
 
 ---
 
