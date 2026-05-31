@@ -361,7 +361,7 @@
 | P0-002-004-001-003-002 | 实现数组方法 | 2026-05-31T14:30 | ✅ | erp-ai-web/src/utils/array.ts:arrayToTree/treeToArray/uniqueArray/flatten/groupBy,Map O(n)树构建+栈迭代展平+Set/JSON兜底去重+Record分组,全类型安全纯函数,pnpm build通过,4项验收标准通过 | e5af4143 |
 | P0-002-004-001-004-001 | 实现debounce/throttle | 2026-05-31T15:00 | ✅ | erp-ai-web/src/utils/debounce.ts:debounce/throttle,leading/trailing配置+cancel/flush方法+fn.apply(this,args)透传+TypeError校验,纯函数无依赖,pnpm build通过,4项验收标准全部通过 | 27eb9fe6 |
 | P0-002-004-001-004-002 | 实现高级工具 | 2026-05-31T15:30 | ✅ | erp-ai-web/src/utils/debounce.ts追加once(首次执行缓存结果,出错重置可重试)/beforeAfter(before→fn→after钩子)/withCount(Vue ref计数器)/useDebounce(composable响应式防抖+onUnmounted清理)/useThrottle(composable响应式节流+onUnmounted清理),pnpm build通过,4项验收标准全部通过 | (pending) |
-| P0-002-004-002-001-001 | 定义指令钩子函数 | 2026-05-31T16:00 | ✅ | erp-ai-web/src/directives/permission.ts:定义PermissionValue类型(string|string[]),导出checkPermission函数+permissionDirective指令(Directive<HTMLElement,PermissionValue>),实现mounted/updated/unmounted钩子,支持单权限码和数组任一匹配,pnpm tsc --noEmit 0错误+vite build通过 | (pending) |
+| P0-002-004-002-001-001 | 定义指令钩子函数 | 2026-05-31T16:00 | ✅ | erp-ai-web/src/directives/permission.ts:定义PermissionValue类型(string|string[]),导出checkPermission函数+permissionDirective指令(Directive<HTMLElement,PermissionValue>),实现mounted/updated/unmounted钩子,支持单权限码和数组任一匹配,pnpm tsc --noEmit 0错误+vite build通过 | 4f8456fb |
 
 ---
 
