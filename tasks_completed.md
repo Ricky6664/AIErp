@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-31T12:00
-> **归档总数**：232 条
+> **归档总数**：233 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -355,6 +355,7 @@
 | P0-002-003-003-002-003 | 编写单元测试 | 2026-05-31T12:00 | ✅ | 安装vitest@4.1.7,创建vitest.config.ts+src/types/__tests__/api.test-d.ts(13测试26断言),覆盖ApiResponse/PageResult/PageQuery+isSuccess/getErrorMessage/assertSuccess类型检查,pnpm test:type 26passed+0 type errors+pnpm build通过 | (pending) |
 | P0-002-004-001-001-001 | 实现基础日期方法 | 2026-05-31T12:20 | ✅ | erp-ai-web/src/utils/date.ts:formatDate/parseDate/dateRange/relativeTime,dayjs+relativeTime插件+zh-cn locale,纯函数无副作用,5项验收标准全部通过,pnpm build通过 | (pending) |
 | P0-002-004-001-001-002 | 实现快捷选项生成 | 2026-05-31T12:45 | ✅ | erp-ai-web/src/utils/date.ts新增getDateShortcuts/getMonthRange/getQuarterRange+DateShortcut接口,7个快捷选项(今天/本周/本月/本季度/本年/最近7天/最近30天),本周周一为起始日+周日边界处理,value函数实时计算,纯函数设计,4项验收标准通过,pnpm build通过 | (pending) |
+| P0-002-004-001-002-001 | 实现数字格式化方法 | 2026-05-31T13:00 | ✅ | erp-ai-web/src/utils/number.ts:formatMoney/formatPercent/formatQty/formatFileSize+FormatNumberOptions接口,Intl.NumberFormat('zh-CN')千分位,纯函数无副作用,pnpm build通过,5项验收标准全部通过 | (pending) |
 
 ---
 
@@ -362,10 +363,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 232 | 2 | 10.81% |
+| P0 | 14 | 2,147 | 233 | 2 | 10.85% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **230** | **2** | **4.88%** |
+| **合计** | **46** | **4,716** | **233** | **2** | **4.94%** |
 
 ---
 
