@@ -1,11 +1,11 @@
 /* Element Plus 主题变量覆盖 */
 :root {
-  /* 品牌色 */
-  --el-color-primary: #409eff;
-  --el-color-success: #67c23a;
-  --el-color-warning: #e6a23c;
-  --el-color-danger: #f56c6c;
-  --el-color-info: #909399;
+  /* 品牌色 — 引用全局颜色变量确保一致 */
+  --el-color-primary: var(--color-primary);
+  --el-color-success: var(--color-success);
+  --el-color-warning: var(--color-warning);
+  --el-color-danger: var(--color-danger);
+  --el-color-info: var(--color-info);
 
   /* 字体 */
   --el-font-size-base: 14px;
