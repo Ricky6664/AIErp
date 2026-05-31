@@ -9,7 +9,8 @@ interface LazyImgElement extends HTMLImageElement {
 /** 1x1 透明 SVG 占位图，避免额外 HTTP 请求 */
 const PLACEHOLDER =
   'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E'
-const DEFAULT_ERROR_IMG = '/placeholder.png'
+const DEFAULT_ERROR_IMG =
+  'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none"%3E%3Crect width="24" height="24" rx="4" fill="%23f5f5f5"/%3E%3Cpath d="M4 16l4-4 4 4 4-4 4 4" stroke="%23ccc" stroke-width="1.5"/%3E%3Ccircle cx="8" cy="8" r="2" stroke="%23ccc" stroke-width="1.5"/%3E%3C/svg%3E'
 
 function createObserver(el: LazyImgElement, src: string): IntersectionObserver {
   const observer = new IntersectionObserver(
