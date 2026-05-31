@@ -414,7 +414,7 @@
 | P0-003-001-002-001-001 | 编写公共字段DDL | 2026-05-31T18:50 | ✅ | db/migration/V20260526001__schema_related.sql:新增Step5公共字段基座定义(10字段清单+DDL模板+设计要点+索引模板)+docs/specs/P0_003_001_002_001_001_spec.md:公共字段规范文档(字段定义/设计要点/多租户/软删除/乐观锁) | fe133a62 |
 | P0-003-001-002-001-002 | 编写默认值与约束 | 2026-05-31T18:35 | ✅ | db/migration/V20260526001__schema_related.sql:新增Step6默认值规范+Step7约束规范+Step8示例建表+Step9 DML幂等性示例+docs/specs/P0_003_001_002_001_002_spec.md:默认值与约束完整规范文档 | b319c32a |
 | P0-003-001-002-001-003 | 验证规范 | 2026-05-31T18:35 | ✅ | db/migration/V20260526001__verify_chema.sql:新增公共字段规范验证(§8-12)含10字段完整性/NOT NULL约束/部分唯一索引/多租户索引/COMMENT注释/Flyway验证+docs/verification/chema_verify_report.md:完整验证报告(13项全PASS) | ce548818 |
-| P0-003-002-001-001-001 | 编写公共字段DDL | 2026-05-31T18:55 | ✅ | db/migration/V20260531001__task_P0_003_002_001_001_001.sql:创建erp_base.public_field_spec规范记录表(10通用字段元数据DDL/默认值/约束/索引模板/COMMENT模板/扩展字段模板/完整建表示例)+docs/specs/P0_003_002_001_001_001_spec.md:公共字段规范验证文档(10字段定义/约束规则/验证结果) | _PENDING_ |
+| P0-003-002-001-001-001 | 编写公共字段DDL | 2026-05-31T18:55 | ✅ | db/migration/V20260531001__task_P0_003_002_001_001_001.sql:创建erp_base.public_field_spec规范记录表(10通用字段元数据DDL/默认值/约束/索引模板/COMMENT模板/扩展字段模板/完整建表示例)+docs/specs/P0_003_002_001_001_001_spec.md:公共字段规范验证文档(10字段定义/约束规则/验证结果) | fee4b649 |
 
 ---
 
