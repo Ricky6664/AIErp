@@ -33,7 +33,7 @@ export const i18n = createI18n({
 })
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const epLocale = ref<any>(null)
+export const epLocale = ref<any>(null)
 
 export function provideEpLocale(app: {
   provide: (key: symbol | string, value: unknown) => void
