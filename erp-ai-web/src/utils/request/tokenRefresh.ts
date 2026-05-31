@@ -1,6 +1,7 @@
 import axios from 'axios'
 import type { InternalAxiosRequestConfig } from 'axios'
 import { ElMessage } from 'element-plus'
+import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/modules/user'
 import type { ApiResponse } from '@/types/api'
 
@@ -57,14 +58,27 @@ function replayRequests(newToken: string): void {
 }
 
 function handleRefreshFailure(): void {
-  isRefreshing = false
-  pendingQueue.forEach((item) => {
-    item.reject(new Error('Token刷新失败，请重新登录'))
+  pendingQueue.forEach(({ reject }) => {
+    reject(new Error('登录已过期，请重新登录'))
   })
   pendingQueue.length = 0
+
   const userStore = useUserStore()
-  userStore.logout()
-  ElMessage.error('登录已过期，请重新登录')
+  userStore.token = ''
+  userStore.userInfo = null
+  userStore.permissions = []
+  userStore.roles = []
+  localStorage.removeItem('erp_user')
+  localStorage.removeItem('erp_refresh_token')
+
+  isRefreshing = false
+
+  ElMessage.warning('会话已过期，请重新登录')
+
+  const router = useRouter()
+  if (router.currentRoute.value.path !== '/login') {
+    router.replace('/login')
+  }
 }
 
 export async function handleTokenRefresh(config: InternalAxiosRequestConfig): Promise<any> {
@@ -85,8 +99,8 @@ export async function handleTokenRefresh(config: InternalAxiosRequestConfig): Pr
     replayRequests(userStore.token)
     isRefreshing = false
     return axios(config)
-  } catch {
+  } catch (error) {
     handleRefreshFailure()
-    return Promise.reject(new Error('Token刷新失败'))
+    return Promise.reject(error)
   }
 }
