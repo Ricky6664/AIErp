@@ -1,0 +1,36 @@
+/* Element Plus SCSS变量覆盖 */
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #409eff
+    ),
+    'success': (
+      'base': #67c23a
+    ),
+    'warning': (
+      'base': #e6a23c
+    ),
+    'danger': (
+      'base': #f56c6c
+    ),
+    'info': (
+      'base': #909399
+    )
+  ),
+  $border-radius: (
+    'base': var(--radius-md),
+    'small': var(--radius-sm),
+    'round': 20px
+  )
+);
+
+/* Element Plus暗色模式覆盖 */
+html.dark {
+  --el-color-primary: var(--color-primary);
+  --el-bg-color: var(--color-bg);
+  --el-bg-color-page: var(--color-bg-page);
+  --el-text-color-primary: var(--color-text-primary);
+  --el-text-color-regular: var(--color-text-regular);
+  --el-border-color: var(--color-border);
+  --el-fill-color-blank: var(--color-bg);
+}
