@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-05-31T11:00
-> **归档总数**：229 条
+> **最后更新**：2026-05-31T11:15
+> **归档总数**：230 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -350,6 +350,7 @@
 | P0-002-003-002-004-002 | 实现路由注册与守卫 | 2026-05-31 | ✅ | request.ts集成cancelRequest(addPending/removePending/isWhitelisted)+guards.ts beforeEach调用cancelPendingRequests路由切换取消+fix cancelRequest.ts removePending不abort+cancelError检测新增CanceledError判断+pnpm build通过 | 1570e76d |
 | P0-002-003-003-001-001 | 定义接口路由与方法签名 | 2026-05-31T10:52 | ✅ | 创建org/product/sale三个业务模块API类型定义(6文件)+对应API模块CRUD方法(RESTful URL+named export+TypeScript泛型),tsc --noEmit编译通过 | cbd471cd |
 | P0-002-003-003-001-002 | 实现接口逻辑 | 2026-05-31T11:00 | ✅ | 为org/product/sale三个模块新增batchDelete/import(FormData+60s超时)/export(responseType:blob)完整请求逻辑+ImportResultVO类型,tsc --noEmit通过 | (pending) |
+| P0-002-003-003-002-001 | 定义泛型类结构 | 2026-05-31T11:15 | ✅ | ApiResponse<T=unknown>/PageResult<T=unknown>/PageQuery三个泛型接口定义,泛型默认值由any改为unknown增强类型安全 | 83693563 |
 
 ---
 
