@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-31T17:30
-> **归档总数**：263 条
+> **归档总数**：264 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -388,6 +388,7 @@
 | P0-002-006-001-001-002 | 配置Tailwind自定义颜色 | 2026-05-31T18:00 | ✅ | 安装tailwindcss+@tailwindcss/vite,创建app.css(@theme块11个颜色Token映射CSS变量),main.ts引入app.css,vite.config.ts添加tailwindcss插件,vue-tsc编译通过 | — |
 | P0-002-006-001-001-003 | 验证颜色系统 | 2026-05-31T18:15 | ✅ | 验证:root 11个颜色变量+html.dark 6个暗色覆盖+app.css @theme Tailwind映射,修复element-plus.scss硬编码→var(--color-*)引用,4/4验收通过 | 0720b90b |
 | P0-002-006-001-002-001 | 编写间距尺寸CSS变量 | 2026-05-31T18:00 | ✅ | erp-ai-web/src/styles/variables.css:追加5个间距变量(--spacing-xs/sm/md/lg/xl)+3个圆角变量(--radius-sm/md/lg)+3个阴影变量(--shadow-sm/md/lg)+html.dark暗色阴影覆盖,main.ts已引入variables.css | a678cd21 |
+| P0-002-006-001-002-002 | 配置Tailwind自定义间距圆角阴影 | 2026-05-31T18:45 | ✅ | erp-ai-web/app.css:@theme块追加5个间距Token+3个圆角Token+3个阴影Token,值与variables.css同步,vite build 2305模块转换成功 | __SHA__ |
 
 ---
 
