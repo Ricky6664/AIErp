@@ -395,7 +395,7 @@
 | P0-002-006-003-001-002 | 验证样式效果 | 2026-05-31T18:05 | ✅ | 验证EP颜色/圆角/阴影/暗色模式/响应式5项,pnpm build通过,输出验证报告,4/5通过1项部分通过 | 0d6f1a30 |
 | P0-002-006-004-001-001 | 编写SCSS工具类 | 2026-05-31T18:15 | ✅ | 创建_layout.scss:flex/grid/scroll/spacing/radius/shadow工具类,@each批量生成间距,import到main.ts,pnpm build通过 | c1ea8e84 |
 | P0-002-006-004-001-002 | 验证布局工具类 | 2026-05-31T18:25 | ✅ | 验证84个erp-布局类全部通过编译,flex/grid/scroll/spacing/radius/shadow正确,与Tailwind共存无冲突,1项NOTE(响应式变体无@media) | 6550fb72 |
-| P0-002-006-004-002-001 | 编写SCSS工具类 | 2026-05-31T18:35 | ✅ | 创建_text.scss:省略/颜色/字体/对齐/过渡6类工具类,@each循环生成,import到main.ts,pnpm build通过 | (pending) |
+| P0-002-006-004-002-001 | 编写SCSS工具类 | 2026-05-31T18:35 | ✅ | 创建_text.scss:省略/颜色/字体/对齐/过渡6类工具类,@each循环生成,import到main.ts,pnpm build通过 | 157cb739 |
 
 ---
 
