@@ -368,7 +368,7 @@
 | P0-002-004-002-003-001 | 定义指令钩子函数 | 2026-05-31T17:45 | ✅ | erp-ai-web/src/directives/copy.ts:定义CopyValue/CopyEl类型+copyDirective指令mounted/updated/unmounted钩子+clipboard API复制+execCommand降级+注册到setupDirectives,tsc --noEmit 0错误 | daaf308c |
 | P0-002-004-002-003-002 | 实现指令逻辑 | 2026-05-31T18:10 | ✅ | erp-ai-web/src/directives/copy.ts:提取copyToClipboard独立函数(clipboard API+execCommand降级+left:-9999px防闪烁)+createCopyHandler独立函数(空值ElMessage.warning+成功success+失败error)+指令钩子调用,tsc --noEmit 0错误 | 5b4d5812 |
 | P0-002-004-003-001-001 | 定义封装函数签名 | 2026-05-31T17:10 | ✅ | erp-ai-web/src/utils/message.ts:定义MessageContent/MessageType/MessageOptions类型+defaultOptions默认配置+iconMap图标映射+showSuccess/showError/showWarning/showInfo/confirm函数签名,tsc --noEmit 0错误 | cd72d608 |
-| P0-002-004-003-001-002 | 实现封装逻辑 | 2026-05-31T17:15 | ✅ | erp-ai-web/src/utils/message.ts:实现消息去重/统一配置/统一图标/confirm Promise化/VNode支持/边界处理,vue-tsc --noEmit 0错误 | — |
+| P0-002-004-003-001-002 | 实现封装逻辑 | 2026-05-31T17:15 | ✅ | erp-ai-web/src/utils/message.ts:实现消息去重/统一配置/统一图标/confirm Promise化/VNode支持/边界处理,vue-tsc --noEmit 0错误 | a5fe20ce |
 
 ---
 
