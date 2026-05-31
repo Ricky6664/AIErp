@@ -393,7 +393,7 @@
 | P0-002-006-002-001-002 | 验证样式效果 | 2026-05-31T17:51 | ✅ | 验证Tailwind@theme颜色/间距/圆角/阴影7项,创建最小视图占位文件使构建通过,npx vite build 1.09s通过,验证报告已生成,全7/7验收项通过 | (pending) |
 | P0-002-006-003-001-001 | 定义变量/扩展配置 | 2026-05-31T17:55 | ✅ | 创建element-override.scss:SCSS @forward覆盖Element Plus颜色/圆角变量+html.dark暗色模式EP CSS变量覆盖,main.ts引入顺序调整,pnpm build通过 | 7af1a5f0 |
 | P0-002-006-003-001-002 | 验证样式效果 | 2026-05-31T18:05 | ✅ | 验证EP颜色/圆角/阴影/暗色模式/响应式5项,pnpm build通过,输出验证报告,4/5通过1项部分通过 | 0d6f1a30 |
-| P0-002-006-004-001-001 | 编写SCSS工具类 | 2026-05-31T18:15 | ✅ | 创建_layout.scss:flex/grid/scroll/spacing/radius/shadow工具类,@each批量生成间距,import到main.ts,pnpm build通过 | (pending) |
+| P0-002-006-004-001-001 | 编写SCSS工具类 | 2026-05-31T18:15 | ✅ | 创建_layout.scss:flex/grid/scroll/spacing/radius/shadow工具类,@each批量生成间距,import到main.ts,pnpm build通过 | c1ea8e84 |
 
 ---
 
