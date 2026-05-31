@@ -2,9 +2,15 @@ import type { Router } from 'vue-router'
 import { usePermissionStore } from '@/stores/modules/permission'
 import { useUserStore } from '@/stores/modules/user'
 import { WHITE_LIST, LOGIN_PATH, HOME_PATH, TOKEN_KEY } from './constants'
+import { cancelPendingRequests } from '@/utils/request/cancelRequest'
 
 export function setupRouterGuards(router: Router) {
-  router.beforeEach(async (to, _from, next) => {
+  router.beforeEach(async (to, from, next) => {
+    // 路由切换时取消前一页面的pending请求
+    if (from.path !== to.path) {
+      cancelPendingRequests()
+    }
+
     const token = localStorage.getItem(TOKEN_KEY)
 
     // 1. 白名单路由直接放行

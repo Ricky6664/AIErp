@@ -6,6 +6,7 @@ import 'nprogress/nprogress.css'
 import { useUserStore } from '@/stores/modules/user'
 import { useAppStore } from '@/stores/modules/app'
 import { handleTokenRefresh } from './request/tokenRefresh'
+import { addPending, removePending, isWhitelisted } from './request/cancelRequest'
 
 import type { ApiResponse } from '@/types/api'
 
@@ -25,28 +26,7 @@ declare module 'axios' {
 
 NProgress.configure({ showSpinner: false })
 
-const pendingMap = new Map<string, AbortController>()
 let requestCount = 0
-
-function getRequestKey(config: InternalAxiosRequestConfig): string {
-  const { url, method, params, data } = config
-  return [url, method, JSON.stringify(params), JSON.stringify(data)].join('&')
-}
-
-function addPending(config: InternalAxiosRequestConfig): void {
-  const key = getRequestKey(config)
-  if (pendingMap.has(key)) {
-    pendingMap.get(key)!.abort()
-  }
-  const controller = new AbortController()
-  config.signal = controller.signal
-  pendingMap.set(key, controller)
-}
-
-function removePending(config: InternalAxiosRequestConfig): void {
-  const key = getRequestKey(config)
-  pendingMap.delete(key)
-}
 
 function startLoading(config: InternalAxiosRequestConfig): void {
   if (config.silent || (config.__retryCount && config.__retryCount > 0)) return
@@ -82,7 +62,9 @@ service.interceptors.request.use(
     const requestKey = `${config.method?.toUpperCase()}:${config.url}:${JSON.stringify(config.params ?? '')}:${JSON.stringify(config.data ?? '')}`
     config.metadata = { requestKey, startTime: Date.now() }
 
-    addPending(config)
+    if (!isWhitelisted(config)) {
+      addPending(config)
+    }
     startLoading(config)
     return config
   },
@@ -123,7 +105,12 @@ service.interceptors.response.use(
   async (error: AxiosError) => {
     const config = error.config as InternalAxiosRequestConfig | undefined
 
-    if (config && !axios.isCancel(error) && error.code !== 'ERR_CANCELED') {
+    if (
+      config &&
+      !axios.isCancel(error) &&
+      error.name !== 'CanceledError' &&
+      error.code !== 'ERR_CANCELED'
+    ) {
       removePending(config)
     }
 
@@ -132,6 +119,7 @@ service.interceptors.response.use(
       config.retry &&
       (!config.method || config.method.toLowerCase() === 'get') &&
       !axios.isCancel(error) &&
+      error.name !== 'CanceledError' &&
       error.code !== 'ERR_CANCELED'
     ) {
       config.__retryCount = config.__retryCount || 0
@@ -144,7 +132,7 @@ service.interceptors.response.use(
 
     endLoading(config)
 
-    if (axios.isCancel(error) || error.code === 'ERR_CANCELED') {
+    if (axios.isCancel(error) || error.name === 'CanceledError' || error.code === 'ERR_CANCELED') {
       return Promise.reject(error)
     }
 

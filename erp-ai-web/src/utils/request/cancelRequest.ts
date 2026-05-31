@@ -36,9 +36,6 @@ export function addPending(config: InternalAxiosRequestConfig): void {
 
 export function removePending(config: InternalAxiosRequestConfig): void {
   const key = defaultConfig.generateKey(config)
-  if (pendingMap.has(key)) {
-    pendingMap.get(key)!.abort()
-  }
   pendingMap.delete(key)
 }
 
