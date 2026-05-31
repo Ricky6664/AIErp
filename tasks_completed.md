@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-05-30T23:45
-> **归档总数**：226 条
+> **归档总数**：227 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -346,6 +346,7 @@
 | P0-002-003-002-003-001 | 实现401拦截与Token刷新请求 | 2026-05-30T22:50 | ✅ | handleTokenRefresh核心函数:isRefreshing防并发锁+refreshAxios独立实例避免死循环+pendingRequests队列管理+refresh失败调用logout跳转登录页+pnpm build编译通过 | fabcaddb |
 | P0-002-003-002-003-002-001 | 实现请求排队机制 | 2026-05-30T23:00 | ✅ | PendingRequest接口定义+pendingQueue数组+addToQueue(Promise挂起+30s超时保护+超时从队列移除)+replayRequests/handleRefreshFailure适配新数据结构+tsc --noEmit通过 | ceec0f6c |
 | P0-002-003-002-003-002-003 | 实现刷新失败处理 | 2026-05-31 | ✅ | handleRefreshFailure重写:reject所有排队请求(登录已过期)+显式清空userStore(token/userInfo/permissions/roles)+清除localStorage(erp_user/erp_refresh_token)+重置isRefreshing+ElMessage.warning提示+router.replace跳转/login(防重复跳转)+catch块传递原始error+pnpm build通过 | |
+| P0-002-003-002-004-001 | 定义路由配置项 | 2026-05-31 | ✅ | 创建cancelRequest.ts:CancelConfig接口(generateKey/skipCancel/cancelMessage)+defaultConfig实现+pendingMap(addPending重复请求取消+removePending+取消+取消指定页面)+CANCEL_WHITELIST_PATTERNS白名单(/auth/login/refresh-token)+isWhitelisted(responseType blob自动白名单)+pnpm build通过 | |
 
 ---
 
