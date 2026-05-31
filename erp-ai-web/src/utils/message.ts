@@ -1,5 +1,7 @@
 import type { VNode } from 'vue'
 import type { ElMessageBoxOptions } from 'element-plus'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { CircleCheck, CircleClose, Warning, InfoFilled } from '@element-plus/icons-vue'
 
 /** 消息内容类型：支持纯文本和VNode */
 type MessageContent = string | VNode
@@ -30,39 +32,83 @@ export const defaultOptions: Required<Omit<MessageOptions, 'message'>> = {
 }
 
 /** 统一图标映射 */
-export const iconMap: Record<MessageType, string> = {
-  success: 'CircleCheck',
-  warning: 'Warning',
-  info: 'InfoFilled',
-  error: 'CircleClose'
+const iconMap: Record<MessageType, typeof CircleCheck> = {
+  success: CircleCheck,
+  warning: Warning,
+  info: InfoFilled,
+  error: CircleClose
+}
+
+/** 消息实例缓存Map（用于去重） */
+const messageCache = new Map<string, ReturnType<typeof ElMessage>>()
+
+/**
+ * 内部统一消息调用（去重+统一配置）
+ */
+function showMessage(options: MessageOptions): void {
+  const { message, type = 'info', duration = 3000, showClose = true, grouping = true } = options
+
+  if (message === null || message === undefined) {
+    console.warn('[message] message is null or undefined, skip showing')
+    return
+  }
+
+  if (grouping && typeof message === 'string') {
+    const cacheKey = `${type}:${message}`
+    if (messageCache.has(cacheKey)) {
+      return
+    }
+
+    const instance = ElMessage({
+      message,
+      type,
+      duration,
+      showClose,
+      icon: iconMap[type],
+      onClose: () => {
+        messageCache.delete(cacheKey)
+      }
+    })
+
+    messageCache.set(cacheKey, instance)
+    return
+  }
+
+  ElMessage({
+    message,
+    type,
+    duration,
+    showClose,
+    icon: iconMap[type]
+  })
 }
 
 /**
  * 显示成功消息
  */
-export function showSuccess(_message: MessageContent, _options?: Partial<MessageOptions>): void {
-  // TODO: 实现逻辑将在 P0-002-004-003-001-002 中完成
+export function showSuccess(message: MessageContent, options?: Partial<MessageOptions>): void {
+  showMessage({ message, type: 'success', ...options })
 }
 
 /**
  * 显示错误消息
  */
-export function showError(_message: MessageContent, _options?: Partial<MessageOptions>): void {
-  // TODO: 实现逻辑将在 P0-002-004-003-001-002 中完成
+export function showError(message: MessageContent, options?: Partial<MessageOptions>): void {
+  showMessage({ message, type: 'error', ...options })
 }
 
 /**
  * 显示警告消息
  */
-export function showWarning(_message: MessageContent, _options?: Partial<MessageOptions>): void {
-  // TODO: 实现逻辑将在 P0-002-004-003-001-002 中完成
+export function showWarning(message: MessageContent, options?: Partial<MessageOptions>): void {
+  showMessage({ message, type: 'warning', ...options })
 }
 
 /**
  * 显示信息消息
  */
-export function showInfo(_message: MessageContent, _options?: Partial<MessageOptions>): void {
-  // TODO: 实现逻辑将在 P0-002-004-003-001-002 中完成
+export function showInfo(message: MessageContent, options?: Partial<MessageOptions>): void {
+  showMessage({ message, type: 'info', ...options })
 }
 
 /**
@@ -70,10 +116,23 @@ export function showInfo(_message: MessageContent, _options?: Partial<MessageOpt
  * @returns Promise<boolean> 确认返回true，取消reject
  */
 export function confirm(
-  _message: MessageContent,
-  _title?: string,
-  _options?: ElMessageBoxOptions
+  message: MessageContent,
+  title?: string,
+  options?: ElMessageBoxOptions
 ): Promise<boolean> {
-  // TODO: 实现逻辑将在 P0-002-004-003-001-002 中完成
-  return Promise.resolve(false)
+  return new Promise((resolve, reject) => {
+    ElMessageBox.confirm(message as string, title ?? '提示', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning',
+      closeOnClickModal: false,
+      ...options
+    })
+      .then(() => {
+        resolve(true)
+      })
+      .catch((action: string) => {
+        reject(action === 'cancel' ? 'cancel' : action)
+      })
+  })
 }
