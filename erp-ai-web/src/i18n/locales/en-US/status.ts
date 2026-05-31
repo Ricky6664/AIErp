@@ -1,21 +1,25 @@
 const status = {
   audit: {
-    pending: 'Pending',
+    pending: 'Pending Audit',
     approved: 'Approved',
     rejected: 'Rejected'
   },
-  enabled: 'Enabled',
-  disabled: 'Disabled',
-  active: 'Active',
-  inactive: 'Inactive',
-  locked: 'Locked',
-  deleted: 'Deleted',
-  pending: 'Pending',
-  processing: 'Processing',
-  completed: 'Completed',
-  failed: 'Failed',
-  online: 'Online',
-  offline: 'Offline'
+  enable: {
+    enabled: 'Enabled',
+    disabled: 'Disabled'
+  },
+  order: {
+    draft: 'Draft',
+    submitted: 'Submitted',
+    confirmed: 'Confirmed',
+    completed: 'Completed',
+    cancelled: 'Cancelled'
+  },
+  payment: {
+    unpaid: 'Unpaid',
+    paid: 'Paid',
+    refunded: 'Refunded'
+  }
 }
 
 export default status
