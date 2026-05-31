@@ -380,7 +380,7 @@
 | P0-002-005-002-001-002 | 实现导入功能 | 2026-05-31T20:00 | ✅ | zh-CN/index.ts+en-US/index.ts:聚合common/status/validation三模块语言包索引+扩展运算符展开+zh-CN/status.ts+validation.ts提取独立模块文件+en-US/common.ts+status.ts+validation.ts提取英文模块+删除旧zh-CN.ts/en-US.ts单文件+中英文结构一致,vue-tsc --noEmit 0错误 | dc5cc10d |
 | P0-002-005-002-002-001 | 编写状态文本词条 | 2026-05-31T20:30 | ✅ | erp-ai-web/src/i18n/locales/zh-CN/status.ts:嵌套对象结构status.{domain}.{code},四个业务域(audit/enable/order/payment),audit.pending/approved/rejected+enable.enabled/disabled+order.draft/submitted/confirmed/completed/cancelled+payment.unpaid/paid/refunded,export default+StatusLocale类型导出,vue-tsc --noEmit 0错误 | cbbcc48f |
 | P0-002-005-002-002-002 | 实现状态文本渲染函数 | 2026-05-31T17:05 | ✅ | erp-ai-web/src/utils/status.ts:renderStatusText(statusType,statusCode)封装i18n.global.t调用,StatusType联合类型(audit/enable/order/payment),Key格式status.{domain}.{code},未匹配返回[statusType.statusCode]默认文本+DEV环境console.warn,具名导出+StatusType类型导出,vue-tsc --noEmit 0错误 | a607a329 |
-| P0-002-005-002-002-003 | 验证状态展示 | 2026-05-31T17:30 | ✅ | 修复en-US/status.ts扁平结构→嵌套结构(与zh-CN一致),13个状态码中英文全覆盖验证通过,TypeScript编译通过,测试报告已记录 | (pending) |
+| P0-002-005-002-002-003 | 验证状态展示 | 2026-05-31T17:30 | ✅ | 修复en-US/status.ts扁平结构→嵌套结构(与zh-CN一致),13个状态码中英文全覆盖验证通过,TypeScript编译通过,测试报告已记录 | 7d4aa0f0 |
 
 ---
 
