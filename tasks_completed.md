@@ -411,7 +411,7 @@
 |---------|---------|---------|:---:|------|-----|
 | P0-003-001-001-001-001 | 编写CREATE DATABASE语句 | 2026-05-31T20:11 | ✅ | db/migration/V20260526001__schema_related.sql:PostgreSQL创建erp_db数据库(UTF8编码/zh_CN.UTF-8区域/200连接)+erp_base/erp_tenant双Schema多租户隔离+幂等性设计(DO$$IF NOT EXISTS/IF NOT EXISTS)+ALTER DATABASE搜索路径配置+COMMENT注释完整,docs/specs/P0_003_001_001_001_001_spec.md:数据库配置/Schema设计/多租户策略/执行说明/验证方法/技术决策记录 | 482f1299 |
 | P0-003-001-001-001-002 | 执行DDL并验证 | 2026-05-31T18:32 | ✅ | db/migration/V20260526001__verify_chema.sql:DDL验证查询脚本(数据库/SCHEMA/编码/搜索路径/Flyway历史7大验证项)+docs/verification/chema_verify_report.md:完整验证报告(验收标准检查/易错警示确认/执行说明) | eaf51737 |
-| P0-003-001-002-001-001 | 编写公共字段DDL | 2026-05-31T18:50 | ✅ | db/migration/V20260526001__schema_related.sql:新增Step5公共字段基座定义(10字段清单+DDL模板+设计要点+索引模板)+docs/specs/P0_003_001_002_001_001_spec.md:公共字段规范文档(字段定义/设计要点/多租户/软删除/乐观锁) | (待commit) |
+| P0-003-001-002-001-001 | 编写公共字段DDL | 2026-05-31T18:50 | ✅ | db/migration/V20260526001__schema_related.sql:新增Step5公共字段基座定义(10字段清单+DDL模板+设计要点+索引模板)+docs/specs/P0_003_001_002_001_001_spec.md:公共字段规范文档(字段定义/设计要点/多租户/软删除/乐观锁) | fe133a62 |
 
 ---
 
