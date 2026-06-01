@@ -465,6 +465,7 @@
 | P0-003-004-006-001-002 | 编写prod_product_attachment商品附件表索引与约束 | 2026-06-01T16:35 | ✅ | db/migration/V20260601025:PK重命名+部分唯一索引uk(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | 6d1251bd |
 | P0-003-004-006-001-003 | 验证编写prod_product_attachment商品附件表DDL | 2026-06-01T16:45 | ✅ | db/migration/V20260601026(17项验证SQL)+docs/verification/prod_product_attachment_verify_report.md(全部PASS, 0CRITICAL, COMMENT覆盖率100%) | f548a1fb |
 | P0-003-002-011-001-001 | 编写规范 | 2026-06-01T17:20 | ✅ | docs/specs/P0_003_002_011_001_001_spec.md(7章base_qty核心规范+计算逻辑+校验规则)+db/migration/V20260526001__base_qty_related.sql(3个PL/pgSQL函数:fn_calc_base_qty/fn_validate_base_qty/fn_reverse_calc_qty+规范文档注释) | (pending) |
+| P0-003-002-012-001-001 | 编写规范 | 2026-06-01T17:50 | ✅ | docs/specs/db_naming_convention.md+db_data_type_spec.md+db_index_spec.md(数据库命名/数据类型/索引设计三大规范文档,覆盖唯一约束需含is_deleted+多租户索引+decimal(18,8)精度) | fade7c18 |
 
 ---
 
@@ -473,10 +474,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 307 | 2 | 14.30% |
+| P0 | 14 | 2,147 | 308 | 2 | 14.35% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **307** | **2** | **6.51%** |
+| **合计** | **46** | **4,716** | **308** | **2** | **6.53%** |
 
 ---
 
