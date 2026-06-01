@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-01T18:00
-> **归档总数**：314 条
+> **最后更新**：2026-06-01T18:35
+> **归档总数**：316 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -469,6 +469,9 @@
 | P0-003-002-013-001-001 | 编写精度规则 | 2026-06-01T18:00 | ✅ | docs/specs/P0_003_002_013_001_001_spec.md(7章:精度优先级体系+尾差处理规则+参数配置)+db/migration/V20260526001__task_P0_003_002_013_001_001.sql(4个PL/pgSQL函数+12个预置精度参数+规范注释) | (pending) |
 | P0-003-004-007-001-001 | 编写CREATE TABLE语句(prod_product_standard_price) | 2026-06-01T18:10 | ✅ | db/migration/V20260601027:prod_product_standard_price表DDL(10通用字段+12业务字段,decimal(18,8),全COMMENT)+回滚脚本 | d3ed75df |
 | P0-003-004-007-001-002 | 编写prod_product_standard_price商品标准价表索引与约束 | 2026-06-01T18:20 | ✅ | db/migration/V20260601028:PK重命名为pk_prod_product_standard_price+部分唯一索引uk(WHERE is_deleted=false, tenant_id+product_id)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | 623a556e |
+| P0-003-004-007-001-003 | 验证编写prod_product_standard_price商品标准价表DDL | 2026-06-01T18:35 | ✅ | db/migration/V20260601029:20项验证查询SQL+docs/verification/prod_product_standard_price_verify_report.md:12节验证报告(22字段+10索引+100%COMMENT+decimal(18,8)+无外键) | a0a83b37 |
+| P0-003-004-008-001-001 | 编写CREATE TABLE语句(prod_product_purchase_price) | 2026-06-01T18:50 | ✅ | db/migration/V20260601030:prod_product_purchase_price表DDL(10通用字段+13业务字段,decimal(18,8),全COMMENT)+回滚脚本 | 74f42302 |
+| P0-003-004-008-001-002 | 编写prod_product_purchase_price商品购价核定表索引与约束 | 2026-06-01T19:00 | ✅ | db/migration/V20260601031:PK重命名+部分唯一索引uk(WHERE is_deleted=false, tenant_id+product_id+supplier_id)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | — |
 
 ---
 
@@ -477,10 +480,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 310 | 2 | 14.44% |
+| P0 | 14 | 2,147 | 312 | 2 | 14.53% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **309** | **2** | **6.55%** |
+| **合计** | **46** | **4,716** | **310** | **2** | **6.57%** |
 
 ---
 
