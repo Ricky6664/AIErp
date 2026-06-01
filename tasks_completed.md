@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-01T18:00
-> **归档总数**：313 条
+> **归档总数**：314 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -468,6 +468,7 @@
 | P0-003-002-012-001-001 | 编写规范 | 2026-06-01T17:50 | ✅ | docs/specs/db_naming_convention.md+db_data_type_spec.md+db_index_spec.md(数据库命名/数据类型/索引设计三大规范文档,覆盖唯一约束需含is_deleted+多租户索引+decimal(18,8)精度) | fade7c18 |
 | P0-003-002-013-001-001 | 编写精度规则 | 2026-06-01T18:00 | ✅ | docs/specs/P0_003_002_013_001_001_spec.md(7章:精度优先级体系+尾差处理规则+参数配置)+db/migration/V20260526001__task_P0_003_002_013_001_001.sql(4个PL/pgSQL函数+12个预置精度参数+规范注释) | (pending) |
 | P0-003-004-007-001-001 | 编写CREATE TABLE语句(prod_product_standard_price) | 2026-06-01T18:10 | ✅ | db/migration/V20260601027:prod_product_standard_price表DDL(10通用字段+12业务字段,decimal(18,8),全COMMENT)+回滚脚本 | d3ed75df |
+| P0-003-004-007-001-002 | 编写prod_product_standard_price商品标准价表索引与约束 | 2026-06-01T18:20 | ✅ | db/migration/V20260601028:PK重命名为pk_prod_product_standard_price+部分唯一索引uk(WHERE is_deleted=false, tenant_id+product_id)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | (pending) |
 
 ---
 
