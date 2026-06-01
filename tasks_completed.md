@@ -481,7 +481,7 @@
 | P0-003-004-010-001-002 | 编写prod_product_competitor商品竞品表索引与约束 | 2026-06-01T20:10 | ✅ | db/migration/V20260601037:9个索引(1PK+1UK+2多租户+5业务查询)+回滚脚本 | d68840ce |
 | P0-003-004-010-001-003 | 验证编写prod_product_competitor商品竞品表DDL | 2026-06-01T20:25 | ✅ | db/migration/V20260601038:20项验证查询SQL+docs/verification/prod_product_competitor_verify_report.md:12节验证报告(27字段+10索引+100%COMMENT+decimal(18,8)+无外键) | e73c17f5 |
 | P0-003-004-011-001-001 | 编写CREATE TABLE语句 | 2026-06-01T20:35 | ✅ | db/migration/V20260601039:CREATE TABLE prod_product_bom_detail(12业务字段+14快照字段+10通用字段+COMMENT)+回滚脚本 | (待提交) |
-| P0-003-004-011-001-002 | 编写prod_product_bom_detail商品BOM主从表索引与约束 | 2026-06-01T20:50 | ✅ | db/migration/V20260601040:9个索引(1PK rename+1UK+3多租户+5业务查询)+回滚脚本 | (待提交) |
+| P0-003-004-011-001-002 | 编写prod_product_bom_detail商品BOM主从表索引与约束 | 2026-06-01T20:50 | ✅ | db/migration/V20260601040:9个索引(1PK rename+1UK+3多租户+5业务查询)+回滚脚本 | 23580f90 |
 
 ---
 
