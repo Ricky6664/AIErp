@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-01T10:00
-> **归档总数**：296 条
+> **归档总数**：297 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -429,7 +429,8 @@
 | P0-003-002-005-001-002 | 编写移动端相关表索引与约束 | 2026-06-01T08:00 | ✅ | db/migration/V20260601001__task_P0_003_002_005_001_002.sql:5个索引(4普通+1部分唯一),tenant_id首列联合索引,WHERE is_deleted=false,COMMENT ON INDEX完整+docs/specs/P0_003_002_005_001_002_spec.md | 15090306 |
 | P0-003-002-005-001-003 | 验证编写移动端相关表DDL | 2026-06-01T09:00 | ✅ | db/migration/V20260526001__task_P0_003_002_005_001_003.sql:8部分验证SQL(表存在性/通用字段完整性/字段类型约束/索引/COMMENT注释/Flyway/外键检查/综合摘要)+docs/specs/P0_003_002_005_001_003_spec.md:静态审查全部通过,sys_mobile_menu DDL规范一致,5索引全部tenant_id首列,COMMENT覆盖率100% | 224bd591 |
 | P0-003-002-006-001-001 | 编写单据主表DDL约束与枚举注释 | 2026-06-01T10:00 | ✅ | db/migration/V20260601002__task_P0_003_002_006_001_001.sql:创建erp_base.bill_main_field_spec规范表+fn_validate_bill_fields校验函数+DDL模板/部分唯一索引模板/bill_status枚举注释(0=草稿/1=待审核/2=已审核/3=已关闭/4=已作废)+docs/specs/P0_003_002_006_001_001_spec.md | 60b06180 |
-| P0-003-002-007-001-001 | 编写DDL | 2026-06-01T12:00 | ✅ | db/migration/V20260526001__task_P0_003_002_007_001_001.sql:创建erp_base.detail_product_field_spec规范表(16字段:3结构字段+13快照字段)+fn_validate_detail_product_fields校验函数+DDL片段模板/索引模板/完整采购单明细建表示例/快照原则核心设计要点+docs/specs/P0_003_002_007_001_001_spec.md | (pending) |
+| P0-003-002-007-001-001 | 编写DDL | 2026-06-01T12:00 | ✅ | db/migration/V20260526001__task_P0_003_002_007_001_001.sql:创建erp_base.detail_product_field_spec规范表(16字段:3结构字段+13快照字段)+fn_validate_detail_product_fields校验函数+DDL片段模板/索引模板/完整采购单明细建表示例/快照原则核心设计要点+docs/specs/P0_003_002_007_001_001_spec.md | 716ce62e |
+| P0-003-002-007-001-002 | 编写快照约束说明 | 2026-06-01T13:00 | ✅ | db/migration/V20260526001__task_P0_003_002_007_001_002.sql:创建erp_base.detail_snapshot_constraint快照约束元数据表(50条规则:10快照字段×5单据状态)+fn_validate_snapshot_constraints校验函数+五条核心规则文档/状态转换矩阵/开发检查清单/前端交互规范+docs/specs/P0_003_002_007_001_002_spec.md |  
 
 ---
 
