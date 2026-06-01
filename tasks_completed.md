@@ -514,7 +514,7 @@
 | P0-003-004-021-001-002 | 编写索引与约束 | 2026-06-02T03:30 | ✅ | db/migration/V20260601069:6条索引(PK重命名+1部分唯一索引含WHERE is_deleted=false+2多租户+2业务查询)+回滚脚本 | 2a1fd617 |
 | P0-003-004-021-001-003 | 验证DDL | 2026-06-02T03:50 | ✅ | db/migration/V20260526001__verify_prod_serial_template.sql(15项验证SQL)+docs/verification/prod_serial_template_verify_report.md(5/5验收通过) | 6e99e387 |
 | P0-003-004-022-001-001 | 编写CREATE TABLE语句 | 2026-06-02T04:00 | ✅ | db/migration/V20260601070:CREATE TABLE prod_product_other(17业务字段+10通用字段+COMMENT)+回滚脚本 | 01f56cd6 |
-| P0-003-004-022-001-002 | 编写索引与约束 | 2026-06-02T04:30 | ✅ | db/migration/V20260601071:6条索引(PK重命名+1部分唯一索引含WHERE is_deleted=false+2多租户+3业务查询)+回滚脚本 | TBD |
+| P0-003-004-022-001-002 | 编写索引与约束 | 2026-06-02T04:30 | ✅ | db/migration/V20260601071:6条索引(PK重命名+1部分唯一索引含WHERE is_deleted=false+2多租户+3业务查询)+回滚脚本 | d68a5aeb |
 
 ---
 
