@@ -491,7 +491,7 @@
 | P0-003-004-013-001-003 | 验证编写prod_standard_process标准工序表DDL | 2026-06-01T22:40 | ✅ | db/migration/V20260601047:20项验证查询SQL+docs/verification:验证报告(68项全PASS) | 5afac150 |
 | P0-003-004-014-001-001 | 编写CREATE TABLE语句 | 2026-06-01T22:45 | ✅ | db/migration/V20260601048:CREATE TABLE prod_product_price(12业务字段+10通用字段+COMMENT,decimal(18,8)统一精度)+回滚脚本 | 7abebbbc |
 | P0-003-004-014-001-002 | 编写prod_product_price表索引与约束 | 2026-06-01T22:55 | ✅ | db/migration/V20260601049:PK重命名+部分唯一索引uk_code(WHERE is_deleted=false)+2个多租户联合索引+9个业务查询索引+回滚脚本 | 083d6954 |
-| P0-003-004-014-001-003 | 验证DDL | 2026-06-01T23:00 | ✅ | db/migration/V20260601050:20项验证查询SQL+docs/verification/prod_product_price_verify_report.md:12节验证报告(22字段+12索引+100%COMMENT+decimal(18,8)+无外键) | (pending) |
+| P0-003-004-014-001-003 | 验证DDL | 2026-06-01T23:00 | ✅ | db/migration/V20260601050:20项验证查询SQL+docs/verification/prod_product_price_verify_report.md:12节验证报告(22字段+12索引+100%COMMENT+decimal(18,8)+无外键) | fbfd42ce |
 
 ---
 
