@@ -467,7 +467,7 @@
 | P0-003-002-011-001-001 | 编写规范 | 2026-06-01T17:20 | ✅ | docs/specs/P0_003_002_011_001_001_spec.md(7章base_qty核心规范+计算逻辑+校验规则)+db/migration/V20260526001__base_qty_related.sql(3个PL/pgSQL函数:fn_calc_base_qty/fn_validate_base_qty/fn_reverse_calc_qty+规范文档注释) | (pending) |
 | P0-003-002-012-001-001 | 编写规范 | 2026-06-01T17:50 | ✅ | docs/specs/db_naming_convention.md+db_data_type_spec.md+db_index_spec.md(数据库命名/数据类型/索引设计三大规范文档,覆盖唯一约束需含is_deleted+多租户索引+decimal(18,8)精度) | fade7c18 |
 | P0-003-002-013-001-001 | 编写精度规则 | 2026-06-01T18:00 | ✅ | docs/specs/P0_003_002_013_001_001_spec.md(7章:精度优先级体系+尾差处理规则+参数配置)+db/migration/V20260526001__task_P0_003_002_013_001_001.sql(4个PL/pgSQL函数+12个预置精度参数+规范注释) | (pending) |
-| P0-003-004-007-001-001 | 编写CREATE TABLE语句(prod_product_standard_price) | 2026-06-01T18:10 | ✅ | db/migration/V20260601027:prod_product_standard_price表DDL(10通用字段+12业务字段,decimal(18,8),全COMMENT)+回滚脚本 | (pending) |
+| P0-003-004-007-001-001 | 编写CREATE TABLE语句(prod_product_standard_price) | 2026-06-01T18:10 | ✅ | db/migration/V20260601027:prod_product_standard_price表DDL(10通用字段+12业务字段,decimal(18,8),全COMMENT)+回滚脚本 | d3ed75df |
 
 ---
 
