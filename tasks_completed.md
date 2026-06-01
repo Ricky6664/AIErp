@@ -524,6 +524,7 @@
 | P0-003-005-002-001-003 | 验证编写CRM标签定义表DDL | 2026-06-02T06:00 | ✅ | db/migration/V20260526001__task_P0_003_005_002_001_003.sql:14项验证SQL+docs/specs/P0_003_005_002_001_003_spec.md(全部PASS) | 2e675026 |
 | P0-003-005-003-001-001 | 编写CREATE TABLE语句 | 2026-06-01T19:07 | ✅ | db/migration/V20260601077:CREATE TABLE crm_customer(6业务字段+10通用字段+COMMENT)+回滚脚本 | bbddd272 |
 | P0-003-005-003-001-002 | 编写crm_customer客户主表索引与约束 | 2026-06-01T19:05 | ✅ | db/migration/V20260601078:PK重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | 387cf55e |
+| P0-003-005-003-001-003 | 验证编写crm_customer客户主表DDL | 2026-06-01T19:18 | ✅ | db/migration/V20260601079:15项验证SQL+docs/verification/crm_customer_verify_report.md(全部PASS) | TBD |
 
 ---
 
