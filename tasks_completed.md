@@ -527,6 +527,7 @@
 | P0-003-005-003-001-003 | 验证编写crm_customer客户主表DDL | 2026-06-01T19:18 | ✅ | db/migration/V20260601079:15项验证SQL+docs/verification/crm_customer_verify_report.md(全部PASS) | a5bb8c0b |
 | P0-003-005-004-001-001 | 编写CREATE TABLE语句 | 2026-06-01T19:15 | ✅ | db/migration/V20260601080:CREATE TABLE crm_contact_comm(9业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8)精度) | 55fb5300 |
 | P0-003-005-004-001-002 | 编写crm_contact_comm客户联系人表索引与约束 | 2026-06-01T19:12 | ✅ | db/migration/V20260601081:PK重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引(contact_id/parent_id/comm_type/通用字段/日期)+回滚脚本 | ff69f3f2 |
+| P0-003-005-004-001-003 | 验证编写crm_contact_comm客户联系人表DDL | 2026-06-01T19:35 | ✅ | db/migration/V20260526001:11项验证查询SQL+docs/verification/crm_contact_comm_verify_report.md(36字段+12索引+100%COMMENT+10通用字段+decimal(18,8)+全部易错警示通过) | (待填写) |
 
 ---
 
