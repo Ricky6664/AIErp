@@ -509,6 +509,7 @@
 | P0-003-004-019-001-003 | 验证DDL | 2026-06-02T01:45 | ✅ | db/migration/V20260601065__verify_prod_product_relation.sql(19项验证SQL)+docs/verification/prod_product_relation_verify_report.md(5/5验收通过,0个CRITICAL,0个WARNING) | 7f9e4f6b |
 | P0-003-004-020-001-001 | 编写CREATE TABLE语句 | 2026-06-02T02:15 | ✅ | db/migration/V20260601066:CREATE TABLE prod_product_tag(4业务字段+10通用字段+COMMENT)+回滚脚本 | 21a98cf3 |
 | P0-003-004-020-001-002 | 编写索引与约束 | 2026-06-02T02:40 | ✅ | db/migration/V20260601067:6条索引(PK重命名+1部分唯一索引含WHERE is_deleted=false+1多租户+3业务查询)+回滚脚本 | a7e0e566 |
+| P0-003-004-020-001-003 | 验证DDL | 2026-06-02T03:05 | ✅ | db/migration/V20260526001__verify_prod_product_tag.sql(15项验证SQL)+docs/verification/prod_product_tag_verify_report.md(5/5验收通过) | TBD |
 
 ---
 
