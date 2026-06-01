@@ -455,6 +455,7 @@
 | P0-003-004-003-001-001 | 编写CREATE TABLE语句(prod_product_unit) | 2026-06-01T23:45 | ✅ | db/migration/V20260601016:prod_product_unit表DDL(10通用字段+4业务字段,decimal(18,8),全COMMENT)+回滚脚本 | e7691af8 |
 | P0-003-004-003-001-002 | 编写prod_product_unit商品多单位表索引与约束 | 2026-06-01T23:59 | ✅ | db/migration/V20260601017:PK重命名为pk_prod_product_unit+部分唯一索引uk(WHERE is_deleted=false, product_id+unit_id)+多租户联合索引(tenant_id首列)+业务查询索引(is_base_unit)+回滚脚本 | 6ed96676 |
 | P0-003-004-003-001-003 | 验证编写prod_product_unit商品多单位表DDL | 2026-06-01T10:00 | ✅ | db/migration/V20260526001__verify_prod_product_unit.sql(16项验证SQL)+docs/verification/prod_product_unit_verify_report.md(全部PASS, 0CRITICAL, COMMENT覆盖率100%) | 31d9f412 |
+| P0-003-004-004-001-001 | 编写CREATE TABLE语句(prod_product_control) | 2026-06-01T12:00 | ✅ | db/migration/V20260601018:prod_product_control表DDL(10通用字段+4业务字段,全COMMENT)+回滚脚本 | — |
 
 ---
 
