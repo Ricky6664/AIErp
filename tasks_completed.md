@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-02T04:30
-> **归档总数**：342 条
+> **最后更新**：2026-06-02T05:10
+> **归档总数**：343 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -515,7 +515,8 @@
 | P0-003-004-021-001-003 | 验证DDL | 2026-06-02T03:50 | ✅ | db/migration/V20260526001__verify_prod_serial_template.sql(15项验证SQL)+docs/verification/prod_serial_template_verify_report.md(5/5验收通过) | 6e99e387 |
 | P0-003-004-022-001-001 | 编写CREATE TABLE语句 | 2026-06-02T04:00 | ✅ | db/migration/V20260601070:CREATE TABLE prod_product_other(17业务字段+10通用字段+COMMENT)+回滚脚本 | 01f56cd6 |
 | P0-003-004-022-001-002 | 编写索引与约束 | 2026-06-02T04:30 | ✅ | db/migration/V20260601071:6条索引(PK重命名+1部分唯一索引含WHERE is_deleted=false+2多租户+3业务查询)+回滚脚本 | d68a5aeb |
-| P0-003-004-022-001-003 | 验证DDL | 2026-06-02T05:00 | ✅ | db/migration/V20260526001__verify_prod_product_other.sql(16项验证SQL)+docs/verification/prod_product_other_verify_report.md(全部PASS, 0CRITICAL, 0WARNING, COMMENT覆盖率100%) | (pending) |
+| P0-003-004-022-001-003 | 验证DDL | 2026-06-02T05:00 | ✅ | db/migration/V20260526001__verify_prod_product_other.sql(16项验证SQL)+docs/verification/prod_product_other_verify_report.md(全部PASS, 0CRITICAL, 0WARNING, COMMENT覆盖率100%) | 0d004fc1 |
+| P0-003-005-001-001-001 | 编写CREATE TABLE语句 | 2026-06-02T05:10 | ✅ | db/migration/V20260601072:CREATE TABLE crm_customer_class(3业务字段+10通用字段+COMMENT)+回滚脚本 | TBD |
 
 ---
 
@@ -524,10 +525,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 331 | 2 | 15.42% |
+| P0 | 14 | 2,147 | 332 | 2 | 15.46% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **331** | **2** | **7.02%** |
+| **合计** | **46** | **4,716** | **332** | **2** | **7.04%** |
 
 ---
 
