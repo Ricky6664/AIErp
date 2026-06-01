@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-01T13:30
-> **归档总数**：298 条
+> **最后更新**：2026-06-01T14:00
+> **归档总数**：299 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -433,6 +433,7 @@
 | P0-003-002-007-001-002 | 编写快照约束说明 | 2026-06-01T13:00 | ✅ | db/migration/V20260526001__task_P0_003_002_007_001_002.sql:创建erp_base.detail_snapshot_constraint快照约束元数据表(50条规则:10快照字段×5单据状态)+fn_validate_snapshot_constraints校验函数+五条核心规则文档/状态转换矩阵/开发检查清单/前端交互规范+docs/specs/P0_003_002_007_001_002_spec.md | 3a890daf |
 | P0-003-002-008-001-001 | 编写DDL规范 | 2026-06-01T13:30 | ✅ | db/migration/V20260526001__atis_related.sql:创建erp_base.tenant_isolation_constraint多租户隔离约束元数据表(29个已注册业务表)+fn_validate_tenant_isolation_ddl单表校验函数+fn_validate_all_tenant_isolation_ddl批量校验函数+七条核心规则文档/DDL标准模板/常见错误对照/开发检查清单+docs/specs/P0_003_002_008_001_001_spec.md | bd695138 |
 | P0-003-002-008-001-002 | 编写MyBatis-Plus TenantLineInnerInterceptor | 2026-06-01T13:45 | ✅ | TenantInterceptor.java:独立@Component实现TenantLineHandler+MybatisPlusConfig.java重构移除匿名内部类+docs/specs/P0_003_002_008_001_002_spec.md | ba1f5d2e |
+| P0-003-002-009-001-001 | 编写DDL | 2026-06-01T14:00 | ✅ | db/migration/V20260526001__task_P0_003_002_009_001_001.sql:创建erp_base.doc_detail_location/doc_detail_batch/doc_detail_serial三个辅助属性子表(各含业务字段+22扩展+10公共+索引+COMMENT)+fn_validate_aux_table校验函数+docs/specs/P0_003_002_009_001_001_spec.md | (待提交) |
 
 ---
 
