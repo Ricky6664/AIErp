@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-01T14:00
-> **归档总数**：306 条
+> **归档总数**：307 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -459,6 +459,7 @@
 | P0-003-004-004-001-002 | 编写prod_product_control商品控制策略表索引与约束 | 2026-06-01T13:30 | ✅ | db/migration/V20260601019:PK重命名为pk_prod_product_control+部分唯一索引uk(WHERE is_deleted=false, tenant_id+product_id)+多租户联合索引(tenant_id首列)+业务查询索引(product_id/is_inventory)+回滚脚本 | bd0c660a |
 | P0-003-004-004-001-003 | 验证编写prod_product_control商品控制策略表DDL | 2026-06-01T14:00 | ✅ | db/migration/V20260601020(15项验证SQL)+docs/verification/prod_product_control_verify_report.md(全部PASS, 0CRITICAL, COMMENT覆盖率100%) | — |
 | P0-003-004-005-001-001 | 编写CREATE TABLE语句(prod_product_safety_stock) | 2026-06-01T15:00 | ✅ | db/migration/V20260601021:prod_product_safety_stock表DDL(10通用字段+5业务字段,全COMMENT)+回滚脚本 | 37b00bd7 |
+| P0-003-004-005-001-002 | 编写prod_product_safety_stock商品安全库存表索引与约束 | 2026-06-01T15:30 | ✅ | db/migration/V20260601022:PK重命名为pk_prod_product_safety_stock+部分唯一索引uk(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | — |
 
 ---
 
@@ -467,10 +468,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 303 | 2 | 14.11% |
+| P0 | 14 | 2,147 | 304 | 2 | 14.16% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **303** | **2** | **6.45%** |
+| **合计** | **46** | **4,716** | **304** | **2** | **6.45%** |
 
 ---
 
