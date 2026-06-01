@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-01T19:00
-> **归档总数**：300 条
+> **最后更新**：2026-06-01T22:00
+> **归档总数**：301 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -449,6 +449,7 @@
 | P0-003-004-001-001-001 | 编写CREATE TABLE语句 | 2026-06-01T19:50 | ✅ | db/migration/V20260601011__create_prod_product_class.sql:prod_product_class商品分类表DDL(10通用字段+4业务字段+22扩展字段+COMMENT注释+decimal(18,8)精度)+回滚脚本 | 435f0d04 |
 | P0-003-004-001-001-002 | 编写prod_product_class商品分类表索引与约束 | 2026-06-01T20:00 | ✅ | db/migration/V20260601012:补充status列+PK重命名为pk_prod_product_class+部分唯一索引uk(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | ced1f706 |
 | P0-003-004-001-001-003 | 验证编写prod_product_class商品分类表DDL | 2026-06-01T21:00 | ✅ | db/migration/V20260601013__verify_prod_product_class.sql(15项验证SQL)+docs/verification/prod_product_class_verify_report.md(1CRITICAL:code/class_code列名不匹配+1WARNING:22扩展字段缺COMMENT) | 0f9a945d |
+| P0-003-004-002-001-001 | 编写prod_product商品主表CREATE TABLE语句 | 2026-06-01T22:00 | ✅ | db/migration/V20260601014:prod_product表DDL(10通用字段+8业务字段+22扩展字段,decimal(18,8),全COMMENT)+回滚脚本 | a36b887f |
 
 ---
 
@@ -457,10 +458,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 298 | 2 | 13.88% |
+| P0 | 14 | 2,147 | 299 | 2 | 13.93% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **298** | **2** | **6.32%** |
+| **合计** | **46** | **4,716** | **299** | **2** | **6.34%** |
 
 ---
 
