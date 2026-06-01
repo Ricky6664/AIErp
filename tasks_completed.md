@@ -537,6 +537,7 @@
 | P0-003-005-007-001-001 | 编写CREATE TABLE语句 | 2026-06-01T20:50 | ✅ | db/migration/V20260601088: crm_customer_attachment客户附件表CREATE TABLE+COMMENT+rollback | b257296b |
 | P0-003-005-007-001-002 | 编写crm_customer_attachment客户附件表索引与约束 | 2026-06-01T21:40 | ✅ | db/migration/V20260601089: PK重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引(customer_id/通用字段/日期)+回滚脚本 | 7788e438 |
 | P0-003-005-007-001-003 | 验证编写crm_customer_attachment客户附件表DDL | 2026-06-01T20:20 | ✅ | db/migration/V20260601090:18项验证查询SQL+docs/verification/crm_customer_attachment_verify_report.md(全部PASS,0 CRITICAL) | (待填写) |
+| P0-003-005-008-001-001 | 编写CREATE TABLE语句 | 2026-06-01T21:40 | ✅ | db/migration/V20260601091:CREATE TABLE crm_customer_evaluation(11业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8)精度)+回滚脚本 | (待填写) |
 
 ---
 
@@ -545,10 +546,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 339 | 2 | 15.79% |
+| P0 | 14 | 2,147 | 340 | 2 | 15.84% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **338** | **2** | **7.17%** |
+| **合计** | **46** | **4,716** | **339** | **2** | **7.19%** |
 
 ---
 
