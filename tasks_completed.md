@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-01T16:35
-> **归档总数**：308 条
+> **最后更新**：2026-06-01T16:45
+> **归档总数**：309 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -462,7 +462,8 @@
 | P0-003-004-005-001-002 | 编写prod_product_safety_stock商品安全库存表索引与约束 | 2026-06-01T15:30 | ✅ | db/migration/V20260601022:PK重命名为pk_prod_product_safety_stock+部分唯一索引uk(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | 68fde514 |
 | P0-003-004-005-001-003 | 验证编写prod_product_safety_stock商品安全库存表DDL | 2026-06-01T16:00 | ✅ | db/migration/V20260601023(15项验证SQL)+docs/verification/prod_product_safety_stock_verify_report.md(全部PASS, 0CRITICAL, COMMENT覆盖率100%) | eaf9b7e9 |
 | P0-003-004-006-001-001 | 编写CREATE TABLE语句(prod_product_attachment) | 2026-06-01T16:30 | ✅ | db/migration/V20260601024:prod_product_attachment表DDL(10通用字段+9业务字段,全COMMENT)+回滚脚本 | b7269885 |
-| P0-003-004-006-001-002 | 编写prod_product_attachment商品附件表索引与约束 | 2026-06-01T16:35 | ✅ | db/migration/V20260601025:PK重命名+部分唯一索引uk(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | — |
+| P0-003-004-006-001-002 | 编写prod_product_attachment商品附件表索引与约束 | 2026-06-01T16:35 | ✅ | db/migration/V20260601025:PK重命名+部分唯一索引uk(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | 6d1251bd |
+| P0-003-004-006-001-003 | 验证编写prod_product_attachment商品附件表DDL | 2026-06-01T16:45 | ✅ | db/migration/V20260601026(17项验证SQL)+docs/verification/prod_product_attachment_verify_report.md(全部PASS, 0CRITICAL, COMMENT覆盖率100%) | |
 
 ---
 
