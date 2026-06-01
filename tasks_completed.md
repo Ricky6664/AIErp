@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-01T23:10
-> **归档总数**：331 条
+> **最后更新**：2026-06-01T23:30
+> **归档总数**：332 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -496,6 +496,7 @@
 | P0-003-004-015-001-002 | 编写索引与约束 | 2026-06-01T23:00 | ✅ | db/migration/V20260601053:PK重命名+部分唯一索引uk_code(WHERE is_deleted=false)+2个多租户联合索引+3个业务查询索引+回滚脚本 | 572a31b0 |
 | P0-003-004-015-001-003 | 验证DDL | 2026-06-01T23:10 | ✅ | db/migration/V20260526001__verify_prod_product_attribute.sql:23个验证查询块+docs/verification/prod_product_attribute_verify_report.md:8节验证报告(2表31字段+7索引+100%COMMENT+无外键) | 357ac879 |
 | P0-003-004-016-001-001 | 编写CREATE TABLE语句 | 2026-06-01T23:20 | ✅ | db/migration/V20260601054:CREATE TABLE prod_product_spec(6业务字段+10通用字段+COMMENT)+回滚脚本 | adb3d3a1 |
+| P0-003-004-016-001-002 | 编写索引与约束 | 2026-06-01T23:30 | ✅ | db/migration/V20260601055:PK重命名+部分唯一索引uk_code(WHERE is_deleted=false)+2个多租户联合索引+3个业务查询索引+回滚脚本 | |
 
 ---
 
