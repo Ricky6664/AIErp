@@ -530,7 +530,7 @@
 | P0-003-005-004-001-003 | 验证编写crm_contact_comm客户联系人表DDL | 2026-06-01T19:35 | ✅ | db/migration/V20260526001:11项验证查询SQL+docs/verification/crm_contact_comm_verify_report.md(36字段+12索引+100%COMMENT+10通用字段+decimal(18,8)+全部易错警示通过) | (待填写) |
 | P0-003-005-005-001-001 | 编写CREATE TABLE语句 | 2026-06-01T19:20 | ✅ | db/migration/V20260601082:CREATE TABLE crm_customer_address(5业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8)精度)+回滚脚本 | (待填写) |
 | P0-003-005-005-001-002 | 编写crm_customer_address客户地址表索引与约束 | 2026-06-01T20:08 | ✅ | db/migration/V20260601083:PK重命名+多租户联合索引(tenant_id首列)+业务查询索引(customer_id/address_type/city/通用字段/日期)+回滚脚本 | (待填写) |
-| P0-003-005-005-001-003 | 验证编写crm_customer_address客户地址表DDL | 2026-06-01T20:40 | ✅ | db/migration/V20260601084:15项验证查询SQL+docs/verification/crm_customer_address_verify_report.md(38字段+11索引+42.1%COMMENT+10通用字段+decimal(18,8)+0 CRITICAL问题) | (待填写) |
+| P0-003-005-005-001-003 | 验证编写crm_customer_address客户地址表DDL | 2026-06-01T20:40 | ✅ | db/migration/V20260601084:15项验证查询SQL+docs/verification/crm_customer_address_verify_report.md(38字段+11索引+42.1%COMMENT+10通用字段+decimal(18,8)+0 CRITICAL问题) | cf712779 |
 
 ---
 
