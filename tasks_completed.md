@@ -520,6 +520,7 @@
 | P0-003-005-001-001-002 | 编写crm_customer_class客户分类表索引与约束 | 2026-06-02T05:20 | ✅ | db/migration/V20260601073:PK重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引+业务查询索引+回滚脚本 | 8fd36f98 |
 | P0-003-005-001-001-003 | 验证编写crm_customer_class客户分类表DDL | 2026-06-02T05:30 | ✅ | db/migration/V20260601074:15项验证SQL(表存在/字段/通用字段/精度/PK/唯一索引/多租户/COMMENT/NOT NULL/Flyway/外键/列名一致性)+docs/verification/crm_customer_class_verify_report.md(0CRITICAL, 1WARNING扩展字段COMMENT) | 639fba91 |
 | P0-003-005-002-001-001 | 编写CREATE TABLE语句 | 2026-06-02T05:40 | ✅ | db/migration/V20260601075:CREATE TABLE crm_tag_definition(5业务字段+10通用字段+COMMENT)+回滚脚本 | b910d4d7 |
+| P0-003-005-002-001-002 | 编写CRM标签定义表索引与约束 | 2026-06-02T05:50 | ✅ | db/migration/V20260601076:PK重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | bf3f9cd3 |
 
 ---
 
