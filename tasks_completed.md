@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-02T05:10
-> **归档总数**：344 条
+> **归档总数**：345 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -522,6 +522,7 @@
 | P0-003-005-002-001-001 | 编写CREATE TABLE语句 | 2026-06-02T05:40 | ✅ | db/migration/V20260601075:CREATE TABLE crm_tag_definition(5业务字段+10通用字段+COMMENT)+回滚脚本 | b910d4d7 |
 | P0-003-005-002-001-002 | 编写CRM标签定义表索引与约束 | 2026-06-02T05:50 | ✅ | db/migration/V20260601076:PK重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | bf3f9cd3 |
 | P0-003-005-002-001-003 | 验证编写CRM标签定义表DDL | 2026-06-02T06:00 | ✅ | db/migration/V20260526001__task_P0_003_005_002_001_003.sql:14项验证SQL+docs/specs/P0_003_005_002_001_003_spec.md(全部PASS) | 2e675026 |
+| P0-003-005-003-001-001 | 编写CREATE TABLE语句 | 2026-06-01T19:07 | ✅ | db/migration/V20260601077:CREATE TABLE crm_customer(6业务字段+10通用字段+COMMENT)+回滚脚本 | bbddd272 |
 
 ---
 
