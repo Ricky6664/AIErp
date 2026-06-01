@@ -441,7 +441,7 @@
 | P0-003-003-002-001-002 | 编写org_department部门表索引与约束 | 2026-06-01T16:30 | ✅ | db/migration/V20260601006__create_org_department_indexes.sql:主键约束重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引(树形/外键/状态/日期)+回滚脚本 | fe4f5191 |
 | P0-003-003-002-001-003 | 验证编写org_department部门表DDL | 2026-06-01T17:00 | ✅ | db/migration/V20260526001__verify_org_department.sql+验证报告:发现CRITICAL索引列名错误(code→dept_code)与WARNING ext字段COMMENT缺失 | 67748186 |
 | P0-003-003-003-001-001 | 编写CREATE TABLE语句 | 2026-06-01T17:15 | ✅ | db/migration/V20260601007__create_org_position.sql:org_position岗位表DDL(10通用字段+5业务字段+扩展字段+COMMENT注释+decimal(18,8)精度)+回滚脚本 | 68706813 |
-| P0-003-003-003-001-002 | 编写org_position岗位表索引与约束 | 2026-06-01T17:30 | ✅ | db/migration/V20260601008__create_org_position_indexes.sql:主键约束重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | |
+| P0-003-003-003-001-002 | 编写org_position岗位表索引与约束 | 2026-06-01T17:30 | ✅ | db/migration/V20260601008__create_org_position_indexes.sql:主键约束重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | 98d987ff |
 
 ---
 
