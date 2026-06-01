@@ -518,6 +518,7 @@
 | P0-003-004-022-001-003 | 验证DDL | 2026-06-02T05:00 | ✅ | db/migration/V20260526001__verify_prod_product_other.sql(16项验证SQL)+docs/verification/prod_product_other_verify_report.md(全部PASS, 0CRITICAL, 0WARNING, COMMENT覆盖率100%) | 0d004fc1 |
 | P0-003-005-001-001-001 | 编写CREATE TABLE语句 | 2026-06-02T05:10 | ✅ | db/migration/V20260601072:CREATE TABLE crm_customer_class(3业务字段+10通用字段+COMMENT)+回滚脚本 | 57aae787 |
 | P0-003-005-001-001-002 | 编写crm_customer_class客户分类表索引与约束 | 2026-06-02T05:20 | ✅ | db/migration/V20260601073:PK重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引+业务查询索引+回滚脚本 | 8fd36f98 |
+| P0-003-005-001-001-003 | 验证编写crm_customer_class客户分类表DDL | 2026-06-02T05:30 | ✅ | db/migration/V20260601074:15项验证SQL(表存在/字段/通用字段/精度/PK/唯一索引/多租户/COMMENT/NOT NULL/Flyway/外键/列名一致性)+docs/verification/crm_customer_class_verify_report.md(0CRITICAL, 1WARNING扩展字段COMMENT) | (待回填) |
 
 ---
 
