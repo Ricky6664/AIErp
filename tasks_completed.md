@@ -499,6 +499,7 @@
 | P0-003-004-016-001-002 | 编写索引与约束 | 2026-06-01T23:30 | ✅ | db/migration/V20260601055:PK重命名+部分唯一索引uk_code(WHERE is_deleted=false)+2个多租户联合索引+3个业务查询索引+回滚脚本 | 2f5d8430 |
 | P0-003-004-016-001-003 | 验证DDL | 2026-06-01T23:45 | ✅ | db/migration/V20260601056:19项验证查询SQL+docs/verification/prod_product_spec_verify_report.md:10节验证报告(16字段+7索引+100%COMMENT覆盖率+全部易错警示规避,静态审查全PASS) | 262139d7 |
 | P0-003-004-017-001-001 | 编写CREATE TABLE语句 | 2026-06-01T23:55 | ✅ | db/migration/V20260601057:CREATE TABLE prod_product_barcode(7业务字段+10通用字段+COMMENT)+回滚脚本 | 48a2947f |
+| P0-003-004-017-001-002 | 编写索引与约束 | 2026-06-02T00:10 | ✅ | db/migration/V20260601058:8条索引(PK重命名+1唯一索引含WHERE is_deleted=false+2多租户+4业务查询)+回滚脚本 | (pending) |
 
 ---
 
