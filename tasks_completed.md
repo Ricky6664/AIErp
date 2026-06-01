@@ -478,7 +478,7 @@
 
 | P0-003-004-009-001-003 | 验证编写prod_product_sale_price商品销价核定表DDL | 2026-06-01T19:50 | ✅ | db/migration/V20260601035:20项验证查询SQL+docs/verification/prod_product_sale_price_verify_report.md:12节验证报告(23字段+12索引+100%COMMENT+decimal(18,8)+无外键) | a5ba3446 |
 | P0-003-004-010-001-001 | 编写CREATE TABLE语句 | 2026-06-01T20:00 | ✅ | db/migration/V20260601036:CREATE TABLE prod_product_competitor(17业务字段+10通用字段+COMMENT)+回滚脚本 | ede91a34 |
-| P0-003-004-010-001-002 | 编写prod_product_competitor商品竞品表索引与约束 | 2026-06-01T20:10 | ✅ | db/migration/V20260601037:9个索引(1PK+1UK+2多租户+5业务查询)+回滚脚本 | — |
+| P0-003-004-010-001-002 | 编写prod_product_competitor商品竞品表索引与约束 | 2026-06-01T20:10 | ✅ | db/migration/V20260601037:9个索引(1PK+1UK+2多租户+5业务查询)+回滚脚本 | d68840ce |
 
 ---
 
