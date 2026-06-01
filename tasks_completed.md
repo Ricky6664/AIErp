@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-01T21:50
-> **归档总数**：324 条
+> **最后更新**：2026-06-01T22:10
+> **归档总数**：325 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -485,6 +485,7 @@
 | P0-003-004-011-001-003 | 验证编写prod_product_bom_detail商品BOM主从表DDL | 2026-06-01T21:10 | ✅ | db/migration/V20260601041:20项验证查询SQL+docs/verification/prod_product_bom_detail_verify_report.md:13节验证报告(30字段+10索引+100%COMMENT+decimal(18,8)+12快照字段+无外键) | 567ee77b |
 | P0-003-004-012-001-001 | 编写CREATE TABLE语句 | 2026-06-01T21:30 | ✅ | db/migration/V20260601042:CREATE TABLE prod_product_process_price(17业务字段+10通用字段+COMMENT,decimal(18,8)统一精度,parent_id支持树形层级)+回滚脚本+spec文档 | 5afd1f5f |
 | P0-003-004-012-001-002 | 编写prod_product_process_price商品工序主从表索引与约束 | 2026-06-01T21:50 | ✅ | db/migration/V20260601043:PK重命名+部分唯一索引uk_tenant_code(WHERE is_deleted=false)+3个多租户联合索引+4个业务查询索引+回滚脚本 | 9936d271 |
+| P0-003-004-012-001-003 | 验证编写prod_product_process_price商品工序主从表DDL | 2026-06-01T22:10 | ✅ | db/migration/V20260601044:20项验证查询SQL+docs/verification/prod_product_process_price_verify_report.md(27字段/9索引/100%COMMENT覆盖率,0CRITICAL 0WARNING) | (待commit) |
 
 ---
 
