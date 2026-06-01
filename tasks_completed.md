@@ -542,6 +542,8 @@
 | P0-003-005-008-001-003 | 验证编写crm_customer_evaluation客户评价表DDL | 2026-06-01T22:00 | ✅ | db/migration/V20260601093:18项验证查询SQL+docs/verification/crm_customer_evaluation_verify_report.md(全部PASS,0 CRITICAL) | (待填写) |
 | P0-003-005-009-001-001 | 编写CREATE TABLE语句 | 2026-06-01T22:10 | ✅ | db/migration/V20260601094:CREATE TABLE crm_customer_finance(26业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8)精度)+回滚脚本 | d5c91011 |
 | P0-003-005-009-001-002 | 编写crm_customer_finance客户财务配置表索引与约束 | 2026-06-01T22:20 | ✅ | db/migration/V20260601095: PK重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引(customer_id/product_id/order_date/通用字段)+回滚脚本 | ea246012 |
+| P0-003-005-009-001-003 | 验证编写crm_customer_finance客户财务配置表DDL | 2026-06-01T22:35 | ✅ | db/migration/V20260601096:18项验证查询SQL+docs/verification/crm_customer_finance_verify_report.md(全部PASS) | 6a28e579 |
+| P0-003-005-010-001-001 | 编写CREATE TABLE语句 | 2026-06-01T23:00 | ✅ | db/migration/V20260601097:CREATE TABLE crm_opportunity(11业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8)精度)+回滚脚本 | (待填写) |
 
 ---
 
