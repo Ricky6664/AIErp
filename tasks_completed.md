@@ -434,6 +434,8 @@
 | P0-003-002-008-001-001 | 编写DDL规范 | 2026-06-01T13:30 | ✅ | db/migration/V20260526001__atis_related.sql:创建erp_base.tenant_isolation_constraint多租户隔离约束元数据表(29个已注册业务表)+fn_validate_tenant_isolation_ddl单表校验函数+fn_validate_all_tenant_isolation_ddl批量校验函数+七条核心规则文档/DDL标准模板/常见错误对照/开发检查清单+docs/specs/P0_003_002_008_001_001_spec.md | bd695138 |
 | P0-003-002-008-001-002 | 编写MyBatis-Plus TenantLineInnerInterceptor | 2026-06-01T13:45 | ✅ | TenantInterceptor.java:独立@Component实现TenantLineHandler+MybatisPlusConfig.java重构移除匿名内部类+docs/specs/P0_003_002_008_001_002_spec.md | ba1f5d2e |
 | P0-003-002-009-001-001 | 编写DDL | 2026-06-01T14:00 | ✅ | db/migration/V20260526001__task_P0_003_002_009_001_001.sql:创建erp_base.doc_detail_location/doc_detail_batch/doc_detail_serial三个辅助属性子表(各含业务字段+22扩展+10公共+索引+COMMENT)+fn_validate_aux_table校验函数+docs/specs/P0_003_002_009_001_001_spec.md | 9bac0e52 |
+| P0-003-003-001-001-001 | 编写CREATE TABLE语句 | 2026-06-01T14:30 | ✅ | db/migration/V20260601003__create_org_company.sql:org_company公司表DDL(10通用字段+6业务字段+扩展字段+COMMENT注释+decimal(18,8)精度)+回滚脚本 | 9158ccaa |
+| P0-003-003-001-001-002 | 编写org_company公司表索引与约束 | 2026-06-01T15:00 | ✅ | db/migration/V20260601004__create_org_company_indexes.sql:主键约束重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | 06849415 |
 
 ---
 
@@ -442,10 +444,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 291 | 2 | 13.55% |
+| P0 | 14 | 2,147 | 293 | 2 | 13.65% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **290** | **2** | **6.15%** |
+| **合计** | **46** | **4,716** | **292** | **2** | **6.19%** |
 
 ---
 
