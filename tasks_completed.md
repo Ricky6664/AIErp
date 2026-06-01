@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-01T22:00
-> **归档总数**：355 条
+> **最后更新**：2026-06-02T00:00
+> **归档总数**：356 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -547,6 +547,7 @@
 | P0-003-005-010-001-002 | 编写crm_opportunity客户机会表索引与约束 | 2026-06-01T23:15 | ✅ | db/migration/V20260601098:PK重命名(pk_crm_opportunity)+部分唯一索引uk_crm_opportunity_code(WHERE is_deleted=false)+6个多租户联合索引(tenant_id首列)+8个业务查询索引+回滚脚本 | 820e6d8e |
 | P0-003-005-010-001-003 | 验证编写crm_opportunity客户机会表DDL | 2026-06-01T23:30 | ✅ | db/migration/V20260601099:18项验证查询SQL+docs/verification/crm_opportunity_verify_report.md(全部PASS) | 113f267d |
 | P0-003-005-011-001-001 | 编写CREATE TABLE语句 | 2026-06-01T23:45 | ✅ | db/migration/V20260601100:CREATE TABLE crm_project(8业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8)精度)+回滚脚本 | a7ab1b5b |
+| P0-003-005-011-001-002 | 编写crm_project客户项目表索引与约束 | 2026-06-02T00:00 | ✅ | db/migration/V20260601101:PK重命名(pk_crm_project)+部分唯一索引uk_crm_project_code(WHERE is_deleted=false)+6个多租户联合索引(tenant_id首列)+8个业务查询索引+回滚脚本 | (待提交) |
 
 ---
 
