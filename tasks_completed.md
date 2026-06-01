@@ -492,7 +492,8 @@
 | P0-003-004-014-001-001 | 编写CREATE TABLE语句 | 2026-06-01T22:45 | ✅ | db/migration/V20260601048:CREATE TABLE prod_product_price(12业务字段+10通用字段+COMMENT,decimal(18,8)统一精度)+回滚脚本 | 7abebbbc |
 | P0-003-004-014-001-002 | 编写prod_product_price表索引与约束 | 2026-06-01T22:55 | ✅ | db/migration/V20260601049:PK重命名+部分唯一索引uk_code(WHERE is_deleted=false)+2个多租户联合索引+9个业务查询索引+回滚脚本 | 083d6954 |
 | P0-003-004-014-001-003 | 验证DDL | 2026-06-01T23:00 | ✅ | db/migration/V20260601050:20项验证查询SQL+docs/verification/prod_product_price_verify_report.md:12节验证报告(22字段+12索引+100%COMMENT+decimal(18,8)+无外键) | fbfd42ce |
-| P0-003-004-015-001-001 | 编写CREATE TABLE语句 | 2026-06-01T22:50 | ✅ | db/migration/V20260601051:CREATE TABLE prod_product_attribute(6业务字段+10通用字段+COMMENT)+回滚;V20260601052:CREATE TABLE prod_product_attribute_value(5业务字段+10通用字段+COMMENT)+回滚 | (pending) |
+| P0-003-004-015-001-001 | 编写CREATE TABLE语句 | 2026-06-01T22:50 | ✅ | db/migration/V20260601051:CREATE TABLE prod_product_attribute(6业务字段+10通用字段+COMMENT)+回滚;V20260601052:CREATE TABLE prod_product_attribute_value(5业务字段+10通用字段+COMMENT)+回滚 | 767731f2 |
+| P0-003-004-015-001-002 | 编写索引与约束 | 2026-06-01T23:00 | ✅ | db/migration/V20260601053:PK重命名+部分唯一索引uk_code(WHERE is_deleted=false)+2个多租户联合索引+3个业务查询索引+回滚脚本 | (pending) |
 
 ---
 
