@@ -436,7 +436,7 @@
 | P0-003-002-009-001-001 | 编写DDL | 2026-06-01T14:00 | ✅ | db/migration/V20260526001__task_P0_003_002_009_001_001.sql:创建erp_base.doc_detail_location/doc_detail_batch/doc_detail_serial三个辅助属性子表(各含业务字段+22扩展+10公共+索引+COMMENT)+fn_validate_aux_table校验函数+docs/specs/P0_003_002_009_001_001_spec.md | 9bac0e52 |
 | P0-003-003-001-001-001 | 编写CREATE TABLE语句 | 2026-06-01T14:30 | ✅ | db/migration/V20260601003__create_org_company.sql:org_company公司表DDL(10通用字段+6业务字段+扩展字段+COMMENT注释+decimal(18,8)精度)+回滚脚本 | 9158ccaa |
 | P0-003-003-001-001-002 | 编写org_company公司表索引与约束 | 2026-06-01T15:00 | ✅ | db/migration/V20260601004__create_org_company_indexes.sql:主键约束重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引+回滚脚本 | 06849415 |
-| P0-003-003-001-001-003 | 验证编写org_company公司表DDL | 2026-06-01T15:30 | ✅ | db/migration/V20260526001__verify_org_company.sql:13项验证SQL(表存在性/字段完整性/通用字段/精度/NOT NULL/主键/部分唯一索引/多租户索引/COMMENT/外键/Flyway)+docs/verification/org_company_verify_report.md:完整验证报告(发现问题:索引列名code应为company_code/22个扩展字段缺COMMENT) | __SHA__ |
+| P0-003-003-001-001-003 | 验证编写org_company公司表DDL | 2026-06-01T15:30 | ✅ | db/migration/V20260526001__verify_org_company.sql:13项验证SQL(表存在性/字段完整性/通用字段/精度/NOT NULL/主键/部分唯一索引/多租户索引/COMMENT/外键/Flyway)+docs/verification/org_company_verify_report.md:完整验证报告(发现问题:索引列名code应为company_code/22个扩展字段缺COMMENT) | 908a4114 |
 
 ---
 
