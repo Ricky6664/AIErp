@@ -548,6 +548,7 @@
 | P0-003-005-010-001-003 | 验证编写crm_opportunity客户机会表DDL | 2026-06-01T23:30 | ✅ | db/migration/V20260601099:18项验证查询SQL+docs/verification/crm_opportunity_verify_report.md(全部PASS) | 113f267d |
 | P0-003-005-011-001-001 | 编写CREATE TABLE语句 | 2026-06-01T23:45 | ✅ | db/migration/V20260601100:CREATE TABLE crm_project(8业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8)精度)+回滚脚本 | a7ab1b5b |
 | P0-003-005-011-001-002 | 编写crm_project客户项目表索引与约束 | 2026-06-02T00:00 | ✅ | db/migration/V20260601101:PK重命名(pk_crm_project)+部分唯一索引uk_crm_project_code(WHERE is_deleted=false)+6个多租户联合索引(tenant_id首列)+8个业务查询索引+回滚脚本 | bfdaccee |
+| P0-003-005-011-001-003 | 验证编写crm_project客户项目表DDL | 2026-06-02T06:30 | ✅ | db/migration/V20260601102:18项验证查询SQL+docs/verification/crm_project_verify_report.md:10节验证报告(57字段+20索引+100%COMMENT覆盖率+全部易错警示规避+静态审查全PASS) | TBD |
 
 ---
 
@@ -559,7 +560,7 @@
 | P0 | 14 | 2,147 | 343 | 2 | 15.98% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **342** | **2** | **7.25%** |
+| **合计** | **46** | **4,716** | **343** | **2** | **7.27%** |
 
 ---
 
