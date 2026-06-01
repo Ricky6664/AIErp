@@ -545,7 +545,7 @@
 | P0-003-005-009-001-003 | 验证编写crm_customer_finance客户财务配置表DDL | 2026-06-01T22:35 | ✅ | db/migration/V20260601096:18项验证查询SQL+docs/verification/crm_customer_finance_verify_report.md(全部PASS) | 6a28e579 |
 | P0-003-005-010-001-001 | 编写CREATE TABLE语句 | 2026-06-01T23:00 | ✅ | db/migration/V20260601097:CREATE TABLE crm_opportunity(11业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8)精度)+回滚脚本 | e1b4a640 |
 | P0-003-005-010-001-002 | 编写crm_opportunity客户机会表索引与约束 | 2026-06-01T23:15 | ✅ | db/migration/V20260601098:PK重命名(pk_crm_opportunity)+部分唯一索引uk_crm_opportunity_code(WHERE is_deleted=false)+6个多租户联合索引(tenant_id首列)+8个业务查询索引+回滚脚本 | 820e6d8e |
-| P0-003-005-010-001-003 | 验证编写crm_opportunity客户机会表DDL | 2026-06-01T23:30 | ✅ | db/migration/V20260601099:18项验证查询SQL+docs/verification/crm_opportunity_verify_report.md(全部PASS) | (待填写) |
+| P0-003-005-010-001-003 | 验证编写crm_opportunity客户机会表DDL | 2026-06-01T23:30 | ✅ | db/migration/V20260601099:18项验证查询SQL+docs/verification/crm_opportunity_verify_report.md(全部PASS) | 113f267d |
 
 ---
 
