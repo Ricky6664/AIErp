@@ -534,6 +534,7 @@
 | P0-003-005-006-001-001 | 编写CREATE TABLE语句 | 2026-06-01T21:00 | ✅ | db/migration/V20260601085:CREATE TABLE crm_customer_tag_rel(4业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8)精度)+回滚脚本 | 474d9c2a |
 | P0-003-005-006-001-002 | 编写crm_customer_tag_rel客户标签关联表索引与约束 | 2026-06-01T21:10 | ✅ | db/migration/V20260601086:PK重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引(customer_id/tag_id/通用字段/日期)+回滚脚本 | 418d9d6ef |
 | P0-003-005-006-001-003 | 验证编写crm_customer_tag_rel客户标签关联表DDL | 2026-06-01T21:25 | ✅ | db/migration/V20260601087:18项验证查询SQL+docs/verification/crm_customer_tag_rel_verify_report.md(全部PASS,0 CRITICAL) | 765970f1 |
+| P0-003-005-007-001-001 | 编写CREATE TABLE语句 | 2026-06-01T20:50 | ✅ | db/migration/V20260601088: crm_customer_attachment客户附件表CREATE TABLE+COMMENT+rollback | — |
 
 ---
 
