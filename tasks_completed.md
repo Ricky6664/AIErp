@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-01T21:40
-> **归档总数**：354 条
+> **最后更新**：2026-06-01T22:00
+> **归档总数**：355 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -539,6 +539,7 @@
 | P0-003-005-007-001-003 | 验证编写crm_customer_attachment客户附件表DDL | 2026-06-01T20:20 | ✅ | db/migration/V20260601090:18项验证查询SQL+docs/verification/crm_customer_attachment_verify_report.md(全部PASS,0 CRITICAL) | (待填写) |
 | P0-003-005-008-001-001 | 编写CREATE TABLE语句 | 2026-06-01T21:40 | ✅ | db/migration/V20260601091:CREATE TABLE crm_customer_evaluation(11业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8)精度)+回滚脚本 | (待填写) |
 | P0-003-005-008-001-002 | 编写crm_customer_evaluation客户评价表索引与约束 | 2026-06-01T21:50 | ✅ | db/migration/V20260601092: PK重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引(customer_id/parent_id/evaluator_id/通用字段/日期)+回滚脚本 | 87afc516 |
+| P0-003-005-008-001-003 | 验证编写crm_customer_evaluation客户评价表DDL | 2026-06-01T22:00 | ✅ | db/migration/V20260601093:18项验证查询SQL+docs/verification/crm_customer_evaluation_verify_report.md(全部PASS,0 CRITICAL) | (待填写) |
 
 ---
 
