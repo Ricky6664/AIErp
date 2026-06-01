@@ -432,7 +432,7 @@
 | P0-003-002-007-001-001 | 编写DDL | 2026-06-01T12:00 | ✅ | db/migration/V20260526001__task_P0_003_002_007_001_001.sql:创建erp_base.detail_product_field_spec规范表(16字段:3结构字段+13快照字段)+fn_validate_detail_product_fields校验函数+DDL片段模板/索引模板/完整采购单明细建表示例/快照原则核心设计要点+docs/specs/P0_003_002_007_001_001_spec.md | 716ce62e |
 | P0-003-002-007-001-002 | 编写快照约束说明 | 2026-06-01T13:00 | ✅ | db/migration/V20260526001__task_P0_003_002_007_001_002.sql:创建erp_base.detail_snapshot_constraint快照约束元数据表(50条规则:10快照字段×5单据状态)+fn_validate_snapshot_constraints校验函数+五条核心规则文档/状态转换矩阵/开发检查清单/前端交互规范+docs/specs/P0_003_002_007_001_002_spec.md | 3a890daf |
 | P0-003-002-008-001-001 | 编写DDL规范 | 2026-06-01T13:30 | ✅ | db/migration/V20260526001__atis_related.sql:创建erp_base.tenant_isolation_constraint多租户隔离约束元数据表(29个已注册业务表)+fn_validate_tenant_isolation_ddl单表校验函数+fn_validate_all_tenant_isolation_ddl批量校验函数+七条核心规则文档/DDL标准模板/常见错误对照/开发检查清单+docs/specs/P0_003_002_008_001_001_spec.md | bd695138 |
-| P0-003-002-008-001-002 | 编写MyBatis-Plus TenantLineInnerInterceptor | 2026-06-01T13:45 | ✅ | src/main/java/com/erp/framework/tenant/TenantInterceptor.java:独立@Component组件实现TenantLineHandler(从Sa-Token获取tenantId+IGNORE_TABLES豁免系统表)+MybatisPlusConfig.java:移除匿名内部类改为构造注入TenantInterceptor+docs/specs/P0_003_002_008_001_002_spec.md | (待提交) |
+| P0-003-002-008-001-002 | 编写MyBatis-Plus TenantLineInnerInterceptor | 2026-06-01T13:45 | ✅ | TenantInterceptor.java:独立@Component实现TenantLineHandler+MybatisPlusConfig.java重构移除匿名内部类+docs/specs/P0_003_002_008_001_002_spec.md | ba1f5d2e |
 
 ---
 
