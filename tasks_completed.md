@@ -587,6 +587,7 @@
 | P0-003-007-002-001-001 | 编写CREATE TABLE语句 | 2026-06-02T17:20 | ✅ | db/migration/V20260526001:CREATE TABLE inv_location(5业务字段+10通用字段+22扩展字段+全COMMENT+decimal(18,8))+回滚脚本 | — |
 | P0-003-007-002-001-002 | 编写inv_location库位管理表索引与约束 | 2026-06-02T17:35 | ✅ | db/migration/V20260602001:PK重命名+部分唯一索引uk_inv_location_code(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引+回滚脚本 | — |
 | P0-003-007-002-001-003 | 验证编写inv_location库位管理表DDL | 2026-06-02T17:45 | ✅ | db/migration/V20260526001:15项验证SQL+docs/verification/inv_location_verify_report.md:5节完整报告(发现问题:Flyway版本冲突+扩展字段COMMENT缺失) | — |
+| P0-003-007-003-001-001 | 编写CREATE TABLE语句 | 2026-06-02T17:50 | ✅ | db/migration/V20260526001:CREATE TABLE inv_stock(22业务字段+10通用字段+22扩展字段+32条COMMENT+decimal(18,8))+回滚脚本 | — |
 
 ---
 
