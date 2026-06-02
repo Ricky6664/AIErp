@@ -599,6 +599,7 @@
 | P0-003-007-005-001-001 | 编写inv_other_outbound_detail其他出库主从表CREATE TABLE语句 | 2026-06-02T14:52 | ✅ | db/migration/V20260526001:CREATE TABLE inv_other_outbound(14业务字段+10通用字段)+inv_other_outbound_detail(35业务字段+10通用字段)+全COMMENT+decimal(18,8) | 6a2f442a |
 | P0-003-007-005-001-002 | 编写inv_other_outbound_detail其他出库主从表索引与约束 | 2026-06-02T17:20 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk_inv_other_outbound_detail_code(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(15个索引)+回滚脚本 | — |
 | P0-003-007-005-001-003 | 验证编写inv_other_outbound_detail其他出库主从表DDL | 2026-06-02T17:30 | ✅ | db/migration/V20260602001__verify_inv_other_outbound_detail.sql:22项验证SQL+docs/verification/inv_other_outbound_detail_verify_report.md:验收报告 | — |
+| P0-003-007-006-001-001 | 编写inv_other_inbound_detail其他入库主从表CREATE TABLE语句 | 2026-06-02T17:40 | ✅ | db/migration/V20260526001:CREATE TABLE inv_other_inbound(14业务字段+10通用字段)+inv_other_inbound_detail(35业务字段+10通用字段)+全COMMENT+decimal(18,8) | — |
 
 ---
 
@@ -607,10 +608,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 364 | 2 | 16.95% |
+| P0 | 14 | 2,147 | 365 | 2 | 17.00% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **361** | **2** | **7.66%** |
+| **合计** | **46** | **4,716** | **362** | **2** | **7.68%** |
 
 ---
 
