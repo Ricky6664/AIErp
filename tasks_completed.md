@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-02T18:30
-> **归档总数**：362 条
+> **最后更新**：2026-06-02T17:30
+> **归档总数**：363 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -598,6 +598,7 @@
 | P0-003-007-004-001-003 | 验证编写inv_stock_location库位库存表DDL | 2026-06-02T19:00 | ✅ | db/migration/V20260526001__verify_inv_stock_location.sql:13项验证SQL+docs/verification/inv_stock_location_verify_report.md:5节完整报告(1MEDIUM:22扩展字段缺COMMENT, 1WARN:Flyway版本共享) | 4d5f4365 |
 | P0-003-007-005-001-001 | 编写inv_other_outbound_detail其他出库主从表CREATE TABLE语句 | 2026-06-02T14:52 | ✅ | db/migration/V20260526001:CREATE TABLE inv_other_outbound(14业务字段+10通用字段)+inv_other_outbound_detail(35业务字段+10通用字段)+全COMMENT+decimal(18,8) | 6a2f442a |
 | P0-003-007-005-001-002 | 编写inv_other_outbound_detail其他出库主从表索引与约束 | 2026-06-02T17:20 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk_inv_other_outbound_detail_code(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(15个索引)+回滚脚本 | — |
+| P0-003-007-005-001-003 | 验证编写inv_other_outbound_detail其他出库主从表DDL | 2026-06-02T17:30 | ✅ | db/migration/V20260602001__verify_inv_other_outbound_detail.sql:22项验证SQL+docs/verification/inv_other_outbound_detail_verify_report.md:验收报告 | — |
 
 ---
 
