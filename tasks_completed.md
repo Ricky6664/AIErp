@@ -2,7 +2,7 @@
 
 > **最后更新**：2026-06-02T17:20
 > **最后更新**：2026-06-02T18:00
-> **归档总数**：453 条
+> **归档总数**：454 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -589,6 +589,7 @@
 | P0-003-007-002-001-003 | 验证编写inv_location库位管理表DDL | 2026-06-02T17:45 | ✅ | db/migration/V20260526001:15项验证SQL+docs/verification/inv_location_verify_report.md:5节完整报告(发现问题:Flyway版本冲突+扩展字段COMMENT缺失) | — |
 | P0-003-007-003-001-001 | 编写CREATE TABLE语句 | 2026-06-02T17:50 | ✅ | db/migration/V20260526001:CREATE TABLE inv_stock(22业务字段+10通用字段+22扩展字段+32条COMMENT+decimal(18,8))+回滚脚本 | — |
 | P0-003-007-003-001-002 | 编写inv_stock库存实时表索引与约束 | 2026-06-02T18:00 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk_inv_stock_order_no(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(14个索引)+回滚脚本 | — |
+| P0-003-007-003-001-003 | 验证编写inv_stock库存实时表DDL | 2026-06-02T18:15 | ✅ | db/migration/V20260526001__verify_inv_stock.sql:15项验证SQL(表存在/字段/通用字段/精度/PK/部分唯一索引/索引数量/多租户索引/COMMENT/NOT NULL/FK/列名)+docs/verification/inv_stock_verify_report.md:5节完整报告(1MEDIUM:22扩展字段缺COMMENT, 1WARN:Flyway版本共享) | — |
 
 ---
 
