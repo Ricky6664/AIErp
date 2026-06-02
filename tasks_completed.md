@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-02T18:30
-> **归档总数**：360 条
+> **归档总数**：362 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -596,6 +596,8 @@
 | P0-003-007-004-001-001 | 编写CREATE TABLE语句 | 2026-06-02T17:05 | ✅ | db/migration/V20260526001__create_inv_stock_location.sql:CREATE TABLE inv_stock_location(6业务字段+4单据字段+11商品快照+22扩展字段+10通用字段+全COMMENT+decimal(18,8))+回滚脚本 | — |
 | P0-003-007-004-001-002 | 编写inv_stock_location库位库存表索引与约束 | 2026-06-02T18:30 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk_inv_stock_location_unique(5列组合WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(17个索引)+回滚脚本 | — |
 | P0-003-007-004-001-003 | 验证编写inv_stock_location库位库存表DDL | 2026-06-02T19:00 | ✅ | db/migration/V20260526001__verify_inv_stock_location.sql:13项验证SQL+docs/verification/inv_stock_location_verify_report.md:5节完整报告(1MEDIUM:22扩展字段缺COMMENT, 1WARN:Flyway版本共享) | 4d5f4365 |
+| P0-003-007-005-001-001 | 编写inv_other_outbound_detail其他出库主从表CREATE TABLE语句 | 2026-06-02T14:52 | ✅ | db/migration/V20260526001:CREATE TABLE inv_other_outbound(14业务字段+10通用字段)+inv_other_outbound_detail(35业务字段+10通用字段)+全COMMENT+decimal(18,8) | 6a2f442a |
+| P0-003-007-005-001-002 | 编写inv_other_outbound_detail其他出库主从表索引与约束 | 2026-06-02T17:20 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk_inv_other_outbound_detail_code(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(15个索引)+回滚脚本 | — |
 
 ---
 
@@ -604,10 +606,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 362 | 2 | 16.86% |
+| P0 | 14 | 2,147 | 364 | 2 | 16.95% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **359** | **2** | **7.61%** |
+| **合计** | **46** | **4,716** | **361** | **2** | **7.66%** |
 
 ---
 
