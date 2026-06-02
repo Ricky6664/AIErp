@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-02T18:15
-> **归档总数**：435 条
+> **归档总数**：436 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -565,6 +565,7 @@
 | P0-003-006-005-001-002 | 编写srm_supplier_address供应商地址表索引与约束 | 2026-06-02T18:00 | ✅ | db/migration/V20260602011:PK重命名+部分唯一索引(WHERE is_deleted=false, supplier_id+address_type)+多租户联合索引(tenant_id首列)+业务查询索引(FK/supplier_id/status/日期)+回滚脚本 | 2a22439a |
 | P0-003-006-005-001-003 | 验证编写srm_supplier_address供应商地址表DDL | 2026-06-02T18:30 | ✅ | db/migration/V20260602012:11项验证SQL(表/字段/约束/索引/COMMENT/Flyway/外键/类型/长度/精度/汇总)+docs/verification/srm_supplier_address_verify_report.md(40项全PASS) | — |
 | P0-003-006-006-001-001 | 编写CREATE TABLE语句 | 2026-06-02T18:15 | ✅ | db/migration/V20260602013:CREATE TABLE srm_supplier_tag_rel(10通用字段+4业务字段(supplier_id/tag_id/code/status)+扩展字段)+rollback脚本 | 0b84473b |
+| P0-003-006-006-001-002 | 编写srm_supplier_tag_rel供应商标签关联表索引与约束 | 2026-06-02T19:00 | ✅ | db/migration/V20260602014:PK重命名(pk_srm_supplier_tag_rel)+部分唯一索引uk(WHERE is_deleted=false)+2多租户联合索引(tenant_id首列)+8业务查询索引+回滚脚本 | (pending) |
 
 ---
 
