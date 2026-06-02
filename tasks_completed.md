@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-02T17:10
-> **归档总数**：367 条
+> **归档总数**：368 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -606,6 +606,7 @@
 | P0-003-007-007-001-002 | 编写inv_stocktaking_detail盘点主从表索引与约束 | 2026-06-02T17:00 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表17个+从表15个共32个索引)+回滚脚本 | — |
 | P0-003-007-007-001-003 | 验证编写inv_stocktaking_detail盘点主从表DDL | 2026-06-02T18:00 | ✅ | db/migration/V20260526001__verify_inv_stocktaking_detail.sql:29项验证SQL(主表14+从表14+Flyway+主从关联)+docs/verification/inv_stocktaking_detail_verify_report.md:5节完整报告(1MEDIUM:22扩展字段缺COMMENT, 1WARN:Flyway版本共享) | — |
 | P0-003-007-008-001-001 | 编写CREATE TABLE语句 | 2026-06-02T17:10 | ✅ | db/migration/V20260526001:CREATE TABLE inv_transfer(12业务字段+10通用字段)+inv_transfer_detail(26业务字段+10通用字段+22扩展字段)+全COMMENT+decimal(18,8)+回滚脚本 | — |
+| P0-003-007-008-001-002 | 编写inv_transfer_detail调拨主从表索引与约束 | 2026-06-02T17:05 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表18个+从表16个共34个索引)+回滚脚本 | — |
 
 ---
 
