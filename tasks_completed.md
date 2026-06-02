@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-02T20:10
-> **归档总数**：440 条
+> **最后更新**：2026-06-02T17:20
+> **归档总数**：441 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -582,6 +582,7 @@
 |---------|---------|---------|:---:|------|:---:|
 | P0-003-007-001-001-001 | 编写CREATE TABLE语句 | 2026-06-02T17:10 | ✅ | db/migration/V20260526001:CREATE TABLE inv_warehouse(5业务字段+10通用字段+22扩展字段+全COMMENT+decimal(18,8))+回滚脚本 | — |
 | P0-003-007-001-001-002 | 编写inv_warehouse仓库定义表索引与约束 | 2026-06-02T17:10 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk_warehouse_code(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引+通用字段索引+回滚脚本 | — |
+| P0-003-007-001-001-003 | 验证编写inv_warehouse仓库定义表DDL | 2026-06-02T17:20 | ✅ | db/migration/V20260526001:15项验证SQL(表存在/字段/通用字段/精度/PK/部分唯一索引/索引数量/多租户索引/COMMENT/NOT NULL/FK/列名)+docs/verification/inv_warehouse_verify_report.md:4节完整报告(14/14核心检查通过) | — |
 
 ---
 
