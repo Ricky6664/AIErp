@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-02T17:00
-> **归档总数**：428 条
+> **最后更新**：2026-06-02T17:30
+> **归档总数**：429 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -558,6 +558,7 @@
 | P0-003-006-003-001-001 | 编写CREATE TABLE语句 | 2026-06-02T15:00 | ✅ | db/migration/V20260602004:CREATE TABLE srm_supplier(5业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8))+回滚脚本 | (pending) |
 | P0-003-006-003-001-002 | 编写srm_supplier供应商主表索引与约束 | 2026-06-02T16:00 | ✅ | db/migration/V20260602005:PK重命名(pk_srm_supplier)+部分唯一索引uk(WHERE is_deleted=false)+3多租户联合索引+6业务查询索引+回滚脚本 | (pending) |
 | P0-003-006-003-001-003 | 验证编写srm_supplier供应商主表DDL | 2026-06-02T17:00 | ✅ | db/migration/V20260602006:20项验证SQL(表/字段/约束/索引/COMMENT/Flyway/外键/类型/长度)+docs/verification/srm_supplier_verify_report.md(37项全PASS) | 3575917a |
+| P0-003-006-004-001-001 | 编写CREATE TABLE语句 | 2026-06-02T17:30 | ✅ | db/migration/V20260602007:CREATE TABLE srm_supplier_comm供应商联系人通讯表(9业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8))+回滚脚本 | (pending) |
 
 ---
 
