@@ -603,6 +603,7 @@
 | P0-003-007-006-001-002 | 编写inv_other_inbound_detail其他入库主从表索引与约束 | 2026-06-02T18:00 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表17个+从表15个共32个索引)+回滚脚本 | — |
 | P0-003-007-006-001-003 | 验证编写inv_other_inbound_detail其他入库主从表DDL | 2026-06-02T18:15 | ✅ | db/migration/V20260602002__verify_inv_other_inbound_detail.sql:26项验证SQL+docs/verification/inv_other_inbound_detail_verify_report.md:验收报告(5节:摘要/结构/索引/规范/验收对照) | — |
 | P0-003-007-007-001-001 | 编写CREATE TABLE语句 | 2026-06-02T17:30 | ✅ | db/migration/V20260526001:CREATE TABLE inv_stocktaking(12业务字段+10通用字段)+inv_stocktaking_detail(26业务字段+10通用字段+22扩展字段)+全COMMENT+decimal(18,8)+回滚脚本 | — |
+| P0-003-007-007-001-002 | 编写inv_stocktaking_detail盘点主从表索引与约束 | 2026-06-02T17:00 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表17个+从表15个共32个索引)+回滚脚本 | — |
 
 ---
 
