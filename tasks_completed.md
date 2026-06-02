@@ -560,7 +560,7 @@
 | P0-003-006-003-001-003 | 验证编写srm_supplier供应商主表DDL | 2026-06-02T17:00 | ✅ | db/migration/V20260602006:20项验证SQL(表/字段/约束/索引/COMMENT/Flyway/外键/类型/长度)+docs/verification/srm_supplier_verify_report.md(37项全PASS) | 3575917a |
 | P0-003-006-004-001-001 | 编写CREATE TABLE语句 | 2026-06-02T17:30 | ✅ | db/migration/V20260602007:CREATE TABLE srm_supplier_comm供应商联系人通讯表(9业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8))+回滚脚本 | 60c41c94 |
 | P0-003-006-004-001-002 | 编写srm_supplier_comm供应商联系人表索引与约束 | 2026-06-02T17:40 | ✅ | db/migration/V20260602008:PK重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引(FK/supplier_id/status/parent_id/日期)+回滚脚本 | e9d8cb5a |
-| P0-003-006-004-001-003 | 验证编写srm_supplier_comm供应商联系人表DDL | 2026-06-02T18:00 | ✅ | db/migration/V20260602009:11项验证SQL(表/字段/约束/索引/COMMENT/Flyway/外键/类型/长度/精度/汇总)+docs/verification/srm_supplier_comm_verify_report.md(41项全PASS) | — |
+| P0-003-006-004-001-003 | 验证编写srm_supplier_comm供应商联系人表DDL | 2026-06-02T18:00 | ✅ | db/migration/V20260602009:11项验证SQL(表/字段/约束/索引/COMMENT/Flyway/外键/类型/长度/精度/汇总)+docs/verification/srm_supplier_comm_verify_report.md(41项全PASS) | 12c6c5b3 |
 
 ---
 
