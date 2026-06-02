@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-02T00:00
-> **归档总数**：358 条
+> **归档总数**：359 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -554,6 +554,7 @@
 | P0-003-006-001-001-003 | 验证编写srm_supplier_class供应商分类表DDL | 2026-06-02T10:30 | ✅ | db/migration/V20260601105__verify_srm_supplier_class.sql(18项验证SQL)+docs/verification/srm_supplier_class_verify_report.md(全部PASS, 0CRITICAL, 0WARNING, COMMENT覆盖率100%) | (pending) |
 | P0-003-006-002-001-001 | 编写CREATE TABLE语句 | 2026-06-02T12:00 | ✅ | db/migration/V20260602001:CREATE TABLE srm_tag_definition(5业务字段+10通用字段+22扩展字段+COMMENT+decimal(18,8))+spec文档 | (pending) |
 | P0-003-006-002-001-002 | 编写SRM标签定义表索引与约束 | 2026-06-02T13:00 | ✅ | db/migration/V20260602002:PK重命名(pk_srm_tag_definition)+部分唯一索引uk(WHERE is_deleted=false)+2多租户联合索引+3业务查询索引+5通用字段索引+spec文档 | (pending) |
+| P0-003-006-002-001-003 | 验证编写SRM标签定义表DDL | 2026-06-02T14:00 | ✅ | db/migration/V20260602003:17项验证SQL(表/字段/约束/索引/COMMENT/Flyway/外键)+docs/specs/P0_003_006_002_001_003_spec.md(验证规范文档) | (pending) |
 
 ---
 
