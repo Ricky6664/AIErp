@@ -610,6 +610,7 @@
 | P0-003-007-008-001-003 | 验证编写inv_transfer_detail调拨主从表DDL | 2026-06-02T17:30 | ✅ | db/migration/V20260526001__verify_inv_transfer_detail.sql:17项验证SQL(表存在/字段/通用字段/精度/NOT NULL/PK/部分唯一索引/多租户索引/COMMENT/FK/Flyway/默认值)+docs/verification/inv_transfer_detail_verify_report.md:5节完整报告(1MEDIUM:22扩展字段缺COMMENT, 1WARN:Flyway版本共享) | — |
 | P0-003-007-009-001-001 | 编写CREATE TABLE语句 | 2026-06-02T17:30 | ✅ | db/migration/V20260526001:CREATE TABLE inv_loss(12业务字段+10通用字段)+inv_loss_detail(26业务字段+10通用字段+22扩展字段)+全COMMENT+decimal(18,8)+回滚脚本 | — |
 | P0-003-007-009-001-002 | 编写inv_loss_detail报损主从表索引与约束 | 2026-06-02T17:45 | ✅ | db/migration/V20260526001:PK重命名(inv_loss+inv_loss_detail)+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表17个+从表15个共32个索引)+回滚脚本 | — |
+| P0-003-007-009-001-003 | 验证编写inv_loss_detail报损主从表DDL | 2026-06-02T16:03 | ✅ | db/migration/V20260526001__verify_inv_loss_detail.sql:17项验证SQL(2表/主表columns/PK/部分唯一索引/索引列表/多租户索引/COMMENT/NOT NULL/FK/列名/精度)+docs/verification/inv_loss_detail_verify_report.md:6节完整报告(验证范围/结构验证/索引约束/规范合规/易错对照/验收总结) | 7c55c82c |
 
 ---
 
@@ -618,10 +619,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 371 | 2 | 17.28% |
+| P0 | 14 | 2,147 | 372 | 2 | 17.33% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **368** | **2** | **7.80%** |
+| **合计** | **46** | **4,716** | **372** | **2** | **7.89%** |
 
 ---
 
