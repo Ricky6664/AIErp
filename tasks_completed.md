@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-02T00:00
-> **归档总数**：357 条
+> **归档总数**：358 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -551,6 +551,7 @@
 | P0-003-005-011-001-003 | 验证编写crm_project客户项目表DDL | 2026-06-02T06:30 | ✅ | db/migration/V20260601102:18项验证查询SQL+docs/verification/crm_project_verify_report.md:10节验证报告(57字段+20索引+100%COMMENT覆盖率+全部易错警示规避+静态审查全PASS) | 16cdd75a |
 | P0-003-006-001-001-001 | 编写CREATE TABLE语句 | 2026-06-01T20:30 | ✅ | db/migration/V20260601103:srm_supplier_class供应商分类表DDL(10通用字段+3业务字段+扩展字段+COMMENT)+回滚脚本 | 46e28907 |
 | P0-003-006-001-001-002 | 编写srm_supplier_class供应商分类表索引与约束 | 2026-06-02T07:00 | ✅ | db/migration/V20260601104:补充status列+PK重命名(pk_srm_supplier_class)+部分唯一索引uk(WHERE is_deleted=false)+3多租户联合索引+6业务查询索引+回滚脚本 | (pending) |
+| P0-003-006-001-001-003 | 验证编写srm_supplier_class供应商分类表DDL | 2026-06-02T10:30 | ✅ | db/migration/V20260601105__verify_srm_supplier_class.sql(18项验证SQL)+docs/verification/srm_supplier_class_verify_report.md(全部PASS, 0CRITICAL, 0WARNING, COMMENT覆盖率100%) | (pending) |
 
 ---
 
@@ -559,10 +560,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 345 | 2 | 16.07% |
+| P0 | 14 | 2,147 | 346 | 2 | 16.12% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **344** | **2** | **7.30%** |
+| **合计** | **46** | **4,716** | **346** | **2** | **7.34%** |
 
 ---
 
