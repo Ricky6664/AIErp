@@ -569,7 +569,8 @@
 | P0-003-006-006-001-003 | 验证编写srm_supplier_tag_rel供应商标签关联表DDL | 2026-06-02T19:20 | ✅ | db/migration/V20260602015:11项验证SQL(表/字段/通用字段/索引/约束/COMMENT/Flyway/精度/部分唯一索引/多租户索引/汇总)+docs/verification/srm_supplier_tag_rel_verify_report.md(7项易错警示全部规避) | f2885535 |
 | P0-003-006-007-001-001 | 编写CREATE TABLE语句 | 2026-06-02T19:30 | ✅ | db/migration/V20260602016__create_srm_supplier_attachment.sql(11业务字段+10通用字段+全COMMENT) + V20260602016回滚脚本 | — |
 | P0-003-006-007-001-002 | 编写srm_supplier_attachment供应商附件表索引与约束 | 2026-06-02T17:06 | ✅ | db/migration/V20260602017:PK重命名(pk_srm_supplier_attachment)+部分唯一索引uk(WHERE is_deleted=false)+2多租户联合索引(tenant_id首列)+9业务查询索引+回滚脚本 | 32982f49 |
-| P0-003-006-007-001-003 | 验证编写srm_supplier_attachment供应商附件表DDL | 2026-06-02T19:45 | ✅ | db/migration/V20260602018:11项验证SQL(表/字段/通用字段/索引/约束/COMMENT/Flyway/精度/部分唯一索引/多租户索引/汇总)+docs/verification/srm_supplier_attachment_verify_report.md(7项易错警示全部规避) | — |
+| P0-003-006-007-001-003 | 验证编写srm_supplier_attachment供应商附件表DDL | 2026-06-02T19:45 | ✅ | db/migration/V20260602018:11项验证SQL(表/字段/通用字段/索引/约束/COMMENT/Flyway/精度/部分唯一索引/多租户索引/汇总)+docs/verification/srm_supplier_attachment_verify_report.md(7项易错警示全部规避) | 773d43a4 |
+| P0-003-006-008-001-001 | 编写CREATE TABLE语句 | 2026-06-02T20:00 | ✅ | db/migration/V20260602019:CREATE TABLE srm_supplier_evaluation(11业务字段+10通用字段+22扩展字段+全COMMENT+decimal(18,8))+回滚脚本 | ebe3b5bb |
 
 ---
 
@@ -578,10 +579,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 351 | 2 | 16.35% |
+| P0 | 14 | 2,147 | 352 | 2 | 16.39% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **351** | **2** | **7.44%** |
+| **合计** | **46** | **4,716** | **352** | **2** | **7.46%** |
 
 ---
 
