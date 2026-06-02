@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-02T17:05
-> **归档总数**：358 条
+> **最后更新**：2026-06-02T18:30
+> **归档总数**：360 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -271,6 +271,8 @@
 | P0-001-009-004-001-002 | 实现ServiceImpl | 2026-05-30T13:00 | ✅ | DetailSubTableService实现已验证:saveSubTables/deleteByDetailId/getByDetailId三方法全部实现,validateInventoryQuantity库存校验钩子,mvn compile BUILD SUCCESS | |
 | P0-001-009-004-001-003 | 业务辅助方法 | 2026-05-30T13:18 | ✅ | DetailSubTableService业务辅助方法:selectLocationsByDetailId/selectBatchesByDetailId/selectSerialsByDetailId三表独立查询+deleteLocationsByDetailId/deleteBatchesByDetailId/deleteSerialsByDetailId三表独立删除+validateInventoryQuantity库存数量SUM聚合校验+isSubTableDataEmpty辅助判断,mvn compile BUILD SUCCESS | 05e7182f |
 
+### 模块完成: P0-001 ✅
+
 ### P0-002 - 前端项目框架搭建
 
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | Git SHA |
@@ -404,6 +406,8 @@
 | P0-002-006-005-003-002 | 验证构建优化 | 2026-05-31T19:00 | ✅ | 验证7项构建配置+修复element-plus分包顺序(@element-plus/icons-vue被vue规则误捕获)+修复console策略(drop_console→pure_funcs保留warn/error)+vue chunk 332KB gzipped(略超300KB因@vueuse受Rolldown限制无法分离) | 8c06e7e9 |
 | P0-002-006-006-001-001 | 编写外部资源域适配配置 | 2026-05-31T21:15 | ✅ | 创建cdn-fallback.ts(国内/国外CDN自动切换+超时回退+preload预加载)+.env.development/.env.production添加VITE_EXTERNAL_CDN_BASE/VITE_CDN_FALLBACK_URL+index.html添加preconnect | 8d86e81d |
 | P0-002-006-006-001-002 | 验证CDN切换 | 2026-05-31T18:32 | ✅ | 验证7项CDN切换+编译+构建全部通过:cdn-fallback.ts国内CDN fonts.loli.net正确/超时3000ms+自动切换备用源/环境变量VITE_EXTERNAL_CDN_BASE正确/index.html preconnect生效/TypeScript编译零错误/Vite构建成功(4.72s) | 56b53ae1 |
+
+### 模块完成: P0-002 ✅
 
 ### P0-003 - 数据库基础架构搭建
 
@@ -590,6 +594,8 @@
 | P0-003-007-003-001-002 | 编写inv_stock库存实时表索引与约束 | 2026-06-02T18:00 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk_inv_stock_order_no(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(14个索引)+回滚脚本 | — |
 | P0-003-007-003-001-003 | 验证编写inv_stock库存实时表DDL | 2026-06-02T18:15 | ✅ | db/migration/V20260526001__verify_inv_stock.sql:15项验证SQL(表存在/字段/通用字段/精度/PK/部分唯一索引/索引数量/多租户索引/COMMENT/NOT NULL/FK/列名)+docs/verification/inv_stock_verify_report.md:5节完整报告(1MEDIUM:22扩展字段缺COMMENT, 1WARN:Flyway版本共享) | — |
 | P0-003-007-004-001-001 | 编写CREATE TABLE语句 | 2026-06-02T17:05 | ✅ | db/migration/V20260526001__create_inv_stock_location.sql:CREATE TABLE inv_stock_location(6业务字段+4单据字段+11商品快照+22扩展字段+10通用字段+全COMMENT+decimal(18,8))+回滚脚本 | — |
+| P0-003-007-004-001-002 | 编写inv_stock_location库位库存表索引与约束 | 2026-06-02T18:30 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk_inv_stock_location_unique(5列组合WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(17个索引)+回滚脚本 | — |
+| P0-003-007-004-001-003 | 验证编写inv_stock_location库位库存表DDL | 2026-06-02T19:00 | ✅ | db/migration/V20260526001__verify_inv_stock_location.sql:13项验证SQL+docs/verification/inv_stock_location_verify_report.md:5节完整报告(1MEDIUM:22扩展字段缺COMMENT, 1WARN:Flyway版本共享) | 4d5f4365 |
 
 ---
 
@@ -598,10 +604,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 361 | 2 | 16.81% |
+| P0 | 14 | 2,147 | 362 | 2 | 16.86% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **358** | **2** | **7.59%** |
+| **合计** | **46** | **4,716** | **359** | **2** | **7.61%** |
 
 ---
 
