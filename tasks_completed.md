@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-02T17:30
-> **归档总数**：363 条
+> **归档总数**：364 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -600,6 +600,7 @@
 | P0-003-007-005-001-002 | 编写inv_other_outbound_detail其他出库主从表索引与约束 | 2026-06-02T17:20 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk_inv_other_outbound_detail_code(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(15个索引)+回滚脚本 | — |
 | P0-003-007-005-001-003 | 验证编写inv_other_outbound_detail其他出库主从表DDL | 2026-06-02T17:30 | ✅ | db/migration/V20260602001__verify_inv_other_outbound_detail.sql:22项验证SQL+docs/verification/inv_other_outbound_detail_verify_report.md:验收报告 | — |
 | P0-003-007-006-001-001 | 编写inv_other_inbound_detail其他入库主从表CREATE TABLE语句 | 2026-06-02T17:40 | ✅ | db/migration/V20260526001:CREATE TABLE inv_other_inbound(14业务字段+10通用字段)+inv_other_inbound_detail(35业务字段+10通用字段)+全COMMENT+decimal(18,8) | — |
+| P0-003-007-006-001-002 | 编写inv_other_inbound_detail其他入库主从表索引与约束 | 2026-06-02T18:00 | ✅ | db/migration/V20260526001:PK重命名+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表17个+从表15个共32个索引)+回滚脚本 | — |
 
 ---
 
@@ -608,10 +609,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 365 | 2 | 17.00% |
+| P0 | 14 | 2,147 | 366 | 2 | 17.05% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **362** | **2** | **7.68%** |
+| **合计** | **46** | **4,716** | **363** | **2** | **7.70%** |
 
 ---
 
