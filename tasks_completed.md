@@ -562,7 +562,7 @@
 | P0-003-006-004-001-002 | 编写srm_supplier_comm供应商联系人表索引与约束 | 2026-06-02T17:40 | ✅ | db/migration/V20260602008:PK重命名+部分唯一索引(WHERE is_deleted=false)+多租户联合索引(tenant_id首列)+业务查询索引(FK/supplier_id/status/parent_id/日期)+回滚脚本 | e9d8cb5a |
 | P0-003-006-004-001-003 | 验证编写srm_supplier_comm供应商联系人表DDL | 2026-06-02T18:00 | ✅ | db/migration/V20260602009:11项验证SQL(表/字段/约束/索引/COMMENT/Flyway/外键/类型/长度/精度/汇总)+docs/verification/srm_supplier_comm_verify_report.md(41项全PASS) | 12c6c5b3 |
 | P0-003-006-005-001-001 | 编写CREATE TABLE语句 | 2026-06-02T17:10 | ✅ | db/migration/V20260602010__create_srm_supplier_address.sql(38列:8业务+20扩展+10通用)+rollback脚本 | 6cadb4bd |
-| P0-003-006-005-001-002 | 编写srm_supplier_address供应商地址表索引与约束 | 2026-06-02T18:00 | ✅ | db/migration/V20260602011:PK重命名+部分唯一索引(WHERE is_deleted=false, supplier_id+address_type)+多租户联合索引(tenant_id首列)+业务查询索引(FK/supplier_id/status/日期)+回滚脚本 | — |
+| P0-003-006-005-001-002 | 编写srm_supplier_address供应商地址表索引与约束 | 2026-06-02T18:00 | ✅ | db/migration/V20260602011:PK重命名+部分唯一索引(WHERE is_deleted=false, supplier_id+address_type)+多租户联合索引(tenant_id首列)+业务查询索引(FK/supplier_id/status/日期)+回滚脚本 | 2a22439a |
 
 ---
 
