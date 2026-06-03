@@ -697,6 +697,7 @@
 | P0-004-003-004-001-002 | 编写ServiceImpl实现类 | 2026-06-03T23:35 | ✅ | SysRoleFieldPermissionServiceImpl: 继承ServiceImplX, 5个方法(Sa-Token kickout/BusinessException/@Transactional), 新建SysRoleFieldPermissionMapper | 100cf765 |
 | P0-004-003-004-001-003 | 验证Service | 2026-06-03T20:36 | ✅ | 验证SysRoleFieldPermissionService/SysRoleFieldPermissionServiceImpl: 接口5个方法签名完整/Impl逻辑正确/StpUtil.kickout/@Transactional位置正确/BusinessException规范/mvn compile通过 | — |
 | P0-004-003-005-001-001 | 编写接口定义Service接口 | 2026-06-03T20:40 | ✅ | 定义SysButtonPermissionService接口(extends IServiceX\<SysMenu\>), 声明checkPermission/getUserPermissions/getRolePermissions/getButtonsByMenuId/getButtonsByUserId/refreshCache方法; mvn compile通过 | — |
+| P0-004-003-005-001-002 | 编写ServiceImpl实现类 | 2026-06-03T20:45 | ✅ | 实现SysButtonPermissionServiceImpl(extends ServiceImplX\<SysMenuMapper, SysMenu\>), 集成StpUtil.hasPermission/kickout, 所有方法null参数防护, 创建SysMenuMapper(含selectPermissionCodesByRoleId/UserId/selectButtonsByParentId/UserId/selectByPermissionCode注解SQL); mvn compile通过 | — |
 
 ## 汇总统计
 
