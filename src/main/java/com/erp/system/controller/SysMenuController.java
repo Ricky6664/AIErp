@@ -1,6 +1,7 @@
 package com.erp.system.controller;
 
 import cn.dev33.satoken.annotation.SaCheckPermission;
+import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.BusinessException;
@@ -169,6 +170,13 @@ public class SysMenuController {
         return RT.ok(sysMenuTreeService.getMenuTreeByUserId(userId));
     }
 
+    @Operation(summary = "获取当前用户菜单树(按权限过滤)")
+    @GetMapping("/tree/current")
+    public RT<List<SysMenu>> getCurrentUserMenuTree() {
+        Long userId = StpUtil.getLoginIdAsLong();
+        return RT.ok(sysMenuTreeService.getMenuTreeByUserId(userId));
+    }
+
     // ==================== 移动端菜单 ====================
 
     @Operation(summary = "获取移动端菜单树")
@@ -183,6 +191,61 @@ public class SysMenuController {
     @GetMapping("/mobile-tree/user/{userId}")
     public RT<List<SysMenu>> getMobileMenuTreeByUserId(@PathVariable Long userId) {
         return RT.ok(sysMenuMobileService.getMobileMenuTreeByUserId(userId));
+    }
+
+    @Operation(summary = "获取当前用户移动端菜单树(按权限过滤)")
+    @GetMapping("/mobile-tree/current")
+    public RT<List<SysMenu>> getCurrentUserMobileMenuTree() {
+        Long userId = StpUtil.getLoginIdAsLong();
+        return RT.ok(sysMenuMobileService.getMobileMenuTreeByUserId(userId));
+    }
+
+    // ==================== 移动端菜单CRUD ====================
+
+    @Operation(summary = "新增移动端菜单")
+    @SaCheckPermission("system:menu:add")
+    @PostMapping("/mobile")
+    public RT<Long> createMobile(@Valid @RequestBody SysMenuDTO.CreateDTO dto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return RT.paramError(getErrorMsg(bindingResult));
+        }
+        if (StringUtils.hasText(dto.getPermissionCode())
+                && !sysMenuService.isPermissionCodeUnique(dto.getPermissionCode(), null)) {
+            return RT.fail(ErrorCode.PARAM_DUPLICATE, "权限编码已存在");
+        }
+        SysMenu entity = toEntity(dto);
+        sysMenuService.save(entity);
+        return RT.ok(entity.getId());
+    }
+
+    @Operation(summary = "修改移动端菜单")
+    @SaCheckPermission("system:menu:edit")
+    @PutMapping("/mobile/{id}")
+    public RT<Void> updateMobile(@PathVariable Long id, @Valid @RequestBody SysMenuDTO.UpdateDTO dto,
+                                 BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return RT.paramError(getErrorMsg(bindingResult));
+        }
+        SysMenu entity = sysMenuService.getById(id);
+        if (entity == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
+        }
+        if (StringUtils.hasText(dto.getPermissionCode())
+                && !dto.getPermissionCode().equals(entity.getPermissionCode())
+                && !sysMenuService.isPermissionCodeUnique(dto.getPermissionCode(), id)) {
+            return RT.fail(ErrorCode.PARAM_DUPLICATE, "权限编码已存在");
+        }
+        mergeEntity(entity, dto);
+        sysMenuService.updateById(entity);
+        return RT.ok();
+    }
+
+    @Operation(summary = "删除移动端菜单(含子菜单)")
+    @SaCheckPermission("system:menu:delete")
+    @DeleteMapping("/mobile/{id}")
+    public RT<Void> deleteMobile(@PathVariable Long id) {
+        sysMenuService.deleteMenuWithChildren(id);
+        return RT.ok();
     }
 
     // ==================== Helper Methods ====================
