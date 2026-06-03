@@ -630,6 +630,7 @@
 | P0-004-001-001-001-001 | 编写核心代码 | 2026-06-03T17:36 | ✅ | 实现登录认证核心逻辑: AuthController/AuthService/CaptchaService/LoginRequest/LoginResponse/SysUser/SysLoginLog | 8cf84b5e |
 | P0-004-001-001-001-002 | 验证功能 | 2026-06-03T17:48 | ✅ | 编写27个单元测试(AuthServiceTest/CaptchaServiceTest/AuthControllerTest)，全部通过 | 08b8b70f |
 | P0-004-001-002-001-001 | 编写核心代码 | 2026-06-03T18:05 | ✅ | 实现退出登录核心逻辑: AuthController.logout/AuthService.logout/AuthOnlineDevice实体/AuthOnlineDeviceMapper/LoginLogService.updateLogoutTime/SysLoginLog.logoutAt | a7d406d9 |
+| P0-004-001-002-001-002 | 验证功能 | 2026-06-03T18:05 | ✅ | 编写6个退出登录单元测试(AuthServiceTest$Logout/AuthControllerTest$Logout)，全部通过，生成测试报告 | — |
 
 ## 汇总统计
 

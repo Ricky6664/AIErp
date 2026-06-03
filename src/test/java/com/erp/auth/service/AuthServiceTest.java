@@ -1,8 +1,10 @@
 package com.erp.auth.service;
 
 import cn.dev33.satoken.stp.StpUtil;
+import com.erp.auth.entity.AuthOnlineDevice;
 import com.erp.auth.entity.SysUser;
 import com.erp.auth.exception.CaptchaException;
+import com.erp.auth.mapper.AuthOnlineDeviceMapper;
 import com.erp.auth.mapper.SysUserMapper;
 import com.erp.auth.vo.LoginResponse;
 import com.erp.common.exception.AuthException;
@@ -34,6 +36,7 @@ import static org.mockito.Mockito.*;
 class AuthServiceTest {
 
     @Mock private SysUserMapper sysUserMapper;
+    @Mock private AuthOnlineDeviceMapper authOnlineDeviceMapper;
     @Mock private CaptchaService captchaService;
     @Mock private LoginLogService loginLogService;
     @Mock private StringRedisTemplate redisTemplate;
@@ -274,6 +277,82 @@ class AuthServiceTest {
             authService.login("admin", "123456", "ABCD", "key123", req);
 
             verify(sysUserMapper).updateById(argThat(u -> "10.0.0.1".equals(u.getLastLoginIp())));
+        }
+    }
+
+    // ==================== 退出登录 ====================
+
+    @Nested
+    @DisplayName("退出登录")
+    class Logout {
+
+        @Test
+        @DisplayName("正常退出 → 注销Token,清除Redis缓存,更新设备状态,异步写登出时间")
+        void shouldLogoutSuccessfully() {
+            stpUtilMock.when(StpUtil::getLoginIdAsLong).thenReturn(1L);
+            stpUtilMock.when(StpUtil::getTokenValue).thenReturn("test-token-xxx");
+
+            AuthOnlineDevice device = new AuthOnlineDevice();
+            device.setId(1L);
+            device.setUserId(1L);
+            device.setSessionTokenId("test-token-xxx");
+            device.setStatus("在线");
+            when(authOnlineDeviceMapper.selectOne(any())).thenReturn(device);
+
+            authService.logout();
+
+            // 验证设备状态更新为"已下线"
+            verify(authOnlineDeviceMapper).updateById(argThat(d -> "已下线".equals(d.getStatus())));
+
+            // 验证调用了StpUtil.logout()
+            stpUtilMock.verify(StpUtil::logout);
+
+            // 验证Redis权限缓存清除
+            verify(redisTemplate).delete("user:permission:1");
+            verify(redisTemplate).delete("user:menu:1");
+
+            // 验证异步更新登出时间
+            verify(loginLogService).updateLogoutTime(1L);
+        }
+
+        @Test
+        @DisplayName("Token已过期时退出 → 幂等处理,不抛异常")
+        void shouldHandleExpiredTokenGracefully() {
+            stpUtilMock.when(StpUtil::getLoginIdAsLong)
+                    .thenThrow(new cn.dev33.satoken.exception.NotLoginException("Token已过期", "", ""));
+
+            // 不应抛出异常
+            assertDoesNotThrow(() -> authService.logout());
+
+            // StpUtil.logout()不应被调用
+            stpUtilMock.verify(StpUtil::logout, never());
+        }
+
+        @Test
+        @DisplayName("退出后Redis权限缓存已清除 → 验证delete调用")
+        void shouldClearRedisPermissionCache() {
+            stpUtilMock.when(StpUtil::getLoginIdAsLong).thenReturn(100L);
+            stpUtilMock.when(StpUtil::getTokenValue).thenReturn("token-100");
+
+            authService.logout();
+
+            verify(redisTemplate).delete("user:permission:100");
+            verify(redisTemplate).delete("user:menu:100");
+        }
+
+        @Test
+        @DisplayName("退出时更新设备状态失败 → 不阻断退出流程(防御性容错)")
+        void shouldNotBlockLogoutWhenDeviceStatusUpdateFails() {
+            stpUtilMock.when(StpUtil::getLoginIdAsLong).thenReturn(1L);
+            stpUtilMock.when(StpUtil::getTokenValue).thenReturn("token-xxx");
+            when(authOnlineDeviceMapper.selectOne(any()))
+                    .thenThrow(new RuntimeException("数据库连接异常"));
+
+            // 不应抛出异常, logout仍应完成
+            assertDoesNotThrow(() -> authService.logout());
+
+            // Token注销仍应执行
+            stpUtilMock.verify(StpUtil::logout);
         }
     }
 }

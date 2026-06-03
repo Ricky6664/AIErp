@@ -140,4 +140,38 @@ class AuthControllerTest {
                     () -> authController.login(validRequest, br, mock(HttpServletRequest.class)));
         }
     }
+
+    // ==================== 退出登录 ====================
+
+    @Nested
+    @DisplayName("POST /auth/logout")
+    class Logout {
+
+        @Test
+        @DisplayName("正常退出 → 返回RT.ok并调用authService.logout()")
+        void shouldReturnOkOnLogout() {
+            doNothing().when(authService).logout();
+
+            RT<Void> result = authController.logout();
+
+            assertTrue(result.isSuccess());
+            assertEquals(200, result.getCode());
+            assertEquals("退出成功", result.getMessage());
+            assertNull(result.getData());
+            verify(authService).logout();
+        }
+
+        @Test
+        @DisplayName("重复退出(幂等) → authService内部容错,仍返回成功")
+        void shouldReturnOkOnRepeatedLogout() {
+            doNothing().when(authService).logout();
+
+            RT<Void> result1 = authController.logout();
+            RT<Void> result2 = authController.logout();
+
+            assertTrue(result1.isSuccess());
+            assertTrue(result2.isSuccess());
+            verify(authService, times(2)).logout();
+        }
+    }
 }
