@@ -7,13 +7,18 @@ import com.erp.common.exception.BusinessException;
 import com.erp.common.query.PageQuery;
 import com.erp.common.result.PageResult;
 import com.erp.common.result.RT;
+import com.erp.system.dto.MenuPermissionBatchDTO;
 import com.erp.system.dto.SysRoleDTO;
+import com.erp.system.entity.SysMenu;
 import com.erp.system.entity.SysRole;
 import com.erp.system.entity.SysRoleDataScope;
 import com.erp.system.entity.SysRoleFieldPermission;
+import com.erp.system.mapper.SysMenuMapper;
 import com.erp.system.service.SysButtonPermissionService;
 import com.erp.system.service.SysRoleDataScopeService;
+import com.erp.system.service.SysRoleExclusionService;
 import com.erp.system.service.SysRoleFieldPermissionService;
+import com.erp.system.service.SysRoleInheritanceService;
 import com.erp.system.service.SysRoleMenuService;
 import com.erp.system.service.SysRoleService;
 import com.erp.system.vo.SysRoleVO;
@@ -48,6 +53,9 @@ public class SysRoleController {
     private final SysRoleDataScopeService sysRoleDataScopeService;
     private final SysRoleFieldPermissionService sysRoleFieldPermissionService;
     private final SysButtonPermissionService sysButtonPermissionService;
+    private final SysRoleInheritanceService inheritanceService;
+    private final SysRoleExclusionService exclusionService;
+    private final SysMenuMapper menuMapper;
 
     // ==================== 角色CRUD ====================
 
@@ -293,6 +301,118 @@ public class SysRoleController {
         return RT.ok(sysButtonPermissionService.getRolePermissions(id));
     }
 
+    // ==================== 菜单权限批量绑定(角色级) ====================
+
+    @Operation(summary = "批量绑定角色菜单权限(含权限类型)")
+    @SaCheckPermission("system:role:menu:assign")
+    @PostMapping("/menu")
+    public RT<Void> batchBindMenus(@Valid @RequestBody MenuPermissionBatchDTO dto,
+                                    BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return RT.paramError(getErrorMsg(bindingResult));
+        }
+        sysRoleMenuService.assignMenusWithPermissions(dto.getRoleId(),
+                dto.getMenuPermissions().stream()
+                        .map(MenuPermissionBatchDTO.MenuPermissionItem::getMenuId)
+                        .collect(Collectors.toList()),
+                null);
+        return RT.ok();
+    }
+
+    @Operation(summary = "按角色查询菜单权限树")
+    @SaCheckPermission("system:role:menu:query")
+    @GetMapping("/menu/{roleId}")
+    public RT<List<SysMenu>> getMenuTree(@PathVariable Long roleId) {
+        List<Long> menuIds = sysRoleMenuService.getRoleMenuIds(roleId);
+        return RT.ok(buildMenuTree(menuIds));
+    }
+
+    // ==================== 角色数据权限配置 ====================
+
+    @Operation(summary = "配置角色数据权限")
+    @SaCheckPermission("system:role:data:assign")
+    @PostMapping("/data-scope")
+    public RT<Void> configDataScope(@RequestBody SysRoleDTO.UpdateDTO dto) {
+        if (dto.getId() == null) {
+            return RT.fail(ErrorCode.PARAM_MISSING, "角色ID不能为空");
+        }
+        SysRole entity = sysRoleService.getById(dto.getId());
+        if (entity == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
+        }
+        if (dto.getDataScope() != null) {
+            entity.setDataScope(dto.getDataScope());
+        }
+        sysRoleService.updateById(entity);
+        return RT.ok();
+    }
+
+    // ==================== 角色继承关系 ====================
+
+    @Operation(summary = "添加角色继承关系")
+    @SaCheckPermission("system:role:inherit:assign")
+    @PostMapping("/inheritance")
+    public RT<Void> addInheritance(@RequestParam Long parentRoleId,
+                                    @RequestParam Long childRoleId) {
+        inheritanceService.addInheritance(parentRoleId, childRoleId);
+        return RT.ok();
+    }
+
+    @Operation(summary = "删除角色继承关系")
+    @SaCheckPermission("system:role:inherit:assign")
+    @DeleteMapping("/inheritance")
+    public RT<Void> removeInheritance(@RequestParam Long parentRoleId,
+                                       @RequestParam Long childRoleId) {
+        inheritanceService.removeInheritance(parentRoleId, childRoleId);
+        return RT.ok();
+    }
+
+    @Operation(summary = "查询角色的父角色ID列表")
+    @SaCheckPermission("system:role:inherit:query")
+    @GetMapping("/inheritance/{roleId}/parents")
+    public RT<List<Long>> getParentRoleIds(@PathVariable Long roleId) {
+        return RT.ok(inheritanceService.getParentRoleIds(roleId));
+    }
+
+    @Operation(summary = "查询角色的子角色ID列表")
+    @SaCheckPermission("system:role:inherit:query")
+    @GetMapping("/inheritance/{roleId}/children")
+    public RT<List<Long>> getChildRoleIds(@PathVariable Long roleId) {
+        return RT.ok(inheritanceService.getChildRoleIds(roleId));
+    }
+
+    // ==================== 角色互斥关系 ====================
+
+    @Operation(summary = "添加角色互斥关系")
+    @SaCheckPermission("system:role:exclusion:assign")
+    @PostMapping("/exclusion")
+    public RT<Void> addExclusion(@RequestParam Long roleA, @RequestParam Long roleB) {
+        exclusionService.addExclusion(roleA, roleB);
+        return RT.ok();
+    }
+
+    @Operation(summary = "删除角色互斥关系")
+    @SaCheckPermission("system:role:exclusion:assign")
+    @DeleteMapping("/exclusion")
+    public RT<Void> removeExclusion(@RequestParam Long roleA, @RequestParam Long roleB) {
+        exclusionService.removeExclusion(roleA, roleB);
+        return RT.ok();
+    }
+
+    @Operation(summary = "查询角色互斥的角色ID列表")
+    @SaCheckPermission("system:role:exclusion:query")
+    @GetMapping("/exclusion/{roleId}")
+    public RT<List<Long>> getExclusiveRoleIds(@PathVariable Long roleId) {
+        return RT.ok(exclusionService.getExclusiveRoleIds(roleId));
+    }
+
+    @Operation(summary = "检查两个角色是否互斥")
+    @SaCheckPermission("system:role:exclusion:query")
+    @GetMapping("/exclusion/check")
+    public RT<Boolean> checkExclusion(@RequestParam Long roleA, @RequestParam Long roleB) {
+        return RT.ok(exclusionService.isExclusive(roleA, roleB));
+    }
+
     // ==================== Helper Methods ====================
 
     private String getErrorMsg(BindingResult bindingResult) {
@@ -311,6 +431,32 @@ public class SysRoleController {
         SysRoleVO.DetailVO vo = new SysRoleVO.DetailVO();
         BeanUtils.copyProperties(entity, vo);
         return vo;
+    }
+
+    private List<SysMenu> buildMenuTree(List<Long> roleMenuIds) {
+        if (roleMenuIds == null || roleMenuIds.isEmpty()) {
+            return java.util.Collections.emptyList();
+        }
+        com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper<SysMenu> wrapper =
+                new com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper<>();
+        wrapper.eq(SysMenu::getIsEnabled, true)
+               .in(SysMenu::getId, roleMenuIds)
+               .orderByAsc(SysMenu::getSortOrder);
+        List<SysMenu> menus = menuMapper.selectList(wrapper);
+        java.util.Map<Long, List<SysMenu>> childrenMap = menus.stream()
+                .collect(java.util.stream.Collectors.groupingBy(
+                        m -> m.getParentId() != null ? m.getParentId() : 0L));
+        return childrenMap.getOrDefault(0L, java.util.Collections.emptyList()).stream()
+                .peek(m -> setChildren(m, childrenMap))
+                .collect(java.util.stream.Collectors.toList());
+    }
+
+    private void setChildren(SysMenu parent, java.util.Map<Long, List<SysMenu>> childrenMap) {
+        List<SysMenu> children = childrenMap.get(parent.getId());
+        if (children != null) {
+            parent.setChildren(children);
+            children.forEach(c -> setChildren(c, childrenMap));
+        }
     }
 
     private SysRole toEntity(SysRoleDTO.CreateDTO dto) {

@@ -1,9 +1,12 @@
 package com.erp.system.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.erp.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.util.List;
 
 /**
  * 菜单表实体.
@@ -43,4 +46,7 @@ public class SysMenu extends BaseEntity {
     private Boolean isExternalLink;
 
     private String externalUrl;
+
+    @TableField(exist = false)
+    private List<SysMenu> children;
 }
