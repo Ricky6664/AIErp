@@ -1,8 +1,14 @@
 package com.erp.auth.controller;
 
+import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.erp.auth.entity.AuthMethod;
+import com.erp.auth.entity.AuthOnlineDevice;
 import com.erp.auth.entity.AuthPasswordPolicy;
+import com.erp.auth.entity.SysLoginLog;
+import com.erp.auth.mapper.AuthOnlineDeviceMapper;
+import com.erp.auth.mapper.SysLoginLogMapper;
 import com.erp.auth.service.AuthMethodService;
 import com.erp.auth.service.AuthPasswordPolicyService;
 import com.erp.common.annotation.RequirePermission;
@@ -26,7 +32,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 认证配置控制器 - 认证方式 + 密码策略管理.
@@ -43,6 +54,8 @@ public class AuthConfigController {
 
     private final AuthMethodService authMethodService;
     private final AuthPasswordPolicyService authPasswordPolicyService;
+    private final AuthOnlineDeviceMapper authOnlineDeviceMapper;
+    private final SysLoginLogMapper sysLoginLogMapper;
 
     // ==================== 认证方式 ====================
 
@@ -214,5 +227,71 @@ public class AuthConfigController {
     @PostMapping("/password-policies/validate")
     public RT<Boolean> validatePassword(@Parameter(description = "待校验的密码") @RequestParam String password) {
         return RT.ok(authPasswordPolicyService.validatePassword(password));
+    }
+
+    // ==================== 在线设备管理 ====================
+
+    @Operation(summary = "分页查询在线设备列表")
+    @RequirePermission("system:online-device:query")
+    @GetMapping("/online-devices/page")
+    public RT<PageResult<AuthOnlineDevice>> pageOnlineDevices(@Parameter(description = "分页参数") PageQuery query) {
+        IPage<AuthOnlineDevice> page = authOnlineDeviceMapper.selectPage(
+                query.toPage(),
+                new LambdaQueryWrapper<AuthOnlineDevice>()
+                        .orderByDesc(AuthOnlineDevice::getLastActiveTime)
+        );
+        return RT.ok(PageResult.of(page));
+    }
+
+    @Operation(summary = "强制下线设备")
+    @RequirePermission("system:online-device:kick")
+    @PostMapping("/online-devices/{tokenId}/kick")
+    public RT<Void> kickDevice(@Parameter(description = "会话Token标识") @PathVariable String tokenId) {
+        StpUtil.logoutByTokenValue(tokenId);
+        AuthOnlineDevice device = authOnlineDeviceMapper.selectOne(
+                new LambdaQueryWrapper<AuthOnlineDevice>()
+                        .eq(AuthOnlineDevice::getSessionTokenId, tokenId)
+                        .last("LIMIT 1")
+        );
+        if (device != null) {
+            device.setStatus("kicked");
+            authOnlineDeviceMapper.updateById(device);
+        }
+        log.info("设备已强制下线: tokenId={}", tokenId);
+        return RT.ok();
+    }
+
+    // ==================== 认证配置工作台 ====================
+
+    @Operation(summary = "认证配置工作台聚合数据")
+    @RequirePermission("system:auth-config:query")
+    @GetMapping("/auth-config/workbench")
+    public RT<Map<String, Object>> workbench() {
+        LocalDateTime todayStart = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
+        Map<String, Object> data = new HashMap<>();
+
+        long onlineDeviceCount = authOnlineDeviceMapper.selectCount(
+                new LambdaQueryWrapper<AuthOnlineDevice>()
+                        .eq(AuthOnlineDevice::getStatus, "online")
+        );
+        data.put("onlineDeviceCount", onlineDeviceCount);
+
+        long todayLoginCount = sysLoginLogMapper.selectCount(
+                new LambdaQueryWrapper<SysLoginLog>()
+                        .eq(SysLoginLog::getStatus, "SUCCESS")
+                        .ge(SysLoginLog::getLoginTime, todayStart)
+        );
+        data.put("todayLoginCount", todayLoginCount);
+
+        long todayFailCount = sysLoginLogMapper.selectCount(
+                new LambdaQueryWrapper<SysLoginLog>()
+                        .eq(SysLoginLog::getStatus, "FAIL")
+                        .ge(SysLoginLog::getLoginTime, todayStart)
+        );
+        data.put("todayFailCount", todayFailCount);
+
+        data.put("ssoConfigCount", 0);
+
+        return RT.ok(data);
     }
 }
