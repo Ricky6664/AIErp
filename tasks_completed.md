@@ -612,18 +612,27 @@
 | P0-003-007-009-001-002 | 编写inv_loss_detail报损主从表索引与约束 | 2026-06-02T17:45 | ✅ | db/migration/V20260526001:PK重命名(inv_loss+inv_loss_detail)+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表17个+从表15个共32个索引)+回滚脚本 | — |
 | P0-003-007-009-001-003 | 验证编写inv_loss_detail报损主从表DDL | 2026-06-02T16:03 | ✅ | db/migration/V20260526001__verify_inv_loss_detail.sql:17项验证SQL(2表/主表columns/PK/部分唯一索引/索引列表/多租户索引/COMMENT/NOT NULL/FK/列名/精度)+docs/verification/inv_loss_detail_verify_report.md:6节完整报告(验证范围/结构验证/索引约束/规范合规/易错对照/验收总结) | 7c55c82c |
 | P0-003-007-010-001-001 | 编写CREATE TABLE语句 | 2026-06-03T10:00 | ✅ | db/migration/V20260526001:CREATE TABLE inv_overflow(12业务字段+10通用字段)+inv_overflow_detail(26业务字段+10通用字段+22扩展字段)+全COMMENT+decimal(18,8)+回滚脚本 | — |
+| P0-003-007-010-001-002 | 编写inv_overflow_detail报溢主从表索引与约束 | 2026-06-03T11:00 | ✅ | db/migration/V20260526001:PK重命名(inv_overflow+inv_overflow_detail)+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表16个+从表16个共32个索引)+回滚脚本 | — |
 
 ---
 
+
+---
+
+### P0-004 - 认证与权限基础开发
+
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
+|---------|---------|---------|:---:|------|-----|
+| P0-004-001-001-001-001 | 编写核心代码 | 2026-06-03T17:36 | ✅ | 实现登录认证核心逻辑: AuthController/AuthService/CaptchaService/LoginRequest/LoginResponse/SysUser/SysLoginLog | 8cf84b5e |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 372 | 2 | 17.33% |
+| P0 | 14 | 2,147 | 373 | 2 | 17.37% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **372** | **2** | **7.89%** |
+| **合计** | **46** | **4,716** | **373** | **2** | **7.91%** |
 
 ---
 
