@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-04T00:40
-> **归档总数**：418 条
+> **最后更新**：2026-06-04T01:15
+> **归档总数**：420 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -712,15 +712,17 @@
 | P0-004-004-002-001-002 | 编写ServiceImpl实现类 | 2026-06-04T01:00 | ✅ | SysMenuMobileServiceImpl: 继承ServiceImplX, 实现getMobileMenuTree/getMobileMenuTreeByUserId, 移动端排除button类型菜单, 权限码过滤, 树形结构构建, 空分支过滤 | — |
 | P0-004-004-002-001-003 | 验证Service | 2026-06-04T00:32 | ✅ | 验证SysMenuMobileService/SysMenuMobileServiceImpl: 接口2个方法签名完整/Impl移动端菜单树构建逻辑正确/权限过滤/nullsafe/mvn compile通过 | — |
 | P0-004-004-003-001-001 | 编写接口定义Service接口 | 2026-06-04T00:40 | ✅ | 创建SysMenuTreeService接口: 4个方法签名( getMenuTree/getMenuTreeByUserId/buildTree/filterEmptyBranches)/继承IServiceX<SysMenu>/mvn compile通过 | — |
+| P0-004-004-003-001-002 | 编写ServiceImpl实现类 | 2026-06-04T01:10 | ✅ | SysMenuTreeServiceImpl: 继承ServiceImplX, 实现4个方法(getMenuTree全量树/getMenuTreeByUserId按权限过滤/buildTree递归建树/filterEmptyBranches过滤空分支), 权限码SQL过滤, nullsafe | 9614b53b |
+| P0-004-004-003-001-003 | 验证Service | 2026-06-04T01:15 | ✅ | 验证SysMenuTreeService/SysMenuTreeServiceImpl: 接口4个方法签名完整/Impl业务逻辑正确(菜单树构建+按用户权限过滤+空分支过滤)/nullsafe/纯读操作无需@Transactional/mvn compile通过 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 417 | 2 | 19.43% |
+| P0 | 14 | 2,147 | 419 | 2 | 19.52% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **415** | **2** | **8.80%** |
+| **合计** | **46** | **4,716** | **417** | **2** | **8.84%** |
 
 ---
 
