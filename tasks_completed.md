@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-04T00:30
-> **归档总数**：417 条
+> **最后更新**：2026-06-04T00:40
+> **归档总数**：418 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -711,6 +711,7 @@
 | P0-004-004-002-001-001 | 编写接口定义Service接口 | 2026-06-04T00:45 | ✅ | SysMenuMobileService接口: 继承IServiceX\<SysMenu\>, 声明getMobileMenuTree/getMobileMenuTreeByUserId共2个移动端菜单业务方法签名 | — |
 | P0-004-004-002-001-002 | 编写ServiceImpl实现类 | 2026-06-04T01:00 | ✅ | SysMenuMobileServiceImpl: 继承ServiceImplX, 实现getMobileMenuTree/getMobileMenuTreeByUserId, 移动端排除button类型菜单, 权限码过滤, 树形结构构建, 空分支过滤 | — |
 | P0-004-004-002-001-003 | 验证Service | 2026-06-04T00:32 | ✅ | 验证SysMenuMobileService/SysMenuMobileServiceImpl: 接口2个方法签名完整/Impl移动端菜单树构建逻辑正确/权限过滤/nullsafe/mvn compile通过 | — |
+| P0-004-004-003-001-001 | 编写接口定义Service接口 | 2026-06-04T00:40 | ✅ | 创建SysMenuTreeService接口: 4个方法签名( getMenuTree/getMenuTreeByUserId/buildTree/filterEmptyBranches)/继承IServiceX<SysMenu>/mvn compile通过 | — |
 
 ## 汇总统计
 
