@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-04T01:15
-> **归档总数**：421 条
+> **最后更新**：2026-06-04T11:00
+> **归档总数**：422 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -717,6 +717,7 @@
 | P0-004-004-004-001-001 | 编写Controller类 | 2026-06-04T08:10 | ✅ | SysMenuController: @RestController+@RequestMapping("/api/system/menus"), 注入3个MenuService, 14个RESTful接口(菜单CRUD+菜单树+移动端菜单), @SaCheckPermission全覆盖, RT+PageResult响应, @Operation注解完整, mvn compile BUILD SUCCESS | 120c0dc0 |
 | P0-004-004-004-001-002 | 编写接口方法 | 2026-06-04T09:00 | ✅ | SysMenuController新增6个方法: GET /tree/current(当前用户菜单树/StpUtil.getLoginIdAsLong), GET /mobile-tree/current(当前用户移动端菜单树), POST /mobile, PUT /mobile/{id}, DELETE /mobile/{id}(移动端菜单CRUD), mvn compile BUILD SUCCESS | 1802604a |
 | P0-004-004-004-001-003 | 验证Controller | 2026-06-04T10:10 | ✅ | 验证SysMenuController完整: 15个RESTful端点URL符合/api/{module}/{resource}规范, RT<T>/PageResult<T>响应正确, @Valid+BindingResult校验完整, @SaCheckPermission全覆盖, @Operation注解完整, mvn compile通过零错误零警告 | ee8eb09a |
+| P0-004-005-001-001-001 | 编写接口定义Service接口 | 2026-06-04T11:00 | ✅ | AuthMethodService接口: 继承IServiceX<AuthMethod>, 声明listEnabled/isMethodNameUnique/isMethodTypeUnique/updatePriority/enable/disable共6个业务方法; 创建AuthMethod实体映射auth_method表 | — |
 
 ## 汇总统计
 
