@@ -720,15 +720,16 @@
 | P0-004-005-001-001-001 | 编写接口定义Service接口 | 2026-06-04T11:00 | ✅ | AuthMethodService接口: 继承IServiceX<AuthMethod>, 声明listEnabled/isMethodNameUnique/isMethodTypeUnique/updatePriority/enable/disable共6个业务方法; 创建AuthMethod实体映射auth_method表 | — |
 | P0-004-005-001-001-002 | 编写ServiceImpl实现类 | 2026-06-04T11:20 | ✅ | AuthMethodServiceImpl: 继承ServiceImplX, 实现6个方法(启禁用+优先级/唯一性校验/BusinessException/@Transactional); 创建AuthMethodMapper | — |
 | P0-004-005-001-001-003 | 验证Service | 2026-06-04T17:00 | ✅ | 验证AuthMethodService/AuthMethodServiceImpl: 接口6个方法签名完整/Impl业务逻辑正确/唯一性校验+状态流转完备/@Transactional位置正确/BusinessException规范/mvn compile通过 | — |
+| P0-004-005-002-001-001 | 编写接口定义Service接口 | 2026-06-04 | ✅ | AuthPasswordPolicyService接口: 继承IServiceX\<AuthPasswordPolicy\>, 声明getCurrentPolicy/isPolicyNameUnique/enable/disable/validatePassword共5个业务方法; 创建AuthPasswordPolicy实体+AuthPasswordPolicyMapper | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 422 | 2 | 19.66% |
+| P0 | 14 | 2,147 | 423 | 2 | 19.70% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **420** | **2** | **8.91%** |
+| **合计** | **46** | **4,716** | **421** | **2** | **8.93%** |
 
 ---
 
