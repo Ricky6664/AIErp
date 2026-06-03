@@ -25,6 +25,20 @@ const common = {
   total: 'Total {total} items',
   pleaseSelect: 'Please select',
   pleaseInput: 'Please input',
+  // Login page
+  login: {
+    title: 'ERP AI Management System',
+    desc: 'Intelligent Enterprise Resource Management',
+    username: 'Username',
+    password: 'Password',
+    captcha: 'Captcha',
+    rememberMe: 'Remember me',
+    submit: 'Login',
+    captchaTip: 'Click image to refresh captcha',
+    loginSuccess: 'Login successful',
+    loginFailed: 'Login failed',
+    welcomeBack: 'Welcome back'
+  },
   operate: 'Operation',
   status: 'Status',
   createTime: 'Create Time',

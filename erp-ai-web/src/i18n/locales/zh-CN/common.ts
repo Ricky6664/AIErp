@@ -57,7 +57,21 @@ const common = {
   noResult: '暂无结果',
   total: '共 {total} 条',
   pleaseSelect: '请选择',
-  pleaseInput: '请输入'
+  pleaseInput: '请输入',
+  // 登录页
+  login: {
+    title: 'ERP AI 管理系统',
+    desc: '智能企业资源管理系统',
+    username: '用户名',
+    password: '密码',
+    captcha: '验证码',
+    rememberMe: '记住我',
+    submit: '登 录',
+    captchaTip: '点击图片刷新验证码',
+    loginSuccess: '登录成功',
+    loginFailed: '登录失败',
+    welcomeBack: '欢迎回来'
+  }
 }
 
 export default common

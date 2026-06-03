@@ -1,10 +1,18 @@
 export interface LoginDTO {
   username: string
   password: string
+  captchaCode?: string
+  captchaKey?: string
+  rememberMe?: boolean
 }
 
 export interface LoginResponse {
   token: string
+}
+
+export interface CaptchaResponse {
+  captchaKey: string
+  captchaImage: string
 }
 
 export interface UserInfoResponse {
