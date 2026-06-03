@@ -3,10 +3,11 @@ import type { InternalAxiosRequestConfig } from 'axios'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/modules/user'
+import { TOKEN_KEY, REFRESH_TOKEN_KEY } from '@/router/constants'
 import type { ApiResponse } from '@/types/api'
 
 interface TokenVO {
-  accessToken: string
+  token: string
   refreshToken: string
 }
 
@@ -23,6 +24,10 @@ const refreshAxios = axios.create({
 
 let isRefreshing = false
 const pendingQueue: PendingRequest[] = []
+
+function isRefreshRequest(config: InternalAxiosRequestConfig): boolean {
+  return config.url?.includes('/api/auth/token/refresh') ?? false
+}
 
 function addToQueue(config: InternalAxiosRequestConfig): Promise<any> {
   return new Promise((resolve, reject) => {
@@ -53,6 +58,7 @@ function replayRequests(newToken: string): void {
 
   queue.forEach(({ resolve, reject, config }) => {
     config.headers.Authorization = `Bearer ${newToken}`
+    config.headers.satoken = newToken
     axios(config).then(resolve).catch(reject)
   })
 }
@@ -65,42 +71,63 @@ function handleRefreshFailure(): void {
 
   const userStore = useUserStore()
   userStore.token = ''
+  userStore.refreshToken = ''
   userStore.userInfo = null
   userStore.permissions = []
   userStore.roles = []
-  localStorage.removeItem('erp_user')
-  localStorage.removeItem('erp_refresh_token')
+  userStore.menuTree = []
+  localStorage.removeItem(TOKEN_KEY)
+  localStorage.removeItem(REFRESH_TOKEN_KEY)
 
   isRefreshing = false
 
   ElMessage.warning('会话已过期，请重新登录')
 
   const router = useRouter()
-  if (router.currentRoute.value.path !== '/login') {
-    router.replace('/login')
+  if (router.currentRoute.value?.path !== '/login') {
+    const redirect = router.currentRoute.value?.fullPath || '/'
+    router.replace({ path: '/login', query: { redirect } })
   }
 }
 
 export async function handleTokenRefresh(config: InternalAxiosRequestConfig): Promise<any> {
+  if (isRefreshRequest(config)) {
+    handleRefreshFailure()
+    return Promise.reject(new Error('刷新Token失败，请重新登录'))
+  }
+
   if (isRefreshing) {
     return addToQueue(config)
   }
   isRefreshing = true
 
   try {
-    const userStore = useUserStore()
-    const res = await refreshAxios.post<ApiResponse<TokenVO>>('/auth/refresh-token', {
-      refreshToken: localStorage.getItem('erp_refresh_token')
+    const refreshToken = localStorage.getItem(REFRESH_TOKEN_KEY)
+    if (!refreshToken) {
+      throw new Error('无刷新Token')
+    }
+
+    const res = await refreshAxios.post<ApiResponse<TokenVO>>('/api/auth/token/refresh', {
+      refreshToken
     })
-    const { accessToken, refreshToken: newRefreshToken } = res.data.data
-    userStore.token = accessToken
-    localStorage.setItem('erp_refresh_token', newRefreshToken)
-    config.headers.Authorization = `Bearer ${accessToken}`
-    replayRequests(userStore.token)
+
+    const { token, refreshToken: newRefreshToken } = res.data.data
+
+    const userStore = useUserStore()
+    userStore.token = token
+    userStore.refreshToken = newRefreshToken
+    localStorage.setItem(TOKEN_KEY, token)
+    localStorage.setItem(REFRESH_TOKEN_KEY, newRefreshToken)
+
+    config.headers.Authorization = `Bearer ${token}`
+    config.headers.satoken = token
+
+    replayRequests(token)
     isRefreshing = false
+
     return axios(config)
-  } catch (error) {
+  } catch {
     handleRefreshFailure()
-    return Promise.reject(error)
+    return Promise.reject(new Error('Token刷新失败'))
   }
 }

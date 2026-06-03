@@ -49,7 +49,10 @@ export function cancelPendingRequests(pageKey?: string): void {
 }
 
 /** 白名单：这些请求不参与自动取消 */
-export const CANCEL_WHITELIST_PATTERNS: (string | RegExp)[] = ['/auth/login', '/auth/refresh-token']
+export const CANCEL_WHITELIST_PATTERNS: (string | RegExp)[] = [
+  '/auth/login',
+  '/api/auth/token/refresh'
+]
 
 export function isWhitelisted(config: InternalAxiosRequestConfig): boolean {
   if (config.metadata?.skipCancel === true) {
