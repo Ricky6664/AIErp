@@ -732,6 +732,7 @@
 | P0-004-005-005-001-001 | 编写工作台聚合SQL | 2026-06-04T12:00 | ✅ | AuthConfigWorkbenchVO/AuthConfigWorkbenchMapper/XML: 工作台聚合SQL(认证方式+密码策略+在线设备+登录统计+登录方式分布+每日统计), 全部#{param}参数化, AuthConfigController重构使用新Mapper返回VO, mvn compile通过 | — |
 | P0-004-005-005-001-002 | 验证功能 | 2026-06-04T14:20 | ✅ | 验证工作台聚合SQL: 编译通过/60项测试全量通过/SQL参数化检查/多租户过滤/时间范围/边界条件, 测试报告+问题清单已归档 | — |
 | P0-004-006-001-001-001 | 编写页面组件 | 2026-06-04T14:20 | ✅ | 登录页面组件: Vue3+TS+ElementPlus完整登录页, 含验证码/记住我/表单校验/国际化/API层/Composable, 编译通过 | 7290fed7 |
+| P0-004-006-002-001-001 | 编写核心代码 | 2026-06-04T14:35 | ✅ | 登录核心逻辑: useLogin增强(错误码映射+验证码刷新), 动态路由生成(menuTree→addRoute), Token键统一(satoken+refresh_token), API端点修正, 类型完善, pnpm build通过 | e340d79b |
 
 ## 汇总统计
 
