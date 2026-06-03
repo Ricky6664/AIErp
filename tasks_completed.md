@@ -691,6 +691,7 @@
 | P0-004-003-002-001-002 | 编写ServiceImpl实现类 | 2026-06-03T22:50 | ✅ | SysRoleMenuServiceImpl: 继承ServiceImplX, 实现6个方法(Sa-Token kickout/角色存在性校验/空集合跳过/菜单批量写入/角色复制/@Transactional) | eb29b347 |
 | P0-004-003-002-001-003 | 验证Service | 2026-06-03T23:00 | ✅ | 验证SysRoleMenuService/SysRoleMenuServiceImpl: 接口6个方法签名完整/Impl逻辑正确/Sa-Token kickout/@Transactional位置正确/BusinessException规范/mvn compile通过 | — |
 | P0-004-003-003-001-001 | 编写接口定义Service接口 | 2026-06-03T23:15 | ✅ | SysRoleDataScopeService接口: 继承IServiceX<SysRoleDataScope>, 4个业务方法(getByRoleId/saveRoleDataScopes/deleteByRoleId/getScopeType), 创建缺失前置依赖SysRoleDataScope实体 | c01e8c5e |
+| P0-004-003-003-001-002 | 编写ServiceImpl实现类 | 2026-06-03T23:25 | ✅ | SysRoleDataScopeServiceImpl: 继承ServiceImplX, 实现4个方法(Sa-Token kickout/BusinessException/@Transactional/空值校验), 新建SysRoleDataScopeMapper | e5dbdfa8 |
 
 ## 汇总统计
 
