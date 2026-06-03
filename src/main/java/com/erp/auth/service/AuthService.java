@@ -10,6 +10,8 @@ import com.erp.auth.vo.LoginResponse;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.AuthException;
 import com.erp.common.exception.BusinessException;
+import com.erp.util.IpAddressUtil;
+import com.erp.util.UserAgentUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -90,7 +92,7 @@ public class AuthService {
 
         // 8. 更新最后登录信息
         user.setLastLoginAt(LocalDateTime.now());
-        user.setLastLoginIp(getClientIp(request));
+        user.setLastLoginIp(IpAddressUtil.getClientIp(request));
         sysUserMapper.updateById(user);
 
         // 9. 异步记录登录日志
@@ -270,9 +272,10 @@ public class AuthService {
 
     private void recordLoginLog(Long userId, String username, HttpServletRequest request,
                                  String loginMethod, boolean success, String failReason) {
-        String ip = getClientIp(request);
-        String browser = request.getHeader("User-Agent");
-        String os = getOs(browser);
+        String ip = IpAddressUtil.getClientIp(request);
+        String userAgent = request.getHeader("User-Agent");
+        String browser = UserAgentUtil.parseBrowser(userAgent);
+        String os = UserAgentUtil.parseOs(userAgent);
         if (success) {
             loginLogService.logSuccess(userId, ip, browser, os, loginMethod);
         } else {
@@ -300,32 +303,6 @@ public class AuthService {
             log.debug("获取权限列表失败: {}", e.getMessage());
         }
         return Collections.emptyList();
-    }
-
-    // ==================== 工具方法 ====================
-
-    private String getClientIp(HttpServletRequest request) {
-        String ip = request.getHeader("X-Forwarded-For");
-        if (ip == null || ip.isBlank() || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("X-Real-IP");
-        }
-        if (ip == null || ip.isBlank() || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getRemoteAddr();
-        }
-        if (ip != null && ip.contains(",")) {
-            ip = ip.split(",")[0].trim();
-        }
-        return ip;
-    }
-
-    private String getOs(String userAgent) {
-        if (userAgent == null) return "Unknown";
-        if (userAgent.contains("Windows")) return "Windows";
-        if (userAgent.contains("Mac")) return "MacOS";
-        if (userAgent.contains("Linux")) return "Linux";
-        if (userAgent.contains("Android")) return "Android";
-        if (userAgent.contains("iPhone") || userAgent.contains("iPad")) return "iOS";
-        return "Unknown";
     }
 
     // ==================== CaptchaException 独立定义 ====================
