@@ -125,6 +125,11 @@ public class UserServiceImpl extends ServiceImplX<UserMapper, SysUser> implement
     }
 
     @Override
+    public void changePassword(Long userId, String oldPassword, String newPassword) {
+        throw new UnsupportedOperationException("TODO: implement in P0-004-002-007-001-002");
+    }
+
+    @Override
     public boolean isUsernameUnique(String username, Long excludeId) {
         return baseMapper.countByUsername(username, excludeId) == 0;
     }

@@ -23,5 +23,7 @@ public interface UserService extends IServiceX<SysUser> {
 
     List<String> getRoleNames(Long userId);
 
+    void changePassword(Long userId, String oldPassword, String newPassword);
+
     boolean isUsernameUnique(String username, Long excludeId);
 }
