@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.system.mapper.UserMapper">
+
+    <!-- ==================== 基础字段列表 ==================== -->
+    <sql id="Base_Column_List">
+        u.id, u.tenant_id, u.create_time, u.update_time, u.creator_id, u.updater_id,
+        u.is_deleted, u.owner_dept_id, u.owner_id, u.version,
+        u.username, u.password_hash, u.employee_id, u.real_name, u.nickname, u.avatar,
+        u.email, u.mobile, u.gender, u.status, u.last_login_at, u.last_login_ip,
+        u.pwd_reset_at, u.is_locked, u.locked_until
+    </sql>
+
+    <!-- ==================== 用户列表结果映射(含员工姓名) ==================== -->
+    <resultMap id="UserListResultMap" type="com.erp.system.vo.SysUserVO$ListVO">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="real_name" property="realName"/>
+        <result column="nickname" property="nickname"/>
+        <result column="avatar" property="avatar"/>
+        <result column="email" property="email"/>
+        <result column="mobile" property="mobile"/>
+        <result column="gender" property="gender"/>
+        <result column="status" property="status"/>
+        <result column="is_locked" property="isLocked"/>
+        <result column="employee_name" property="employeeName"/>
+        <result column="last_login_at" property="lastLoginAt"/>
+        <result column="last_login_ip" property="lastLoginIp"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <!-- ==================== 用户列表分页查询 ==================== -->
+    <select id="selectUserPage" resultMap="UserListResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>,
+            e.employee_name
+        FROM sys_user u
+        LEFT JOIN hrm_employee e ON u.employee_id = e.id
+        WHERE u.is_deleted = 0
+        <if test="keyword != null and keyword != ''">
+            AND (u.username LIKE CONCAT('%', #{keyword}, '%') OR u.nickname LIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+        <if test="status != null and status != ''">
+            AND u.status = #{status}
+        </if>
+        ORDER BY u.create_time DESC
+    </select>
+
+    <!-- ==================== 用户名唯一性校验 ==================== -->
+    <select id="countByUsername" resultType="int">
+        SELECT COUNT(*)
+        FROM sys_user
+        WHERE username = #{username}
+          AND is_deleted = 0
+        <if test="excludeId != null">
+            AND id != #{excludeId}
+        </if>
+    </select>
+
+    <!-- ==================== 密码历史查询 ==================== -->
+    <select id="selectPasswordHistory" resultType="string">
+        SELECT password_hash
+        FROM sys_user_password_history
+        WHERE user_id = #{userId}
+        ORDER BY create_time DESC
+        LIMIT #{historyCount}
+    </select>
+
+    <!-- ==================== 按部门查询用户列表 ==================== -->
+    <select id="selectUsersByDeptId" resultMap="UserListResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>,
+            e.employee_name
+        FROM sys_user u
+        INNER JOIN sys_user_dept ud ON u.id = ud.user_id AND ud.is_deleted = 0
+        LEFT JOIN hrm_employee e ON u.employee_id = e.id
+        WHERE u.is_deleted = 0
+          AND ud.dept_id = #{deptId}
+        ORDER BY u.create_time DESC
+    </select>
+
+    <!-- ==================== 用户角色名称查询 ==================== -->
+    <select id="selectRoleNamesByUserId" resultType="string">
+        SELECT r.role_name
+        FROM sys_user_role ur
+        INNER JOIN sys_role r ON ur.role_id = r.id AND r.is_deleted = 0
+        WHERE ur.user_id = #{userId}
+          AND ur.is_deleted = 0
+        ORDER BY r.sort_order ASC
+    </select>
+
+</mapper>

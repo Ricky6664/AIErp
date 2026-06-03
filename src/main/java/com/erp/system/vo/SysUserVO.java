@@ -38,6 +38,8 @@ public class SysUserVO {
 
         private Boolean isLocked;
 
+        private String employeeName;
+
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private LocalDateTime lastLoginAt;
 

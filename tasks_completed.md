@@ -660,12 +660,13 @@
 | P0-004-002-001-001-001 | 编写Entity类 | 2026-06-03T19:10 | ✅ | SysUser/SysRole/SysMenu实体类: @TableName映射/@TableId(ASSIGN_ID)/@TableLogic逻辑删除/BaseEntity继承/passwordHash字段@TableField(select=false) | — |
 | P0-004-002-001-001-002 | 编写DTOVO类 | 2026-06-03T19:25 | ✅ | SysUserDTO/SysUserVO/SysRoleDTO/SysRoleVO/SysMenuDTO/SysMenuVO: CreateDTO含@NotBlank/@NotNull校验, UpdateDTO含@NotNull id, QueryDTO含分页参数, ListVO排除密码字段, DetailVO含完整字段, @JsonFormat日期格式化, xxxName字典翻译字段 | — |
 | P0-004-002-001-001-003 | 验证实体类 | 2026-06-03T19:45 | ✅ | 验证SysUser/SysRole/SysMenu实体类DDL一致性/注解完整性/DTO校验/VO格式化，编译通过，发现C1/C2/M1/m1/m2共5个问题并制定修复方案 | — |
+| P0-004-002-002-001-001 | 编写SQL语句 | 2026-06-03T19:50 | ✅ | UserMapper接口(5个方法)+UserMapper.xml(5条自定义SQL:分页查询/用户名唯一校验/密码历史/按部门查用户/角色名称查询), SysUserVO.ListVO新增employeeName字段, 全部#{param}参数化防注入 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 382 | 2 | 17.80% |
+| P0 | 14 | 2,147 | 383 | 2 | 17.88% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **382** | **2** | **8.10%** |
