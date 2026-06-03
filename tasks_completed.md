@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-03T23:28
-> **归档总数**：408 条
+> **归档总数**：409 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -699,9 +699,10 @@
 | P0-004-003-005-001-001 | 编写接口定义Service接口 | 2026-06-03T20:40 | ✅ | 定义SysButtonPermissionService接口(extends IServiceX\<SysMenu\>), 声明checkPermission/getUserPermissions/getRolePermissions/getButtonsByMenuId/getButtonsByUserId/refreshCache方法; mvn compile通过 | — |
 | P0-004-003-005-001-002 | 编写ServiceImpl实现类 | 2026-06-03T20:45 | ✅ | 实现SysButtonPermissionServiceImpl(extends ServiceImplX\<SysMenuMapper, SysMenu\>), 集成StpUtil.hasPermission/kickout, 所有方法null参数防护, 创建SysMenuMapper(含selectPermissionCodesByRoleId/UserId/selectButtonsByParentId/UserId/selectByPermissionCode注解SQL); mvn compile通过 | — |
 | P0-004-003-005-001-003 | 验证Service | 2026-06-03T20:50 | ✅ | 验证SysButtonPermissionService/SysButtonPermissionServiceImpl: 接口6方法完整/Impl Sa-Token集成正确/纯读操作无需@Transactional/null参数优雅降级/mvn compile BUILD SUCCESS | — |
-| P0-004-003-006-001-002 | 编写接口方法 | 2026-06-03T23:44 | ✅ | SysRoleController: 新增POST /menu菜单批量绑定+GET /menu/{roleId}菜单树+POST /inheritance继承(4个端点)+POST /exclusion互斥(4个端点)+POST /data-scope数据权限配置; 新建SysRoleInheritance/SysRoleExclusion实体+Mapper+Service(Impl); 新建SysDataPermissionSchemeController(CRUD)+SysFieldPermissionSchemeController(CRUD)含DDL+Entity+Mapper+Service; 新建MenuPermissionBatchDTO; SysMenu新增children字段; mvn clean compile BUILD SUCCESS | — |
+| P0-004-003-006-001-002 | 编写接口方法 | 2026-06-03T23:44 | ✅ | SysRoleController: 新增POST /menu菜单批量绑定+GET /menu/{roleId}菜单树+POST /inheritance继承(4个端点)+POST /exclusion互斥(4个端点)+POST /data-scope数据权限配置; 新建SysRoleInheritance/SysRoleExclusion实体+Mapper+Service(Impl); 新建SysDataPermissionSchemeController(CRUD)+SysFieldPermissionSchemeController(CRUD)含DDL+Entity+Mapper+Service; 新建MenuPermissionBatchDTO; SysMenu新增children字段; mvn clean compile BUILD SUCCESS | dd281ba8 |
 | P0-004-003-007-001-001 | 编写DDLEntityMapperServiceController | 2026-06-03T23:28 | ✅ | Flyway DDL: sys_role_inheritance(角色继承表)建表+索引+回滚, sys_role_exclusion(角色互斥表)建表+索引+回滚, 共4个SQL文件, mvn compile通过 | e1f36605 |
 | P0-004-003-006-001-001 | 编写Controller类 | 2026-06-03T23:45 | ✅ | SysRoleController: @RestController+@RequestMapping("/api/system/role"), 注入5个Service, 26个RESTful接口(角色CRUD+菜单权限+数据权限+字段权限+按钮权限), @SaCheckPermission全覆盖, RT+PageResult响应, @Operation注解完整 | — |
+| P0-004-003-008-001-001 | 编写DDLEntityMapperServiceController | 2026-06-03T23:55 | ✅ | 数据权限方案配置: Flyway DDL(sys_data_permission_scheme+sys_data_permission_scheme_role)+回滚脚本, SysDataPermissionScheme实体/Mapper/Service/ServiceImpl/Controller完整CRUD, mvn compile通过 | — |
 
 ## 汇总统计
 
