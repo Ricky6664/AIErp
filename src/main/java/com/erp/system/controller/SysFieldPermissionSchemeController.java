@@ -11,8 +11,10 @@ import com.erp.system.entity.SysFieldPermissionScheme;
 import com.erp.system.service.SysFieldPermissionSchemeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -72,7 +74,10 @@ public class SysFieldPermissionSchemeController {
     @Operation(summary = "新增字段权限方案")
     @SaCheckPermission("system:field-permission-scheme:add")
     @PostMapping
-    public RT<Long> create(@RequestBody SysFieldPermissionScheme entity) {
+    public RT<Long> create(@Valid @RequestBody SysFieldPermissionScheme entity, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return RT.paramError(getErrorMsg(bindingResult));
+        }
         schemeService.save(entity);
         return RT.ok(entity.getId());
     }
@@ -80,7 +85,11 @@ public class SysFieldPermissionSchemeController {
     @Operation(summary = "修改字段权限方案")
     @SaCheckPermission("system:field-permission-scheme:edit")
     @PutMapping("/{id}")
-    public RT<Void> update(@PathVariable Long id, @RequestBody SysFieldPermissionScheme entity) {
+    public RT<Void> update(@PathVariable Long id, @Valid @RequestBody SysFieldPermissionScheme entity,
+                           BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return RT.paramError(getErrorMsg(bindingResult));
+        }
         SysFieldPermissionScheme existing = schemeService.getById(id);
         if (existing == null) {
             throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
@@ -96,5 +105,11 @@ public class SysFieldPermissionSchemeController {
     public RT<Void> delete(@PathVariable Long id) {
         schemeService.removeById(id);
         return RT.ok();
+    }
+
+    private String getErrorMsg(BindingResult bindingResult) {
+        return bindingResult.getFieldError() != null
+                ? bindingResult.getFieldError().getDefaultMessage()
+                : "参数校验失败";
     }
 }

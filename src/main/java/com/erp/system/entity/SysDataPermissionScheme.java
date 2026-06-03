@@ -2,6 +2,7 @@ package com.erp.system.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.erp.common.entity.BaseEntity;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,8 +17,10 @@ import lombok.EqualsAndHashCode;
 @TableName("sys_data_permission_scheme")
 public class SysDataPermissionScheme extends BaseEntity {
 
+    @NotBlank(message = "方案名称不能为空")
     private String schemeName;
 
+    @NotBlank(message = "方案编码不能为空")
     private String schemeCode;
 
     private String schemeDesc;

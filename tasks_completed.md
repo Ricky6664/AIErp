@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-04T00:05
-> **归档总数**：410 条
+> **归档总数**：411 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -703,16 +703,17 @@
 | P0-004-003-007-001-001 | 编写DDLEntityMapperServiceController | 2026-06-03T23:28 | ✅ | Flyway DDL: sys_role_inheritance(角色继承表)建表+索引+回滚, sys_role_exclusion(角色互斥表)建表+索引+回滚, 共4个SQL文件, mvn compile通过 | e1f36605 |
 | P0-004-003-006-001-001 | 编写Controller类 | 2026-06-03T23:45 | ✅ | SysRoleController: @RestController+@RequestMapping("/api/system/role"), 注入5个Service, 26个RESTful接口(角色CRUD+菜单权限+数据权限+字段权限+按钮权限), @SaCheckPermission全覆盖, RT+PageResult响应, @Operation注解完整 | — |
 | P0-004-003-008-001-001 | 编写DDLEntityMapperServiceController | 2026-06-03T23:55 | ✅ | 数据权限方案配置: Flyway DDL(sys_data_permission_scheme+sys_data_permission_scheme_role)+回滚脚本, SysDataPermissionScheme实体/Mapper/Service/ServiceImpl/Controller完整CRUD, mvn compile通过 | — |
-| P0-004-003-009-001-001 | 编写DDLEntityMapperServiceController | 2026-06-04T00:05 | ✅ | 字段权限方案配置: Flyway DDL(sys_field_permission_scheme+role+detail)+回滚脚本(新增), SysFieldPermissionScheme+Detail实体/Mapper/Service/ServiceImpl/Controller完整CRUD均已就绪, mvn compile通过 | — |
+| P0-004-003-009-001-001 | 编写DDLEntityMapperServiceController | 2026-06-04T00:05 | ✅ | 字段权限方案配置: Flyway DDL(sys_field_permission_scheme+role+detail)+回滚脚本(新增), SysFieldPermissionScheme+Detail实体/Mapper/Service/ServiceImpl/Controller完整CRUD均已就绪, mvn compile通过 | cb6e7d0f |
+| P0-004-003-006-001-003 | 验证Controller | 2026-06-04T00:20 | ✅ | 验证并修复权限配置Controller: SysRoleController/SysDataPermissionSchemeController/SysFieldPermissionSchemeController全部通过5项验收标准, 补充了@Valid+BindingResult参数校验, mvn compile通过 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 412 | 2 | 19.19% |
+| P0 | 14 | 2,147 | 413 | 2 | 19.24% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **410** | **2** | **8.69%** |
+| **合计** | **46** | **4,716** | **411** | **2** | **8.71%** |
 
 ---
 
