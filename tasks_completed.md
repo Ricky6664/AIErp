@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-04T00:30
-> **归档总数**：413 条
+> **归档总数**：414 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -707,6 +707,7 @@
 | P0-004-003-006-001-003 | 验证Controller | 2026-06-04T00:20 | ✅ | 验证并修复权限配置Controller: SysRoleController/SysDataPermissionSchemeController/SysFieldPermissionSchemeController全部通过5项验收标准, 补充了@Valid+BindingResult参数校验, mvn compile通过 | — |
 | P0-004-004-001-001-001 | 编写接口定义Service接口 | 2026-06-04T00:30 | ✅ | SysMenuService接口: 继承IServiceX<SysMenu>, 声明getMenuTree/getMenuTreeByUserId/isPermissionCodeUnique/updateStatus/deleteMenuWithChildren共5个业务方法签名 | — |
 | P0-004-004-001-001-002 | 编写ServiceImpl实现类 | 2026-06-04T00:15 | ✅ | SysMenuServiceImpl: 继承ServiceImplX, 实现5个方法(菜单树构建/按用户权限过滤树/权限码唯一性校验/状态启禁用/级联删除), @Transactional事务管理, BusinessException异常规范 | — |
+| P0-004-004-001-001-003 | 验证Service | 2026-06-04T00:05 | ✅ | 编译通过, 代码审查5项验收标准全部通过(接口签名完整/业务逻辑正确/校验完备/事务注解位置正确/异常规范) | — |
 
 ## 汇总统计
 
