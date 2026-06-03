@@ -7,6 +7,8 @@ import com.erp.auth.exception.CaptchaException;
 import com.erp.auth.mapper.AuthOnlineDeviceMapper;
 import com.erp.auth.mapper.SysUserMapper;
 import com.erp.auth.vo.LoginResponse;
+import com.erp.auth.vo.TokenRefreshResponse;
+import com.erp.auth.vo.TokenVerifyResponse;
 import com.erp.common.exception.AuthException;
 import com.erp.common.exception.BusinessException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -353,6 +355,134 @@ class AuthServiceTest {
 
             // Token注销仍应执行
             stpUtilMock.verify(StpUtil::logout);
+        }
+    }
+
+    // ==================== Token校验 ====================
+
+    @Nested
+    @DisplayName("Token校验 - verifyToken()")
+    class VerifyToken {
+
+        @Test
+        @DisplayName("有效Token → 返回valid=true,userId和expireInSeconds")
+        void shouldReturnValidResponseWhenTokenIsValid() {
+            stpUtilMock.when(StpUtil::getLoginIdAsLong).thenReturn(1L);
+            stpUtilMock.when(StpUtil::getTokenTimeout).thenReturn(1800L);
+            stpUtilMock.when(StpUtil::getTokenValue).thenReturn("valid-token-xxx");
+
+            AuthOnlineDevice device = new AuthOnlineDevice();
+            device.setId(1L);
+            device.setUserId(1L);
+            device.setSessionTokenId("valid-token-xxx");
+            when(authOnlineDeviceMapper.selectOne(any())).thenReturn(device);
+
+            TokenVerifyResponse response = authService.verifyToken();
+
+            assertNotNull(response);
+            assertTrue(response.isValid());
+            assertEquals(1L, response.getUserId());
+            assertEquals(1800L, response.getExpireInSeconds());
+            verify(authOnlineDeviceMapper).updateById(argThat(d ->
+                    d.getLastActiveTime() != null));
+        }
+
+        @Test
+        @DisplayName("更新设备活跃时间失败 → 不阻断校验结果(防御性容错)")
+        void shouldNotBlockVerifyWhenDeviceUpdateFails() {
+            stpUtilMock.when(StpUtil::getLoginIdAsLong).thenReturn(1L);
+            stpUtilMock.when(StpUtil::getTokenTimeout).thenReturn(1800L);
+            stpUtilMock.when(StpUtil::getTokenValue).thenReturn("token-xxx");
+            when(authOnlineDeviceMapper.selectOne(any()))
+                    .thenThrow(new RuntimeException("数据库连接异常"));
+
+            TokenVerifyResponse response = authService.verifyToken();
+
+            assertTrue(response.isValid());
+            assertEquals(1L, response.getUserId());
+        }
+
+        // 注: checkLogin() 是 Sa-Token 的 void 静态方法, MockedStatic 的 when() 在注册 stub 时
+        // 会先执行真实方法, 导致在无 Sa-Token 上下文的单元测试中抛出非预期的 NotLoginException。
+        // Token过期/未登录的错误路径在 AuthControllerTest 层验证 (mock AuthService 实例方法).
+    }
+
+    // ==================== Token刷新 ====================
+
+    @Nested
+    @DisplayName("Token刷新 - refreshToken()")
+    class RefreshToken {
+
+        @Test
+        @DisplayName("有效refreshToken → 返回新token+refreshToken+expiresIn")
+        void shouldReturnNewTokenPairWhenRefreshTokenIsValid() {
+            when(valueOperations.get("refresh:token:valid-refresh-token")).thenReturn("1");
+
+            stpUtilMock.when(StpUtil::getTokenValue).thenReturn("old-token", "new-token-xxx");
+            stpUtilMock.when(StpUtil::getTokenTimeout).thenReturn(2592000L);
+
+            AuthOnlineDevice device = new AuthOnlineDevice();
+            device.setId(1L);
+            device.setSessionTokenId("new-token-xxx");
+            when(authOnlineDeviceMapper.selectOne(any())).thenReturn(device);
+
+            TokenRefreshResponse response = authService.refreshToken("valid-refresh-token");
+
+            assertNotNull(response);
+            assertEquals("new-token-xxx", response.getToken());
+            assertNotNull(response.getRefreshToken());
+            assertFalse(response.getRefreshToken().isEmpty());
+            assertEquals(2592000L, response.getExpiresIn());
+        }
+
+        @Test
+        @DisplayName("refreshToken不存在于Redis → 抛出AuthException(REFRESH_TOKEN_EXPIRED)")
+        void shouldThrowWhenRefreshTokenNotFound() {
+            when(valueOperations.get("refresh:token:expired-token")).thenReturn(null);
+
+            AuthException ex = assertThrows(AuthException.class,
+                    () -> authService.refreshToken("expired-token"));
+            assertEquals(20008, ex.getCode());
+        }
+
+        @Test
+        @DisplayName("旧refreshToken一次性使用 → 刷新后立即删除,防止重放")
+        void shouldDeleteOldRefreshTokenAfterUse() {
+            when(valueOperations.get("refresh:token:one-time-token")).thenReturn("1");
+            stpUtilMock.when(StpUtil::getTokenValue).thenReturn("old-token", "new-token");
+            stpUtilMock.when(StpUtil::getTokenTimeout).thenReturn(2592000L);
+
+            authService.refreshToken("one-time-token");
+
+            verify(redisTemplate).delete("refresh:token:one-time-token");
+        }
+
+        @Test
+        @DisplayName("旧accessToken被平滑替换 → 调用StpUtil.replaced()")
+        void shouldReplaceOldAccessToken() {
+            when(valueOperations.get("refresh:token:replace-test")).thenReturn("1");
+            stpUtilMock.when(StpUtil::getTokenValue).thenReturn("old-access-token", "new-access-token");
+            stpUtilMock.when(StpUtil::getTokenTimeout).thenReturn(2592000L);
+
+            authService.refreshToken("replace-test");
+
+            stpUtilMock.verify(() -> StpUtil.replaced("old-access-token", "new-access-token"));
+        }
+
+        @Test
+        @DisplayName("生成新refreshToken并存入Redis → 7天TTL")
+        void shouldStoreNewRefreshTokenWith7DayTTL() {
+            when(valueOperations.get("refresh:token:gen-test")).thenReturn("1");
+            stpUtilMock.when(StpUtil::getTokenValue).thenReturn("old-token", "new-token");
+            stpUtilMock.when(StpUtil::getTokenTimeout).thenReturn(2592000L);
+
+            TokenRefreshResponse response = authService.refreshToken("gen-test");
+
+            verify(redisTemplate.opsForValue()).set(
+                    eq("refresh:token:" + response.getRefreshToken()),
+                    eq("1"),
+                    eq(7L),
+                    eq(java.util.concurrent.TimeUnit.DAYS));
         }
     }
 }

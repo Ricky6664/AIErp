@@ -1,8 +1,11 @@
 package com.erp.auth.controller;
 
 import com.erp.auth.dto.LoginRequest;
+import com.erp.auth.dto.TokenRefreshRequest;
 import com.erp.auth.service.AuthService;
 import com.erp.auth.vo.LoginResponse;
+import com.erp.auth.vo.TokenRefreshResponse;
+import com.erp.auth.vo.TokenVerifyResponse;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.AuthException;
 import com.erp.common.exception.BusinessException;
@@ -172,6 +175,99 @@ class AuthControllerTest {
             assertTrue(result1.isSuccess());
             assertTrue(result2.isSuccess());
             verify(authService, times(2)).logout();
+        }
+    }
+
+    // ==================== Token校验 ====================
+
+    @Nested
+    @DisplayName("GET /auth/token/verify")
+    class VerifyToken {
+
+        @Test
+        @DisplayName("有效Token → 返回RT.ok包装的TokenVerifyResponse")
+        void shouldReturnOkWithTokenVerifyResponse() {
+            TokenVerifyResponse mockResponse = new TokenVerifyResponse(true, 1L, 1800L);
+            when(authService.verifyToken()).thenReturn(mockResponse);
+
+            RT<TokenVerifyResponse> result = authController.verifyToken();
+
+            assertTrue(result.isSuccess());
+            assertEquals(200, result.getCode());
+            assertNotNull(result.getData());
+            assertTrue(result.getData().isValid());
+            assertEquals(1L, result.getData().getUserId());
+            assertEquals(1800L, result.getData().getExpireInSeconds());
+        }
+
+        @Test
+        @DisplayName("Token过期 → AuthException由全局异常处理器处理")
+        void shouldPropagateAuthExceptionOnExpiredToken() {
+            when(authService.verifyToken())
+                    .thenThrow(new AuthException(ErrorCode.TOKEN_EXPIRED));
+
+            assertThrows(AuthException.class,
+                    () -> authController.verifyToken());
+        }
+    }
+
+    // ==================== Token刷新 ====================
+
+    @Nested
+    @DisplayName("POST /auth/token/refresh")
+    class RefreshToken {
+
+        @Test
+        @DisplayName("有效refreshToken → 返回RT.ok包装的TokenRefreshResponse")
+        void shouldReturnOkWithTokenRefreshResponse() {
+            TokenRefreshRequest request = new TokenRefreshRequest();
+            request.setRefreshToken("valid-refresh-token");
+
+            TokenRefreshResponse mockResponse = TokenRefreshResponse.builder()
+                    .token("new-access-token")
+                    .refreshToken("new-refresh-token")
+                    .expiresIn(2592000L)
+                    .build();
+            when(authService.refreshToken("valid-refresh-token")).thenReturn(mockResponse);
+
+            BindingResult br = new BeanPropertyBindingResult(request, "tokenRefreshRequest");
+            RT<TokenRefreshResponse> result = authController.refreshToken(request, br);
+
+            assertTrue(result.isSuccess());
+            assertEquals(200, result.getCode());
+            assertNotNull(result.getData());
+            assertEquals("new-access-token", result.getData().getToken());
+            assertEquals("new-refresh-token", result.getData().getRefreshToken());
+            assertEquals(2592000L, result.getData().getExpiresIn());
+        }
+
+        @Test
+        @DisplayName("refreshToken为空 → 返回paramError")
+        void shouldReturnParamErrorWhenRefreshTokenIsBlank() {
+            TokenRefreshRequest request = new TokenRefreshRequest();
+            request.setRefreshToken("");
+            BindingResult br = new BeanPropertyBindingResult(request, "tokenRefreshRequest");
+            br.rejectValue("refreshToken", "NotBlank", "refreshToken不能为空");
+
+            RT<TokenRefreshResponse> result = authController.refreshToken(request, br);
+
+            assertFalse(result.isSuccess());
+            assertEquals(400, result.getCode());
+            assertEquals("refreshToken不能为空", result.getMessage());
+        }
+
+        @Test
+        @DisplayName("refreshToken无效 → AuthException由全局异常处理器处理")
+        void shouldPropagateAuthExceptionOnInvalidRefreshToken() {
+            TokenRefreshRequest request = new TokenRefreshRequest();
+            request.setRefreshToken("expired-token");
+            BindingResult br = new BeanPropertyBindingResult(request, "tokenRefreshRequest");
+
+            when(authService.refreshToken("expired-token"))
+                    .thenThrow(new AuthException(ErrorCode.REFRESH_TOKEN_EXPIRED));
+
+            assertThrows(AuthException.class,
+                    () -> authController.refreshToken(request, br));
         }
     }
 }

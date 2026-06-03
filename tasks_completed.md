@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-03T18:05
-> **归档总数**：374 条
+> **归档总数**：376 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -406,6 +406,7 @@
 | P0-002-006-005-003-002 | 验证构建优化 | 2026-05-31T19:00 | ✅ | 验证7项构建配置+修复element-plus分包顺序(@element-plus/icons-vue被vue规则误捕获)+修复console策略(drop_console→pure_funcs保留warn/error)+vue chunk 332KB gzipped(略超300KB因@vueuse受Rolldown限制无法分离) | 8c06e7e9 |
 | P0-002-006-006-001-001 | 编写外部资源域适配配置 | 2026-05-31T21:15 | ✅ | 创建cdn-fallback.ts(国内/国外CDN自动切换+超时回退+preload预加载)+.env.development/.env.production添加VITE_EXTERNAL_CDN_BASE/VITE_CDN_FALLBACK_URL+index.html添加preconnect | 8d86e81d |
 | P0-002-006-006-001-002 | 验证CDN切换 | 2026-05-31T18:32 | ✅ | 验证7项CDN切换+编译+构建全部通过:cdn-fallback.ts国内CDN fonts.loli.net正确/超时3000ms+自动切换备用源/环境变量VITE_EXTERNAL_CDN_BASE正确/index.html preconnect生效/TypeScript编译零错误/Vite构建成功(4.72s) | 56b53ae1 |
+| P0-003-007-012-001-003 | 验证编写inv_disassembly_detail拆卸主从表DDL | 2026-06-03T18:30 | ✅ | V20260603005验证SQL(主表17+从表17+Flyway验证共35项查询)+静态分析报告(34索引/76字段COMMENT/22扩展字段/11快照字段/DECIMAL(18,8)精度全部通过) | daf7e4bb |
 
 ### 模块完成: P0-002 ✅
 
@@ -633,15 +634,17 @@
 | P0-004-001-001-001-002 | 验证功能 | 2026-06-03T17:48 | ✅ | 编写27个单元测试(AuthServiceTest/CaptchaServiceTest/AuthControllerTest)，全部通过 | 08b8b70f |
 | P0-004-001-002-001-001 | 编写核心代码 | 2026-06-03T18:05 | ✅ | 实现退出登录核心逻辑: AuthController.logout/AuthService.logout/AuthOnlineDevice实体/AuthOnlineDeviceMapper/LoginLogService.updateLogoutTime/SysLoginLog.logoutAt | a7d406d9 |
 | P0-004-001-002-001-002 | 验证功能 | 2026-06-03T18:05 | ✅ | 编写6个退出登录单元测试(AuthServiceTest$Logout/AuthControllerTest$Logout)，全部通过，生成测试报告 | — |
+| P0-004-001-003-001-001 | 编写核心代码 | 2026-06-03T18:30 | ✅ | 实现Token校验与刷新: TokenVerifyResponse/TokenRefreshResponse/TokenRefreshRequest/AuthService.verifyToken/refreshToken/AuthController两个新端点 | 1c51e4c8 |
+| P0-004-001-003-001-002 | 验证功能 | 2026-06-03T18:30 | ✅ | 编写12个Token校验与刷新单元测试(AuthServiceTest$VerifyToken/RefreshToken + AuthControllerTest$VerifyToken/RefreshToken)，34/34通过，生成测试报告与问题清单 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 375 | 2 | 17.47% |
+| P0 | 14 | 2,147 | 376 | 2 | 17.51% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **375** | **2** | **7.95%** |
+| **合计** | **46** | **4,716** | **376** | **2** | **7.97%** |
 
 ---
 
