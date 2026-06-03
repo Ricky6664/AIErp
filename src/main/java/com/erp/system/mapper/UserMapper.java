@@ -44,4 +44,19 @@ public interface UserMapper extends BaseMapperX<SysUser> {
      * 查询用户角色名称列表, LEFT JOIN sys_user_role + sys_role.
      */
     List<String> selectRoleNamesByUserId(@Param("userId") Long userId);
+
+    /**
+     * 删除用户所有角色关联.
+     */
+    int deleteUserRoles(@Param("userId") Long userId);
+
+    /**
+     * 批量插入用户角色关联.
+     */
+    int insertUserRoles(@Param("userId") Long userId, @Param("roleIds") List<Long> roleIds);
+
+    /**
+     * 插入密码历史记录.
+     */
+    int insertPasswordHistory(@Param("userId") Long userId, @Param("passwordHash") String passwordHash);
 }
