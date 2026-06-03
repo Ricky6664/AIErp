@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-03T20:40
-> **归档总数**：406 条
+> **最后更新**：2026-06-03T20:50
+> **归档总数**：407 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -698,6 +698,7 @@
 | P0-004-003-004-001-003 | 验证Service | 2026-06-03T20:36 | ✅ | 验证SysRoleFieldPermissionService/SysRoleFieldPermissionServiceImpl: 接口5个方法签名完整/Impl逻辑正确/StpUtil.kickout/@Transactional位置正确/BusinessException规范/mvn compile通过 | — |
 | P0-004-003-005-001-001 | 编写接口定义Service接口 | 2026-06-03T20:40 | ✅ | 定义SysButtonPermissionService接口(extends IServiceX\<SysMenu\>), 声明checkPermission/getUserPermissions/getRolePermissions/getButtonsByMenuId/getButtonsByUserId/refreshCache方法; mvn compile通过 | — |
 | P0-004-003-005-001-002 | 编写ServiceImpl实现类 | 2026-06-03T20:45 | ✅ | 实现SysButtonPermissionServiceImpl(extends ServiceImplX\<SysMenuMapper, SysMenu\>), 集成StpUtil.hasPermission/kickout, 所有方法null参数防护, 创建SysMenuMapper(含selectPermissionCodesByRoleId/UserId/selectButtonsByParentId/UserId/selectByPermissionCode注解SQL); mvn compile通过 | — |
+| P0-004-003-005-001-003 | 验证Service | 2026-06-03T20:50 | ✅ | 验证SysButtonPermissionService/SysButtonPermissionServiceImpl: 接口6方法完整/Impl Sa-Token集成正确/纯读操作无需@Transactional/null参数优雅降级/mvn compile BUILD SUCCESS | — |
 
 ## 汇总统计
 
