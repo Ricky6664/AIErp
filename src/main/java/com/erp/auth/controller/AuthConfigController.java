@@ -20,8 +20,10 @@ import com.erp.common.result.RT;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -89,7 +91,7 @@ public class AuthConfigController {
     @Operation(summary = "新增认证方式")
     @RequirePermission("system:auth-method:create")
     @PostMapping("/auth-methods")
-    public RT<AuthMethod> createAuthMethod(@RequestBody AuthMethod entity) {
+    public RT<AuthMethod> createAuthMethod(@Valid @RequestBody AuthMethod entity, BindingResult bindingResult) {
         authMethodService.save(entity);
         log.info("认证方式已新增: id={}, methodName={}", entity.getId(), entity.getMethodName());
         return RT.ok(entity);
@@ -99,7 +101,7 @@ public class AuthConfigController {
     @RequirePermission("system:auth-method:update")
     @PutMapping("/auth-methods/{id}")
     public RT<AuthMethod> updateAuthMethod(@Parameter(description = "认证方式ID") @PathVariable Long id,
-                                           @RequestBody AuthMethod entity) {
+                                           @Valid @RequestBody AuthMethod entity, BindingResult bindingResult) {
         AuthMethod existing = authMethodService.getById(id);
         if (existing == null) {
             throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
@@ -176,7 +178,7 @@ public class AuthConfigController {
     @Operation(summary = "新增密码策略")
     @RequirePermission("system:password-policy:create")
     @PostMapping("/password-policies")
-    public RT<AuthPasswordPolicy> createPasswordPolicy(@RequestBody AuthPasswordPolicy entity) {
+    public RT<AuthPasswordPolicy> createPasswordPolicy(@Valid @RequestBody AuthPasswordPolicy entity, BindingResult bindingResult) {
         authPasswordPolicyService.save(entity);
         log.info("密码策略已新增: id={}, policyName={}", entity.getId(), entity.getPolicyName());
         return RT.ok(entity);
@@ -186,7 +188,8 @@ public class AuthConfigController {
     @RequirePermission("system:password-policy:update")
     @PutMapping("/password-policies/{id}")
     public RT<AuthPasswordPolicy> updatePasswordPolicy(@Parameter(description = "密码策略ID") @PathVariable Long id,
-                                                        @RequestBody AuthPasswordPolicy entity) {
+                                                        @Valid @RequestBody AuthPasswordPolicy entity,
+                                                        BindingResult bindingResult) {
         AuthPasswordPolicy existing = authPasswordPolicyService.getById(id);
         if (existing == null) {
             throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
