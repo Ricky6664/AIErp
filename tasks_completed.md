@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-02T17:45
-> **归档总数**：373 条
+> **最后更新**：2026-06-03T18:05
+> **归档总数**：374 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -616,6 +616,7 @@
 | P0-003-007-010-001-003 | 验证编写inv_overflow_detail报溢主从表DDL | 2026-06-03T17:45 | ✅ | db/migration/V20260526001__verify_inv_overflow_detail.sql:17项验证SQL(2表/主表columns/PK/部分唯一索引/索引列表/多租户索引/COMMENT/NOT NULL/FK/列名/精度)+docs/verification/inv_overflow_detail_verify_report.md:6节完整报告(验证范围/结构验证/索引约束/规范合规/易错对照/验收总结) | — |
 | P0-003-007-011-001-001 | 编写CREATE TABLE语句 | 2026-06-03T17:50 | ✅ | db/migration/V20260603001:CREATE TABLE inv_assembly(12业务字段+10通用字段)+inv_assembly_detail(26业务字段+10通用字段+22扩展字段)+全COMMENT+decimal(18,8)+回滚脚本 | — |
 | P0-003-007-011-001-002 | 编写inv_assembly_detail组装主从表索引与约束 | 2026-06-03T17:56 | ✅ | db/migration/V20260603002:PK重命名(inv_assembly+inv_assembly_detail)+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表16个+从表16个共32个索引)+回滚脚本 | — |
+| P0-003-007-011-001-003 | 验证编写inv_assembly_detail组装主从表DDL | 2026-06-03T18:05 | ✅ | db/migration/V20260526001__verify_inv_assembly_detail.sql:17项验证SQL(2表/columns/PK/部分唯一索引/索引列表/多租户索引/COMMENT/NOT NULL/FK/DECIMAL精度/快照字段/扩展字段)+docs/verification/inv_assembly_detail_verify_report.md:6节完整报告 | — |
 
 ---
 
