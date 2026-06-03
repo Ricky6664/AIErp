@@ -644,6 +644,7 @@
 | P0-004-001-002-001-002 | 验证功能 | 2026-06-03T18:05 | ✅ | 编写6个退出登录单元测试(AuthServiceTest$Logout/AuthControllerTest$Logout)，全部通过，生成测试报告 | — |
 | P0-004-001-003-001-001 | 编写核心代码 | 2026-06-03T18:30 | ✅ | 实现Token校验与刷新: TokenVerifyResponse/TokenRefreshResponse/TokenRefreshRequest/AuthService.verifyToken/refreshToken/AuthController两个新端点 | 1c51e4c8 |
 | P0-004-001-003-001-002 | 验证功能 | 2026-06-03T18:30 | ✅ | 编写12个Token校验与刷新单元测试(AuthServiceTest$VerifyToken/RefreshToken + AuthControllerTest$VerifyToken/RefreshToken)，34/34通过，生成测试报告与问题清单 | — |
+| P0-004-001-004-001-001 | 编写配置文件类 | 2026-06-03T18:35 | ✅ | src/main/java/com/erp/auth/config/AuthProperties.java:认证模块配置属性类(验证码/登录安全/用户信息三层嵌套配置), @ConfigurationProperties(prefix="auth")+@Validated校验; application.yml新增auth配置段 | — |
 
 ## 汇总统计
 

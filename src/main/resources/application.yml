@@ -83,3 +83,21 @@ sa-token:
   is-log: false
   # SaServletFilter 和 SaInterceptor 排除的路径（逗号分隔）
   exclude-paths: /api/auth/login,/api/auth/logout,/api/auth/token/refresh,/api/auth/token/verify,/doc.html,/v3/api-docs/**
+
+# ---- 认证模块配置 ----
+auth:
+  captcha:
+    # 验证码 Redis 缓存有效期（分钟）
+    ttl-minutes: 5
+    # 验证码字符长度
+    code-length: 4
+  login-security:
+    # 最大登录失败次数，超过后锁定
+    max-attempts: 5
+    # 登录失败锁定时间（分钟）
+    lock-minutes: 15
+  user-info:
+    # 用户未设置头像时的默认头像 URL
+    default-avatar: ""
+    # 用户信息接口返回的菜单权限树最大深度
+    menu-tree-max-depth: 5
