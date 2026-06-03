@@ -721,6 +721,7 @@
 | P0-004-005-001-001-002 | 编写ServiceImpl实现类 | 2026-06-04T11:20 | ✅ | AuthMethodServiceImpl: 继承ServiceImplX, 实现6个方法(启禁用+优先级/唯一性校验/BusinessException/@Transactional); 创建AuthMethodMapper | — |
 | P0-004-005-001-001-003 | 验证Service | 2026-06-04T17:00 | ✅ | 验证AuthMethodService/AuthMethodServiceImpl: 接口6个方法签名完整/Impl业务逻辑正确/唯一性校验+状态流转完备/@Transactional位置正确/BusinessException规范/mvn compile通过 | — |
 | P0-004-005-002-001-001 | 编写接口定义Service接口 | 2026-06-04 | ✅ | AuthPasswordPolicyService接口: 继承IServiceX\<AuthPasswordPolicy\>, 声明getCurrentPolicy/isPolicyNameUnique/enable/disable/validatePassword共5个业务方法; 创建AuthPasswordPolicy实体+AuthPasswordPolicyMapper | — |
+| P0-004-005-002-001-002 | 编写ServiceImpl实现类 | 2026-06-04 | ✅ | AuthPasswordPolicyServiceImpl: 继承ServiceImplX, 实现5个方法(getCurrentPolicy当前启用策略/isPolicyNameUnique唯一校验/enable先禁用现有再启用/disable状态校验/validatePassword密码强度校验), @Transactional在enable/disable, BusinessException规范, mvn compile通过 | — |
 
 ## 汇总统计
 
