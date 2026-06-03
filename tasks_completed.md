@@ -713,7 +713,7 @@
 | P0-004-004-002-001-003 | 验证Service | 2026-06-04T00:32 | ✅ | 验证SysMenuMobileService/SysMenuMobileServiceImpl: 接口2个方法签名完整/Impl移动端菜单树构建逻辑正确/权限过滤/nullsafe/mvn compile通过 | — |
 | P0-004-004-003-001-001 | 编写接口定义Service接口 | 2026-06-04T00:40 | ✅ | 创建SysMenuTreeService接口: 4个方法签名( getMenuTree/getMenuTreeByUserId/buildTree/filterEmptyBranches)/继承IServiceX<SysMenu>/mvn compile通过 | — |
 | P0-004-004-003-001-002 | 编写ServiceImpl实现类 | 2026-06-04T01:10 | ✅ | SysMenuTreeServiceImpl: 继承ServiceImplX, 实现4个方法(getMenuTree全量树/getMenuTreeByUserId按权限过滤/buildTree递归建树/filterEmptyBranches过滤空分支), 权限码SQL过滤, nullsafe | 9614b53b |
-| P0-004-004-003-001-003 | 验证Service | 2026-06-04T01:15 | ✅ | 验证SysMenuTreeService/SysMenuTreeServiceImpl: 接口4个方法签名完整/Impl业务逻辑正确(菜单树构建+按用户权限过滤+空分支过滤)/nullsafe/纯读操作无需@Transactional/mvn compile通过 | — |
+| P0-004-004-003-001-003 | 验证Service | 2026-06-04T01:15 | ✅ | 验证SysMenuTreeService/SysMenuTreeServiceImpl: 接口4个方法签名完整/Impl业务逻辑正确(菜单树构建+按用户权限过滤+空分支过滤)/nullsafe/纯读操作无需@Transactional/mvn compile通过 | e7dae09e |
 
 ## 汇总统计
 
