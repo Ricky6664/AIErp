@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * 用户 DTO.
@@ -106,5 +107,26 @@ public class SysUserDTO {
 
         @NotBlank(message = "新密码不能为空")
         private String newPassword;
+    }
+
+    @Data
+    public static class ChangePwdDTO {
+        @NotBlank(message = "旧密码不能为空")
+        private String oldPassword;
+
+        @NotBlank(message = "新密码不能为空")
+        private String newPassword;
+    }
+
+    @Data
+    public static class RoleAssignDTO {
+        @NotNull(message = "角色ID列表不能为空")
+        private List<Long> roleIds;
+    }
+
+    @Data
+    public static class StatusDTO {
+        @NotBlank(message = "状态不能为空")
+        private String status;
     }
 }
