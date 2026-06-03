@@ -627,15 +627,16 @@
 |---------|---------|---------|:---:|------|-----|
 | P0-004-001-001-001-001 | 编写核心代码 | 2026-06-03T17:36 | ✅ | 实现登录认证核心逻辑: AuthController/AuthService/CaptchaService/LoginRequest/LoginResponse/SysUser/SysLoginLog | 8cf84b5e |
 | P0-004-001-001-001-002 | 验证功能 | 2026-06-03T17:48 | ✅ | 编写27个单元测试(AuthServiceTest/CaptchaServiceTest/AuthControllerTest)，全部通过 | 08b8b70f |
+| P0-004-001-002-001-001 | 编写核心代码 | 2026-06-03T18:05 | ✅ | 实现退出登录核心逻辑: AuthController.logout/AuthService.logout/AuthOnlineDevice实体/AuthOnlineDeviceMapper/LoginLogService.updateLogoutTime/SysLoginLog.logoutAt | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 374 | 2 | 17.42% |
+| P0 | 14 | 2,147 | 375 | 2 | 17.47% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **374** | **2** | **7.93%** |
+| **合计** | **46** | **4,716** | **375** | **2** | **7.95%** |
 
 ---
 

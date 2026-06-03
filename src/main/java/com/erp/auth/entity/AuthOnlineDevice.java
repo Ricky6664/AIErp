@@ -10,15 +10,9 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-/**
- * 登录日志表实体.
- *
- * @author AI
- * @since 2026-06-03
- */
 @Data
-@TableName("sys_login_log")
-public class SysLoginLog implements Serializable {
+@TableName("auth_online_device")
+public class AuthOnlineDevice implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -31,30 +25,18 @@ public class SysLoginLog implements Serializable {
     @TableField("user_id")
     private Long userId;
 
-    @TableField("login_time")
-    private LocalDateTime loginTime;
+    @TableField("device_type")
+    private String deviceType;
 
-    @TableField("ip_address")
-    private String ipAddress;
-
-    @TableField("browser")
-    private String browser;
-
-    @TableField("os")
-    private String os;
-
-    @TableField("login_method")
-    private String loginMethod;
+    @TableField("session_token_id")
+    private String sessionTokenId;
 
     @TableField("status")
     private String status;
 
-    @TableField("fail_reason")
-    private String failReason;
-
-    @TableField("logout_at")
-    private LocalDateTime logoutAt;
-
     @TableField("created_at")
     private LocalDateTime createdAt;
+
+    @TableField("updated_at")
+    private LocalDateTime updatedAt;
 }

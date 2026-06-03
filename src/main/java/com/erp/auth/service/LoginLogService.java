@@ -23,6 +23,25 @@ public class LoginLogService {
     private final SysLoginLogMapper sysLoginLogMapper;
 
     /**
+     * 异步更新登出时间.
+     */
+    @Async
+    public void updateLogoutTime(Long userId) {
+        SysLoginLog latest = sysLoginLogMapper.selectOne(
+                new com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper<SysLoginLog>()
+                        .eq(SysLoginLog::getUserId, userId)
+                        .eq(SysLoginLog::getStatus, "SUCCESS")
+                        .orderByDesc(SysLoginLog::getCreatedAt)
+                        .last("LIMIT 1")
+        );
+        if (latest != null) {
+            latest.setLogoutAt(LocalDateTime.now());
+            sysLoginLogMapper.updateById(latest);
+            log.debug("登出时间已更新: userId={}", userId);
+        }
+    }
+
+    /**
      * 异步写入登录成功日志.
      */
     @Async

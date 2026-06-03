@@ -1,8 +1,10 @@
 package com.erp.auth.service;
 
 import cn.dev33.satoken.stp.StpUtil;
+import com.erp.auth.entity.AuthOnlineDevice;
 import com.erp.auth.entity.SysUser;
 import com.erp.auth.exception.CaptchaException;
+import com.erp.auth.mapper.AuthOnlineDeviceMapper;
 import com.erp.auth.mapper.SysUserMapper;
 import com.erp.auth.vo.LoginResponse;
 import com.erp.common.enums.ErrorCode;
@@ -37,6 +39,7 @@ public class AuthService {
     private static final int MAX_LOGIN_ATTEMPTS = 5;
 
     private final SysUserMapper sysUserMapper;
+    private final AuthOnlineDeviceMapper authOnlineDeviceMapper;
     private final CaptchaService captchaService;
     private final LoginLogService loginLogService;
     private final StringRedisTemplate redisTemplate;
@@ -96,6 +99,49 @@ public class AuthService {
                 .menuTree(getMenuTree(user.getId()))
                 .permissions(getPermissionList(user.getId()))
                 .build();
+    }
+
+    /**
+     * 执行退出登录.
+     */
+    public void logout() {
+        try {
+            Long userId = StpUtil.getLoginIdAsLong();
+            String tokenValue = StpUtil.getTokenValue();
+
+            // 1. 更新在线设备状态为"已下线"
+            updateOnlineDeviceStatus(tokenValue);
+
+            // 2. 注销Token, 清除Sa-Token Session
+            StpUtil.logout();
+
+            // 3. 清除Redis权限缓存
+            redisTemplate.delete("user:permission:" + userId);
+            redisTemplate.delete("user:menu:" + userId);
+
+            // 4. 异步写入登出时间
+            loginLogService.updateLogoutTime(userId);
+
+            log.info("用户已退出登录: userId={}", userId);
+        } catch (cn.dev33.satoken.exception.NotLoginException e) {
+            log.info("退出登录时Token已过期或不存在(幂等): {}", e.getMessage());
+        }
+    }
+
+    private void updateOnlineDeviceStatus(String tokenValue) {
+        try {
+            AuthOnlineDevice device = authOnlineDeviceMapper.selectOne(
+                    new com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper<AuthOnlineDevice>()
+                            .eq(AuthOnlineDevice::getSessionTokenId, tokenValue)
+                            .last("LIMIT 1")
+            );
+            if (device != null) {
+                device.setStatus("已下线");
+                authOnlineDeviceMapper.updateById(device);
+            }
+        } catch (Exception e) {
+            log.debug("更新在线设备状态失败(可能表未初始化): {}", e.getMessage());
+        }
     }
 
     // ==================== 锁定检查 ====================

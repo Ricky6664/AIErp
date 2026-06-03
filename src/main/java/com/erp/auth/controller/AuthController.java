@@ -53,4 +53,14 @@ public class AuthController {
                 request);
         return RT.ok(response);
     }
+
+    /**
+     * 退出登录.
+     */
+    @Operation(summary = "退出登录", description = "注销当前Token, 清除会话和权限缓存")
+    @PostMapping("/logout")
+    public RT<Void> logout() {
+        authService.logout();
+        return RT.ok("退出成功", null);
+    }
 }
