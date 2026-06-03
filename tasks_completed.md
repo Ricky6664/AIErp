@@ -671,15 +671,16 @@
 | P0-004-002-004-001-002 | 编写ServiceImpl实现类 | 2026-06-03T20:25 | ✅ | UserRoleServiceImpl: 继承ServiceImplX, 实现5个方法(Sa-Token kickout/@Transactional/BusinessException), UserMapper新增4个方法+XML映射 | 7325bd3e |
 | P0-004-002-004-001-003 | 验证Service | 2026-06-03T20:30 | ✅ | 验证UserRoleService/UserRoleServiceImpl: 接口5个方法签名完整/Impl逻辑正确/StpUtil.kickout+SaaS-Token/@Transactional位置正确/BusinessException异常规范/mvn compile通过/XML SQL映射完整 | — |
 | P0-004-002-005-001-001 | 编写接口定义Service接口 | 2026-06-03T20:35 | ✅ | UserDeptService接口: 继承IServiceX<SysUser>, 声明assignDepts/removeUserDept/getUserDeptIds/getUserIdsByDeptId/hasDept/setPrimaryDept共6个业务方法签名 | — |
+| P0-004-002-005-001-002 | 编写ServiceImpl实现类 | 2026-06-03T20:40 | ✅ | UserDeptServiceImpl: 继承ServiceImplX, 实现6个方法(Sa-Token kickout/@Transactional/BusinessException), UserMapper新增7个dept方法+XML映射 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 388 | 2 | 18.07% |
+| P0 | 14 | 2,147 | 389 | 2 | 18.12% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **387** | **2** | **8.21%** |
+| **合计** | **46** | **4,716** | **388** | **2** | **8.23%** |
 
 ---
 

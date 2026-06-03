@@ -79,4 +79,39 @@ public interface UserMapper extends BaseMapperX<SysUser> {
      * 检查用户是否拥有指定角色.
      */
     int countUserRole(@Param("userId") Long userId, @Param("roleId") Long roleId);
+
+    /**
+     * 删除用户所有部门关联.
+     */
+    int deleteUserDepts(@Param("userId") Long userId);
+
+    /**
+     * 批量插入用户部门关联.
+     */
+    int insertUserDepts(@Param("userId") Long userId, @Param("deptIds") List<Long> deptIds);
+
+    /**
+     * 删除单个用户部门关联.
+     */
+    int deleteUserDept(@Param("userId") Long userId, @Param("deptId") Long deptId);
+
+    /**
+     * 查询用户所有部门ID列表.
+     */
+    List<Long> selectDeptIdsByUserId(@Param("userId") Long userId);
+
+    /**
+     * 查询拥有指定部门的用户ID列表.
+     */
+    List<Long> selectUserIdsByDeptId(@Param("deptId") Long deptId);
+
+    /**
+     * 检查用户是否属于指定部门.
+     */
+    int countUserDept(@Param("userId") Long userId, @Param("deptId") Long deptId);
+
+    /**
+     * 设置用户主部门(清除其他主部门标记).
+     */
+    int setPrimaryDept(@Param("userId") Long userId, @Param("deptId") Long deptId);
 }

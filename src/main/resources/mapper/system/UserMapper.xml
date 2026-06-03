@@ -141,4 +141,57 @@
           AND is_deleted = 0
     </select>
 
+    <!-- ==================== 删除用户所有部门关联 ==================== -->
+    <delete id="deleteUserDepts">
+        DELETE FROM sys_user_dept WHERE user_id = #{userId}
+    </delete>
+
+    <!-- ==================== 批量插入用户部门关联 ==================== -->
+    <insert id="insertUserDepts">
+        INSERT INTO sys_user_dept (user_id, dept_id, is_primary, create_time)
+        VALUES
+        <foreach collection="deptIds" item="deptId" separator=",">
+            (#{userId}, #{deptId}, 0, NOW())
+        </foreach>
+    </insert>
+
+    <!-- ==================== 删除单个用户部门关联 ==================== -->
+    <delete id="deleteUserDept">
+        DELETE FROM sys_user_dept WHERE user_id = #{userId} AND dept_id = #{deptId}
+    </delete>
+
+    <!-- ==================== 查询用户所有部门ID ==================== -->
+    <select id="selectDeptIdsByUserId" resultType="long">
+        SELECT dept_id
+        FROM sys_user_dept
+        WHERE user_id = #{userId}
+          AND is_deleted = 0
+        ORDER BY dept_id ASC
+    </select>
+
+    <!-- ==================== 查询拥有指定部门的用户ID列表 ==================== -->
+    <select id="selectUserIdsByDeptId" resultType="long">
+        SELECT DISTINCT user_id
+        FROM sys_user_dept
+        WHERE dept_id = #{deptId}
+          AND is_deleted = 0
+        ORDER BY user_id ASC
+    </select>
+
+    <!-- ==================== 检查用户是否属于指定部门 ==================== -->
+    <select id="countUserDept" resultType="int">
+        SELECT COUNT(*)
+        FROM sys_user_dept
+        WHERE user_id = #{userId}
+          AND dept_id = #{deptId}
+          AND is_deleted = 0
+    </select>
+
+    <!-- ==================== 设置用户主部门 ==================== -->
+    <update id="setPrimaryDept">
+        UPDATE sys_user_dept
+        SET is_primary = CASE WHEN dept_id = #{deptId} THEN 1 ELSE 0 END
+        WHERE user_id = #{userId}
+    </update>
+
 </mapper>
