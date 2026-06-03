@@ -694,15 +694,16 @@
 | P0-004-003-003-001-002 | 编写ServiceImpl实现类 | 2026-06-03T23:25 | ✅ | SysRoleDataScopeServiceImpl: 继承ServiceImplX, 实现4个方法(Sa-Token kickout/BusinessException/@Transactional/空值校验), 新建SysRoleDataScopeMapper | e5dbdfa8 |
 | P0-004-003-003-001-003 | 验证Service | 2026-06-03T22:48 | ✅ | SysRoleDataScopeServiceTest: 13个单元测试全部通过, 覆盖getByRoleId/saveRoleDataScopes/deleteByRoleId/getScopeType四个方法 | — |
 | P0-004-003-004-001-001 | 编写接口定义Service接口 | 2026-06-03T20:30 | ✅ | 定义SysRoleFieldPermissionService接口(extends IServiceX), 声明getByRoleId/getByRoleIdAndTable/saveRoleFieldPermissions/deleteByRoleId/getPermissionType方法; 同时创建SysRoleFieldPermission实体映射sys_role_field_permission表 | — |
+| P0-004-003-004-001-002 | 编写ServiceImpl实现类 | 2026-06-03T23:35 | ✅ | SysRoleFieldPermissionServiceImpl: 继承ServiceImplX, 5个方法(Sa-Token kickout/BusinessException/@Transactional), 新建SysRoleFieldPermissionMapper | 100cf765 |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 406 | 2 | 18.91% |
+| P0 | 14 | 2,147 | 407 | 2 | 18.96% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **406** | **2** | **8.61%** |
+| **合计** | **46** | **4,716** | **407** | **2** | **8.67%** |
 
 ---
 
