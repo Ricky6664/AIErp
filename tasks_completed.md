@@ -719,6 +719,7 @@
 | P0-004-004-004-001-003 | 验证Controller | 2026-06-04T10:10 | ✅ | 验证SysMenuController完整: 15个RESTful端点URL符合/api/{module}/{resource}规范, RT<T>/PageResult<T>响应正确, @Valid+BindingResult校验完整, @SaCheckPermission全覆盖, @Operation注解完整, mvn compile通过零错误零警告 | ee8eb09a |
 | P0-004-005-001-001-001 | 编写接口定义Service接口 | 2026-06-04T11:00 | ✅ | AuthMethodService接口: 继承IServiceX<AuthMethod>, 声明listEnabled/isMethodNameUnique/isMethodTypeUnique/updatePriority/enable/disable共6个业务方法; 创建AuthMethod实体映射auth_method表 | — |
 | P0-004-005-001-001-002 | 编写ServiceImpl实现类 | 2026-06-04T11:20 | ✅ | AuthMethodServiceImpl: 继承ServiceImplX, 实现6个方法(启禁用+优先级/唯一性校验/BusinessException/@Transactional); 创建AuthMethodMapper | — |
+| P0-004-005-001-001-003 | 验证Service | 2026-06-04T17:00 | ✅ | 验证AuthMethodService/AuthMethodServiceImpl: 接口6个方法签名完整/Impl业务逻辑正确/唯一性校验+状态流转完备/@Transactional位置正确/BusinessException规范/mvn compile通过 | — |
 
 ## 汇总统计
 
