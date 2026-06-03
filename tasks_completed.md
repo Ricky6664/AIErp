@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-03T19:00
-> **归档总数**：381 条
+> **最后更新**：2026-06-03T19:25
+> **归档总数**：383 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -631,7 +631,7 @@
 | P0-003-008-002-001-001 | 编写CREATE TABLE语句 | 2026-06-03T18:50 | ✅ | db/migration/V20260603006:CREATE TABLE fin_bank_account(4业务字段+10通用字段+22扩展字段+全COMMENT+decimal(18,8))+回滚脚本 | — |
 | P0-003-008-002-001-002 | 编写fin_bank_account银行账户表索引与约束 | 2026-06-03T19:02 | ✅ | db/migration/V20260603007:PK重命名pk_fin_bank_account+部分唯一索引uk_fin_bank_account_account_no(WHERE is_deleted=false)+2个租户联合索引+3个业务查询索引+5个通用字段索引+回滚脚本 | — |
 | P0-003-008-002-001-003 | 验证编写fin_bank_account银行账户表DDL | 2026-06-03T19:00 | ✅ | db/migration/V20260603008:fin_bank_account表DDL验证查询脚本(14项检查)+docs/verification/fin_bank_account_verify_report.md(验证报告:通过/1个非阻塞warning, COMMENT覆盖率100%) | — |
-| P0-003-008-003-001-001 | 编写fin_account会计科目表CREATE TABLE语句 | 2026-06-03T19:05 | ✅ | db/migration/V20260603009:fin_account表DDL+rollback(10通用字段+5业务字段+扩展字段+COMMENT全覆盖) | — |
+| P0-003-008-003-001-001 | 编写fin_account会计科目表CREATE TABLE语句 | 2026-06-03T19:05 | ✅ | db/migration/V20260603009:fin_account表DDL+rollback(10通用字段+5业务字段+扩展字段+COMMENT全覆盖) | db1898be |
 
 ---
 
@@ -655,15 +655,16 @@
 | P0-004-001-005-001-001 | 编写核心代码 | 2026-06-03T19:00 | ✅ | 登录日志核心实现: IpAddressUtil(代理IP解析)/UserAgentUtil(浏览器+OS解析)/AsyncConfig(ThreadPoolTaskExecutor coreSize=2,maxSize=5,queueCapacity=1000)/LoginLogService.asyncWriteLog/AuthService重构使用新工具类 | — |
 | P0-004-001-005-001-002 | 验证功能 | 2026-06-03T19:00 | ✅ | 验证登录日志异步写入: 编译通过/22个测试全部通过/代码审查覆盖异步配置/降级策略/边界条件/IP-UA解析/集成点, 生成测试报告与问题清单 | — |
 | P0-004-002-001-001-001 | 编写Entity类 | 2026-06-03T19:10 | ✅ | SysUser/SysRole/SysMenu实体类: @TableName映射/@TableId(ASSIGN_ID)/@TableLogic逻辑删除/BaseEntity继承/passwordHash字段@TableField(select=false) | — |
+| P0-004-002-001-001-002 | 编写DTOVO类 | 2026-06-03T19:25 | ✅ | SysUserDTO/SysUserVO/SysRoleDTO/SysRoleVO/SysMenuDTO/SysMenuVO: CreateDTO含@NotBlank/@NotNull校验, UpdateDTO含@NotNull id, QueryDTO含分页参数, ListVO排除密码字段, DetailVO含完整字段, @JsonFormat日期格式化, xxxName字典翻译字段 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 380 | 2 | 17.70% |
+| P0 | 14 | 2,147 | 381 | 2 | 17.75% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **380** | **2** | **8.06%** |
+| **合计** | **46** | **4,716** | **381** | **2** | **8.08%** |
 
 ---
 
