@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-04T14:20
-> **归档总数**：433 条
+> **最后更新**：2026-06-04T16:30
+> **归档总数**：434 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -739,6 +739,7 @@
 | P0-004-006-003-001-001 | 编写核心代码 | 2026-06-04T15:15 | ✅ | 退出登录核心逻辑: logoutApi容错调用, 清除userStore/permissionStore状态, 清除localStorage, 跳转/login携带redirect参数, pnpm build通过 | — |
 | P0-004-006-003-001-002 | 验证功能 | 2026-06-04T15:20 | ✅ | 退出登录逻辑验证: 34项后端测试全部通过, AuthControllerTest$Logout 2项, AuthServiceTest$Logout 4项(正常/过期/缓存/容错), pnpm build通过, 测试报告+问题清单已归档 | — |
 741	| P0-004-006-004-001-001 | 编写核心代码 | 2026-06-04T16:00 | ✅ | Token刷新核心逻辑: 修复API端点(/api/auth/token/refresh), 统一localStorage key(TOKEN_KEY/REFRESH_TOKEN_KEY), 添加无限循环防护(isRefreshRequest检查), 登出重定向携带redirect参数, cancelRequest白名单端点同步修复, pnpm build通过 | — |
+| P0-004-006-004-001-002 | 验证功能 | 2026-06-04T16:30 | ✅ | 编写Vitest单元测试(9个场景), 安装jsdom, 更新vitest.config.ts; 验证通过: 主流程/并发锁/防循环/降级/边界; 交付测试报告和问题清单; pnpm build通过 | — |
 
 ## 汇总统计
 

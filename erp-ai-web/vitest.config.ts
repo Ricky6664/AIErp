@@ -1,13 +1,13 @@
 import { defineConfig } from 'vitest/config'
 import { resolve } from 'path'
+import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
+  plugins: [vue()],
   test: {
-    include: ['src/types/__tests__/**/*.test-d.ts'],
-    typecheck: {
-      enabled: true,
-      include: ['src/types/__tests__/**/*.test-d.ts']
-    }
+    include: ['src/**/*.test.ts'],
+    environment: 'jsdom',
+    globals: true
   },
   resolve: {
     alias: {
