@@ -678,6 +678,7 @@
 | P0-004-002-006-001-003 | 验证Service | 2026-06-03T20:51 | ✅ | 验证UserGroupService: 验收标准5项全通过, 编译成功; 发现并修复缺失UserGroupMapper.xml(6个SQL映射)
 | P0-004-002-007-001-001 | 编写接口定义Service接口 | 2026-06-03T21:00 | ✅ | UserService接口: 新增changePassword(Long userId, String oldPassword, String newPassword)方法签名; UserServiceImpl添加占位实现确保编译通过 | — |
 | P0-004-002-007-001-002 | 编写ServiceImpl实现类 | 2026-06-03T21:05 | ✅ | UserServiceImpl.changePassword: 参数校验/Bcrypt旧密码验证/密码历史防重用(最近3次)/BCrypt加密/insertPasswordHistory/StpUtil.kickout踢出会话/@Transactional事务 | 4e941bdd |
+| P0-004-002-007-001-003 | 验证Service | 2026-06-03T21:10 | ✅ | 验证UserService密码修改/重置Service: 接口changePassword+resetPassword方法签名完整/BCrypt加密+密码历史防重用/Sa-Token kickout/@Transactional位置正确/BusinessException规范/mvn compile通过 | — |
 
 ## 汇总统计
 
