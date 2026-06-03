@@ -1,6 +1,6 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-04T11:00
+> **最后更新**：2026-06-04T11:20
 > **归档总数**：422 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
@@ -718,15 +718,16 @@
 | P0-004-004-004-001-002 | 编写接口方法 | 2026-06-04T09:00 | ✅ | SysMenuController新增6个方法: GET /tree/current(当前用户菜单树/StpUtil.getLoginIdAsLong), GET /mobile-tree/current(当前用户移动端菜单树), POST /mobile, PUT /mobile/{id}, DELETE /mobile/{id}(移动端菜单CRUD), mvn compile BUILD SUCCESS | 1802604a |
 | P0-004-004-004-001-003 | 验证Controller | 2026-06-04T10:10 | ✅ | 验证SysMenuController完整: 15个RESTful端点URL符合/api/{module}/{resource}规范, RT<T>/PageResult<T>响应正确, @Valid+BindingResult校验完整, @SaCheckPermission全覆盖, @Operation注解完整, mvn compile通过零错误零警告 | ee8eb09a |
 | P0-004-005-001-001-001 | 编写接口定义Service接口 | 2026-06-04T11:00 | ✅ | AuthMethodService接口: 继承IServiceX<AuthMethod>, 声明listEnabled/isMethodNameUnique/isMethodTypeUnique/updatePriority/enable/disable共6个业务方法; 创建AuthMethod实体映射auth_method表 | — |
+| P0-004-005-001-001-002 | 编写ServiceImpl实现类 | 2026-06-04T11:20 | ✅ | AuthMethodServiceImpl: 继承ServiceImplX, 实现6个方法(启禁用+优先级/唯一性校验/BusinessException/@Transactional); 创建AuthMethodMapper | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 421 | 2 | 19.61% |
+| P0 | 14 | 2,147 | 422 | 2 | 19.66% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **419** | **2** | **8.88%** |
+| **合计** | **46** | **4,716** | **420** | **2** | **8.91%** |
 
 ---
 
