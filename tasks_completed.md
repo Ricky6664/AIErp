@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-03T20:45
-> **归档总数**：391 条
+> **最后更新**：2026-06-03T20:50
+> **归档总数**：392 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -673,15 +673,16 @@
 | P0-004-002-005-001-001 | 编写接口定义Service接口 | 2026-06-03T20:35 | ✅ | UserDeptService接口: 继承IServiceX<SysUser>, 声明assignDepts/removeUserDept/getUserDeptIds/getUserIdsByDeptId/hasDept/setPrimaryDept共6个业务方法签名 | — |
 | P0-004-002-005-001-002 | 编写ServiceImpl实现类 | 2026-06-03T20:40 | ✅ | UserDeptServiceImpl: 继承ServiceImplX, 实现6个方法(Sa-Token kickout/@Transactional/BusinessException), UserMapper新增7个dept方法+XML映射 | — |
 | P0-004-002-005-001-003 | 验证Service | 2026-06-03T20:45 | ✅ | 验证UserDeptService/UserDeptServiceImpl: 接口6个方法签名完整/Impl逻辑正确/StpUtil.kickout/@Transactional位置正确/BusinessException异常规范/mvn compile通过 | — |
+| P0-004-002-006-001-001 | 编写接口定义Service接口 | 2026-06-03T20:50 | ✅ | UserGroupService接口: 继承IServiceX<SysUserGroup>, 声明addMembers/removeMember/removeAllMembers/getMemberUserIds/getGroupIdsByUserId/hasMember/updateStatus共7个业务方法签名; 创建SysUserGroup/SysUserGroupMember实体+UserGroupMapper | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 390 | 2 | 18.17% |
+| P0 | 14 | 2,147 | 391 | 2 | 18.22% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **389** | **2** | **8.25%** |
+| **合计** | **46** | **4,716** | **390** | **2** | **8.27%** |
 
 ---
 
