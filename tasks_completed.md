@@ -621,6 +621,14 @@
 | P0-003-007-012-001-001 | 编写CREATE TABLE语句 | 2026-06-03T18:05 | ✅ | db/migration/V20260603003:CREATE TABLE inv_disassembly(12业务字段+10通用字段)+inv_disassembly_detail(26业务字段+10通用字段+22扩展字段)+全COMMENT+decimal(18,8)+回滚脚本 | — |
 | P0-003-007-012-001-002 | 编写inv_disassembly_detail拆卸主从表索引与约束 | 2026-06-03T18:20 | ✅ | db/migration/V20260603004:PK重命名(inv_disassembly+inv_disassembly_detail)+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表16个+从表16个共32个索引)+回滚脚本 | — |
 
+### P0-003-008 - 财务基础表建表
+
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
+|---------|---------|---------|:---:|------|-----|
+| P0-003-008-001-001-001 | 编写CREATE TABLE语句 | 2026-06-03T18:24 | ✅ | db/migration/V20260526001:CREATE TABLE fin_currency_rate(4业务字段+10通用字段+22扩展字段+全COMMENT+decimal(18,8))+回滚脚本 | — |
+
+---
+
 ---
 
 
