@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.erp.common.mapper.BaseMapperX;
 import com.erp.system.entity.SysUser;
 import com.erp.system.vo.SysUserVO;
+import com.erp.system.vo.UserWorkbenchVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -114,4 +115,19 @@ public interface UserMapper extends BaseMapperX<SysUser> {
      * 设置用户主部门(清除其他主部门标记).
      */
     int setPrimaryDept(@Param("userId") Long userId, @Param("deptId") Long deptId);
+
+    /**
+     * 查询工作台核心统计数据(用户总数/在线用户数/本月新增).
+     */
+    UserWorkbenchVO selectWorkbenchStats();
+
+    /**
+     * 查询角色分配统计, 按角色分组统计用户数.
+     */
+    List<UserWorkbenchVO.RoleDistVO> selectRoleDistribution();
+
+    /**
+     * 查询部门关联统计, 按部门分组统计用户数.
+     */
+    List<UserWorkbenchVO.DeptDistVO> selectDeptDistribution();
 }

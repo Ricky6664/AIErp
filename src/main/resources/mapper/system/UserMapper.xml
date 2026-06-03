@@ -194,4 +194,55 @@
         WHERE user_id = #{userId}
     </update>
 
+    <!-- ==================== 工作台核心统计 ==================== -->
+    <resultMap id="WorkbenchStatsResultMap" type="com.erp.system.vo.UserWorkbenchVO">
+        <result column="total_users" property="totalUsers"/>
+        <result column="online_users" property="onlineUsers"/>
+        <result column="new_users_this_month" property="newUsersThisMonth"/>
+    </resultMap>
+
+    <select id="selectWorkbenchStats" resultMap="WorkbenchStatsResultMap">
+        SELECT
+            (SELECT COUNT(*) FROM sys_user WHERE is_deleted = 0) AS total_users,
+            (SELECT COUNT(*) FROM auth_online_device WHERE status = 'online') AS online_users,
+            (SELECT COUNT(*)
+             FROM sys_user
+             WHERE is_deleted = 0
+               AND create_time &gt;= date_trunc('month', CURRENT_TIMESTAMP)) AS new_users_this_month
+    </select>
+
+    <!-- ==================== 角色分配统计 ==================== -->
+    <resultMap id="RoleDistResultMap" type="com.erp.system.vo.UserWorkbenchVO$RoleDistVO">
+        <result column="role_name" property="roleName"/>
+        <result column="user_count" property="userCount"/>
+    </resultMap>
+
+    <select id="selectRoleDistribution" resultMap="RoleDistResultMap">
+        SELECT
+            r.role_name,
+            COUNT(ur.user_id) AS user_count
+        FROM sys_role r
+        LEFT JOIN sys_user_role ur ON r.id = ur.role_id AND ur.is_deleted = 0
+        WHERE r.is_deleted = 0
+        GROUP BY r.id, r.role_name
+        ORDER BY user_count DESC
+    </select>
+
+    <!-- ==================== 部门关联统计 ==================== -->
+    <resultMap id="DeptDistResultMap" type="com.erp.system.vo.UserWorkbenchVO$DeptDistVO">
+        <result column="dept_name" property="deptName"/>
+        <result column="user_count" property="userCount"/>
+    </resultMap>
+
+    <select id="selectDeptDistribution" resultMap="DeptDistResultMap">
+        SELECT
+            d.dept_name,
+            COUNT(ud.user_id) AS user_count
+        FROM sys_dept d
+        LEFT JOIN sys_user_dept ud ON d.id = ud.dept_id AND ud.is_deleted = 0
+        WHERE d.is_deleted = 0
+        GROUP BY d.id, d.dept_name
+        ORDER BY user_count DESC
+    </select>
+
 </mapper>

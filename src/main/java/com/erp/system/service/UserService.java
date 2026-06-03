@@ -2,6 +2,7 @@ package com.erp.system.service;
 
 import com.erp.common.service.IServiceX;
 import com.erp.system.entity.SysUser;
+import com.erp.system.vo.UserWorkbenchVO;
 
 import java.util.List;
 
@@ -30,4 +31,6 @@ public interface UserService extends IServiceX<SysUser> {
     String resetPasswordAndReturn(Long userId);
 
     void deleteUserWithCleanup(Long userId);
+
+    UserWorkbenchVO getWorkbenchData();
 }

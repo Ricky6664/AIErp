@@ -7,6 +7,7 @@ import com.erp.common.service.ServiceImplX;
 import com.erp.system.entity.SysUser;
 import com.erp.system.mapper.UserMapper;
 import com.erp.system.service.UserService;
+import com.erp.system.vo.UserWorkbenchVO;
 import lombok.extern.slf4j.Slf4j;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
@@ -231,6 +232,17 @@ public class UserServiceImpl extends ServiceImplX<UserMapper, SysUser> implement
         }
 
         log.info("用户已删除(含角色/部门关联清理): userId={}", userId);
+    }
+
+    @Override
+    public UserWorkbenchVO getWorkbenchData() {
+        UserWorkbenchVO stats = baseMapper.selectWorkbenchStats();
+        if (stats == null) {
+            stats = new UserWorkbenchVO();
+        }
+        stats.setRoleDistribution(baseMapper.selectRoleDistribution());
+        stats.setDeptDistribution(baseMapper.selectDeptDistribution());
+        return stats;
     }
 
     private static final String CHAR_UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
