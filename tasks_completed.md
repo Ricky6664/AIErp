@@ -627,6 +627,7 @@
 |---------|---------|---------|:---:|------|-----|
 | P0-003-008-001-001-001 | 编写CREATE TABLE语句 | 2026-06-03T18:24 | ✅ | db/migration/V20260526001:CREATE TABLE fin_currency_rate(4业务字段+10通用字段+22扩展字段+全COMMENT+decimal(18,8))+回滚脚本 | — |
 | P0-003-008-001-001-002 | 编写fin_currency_rate币种汇率表索引与约束 | 2026-06-03T18:35 | ✅ | db/migration/V20260603001:PK重命名pk_fin_currency_rate+部分唯一索引uk_fin_currency_rate_currency_effective(WHERE is_deleted=false)+5个租户联合索引(tenant_id首列)+7个业务查询索引+回滚脚本 | — |
+| P0-003-008-001-001-003 | 验证编写fin_currency_rate币种汇率表DDL | 2026-06-03T18:40 | ✅ | db/migration/V20260603002:fin_currency_rate表DDL验证查询脚本(14项检查)+docs/verification/fin_currency_rate_verify_report.md(验证报告:通过/1个非阻塞warning) | — |
 
 ---
 
