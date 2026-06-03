@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-04T11:20
-> **归档总数**：422 条
+> **归档总数**：423 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -722,6 +722,7 @@
 | P0-004-005-001-001-003 | 验证Service | 2026-06-04T17:00 | ✅ | 验证AuthMethodService/AuthMethodServiceImpl: 接口6个方法签名完整/Impl业务逻辑正确/唯一性校验+状态流转完备/@Transactional位置正确/BusinessException规范/mvn compile通过 | — |
 | P0-004-005-002-001-001 | 编写接口定义Service接口 | 2026-06-04 | ✅ | AuthPasswordPolicyService接口: 继承IServiceX\<AuthPasswordPolicy\>, 声明getCurrentPolicy/isPolicyNameUnique/enable/disable/validatePassword共5个业务方法; 创建AuthPasswordPolicy实体+AuthPasswordPolicyMapper | — |
 | P0-004-005-002-001-002 | 编写ServiceImpl实现类 | 2026-06-04 | ✅ | AuthPasswordPolicyServiceImpl: 继承ServiceImplX, 实现5个方法(getCurrentPolicy当前启用策略/isPolicyNameUnique唯一校验/enable先禁用现有再启用/disable状态校验/validatePassword密码强度校验), @Transactional在enable/disable, BusinessException规范, mvn compile通过 | — |
+| P0-004-005-002-001-003 | 验证Service | 2026-06-04 | ✅ | 验证AuthPasswordPolicyService: 接口5个方法签名完整, ServiceImpl实现正确, 唯一性校验/状态流转完备, @Transactional位置正确, BusinessException规范, mvn compile通过 | — |
 
 ## 汇总统计
 
@@ -730,7 +731,7 @@
 | P0 | 14 | 2,147 | 423 | 2 | 19.70% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **421** | **2** | **8.93%** |
+| **合计** | **46** | **4,716** | **423** | **2** | **8.97%** |
 
 ---
 
