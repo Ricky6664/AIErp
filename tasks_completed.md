@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-04T00:05
-> **归档总数**：411 条
+> **最后更新**：2026-06-04T00:30
+> **归档总数**：412 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -705,15 +705,16 @@
 | P0-004-003-008-001-001 | 编写DDLEntityMapperServiceController | 2026-06-03T23:55 | ✅ | 数据权限方案配置: Flyway DDL(sys_data_permission_scheme+sys_data_permission_scheme_role)+回滚脚本, SysDataPermissionScheme实体/Mapper/Service/ServiceImpl/Controller完整CRUD, mvn compile通过 | — |
 | P0-004-003-009-001-001 | 编写DDLEntityMapperServiceController | 2026-06-04T00:05 | ✅ | 字段权限方案配置: Flyway DDL(sys_field_permission_scheme+role+detail)+回滚脚本(新增), SysFieldPermissionScheme+Detail实体/Mapper/Service/ServiceImpl/Controller完整CRUD均已就绪, mvn compile通过 | cb6e7d0f |
 | P0-004-003-006-001-003 | 验证Controller | 2026-06-04T00:20 | ✅ | 验证并修复权限配置Controller: SysRoleController/SysDataPermissionSchemeController/SysFieldPermissionSchemeController全部通过5项验收标准, 补充了@Valid+BindingResult参数校验, mvn compile通过 | — |
+| P0-004-004-001-001-001 | 编写接口定义Service接口 | 2026-06-04T00:30 | ✅ | SysMenuService接口: 继承IServiceX<SysMenu>, 声明getMenuTree/getMenuTreeByUserId/isPermissionCodeUnique/updateStatus/deleteMenuWithChildren共5个业务方法签名 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 413 | 2 | 19.24% |
+| P0 | 14 | 2,147 | 414 | 2 | 19.29% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **411** | **2** | **8.71%** |
+| **合计** | **46** | **4,716** | **412** | **2** | **8.74%** |
 
 ---
 
