@@ -125,8 +125,57 @@ public class UserServiceImpl extends ServiceImplX<UserMapper, SysUser> implement
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void changePassword(Long userId, String oldPassword, String newPassword) {
-        throw new UnsupportedOperationException("TODO: implement in P0-004-002-007-001-002");
+        if (userId == null) {
+            throw new BusinessException(ErrorCode.PARAM_MISSING, "用户ID不能为空");
+        }
+        if (oldPassword == null || oldPassword.isEmpty()) {
+            throw new BusinessException(ErrorCode.PARAM_MISSING, "旧密码不能为空");
+        }
+        if (newPassword == null || newPassword.isEmpty()) {
+            throw new BusinessException(ErrorCode.PARAM_MISSING, "新密码不能为空");
+        }
+        if (newPassword.length() < 6) {
+            throw new BusinessException(ErrorCode.PARAM_INVALID, "新密码长度不能少于6位");
+        }
+
+        SysUser user = getById(userId);
+        if (user == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "用户不存在: id=" + userId);
+        }
+
+        if (!BCrypt.checkpw(oldPassword, user.getPasswordHash())) {
+            throw new BusinessException(ErrorCode.PASSWORD_ERROR);
+        }
+
+        if (BCrypt.checkpw(newPassword, user.getPasswordHash())) {
+            throw new BusinessException(ErrorCode.PARAM_DUPLICATE, "新密码不能与旧密码相同");
+        }
+
+        List<String> recentPasswords = baseMapper.selectPasswordHistory(userId, 3);
+        if (recentPasswords != null) {
+            for (String historyHash : recentPasswords) {
+                if (BCrypt.checkpw(newPassword, historyHash)) {
+                    throw new BusinessException(ErrorCode.PARAM_DUPLICATE, "新密码不能与最近3次使用过的密码相同");
+                }
+            }
+        }
+
+        String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+        baseMapper.insertPasswordHistory(userId, hashedPassword);
+
+        user.setPasswordHash(hashedPassword);
+        user.setPwdResetAt(LocalDateTime.now());
+        updateById(user);
+
+        try {
+            StpUtil.kickout(userId);
+        } catch (Exception e) {
+            log.debug("密码修改踢出用户失败(用户可能未在线): userId={}", userId);
+        }
+
+        log.info("用户密码修改完成: userId={}", userId);
     }
 
     @Override

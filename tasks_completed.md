@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-03T21:00
-> **归档总数**：394 条
+> **最后更新**：2026-06-03T21:05
+> **归档总数**：395 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -677,15 +677,16 @@
 | P0-004-002-006-001-002 | 编写ServiceImpl实现类 | 2026-06-03T20:55 | ✅ | UserGroupServiceImpl: 继承ServiceImplX, 实现7个方法(entity验证/BusinessException/@Transactional), UserGroupMapper调用groupMembers操作 | b81b0f95 |
 | P0-004-002-006-001-003 | 验证Service | 2026-06-03T20:51 | ✅ | 验证UserGroupService: 验收标准5项全通过, 编译成功; 发现并修复缺失UserGroupMapper.xml(6个SQL映射)
 | P0-004-002-007-001-001 | 编写接口定义Service接口 | 2026-06-03T21:00 | ✅ | UserService接口: 新增changePassword(Long userId, String oldPassword, String newPassword)方法签名; UserServiceImpl添加占位实现确保编译通过 | — |
+| P0-004-002-007-001-002 | 编写ServiceImpl实现类 | 2026-06-03T21:05 | ✅ | UserServiceImpl.changePassword: 参数校验/Bcrypt旧密码验证/密码历史防重用(最近3次)/BCrypt加密/insertPasswordHistory/StpUtil.kickout踢出会话/@Transactional事务 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 394 | 2 | 18.36% |
+| P0 | 14 | 2,147 | 395 | 2 | 18.41% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **394** | **2** | **8.36%** |
+| **合计** | **46** | **4,716** | **395** | **2** | **8.38%** |
 
 ---
 
