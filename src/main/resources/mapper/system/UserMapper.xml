@@ -109,4 +109,36 @@
         VALUES (#{userId}, #{passwordHash}, NOW())
     </insert>
 
+    <!-- ==================== 删除单个用户角色关联 ==================== -->
+    <delete id="deleteUserRole">
+        DELETE FROM sys_user_role WHERE user_id = #{userId} AND role_id = #{roleId}
+    </delete>
+
+    <!-- ==================== 查询用户所有角色ID ==================== -->
+    <select id="selectRoleIdsByUserId" resultType="long">
+        SELECT role_id
+        FROM sys_user_role
+        WHERE user_id = #{userId}
+          AND is_deleted = 0
+        ORDER BY role_id ASC
+    </select>
+
+    <!-- ==================== 查询拥有指定角色的用户ID列表 ==================== -->
+    <select id="selectUserIdsByRoleId" resultType="long">
+        SELECT DISTINCT user_id
+        FROM sys_user_role
+        WHERE role_id = #{roleId}
+          AND is_deleted = 0
+        ORDER BY user_id ASC
+    </select>
+
+    <!-- ==================== 检查用户是否拥有指定角色 ==================== -->
+    <select id="countUserRole" resultType="int">
+        SELECT COUNT(*)
+        FROM sys_user_role
+        WHERE user_id = #{userId}
+          AND role_id = #{roleId}
+          AND is_deleted = 0
+    </select>
+
 </mapper>
