@@ -663,6 +663,7 @@
 | P0-004-002-001-001-002 | 编写DTOVO类 | 2026-06-03T19:25 | ✅ | SysUserDTO/SysUserVO/SysRoleDTO/SysRoleVO/SysMenuDTO/SysMenuVO: CreateDTO含@NotBlank/@NotNull校验, UpdateDTO含@NotNull id, QueryDTO含分页参数, ListVO排除密码字段, DetailVO含完整字段, @JsonFormat日期格式化, xxxName字典翻译字段 | — |
 | P0-004-002-001-001-003 | 验证实体类 | 2026-06-03T19:45 | ✅ | 验证SysUser/SysRole/SysMenu实体类DDL一致性/注解完整性/DTO校验/VO格式化，编译通过，发现C1/C2/M1/m1/m2共5个问题并制定修复方案 | — |
 | P0-004-002-002-001-001 | 编写SQL语句 | 2026-06-03T19:50 | ✅ | UserMapper接口(5个方法)+UserMapper.xml(5条自定义SQL:分页查询/用户名唯一校验/密码历史/按部门查用户/角色名称查询), SysUserVO.ListVO新增employeeName字段, 全部#{param}参数化防注入 | — |
+| P0-004-002-002-001-002 | 验证编写SQL | 2026-06-03T20:00 | ✅ | UserMapper SQL验证完成: Interface/XML一致性✅, ResultMap映射✅, SQL语法✅, 编译✅; 发现2个问题(审计列名DDL不一致CRITICAL/sys_user_password_history表缺失WARNING)并记录修复方案 | — |
 
 ## 汇总统计
 
