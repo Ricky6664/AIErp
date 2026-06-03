@@ -690,15 +690,16 @@
 | P0-004-003-002-001-001 | 编写接口定义Service接口 | 2026-06-03T22:40 | ✅ | SysRoleMenuService接口: 继承IServiceX<SysRole>, 声明6个业务方法(assignMenus/assignMenusWithPermissions/removeRoleMenus/getRoleMenuIds/hasMenuPermission/copyMenus) | 87abc3a7 |
 | P0-004-003-002-001-002 | 编写ServiceImpl实现类 | 2026-06-03T22:50 | ✅ | SysRoleMenuServiceImpl: 继承ServiceImplX, 实现6个方法(Sa-Token kickout/角色存在性校验/空集合跳过/菜单批量写入/角色复制/@Transactional) | eb29b347 |
 | P0-004-003-002-001-003 | 验证Service | 2026-06-03T23:00 | ✅ | 验证SysRoleMenuService/SysRoleMenuServiceImpl: 接口6个方法签名完整/Impl逻辑正确/Sa-Token kickout/@Transactional位置正确/BusinessException规范/mvn compile通过 | — |
+| P0-004-003-003-001-001 | 编写接口定义Service接口 | 2026-06-03T23:15 | ✅ | SysRoleDataScopeService接口: 继承IServiceX<SysRoleDataScope>, 4个业务方法(getByRoleId/saveRoleDataScopes/deleteByRoleId/getScopeType), 创建缺失前置依赖SysRoleDataScope实体 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 403 | 2 | 18.77% |
+| P0 | 14 | 2,147 | 404 | 2 | 18.82% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **403** | **2** | **8.55%** |
+| **合计** | **46** | **4,716** | **404** | **2** | **8.57%** |
 
 ---
 
