@@ -81,6 +81,13 @@ public class AuthService {
         StpUtil.login(user.getId());
         String token = StpUtil.getTokenValue();
 
+        // 7.1 生成 refreshToken 并存入 Redis (双Token机制)
+        String refreshToken = java.util.UUID.randomUUID().toString();
+        redisTemplate.opsForValue().set(
+                "refresh:token:" + refreshToken,
+                String.valueOf(user.getId()),
+                7, TimeUnit.DAYS);
+
         // 8. 更新最后登录信息
         user.setLastLoginAt(LocalDateTime.now());
         user.setLastLoginIp(getClientIp(request));
@@ -92,6 +99,7 @@ public class AuthService {
         // 10. 构造响应
         return LoginResponse.builder()
                 .token(token)
+                .refreshToken(refreshToken)
                 .userId(user.getId())
                 .username(user.getUsername())
                 .nickname(user.getNickname() != null ? user.getNickname() : user.getUsername())
@@ -125,6 +133,90 @@ public class AuthService {
             log.info("用户已退出登录: userId={}", userId);
         } catch (cn.dev33.satoken.exception.NotLoginException e) {
             log.info("退出登录时Token已过期或不存在(幂等): {}", e.getMessage());
+        }
+    }
+
+    /**
+     * 校验当前Token有效性, 并自动续期.
+     */
+    public com.erp.auth.vo.TokenVerifyResponse verifyToken() {
+        try {
+            StpUtil.checkLogin();
+        } catch (cn.dev33.satoken.exception.NotLoginException e) {
+            if (cn.dev33.satoken.exception.NotLoginException.TOKEN_TIMEOUT.equals(e.getType())) {
+                throw new AuthException(ErrorCode.TOKEN_EXPIRED);
+            }
+            throw new AuthException(ErrorCode.UNAUTHORIZED);
+        }
+        long userId = StpUtil.getLoginIdAsLong();
+        long expireInSeconds = StpUtil.getTokenTimeout();
+
+        updateDeviceLastActiveTime(StpUtil.getTokenValue());
+
+        log.debug("Token校验成功: userId={}, expireInSeconds={}", userId, expireInSeconds);
+        return new com.erp.auth.vo.TokenVerifyResponse(true, userId, expireInSeconds);
+    }
+
+    /**
+     * 刷新Token: 用refreshToken换取新的accessToken+refreshToken对.
+     */
+    public com.erp.auth.vo.TokenRefreshResponse refreshToken(String refreshTokenValue) {
+        // 1. 校验refreshToken
+        String redisKey = "refresh:token:" + refreshTokenValue;
+        String userIdStr = redisTemplate.opsForValue().get(redisKey);
+        if (userIdStr == null) {
+            throw new AuthException(ErrorCode.REFRESH_TOKEN_EXPIRED);
+        }
+
+        // 2. 删除旧refreshToken (一次性使用, 防止重放)
+        redisTemplate.delete(redisKey);
+
+        long userId = Long.parseLong(userIdStr);
+
+        // 3. 获取旧accessToken (用于平滑替换)
+        String oldToken = StpUtil.getTokenValue();
+
+        // 4. 创建新会话
+        StpUtil.login(userId);
+        String newToken = StpUtil.getTokenValue();
+
+        // 5. Token平滑替换: 旧Token在宽限期内仍可用
+        if (oldToken != null && !oldToken.equals(newToken)) {
+            StpUtil.replaced(oldToken, newToken);
+        }
+
+        // 6. 生成新refreshToken
+        String newRefreshToken = java.util.UUID.randomUUID().toString();
+        redisTemplate.opsForValue().set(
+                "refresh:token:" + newRefreshToken,
+                String.valueOf(userId),
+                7, TimeUnit.DAYS);
+
+        // 7. 更新设备活跃时间
+        updateDeviceLastActiveTime(newToken);
+
+        long expiresIn = StpUtil.getTokenTimeout();
+        log.info("Token刷新成功: userId={}, newToken={}, expiresIn={}", userId, newToken, expiresIn);
+        return com.erp.auth.vo.TokenRefreshResponse.builder()
+                .token(newToken)
+                .refreshToken(newRefreshToken)
+                .expiresIn(expiresIn)
+                .build();
+    }
+
+    private void updateDeviceLastActiveTime(String tokenValue) {
+        try {
+            AuthOnlineDevice device = authOnlineDeviceMapper.selectOne(
+                    new com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper<AuthOnlineDevice>()
+                            .eq(AuthOnlineDevice::getSessionTokenId, tokenValue)
+                            .last("LIMIT 1")
+            );
+            if (device != null) {
+                device.setLastActiveTime(LocalDateTime.now());
+                authOnlineDeviceMapper.updateById(device);
+            }
+        } catch (Exception e) {
+            log.debug("更新设备活跃时间失败(可能表未初始化): {}", e.getMessage());
         }
     }
 

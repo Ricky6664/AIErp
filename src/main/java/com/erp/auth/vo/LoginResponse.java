@@ -29,6 +29,9 @@ public class LoginResponse implements Serializable {
     @Schema(description = "Sa-Token值")
     private String token;
 
+    @Schema(description = "刷新令牌, 用于Token过期后换取新Token")
+    private String refreshToken;
+
     @Schema(description = "用户ID")
     private Long userId;
 

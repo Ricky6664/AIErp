@@ -58,6 +58,8 @@ public enum ErrorCode implements IErrorCode {
     PASSWORD_ERROR(20006, "密码错误"),
     /** 验证码错误或已过期 */
     CAPTCHA_ERROR(20007, "验证码错误或已过期"),
+    /** RefreshToken已过期或无效 */
+    REFRESH_TOKEN_EXPIRED(20008, "RefreshToken已过期或无效"),
 
     // ========== 参数校验错误 30000~39999 ==========
     /** 参数校验失败 */

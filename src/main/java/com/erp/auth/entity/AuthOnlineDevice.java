@@ -34,6 +34,9 @@ public class AuthOnlineDevice implements Serializable {
     @TableField("status")
     private String status;
 
+    @TableField("last_active_time")
+    private LocalDateTime lastActiveTime;
+
     @TableField("created_at")
     private LocalDateTime createdAt;
 
