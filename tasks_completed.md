@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-04T00:30
-> **归档总数**：412 条
+> **归档总数**：413 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -706,6 +706,7 @@
 | P0-004-003-009-001-001 | 编写DDLEntityMapperServiceController | 2026-06-04T00:05 | ✅ | 字段权限方案配置: Flyway DDL(sys_field_permission_scheme+role+detail)+回滚脚本(新增), SysFieldPermissionScheme+Detail实体/Mapper/Service/ServiceImpl/Controller完整CRUD均已就绪, mvn compile通过 | cb6e7d0f |
 | P0-004-003-006-001-003 | 验证Controller | 2026-06-04T00:20 | ✅ | 验证并修复权限配置Controller: SysRoleController/SysDataPermissionSchemeController/SysFieldPermissionSchemeController全部通过5项验收标准, 补充了@Valid+BindingResult参数校验, mvn compile通过 | — |
 | P0-004-004-001-001-001 | 编写接口定义Service接口 | 2026-06-04T00:30 | ✅ | SysMenuService接口: 继承IServiceX<SysMenu>, 声明getMenuTree/getMenuTreeByUserId/isPermissionCodeUnique/updateStatus/deleteMenuWithChildren共5个业务方法签名 | — |
+| P0-004-004-001-001-002 | 编写ServiceImpl实现类 | 2026-06-04T00:15 | ✅ | SysMenuServiceImpl: 继承ServiceImplX, 实现5个方法(菜单树构建/按用户权限过滤树/权限码唯一性校验/状态启禁用/级联删除), @Transactional事务管理, BusinessException异常规范 | — |
 
 ## 汇总统计
 
