@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-03T21:47
-> **归档总数**：401 条
+> **归档总数**：402 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -686,6 +686,7 @@
 | P0-004-002-009-001-002 | 验证功能 | 2026-06-03T21:47 | ✅ | 工作台聚合SQL验证: SQL语法正确/3条聚合查询逻辑完整/LEFT JOIN空值处理正确/VO字段映射完整/null安全保护/编译通过/发现1个问题(Controller缺少工作台端点)已记录issues文档 | — |
 | P0-004-003-001-001-001 | 编写接口定义Service接口 | 2026-06-03T22:00 | ✅ | SysRoleService接口+SysRoleServiceImpl实现/角色编码唯一性校验/状态启禁用/删除时清理sys_user_role+sys_role_menu+sys_role_data+sys_role_field关联数据/SysRoleMapper含4个@Delete清理方法 | — |
 | P0-004-003-001-001-002 | 编写ServiceImpl实现类 | 2026-06-03T22:10 | ✅ | SysRoleServiceImpl增强: StpUtil.kickout在线用户踢出/状态流转校验(禁止重复设置)/@Transactional事务管理/BusinessException异常规范/UserMapper注入查询角色关联用户 | — |
+| P0-004-003-001-001-003 | 验证Service | 2026-06-03T22:20 | ✅ | 验证SysRoleService/SysRoleServiceImpl: 接口3个业务方法+IServiceX CRUD完整/唯一性校验+状态流转+关联清理完备/Sa-Token kickout集成/@Transactional方法级/BusinessException规范/mvn compile通过 | — |
 
 ## 汇总统计
 
