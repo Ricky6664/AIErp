@@ -680,7 +680,7 @@
 | P0-004-002-007-001-002 | 编写ServiceImpl实现类 | 2026-06-03T21:05 | ✅ | UserServiceImpl.changePassword: 参数校验/Bcrypt旧密码验证/密码历史防重用(最近3次)/BCrypt加密/insertPasswordHistory/StpUtil.kickout踢出会话/@Transactional事务 | 4e941bdd |
 | P0-004-002-007-001-003 | 验证Service | 2026-06-03T21:10 | ✅ | 验证UserService密码修改/重置Service: 接口changePassword+resetPassword方法签名完整/BCrypt加密+密码历史防重用/Sa-Token kickout/@Transactional位置正确/BusinessException规范/mvn compile通过 | 734edc2d |
 | P0-004-002-008-001-001 | 编写Controller类 | 2026-06-03T21:16 | ✅ | UserController: @RestController+12个RESTful接口(CRUD/分页/角色/密码/状态/解锁/用户名检查)/@RequirePermission/RT+PageResult响应/Swagger注解/新增3个DTO内类 | 5ad9f133 |
-| P0-004-002-008-001-002 | 编写接口方法 | 2026-06-03T21:27 | ✅ | UserController接口方法完善: 路径/api/system/user, @SaCheckPermission替换, 分页keyword/status/deptId, 详情含角色名称, BCrypt密码加密, 软删除+关联清理, 重置密码返回新密码, PUT /password自修改, POST/DELETE /role批量角色, UserService新增resetPasswordAndReturn/deleteUserWithCleanup | — |
+| P0-004-002-008-001-002 | 编写接口方法 | 2026-06-03T21:27 | ✅ | UserController接口方法完善: 路径/api/system/user, @SaCheckPermission替换, 分页keyword/status/deptId, 详情含角色名称, BCrypt密码加密, 软删除+关联清理, 重置密码返回新密码, PUT /password自修改, POST/DELETE /role批量角色, UserService新增resetPasswordAndReturn/deleteUserWithCleanup | 02e35e51 |
 
 ## 汇总统计
 
