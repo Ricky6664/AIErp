@@ -636,6 +636,7 @@
 | P0-003-008-003-001-003 | 验证编写fin_account会计科目表DDL | 2026-06-03T19:40 | ✅ | db/migration/V20260604001:fin_account表DDL验证查询脚本(6组查询=表/列/索引/约束/注释/Flyway)+docs/verification/fin_account_verify_report.md(8项规范合规检查全部PASS,1个非阻塞WARNING) | — |
 | P0-003-008-004-001-001 | 编写fin_voucher_word凭证字表CREATE TABLE语句 | 2026-06-03T19:45 | ✅ | db/migration/V20260604002:fin_voucher_word表DDL+rollback(10通用字段+3业务字段+COMMENT全覆盖) | 5137eaa3 |
 | P0-003-008-004-001-002 | 编写fin_voucher_word凭证字表索引与约束 | 2026-06-03T20:00 | ✅ | db/migration/V20260604003:PK重命名pk_fin_voucher_word+部分唯一索引uk_fin_voucher_word_code(WHERE is_deleted=false)+2个租户联合索引+6个业务查询索引+回滚脚本 | b344d20b |
+| P0-003-008-004-001-003 | 验证编写fin_voucher_word凭证字表DDL | 2026-06-03T20:10 | ✅ | db/migration/V20260604004:fin_voucher_word表DDL验证查询脚本(6组查询=表/列/索引/约束/注释/Flyway)+docs/verification/fin_voucher_word_verify_report.md(7项易错警示核查全部PASS) | — |
 
 ---
 
