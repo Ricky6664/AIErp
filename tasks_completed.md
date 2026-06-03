@@ -668,6 +668,7 @@
 | P0-004-002-003-001-002 | 编写ServiceImpl实现类 | 2026-06-03T19:54 | ✅ | UserServiceImpl: 继承ServiceImplX, 实现全部6个业务方法(Sa-Token踢出/BCrypt密码加密+历史表/角色批量分配/状态流转校验/唯一性校验/@Transactional事务管理) | — |
 | P0-004-002-003-001-003 | 验证Service | 2026-06-03T20:15 | ✅ | 验证UserService/UserServiceImpl: 接口6个方法签名完整/Impl逻辑正确/BCrypt加密+密码历史/Sa-Token集成/@Transactional位置正确/BusinessException异常规范/mvn compile通过 | — |
 | P0-004-002-004-001-001 | 编写接口定义Service接口 | 2026-06-03T20:20 | ✅ | UserRoleService接口: 继承IServiceX<SysUser>, 声明assignRoles/removeUserRole/getUserRoleIds/getUserIdsByRoleId/hasRole共5个业务方法签名 | 7b8a80b2 |
+| P0-004-002-004-001-002 | 编写ServiceImpl实现类 | 2026-06-03T20:25 | ✅ | UserRoleServiceImpl: 继承ServiceImplX, 实现5个方法(Sa-Token kickout/@Transactional/BusinessException), UserMapper新增4个方法+XML映射 | 7325bd3e |
 
 ## 汇总统计
 
