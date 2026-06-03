@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import type { IUserState } from '@/types/user'
 import type { LoginDTO } from '@/api/types/auth'
 import router from '@/router'
-import { loginApi, getUserInfoApi } from '@/api/modules/auth'
+import { loginApi, getUserInfoApi, logoutApi } from '@/api/modules/auth'
 import { TOKEN_KEY, REFRESH_TOKEN_KEY } from '@/router/constants'
 
 export const useUserStore = defineStore('user', {
@@ -50,6 +50,9 @@ export const useUserStore = defineStore('user', {
     },
 
     logout() {
+      logoutApi().catch(() => {
+        // Token may already be expired, still proceed with local cleanup
+      })
       this.token = ''
       this.refreshToken = ''
       this.userInfo = null
@@ -58,7 +61,8 @@ export const useUserStore = defineStore('user', {
       this.menuTree = []
       localStorage.removeItem(TOKEN_KEY)
       localStorage.removeItem(REFRESH_TOKEN_KEY)
-      router.replace('/login')
+      const currentPath = router.currentRoute.value?.fullPath || '/'
+      router.replace({ path: '/login', query: { redirect: currentPath } })
     }
   },
 

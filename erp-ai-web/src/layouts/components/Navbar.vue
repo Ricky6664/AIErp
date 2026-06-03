@@ -89,12 +89,14 @@ import Breadcrumb from './Breadcrumb.vue'
 import SearchDialog from './SearchDialog.vue'
 import { useLayoutStore } from '@/stores/modules/layout'
 import { useUserStore } from '@/stores/modules/user'
+import { usePermissionStore } from '@/stores/modules/permission'
 
 defineOptions({ name: 'Navbar' })
 
 const router = useRouter()
 const layoutStore = useLayoutStore()
 const userStore = useUserStore()
+const permissionStore = usePermissionStore()
 
 const searchDialogRef = ref<InstanceType<typeof SearchDialog>>()
 const unreadCount = ref<number>(0)
@@ -124,8 +126,8 @@ async function handleUserCommand(command: string) {
       cancelButtonText: '取消',
       type: 'warning'
     })
+    permissionStore.resetPermission()
     await userStore.logout()
-    await router.push('/login')
   } else if (command === 'profile') {
     router.push('/profile')
   }
