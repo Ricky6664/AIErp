@@ -625,7 +625,7 @@
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
 |---------|---------|---------|:---:|------|-----|
 | P0-004-001-001-001-001 | 编写核心代码 | 2026-06-03T17:36 | ✅ | 实现登录认证核心逻辑: AuthController/AuthService/CaptchaService/LoginRequest/LoginResponse/SysUser/SysLoginLog | 8cf84b5e |
-| P0-004-001-001-001-002 | 验证功能 | 2026-06-03T17:48 | ✅ | 编写27个单元测试(AuthServiceTest/CaptchaServiceTest/AuthControllerTest)，全部通过 | bfad8200 |
+| P0-004-001-001-001-002 | 验证功能 | 2026-06-03T17:48 | ✅ | 编写27个单元测试(AuthServiceTest/CaptchaServiceTest/AuthControllerTest)，全部通过 | 08b8b70f |
 
 ## 汇总统计
 
