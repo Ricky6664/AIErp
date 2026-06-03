@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-03T23:28
-> **归档总数**：409 条
+> **最后更新**：2026-06-04T00:05
+> **归档总数**：410 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -703,6 +703,7 @@
 | P0-004-003-007-001-001 | 编写DDLEntityMapperServiceController | 2026-06-03T23:28 | ✅ | Flyway DDL: sys_role_inheritance(角色继承表)建表+索引+回滚, sys_role_exclusion(角色互斥表)建表+索引+回滚, 共4个SQL文件, mvn compile通过 | e1f36605 |
 | P0-004-003-006-001-001 | 编写Controller类 | 2026-06-03T23:45 | ✅ | SysRoleController: @RestController+@RequestMapping("/api/system/role"), 注入5个Service, 26个RESTful接口(角色CRUD+菜单权限+数据权限+字段权限+按钮权限), @SaCheckPermission全覆盖, RT+PageResult响应, @Operation注解完整 | — |
 | P0-004-003-008-001-001 | 编写DDLEntityMapperServiceController | 2026-06-03T23:55 | ✅ | 数据权限方案配置: Flyway DDL(sys_data_permission_scheme+sys_data_permission_scheme_role)+回滚脚本, SysDataPermissionScheme实体/Mapper/Service/ServiceImpl/Controller完整CRUD, mvn compile通过 | — |
+| P0-004-003-009-001-001 | 编写DDLEntityMapperServiceController | 2026-06-04T00:05 | ✅ | 字段权限方案配置: Flyway DDL(sys_field_permission_scheme+role+detail)+回滚脚本(新增), SysFieldPermissionScheme+Detail实体/Mapper/Service/ServiceImpl/Controller完整CRUD均已就绪, mvn compile通过 | — |
 
 ## 汇总统计
 
