@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-03T21:16
-> **归档总数**：400 条
+> **最后更新**：2026-06-03T21:47
+> **归档总数**：401 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -683,6 +683,7 @@
 | P0-004-002-008-001-002 | 编写接口方法 | 2026-06-03T21:27 | ✅ | UserController接口方法完善: 路径/api/system/user, @SaCheckPermission替换, 分页keyword/status/deptId, 详情含角色名称, BCrypt密码加密, 软删除+关联清理, 重置密码返回新密码, PUT /password自修改, POST/DELETE /role批量角色, UserService新增resetPasswordAndReturn/deleteUserWithCleanup | 02e35e51 |
 | P0-004-002-008-001-003 | 验证Controller | 2026-06-03T21:33 | ✅ | 编译验证通过/RESTful URL规范/RT+PageResult响应/@Valid校验/@SaCheckPermission 14端点全覆盖/@Tag/@Operation完整 | 889b8936 |
 | P0-004-002-009-001-001 | 编写工作台聚合SQL | 2026-06-03T21:40 | ✅ | UserWorkbenchVO聚合数据VO/UserMapper新增3个聚合查询方法/UserMapper.xml新增3条工作台聚合SQL(用户总数+在线数+本月新增+角色分布+部门分布)/UserService新增getWorkbenchData | — |
+| P0-004-002-009-001-002 | 验证功能 | 2026-06-03T21:47 | ✅ | 工作台聚合SQL验证: SQL语法正确/3条聚合查询逻辑完整/LEFT JOIN空值处理正确/VO字段映射完整/null安全保护/编译通过/发现1个问题(Controller缺少工作台端点)已记录issues文档 | — |
 
 ## 汇总统计
 
