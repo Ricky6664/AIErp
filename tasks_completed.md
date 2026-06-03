@@ -685,6 +685,7 @@
 | P0-004-002-009-001-001 | 编写工作台聚合SQL | 2026-06-03T21:40 | ✅ | UserWorkbenchVO聚合数据VO/UserMapper新增3个聚合查询方法/UserMapper.xml新增3条工作台聚合SQL(用户总数+在线数+本月新增+角色分布+部门分布)/UserService新增getWorkbenchData | — |
 | P0-004-002-009-001-002 | 验证功能 | 2026-06-03T21:47 | ✅ | 工作台聚合SQL验证: SQL语法正确/3条聚合查询逻辑完整/LEFT JOIN空值处理正确/VO字段映射完整/null安全保护/编译通过/发现1个问题(Controller缺少工作台端点)已记录issues文档 | — |
 | P0-004-003-001-001-001 | 编写接口定义Service接口 | 2026-06-03T22:00 | ✅ | SysRoleService接口+SysRoleServiceImpl实现/角色编码唯一性校验/状态启禁用/删除时清理sys_user_role+sys_role_menu+sys_role_data+sys_role_field关联数据/SysRoleMapper含4个@Delete清理方法 | — |
+| P0-004-003-001-001-002 | 编写ServiceImpl实现类 | 2026-06-03T22:10 | ✅ | SysRoleServiceImpl增强: StpUtil.kickout在线用户踢出/状态流转校验(禁止重复设置)/@Transactional事务管理/BusinessException异常规范/UserMapper注入查询角色关联用户 | — |
 
 ## 汇总统计
 

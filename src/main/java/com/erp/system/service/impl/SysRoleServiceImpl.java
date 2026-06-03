@@ -1,15 +1,20 @@
 package com.erp.system.service.impl;
 
+import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.BusinessException;
 import com.erp.common.service.ServiceImplX;
 import com.erp.system.entity.SysRole;
 import com.erp.system.mapper.SysRoleMapper;
+import com.erp.system.mapper.UserMapper;
 import com.erp.system.service.SysRoleService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * 角色管理 Service 实现.
@@ -20,6 +25,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 @Service
 public class SysRoleServiceImpl extends ServiceImplX<SysRoleMapper, SysRole> implements SysRoleService {
+
+    @Resource
+    private UserMapper userMapper;
 
     @Override
     public boolean isRoleCodeUnique(String roleCode, Long excludeId) {
@@ -39,10 +47,19 @@ public class SysRoleServiceImpl extends ServiceImplX<SysRoleMapper, SysRole> imp
             throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "角色不存在: id=" + roleId);
         }
 
+        if (enabled != null && enabled.equals(role.getIsEnabled())) {
+            throw new BusinessException(ErrorCode.PARAM_INVALID,
+                    "角色状态与当前状态相同: " + (enabled ? "已启用" : "已禁用"));
+        }
+
         role.setIsEnabled(enabled);
         updateById(role);
 
-        log.info("角色状态更新: roleId={}, enabled={}", roleId, enabled);
+        if (enabled != null && !enabled) {
+            kickoutUsersByRoleId(roleId);
+        }
+
+        log.info("角色状态更新: roleId={}, roleCode={}, enabled={}", roleId, role.getRoleCode(), enabled);
     }
 
     @Override
@@ -53,6 +70,8 @@ public class SysRoleServiceImpl extends ServiceImplX<SysRoleMapper, SysRole> imp
             throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "角色不存在: id=" + roleId);
         }
 
+        kickoutUsersByRoleId(roleId);
+
         baseMapper.deleteUserRoleAssociations(roleId);
         baseMapper.deleteRoleMenuAssociations(roleId);
         baseMapper.deleteRoleDataAssociations(roleId);
@@ -60,6 +79,19 @@ public class SysRoleServiceImpl extends ServiceImplX<SysRoleMapper, SysRole> imp
 
         removeById(roleId);
 
-        log.info("角色已删除(含关联清理): roleId={}", roleId);
+        log.info("角色已删除(含关联清理): roleId={}, roleCode={}", roleId, role.getRoleCode());
+    }
+
+    private void kickoutUsersByRoleId(Long roleId) {
+        List<Long> userIds = userMapper.selectUserIdsByRoleId(roleId);
+        if (userIds != null) {
+            for (Long userId : userIds) {
+                try {
+                    StpUtil.kickout(userId);
+                } catch (Exception e) {
+                    log.debug("角色变更踢出用户失败(用户可能未在线): userId={}, roleId={}", userId, roleId);
+                }
+            }
+        }
     }
 }
