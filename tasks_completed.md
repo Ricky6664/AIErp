@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-04T11:30
-> **归档总数**：425 条
+> **归档总数**：426 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -726,15 +726,16 @@
 | P0-004-005-003-001-001 | 编写Controller类 | 2026-06-04 | ✅ | AuthConfigController: @RestController+@RequestMapping, 注入AuthMethodService/AuthPasswordPolicyService, 18个RESTful端点(认证方式9+密码策略9), @RequirePermission权限控制, RT<T>/PageResult<T>统一响应, Swagger @Operation注解完整 | — |
 | P0-004-005-003-001-002 | 编写接口方法 | 2026-06-04T11:45 | ✅ | AuthConfigController新增在线设备管理(分页查询+强制下线StpUtil.logoutByTokenValue)和工作台聚合(在线设备数/今日登录成功/失败次数/SSO配置数)端点, mvn compile通过 | — |
 | P0-004-005-003-001-003 | 验证Controller | 2026-06-04T12:30 | ✅ | 验证AuthConfigController: 5项验收标准全部通过, 补充@Valid+BindingResult参数校验, mvn compile通过 | — |
+| P0-004-005-004-001-001 | 编写OnlineDeviceService | 2026-06-04 | ✅ | OnlineDeviceService接口(继承IServiceX, 声明kickDevice/countOnline方法)+OnlineDeviceServiceImpl(继承ServiceImplX, 实现StpUtil.logoutByTokenValue强制下线+在线设备计数+@Transactional+BusinessException), AuthConfigController重构注入OnlineDeviceService替换直接Mapper调用 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 426 | 2 | 19.84% |
+| P0 | 14 | 2,147 | 427 | 2 | 19.89% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **426** | **2** | **9.03%** |
+| **合计** | **46** | **4,716** | **427** | **2** | **9.05%** |
 
 ---
 

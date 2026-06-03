@@ -1,16 +1,14 @@
 package com.erp.auth.controller;
 
-import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.erp.auth.entity.AuthMethod;
 import com.erp.auth.entity.AuthOnlineDevice;
 import com.erp.auth.entity.AuthPasswordPolicy;
 import com.erp.auth.entity.SysLoginLog;
-import com.erp.auth.mapper.AuthOnlineDeviceMapper;
 import com.erp.auth.mapper.SysLoginLogMapper;
 import com.erp.auth.service.AuthMethodService;
 import com.erp.auth.service.AuthPasswordPolicyService;
+import com.erp.auth.service.OnlineDeviceService;
 import com.erp.common.annotation.RequirePermission;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.BusinessException;
@@ -56,7 +54,7 @@ public class AuthConfigController {
 
     private final AuthMethodService authMethodService;
     private final AuthPasswordPolicyService authPasswordPolicyService;
-    private final AuthOnlineDeviceMapper authOnlineDeviceMapper;
+    private final OnlineDeviceService onlineDeviceService;
     private final SysLoginLogMapper sysLoginLogMapper;
 
     // ==================== 认证方式 ====================
@@ -238,29 +236,16 @@ public class AuthConfigController {
     @RequirePermission("system:online-device:query")
     @GetMapping("/online-devices/page")
     public RT<PageResult<AuthOnlineDevice>> pageOnlineDevices(@Parameter(description = "分页参数") PageQuery query) {
-        IPage<AuthOnlineDevice> page = authOnlineDeviceMapper.selectPage(
-                query.toPage(),
-                new LambdaQueryWrapper<AuthOnlineDevice>()
-                        .orderByDesc(AuthOnlineDevice::getLastActiveTime)
-        );
-        return RT.ok(PageResult.of(page));
+        LambdaQueryWrapper<AuthOnlineDevice> wrapper = new LambdaQueryWrapper<AuthOnlineDevice>()
+                .orderByDesc(AuthOnlineDevice::getLastActiveTime);
+        return RT.ok(onlineDeviceService.pageList(query, wrapper));
     }
 
     @Operation(summary = "强制下线设备")
     @RequirePermission("system:online-device:kick")
     @PostMapping("/online-devices/{tokenId}/kick")
     public RT<Void> kickDevice(@Parameter(description = "会话Token标识") @PathVariable String tokenId) {
-        StpUtil.logoutByTokenValue(tokenId);
-        AuthOnlineDevice device = authOnlineDeviceMapper.selectOne(
-                new LambdaQueryWrapper<AuthOnlineDevice>()
-                        .eq(AuthOnlineDevice::getSessionTokenId, tokenId)
-                        .last("LIMIT 1")
-        );
-        if (device != null) {
-            device.setStatus("kicked");
-            authOnlineDeviceMapper.updateById(device);
-        }
-        log.info("设备已强制下线: tokenId={}", tokenId);
+        onlineDeviceService.kickDevice(tokenId);
         return RT.ok();
     }
 
@@ -273,10 +258,7 @@ public class AuthConfigController {
         LocalDateTime todayStart = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
         Map<String, Object> data = new HashMap<>();
 
-        long onlineDeviceCount = authOnlineDeviceMapper.selectCount(
-                new LambdaQueryWrapper<AuthOnlineDevice>()
-                        .eq(AuthOnlineDevice::getStatus, "online")
-        );
+        long onlineDeviceCount = onlineDeviceService.countOnline();
         data.put("onlineDeviceCount", onlineDeviceCount);
 
         long todayLoginCount = sysLoginLogMapper.selectCount(
