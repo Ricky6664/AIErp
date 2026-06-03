@@ -12,6 +12,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
@@ -181,5 +182,80 @@ public class UserServiceImpl extends ServiceImplX<UserMapper, SysUser> implement
     @Override
     public boolean isUsernameUnique(String username, Long excludeId) {
         return baseMapper.countByUsername(username, excludeId) == 0;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public String resetPasswordAndReturn(Long userId) {
+        SysUser user = getById(userId);
+        if (user == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "用户不存在: id=" + userId);
+        }
+
+        String plainPassword = generateRandomPassword();
+        String hashedPassword = BCrypt.hashpw(plainPassword, BCrypt.gensalt());
+
+        baseMapper.insertPasswordHistory(userId, hashedPassword);
+
+        user.setPasswordHash(hashedPassword);
+        user.setPwdResetAt(LocalDateTime.now());
+        updateById(user);
+
+        try {
+            StpUtil.kickout(userId);
+        } catch (Exception e) {
+            log.debug("密码重置踢出用户失败(用户可能未在线): userId={}", userId);
+        }
+
+        log.info("用户密码重置完成: userId={}", userId);
+        return plainPassword;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteUserWithCleanup(Long userId) {
+        SysUser user = getById(userId);
+        if (user == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "用户不存在: id=" + userId);
+        }
+
+        baseMapper.deleteUserRoles(userId);
+        baseMapper.deleteUserDepts(userId);
+
+        removeById(userId);
+
+        try {
+            StpUtil.kickout(userId);
+        } catch (Exception e) {
+            log.debug("删除用户踢出失败(用户可能未在线): userId={}", userId);
+        }
+
+        log.info("用户已删除(含角色/部门关联清理): userId={}", userId);
+    }
+
+    private static final String CHAR_UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final String CHAR_LOWER = "abcdefghijklmnopqrstuvwxyz";
+    private static final String CHAR_DIGIT = "0123456789";
+    private static final String CHAR_SPECIAL = "!@#$%&*";
+    private static final String CHAR_ALL = CHAR_UPPER + CHAR_LOWER + CHAR_DIGIT + CHAR_SPECIAL;
+    private static final SecureRandom RANDOM = new SecureRandom();
+
+    private String generateRandomPassword() {
+        StringBuilder sb = new StringBuilder(8);
+        sb.append(CHAR_UPPER.charAt(RANDOM.nextInt(CHAR_UPPER.length())));
+        sb.append(CHAR_LOWER.charAt(RANDOM.nextInt(CHAR_LOWER.length())));
+        sb.append(CHAR_DIGIT.charAt(RANDOM.nextInt(CHAR_DIGIT.length())));
+        sb.append(CHAR_SPECIAL.charAt(RANDOM.nextInt(CHAR_SPECIAL.length())));
+        for (int i = 4; i < 8; i++) {
+            sb.append(CHAR_ALL.charAt(RANDOM.nextInt(CHAR_ALL.length())));
+        }
+        char[] chars = sb.toString().toCharArray();
+        for (int i = chars.length - 1; i > 0; i--) {
+            int j = RANDOM.nextInt(i + 1);
+            char tmp = chars[i];
+            chars[i] = chars[j];
+            chars[j] = tmp;
+        }
+        return new String(chars);
     }
 }

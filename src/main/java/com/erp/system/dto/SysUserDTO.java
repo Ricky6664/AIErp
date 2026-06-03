@@ -47,6 +47,10 @@ public class SysUserDTO {
         private Long ownerDeptId;
 
         private Long ownerId;
+
+        private List<Long> deptIds;
+
+        private List<Long> roleIds;
     }
 
     @Data
@@ -120,6 +124,15 @@ public class SysUserDTO {
 
     @Data
     public static class RoleAssignDTO {
+        @NotNull(message = "角色ID列表不能为空")
+        private List<Long> roleIds;
+    }
+
+    @Data
+    public static class BatchRoleAssignDTO {
+        @NotNull(message = "用户ID不能为空")
+        private Long userId;
+
         @NotNull(message = "角色ID列表不能为空")
         private List<Long> roleIds;
     }

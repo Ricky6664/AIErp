@@ -26,4 +26,8 @@ public interface UserService extends IServiceX<SysUser> {
     void changePassword(Long userId, String oldPassword, String newPassword);
 
     boolean isUsernameUnique(String username, Long excludeId);
+
+    String resetPasswordAndReturn(Long userId);
+
+    void deleteUserWithCleanup(Long userId);
 }
