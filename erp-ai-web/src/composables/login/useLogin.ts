@@ -7,6 +7,8 @@ import { getCaptchaApi } from '@/api/modules/auth'
 import type { LoginDTO } from '@/api/types/auth'
 import type { FormInstance, FormRules } from 'element-plus'
 
+const REMEMBERED_USERNAME_KEY = 'remembered_username'
+
 export interface LoginFormData {
   username: string
   password: string
@@ -56,12 +58,18 @@ export function useLogin() {
   })
 
   const rules: FormRules = {
-    username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+    username: [
+      { required: true, message: '请输入用户名', trigger: 'blur' },
+      { min: 3, max: 20, message: '用户名长度3-20位', trigger: 'blur' }
+    ],
     password: [
       { required: true, message: '请输入密码', trigger: 'blur' },
-      { min: 6, message: '密码长度不能少于6位', trigger: 'blur' }
+      { min: 8, max: 32, message: '密码长度至少8位', trigger: 'blur' }
     ],
-    captchaCode: [{ required: true, message: '请输入验证码', trigger: 'blur' }]
+    captchaCode: [
+      { required: true, message: '请输入验证码', trigger: 'blur' },
+      { len: 4, message: '验证码为4位', trigger: 'blur' }
+    ]
   }
 
   async function loadCaptcha() {
@@ -95,6 +103,14 @@ export function useLogin() {
       }
       await userStore.login(loginData)
 
+      // 记住我：存储加密后的用户名
+      if (form.rememberMe) {
+        const encoded = btoa(encodeURIComponent(form.username))
+        localStorage.setItem(REMEMBERED_USERNAME_KEY, encoded)
+      } else {
+        localStorage.removeItem(REMEMBERED_USERNAME_KEY)
+      }
+
       // 动态路由生成：根据菜单树添加路由
       if (userStore.menuTree.length > 0) {
         permissionStore.generateRoutes(userStore.menuTree)
@@ -122,6 +138,18 @@ export function useLogin() {
     loadCaptcha()
   }
 
+  function loadRememberedUsername() {
+    const encoded = localStorage.getItem(REMEMBERED_USERNAME_KEY)
+    if (encoded) {
+      try {
+        form.username = decodeURIComponent(atob(encoded))
+        form.rememberMe = true
+      } catch {
+        localStorage.removeItem(REMEMBERED_USERNAME_KEY)
+      }
+    }
+  }
+
   return {
     formRef,
     form,
@@ -130,6 +158,7 @@ export function useLogin() {
     captchaImage,
     captchaKey,
     loadCaptcha,
+    loadRememberedUsername,
     handleLogin,
     handleCaptchaRefresh
   }

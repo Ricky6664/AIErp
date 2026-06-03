@@ -88,6 +88,7 @@ const {
   loading,
   captchaImage,
   loadCaptcha,
+  loadRememberedUsername,
   handleLogin,
   handleCaptchaRefresh
 } = useLogin()
@@ -95,6 +96,7 @@ const {
 defineExpose({ formRef })
 
 onMounted(() => {
+  loadRememberedUsername()
   loadCaptcha()
 })
 </script>
