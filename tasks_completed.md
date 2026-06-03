@@ -613,6 +613,7 @@
 | P0-003-007-009-001-003 | 验证编写inv_loss_detail报损主从表DDL | 2026-06-02T16:03 | ✅ | db/migration/V20260526001__verify_inv_loss_detail.sql:17项验证SQL(2表/主表columns/PK/部分唯一索引/索引列表/多租户索引/COMMENT/NOT NULL/FK/列名/精度)+docs/verification/inv_loss_detail_verify_report.md:6节完整报告(验证范围/结构验证/索引约束/规范合规/易错对照/验收总结) | 7c55c82c |
 | P0-003-007-010-001-001 | 编写CREATE TABLE语句 | 2026-06-03T10:00 | ✅ | db/migration/V20260526001:CREATE TABLE inv_overflow(12业务字段+10通用字段)+inv_overflow_detail(26业务字段+10通用字段+22扩展字段)+全COMMENT+decimal(18,8)+回滚脚本 | — |
 | P0-003-007-010-001-002 | 编写inv_overflow_detail报溢主从表索引与约束 | 2026-06-03T11:00 | ✅ | db/migration/V20260526001:PK重命名(inv_overflow+inv_overflow_detail)+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表16个+从表16个共32个索引)+回滚脚本 | — |
+| P0-003-007-010-001-003 | 验证编写inv_overflow_detail报溢主从表DDL | 2026-06-03T17:45 | ✅ | db/migration/V20260526001__verify_inv_overflow_detail.sql:17项验证SQL(2表/主表columns/PK/部分唯一索引/索引列表/多租户索引/COMMENT/NOT NULL/FK/列名/精度)+docs/verification/inv_overflow_detail_verify_report.md:6节完整报告(验证范围/结构验证/索引约束/规范合规/易错对照/验收总结) | — |
 
 ---
 
