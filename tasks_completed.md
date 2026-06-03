@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-03T22:48
-> **归档总数**：405 条
+> **最后更新**：2026-06-03T20:40
+> **归档总数**：406 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -696,12 +696,13 @@
 | P0-004-003-004-001-001 | 编写接口定义Service接口 | 2026-06-03T20:30 | ✅ | 定义SysRoleFieldPermissionService接口(extends IServiceX), 声明getByRoleId/getByRoleIdAndTable/saveRoleFieldPermissions/deleteByRoleId/getPermissionType方法; 同时创建SysRoleFieldPermission实体映射sys_role_field_permission表 | — |
 | P0-004-003-004-001-002 | 编写ServiceImpl实现类 | 2026-06-03T23:35 | ✅ | SysRoleFieldPermissionServiceImpl: 继承ServiceImplX, 5个方法(Sa-Token kickout/BusinessException/@Transactional), 新建SysRoleFieldPermissionMapper | 100cf765 |
 | P0-004-003-004-001-003 | 验证Service | 2026-06-03T20:36 | ✅ | 验证SysRoleFieldPermissionService/SysRoleFieldPermissionServiceImpl: 接口5个方法签名完整/Impl逻辑正确/StpUtil.kickout/@Transactional位置正确/BusinessException规范/mvn compile通过 | — |
+| P0-004-003-005-001-001 | 编写接口定义Service接口 | 2026-06-03T20:40 | ✅ | 定义SysButtonPermissionService接口(extends IServiceX\<SysMenu\>), 声明checkPermission/getUserPermissions/getRolePermissions/getButtonsByMenuId/getButtonsByUserId/refreshCache方法; mvn compile通过 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 408 | 2 | 19.00% |
+| P0 | 14 | 2,147 | 409 | 2 | 19.05% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **408** | **2** | **8.65%** |
