@@ -674,7 +674,7 @@
 | P0-004-002-005-001-002 | 编写ServiceImpl实现类 | 2026-06-03T20:40 | ✅ | UserDeptServiceImpl: 继承ServiceImplX, 实现6个方法(Sa-Token kickout/@Transactional/BusinessException), UserMapper新增7个dept方法+XML映射 | — |
 | P0-004-002-005-001-003 | 验证Service | 2026-06-03T20:45 | ✅ | 验证UserDeptService/UserDeptServiceImpl: 接口6个方法签名完整/Impl逻辑正确/StpUtil.kickout/@Transactional位置正确/BusinessException异常规范/mvn compile通过 | — |
 | P0-004-002-006-001-001 | 编写接口定义Service接口 | 2026-06-03T20:50 | ✅ | UserGroupService接口: 继承IServiceX<SysUserGroup>, 声明addMembers/removeMember/removeAllMembers/getMemberUserIds/getGroupIdsByUserId/hasMember/updateStatus共7个业务方法签名; 创建SysUserGroup/SysUserGroupMember实体+UserGroupMapper | — |
-| P0-004-002-006-001-002 | 编写ServiceImpl实现类 | 2026-06-03T20:55 | ✅ | UserGroupServiceImpl: 继承ServiceImplX, 实现7个方法(entity验证/BusinessException/@Transactional), UserGroupMapper调用groupMembers操作 | — |
+| P0-004-002-006-001-002 | 编写ServiceImpl实现类 | 2026-06-03T20:55 | ✅ | UserGroupServiceImpl: 继承ServiceImplX, 实现7个方法(entity验证/BusinessException/@Transactional), UserGroupMapper调用groupMembers操作 | b81b0f95 |
 
 ## 汇总统计
 
