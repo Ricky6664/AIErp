@@ -8,6 +8,9 @@ export interface LoginDTO {
 
 export interface LoginResponse {
   token: string
+  refreshToken?: string
+  userId?: number
+  username?: string
 }
 
 export interface CaptchaResponse {
@@ -19,4 +22,5 @@ export interface UserInfoResponse {
   userInfo: import('@/types/user').UserInfoVO
   permissions: string[]
   roles: string[]
+  menuTree: import('@/types/user').MenuTreeNode[]
 }

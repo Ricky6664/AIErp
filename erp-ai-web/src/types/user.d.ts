@@ -1,3 +1,16 @@
+export interface MenuTreeNode {
+  id: number
+  parentId: number
+  menuName: string
+  menuType: 'menu' | 'button' | 'dir'
+  permissionCode?: string
+  componentPath?: string
+  routePath?: string
+  icon?: string
+  sortOrder?: number
+  children?: MenuTreeNode[]
+}
+
 export interface UserInfoVO {
   id: number
   username: string
@@ -11,7 +24,9 @@ export interface UserInfoVO {
 
 export interface IUserState {
   token: string
+  refreshToken: string
   userInfo: UserInfoVO | null
   permissions: string[]
   roles: string[]
+  menuTree: MenuTreeNode[]
 }

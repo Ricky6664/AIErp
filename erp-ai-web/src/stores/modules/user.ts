@@ -3,14 +3,16 @@ import type { IUserState } from '@/types/user'
 import type { LoginDTO } from '@/api/types/auth'
 import router from '@/router'
 import { loginApi, getUserInfoApi } from '@/api/modules/auth'
+import { TOKEN_KEY, REFRESH_TOKEN_KEY } from '@/router/constants'
 
 export const useUserStore = defineStore('user', {
-  state: (): IUserState & { menus: unknown[] } => ({
-    token: localStorage.getItem('erp_user_token') || '',
+  state: (): IUserState => ({
+    token: localStorage.getItem(TOKEN_KEY) || '',
+    refreshToken: localStorage.getItem(REFRESH_TOKEN_KEY) || '',
     userInfo: null,
     permissions: [],
     roles: [],
-    menus: []
+    menuTree: []
   }),
 
   getters: {
@@ -27,6 +29,11 @@ export const useUserStore = defineStore('user', {
     async login(credentials: LoginDTO) {
       const data = await loginApi(credentials)
       this.token = data.token
+      localStorage.setItem(TOKEN_KEY, data.token)
+      if (data.refreshToken) {
+        this.refreshToken = data.refreshToken
+        localStorage.setItem(REFRESH_TOKEN_KEY, data.refreshToken)
+      }
       await this.getInfo()
     },
 
@@ -36,6 +43,7 @@ export const useUserStore = defineStore('user', {
         this.userInfo = data.userInfo
         this.permissions = data.permissions ?? []
         this.roles = data.roles ?? []
+        this.menuTree = data.menuTree ?? []
       } catch {
         this.logout()
       }
@@ -43,16 +51,19 @@ export const useUserStore = defineStore('user', {
 
     logout() {
       this.token = ''
+      this.refreshToken = ''
       this.userInfo = null
       this.permissions = []
       this.roles = []
-      localStorage.removeItem('erp_user')
+      this.menuTree = []
+      localStorage.removeItem(TOKEN_KEY)
+      localStorage.removeItem(REFRESH_TOKEN_KEY)
       router.replace('/login')
     }
   },
 
   persist: {
     key: 'erp_user',
-    pick: ['token']
+    pick: ['token', 'refreshToken', 'userInfo', 'permissions', 'roles', 'menuTree']
   }
 })

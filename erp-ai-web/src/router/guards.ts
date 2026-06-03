@@ -33,7 +33,7 @@ export function setupRouterGuards(router: Router) {
       try {
         const userStore = useUserStore()
         await userStore.getInfo()
-        await permissionStore.generateRoutes(userStore.menus)
+        await permissionStore.generateRoutes(userStore.menuTree)
         return next({ ...to, replace: true })
       } catch {
         localStorage.removeItem(TOKEN_KEY)

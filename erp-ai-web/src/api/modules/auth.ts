@@ -22,5 +22,5 @@ export function verifyTokenApi(): Promise<boolean> {
 }
 
 export function getUserInfoApi(): Promise<UserInfoResponse> {
-  return request.get('/api/auth/info')
+  return request.get('/api/auth/user-info')
 }

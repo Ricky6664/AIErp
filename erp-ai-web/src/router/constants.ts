@@ -11,7 +11,10 @@ export const HOME_PATH = '/home'
 export const NOT_FOUND_PATH = '/404'
 
 /** Token存储Key */
-export const TOKEN_KEY = 'erp_token'
+export const TOKEN_KEY = 'satoken'
+
+/** RefreshToken存储Key */
+export const REFRESH_TOKEN_KEY = 'refresh_token'
 
 /** 动态路由加载标记Key */
 export const ROUTES_LOADED_KEY = 'routes_loaded'

@@ -731,7 +731,7 @@
 | P0-004-005-004-001-003 | 验证Service | 2026-06-04T14:05 | ✅ | 验证OnlineDeviceService接口(IServiceX+kickDevice+countOnline)+OnlineDeviceServiceImpl(StpUtil.logoutByTokenValue+状态流转online→kicked+@Transactional+log)/Controller集成(pageList+kickDevice+countOnline)/mvn compile通过/5项验收标准全部通过 | — |
 | P0-004-005-005-001-001 | 编写工作台聚合SQL | 2026-06-04T12:00 | ✅ | AuthConfigWorkbenchVO/AuthConfigWorkbenchMapper/XML: 工作台聚合SQL(认证方式+密码策略+在线设备+登录统计+登录方式分布+每日统计), 全部#{param}参数化, AuthConfigController重构使用新Mapper返回VO, mvn compile通过 | — |
 | P0-004-005-005-001-002 | 验证功能 | 2026-06-04T14:20 | ✅ | 验证工作台聚合SQL: 编译通过/60项测试全量通过/SQL参数化检查/多租户过滤/时间范围/边界条件, 测试报告+问题清单已归档 | — |
-| P0-004-006-001-001-001 | 编写页面组件 | 2026-06-04T14:20 | ✅ | 登录页面组件: Vue3+TS+ElementPlus完整登录页, 含验证码/记住我/表单校验/国际化/API层/Composable, 编译通过 | TBD |
+| P0-004-006-001-001-001 | 编写页面组件 | 2026-06-04T14:20 | ✅ | 登录页面组件: Vue3+TS+ElementPlus完整登录页, 含验证码/记住我/表单校验/国际化/API层/Composable, 编译通过 | 7290fed7 |
 
 ## 汇总统计
 
