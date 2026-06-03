@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-03T20:50
-> **归档总数**：392 条
+> **最后更新**：2026-06-03T20:51
+> **归档总数**：393 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -675,15 +675,16 @@
 | P0-004-002-005-001-003 | 验证Service | 2026-06-03T20:45 | ✅ | 验证UserDeptService/UserDeptServiceImpl: 接口6个方法签名完整/Impl逻辑正确/StpUtil.kickout/@Transactional位置正确/BusinessException异常规范/mvn compile通过 | — |
 | P0-004-002-006-001-001 | 编写接口定义Service接口 | 2026-06-03T20:50 | ✅ | UserGroupService接口: 继承IServiceX<SysUserGroup>, 声明addMembers/removeMember/removeAllMembers/getMemberUserIds/getGroupIdsByUserId/hasMember/updateStatus共7个业务方法签名; 创建SysUserGroup/SysUserGroupMember实体+UserGroupMapper | — |
 | P0-004-002-006-001-002 | 编写ServiceImpl实现类 | 2026-06-03T20:55 | ✅ | UserGroupServiceImpl: 继承ServiceImplX, 实现7个方法(entity验证/BusinessException/@Transactional), UserGroupMapper调用groupMembers操作 | b81b0f95 |
+| P0-004-002-006-001-003 | 验证Service | 2026-06-03T20:51 | ✅ | 验证UserGroupService: 验收标准5项全通过, 编译成功; 发现并修复缺失UserGroupMapper.xml(6个SQL映射)
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 392 | 2 | 18.26% |
+| P0 | 14 | 2,147 | 393 | 2 | 18.31% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **391** | **2** | **8.29%** |
+| **合计** | **46** | **4,716** | **392** | **2** | **8.31%** |
 
 ---
 
