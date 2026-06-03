@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-03T19:00
-> **归档总数**：379 条
+> **归档总数**：380 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -653,6 +653,7 @@
 | P0-004-001-004-001-002 | 验证编写配置项配置 | 2026-06-03T18:42 | ✅ | 编写AuthPropertiesTest(15个测试):验证配置绑定/默认值/Bean注入/@Validated校验约束,全部通过;确认4个环境YAML无硬编码敏感信息 | — |
 | P0-004-001-005-001-001 | 编写核心代码 | 2026-06-03T19:00 | ✅ | 登录日志核心实现: IpAddressUtil(代理IP解析)/UserAgentUtil(浏览器+OS解析)/AsyncConfig(ThreadPoolTaskExecutor coreSize=2,maxSize=5,queueCapacity=1000)/LoginLogService.asyncWriteLog/AuthService重构使用新工具类 | — |
 | P0-004-001-005-001-002 | 验证功能 | 2026-06-03T19:00 | ✅ | 验证登录日志异步写入: 编译通过/22个测试全部通过/代码审查覆盖异步配置/降级策略/边界条件/IP-UA解析/集成点, 生成测试报告与问题清单 | — |
+| P0-004-002-001-001-001 | 编写Entity类 | 2026-06-03T19:10 | ✅ | SysUser/SysRole/SysMenu实体类: @TableName映射/@TableId(ASSIGN_ID)/@TableLogic逻辑删除/BaseEntity继承/passwordHash字段@TableField(select=false) | — |
 
 ## 汇总统计
 
