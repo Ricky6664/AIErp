@@ -715,7 +715,7 @@
 | P0-004-004-003-001-002 | 编写ServiceImpl实现类 | 2026-06-04T01:10 | ✅ | SysMenuTreeServiceImpl: 继承ServiceImplX, 实现4个方法(getMenuTree全量树/getMenuTreeByUserId按权限过滤/buildTree递归建树/filterEmptyBranches过滤空分支), 权限码SQL过滤, nullsafe | 9614b53b |
 | P0-004-004-003-001-003 | 验证Service | 2026-06-04T01:15 | ✅ | 验证SysMenuTreeService/SysMenuTreeServiceImpl: 接口4个方法签名完整/Impl业务逻辑正确(菜单树构建+按用户权限过滤+空分支过滤)/nullsafe/纯读操作无需@Transactional/mvn compile通过 | e7dae09e |
 | P0-004-004-004-001-001 | 编写Controller类 | 2026-06-04T08:10 | ✅ | SysMenuController: @RestController+@RequestMapping("/api/system/menus"), 注入3个MenuService, 14个RESTful接口(菜单CRUD+菜单树+移动端菜单), @SaCheckPermission全覆盖, RT+PageResult响应, @Operation注解完整, mvn compile BUILD SUCCESS | 120c0dc0 |
-| P0-004-004-004-001-002 | 编写接口方法 | 2026-06-04T09:00 | ✅ | SysMenuController新增6个方法: GET /tree/current(当前用户菜单树/StpUtil.getLoginIdAsLong), GET /mobile-tree/current(当前用户移动端菜单树), POST /mobile, PUT /mobile/{id}, DELETE /mobile/{id}(移动端菜单CRUD), mvn compile BUILD SUCCESS | (pending) |
+| P0-004-004-004-001-002 | 编写接口方法 | 2026-06-04T09:00 | ✅ | SysMenuController新增6个方法: GET /tree/current(当前用户菜单树/StpUtil.getLoginIdAsLong), GET /mobile-tree/current(当前用户移动端菜单树), POST /mobile, PUT /mobile/{id}, DELETE /mobile/{id}(移动端菜单CRUD), mvn compile BUILD SUCCESS | 1802604a |
 
 ## 汇总统计
 
