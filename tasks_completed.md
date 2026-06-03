@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-03T20:00
-> **归档总数**：387 条
+> **归档总数**：388 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -667,15 +667,16 @@
 | P0-004-002-003-001-001 | 编写接口定义Service接口 | 2026-06-03T20:10 | ✅ | UserService接口: 继承IServiceX<SysUser>, 声明assignRoles/resetPassword/updateStatus/unlockUser/getRoleNames/isUsernameUnique共6个业务方法签名 | a6cfc780 |
 | P0-004-002-003-001-002 | 编写ServiceImpl实现类 | 2026-06-03T19:54 | ✅ | UserServiceImpl: 继承ServiceImplX, 实现全部6个业务方法(Sa-Token踢出/BCrypt密码加密+历史表/角色批量分配/状态流转校验/唯一性校验/@Transactional事务管理) | — |
 | P0-004-002-003-001-003 | 验证Service | 2026-06-03T20:15 | ✅ | 验证UserService/UserServiceImpl: 接口6个方法签名完整/Impl逻辑正确/BCrypt加密+密码历史/Sa-Token集成/@Transactional位置正确/BusinessException异常规范/mvn compile通过 | — |
+| P0-004-002-004-001-001 | 编写接口定义Service接口 | 2026-06-03T20:20 | ✅ | UserRoleService接口: 继承IServiceX<SysUser>, 声明assignRoles/removeUserRole/getUserRoleIds/getUserIdsByRoleId/hasRole共5个业务方法签名 | 7b8a80b2 |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 385 | 2 | 17.97% |
+| P0 | 14 | 2,147 | 386 | 2 | 17.98% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **384** | **2** | **8.14%** |
+| **合计** | **46** | **4,716** | **385** | **2** | **8.16%** |
 
 ---
 
