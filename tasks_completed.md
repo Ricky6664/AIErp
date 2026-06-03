@@ -618,6 +618,7 @@
 | P0-003-007-011-001-002 | 编写inv_assembly_detail组装主从表索引与约束 | 2026-06-03T17:56 | ✅ | db/migration/V20260603002:PK重命名(inv_assembly+inv_assembly_detail)+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表16个+从表16个共32个索引)+回滚脚本 | — |
 | P0-003-007-011-001-003 | 验证编写inv_assembly_detail组装主从表DDL | 2026-06-03T18:05 | ✅ | db/migration/V20260526001__verify_inv_assembly_detail.sql:17项验证SQL(2表/columns/PK/部分唯一索引/索引列表/多租户索引/COMMENT/NOT NULL/FK/DECIMAL精度/快照字段/扩展字段)+docs/verification/inv_assembly_detail_verify_report.md:6节完整报告 | — |
 | P0-003-007-012-001-001 | 编写CREATE TABLE语句 | 2026-06-03T18:05 | ✅ | db/migration/V20260603003:CREATE TABLE inv_disassembly(12业务字段+10通用字段)+inv_disassembly_detail(26业务字段+10通用字段+22扩展字段)+全COMMENT+decimal(18,8)+回滚脚本 | — |
+| P0-003-007-012-001-002 | 编写inv_disassembly_detail拆卸主从表索引与约束 | 2026-06-03T18:20 | ✅ | db/migration/V20260603004:PK重命名(inv_disassembly+inv_disassembly_detail)+部分唯一索引uk(WHERE is_deleted=false)+tenant_id联合索引+业务查询索引(主表16个+从表16个共32个索引)+回滚脚本 | — |
 
 ---
 
