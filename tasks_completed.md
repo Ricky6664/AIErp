@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-03T18:05
-> **归档总数**：376 条
+> **归档总数**：377 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -647,12 +647,13 @@
 | P0-004-001-003-001-001 | 编写核心代码 | 2026-06-03T18:30 | ✅ | 实现Token校验与刷新: TokenVerifyResponse/TokenRefreshResponse/TokenRefreshRequest/AuthService.verifyToken/refreshToken/AuthController两个新端点 | 1c51e4c8 |
 | P0-004-001-003-001-002 | 验证功能 | 2026-06-03T18:30 | ✅ | 编写12个Token校验与刷新单元测试(AuthServiceTest$VerifyToken/RefreshToken + AuthControllerTest$VerifyToken/RefreshToken)，34/34通过，生成测试报告与问题清单 | — |
 | P0-004-001-004-001-001 | 编写配置文件类 | 2026-06-03T18:35 | ✅ | src/main/java/com/erp/auth/config/AuthProperties.java:认证模块配置属性类(验证码/登录安全/用户信息三层嵌套配置), @ConfigurationProperties(prefix="auth")+@Validated校验; application.yml新增auth配置段 | — |
+| P0-004-001-004-001-002 | 验证编写配置项配置 | 2026-06-03T18:42 | ✅ | 编写AuthPropertiesTest(15个测试):验证配置绑定/默认值/Bean注入/@Validated校验约束,全部通过;确认4个环境YAML无硬编码敏感信息 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 376 | 2 | 17.51% |
+| P0 | 14 | 2,147 | 377 | 2 | 17.56% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **376** | **2** | **7.97%** |
