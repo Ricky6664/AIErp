@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.auth.mapper.AuthConfigWorkbenchMapper">
+
+    <!-- ==================== 工作台核心统计 ==================== -->
+    <resultMap id="WorkbenchStatsResultMap" type="com.erp.auth.vo.AuthConfigWorkbenchVO">
+        <result column="total_auth_methods" property="totalAuthMethods"/>
+        <result column="enabled_auth_methods" property="enabledAuthMethods"/>
+        <result column="total_password_policies" property="totalPasswordPolicies"/>
+        <result column="enabled_password_policies" property="enabledPasswordPolicies"/>
+        <result column="online_device_count" property="onlineDeviceCount"/>
+        <result column="today_login_success_count" property="todayLoginSuccessCount"/>
+        <result column="today_login_fail_count" property="todayLoginFailCount"/>
+    </resultMap>
+
+    <select id="selectWorkbenchStats" resultMap="WorkbenchStatsResultMap">
+        SELECT
+            (SELECT COUNT(*)
+             FROM auth_method
+             WHERE is_deleted = 0
+               AND (tenant_id = #{tenantId} OR #{tenantId} IS NULL)) AS total_auth_methods,
+
+            (SELECT COUNT(*)
+             FROM auth_method
+             WHERE is_deleted = 0
+               AND is_enabled = true
+               AND (tenant_id = #{tenantId} OR #{tenantId} IS NULL)) AS enabled_auth_methods,
+
+            (SELECT COUNT(*)
+             FROM auth_password_policy
+             WHERE is_deleted = 0
+               AND (tenant_id = #{tenantId} OR #{tenantId} IS NULL)) AS total_password_policies,
+
+            (SELECT COUNT(*)
+             FROM auth_password_policy
+             WHERE is_deleted = 0
+               AND is_enabled = true
+               AND (tenant_id = #{tenantId} OR #{tenantId} IS NULL)) AS enabled_password_policies,
+
+            (SELECT COUNT(*)
+             FROM auth_online_device
+             WHERE status = 'online'
+               AND (tenant_id = #{tenantId} OR #{tenantId} IS NULL)) AS online_device_count,
+
+            (SELECT COUNT(*)
+             FROM sys_login_log
+             WHERE status = 'SUCCESS'
+               AND (tenant_id = #{tenantId} OR #{tenantId} IS NULL)
+               AND login_time &gt;= #{startTime}
+               AND login_time &lt;= #{endTime}) AS today_login_success_count,
+
+            (SELECT COUNT(*)
+             FROM sys_login_log
+             WHERE status = 'FAIL'
+               AND (tenant_id = #{tenantId} OR #{tenantId} IS NULL)
+               AND login_time &gt;= #{startTime}
+               AND login_time &lt;= #{endTime}) AS today_login_fail_count
+    </select>
+
+    <!-- ==================== 登录方式分布统计 ==================== -->
+    <resultMap id="LoginMethodDistResultMap" type="com.erp.auth.vo.AuthConfigWorkbenchVO$LoginMethodDistVO">
+        <result column="login_method" property="loginMethod"/>
+        <result column="count" property="count"/>
+    </resultMap>
+
+    <select id="selectLoginMethodDistribution" resultMap="LoginMethodDistResultMap">
+        SELECT
+            COALESCE(login_method, 'UNKNOWN') AS login_method,
+            COUNT(*) AS count
+        FROM sys_login_log
+        WHERE (tenant_id = #{tenantId} OR #{tenantId} IS NULL)
+          AND login_time &gt;= #{startTime}
+          AND login_time &lt;= #{endTime}
+        GROUP BY login_method
+        ORDER BY count DESC
+    </select>
+
+    <!-- ==================== 每日登录统计 ==================== -->
+    <resultMap id="DailyLoginStatResultMap" type="com.erp.auth.vo.AuthConfigWorkbenchVO$DailyLoginStatVO">
+        <result column="login_date" property="loginDate"/>
+        <result column="success_count" property="successCount"/>
+        <result column="fail_count" property="failCount"/>
+    </resultMap>
+
+    <select id="selectDailyLoginStats" resultMap="DailyLoginStatResultMap">
+        SELECT
+            TO_CHAR(DATE(login_time), 'YYYY-MM-DD') AS login_date,
+            COUNT(*) FILTER (WHERE status = 'SUCCESS') AS success_count,
+            COUNT(*) FILTER (WHERE status = 'FAIL') AS fail_count
+        FROM sys_login_log
+        WHERE (tenant_id = #{tenantId} OR #{tenantId} IS NULL)
+          AND login_time &gt;= #{startTime}
+          AND login_time &lt;= #{endTime}
+        GROUP BY DATE(login_time)
+        ORDER BY login_date DESC
+    </select>
+
+</mapper>

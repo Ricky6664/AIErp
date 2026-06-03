@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-04T11:30
-> **归档总数**：427 条
+> **归档总数**：428 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -729,15 +729,16 @@
 | P0-004-005-004-001-001 | 编写OnlineDeviceService | 2026-06-04 | ✅ | OnlineDeviceService接口(继承IServiceX, 声明kickDevice/countOnline方法)+OnlineDeviceServiceImpl(继承ServiceImplX, 实现StpUtil.logoutByTokenValue强制下线+在线设备计数+@Transactional+BusinessException), AuthConfigController重构注入OnlineDeviceService替换直接Mapper调用 | — |
 | P0-004-005-004-001-002 | 编写ServiceImpl实现类 | 2026-06-04T12:00 | ✅ | 验证OnlineDeviceServiceImpl完整(继承ServiceImplX,实现kickDevice/countOnline,使用StpUtil+@Transactional+log.info),编译通过 | 74adc2dc |
 | P0-004-005-004-001-003 | 验证Service | 2026-06-04T14:05 | ✅ | 验证OnlineDeviceService接口(IServiceX+kickDevice+countOnline)+OnlineDeviceServiceImpl(StpUtil.logoutByTokenValue+状态流转online→kicked+@Transactional+log)/Controller集成(pageList+kickDevice+countOnline)/mvn compile通过/5项验收标准全部通过 | — |
+| P0-004-005-005-001-001 | 编写工作台聚合SQL | 2026-06-04T12:00 | ✅ | AuthConfigWorkbenchVO/AuthConfigWorkbenchMapper/XML: 工作台聚合SQL(认证方式+密码策略+在线设备+登录统计+登录方式分布+每日统计), 全部#{param}参数化, AuthConfigController重构使用新Mapper返回VO, mvn compile通过 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 428 | 2 | 19.93% |
+| P0 | 14 | 2,147 | 429 | 2 | 19.98% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **428** | **2** | **9.08%** |
+| **合计** | **46** | **4,716** | **429** | **2** | **9.10%** |
 
 ---
 

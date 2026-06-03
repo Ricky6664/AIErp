@@ -4,11 +4,11 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.erp.auth.entity.AuthMethod;
 import com.erp.auth.entity.AuthOnlineDevice;
 import com.erp.auth.entity.AuthPasswordPolicy;
-import com.erp.auth.entity.SysLoginLog;
-import com.erp.auth.mapper.SysLoginLogMapper;
+import com.erp.auth.mapper.AuthConfigWorkbenchMapper;
 import com.erp.auth.service.AuthMethodService;
 import com.erp.auth.service.AuthPasswordPolicyService;
 import com.erp.auth.service.OnlineDeviceService;
+import com.erp.auth.vo.AuthConfigWorkbenchVO;
 import com.erp.common.annotation.RequirePermission;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.BusinessException;
@@ -35,9 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 认证配置控制器 - 认证方式 + 密码策略管理.
@@ -55,7 +53,7 @@ public class AuthConfigController {
     private final AuthMethodService authMethodService;
     private final AuthPasswordPolicyService authPasswordPolicyService;
     private final OnlineDeviceService onlineDeviceService;
-    private final SysLoginLogMapper sysLoginLogMapper;
+    private final AuthConfigWorkbenchMapper authConfigWorkbenchMapper;
 
     // ==================== 认证方式 ====================
 
@@ -254,29 +252,21 @@ public class AuthConfigController {
     @Operation(summary = "认证配置工作台聚合数据")
     @RequirePermission("system:auth-config:query")
     @GetMapping("/auth-config/workbench")
-    public RT<Map<String, Object>> workbench() {
-        LocalDateTime todayStart = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
-        Map<String, Object> data = new HashMap<>();
+    public RT<AuthConfigWorkbenchVO> workbench(
+            @Parameter(description = "租户ID") @RequestParam(required = false) Long tenantId,
+            @Parameter(description = "开始时间") @RequestParam(required = false) LocalDateTime startTime,
+            @Parameter(description = "结束时间") @RequestParam(required = false) LocalDateTime endTime) {
+        LocalDateTime start = startTime != null ? startTime : LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
+        LocalDateTime end = endTime != null ? endTime : LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
 
-        long onlineDeviceCount = onlineDeviceService.countOnline();
-        data.put("onlineDeviceCount", onlineDeviceCount);
+        AuthConfigWorkbenchVO vo = authConfigWorkbenchMapper.selectWorkbenchStats(tenantId, start, end);
+        vo.setSsoConfigCount(0L);
 
-        long todayLoginCount = sysLoginLogMapper.selectCount(
-                new LambdaQueryWrapper<SysLoginLog>()
-                        .eq(SysLoginLog::getStatus, "SUCCESS")
-                        .ge(SysLoginLog::getLoginTime, todayStart)
-        );
-        data.put("todayLoginCount", todayLoginCount);
+        vo.setLoginMethodDistribution(
+                authConfigWorkbenchMapper.selectLoginMethodDistribution(tenantId, start, end));
+        vo.setDailyLoginStats(
+                authConfigWorkbenchMapper.selectDailyLoginStats(tenantId, start, end));
 
-        long todayFailCount = sysLoginLogMapper.selectCount(
-                new LambdaQueryWrapper<SysLoginLog>()
-                        .eq(SysLoginLog::getStatus, "FAIL")
-                        .ge(SysLoginLog::getLoginTime, todayStart)
-        );
-        data.put("todayFailCount", todayFailCount);
-
-        data.put("ssoConfigCount", 0);
-
-        return RT.ok(data);
+        return RT.ok(vo);
     }
 }
