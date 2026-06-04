@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -49,6 +50,12 @@ public class LoginResponse implements Serializable {
 
     @Schema(description = "按钮权限标识列表")
     private List<String> permissions;
+
+    @Schema(description = "密码是否已过期，需强制修改")
+    private Boolean passwordExpired;
+
+    @Schema(description = "密码过期日期")
+    private LocalDate passwordExpireDate;
 
     /**
      * 菜单树节点.

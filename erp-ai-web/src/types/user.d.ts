@@ -57,4 +57,5 @@ export interface IUserState {
   permissions: string[]
   roles: string[]
   menuTree: MenuTreeNode[]
+  passwordExpired: boolean
 }

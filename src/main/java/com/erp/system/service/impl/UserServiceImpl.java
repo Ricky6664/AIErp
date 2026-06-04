@@ -1,6 +1,8 @@
 package com.erp.system.service.impl;
 
 import cn.dev33.satoken.stp.StpUtil;
+import com.erp.auth.service.AuthPasswordPolicyService;
+import com.erp.auth.entity.AuthPasswordPolicy;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.BusinessException;
 import com.erp.common.service.ServiceImplX;
@@ -8,12 +10,14 @@ import com.erp.system.entity.SysUser;
 import com.erp.system.mapper.UserMapper;
 import com.erp.system.service.UserService;
 import com.erp.system.vo.UserWorkbenchVO;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.security.SecureRandom;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
@@ -26,7 +30,10 @@ import java.util.List;
  */
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl extends ServiceImplX<UserMapper, SysUser> implements UserService {
+
+    private final AuthPasswordPolicyService passwordPolicyService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -66,6 +73,7 @@ public class UserServiceImpl extends ServiceImplX<UserMapper, SysUser> implement
 
         user.setPasswordHash(hashedPassword);
         user.setPwdResetAt(LocalDateTime.now());
+        user.setPasswordExpireDate(calculatePasswordExpireDate());
         updateById(user);
 
         try {
@@ -169,6 +177,7 @@ public class UserServiceImpl extends ServiceImplX<UserMapper, SysUser> implement
 
         user.setPasswordHash(hashedPassword);
         user.setPwdResetAt(LocalDateTime.now());
+        user.setPasswordExpireDate(calculatePasswordExpireDate());
         updateById(user);
 
         try {
@@ -200,6 +209,7 @@ public class UserServiceImpl extends ServiceImplX<UserMapper, SysUser> implement
 
         user.setPasswordHash(hashedPassword);
         user.setPwdResetAt(LocalDateTime.now());
+        user.setPasswordExpireDate(calculatePasswordExpireDate());
         updateById(user);
 
         try {
@@ -244,6 +254,27 @@ public class UserServiceImpl extends ServiceImplX<UserMapper, SysUser> implement
         stats.setLoginTrend(baseMapper.selectLoginTrend());
         stats.setRecentLogins(baseMapper.selectRecentLogins(10));
         return stats;
+    }
+
+    @Override
+    public boolean checkPasswordExpired(Long userId) {
+        AuthPasswordPolicy policy = passwordPolicyService.getCurrentPolicy();
+        if (policy == null || policy.getExpireDays() == null || policy.getExpireDays() == 0) {
+            return false;
+        }
+        SysUser user = getById(userId);
+        if (user == null || user.getPasswordExpireDate() == null) {
+            return false;
+        }
+        return user.getPasswordExpireDate().isBefore(LocalDate.now());
+    }
+
+    private LocalDate calculatePasswordExpireDate() {
+        AuthPasswordPolicy policy = passwordPolicyService.getCurrentPolicy();
+        if (policy != null && policy.getExpireDays() != null && policy.getExpireDays() > 0) {
+            return LocalDate.now().plusDays(policy.getExpireDays());
+        }
+        return null;
     }
 
     private static final String CHAR_UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

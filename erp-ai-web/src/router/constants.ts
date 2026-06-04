@@ -1,6 +1,9 @@
 /** 白名单路径 - 无需登录即可访问 */
 export const WHITE_LIST: string[] = ['/login', '/404', '/403', '/no-permission']
 
+/** 密码过期白名单 - 密码过期时仅允许访问的路径 */
+export const PASSWORD_EXPIRED_WHITE_LIST: string[] = ['/change-password', '/login', '/404', '/403']
+
 /** 登录页路径 */
 export const LOGIN_PATH = '/login'
 

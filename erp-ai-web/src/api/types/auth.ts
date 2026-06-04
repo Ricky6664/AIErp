@@ -11,6 +11,8 @@ export interface LoginResponse {
   refreshToken?: string
   userId?: number
   username?: string
+  passwordExpired?: boolean
+  passwordExpireDate?: string
 }
 
 export interface CaptchaResponse {

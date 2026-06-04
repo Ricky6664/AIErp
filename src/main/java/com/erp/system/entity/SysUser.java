@@ -46,6 +46,8 @@ public class SysUser extends BaseEntity {
 
     private LocalDateTime pwdResetAt;
 
+    private java.time.LocalDate passwordExpireDate;
+
     private Boolean isLocked;
 
     private LocalDateTime lockedUntil;

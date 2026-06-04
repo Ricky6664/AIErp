@@ -33,4 +33,6 @@ public interface UserService extends IServiceX<SysUser> {
     void deleteUserWithCleanup(Long userId);
 
     UserWorkbenchVO getWorkbenchData();
+
+    boolean checkPasswordExpired(Long userId);
 }

@@ -102,6 +102,14 @@ export const ONLINE_DEVICE_PAGE: RouteRecordRaw = {
   meta: { title: '在线设备管理', icon: 'Monitor', keepAlive: true }
 }
 
+// 修改密码页 - 密码过期强制跳转
+export const CHANGE_PASSWORD_ROUTE: RouteRecordRaw = {
+  path: '/change-password',
+  name: 'ChangePassword',
+  component: () => import('@/views/login/ChangePassword.vue'),
+  meta: { title: '修改密码', hideMenu: true, hideTab: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -112,6 +120,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   AUTH_CONFIG_WORKBENCH,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
+  CHANGE_PASSWORD_ROUTE,
   REDIRECT_ROUTE,
   ERROR_404,
   ERROR_403,

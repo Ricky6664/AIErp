@@ -12,7 +12,8 @@ export const useUserStore = defineStore('user', {
     userInfo: null,
     permissions: [],
     roles: [],
-    menuTree: []
+    menuTree: [],
+    passwordExpired: false
   }),
 
   getters: {
@@ -29,12 +30,15 @@ export const useUserStore = defineStore('user', {
     async login(credentials: LoginDTO) {
       const data = await loginApi(credentials)
       this.token = data.token
+      this.passwordExpired = data.passwordExpired ?? false
       localStorage.setItem(TOKEN_KEY, data.token)
       if (data.refreshToken) {
         this.refreshToken = data.refreshToken
         localStorage.setItem(REFRESH_TOKEN_KEY, data.refreshToken)
       }
-      await this.getInfo()
+      if (!this.passwordExpired) {
+        await this.getInfo()
+      }
     },
 
     async getInfo() {
@@ -59,6 +63,7 @@ export const useUserStore = defineStore('user', {
       this.permissions = []
       this.roles = []
       this.menuTree = []
+      this.passwordExpired = false
       localStorage.removeItem(TOKEN_KEY)
       localStorage.removeItem(REFRESH_TOKEN_KEY)
       const currentPath = router.currentRoute.value?.fullPath || '/'

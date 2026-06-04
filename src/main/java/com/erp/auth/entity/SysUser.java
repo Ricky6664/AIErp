@@ -60,6 +60,9 @@ public class SysUser implements Serializable {
     @TableField("pwd_reset_at")
     private LocalDateTime pwdResetAt;
 
+    @TableField("password_expire_date")
+    private java.time.LocalDate passwordExpireDate;
+
     @TableField("is_locked")
     private Boolean isLocked;
 

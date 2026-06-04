@@ -73,3 +73,8 @@ export function assignUserDepts(
 export function clearUserDepts(userId: number): Promise<void> {
   return request.delete(`/api/system/user/dept/${userId}`)
 }
+
+/** 当前用户自行修改密码 */
+export function changeMyPasswordApi(oldPassword: string, newPassword: string): Promise<void> {
+  return request.put('/api/system/user/password', { oldPassword, newPassword })
+}

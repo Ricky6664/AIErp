@@ -111,6 +111,13 @@ export function useLogin() {
         localStorage.removeItem(REMEMBERED_USERNAME_KEY)
       }
 
+      // 密码过期强制跳转修改密码页
+      if (userStore.passwordExpired) {
+        ElMessage.warning('您的密码已过期，请修改密码')
+        router.replace('/change-password')
+        return
+      }
+
       // 动态路由生成：根据菜单树添加路由
       if (userStore.menuTree.length > 0) {
         permissionStore.generateRoutes(userStore.menuTree)

@@ -10,6 +10,7 @@ import com.erp.auth.vo.LoginResponse;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.AuthException;
 import com.erp.common.exception.BusinessException;
+import com.erp.system.service.UserService;
 import com.erp.util.IpAddressUtil;
 import com.erp.util.UserAgentUtil;
 import jakarta.servlet.http.HttpServletRequest;
@@ -45,6 +46,7 @@ public class AuthService {
     private final CaptchaService captchaService;
     private final LoginLogService loginLogService;
     private final StringRedisTemplate redisTemplate;
+    private final UserService userService;
 
     /**
      * 执行登录认证.
@@ -98,7 +100,10 @@ public class AuthService {
         // 9. 异步记录登录日志
         recordLoginLog(user.getId(), username, request, "PASSWORD", true, null);
 
-        // 10. 构造响应
+        // 10. 检查密码是否过期
+        boolean passwordExpired = userService.checkPasswordExpired(user.getId());
+
+        // 11. 构造响应
         return LoginResponse.builder()
                 .token(token)
                 .refreshToken(refreshToken)
@@ -108,6 +113,8 @@ public class AuthService {
                 .avatar(user.getAvatar())
                 .menuTree(getMenuTree(user.getId()))
                 .permissions(getPermissionList(user.getId()))
+                .passwordExpired(passwordExpired)
+                .passwordExpireDate(passwordExpired ? user.getPasswordExpireDate() : null)
                 .build();
     }
 

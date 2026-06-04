@@ -1,7 +1,13 @@
 import type { Router } from 'vue-router'
 import { usePermissionStore } from '@/stores/modules/permission'
 import { useUserStore } from '@/stores/modules/user'
-import { WHITE_LIST, LOGIN_PATH, HOME_PATH, TOKEN_KEY } from './constants'
+import {
+  WHITE_LIST,
+  LOGIN_PATH,
+  HOME_PATH,
+  TOKEN_KEY,
+  PASSWORD_EXPIRED_WHITE_LIST
+} from './constants'
 import { cancelPendingRequests } from '@/utils/request/cancelRequest'
 import NProgress from 'nprogress'
 
@@ -26,10 +32,14 @@ export function setupRouterGuards(router: Router) {
       return next({ path: LOGIN_PATH, query: { redirect: to.fullPath }, replace: true })
     }
 
+    const userStore = useUserStore()
+    if (userStore.passwordExpired && !PASSWORD_EXPIRED_WHITE_LIST.includes(to.path)) {
+      return next({ path: '/change-password', replace: true })
+    }
+
     const permissionStore = usePermissionStore()
     if (!permissionStore.isRoutesLoaded) {
       try {
-        const userStore = useUserStore()
         await userStore.getInfo()
         await permissionStore.generateRoutes(userStore.menuTree)
         return next({ ...to, replace: true })
