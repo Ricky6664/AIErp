@@ -52,3 +52,24 @@ export function resetUserPassword(id: number): Promise<string> {
 export function assignUserRoles(userId: number, roleIds: number[]): Promise<void> {
   return request.post('/api/system/user/role', { userId, roleIds })
 }
+
+/** 查询部门树 */
+export interface DeptTreeNode {
+  id: number
+  name: string
+  children?: DeptTreeNode[]
+}
+
+/** 分配用户部门 */
+export function assignUserDepts(
+  userId: number,
+  deptIds: number[],
+  primaryDeptId: number
+): Promise<void> {
+  return request.post('/api/system/user/dept', { userId, deptIds, primaryDeptId })
+}
+
+/** 清除用户所有部门关联 */
+export function clearUserDepts(userId: number): Promise<void> {
+  return request.delete(`/api/system/user/dept/${userId}`)
+}

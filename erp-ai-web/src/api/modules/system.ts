@@ -6,6 +6,7 @@ import type {
   SysParamUpdateDTO,
   SysParamBatchItem
 } from '@/types/system'
+import type { DeptTreeNode } from './user'
 
 /** 根据字典类型获取字典数据列表 */
 export function getDictDataApi(dictType: string): Promise<DictItem[]> {
@@ -56,4 +57,9 @@ export function refreshParamCacheApi(): Promise<number> {
 /** 批量更新参数 */
 export function batchUpdateParamsApi(data: SysParamBatchItem[]): Promise<void> {
   return request.put('/api/system/params/batch', data)
+}
+
+/** 获取部门树 */
+export function getDeptTree(): Promise<DeptTreeNode[]> {
+  return request.get('/api/system/dept/tree')
 }
