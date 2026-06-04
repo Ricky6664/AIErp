@@ -175,8 +175,8 @@ const dataScopeMap: Record<string, string> = {
   custom: '自定义'
 }
 
-const dataScopeTypeMap: Record<string, 'success' | 'warning' | 'info' | 'danger'> = {
-  all: 'success',
+const dataScopeTypeMap: Record<string, 'primary' | 'success' | 'warning' | 'info' | 'danger'> = {
+  all: 'primary',
   dept: 'success',
   dept_and_below: 'warning',
   self: 'info',
@@ -202,6 +202,7 @@ async function fetchRoleList(): Promise<void> {
     }
     if (searchKeyword.value) {
       params.roleName = searchKeyword.value
+      params.roleCode = searchKeyword.value
     }
     if (searchEnabled.value !== undefined) {
       params.isEnabled = searchEnabled.value
