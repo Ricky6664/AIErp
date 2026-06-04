@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-04T12:20
-> **归档总数**：441 条
+> **归档总数**：442 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -749,15 +749,16 @@
 | P0-004-007-004-001-001 | 编写页面组件 | 2026-06-04 | ✅ | 系统参数管理页面: Vue3+TS+ElementPlus完整CRUD页面(views/system/params/index.vue), 扩展api/modules/system.ts(7个sys param API函数), 创建useSystemParam composable(加载/CRUD/缓存刷新), vue-tsc+vite build通过 | c6ebd29d |
 | P0-004-007-004-001-002 | 编写数据绑定与交互逻辑 | 2026-06-04 | ✅ | 扩展app store添加系统参数状态(systemName/logoUrl/defaultPageSize/dateFormat/themeColor/watermarkEnabled)和initAppConfig异步初始化, 更新App.vue为router-view+onMounted初始化, 创建useAppInit composable(初始化/主题色/水印渲染), vue-tsc通过 | — |
 | P0-004-007-004-001-003 | 验证前端页面开发页面 | 2026-06-04 | ✅ | 验证系统参数前端页面: pnpm build发现2个类型错误(valueTypeTag返回值/DefaultRow类型), useAppInit未集成, 核心CRUD/缓存刷新/表单校验功能实现正确, 测试报告+问题清单已归档 | — |
+| P0-004-008-000-001-001 | 编写核心代码 | 2026-06-04T12:10 | ✅ | 用户管理工作台核心代码: Vue页面(4个KPI卡片+动画/ECharts折线图+饼图/快捷操作/登录日志表格), API层(workbench.ts), 类型定义(workbench.ts), useWorkbench composable(ECharts生命周期管理/响应式数据), pnpm build通过(workbench相关零错误) | (pending) |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 443 | 2 | 20.63% |
+| P0 | 14 | 2,147 | 444 | 2 | 20.68% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **440** | **2** | **9.33%** |
+| **合计** | **46** | **4,716** | **441** | **2** | **9.35%** |
 
 ---
 
