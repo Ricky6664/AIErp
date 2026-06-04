@@ -86,6 +86,14 @@ export const AUTH_CONFIG_WORKBENCH: RouteRecordRaw = {
   meta: { title: '权限配置工作台', icon: 'DataBoard', keepAlive: true }
 }
 
+// 登录日志页
+export const LOGIN_LOG_PAGE: RouteRecordRaw = {
+  path: '/auth/config/login-log',
+  name: 'LoginLogList',
+  component: () => import('@/views/auth/config/login-log/index.vue'),
+  meta: { title: '登录日志', icon: 'Document', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -94,6 +102,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   DEV_VIRTUAL_SCROLL,
   USER_WORKBENCH,
   AUTH_CONFIG_WORKBENCH,
+  LOGIN_LOG_PAGE,
   REDIRECT_ROUTE,
   ERROR_404,
   ERROR_403,

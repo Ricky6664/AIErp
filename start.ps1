@@ -157,8 +157,8 @@ function Read-CompletedModules {
     if (Test-Path $compFile) {
         $content = Get-Content $compFile -Encoding UTF8
         foreach ($line in $content) {
-            # Match module completion markers like "## P0-001 - xxx ✅" or "模块完成: P0-001"
-            if ($line -match '(P\d-\d{3}).*✅' -or $line -match '模块完成.*?(P\d-\d{3})') {
+            # Match module completion markers like "### 模块完成: P0-001 ✅"
+            if ($line -match '模块完成[：:]\s*(P\d-\d{3})') {
                 $completed += $Matches[1]
             }
         }
@@ -336,6 +336,17 @@ foreach ($mod in ($allModules.Keys | Sort-Object)) {
     if (-not $depsMet) {
         $skipped += @{ Module = $mod; Reason = "依赖未满足: $($missingDeps -join ', ')" }
         continue
+    }
+
+    # C0: P0 global gate — P1/P2 modules cannot start until ALL 14 P0 modules complete
+    if ($mod -match '^P[12]-\d{3}$') {
+        $allP0Modules = @('P0-001','P0-002','P0-003','P0-004','P0-005','P0-006','P0-007',
+                          'P0-008','P0-009','P0-010','P0-011','P0-012','P0-013','P0-014')
+        $p0Incomplete = @($allP0Modules | Where-Object { $_ -notin $completedModules })
+        if ($p0Incomplete.Count -gt 0) {
+            $skipped += @{ Module = $mod; Reason = "P0全局门禁: P0未全部完成，缺少 $($p0Incomplete.Count) 个模块: $($p0Incomplete -join ', ')" }
+            continue
+        }
     }
 
     # Already fully completed

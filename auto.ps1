@@ -13,6 +13,7 @@ function Log($msg) {
 # ---- Parse arguments ----
 $workerId = 'W1'
 $sessionId = ''
+$preAssignedModule = ''
 $i = 0
 while ($i -lt $args.Count) {
     if ($args[$i] -eq '--session' -and ($i + 1) -lt $args.Count) {
@@ -22,6 +23,7 @@ while ($i -lt $args.Count) {
         $workerId = $args[$i]
         $i++
     } elseif ($args[$i] -match '^P\d-\d{3}$') {
+        $preAssignedModule = $args[$i]
         $i++
     } else {
         $i++
@@ -49,10 +51,10 @@ function Read-Config {
 # ---- Paths ----
 $msgFile = Join-Path $scriptDir 'auto-prompt.md'
 $batFile = Join-Path $scriptDir 'auto.bat'
-$relayFile = Join-Path $scriptDir '.relay'
-$sessionFile = Join-Path $scriptDir '.session-id'
+$relayFile = Join-Path $scriptDir ".relay-$workerId"
+$sessionFile = Join-Path $scriptDir ".session-id-$workerId"
 $watchdogLog = Join-Path $scriptDir 'watchdog.log'
-$watchdogPs1 = Join-Path $scriptDir '.watchdog.ps1'
+$watchdogPs1 = Join-Path $scriptDir ".watchdog-$workerId.ps1"
 
 # ---- Initial checks ----
 $config = Read-Config
@@ -70,7 +72,7 @@ if ($config['execution.single_stop'] -eq 'true' -or $config['execution.multi_sto
 }
 
 # ---- Kill old watchdog ----
-$oldWatchdogPidFile = Join-Path $scriptDir '.watchdog.pid'
+$oldWatchdogPidFile = Join-Path $scriptDir ".watchdog-$workerId.pid"
 if (Test-Path $oldWatchdogPidFile) {
     $oldPid = (Get-Content $oldWatchdogPidFile -Raw -ErrorAction SilentlyContinue).Trim()
     if ($oldPid) {
@@ -118,6 +120,7 @@ $msg = (Get-Content -Path $msgFile -Raw -Encoding UTF8).Trim()
 $msg = $msg -replace '\{WORKER_ID\}', $workerId
 $msg = $msg -replace '\{SCRIPT_DIR\}', $scriptDir
 $msg = $msg -replace '\{SESSION_ID\}', $sessionId
+$msg = $msg -replace '\{PRE_ASSIGNED_MODULE\}', $preAssignedModule
 
 # ---- Write session ID ----
 [System.IO.File]::WriteAllText($sessionFile, $sessionId, [System.Text.Encoding]::UTF8)

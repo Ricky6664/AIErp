@@ -55,6 +55,12 @@
 				<artifactId>sa-token-redis-jackson</artifactId>
 				<version>${sa-token.version}</version>
 			</dependency>
+			<!-- BCrypt密码哈希 -->
+			<dependency>
+				<groupId>org.mindrot</groupId>
+				<artifactId>jbcrypt</artifactId>
+				<version>0.4</version>
+			</dependency>
 			<dependency>
 				<groupId>cn.hutool</groupId>
 				<artifactId>hutool-all</artifactId>
@@ -103,6 +109,16 @@
 			<artifactId>mybatis-plus-spring-boot3-starter</artifactId>
 		</dependency>
 
+		<!-- Flyway 数据库迁移 -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-database-postgresql</artifactId>
+		</dependency>
+
 		<!-- Sa-Token 权限认证 (Boot3专用) -->
 		<dependency>
 			<groupId>cn.dev33</groupId>
@@ -114,6 +130,11 @@
 			<groupId>cn.dev33</groupId>
 			<artifactId>sa-token-redis-jackson</artifactId>
 		</dependency>
+			<!-- BCrypt密码哈希 -->
+			<dependency>
+				<groupId>org.mindrot</groupId>
+				<artifactId>jbcrypt</artifactId>
+			</dependency>
 
 		<!-- PostgreSQL JDBC Driver -->
 		<dependency>

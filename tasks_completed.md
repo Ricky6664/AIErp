@@ -803,6 +803,7 @@
 | P0-004-010-001-001-001 | 编写配置文件类 | 2026-06-05T01:30 | ✅ | AuthMethodProperties.java(@ConfigurationProperties prefix=auth-method/Page+Form+Priority三层嵌套配置/@Validated校验)+application.yml(auth-method段:分页默认值/表单字段长度/优先级范围/默认值), mvn compile通过 | — |
 | P0-004-010-002-001-001 | 编写配置文件类 | 2026-06-05T01:20 | ✅ | PasswordPolicyProperties.java(@ConfigurationProperties prefix=password-policy/Page+Form+Password+Lockout+Expire+History六层嵌套配置/@Validated校验)+application.yml(password-policy段:分页/密码复杂度规则/锁定策略/过期策略/历史密码限制), mvn compile通过 | c1c475f9 |
 | P0-004-010-002-001-002 | 验证编写配置项配置 | 2026-06-04T20:45 | ✅ | additional-spring-configuration-metadata.json新增password-policy元数据(7分组+19属性)+application.yml验证+application-dev.yml/prod.yml环境验证+敏感信息检查+mvn compile通过 | — |
+| P0-004-010-003-001-001 | 编写核心代码 | 2026-06-04T21:15 | ✅ | LoginLogList.vue登录日志列表页(搜索/表格/分页/导出CSV/清空超管)+api/types/loginLog.ts+api/modules/loginLog.ts(3个API函数)+路由注册,vite build通过 | (pending) |
 
 ## 汇总统计
 

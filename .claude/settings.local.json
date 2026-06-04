@@ -50,7 +50,8 @@
       "Bash(powershell *)",
       "Bash(mvn test *)",
       "Bash(Select-String -Pattern \"Tests run:|BUILD|ERROR|FAIL\")",
-      "PowerShell(Get-Content *)"
+      "PowerShell(Get-Content *)",
+      "PowerShell(Get-Process *)"
     ]
   }
 }
