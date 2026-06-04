@@ -31,7 +31,8 @@
         <el-tree-select
           v-model="searchDeptId"
           :data="deptTreeData"
-          :props="{ label: 'menuName', value: 'id', children: 'children' }"
+          :props="{ label: 'menuName', children: 'children' }"
+          node-key="id"
           placeholder="选择部门"
           clearable
           check-strictly
@@ -139,6 +140,8 @@
         @current-change="handlePageChange"
       />
     </div>
+
+    <UserForm v-model:visible="formVisible" :user-id="editUserId" @success="handleFormSuccess" />
   </div>
 </template>
 
@@ -151,6 +154,7 @@ import type { UserListItem } from '@/types/user'
 import type { MenuItem } from '@/api/types/menu'
 import { getUserPageList, deleteUser, resetUserPassword } from '@/api/modules/user'
 import { getMenuTree } from '@/api/modules/menu'
+import UserForm from './UserForm.vue'
 
 const loading = ref(false)
 const userList = ref<UserListItem[]>([])
@@ -162,6 +166,8 @@ const searchStatus = ref('')
 const searchDeptId = ref<number | null>(null)
 const selectedIds = ref<number[]>([])
 const deptTreeData = ref<MenuItem[]>([])
+const formVisible = ref(false)
+const editUserId = ref<number | undefined>(undefined)
 
 function statusTagType(status: string): 'primary' | 'success' | 'warning' | 'danger' | 'info' {
   const map: Record<string, 'primary' | 'success' | 'warning' | 'danger' | 'info'> = {
@@ -233,13 +239,19 @@ function handleSelectionChange(rows: UserListItem[]): void {
 }
 
 function handleAdd(): void {
-  ElMessage.info('新增用户功能将在后续任务中实现')
+  editUserId.value = undefined
+  formVisible.value = true
 }
 
 type RowData = { id?: number; username?: string }
 
 function handleEdit(row: RowData): void {
-  ElMessage.info(`编辑用户 ${row.username ?? ''} 功能将在后续任务中实现`)
+  editUserId.value = row.id
+  formVisible.value = true
+}
+
+function handleFormSuccess(): void {
+  fetchUserList()
 }
 
 function handleDelete(row: RowData): void {
