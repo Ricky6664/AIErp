@@ -26,3 +26,8 @@ export function extractPermissions(menus: MenuItem[]): string[] {
   const flat = flattenMenuTree(menus)
   return flat.filter((item) => item.permissions).map((item) => item.permissions!)
 }
+
+/** 获取菜单树（用于部门筛选等场景） */
+export function getMenuTree(): Promise<MenuItem[]> {
+  return request.get('/api/system/menus/tree')
+}

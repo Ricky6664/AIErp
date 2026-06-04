@@ -22,6 +22,34 @@ export interface UserInfoVO {
   deptName: string
 }
 
+/** 用户列表项 - 对应 SysUserVO.ListVO */
+export interface UserListItem {
+  id: number
+  username: string
+  realName: string
+  nickname: string
+  avatar: string
+  email: string
+  mobile: string
+  gender: string
+  status: string
+  statusName: string
+  isLocked: boolean
+  employeeName: string
+  lastLoginAt: string
+  lastLoginIp: string
+  createTime: string
+}
+
+/** 用户列表查询参数 */
+export interface UserPageQuery {
+  pageNum: number
+  pageSize: number
+  keyword?: string
+  status?: string
+  deptId?: number
+}
+
 export interface IUserState {
   token: string
   refreshToken: string
