@@ -125,3 +125,24 @@ menu-permission:
   assignment:
     # 保存权限分配前是否弹出确认框
     confirm-before-save: true
+
+# ---- 数据权限配置页配置 ----
+data-permission:
+  data-scope:
+    # 默认数据权限范围（SELF=仅本人, DEPT=本部门, COMPANY=本公司, ALL=全部）
+    default-scope: SELF
+    # 是否显示"仅本人"选项
+    show-self: true
+    # 是否显示"本部门"选项
+    show-dept: true
+    # 是否显示"本公司"选项
+    show-company: true
+    # 是否显示"全部"选项
+    show-all: false
+  rule:
+    # 数据权限规则缓存 TTL（秒）
+    cache-ttl-seconds: 1800
+    # 是否启用字段级权限
+    field-level-enabled: false
+    # 规则匹配失败时是否默认拒绝
+    default-deny: true
