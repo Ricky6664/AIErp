@@ -53,6 +53,48 @@
       "type": "com.erp.system.config.FieldPermissionProperties$FieldRule",
       "description": "字段权限规则配置（默认模式、缓存、确认保存）。",
       "sourceType": "com.erp.system.config.FieldPermissionProperties$FieldRule"
+    },
+    {
+      "name": "password-policy",
+      "type": "com.erp.system.config.PasswordPolicyProperties",
+      "description": "密码策略配置页配置。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties"
+    },
+    {
+      "name": "password-policy.page",
+      "type": "com.erp.system.config.PasswordPolicyProperties$Page",
+      "description": "密码策略列表分页配置。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Page"
+    },
+    {
+      "name": "password-policy.form",
+      "type": "com.erp.system.config.PasswordPolicyProperties$Form",
+      "description": "密码策略表单配置。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Form"
+    },
+    {
+      "name": "password-policy.password",
+      "type": "com.erp.system.config.PasswordPolicyProperties$Password",
+      "description": "密码强度规则配置。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Password"
+    },
+    {
+      "name": "password-policy.lockout",
+      "type": "com.erp.system.config.PasswordPolicyProperties$Lockout",
+      "description": "账户锁定策略配置。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Lockout"
+    },
+    {
+      "name": "password-policy.expire",
+      "type": "com.erp.system.config.PasswordPolicyProperties$Expire",
+      "description": "密码过期策略配置。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Expire"
+    },
+    {
+      "name": "password-policy.history",
+      "type": "com.erp.system.config.PasswordPolicyProperties$History",
+      "description": "历史密码复用检查配置。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$History"
     }
   ],
   "properties": [
@@ -216,6 +258,132 @@
       "description": "保存字段权限前是否弹出确认框。",
       "sourceType": "com.erp.system.config.FieldPermissionProperties$FieldRule",
       "defaultValue": true
+    },
+    {
+      "name": "password-policy.page.default-page-size",
+      "type": "java.lang.Integer",
+      "description": "密码策略列表分页默认每页条数。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Page",
+      "defaultValue": 15
+    },
+    {
+      "name": "password-policy.page.default-sort-field",
+      "type": "java.lang.String",
+      "description": "密码策略列表默认排序字段。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Page",
+      "defaultValue": "updateTime"
+    },
+    {
+      "name": "password-policy.page.show-disabled",
+      "type": "java.lang.Boolean",
+      "description": "密码策略列表是否显示已禁用的策略。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Page",
+      "defaultValue": true
+    },
+    {
+      "name": "password-policy.form.policy-name-min-length",
+      "type": "java.lang.Integer",
+      "description": "密码策略名称最小长度。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Form",
+      "defaultValue": 2
+    },
+    {
+      "name": "password-policy.form.policy-name-max-length",
+      "type": "java.lang.Integer",
+      "description": "密码策略名称最大长度。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Form",
+      "defaultValue": 50
+    },
+    {
+      "name": "password-policy.password.min-length",
+      "type": "java.lang.Integer",
+      "description": "密码最小长度。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Password",
+      "defaultValue": 8
+    },
+    {
+      "name": "password-policy.password.max-length",
+      "type": "java.lang.Integer",
+      "description": "密码最大长度。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Password",
+      "defaultValue": 32
+    },
+    {
+      "name": "password-policy.password.require-uppercase",
+      "type": "java.lang.Boolean",
+      "description": "是否必须包含大写字母。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Password",
+      "defaultValue": true
+    },
+    {
+      "name": "password-policy.password.require-lowercase",
+      "type": "java.lang.Boolean",
+      "description": "是否必须包含小写字母。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Password",
+      "defaultValue": true
+    },
+    {
+      "name": "password-policy.password.require-digit",
+      "type": "java.lang.Boolean",
+      "description": "是否必须包含数字。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Password",
+      "defaultValue": true
+    },
+    {
+      "name": "password-policy.password.require-special-char",
+      "type": "java.lang.Boolean",
+      "description": "是否必须包含特殊字符。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Password",
+      "defaultValue": true
+    },
+    {
+      "name": "password-policy.password.min-special-char-count",
+      "type": "java.lang.Integer",
+      "description": "最少特殊字符数量。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Password",
+      "defaultValue": 1
+    },
+    {
+      "name": "password-policy.lockout.max-attempts",
+      "type": "java.lang.Integer",
+      "description": "最大登录失败次数，超过后锁定账户。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Lockout",
+      "defaultValue": 5
+    },
+    {
+      "name": "password-policy.lockout.lock-duration-minutes",
+      "type": "java.lang.Integer",
+      "description": "账户锁定持续时间（分钟）。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Lockout",
+      "defaultValue": 30
+    },
+    {
+      "name": "password-policy.lockout.reset-duration-minutes",
+      "type": "java.lang.Integer",
+      "description": "登录失败计数重置时间（分钟）。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Lockout",
+      "defaultValue": 10
+    },
+    {
+      "name": "password-policy.expire.password-expire-days",
+      "type": "java.lang.Integer",
+      "description": "密码过期天数（0=永不过期）。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Expire",
+      "defaultValue": 90
+    },
+    {
+      "name": "password-policy.expire.remind-before-days",
+      "type": "java.lang.Integer",
+      "description": "密码过期前提前提醒天数。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$Expire",
+      "defaultValue": 7
+    },
+    {
+      "name": "password-policy.history.max-history-count",
+      "type": "java.lang.Integer",
+      "description": "历史密码不可重复次数（0=不限制）。",
+      "sourceType": "com.erp.system.config.PasswordPolicyProperties$History",
+      "defaultValue": 3
     }
   ],
   "hints": [

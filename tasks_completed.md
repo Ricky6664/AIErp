@@ -802,15 +802,16 @@
 | P0-004-010-000-001-001 | 编写核心代码 | 2026-06-05T02:00 | ✅ | 认证配置工作台前端核心代码: 更新KPI卡片(在线设备/今日登录成功/失败/SSO配置)+登录趋势折线图+认证方式环形图+快捷操作(密码策略/认证方式/SSO/在线设备)+最近登录日志表格(10条/成功绿色/失败红色)+60秒自动刷新; 后端新增RecentLoginVO+selectRecentLogins查询; mvn compile+pnpm build通过 | 0d5cbf34 |
 | P0-004-010-001-001-001 | 编写配置文件类 | 2026-06-05T01:30 | ✅ | AuthMethodProperties.java(@ConfigurationProperties prefix=auth-method/Page+Form+Priority三层嵌套配置/@Validated校验)+application.yml(auth-method段:分页默认值/表单字段长度/优先级范围/默认值), mvn compile通过 | — |
 | P0-004-010-002-001-001 | 编写配置文件类 | 2026-06-05T01:20 | ✅ | PasswordPolicyProperties.java(@ConfigurationProperties prefix=password-policy/Page+Form+Password+Lockout+Expire+History六层嵌套配置/@Validated校验)+application.yml(password-policy段:分页/密码复杂度规则/锁定策略/过期策略/历史密码限制), mvn compile通过 | c1c475f9 |
+| P0-004-010-002-001-002 | 验证编写配置项配置 | 2026-06-04T20:45 | ✅ | additional-spring-configuration-metadata.json新增password-policy元数据(7分组+19属性)+application.yml验证+application-dev.yml/prod.yml环境验证+敏感信息检查+mvn compile通过 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 467 | 2 | 21.7% |
+| P0 | 14 | 2,147 | 468 | 2 | 21.8% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **460** | **2** | **9.74%** |
+| **合计** | **46** | **4,716** | **461** | **2** | **9.76%** |
 
 ---
 
