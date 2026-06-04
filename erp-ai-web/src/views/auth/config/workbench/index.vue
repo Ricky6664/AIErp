@@ -6,6 +6,31 @@
       <el-button :icon="RefreshRight" :loading="loading" @click="handleRefresh">刷新数据</el-button>
     </div>
 
+    <div class="filter-row">
+      <div class="filter-left">
+        <span class="filter-label">时间范围：</span>
+        <el-date-picker
+          v-model="dateRange"
+          type="daterange"
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+          format="YYYY-MM-DD"
+          value-format="YYYY-MM-DD"
+          :disabled-date="disabledDate"
+          @change="handleDateRangeChange"
+        />
+      </div>
+      <div class="filter-right">
+        <span class="filter-label">统计维度：</span>
+        <el-radio-group v-model="currentDimension" size="small" @change="handleDimensionChange">
+          <el-radio-button value="day">日</el-radio-button>
+          <el-radio-button value="week">周</el-radio-button>
+          <el-radio-button value="month">月</el-radio-button>
+        </el-radio-group>
+      </div>
+    </div>
+
     <el-row v-loading="loading && !workbenchData" :gutter="16" class="kpi-row">
       <el-col :xs="12" :sm="12" :md="6">
         <KpiCard
@@ -45,17 +70,56 @@
       <el-col :xs="24" :md="14">
         <el-card shadow="never">
           <template #header>
-            <span class="card-title">每日登录统计（近7天）</span>
+            <div class="card-header">
+              <span class="card-title">每日登录统计（趋势图）</span>
+              <el-button size="small" text @click="handleExportLineChart">导出PNG</el-button>
+            </div>
           </template>
-          <div ref="dailyLoginContainer" class="chart-container"></div>
+          <el-skeleton :loading="loading && !workbenchData" animated :rows="6">
+            <div ref="dailyLoginContainer" class="chart-container"></div>
+          </el-skeleton>
         </el-card>
       </el-col>
       <el-col :xs="24" :md="10">
         <el-card shadow="never">
           <template #header>
-            <span class="card-title">登录方式分布</span>
+            <div class="card-header">
+              <span class="card-title">登录方式分布（饼图）</span>
+              <el-button size="small" text @click="handleExportPieChart">导出PNG</el-button>
+            </div>
           </template>
-          <div ref="loginDistContainer" class="chart-container"></div>
+          <el-skeleton :loading="loading && !workbenchData" animated :rows="6">
+            <div ref="loginDistContainer" class="chart-container"></div>
+          </el-skeleton>
+        </el-card>
+      </el-col>
+    </el-row>
+
+    <el-row :gutter="16" class="chart-row">
+      <el-col :xs="24" :md="14">
+        <el-card shadow="never">
+          <template #header>
+            <div class="card-header">
+              <span class="card-title">每日登录统计（柱状图）</span>
+              <el-button size="small" text @click="handleExportBarChart">导出PNG</el-button>
+            </div>
+          </template>
+          <el-skeleton :loading="loading && !workbenchData" animated :rows="6">
+            <div ref="barChartContainer" class="chart-container"></div>
+          </el-skeleton>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :md="10">
+        <el-card shadow="never">
+          <template #header>
+            <div class="card-header">
+              <span class="card-title">登录方式分布（雷达图）</span>
+              <el-button size="small" text @click="handleExportRadarChart">导出PNG</el-button>
+            </div>
+          </template>
+          <el-skeleton :loading="loading && !workbenchData" animated :rows="6">
+            <div ref="radarChartContainer" class="chart-container"></div>
+          </el-skeleton>
         </el-card>
       </el-col>
     </el-row>
@@ -103,34 +167,99 @@ import { ElMessage } from 'element-plus'
 import { Lock, CircleCheck, Key, Monitor, RefreshRight } from '@element-plus/icons-vue'
 import KpiCard from '@/components/KpiCard/index.vue'
 import { useAuthConfigWorkbench } from '@/composables/useAuthConfigWorkbench'
+import type { DimensionType } from '@/composables/useAuthConfigWorkbench'
 
 const {
   loading,
   workbenchData,
+  dimension,
+  dailyLoginChartRef,
+  loginDistChartRef,
+  barChartRef,
+  radarChartRef,
   fetchData,
   initLoginDistChart,
   updateLoginDistChart,
   initDailyLoginChart,
   updateDailyLoginChart,
+  initBarChart,
+  updateBarChart,
+  initRadarChart,
+  updateRadarChart,
+  exportChartAsImage,
   resizeCharts,
   disposeCharts
 } = useAuthConfigWorkbench()
 
 const loginDistContainer = ref<HTMLElement | null>(null)
 const dailyLoginContainer = ref<HTMLElement | null>(null)
+const barChartContainer = ref<HTMLElement | null>(null)
+const radarChartContainer = ref<HTMLElement | null>(null)
+
+const currentDimension = ref<DimensionType>('day')
+const dateRange = ref<[string, string] | null>(null)
+
+function disabledDate(date: Date): boolean {
+  return date.getTime() > Date.now()
+}
+
+function getTimeParams(): { startTime?: string; endTime?: string } {
+  if (!dateRange.value) return {}
+  const [start, end] = dateRange.value
+  return {
+    startTime: `${start} 00:00:00`,
+    endTime: `${end} 23:59:59`
+  }
+}
+
+async function handleDateRangeChange(): Promise<void> {
+  await fetchData(getTimeParams())
+}
+
+async function handleDimensionChange(val: string | number | boolean | undefined): Promise<void> {
+  const dim = (val as DimensionType) || 'day'
+  dimension.value = dim
+  const now = new Date()
+  let start: Date
+  switch (dim) {
+    case 'week': {
+      start = new Date(now)
+      start.setDate(start.getDate() - 7)
+      break
+    }
+    case 'month': {
+      start = new Date(now)
+      start.setMonth(start.getMonth() - 1)
+      break
+    }
+    default: {
+      start = new Date(now)
+      start.setDate(start.getDate() - 7)
+      break
+    }
+  }
+  const fmt = (d: Date) => d.toISOString().slice(0, 10)
+  dateRange.value = [fmt(start), fmt(now)]
+  await fetchData({
+    startTime: `${fmt(start)} 00:00:00`,
+    endTime: `${fmt(now)} 23:59:59`
+  })
+}
+
+function updateAllCharts(data: typeof workbenchData.value): void {
+  if (!data) return
+  if (loginDistContainer.value) updateLoginDistChart(data.loginMethodDistribution)
+  if (dailyLoginContainer.value) updateDailyLoginChart(data.dailyLoginStats)
+  if (barChartContainer.value) updateBarChart(data.dailyLoginStats)
+  if (radarChartContainer.value) updateRadarChart(data.loginMethodDistribution)
+}
 
 watch(workbenchData, (data) => {
-  if (!data) return
-  if (loginDistContainer.value) {
-    updateLoginDistChart(data.loginMethodDistribution)
-  }
-  if (dailyLoginContainer.value) {
-    updateDailyLoginChart(data.dailyLoginStats)
-  }
+  updateAllCharts(data)
 })
 
 async function handleRefresh(): Promise<void> {
-  await fetchData()
+  await fetchData(getTimeParams())
   ElMessage.success('数据已刷新')
 }
 
@@ -138,22 +267,49 @@ function handleResize(): void {
   resizeCharts()
 }
 
+function handleExportLineChart(): void {
+  exportChartAsImage(dailyLoginChartRef.value, '每日登录统计-趋势图')
+}
+
+function handleExportPieChart(): void {
+  exportChartAsImage(loginDistChartRef.value, '登录方式分布-饼图')
+}
+
+function handleExportBarChart(): void {
+  exportChartAsImage(barChartRef.value, '每日登录统计-柱状图')
+}
+
+function handleExportRadarChart(): void {
+  exportChartAsImage(radarChartRef.value, '登录方式分布-雷达图')
+}
+
 onMounted(async () => {
-  await fetchData()
+  const now = new Date()
+  const start = new Date(now)
+  start.setDate(start.getDate() - 7)
+  const fmt = (d: Date) => d.toISOString().slice(0, 10)
+  dateRange.value = [fmt(start), fmt(now)]
+
+  await fetchData({
+    startTime: `${fmt(start)} 00:00:00`,
+    endTime: `${fmt(now)} 23:59:59`
+  })
+
   if (loginDistContainer.value) {
     initLoginDistChart(loginDistContainer.value)
   }
   if (dailyLoginContainer.value) {
     initDailyLoginChart(dailyLoginContainer.value)
   }
-  if (workbenchData.value) {
-    if (loginDistContainer.value) {
-      updateLoginDistChart(workbenchData.value.loginMethodDistribution)
-    }
-    if (dailyLoginContainer.value) {
-      updateDailyLoginChart(workbenchData.value.dailyLoginStats)
-    }
+  if (barChartContainer.value) {
+    initBarChart(barChartContainer.value)
   }
+  if (radarChartContainer.value) {
+    initRadarChart(radarChartContainer.value)
+  }
+
+  updateAllCharts(workbenchData.value)
+
   window.addEventListener('resize', handleResize)
 })
 
@@ -171,7 +327,7 @@ onUnmounted(() => {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 
     h2 {
       margin: 0;
@@ -188,12 +344,41 @@ onUnmounted(() => {
     }
   }
 
+  .filter-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    background: var(--el-fill-color-light);
+    border-radius: 8px;
+
+    .filter-left,
+    .filter-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter-label {
+      font-size: 14px;
+      color: var(--el-text-color-regular);
+      white-space: nowrap;
+    }
+  }
+
   .kpi-row {
     margin-bottom: 16px;
   }
 
   .chart-row {
     margin-bottom: 16px;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .card-title {
