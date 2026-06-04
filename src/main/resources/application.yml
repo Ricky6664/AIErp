@@ -112,3 +112,16 @@ auth:
     default-permission-type: view
     # 权限树中是否自动包含父节点路径
     include-parent-path: true
+
+# ---- 菜单权限配置页配置 ----
+menu-permission:
+  menu-tree:
+    # 菜单树默认展开层级（1=仅根节点, 2=展开到第2层, 0=全部展开）
+    auto-expand-level: 2
+    # 是否在权限树中显示已禁用的菜单
+    show-disabled: false
+    # 父子节点是否独立勾选（true=独立, false=关联勾选）
+    check-strictly: false
+  assignment:
+    # 保存权限分配前是否弹出确认框
+    confirm-before-save: true
