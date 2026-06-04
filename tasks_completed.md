@@ -751,7 +751,7 @@
 | P0-004-007-004-001-003 | 验证前端页面开发页面 | 2026-06-04 | ✅ | 验证系统参数前端页面: pnpm build发现2个类型错误(valueTypeTag返回值/DefaultRow类型), useAppInit未集成, 核心CRUD/缓存刷新/表单校验功能实现正确, 测试报告+问题清单已归档 | — |
 | P0-004-008-000-001-001 | 编写核心代码 | 2026-06-04T12:10 | ✅ | 用户管理工作台核心代码: Vue页面(4个KPI卡片+动画/ECharts折线图+饼图/快捷操作/登录日志表格), API层(workbench.ts), 类型定义(workbench.ts), useWorkbench composable(ECharts生命周期管理/响应式数据), pnpm build通过(workbench相关零错误) | (pending) |
 | P0-004-008-000-001-002 | 验证功能 | 2026-06-04T13:05 | ✅ | 验证并修复用户管理工作台: 发现5个问题(Controller缺端点/VO字段不匹配/路由未注册/缺loginTrend+recentLogins查询/图表首载空白), 全部修复, mvn compile+pnpm build通过, 测试报告已生成 | (pending) |
-| P0-004-008-001-001-001 | 编写核心代码 | 2026-06-04T13:30 | ✅ | 用户管理列表页核心代码: UserList.vue(搜索/筛选/表格/分页/操作), API层(user.ts-8个端点函数), 类型定义(UserListItem/UserPageQuery), 搜索防抖(debounce 300ms), v-permission权限控制, pnpm build通过 | (pending) |
+| P0-004-008-001-001-001 | 编写核心代码 | 2026-06-04T13:30 | ✅ | 用户管理列表页核心代码: UserList.vue(搜索/筛选/表格/分页/操作), API层(user.ts-8个端点函数), 类型定义(UserListItem/UserPageQuery), 搜索防抖(debounce 300ms), v-permission权限控制, pnpm build通过 | 5c8d159b |
 
 ## 汇总统计
 
