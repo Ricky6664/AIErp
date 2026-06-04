@@ -761,7 +761,7 @@
 | P0-004-008-005-001-001 | 编写核心代码 | 2026-06-04T16:00 | ✅ | 用户组管理列表页: UserGroupController(CRUD+分页查询+编码唯一性+成员计数)/SysUserGroupVO/DTO/mapper.countMembersByGroupIds/UserGroupList.vue(搜索/分页/状态切换/批量删除)/UserGroupForm.vue(新增编辑)/API层+类型定义 | — |
 | P0-004-008-005-001-002 | 验证功能 | 2026-06-04T16:15 | ✅ | 用户组管理列表页验证: 修复4个问题(3个TS类型错误+1个缺失成员管理按钮)/mvn compile通过/功能规格14项全部对照通过/测试报告与问题清单已生成 | — |
 | P0-004-008-006-001-001 | 编写核心代码 | 2026-06-04T17:00 | ✅ | 用户组表单增强: UserGroupForm.vue(720px+el-transfer成员管理+el-checkbox-group角色分配+表单校验2-50/2-30)/SysUserGroupRole实体+DDL/Controller新增6个成员/角色端点/Service+Mapper角色方法/mvn compile通过 | ced185cc |
-| P0-004-008-006-001-002 | 验证功能 | 2026-06-04T17:30 | ✅ | 用户组表单验证: 静态代码审查40项检查(核心功能23+边界11+异常降级6)全部通过/mvn compile+pnpm build通过/发现3条非阻塞建议/测试报告与问题清单已生成 | — |
+| P0-004-008-006-001-002 | 验证功能 | 2026-06-04T17:30 | ✅ | 用户组表单验证: 静态代码审查40项检查(核心功能23+边界11+异常降级6)全部通过/mvn compile+pnpm build通过/发现3条非阻塞建议/测试报告与问题清单已生成 | 7988cafb |
 
 ## 汇总统计
 
