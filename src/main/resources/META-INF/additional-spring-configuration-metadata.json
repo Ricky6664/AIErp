@@ -1,0 +1,99 @@
+{
+  "groups": [
+    {
+      "name": "auth.menu-permission",
+      "type": "com.erp.config.MenuPermissionProperties",
+      "description": "菜单权限配置（auth 模块下）。",
+      "sourceType": "com.erp.config.MenuPermissionProperties"
+    },
+    {
+      "name": "menu-permission.menu-tree",
+      "type": "com.erp.system.config.MenuPermissionProperties$MenuTree",
+      "description": "菜单权限树展示配置。",
+      "sourceType": "com.erp.system.config.MenuPermissionProperties$MenuTree"
+    },
+    {
+      "name": "menu-permission.assignment",
+      "type": "com.erp.system.config.MenuPermissionProperties$Assignment",
+      "description": "权限分配操作配置。",
+      "sourceType": "com.erp.system.config.MenuPermissionProperties$Assignment"
+    }
+  ],
+  "properties": [
+    {
+      "name": "auth.menu-permission.tree-max-depth",
+      "type": "java.lang.Integer",
+      "description": "菜单权限树最大层级深度，超出层级的节点不返回。",
+      "sourceType": "com.erp.config.MenuPermissionProperties",
+      "defaultValue": 5
+    },
+    {
+      "name": "auth.menu-permission.cache-enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用菜单权限缓存。",
+      "sourceType": "com.erp.config.MenuPermissionProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "auth.menu-permission.cache-ttl-seconds",
+      "type": "java.lang.Long",
+      "description": "菜单权限缓存 TTL（秒）。",
+      "sourceType": "com.erp.config.MenuPermissionProperties",
+      "defaultValue": 1800
+    },
+    {
+      "name": "auth.menu-permission.default-permission-type",
+      "type": "java.lang.String",
+      "description": "新菜单项的默认权限类型（view / add / edit / delete / audit）。",
+      "sourceType": "com.erp.config.MenuPermissionProperties",
+      "defaultValue": "view"
+    },
+    {
+      "name": "auth.menu-permission.include-parent-path",
+      "type": "java.lang.Boolean",
+      "description": "是否在菜单权限树中自动包含父节点路径。",
+      "sourceType": "com.erp.config.MenuPermissionProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "menu-permission.menu-tree.auto-expand-level",
+      "type": "java.lang.Integer",
+      "description": "菜单树默认展开层级（1=仅根节点, 2=展开到第2层, 0=全部展开）。",
+      "sourceType": "com.erp.system.config.MenuPermissionProperties$MenuTree",
+      "defaultValue": 2
+    },
+    {
+      "name": "menu-permission.menu-tree.show-disabled",
+      "type": "java.lang.Boolean",
+      "description": "是否在权限树中显示已禁用的菜单。",
+      "sourceType": "com.erp.system.config.MenuPermissionProperties$MenuTree",
+      "defaultValue": false
+    },
+    {
+      "name": "menu-permission.menu-tree.check-strictly",
+      "type": "java.lang.Boolean",
+      "description": "父子节点是否独立勾选（true=独立, false=关联）。",
+      "sourceType": "com.erp.system.config.MenuPermissionProperties$MenuTree",
+      "defaultValue": false
+    },
+    {
+      "name": "menu-permission.assignment.confirm-before-save",
+      "type": "java.lang.Boolean",
+      "description": "保存权限分配前是否弹出确认框。",
+      "sourceType": "com.erp.system.config.MenuPermissionProperties$Assignment",
+      "defaultValue": true
+    }
+  ],
+  "hints": [
+    {
+      "name": "auth.menu-permission.default-permission-type",
+      "values": [
+        { "value": "view", "description": "查看权限。" },
+        { "value": "add", "description": "新增权限。" },
+        { "value": "edit", "description": "编辑权限。" },
+        { "value": "delete", "description": "删除权限。" },
+        { "value": "audit", "description": "审核权限。" }
+      ]
+    }
+  ]
+}

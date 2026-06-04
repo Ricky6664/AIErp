@@ -777,6 +777,7 @@
 | P0-004-009-002-001-002 | 验证功能 | 2026-06-04T22:00 | ✅ | 测试报告+问题清单产出(46项检查44通过)/发现2个问题(customDeptIds未持久化/layout偏离dialog规格) | f57ba67c |
 
 | P0-004-009-003-001-001 | 编写配置文件类 | 2026-06-04T23:00 | ✅ | MenuPermissionProperties配置类(menu-permission前缀/菜单树展示+权限分配配置)+application.yml配置项 | 8eb01073 |
+| P0-004-009-003-001-002 | 验证编写配置项配置 | 2026-06-04T23:15 | ✅ | additional-spring-configuration-metadata.json配置元数据(9属性+5提示值)/application.yml配置验证/编译通过 | — |
 
 ## 汇总统计
 
