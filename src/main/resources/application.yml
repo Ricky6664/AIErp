@@ -101,3 +101,14 @@ auth:
     default-avatar: ""
     # 用户信息接口返回的菜单权限树最大深度
     menu-tree-max-depth: 5
+  menu-permission:
+    # 菜单权限树最大层级深度, 超出不返回
+    tree-max-depth: 5
+    # 是否启用菜单权限缓存
+    cache-enabled: true
+    # 菜单权限缓存 TTL（秒）
+    cache-ttl-seconds: 1800
+    # 新菜单项的默认权限类型
+    default-permission-type: view
+    # 权限树中是否自动包含父节点路径
+    include-parent-path: true
