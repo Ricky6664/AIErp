@@ -78,6 +78,14 @@ export const USER_WORKBENCH: RouteRecordRaw = {
   meta: { title: '用户管理工作台', icon: 'DataBoard', keepAlive: true }
 }
 
+// 权限配置工作台
+export const AUTH_CONFIG_WORKBENCH: RouteRecordRaw = {
+  path: '/auth/config/workbench',
+  name: 'AuthConfigWorkbench',
+  component: () => import('@/views/auth/config/workbench/index.vue'),
+  meta: { title: '权限配置工作台', icon: 'DataBoard', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -85,6 +93,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   HOME_ROUTE,
   DEV_VIRTUAL_SCROLL,
   USER_WORKBENCH,
+  AUTH_CONFIG_WORKBENCH,
   REDIRECT_ROUTE,
   ERROR_404,
   ERROR_403,
