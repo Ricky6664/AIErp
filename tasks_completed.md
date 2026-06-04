@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-04T21:30
-> **归档总数**：462 条
+> **最后更新**：2026-06-04T21:55
+> **归档总数**：463 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -805,6 +805,7 @@
 | P0-004-010-002-001-002 | 验证编写配置项配置 | 2026-06-04T20:45 | ✅ | additional-spring-configuration-metadata.json新增password-policy元数据(7分组+19属性)+application.yml验证+application-dev.yml/prod.yml环境验证+敏感信息检查+mvn compile通过 | — |
 | P0-004-010-003-001-001 | 编写核心代码 | 2026-06-04T21:15 | ✅ | LoginLogList.vue登录日志列表页(搜索/表格/分页/导出CSV/清空超管)+api/types/loginLog.ts+api/modules/loginLog.ts(3个API函数)+路由注册,vite build通过 | 43f67a2b |
 | P0-004-010-003-001-002 | 验证功能 | 2026-06-04T21:30 | ✅ | 代码审查验证通过(26项检查92.3%通过率)+交付test-report.md+issues.md(发现6问题:1严重/1中等/4轻微), 登录日志列表页前端代码质量良好 | — |
+| P0-004-010-004-001-001 | 编写核心代码 | 2026-06-04T21:55 | ✅ | OnlineDeviceList.vue在线设备管理页(搜索/表格/设备类型图标/强制下线/批量踢出/30秒自动刷新)+API层(types+modules)+路由注册, vite build通过 | — |
 
 ## 汇总统计
 

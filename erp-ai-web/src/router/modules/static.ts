@@ -94,6 +94,14 @@ export const LOGIN_LOG_PAGE: RouteRecordRaw = {
   meta: { title: '登录日志', icon: 'Document', keepAlive: true }
 }
 
+// 在线设备管理页
+export const ONLINE_DEVICE_PAGE: RouteRecordRaw = {
+  path: '/auth/config/online-device',
+  name: 'OnlineDeviceList',
+  component: () => import('@/views/auth/config/online-device/index.vue'),
+  meta: { title: '在线设备管理', icon: 'Monitor', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -103,6 +111,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   USER_WORKBENCH,
   AUTH_CONFIG_WORKBENCH,
   LOGIN_LOG_PAGE,
+  ONLINE_DEVICE_PAGE,
   REDIRECT_ROUTE,
   ERROR_404,
   ERROR_403,
