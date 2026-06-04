@@ -105,4 +105,43 @@ public class UserGroupServiceImpl extends ServiceImplX<UserGroupMapper, SysUserG
 
         log.info("用户组状态更新完成: groupId={}, isEnabled={}", groupId, isEnabled);
     }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void addRoles(Long groupId, List<Long> roleIds) {
+        SysUserGroup group = getById(groupId);
+        if (group == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "用户组不存在: id=" + groupId);
+        }
+
+        if (roleIds != null && !roleIds.isEmpty()) {
+            baseMapper.insertGroupRoles(groupId, roleIds);
+        }
+
+        log.info("用户组角色添加完成: groupId={}, roleCount={}", groupId,
+                roleIds != null ? roleIds.size() : 0);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void removeAllRoles(Long groupId) {
+        SysUserGroup group = getById(groupId);
+        if (group == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "用户组不存在: id=" + groupId);
+        }
+
+        baseMapper.deleteGroupRoles(groupId);
+
+        log.info("用户组全部角色移除完成: groupId={}", groupId);
+    }
+
+    @Override
+    public List<Long> getRoleIds(Long groupId) {
+        if (getById(groupId) == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "用户组不存在: id=" + groupId);
+        }
+
+        List<Long> roleIds = baseMapper.selectRoleIdsByGroupId(groupId);
+        return roleIds != null ? roleIds : Collections.emptyList();
+    }
 }

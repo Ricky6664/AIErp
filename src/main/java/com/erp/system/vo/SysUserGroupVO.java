@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * 用户组 VO.
@@ -47,6 +48,10 @@ public class SysUserGroupVO {
         private Boolean isEnabled;
 
         private Integer sortOrder;
+
+        private List<Long> memberUserIds;
+
+        private List<Long> roleIds;
 
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private LocalDateTime createTime;

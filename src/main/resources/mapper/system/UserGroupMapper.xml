@@ -60,4 +60,36 @@
         GROUP BY group_id
     </select>
 
+    <!-- ==================== 删除用户组所有角色关联 ==================== -->
+    <delete id="deleteGroupRoles">
+        DELETE FROM sys_user_group_role WHERE group_id = #{groupId}
+    </delete>
+
+    <!-- ==================== 批量插入用户组角色关联 ==================== -->
+    <insert id="insertGroupRoles">
+        INSERT INTO sys_user_group_role (group_id, role_id, create_time)
+        VALUES
+        <foreach collection="roleIds" item="roleId" separator=",">
+            (#{groupId}, #{roleId}, NOW())
+        </foreach>
+    </insert>
+
+    <!-- ==================== 查询用户组关联的角色ID列表 ==================== -->
+    <select id="selectRoleIdsByGroupId" resultType="long">
+        SELECT role_id
+        FROM sys_user_group_role
+        WHERE group_id = #{groupId}
+          AND is_deleted = 0
+        ORDER BY role_id ASC
+    </select>
+
+    <!-- ==================== 检查用户组角色关联是否存在 ==================== -->
+    <select id="countGroupRole" resultType="int">
+        SELECT COUNT(*)
+        FROM sys_user_group_role
+        WHERE group_id = #{groupId}
+          AND role_id = #{roleId}
+          AND is_deleted = 0
+    </select>
+
 </mapper>

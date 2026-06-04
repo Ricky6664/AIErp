@@ -34,6 +34,8 @@ export interface UserGroupDetail {
   groupDesc: string
   isEnabled: boolean
   sortOrder: number
+  memberUserIds: number[]
+  roleIds: number[]
   createTime: string
   updateTime: string
 }
@@ -45,6 +47,8 @@ export interface UserGroupCreateDTO {
   groupDesc?: string
   isEnabled?: boolean
   sortOrder?: number
+  memberUserIds?: number[]
+  roleIds?: number[]
 }
 
 /** 修改用户组 */
@@ -54,4 +58,6 @@ export interface UserGroupUpdateDTO {
   groupDesc?: string
   isEnabled?: boolean
   sortOrder?: number
+  memberUserIds?: number[]
+  roleIds?: number[]
 }

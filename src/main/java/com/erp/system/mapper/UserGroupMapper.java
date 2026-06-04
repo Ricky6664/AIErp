@@ -30,4 +30,12 @@ public interface UserGroupMapper extends BaseMapperX<SysUserGroup> {
     int countGroupMember(@Param("groupId") Long groupId, @Param("userId") Long userId);
 
     List<Map<String, Object>> countMembersByGroupIds(@Param("groupIds") List<Long> groupIds);
+
+    int deleteGroupRoles(@Param("groupId") Long groupId);
+
+    int insertGroupRoles(@Param("groupId") Long groupId, @Param("roleIds") List<Long> roleIds);
+
+    List<Long> selectRoleIdsByGroupId(@Param("groupId") Long groupId);
+
+    int countGroupRole(@Param("groupId") Long groupId, @Param("roleId") Long roleId);
 }

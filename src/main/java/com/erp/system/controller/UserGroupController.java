@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Tag(name = "用户组管理", description = "用户组CRUD、成员管理、状态管理接口")
+@Tag(name = "用户组管理", description = "用户组CRUD、成员管理、角色管理、状态管理接口")
 @RestController
 @RequestMapping("/api/system/user-group")
 @RequiredArgsConstructor
@@ -98,6 +98,8 @@ public class UserGroupController {
         }
         SysUserGroupVO.DetailVO vo = new SysUserGroupVO.DetailVO();
         BeanUtils.copyProperties(entity, vo);
+        vo.setMemberUserIds(userGroupService.getMemberUserIds(id));
+        vo.setRoleIds(userGroupService.getRoleIds(id));
         return RT.ok(vo);
     }
 
@@ -132,6 +134,14 @@ public class UserGroupController {
         BeanUtils.copyProperties(dto, entity);
         entity.setIsEnabled(dto.getIsEnabled() != null ? dto.getIsEnabled() : true);
         userGroupService.save(entity);
+
+        if (dto.getMemberUserIds() != null && !dto.getMemberUserIds().isEmpty()) {
+            userGroupService.addMembers(entity.getId(), dto.getMemberUserIds());
+        }
+        if (dto.getRoleIds() != null && !dto.getRoleIds().isEmpty()) {
+            userGroupService.addRoles(entity.getId(), dto.getRoleIds());
+        }
+
         return RT.ok(entity.getId());
     }
 
@@ -162,6 +172,20 @@ public class UserGroupController {
         if (dto.getIsEnabled() != null) entity.setIsEnabled(dto.getIsEnabled());
         if (dto.getSortOrder() != null) entity.setSortOrder(dto.getSortOrder());
         userGroupService.updateById(entity);
+
+        if (dto.getMemberUserIds() != null) {
+            userGroupService.removeAllMembers(id);
+            if (!dto.getMemberUserIds().isEmpty()) {
+                userGroupService.addMembers(id, dto.getMemberUserIds());
+            }
+        }
+        if (dto.getRoleIds() != null) {
+            userGroupService.removeAllRoles(id);
+            if (!dto.getRoleIds().isEmpty()) {
+                userGroupService.addRoles(id, dto.getRoleIds());
+            }
+        }
+
         return RT.ok();
     }
 
@@ -178,6 +202,56 @@ public class UserGroupController {
         return RT.ok();
     }
 
+    // ==================== 成员管理接口 ====================
+
+    @Operation(summary = "查询用户组成员ID列表")
+    @SaCheckPermission("system:user-group:query")
+    @GetMapping("/{id}/members")
+    public RT<List<Long>> getMembers(@PathVariable Long id) {
+        return RT.ok(userGroupService.getMemberUserIds(id));
+    }
+
+    @Operation(summary = "更新用户组成员")
+    @SaCheckPermission("system:user-group:member")
+    @PostMapping("/{id}/members")
+    public RT<Void> updateMembers(@PathVariable Long id,
+                                  @Valid @RequestBody SysUserGroupDTO.MembersDTO dto,
+                                  BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return RT.paramError(getErrorMsg(bindingResult));
+        }
+        userGroupService.removeAllMembers(id);
+        if (!dto.getMemberUserIds().isEmpty()) {
+            userGroupService.addMembers(id, dto.getMemberUserIds());
+        }
+        return RT.ok();
+    }
+
+    // ==================== 角色管理接口 ====================
+
+    @Operation(summary = "查询用户组角色ID列表")
+    @SaCheckPermission("system:user-group:query")
+    @GetMapping("/{id}/roles")
+    public RT<List<Long>> getRoles(@PathVariable Long id) {
+        return RT.ok(userGroupService.getRoleIds(id));
+    }
+
+    @Operation(summary = "更新用户组角色")
+    @SaCheckPermission("system:user-group:edit")
+    @PostMapping("/{id}/roles")
+    public RT<Void> updateRoles(@PathVariable Long id,
+                                @Valid @RequestBody SysUserGroupDTO.RolesDTO dto,
+                                BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return RT.paramError(getErrorMsg(bindingResult));
+        }
+        userGroupService.removeAllRoles(id);
+        if (!dto.getRoleIds().isEmpty()) {
+            userGroupService.addRoles(id, dto.getRoleIds());
+        }
+        return RT.ok();
+    }
+
     // ==================== 删除接口 ====================
 
     @Operation(summary = "删除用户组")
@@ -190,7 +264,11 @@ public class UserGroupController {
         }
         List<Long> memberIds = userGroupService.getMemberUserIds(id);
         if (!memberIds.isEmpty()) {
-            return RT.fail(ErrorCode.BUSINESS_ERROR, "请先移除组成员和角色关联");
+            userGroupService.removeAllMembers(id);
+        }
+        List<Long> roleIds = userGroupService.getRoleIds(id);
+        if (!roleIds.isEmpty()) {
+            userGroupService.removeAllRoles(id);
         }
         userGroupService.removeById(id);
         return RT.ok();

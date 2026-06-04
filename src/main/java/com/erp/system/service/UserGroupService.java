@@ -26,4 +26,10 @@ public interface UserGroupService extends IServiceX<SysUserGroup> {
     boolean hasMember(Long groupId, Long userId);
 
     void updateStatus(Long groupId, Boolean isEnabled);
+
+    void addRoles(Long groupId, List<Long> roleIds);
+
+    void removeAllRoles(Long groupId);
+
+    List<Long> getRoleIds(Long groupId);
 }

@@ -43,3 +43,23 @@ export function checkGroupCode(groupCode: string, excludeId?: number): Promise<b
     params: { groupCode, excludeId }
   })
 }
+
+/** 查询用户组成员ID列表 */
+export function getGroupMembers(groupId: number): Promise<number[]> {
+  return request.get(`/api/system/user-group/${groupId}/members`)
+}
+
+/** 更新用户组成员 */
+export function updateGroupMembers(groupId: number, memberUserIds: number[]): Promise<void> {
+  return request.post(`/api/system/user-group/${groupId}/members`, { memberUserIds })
+}
+
+/** 查询用户组角色ID列表 */
+export function getGroupRoles(groupId: number): Promise<number[]> {
+  return request.get(`/api/system/user-group/${groupId}/roles`)
+}
+
+/** 更新用户组角色 */
+export function updateGroupRoles(groupId: number, roleIds: number[]): Promise<void> {
+  return request.post(`/api/system/user-group/${groupId}/roles`, { roleIds })
+}
