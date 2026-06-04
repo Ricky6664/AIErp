@@ -58,6 +58,50 @@ export async function checkRoleExclusion(roleA: number, roleB: number): Promise<
   return (res as { data?: boolean })?.data ?? false
 }
 
+// ---- 角色继承关系 ----
+
+/** 获取角色的父角色ID列表 */
+export async function getParentRoleIds(roleId: number): Promise<number[]> {
+  const res = (await request.get(`/api/system/role/inheritance/${roleId}/parents`)) as unknown
+  return (res as { data?: number[] })?.data ?? []
+}
+
+/** 获取角色的子角色ID列表 */
+export async function getChildRoleIds(roleId: number): Promise<number[]> {
+  const res = (await request.get(`/api/system/role/inheritance/${roleId}/children`)) as unknown
+  return (res as { data?: number[] })?.data ?? []
+}
+
+/** 添加角色继承关系 */
+export function addInheritance(parentRoleId: number, childRoleId: number): Promise<void> {
+  return request.post('/api/system/role/inheritance', null, {
+    params: { parentRoleId, childRoleId }
+  }) as Promise<void>
+}
+
+/** 删除角色继承关系 */
+export function removeInheritance(parentRoleId: number, childRoleId: number): Promise<void> {
+  return request.delete('/api/system/role/inheritance', {
+    params: { parentRoleId, childRoleId }
+  }) as Promise<void>
+}
+
+// ---- 角色互斥关系 ----
+
+/** 添加角色互斥关系 */
+export function addExclusion(roleA: number, roleB: number): Promise<void> {
+  return request.post('/api/system/role/exclusion', null, {
+    params: { roleA, roleB }
+  }) as Promise<void>
+}
+
+/** 删除角色互斥关系 */
+export function removeExclusion(roleA: number, roleB: number): Promise<void> {
+  return request.delete('/api/system/role/exclusion', {
+    params: { roleA, roleB }
+  }) as Promise<void>
+}
+
 // ---- 以下为兼容旧接口，保留供 UserForm / UserGroupForm / UserRoleDialog 使用 ----
 
 export interface RoleItem {
