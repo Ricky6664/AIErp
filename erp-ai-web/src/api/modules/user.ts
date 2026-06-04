@@ -47,3 +47,8 @@ export function unlockUser(id: number): Promise<void> {
 export function resetUserPassword(id: number): Promise<string> {
   return request.post(`/api/system/user/${id}/reset-password`)
 }
+
+/** 批量分配用户角色 */
+export function assignUserRoles(userId: number, roleIds: number[]): Promise<void> {
+  return request.post('/api/system/user/role', { userId, roleIds })
+}
