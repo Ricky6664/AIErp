@@ -789,7 +789,7 @@
 
 | P0-004-009-006-001-001 | 编写页面组件 | 2026-06-05T00:10 | ✅ | api/types/menu.ts扩展(SysMenuListItem/SysMenuCreateDTO等6种类型)+api/modules/menu.ts扩展(9个CRUD函数)+views/system/menu/index.vue菜单管理页(树形表格/搜索筛选/新增编辑表单/v-permission权限/全部展开折叠), 前端构建通过 | — |
 
-| P0-004-009-006-001-002 | 编写数据绑定与交互逻辑 | 2026-06-05T01:00 | ✅ | composables/permission-ui/useIconSelector.ts(90+图标选择器组件映射)+views/system/menu/index.vue增强(图标选择弹窗/行拖拽排序sortOrder/权限编码自动提示/刷新按钮/菜单类型字段联动), 前端构建通过 | — |
+| P0-004-009-006-001-002 | 编写数据绑定与交互逻辑 | 2026-06-05T01:00 | ✅ | composables/permission-ui/useIconSelector.ts(90+图标选择器组件映射)+views/system/menu/index.vue增强(图标选择弹窗/行拖拽排序sortOrder/权限编码自动提示/刷新按钮/菜单类型字段联动), 前端构建通过 | 0c29688a |
 
 ## 汇总统计
 
