@@ -134,7 +134,7 @@
             title="确定将该设备强制下线？"
             confirm-button-text="确定"
             cancel-button-text="取消"
-            @confirm="handleKick(row)"
+            @confirm="handleKick(row as OnlineDeviceItem)"
           >
             <template #reference>
               <el-button
