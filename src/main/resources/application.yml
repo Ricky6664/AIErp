@@ -163,3 +163,27 @@ field-permission:
     cache-ttl-seconds: 1800
     # 保存字段权限前是否弹出确认框
     confirm-before-save: true
+
+# ---- 认证方式配置页配置 ----
+auth-method:
+  page:
+    # 分页默认每页条数
+    default-page-size: 20
+    # 默认排序字段
+    default-sort-field: priority
+    # 列表中是否显示已禁用的认证方式
+    show-disabled: true
+  form:
+    # 认证方式名称最小长度
+    method-name-min-length: 2
+    # 认证方式名称最大长度
+    method-name-max-length: 50
+    # 新建时是否要求填写配置JSON
+    require-config-json: false
+  priority:
+    # 优先级最小值
+    min: 1
+    # 优先级最大值
+    max: 999
+    # 新建认证方式的默认优先级
+    default-priority: 100

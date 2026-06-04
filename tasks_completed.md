@@ -800,6 +800,7 @@
 | P0-004-010-000-001-001 | 编写核心代码 | 2026-06-04T18:00 | ✅ | AuthWorkbench工作台(Vue+KpiCard+ECharts折线/环形图+快捷操作+最近登录日志)+API层+Composable+后端Controller/Mapper/VO/SQL | 0f2172d9 |
 | P0-004-010-000-001-002 | 验证功能 | 2026-06-04T20:20 | ✅ | test-report.md(29项验证/28通过)+issues.md(1个CRITICAL前后端code不匹配/2个MINOR), 后端编译通过 | ee7539c3 |
 | P0-004-010-000-001-001 | 编写核心代码 | 2026-06-05T02:00 | ✅ | 认证配置工作台前端核心代码: 更新KPI卡片(在线设备/今日登录成功/失败/SSO配置)+登录趋势折线图+认证方式环形图+快捷操作(密码策略/认证方式/SSO/在线设备)+最近登录日志表格(10条/成功绿色/失败红色)+60秒自动刷新; 后端新增RecentLoginVO+selectRecentLogins查询; mvn compile+pnpm build通过 | 0d5cbf34 |
+| P0-004-010-001-001-001 | 编写配置文件类 | 2026-06-05T01:30 | ✅ | AuthMethodProperties.java(@ConfigurationProperties prefix=auth-method/Page+Form+Priority三层嵌套配置/@Validated校验)+application.yml(auth-method段:分页默认值/表单字段长度/优先级范围/默认值), mvn compile通过 | — |
 
 ## 汇总统计
 
