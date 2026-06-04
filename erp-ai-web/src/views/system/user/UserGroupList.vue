@@ -23,7 +23,6 @@
           style="width: 140px"
           @change="handleSearch"
         >
-          <el-option label="全部" :value="undefined" />
           <el-option label="启用" :value="true" />
           <el-option label="禁用" :value="false" />
         </el-select>
@@ -77,29 +76,42 @@
             :model-value="row.isEnabled"
             :active-value="true"
             :inactive-value="false"
-            @change="(val: boolean) => handleStatusChange(row, val)"
+            @change="
+              (val: string | number | boolean) =>
+                handleStatusChange(row as UserGroupListItem, val as boolean)
+            "
           />
         </template>
       </el-table-column>
       <el-table-column prop="createTime" label="创建时间" width="180" />
-      <el-table-column label="操作" width="220" align="center" fixed="right">
+      <el-table-column label="操作" width="310" align="center" fixed="right">
         <template #default="{ row }">
           <el-button
             v-permission="'system:user-group:edit'"
             type="primary"
             link
             size="small"
-            @click="handleEdit(row)"
+            @click="handleEdit(row as { id: number })"
           >
             <el-icon><Edit /></el-icon>
             编辑
+          </el-button>
+          <el-button
+            v-permission="'system:user-group:member'"
+            type="warning"
+            link
+            size="small"
+            @click="handleMemberManage(row as { id: number })"
+          >
+            <el-icon><UserFilled /></el-icon>
+            成员管理
           </el-button>
           <el-button
             v-permission="'system:user-group:delete'"
             type="danger"
             link
             size="small"
-            @click="handleDelete(row)"
+            @click="handleDelete(row as { id: number; groupName: string })"
           >
             <el-icon><Delete /></el-icon>
             删除
@@ -130,8 +142,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { Search, Refresh, Plus, Delete, Edit } from '@element-plus/icons-vue'
+import { Search, Refresh, Plus, Delete, Edit, UserFilled } from '@element-plus/icons-vue'
 import { debounce } from 'lodash-es'
 import type { UserGroupListItem } from '@/types/userGroup'
 import {
@@ -141,13 +154,15 @@ import {
 } from '@/api/modules/userGroup'
 import UserGroupForm from './UserGroupForm.vue'
 
+const router = useRouter()
+
 const loading = ref(false)
 const groupList = ref<UserGroupListItem[]>([])
 const total = ref(0)
 const pageNum = ref(1)
 const pageSize = ref(20)
 const searchKeyword = ref('')
-const searchEnabled = ref<boolean | undefined>(undefined)
+const searchEnabled = ref<boolean>()
 const selectedIds = ref<number[]>([])
 const formVisible = ref(false)
 const editGroupId = ref<number | undefined>(undefined)
@@ -205,6 +220,10 @@ function handleAdd(): void {
 function handleEdit(row: { id: number }): void {
   editGroupId.value = row.id
   formVisible.value = true
+}
+
+function handleMemberManage(row: { id: number }): void {
+  router.push(`/system/user-group/${row.id}/members`)
 }
 
 function handleFormSuccess(): void {
