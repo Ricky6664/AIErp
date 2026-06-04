@@ -773,7 +773,7 @@
 
 | P0-004-009-001-001-002 | 验证功能 | 2026-06-04T20:30 | ✅ | 测试报告+问题清单产出(38项检查37通过)/修复2个问题(dataScope all标签色+roleCode搜索参数)/记录4个待处理问题(userCount列/dataScope筛选API/数据字段权限按钮/custom紫色) | — |
 
-| P0-004-009-002-001-001 | 编写核心代码 | 2026-06-04T21:30 | ✅ | RoleForm.vue表单页(角色CRUD/数据范围联动/角色继承/角色互斥/superadmin保护)+api/modules/role.ts扩展(继承/互斥API函数) |
+| P0-004-009-002-001-001 | 编写核心代码 | 2026-06-04T21:30 | ✅ | RoleForm.vue表单页(角色CRUD/数据范围联动/角色继承/角色互斥/superadmin保护)+api/modules/role.ts扩展(继承/互斥API函数) | 6263a42d |
 
 ## 汇总统计
 
