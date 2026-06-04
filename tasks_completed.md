@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-05T01:20
-> **归档总数**：461 条
+> **最后更新**：2026-06-04T21:30
+> **归档总数**：462 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -804,12 +804,13 @@
 | P0-004-010-002-001-001 | 编写配置文件类 | 2026-06-05T01:20 | ✅ | PasswordPolicyProperties.java(@ConfigurationProperties prefix=password-policy/Page+Form+Password+Lockout+Expire+History六层嵌套配置/@Validated校验)+application.yml(password-policy段:分页/密码复杂度规则/锁定策略/过期策略/历史密码限制), mvn compile通过 | c1c475f9 |
 | P0-004-010-002-001-002 | 验证编写配置项配置 | 2026-06-04T20:45 | ✅ | additional-spring-configuration-metadata.json新增password-policy元数据(7分组+19属性)+application.yml验证+application-dev.yml/prod.yml环境验证+敏感信息检查+mvn compile通过 | — |
 | P0-004-010-003-001-001 | 编写核心代码 | 2026-06-04T21:15 | ✅ | LoginLogList.vue登录日志列表页(搜索/表格/分页/导出CSV/清空超管)+api/types/loginLog.ts+api/modules/loginLog.ts(3个API函数)+路由注册,vite build通过 | 43f67a2b |
+| P0-004-010-003-001-002 | 验证功能 | 2026-06-04T21:30 | ✅ | 代码审查验证通过(26项检查92.3%通过率)+交付test-report.md+issues.md(发现6问题:1严重/1中等/4轻微), 登录日志列表页前端代码质量良好 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 468 | 2 | 21.8% |
+| P0 | 14 | 2,147 | 469 | 2 | 21.9% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **461** | **2** | **9.76%** |
