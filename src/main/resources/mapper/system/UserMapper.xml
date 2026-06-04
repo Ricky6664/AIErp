@@ -196,19 +196,22 @@
 
     <!-- ==================== 工作台核心统计 ==================== -->
     <resultMap id="WorkbenchStatsResultMap" type="com.erp.system.vo.UserWorkbenchVO">
-        <result column="total_users" property="totalUsers"/>
-        <result column="online_users" property="onlineUsers"/>
-        <result column="new_users_this_month" property="newUsersThisMonth"/>
+        <result column="user_total" property="userTotal"/>
+        <result column="role_total" property="roleTotal"/>
+        <result column="online_count" property="onlineCount"/>
+        <result column="today_login_count" property="todayLoginCount"/>
     </resultMap>
 
     <select id="selectWorkbenchStats" resultMap="WorkbenchStatsResultMap">
         SELECT
-            (SELECT COUNT(*) FROM sys_user WHERE is_deleted = 0) AS total_users,
-            (SELECT COUNT(*) FROM auth_online_device WHERE status = 'online') AS online_users,
+            (SELECT COUNT(*) FROM sys_user WHERE is_deleted = 0) AS user_total,
+            (SELECT COUNT(*) FROM sys_role WHERE is_deleted = 0) AS role_total,
+            (SELECT COUNT(*) FROM auth_online_device WHERE status = 'online') AS online_count,
             (SELECT COUNT(*)
-             FROM sys_user
+             FROM sys_login_log
              WHERE is_deleted = 0
-               AND create_time &gt;= date_trunc('month', CURRENT_TIMESTAMP)) AS new_users_this_month
+               AND login_at >= CURRENT_DATE
+               AND login_status = 'success') AS today_login_count
     </select>
 
     <!-- ==================== 角色分配统计 ==================== -->
@@ -228,21 +231,42 @@
         ORDER BY user_count DESC
     </select>
 
-    <!-- ==================== 部门关联统计 ==================== -->
-    <resultMap id="DeptDistResultMap" type="com.erp.system.vo.UserWorkbenchVO$DeptDistVO">
-        <result column="dept_name" property="deptName"/>
-        <result column="user_count" property="userCount"/>
+    <!-- ==================== 近7天登录趋势 ==================== -->
+    <resultMap id="LoginTrendResultMap" type="com.erp.system.vo.UserWorkbenchVO$LoginTrendVO">
+        <result column="login_date" property="date"/>
+        <result column="login_count" property="count"/>
     </resultMap>
 
-    <select id="selectDeptDistribution" resultMap="DeptDistResultMap">
+    <select id="selectLoginTrend" resultMap="LoginTrendResultMap">
         SELECT
-            d.dept_name,
-            COUNT(ud.user_id) AS user_count
-        FROM sys_dept d
-        LEFT JOIN sys_user_dept ud ON d.id = ud.dept_id AND ud.is_deleted = 0
-        WHERE d.is_deleted = 0
-        GROUP BY d.id, d.dept_name
-        ORDER BY user_count DESC
+            TO_CHAR(d::date, 'YYYY-MM-DD') AS login_date,
+            COALESCE(COUNT(l.id), 0) AS login_count
+        FROM generate_series(CURRENT_DATE - INTERVAL '6 days', CURRENT_DATE, '1 day') AS d
+        LEFT JOIN sys_login_log l ON DATE(l.login_at) = d::date
+            AND l.is_deleted = 0
+            AND l.login_status = 'success'
+        GROUP BY d::date
+        ORDER BY d::date
+    </select>
+
+    <!-- ==================== 最近登录日志 ==================== -->
+    <resultMap id="RecentLoginResultMap" type="com.erp.system.vo.UserWorkbenchVO$RecentLoginVO">
+        <result column="username" property="username"/>
+        <result column="login_time" property="loginTime"/>
+        <result column="login_ip" property="ip"/>
+        <result column="login_status" property="status"/>
+    </resultMap>
+
+    <select id="selectRecentLogins" resultMap="RecentLoginResultMap">
+        SELECT
+            username,
+            TO_CHAR(login_at, 'YYYY-MM-DD HH24:MI:SS') AS login_time,
+            COALESCE(ip_address, '-') AS login_ip,
+            login_status
+        FROM sys_login_log
+        WHERE is_deleted = 0
+        ORDER BY login_at DESC
+        LIMIT #{limit}
     </select>
 
 </mapper>

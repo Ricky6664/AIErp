@@ -1,5 +1,6 @@
 package com.erp.system.vo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.List;
@@ -13,15 +14,32 @@ import java.util.List;
 @Data
 public class UserWorkbenchVO {
 
-    private Long totalUsers;
+    @JsonProperty("userTotal")
+    private Long userTotal;
 
-    private Long onlineUsers;
+    @JsonProperty("roleTotal")
+    private Long roleTotal;
 
-    private Long newUsersThisMonth;
+    @JsonProperty("onlineCount")
+    private Long onlineCount;
 
+    @JsonProperty("todayLoginCount")
+    private Long todayLoginCount;
+
+    @JsonProperty("loginTrend")
+    private List<LoginTrendVO> loginTrend;
+
+    @JsonProperty("roleDistribution")
     private List<RoleDistVO> roleDistribution;
 
-    private List<DeptDistVO> deptDistribution;
+    @JsonProperty("recentLogins")
+    private List<RecentLoginVO> recentLogins;
+
+    @Data
+    public static class LoginTrendVO {
+        private String date;
+        private Long count;
+    }
 
     @Data
     public static class RoleDistVO {
@@ -30,8 +48,10 @@ public class UserWorkbenchVO {
     }
 
     @Data
-    public static class DeptDistVO {
-        private String deptName;
-        private Long userCount;
+    public static class RecentLoginVO {
+        private String username;
+        private String loginTime;
+        private String ip;
+        private String status;
     }
 }

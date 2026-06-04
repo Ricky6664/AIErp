@@ -117,7 +117,7 @@ public interface UserMapper extends BaseMapperX<SysUser> {
     int setPrimaryDept(@Param("userId") Long userId, @Param("deptId") Long deptId);
 
     /**
-     * 查询工作台核心统计数据(用户总数/在线用户数/本月新增).
+     * 查询工作台核心统计数据(用户总数/角色总数/在线用户数/今日登录次数).
      */
     UserWorkbenchVO selectWorkbenchStats();
 
@@ -127,7 +127,12 @@ public interface UserMapper extends BaseMapperX<SysUser> {
     List<UserWorkbenchVO.RoleDistVO> selectRoleDistribution();
 
     /**
-     * 查询部门关联统计, 按部门分组统计用户数.
+     * 查询近7天每日登录次数趋势.
      */
-    List<UserWorkbenchVO.DeptDistVO> selectDeptDistribution();
+    List<UserWorkbenchVO.LoginTrendVO> selectLoginTrend();
+
+    /**
+     * 查询最近N条登录日志.
+     */
+    List<UserWorkbenchVO.RecentLoginVO> selectRecentLogins(@Param("limit") int limit);
 }

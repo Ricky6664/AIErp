@@ -70,12 +70,21 @@ export const DEV_VIRTUAL_SCROLL: RouteRecordRaw = {
   meta: { title: '虚拟滚动验证', hideMenu: false, hideTab: false }
 }
 
+// 用户管理工作台
+export const USER_WORKBENCH: RouteRecordRaw = {
+  path: '/user/workbench',
+  name: 'UserWorkbench',
+  component: () => import('@/views/user/workbench/index.vue'),
+  meta: { title: '用户管理工作台', icon: 'DataBoard', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
   ROOT_ROUTE,
   HOME_ROUTE,
   DEV_VIRTUAL_SCROLL,
+  USER_WORKBENCH,
   REDIRECT_ROUTE,
   ERROR_404,
   ERROR_403,

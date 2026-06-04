@@ -246,6 +246,14 @@ onMounted(async () => {
   if (pieContainer.value) {
     initPieChart(pieContainer.value)
   }
+  if (workbenchData.value) {
+    if (trendContainer.value) {
+      updateTrendChart(workbenchData.value.loginTrend)
+    }
+    if (pieContainer.value) {
+      updatePieChart(workbenchData.value.roleDistribution)
+    }
+  }
   window.addEventListener('resize', handleResize)
 })
 

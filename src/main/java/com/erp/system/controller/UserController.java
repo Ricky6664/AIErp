@@ -12,6 +12,7 @@ import com.erp.system.dto.SysUserDTO;
 import com.erp.system.entity.SysUser;
 import com.erp.system.service.UserService;
 import com.erp.system.vo.SysUserVO;
+import com.erp.system.vo.UserWorkbenchVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -219,6 +220,15 @@ public class UserController {
     public RT<Void> clearRoles(@PathVariable Long userId) {
         userService.assignRoles(userId, List.of());
         return RT.ok();
+    }
+
+    // ==================== 工作台接口 ====================
+
+    @Operation(summary = "获取用户管理工作台聚合数据")
+    @SaCheckPermission("system:user:query")
+    @GetMapping("/workbench")
+    public RT<UserWorkbenchVO> workbench() {
+        return RT.ok(userService.getWorkbenchData());
     }
 
     // ==================== Helper Methods ====================

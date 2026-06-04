@@ -241,7 +241,8 @@ public class UserServiceImpl extends ServiceImplX<UserMapper, SysUser> implement
             stats = new UserWorkbenchVO();
         }
         stats.setRoleDistribution(baseMapper.selectRoleDistribution());
-        stats.setDeptDistribution(baseMapper.selectDeptDistribution());
+        stats.setLoginTrend(baseMapper.selectLoginTrend());
+        stats.setRecentLogins(baseMapper.selectRecentLogins(10));
         return stats;
     }
 
