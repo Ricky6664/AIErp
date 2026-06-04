@@ -756,7 +756,7 @@
 | P0-004-008-002-001-001 | 编写核心代码 | 2026-06-04T13:50 | ✅ | 用户编辑表单核心代码: UserForm.vue(新增/编辑Dialog/表单校验/部门树/角色分配/头像上传)/role.ts API/index.vue集成UserForm组件/pnpm build通过 | a0f3f3e0 |
 | P0-004-008-003-001-001 | 编写核心代码 | 2026-06-04T14:40 | ✅ | UserRoleDialog.vue角色分配弹窗: el-dialog+checkbox-group+角色互斥校验+超管保护+变更摘要+保存确认/API新增assignUserRoles+getRoleExclusions+checkRoleExclusion | — |
 | P0-004-008-003-001-002 | 验证功能 | 2026-06-04T15:00 | ✅ | 用户角色分配弹窗验证: 静态代码审查26项检查(20通过/2Bug/4建议)+编译验证零新增错误+边界9项+异常5项; 发现问题: isCurrentUserSuperadmin命名误导/角色名匹配脆弱; 测试报告与问题清单已生成 | — |
-| P0-004-008-004-001-001 | 编写核心代码 | 2026-06-04T15:30 | ✅ | UserDeptDialog.vue部门关联弹窗: el-dialog(600px)+el-tree复选框多选(半选处理)+主部门radio+保存确认+清除全部/API新增assignUserDepts+clearUserDepts+getDeptTree | — |
+| P0-004-008-004-001-001 | 编写核心代码 | 2026-06-04T15:30 | ✅ | UserDeptDialog.vue部门关联弹窗: el-dialog(600px)+el-tree复选框多选(半选处理)+主部门radio+保存确认+清除全部/API新增assignUserDepts+clearUserDepts+getDeptTree | 40f3b15a |
 
 ## 汇总统计
 
