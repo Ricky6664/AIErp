@@ -744,6 +744,7 @@
 | P0-004-007-001-001-002 | 验证功能 | 2026-06-04T12:10 | ✅ | 验证路由守卫核心逻辑: 15项功能检查+6项边界条件+3项异常场景全部通过, vue-tsc编译无错误, 测试报告+问题清单已归档 | — |
 | P0-004-007-002-001-001 | 编写核心代码 | 2026-06-04T12:10 | ✅ | usePermission composable(hasPermission/hasAnyPermission/hasRole/superadmin bypass) + v-role指令 + 12项vitest单元测试全部通过 | — |
 | P0-004-007-002-001-002 | 验证功能 | 2026-06-04T12:15 | ✅ | 验证usePermission composable: 12项vitest全部通过/pnpm build通过/修复vi导入问题/测试报告+问题清单已归档 | (pending) |
+| P0-004-007-003-001-001 | 编写核心代码 | 2026-06-04T12:20 | ✅ | 侧边栏菜单动态渲染核心代码: Sidebar/index.vue(permissionStore菜单树+el-menu递归渲染+折叠+路由高亮)/SidebarItem.vue(递归子组件处理三种菜单类型+visible过滤+外链)/MenuItemIcon.vue(Element Plus/SVG/自定义图标), pnpm build通过 | (pending) |
 
 ## 汇总统计
 
