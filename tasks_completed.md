@@ -819,15 +819,16 @@
 | P0-004-011-002-001-001 | 实现密码强度校验工具类 | 2026-06-04T22:00 | ✅ | PasswordValidator(@Component)实现四选三复杂度/长度8-32/连续3位相同字符/用户名匹配校验+PasswordStrength枚举(WEAK/MEDIUM/STRONG/VERY_STRONG)+PasswordValidationResult结果类+54项单元测试全部通过 | (pending) |
 | P0-004-011-002-001-002 | 前端密码强度指示器 | 2026-06-04T22:10 | ✅ | PasswordStrength.vue组件(el-progress进度条+6分制评分+三级映射弱/中/强+四选三规则检查+逐项✔/✘标记)+passwordPolicy API模块+appStore集成+登录页集成 | 688a6266 |
 | P0-004-011-002-002-001 | 实现密码过期逻辑 | 2026-06-04T23:05 | ✅ | 后端: UserService.checkPasswordExpired+AuthService登录集成+PasswordExpireTask定时任务+密码修改时计算expire_date+历史密码校验(近3次); 前端: ChangePassword.vue+路由守卫强制跳转+PASSWORD_EXPIRED_WHITE_LIST+userStore.passwordExpired状态 | 3f3d1dc5 |
+| P0-004-011-002-002-002 | 实现历史密码校验 | 2026-06-04T23:45 | ✅ | 23项单元测试(UserServicePasswordHistoryTest)验证历史密码校验逻辑: 核心拒绝/接受流程+边界条件(空历史/null/1-3条)+参数校验+密码重置记录; 发现1个消息丢失问题已记录 | (pending) |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 476 | 2 | 22.2% |
+| P0 | 14 | 2,147 | 477 | 2 | 22.2% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **467** | **2** | **9.90%** |
+| **合计** | **46** | **4,716** | **468** | **2** | **9.92%** |
 
 ---
 
