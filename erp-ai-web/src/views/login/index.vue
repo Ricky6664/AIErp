@@ -43,6 +43,11 @@
             :prefix-icon="Lock"
             show-password
           />
+          <PasswordStrength
+            :password="form.password"
+            :policy="appStore.passwordPolicy ?? undefined"
+            @update:strength="onStrengthChange"
+          />
         </el-form-item>
 
         <el-form-item prop="captchaCode">
@@ -77,9 +82,13 @@
 import { onMounted } from 'vue'
 import { User, Lock, Key } from '@element-plus/icons-vue'
 import CaptchaImage from './components/CaptchaImage.vue'
+import PasswordStrength from './components/PasswordStrength.vue'
 import { useLogin } from '@/composables/login/useLogin'
+import { useAppStore } from '@/stores/modules/app'
 
 defineOptions({ name: 'LoginPage' })
+
+const appStore = useAppStore()
 
 const {
   formRef,
@@ -92,6 +101,11 @@ const {
   handleLogin,
   handleCaptchaRefresh
 } = useLogin()
+
+function onStrengthChange(level: string) {
+  // Password strength callback - can be used for analytics or pre-submit validation
+  void level
+}
 
 defineExpose({ formRef })
 

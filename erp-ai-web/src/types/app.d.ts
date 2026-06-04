@@ -1,3 +1,5 @@
+import type { PasswordPolicy } from '@/api/types/passwordPolicy'
+
 export type DeviceType = 'desktop' | 'mobile'
 export type ThemeType = 'light' | 'dark'
 
@@ -14,4 +16,5 @@ export interface IAppState {
   dateTimeFormat: string
   themeColor: string
   watermarkEnabled: boolean
+  passwordPolicy: PasswordPolicy | null
 }

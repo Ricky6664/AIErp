@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import type { IAppState, DeviceType, ThemeType } from '@/types/app'
 import { getSystemConfigApi } from '@/api/modules/system'
+import { getCurrentPasswordPolicyApi } from '@/api/modules/passwordPolicy'
 
 interface I18nInstance {
   global: {
@@ -42,7 +43,8 @@ export const useAppStore = defineStore('app', {
       dateFormat: cached?.dateFormat || 'YYYY-MM-DD',
       dateTimeFormat: cached?.dateTimeFormat || 'YYYY-MM-DD HH:mm:ss',
       themeColor: cached?.themeColor || '#409EFF',
-      watermarkEnabled: cached?.watermarkEnabled === true
+      watermarkEnabled: cached?.watermarkEnabled === true,
+      passwordPolicy: null
     }
   },
 
@@ -123,6 +125,20 @@ export const useAppStore = defineStore('app', {
 
       document.documentElement.style.setProperty('--el-color-primary', this.themeColor)
       document.documentElement.style.setProperty('--app-system-primary', this.themeColor)
+
+      // Also fetch password policy
+      await this.fetchPasswordPolicy()
+    },
+
+    async fetchPasswordPolicy(): Promise<void> {
+      try {
+        const policy = await getCurrentPasswordPolicyApi()
+        if (policy) {
+          this.passwordPolicy = policy
+        }
+      } catch {
+        // Keep null / use defaults
+      }
     }
   },
 

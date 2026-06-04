@@ -817,6 +817,7 @@
 | P0-004-011-001-002-001 | 前端登录页验证码组件 | 2026-06-04T21:35 | ✅ | 验证前端登录页验证码组件: 40/40检查通过/覆盖核心功能+边界条件+国际化+组件架构+后端对接/发现3个问题(缺API端点/无图片生成/配置未注入)/测试报告+问题清单已归档 | 399ccd82 |
 | P0-004-011-001-002-002 | 后端登录接口改造 | 2026-06-04T21:50 | ✅ | 创建CaptchaVO/扩展CaptchaService添加图形验证码图片生成(BufferedImage+干扰线+噪点+Base64)/新增GET /api/auth/captcha端点/60个auth模块测试全部通过 | f5bc94c3 |
 | P0-004-011-002-001-001 | 实现密码强度校验工具类 | 2026-06-04T22:00 | ✅ | PasswordValidator(@Component)实现四选三复杂度/长度8-32/连续3位相同字符/用户名匹配校验+PasswordStrength枚举(WEAK/MEDIUM/STRONG/VERY_STRONG)+PasswordValidationResult结果类+54项单元测试全部通过 | (pending) |
+| P0-004-011-002-001-002 | 前端密码强度指示器 | 2026-06-04T22:10 | ✅ | PasswordStrength.vue组件(el-progress进度条+6分制评分+三级映射弱/中/强+四选三规则检查+逐项✔/✘标记)+passwordPolicy API模块+appStore集成+登录页集成 | (pending) |
 
 ## 汇总统计
 
