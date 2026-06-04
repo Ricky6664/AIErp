@@ -17,6 +17,24 @@
       "type": "com.erp.system.config.MenuPermissionProperties$Assignment",
       "description": "权限分配操作配置。",
       "sourceType": "com.erp.system.config.MenuPermissionProperties$Assignment"
+    },
+    {
+      "name": "data-permission",
+      "type": "com.erp.system.config.DataPermissionProperties",
+      "description": "数据权限配置。",
+      "sourceType": "com.erp.system.config.DataPermissionProperties"
+    },
+    {
+      "name": "data-permission.data-scope",
+      "type": "com.erp.system.config.DataPermissionProperties$DataScope",
+      "description": "数据权限范围配置（可见选项与默认值）。",
+      "sourceType": "com.erp.system.config.DataPermissionProperties$DataScope"
+    },
+    {
+      "name": "data-permission.rule",
+      "type": "com.erp.system.config.DataPermissionProperties$Rule",
+      "description": "数据权限规则配置（缓存、字段级、默认拒绝）。",
+      "sourceType": "com.erp.system.config.DataPermissionProperties$Rule"
     }
   ],
   "properties": [
@@ -82,6 +100,62 @@
       "description": "保存权限分配前是否弹出确认框。",
       "sourceType": "com.erp.system.config.MenuPermissionProperties$Assignment",
       "defaultValue": true
+    },
+    {
+      "name": "data-permission.data-scope.default-scope",
+      "type": "java.lang.String",
+      "description": "默认数据权限范围（SELF=仅本人, DEPT=本部门, COMPANY=本公司, ALL=全部）。",
+      "sourceType": "com.erp.system.config.DataPermissionProperties$DataScope",
+      "defaultValue": "SELF"
+    },
+    {
+      "name": "data-permission.data-scope.show-self",
+      "type": "java.lang.Boolean",
+      "description": "是否在前端显示'仅本人'选项。",
+      "sourceType": "com.erp.system.config.DataPermissionProperties$DataScope",
+      "defaultValue": true
+    },
+    {
+      "name": "data-permission.data-scope.show-dept",
+      "type": "java.lang.Boolean",
+      "description": "是否在前端显示'本部门'选项。",
+      "sourceType": "com.erp.system.config.DataPermissionProperties$DataScope",
+      "defaultValue": true
+    },
+    {
+      "name": "data-permission.data-scope.show-company",
+      "type": "java.lang.Boolean",
+      "description": "是否在前端显示'本公司'选项。",
+      "sourceType": "com.erp.system.config.DataPermissionProperties$DataScope",
+      "defaultValue": true
+    },
+    {
+      "name": "data-permission.data-scope.show-all",
+      "type": "java.lang.Boolean",
+      "description": "是否在前端显示'全部'选项。",
+      "sourceType": "com.erp.system.config.DataPermissionProperties$DataScope",
+      "defaultValue": false
+    },
+    {
+      "name": "data-permission.rule.cache-ttl-seconds",
+      "type": "java.lang.Long",
+      "description": "数据权限规则缓存 TTL（秒）。",
+      "sourceType": "com.erp.system.config.DataPermissionProperties$Rule",
+      "defaultValue": 1800
+    },
+    {
+      "name": "data-permission.rule.field-level-enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用字段级数据权限控制。",
+      "sourceType": "com.erp.system.config.DataPermissionProperties$Rule",
+      "defaultValue": false
+    },
+    {
+      "name": "data-permission.rule.default-deny",
+      "type": "java.lang.Boolean",
+      "description": "数据权限规则匹配失败时是否默认拒绝访问。",
+      "sourceType": "com.erp.system.config.DataPermissionProperties$Rule",
+      "defaultValue": true
     }
   ],
   "hints": [
@@ -93,6 +167,15 @@
         { "value": "edit", "description": "编辑权限。" },
         { "value": "delete", "description": "删除权限。" },
         { "value": "audit", "description": "审核权限。" }
+      ]
+    },
+    {
+      "name": "data-permission.data-scope.default-scope",
+      "values": [
+        { "value": "SELF", "description": "仅本人数据。" },
+        { "value": "DEPT", "description": "本部门数据。" },
+        { "value": "COMPANY", "description": "本公司数据。" },
+        { "value": "ALL", "description": "全部数据。" }
       ]
     }
   ]
