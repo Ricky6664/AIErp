@@ -758,6 +758,7 @@
 | P0-004-008-003-001-002 | 验证功能 | 2026-06-04T15:00 | ✅ | 用户角色分配弹窗验证: 静态代码审查26项检查(20通过/2Bug/4建议)+编译验证零新增错误+边界9项+异常5项; 发现问题: isCurrentUserSuperadmin命名误导/角色名匹配脆弱; 测试报告与问题清单已生成 | — |
 | P0-004-008-004-001-001 | 编写核心代码 | 2026-06-04T15:30 | ✅ | UserDeptDialog.vue部门关联弹窗: el-dialog(600px)+el-tree复选框多选(半选处理)+主部门radio+保存确认+清除全部/API新增assignUserDepts+clearUserDepts+getDeptTree | 40f3b15a |
 | P0-004-008-004-001-002 | 验证功能 | 2026-06-04T16:00 | ✅ | 用户部门关联弹窗验证: 前后端全链路代码审查(8个文件)/发现4个问题(2CRITICAL+2HIGH): 3个API端点缺失+DetailVO缺deptIds字段+primaryDeptId传递链路断裂+is_primary硬编码; 测试报告与问题清单已生成 | — |
+| P0-004-008-005-001-001 | 编写核心代码 | 2026-06-04T16:00 | ✅ | 用户组管理列表页: UserGroupController(CRUD+分页查询+编码唯一性+成员计数)/SysUserGroupVO/DTO/mapper.countMembersByGroupIds/UserGroupList.vue(搜索/分页/状态切换/批量删除)/UserGroupForm.vue(新增编辑)/API层+类型定义 | — |
 
 ## 汇总统计
 

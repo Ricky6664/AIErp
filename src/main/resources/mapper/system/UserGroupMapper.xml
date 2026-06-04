@@ -48,4 +48,16 @@
           AND is_deleted = 0
     </select>
 
+    <!-- ==================== 批量统计用户组成员数 ==================== -->
+    <select id="countMembersByGroupIds" resultType="java.util.HashMap">
+        SELECT group_id, COUNT(*) AS member_count
+        FROM sys_user_group_member
+        WHERE group_id IN
+        <foreach collection="groupIds" item="gid" open="(" separator="," close=")">
+            #{gid}
+        </foreach>
+          AND is_deleted = 0
+        GROUP BY group_id
+    </select>
+
 </mapper>

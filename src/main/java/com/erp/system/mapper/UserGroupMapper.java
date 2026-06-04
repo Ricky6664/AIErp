@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户组 Mapper 接口.
@@ -27,4 +28,6 @@ public interface UserGroupMapper extends BaseMapperX<SysUserGroup> {
     List<Long> selectGroupIdsByUserId(@Param("userId") Long userId);
 
     int countGroupMember(@Param("groupId") Long groupId, @Param("userId") Long userId);
+
+    List<Map<String, Object>> countMembersByGroupIds(@Param("groupIds") List<Long> groupIds);
 }
