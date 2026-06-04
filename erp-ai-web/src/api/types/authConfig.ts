@@ -20,4 +20,12 @@ export interface AuthConfigWorkbenchData {
   ssoConfigCount: number
   loginMethodDistribution: LoginMethodDistItem[]
   dailyLoginStats: DailyLoginStatItem[]
+  recentLogins: RecentLoginItem[]
+}
+
+export interface RecentLoginItem {
+  username: string
+  loginTime: string
+  ip: string
+  status: string
 }

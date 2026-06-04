@@ -38,6 +38,8 @@ public class AuthConfigWorkbenchVO implements Serializable {
 
     private List<DailyLoginStatVO> dailyLoginStats;
 
+    private List<RecentLoginVO> recentLogins;
+
     @Data
     public static class LoginMethodDistVO implements Serializable {
 
@@ -60,5 +62,20 @@ public class AuthConfigWorkbenchVO implements Serializable {
         private Long successCount;
 
         private Long failCount;
+    }
+
+    @Data
+    public static class RecentLoginVO implements Serializable {
+
+        @Serial
+        private static final long serialVersionUID = 1L;
+
+        private String username;
+
+        private String loginTime;
+
+        private String ip;
+
+        private String status;
     }
 }

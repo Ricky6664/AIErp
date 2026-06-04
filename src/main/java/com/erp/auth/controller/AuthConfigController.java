@@ -266,6 +266,8 @@ public class AuthConfigController {
                 authConfigWorkbenchMapper.selectLoginMethodDistribution(tenantId, start, end));
         vo.setDailyLoginStats(
                 authConfigWorkbenchMapper.selectDailyLoginStats(tenantId, start, end));
+        vo.setRecentLogins(
+                authConfigWorkbenchMapper.selectRecentLogins(tenantId, 10));
 
         return RT.ok(vo);
     }

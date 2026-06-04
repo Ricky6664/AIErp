@@ -27,4 +27,7 @@ public interface AuthConfigWorkbenchMapper {
     List<AuthConfigWorkbenchVO.DailyLoginStatVO> selectDailyLoginStats(@Param("tenantId") Long tenantId,
                                                                         @Param("startTime") LocalDateTime startTime,
                                                                         @Param("endTime") LocalDateTime endTime);
+
+    List<AuthConfigWorkbenchVO.RecentLoginVO> selectRecentLogins(@Param("tenantId") Long tenantId,
+                                                                  @Param("limit") int limit);
 }

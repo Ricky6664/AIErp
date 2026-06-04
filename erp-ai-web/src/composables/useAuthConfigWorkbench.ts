@@ -1,4 +1,4 @@
-import { ref, shallowRef } from 'vue'
+import { ref, shallowRef, onUnmounted } from 'vue'
 import type {
   AuthConfigWorkbenchData,
   LoginMethodDistItem,
@@ -211,6 +211,30 @@ export function useAuthConfigWorkbench() {
     allChartRefs().forEach((c) => c.dispose())
   }
 
+  // ---- Auto-refresh ----
+  let refreshTimer: ReturnType<typeof setInterval> | null = null
+
+  function startAutoRefresh(intervalMs: number, getParams: () => WorkbenchQueryParams): void {
+    stopAutoRefresh()
+    refreshTimer = setInterval(() => {
+      fetchData(getParams())
+    }, intervalMs)
+  }
+
+  function stopAutoRefresh(): void {
+    if (refreshTimer !== null) {
+      clearInterval(refreshTimer)
+      refreshTimer = null
+    }
+  }
+
+  // Cleanup on composable scope disposal
+  if (typeof onUnmounted === 'function') {
+    onUnmounted(() => {
+      stopAutoRefresh()
+    })
+  }
+
   return {
     loading,
     workbenchData,
@@ -230,6 +254,8 @@ export function useAuthConfigWorkbench() {
     updateRadarChart,
     exportChartAsImage,
     resizeCharts,
-    disposeCharts
+    disposeCharts,
+    startAutoRefresh,
+    stopAutoRefresh
   }
 }

@@ -95,4 +95,25 @@
         ORDER BY login_date DESC
     </select>
 
+    <!-- ==================== 最近登录日志 ==================== -->
+    <resultMap id="RecentLoginResultMap" type="com.erp.auth.vo.AuthConfigWorkbenchVO$RecentLoginVO">
+        <result column="username" property="username"/>
+        <result column="login_time" property="loginTime"/>
+        <result column="ip" property="ip"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <select id="selectRecentLogins" resultMap="RecentLoginResultMap">
+        SELECT
+            COALESCE(u.username, '—') AS username,
+            TO_CHAR(l.login_time, 'YYYY-MM-DD HH24:MI:SS') AS login_time,
+            COALESCE(l.ip_address, '—') AS ip,
+            l.status
+        FROM sys_login_log l
+        LEFT JOIN sys_user u ON l.user_id = u.id
+        WHERE (l.tenant_id = #{tenantId} OR #{tenantId} IS NULL)
+        ORDER BY l.login_time DESC
+        LIMIT #{limit}
+    </select>
+
 </mapper>

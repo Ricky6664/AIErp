@@ -1,8 +1,8 @@
 <template>
   <div class="auth-config-workbench-page">
     <div class="page-header">
-      <h2>权限配置工作台</h2>
-      <p class="page-desc">认证配置概览，包括认证方式、密码策略统计、登录方式分布及每日登录趋势</p>
+      <h2>认证配置工作台</h2>
+      <p class="page-desc">认证配置概览，包括在线设备、登录统计、认证方式分布及最近登录日志</p>
       <el-button :icon="RefreshRight" :loading="loading" @click="handleRefresh">刷新数据</el-button>
     </div>
 
@@ -34,33 +34,33 @@
     <el-row v-loading="loading && !workbenchData" :gutter="16" class="kpi-row">
       <el-col :xs="12" :sm="12" :md="6">
         <KpiCard
-          :icon="Lock"
-          label="认证方式总数"
-          :value="workbenchData?.totalAuthMethods ?? 0"
+          :icon="Monitor"
+          label="在线设备数"
+          :value="workbenchData?.onlineDeviceCount ?? 0"
           color="blue"
         />
       </el-col>
       <el-col :xs="12" :sm="12" :md="6">
         <KpiCard
-          :icon="CircleCheck"
-          label="已启用认证方式"
-          :value="workbenchData?.enabledAuthMethods ?? 0"
+          :icon="TrendCharts"
+          label="今日登录成功"
+          :value="workbenchData?.todayLoginSuccessCount ?? 0"
           color="green"
         />
       </el-col>
       <el-col :xs="12" :sm="12" :md="6">
         <KpiCard
-          :icon="Key"
-          label="密码策略总数"
-          :value="workbenchData?.totalPasswordPolicies ?? 0"
+          :icon="WarningFilled"
+          label="今日登录失败"
+          :value="workbenchData?.todayLoginFailCount ?? 0"
           color="orange"
         />
       </el-col>
       <el-col :xs="12" :sm="12" :md="6">
         <KpiCard
-          :icon="Monitor"
-          label="在线设备数"
-          :value="workbenchData?.onlineDeviceCount ?? 0"
+          :icon="Connection"
+          label="SSO配置数"
+          :value="workbenchData?.ssoConfigCount ?? 0"
           color="purple"
         />
       </el-col>
@@ -84,7 +84,7 @@
         <el-card shadow="never">
           <template #header>
             <div class="card-header">
-              <span class="card-title">登录方式分布（饼图）</span>
+              <span class="card-title">认证方式分布（环形图）</span>
               <el-button size="small" text @click="handleExportPieChart">导出PNG</el-button>
             </div>
           </template>
@@ -95,66 +95,54 @@
       </el-col>
     </el-row>
 
-    <el-row :gutter="16" class="chart-row">
-      <el-col :xs="24" :md="14">
+    <el-row :gutter="16" class="action-row">
+      <el-col :span="24">
         <el-card shadow="never">
           <template #header>
-            <div class="card-header">
-              <span class="card-title">每日登录统计（柱状图）</span>
-              <el-button size="small" text @click="handleExportBarChart">导出PNG</el-button>
-            </div>
+            <span class="card-title">快捷操作</span>
           </template>
-          <el-skeleton :loading="loading && !workbenchData" animated :rows="6">
-            <div ref="barChartContainer" class="chart-container"></div>
-          </el-skeleton>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :md="10">
-        <el-card shadow="never">
-          <template #header>
-            <div class="card-header">
-              <span class="card-title">登录方式分布（雷达图）</span>
-              <el-button size="small" text @click="handleExportRadarChart">导出PNG</el-button>
-            </div>
-          </template>
-          <el-skeleton :loading="loading && !workbenchData" animated :rows="6">
-            <div ref="radarChartContainer" class="chart-container"></div>
-          </el-skeleton>
+          <el-space wrap>
+            <el-button type="primary" :icon="Key" @click="handleQuickAction('password-policy')">
+              密码策略配置
+            </el-button>
+            <el-button type="success" :icon="Lock" @click="handleQuickAction('auth-method')">
+              认证方式管理
+            </el-button>
+            <el-button type="warning" :icon="Connection" @click="handleQuickAction('sso-config')">
+              SSO配置
+            </el-button>
+            <el-button type="info" :icon="Monitor" @click="handleQuickAction('online-device')">
+              在线设备
+            </el-button>
+          </el-space>
         </el-card>
       </el-col>
     </el-row>
 
-    <el-row :gutter="16" class="detail-row">
-      <el-col :xs="12" :sm="12" :md="6">
+    <el-row :gutter="16" class="table-row">
+      <el-col :span="24">
         <el-card shadow="never">
-          <div class="detail-stat">
-            <div class="detail-value success">{{ workbenchData?.todayLoginSuccessCount ?? 0 }}</div>
-            <div class="detail-label">今日登录成功</div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="12" :sm="12" :md="6">
-        <el-card shadow="never">
-          <div class="detail-stat">
-            <div class="detail-value danger">{{ workbenchData?.todayLoginFailCount ?? 0 }}</div>
-            <div class="detail-label">今日登录失败</div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="12" :sm="12" :md="6">
-        <el-card shadow="never">
-          <div class="detail-stat">
-            <div class="detail-value">{{ workbenchData?.enabledPasswordPolicies ?? 0 }}</div>
-            <div class="detail-label">已启用密码策略</div>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :xs="12" :sm="12" :md="6">
-        <el-card shadow="never">
-          <div class="detail-stat">
-            <div class="detail-value">{{ workbenchData?.ssoConfigCount ?? 0 }}</div>
-            <div class="detail-label">SSO配置数</div>
-          </div>
+          <template #header>
+            <span class="card-title">最近登录日志</span>
+          </template>
+          <el-table
+            :data="workbenchData?.recentLogins ?? []"
+            border
+            stripe
+            empty-text="暂无登录记录"
+            style="width: 100%"
+          >
+            <el-table-column prop="username" label="用户名" width="140" />
+            <el-table-column prop="loginTime" label="登录时间" min-width="180" />
+            <el-table-column prop="ip" label="IP地址" width="160" />
+            <el-table-column prop="status" label="状态" width="100" align="center">
+              <template #default="{ row }">
+                <el-tag :type="getStatusType(row.status)" size="small">
+                  {{ row.status === 'SUCCESS' ? '成功' : '失败' }}
+                </el-tag>
+              </template>
+            </el-table-column>
+          </el-table>
         </el-card>
       </el-col>
     </el-row>
@@ -163,38 +151,43 @@
 
 <script setup lang="ts">
 import { ref, watch, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
-import { Lock, CircleCheck, Key, Monitor, RefreshRight } from '@element-plus/icons-vue'
+import {
+  Lock,
+  Key,
+  Monitor,
+  Connection,
+  TrendCharts,
+  WarningFilled,
+  RefreshRight
+} from '@element-plus/icons-vue'
 import KpiCard from '@/components/KpiCard/index.vue'
 import { useAuthConfigWorkbench } from '@/composables/useAuthConfigWorkbench'
 import type { DimensionType } from '@/composables/useAuthConfigWorkbench'
+
+const router = useRouter()
 
 const {
   loading,
   workbenchData,
   dimension,
-  dailyLoginChartRef,
   loginDistChartRef,
-  barChartRef,
-  radarChartRef,
+  dailyLoginChartRef,
   fetchData,
   initLoginDistChart,
   updateLoginDistChart,
   initDailyLoginChart,
   updateDailyLoginChart,
-  initBarChart,
-  updateBarChart,
-  initRadarChart,
-  updateRadarChart,
   exportChartAsImage,
   resizeCharts,
-  disposeCharts
+  disposeCharts,
+  startAutoRefresh,
+  stopAutoRefresh
 } = useAuthConfigWorkbench()
 
 const loginDistContainer = ref<HTMLElement | null>(null)
 const dailyLoginContainer = ref<HTMLElement | null>(null)
-const barChartContainer = ref<HTMLElement | null>(null)
-const radarChartContainer = ref<HTMLElement | null>(null)
 
 const currentDimension = ref<DimensionType>('day')
 const dateRange = ref<[string, string] | null>(null)
@@ -210,6 +203,10 @@ function getTimeParams(): { startTime?: string; endTime?: string } {
     startTime: `${start} 00:00:00`,
     endTime: `${end} 23:59:59`
   }
+}
+
+function getStatusType(status: string): 'success' | 'danger' {
+  return status === 'SUCCESS' ? 'success' : 'danger'
 }
 
 async function handleDateRangeChange(): Promise<void> {
@@ -250,8 +247,6 @@ function updateAllCharts(data: typeof workbenchData.value): void {
   if (!data) return
   if (loginDistContainer.value) updateLoginDistChart(data.loginMethodDistribution)
   if (dailyLoginContainer.value) updateDailyLoginChart(data.dailyLoginStats)
-  if (barChartContainer.value) updateBarChart(data.dailyLoginStats)
-  if (radarChartContainer.value) updateRadarChart(data.loginMethodDistribution)
 }
 
 watch(workbenchData, (data) => {
@@ -263,6 +258,23 @@ async function handleRefresh(): Promise<void> {
   ElMessage.success('数据已刷新')
 }
 
+function handleQuickAction(target: string): void {
+  switch (target) {
+    case 'password-policy':
+      router.push('/auth/config/password-policy')
+      break
+    case 'auth-method':
+      router.push('/auth/config/auth-method')
+      break
+    case 'sso-config':
+      router.push('/auth/config/sso')
+      break
+    case 'online-device':
+      router.push('/auth/config/online-device')
+      break
+  }
+}
+
 function handleResize(): void {
   resizeCharts()
 }
@@ -272,15 +284,7 @@ function handleExportLineChart(): void {
 }
 
 function handleExportPieChart(): void {
-  exportChartAsImage(loginDistChartRef.value, '登录方式分布-饼图')
-}
-
-function handleExportBarChart(): void {
-  exportChartAsImage(barChartRef.value, '每日登录统计-柱状图')
-}
-
-function handleExportRadarChart(): void {
-  exportChartAsImage(radarChartRef.value, '登录方式分布-雷达图')
+  exportChartAsImage(loginDistChartRef.value, '认证方式分布-环形图')
 }
 
 onMounted(async () => {
@@ -301,20 +305,17 @@ onMounted(async () => {
   if (dailyLoginContainer.value) {
     initDailyLoginChart(dailyLoginContainer.value)
   }
-  if (barChartContainer.value) {
-    initBarChart(barChartContainer.value)
-  }
-  if (radarChartContainer.value) {
-    initRadarChart(radarChartContainer.value)
-  }
 
   updateAllCharts(workbenchData.value)
 
   window.addEventListener('resize', handleResize)
+
+  startAutoRefresh(60000, getTimeParams)
 })
 
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize)
+  stopAutoRefresh()
   disposeCharts()
 })
 </script>
@@ -375,6 +376,14 @@ onUnmounted(() => {
     margin-bottom: 16px;
   }
 
+  .action-row {
+    margin-bottom: 16px;
+  }
+
+  .table-row {
+    margin-bottom: 16px;
+  }
+
   .card-header {
     display: flex;
     align-items: center;
@@ -390,35 +399,6 @@ onUnmounted(() => {
   .chart-container {
     width: 100%;
     height: 320px;
-  }
-
-  .detail-row {
-    margin-bottom: 16px;
-
-    .detail-stat {
-      text-align: center;
-      padding: 8px 0;
-
-      .detail-value {
-        font-size: 24px;
-        font-weight: 700;
-        color: var(--el-text-color-primary);
-
-        &.success {
-          color: #67c23a;
-        }
-
-        &.danger {
-          color: #f56c6c;
-        }
-      }
-
-      .detail-label {
-        font-size: 13px;
-        color: var(--el-text-color-secondary);
-        margin-top: 4px;
-      }
-    }
   }
 }
 </style>
