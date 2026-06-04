@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import type { IAppState, DeviceType, ThemeType } from '@/types/app'
+import { getSystemConfigApi } from '@/api/modules/system'
 
 interface I18nInstance {
   global: {
@@ -15,14 +16,35 @@ export function injectI18n(instance: I18nInstance): void {
   i18n = instance
 }
 
+const DEFAULT_SYSTEM_NAME = 'ERP管理系统'
+const CACHE_KEY = 'app_config'
+
 export const useAppStore = defineStore('app', {
-  state: (): IAppState => ({
-    sidebarCollapsed: localStorage.getItem('erp_app_sidebar') === 'true',
-    device: (window.innerWidth < 768 ? 'mobile' : 'desktop') as DeviceType,
-    theme: (localStorage.getItem('erp_app_theme') as ThemeType) || 'light',
-    language: localStorage.getItem('erp_app_lang') || 'zh-CN',
-    activeMenu: ''
-  }),
+  state: (): IAppState => {
+    const cached = (() => {
+      try {
+        const raw = localStorage.getItem(CACHE_KEY)
+        return raw ? JSON.parse(raw) : null
+      } catch {
+        return null
+      }
+    })()
+
+    return {
+      sidebarCollapsed: localStorage.getItem('erp_app_sidebar') === 'true',
+      device: (window.innerWidth < 768 ? 'mobile' : 'desktop') as DeviceType,
+      theme: (localStorage.getItem('erp_app_theme') as ThemeType) || 'light',
+      language: localStorage.getItem('erp_app_lang') || 'zh-CN',
+      activeMenu: '',
+      systemName: cached?.systemName || DEFAULT_SYSTEM_NAME,
+      logoUrl: cached?.logoUrl || '',
+      defaultPageSize: Number(cached?.defaultPageSize) || 20,
+      dateFormat: cached?.dateFormat || 'YYYY-MM-DD',
+      dateTimeFormat: cached?.dateTimeFormat || 'YYYY-MM-DD HH:mm:ss',
+      themeColor: cached?.themeColor || '#409EFF',
+      watermarkEnabled: cached?.watermarkEnabled === true
+    }
+  },
 
   getters: {
     isMobile(state): boolean {
@@ -70,6 +92,37 @@ export const useAppStore = defineStore('app', {
 
     setActiveMenu(path: string): void {
       this.activeMenu = path
+    },
+
+    async initAppConfig(): Promise<void> {
+      try {
+        const systemConfig = await getSystemConfigApi()
+        if (systemConfig) {
+          this.systemName = systemConfig.systemName || DEFAULT_SYSTEM_NAME
+          this.logoUrl = systemConfig.logoUrl || ''
+          this.defaultPageSize = Number(systemConfig.defaultPageSize) || 20
+          this.dateFormat = systemConfig.dateFormat || 'YYYY-MM-DD'
+          this.dateTimeFormat = systemConfig.dateTimeFormat || 'YYYY-MM-DD HH:mm:ss'
+          this.themeColor = systemConfig.themeColor || '#409EFF'
+          this.watermarkEnabled = systemConfig.watermarkEnabled === 'true'
+        }
+      } catch {
+        // API unavailable, keep cached/defaults
+      }
+
+      const configToCache = {
+        systemName: this.systemName,
+        logoUrl: this.logoUrl,
+        defaultPageSize: this.defaultPageSize,
+        dateFormat: this.dateFormat,
+        dateTimeFormat: this.dateTimeFormat,
+        themeColor: this.themeColor,
+        watermarkEnabled: this.watermarkEnabled
+      }
+      localStorage.setItem(CACHE_KEY, JSON.stringify(configToCache))
+
+      document.documentElement.style.setProperty('--el-color-primary', this.themeColor)
+      document.documentElement.style.setProperty('--app-system-primary', this.themeColor)
     }
   },
 

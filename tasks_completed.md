@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-04T12:15
-> **归档总数**：439 条
+> **归档总数**：440 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -746,16 +746,17 @@
 | P0-004-007-002-001-002 | 验证功能 | 2026-06-04T12:15 | ✅ | 验证usePermission composable: 12项vitest全部通过/pnpm build通过/修复vi导入问题/测试报告+问题清单已归档 | (pending) |
 | P0-004-007-003-001-001 | 编写核心代码 | 2026-06-04T12:20 | ✅ | 侧边栏菜单动态渲染核心代码: Sidebar/index.vue(permissionStore菜单树+el-menu递归渲染+折叠+路由高亮)/SidebarItem.vue(递归子组件处理三种菜单类型+visible过滤+外链)/MenuItemIcon.vue(Element Plus/SVG/自定义图标), pnpm build通过 | cf1a5af6 |
 | P0-004-007-003-001-002 | 验证功能 | 2026-06-04T17:30 | ✅ | 侧边栏菜单动态渲染验证: 新增28项vitest测试(routeToMenuItem 8/permission utils 13/menuPipeline 18), 全部67项通过(含已有21项), 代码审查7个组件通过, 测试报告+问题清单已归档 | (pending) |
-| P0-004-007-004-001-001 | 编写页面组件 | 2026-06-04 | ✅ | 系统参数管理页面: Vue3+TS+ElementPlus完整CRUD页面(views/system/params/index.vue), 扩展api/modules/system.ts(7个sys param API函数), 创建useSystemParam composable(加载/CRUD/缓存刷新), vue-tsc+vite build通过 | (pending) |
+| P0-004-007-004-001-001 | 编写页面组件 | 2026-06-04 | ✅ | 系统参数管理页面: Vue3+TS+ElementPlus完整CRUD页面(views/system/params/index.vue), 扩展api/modules/system.ts(7个sys param API函数), 创建useSystemParam composable(加载/CRUD/缓存刷新), vue-tsc+vite build通过 | c6ebd29d |
+| P0-004-007-004-001-002 | 编写数据绑定与交互逻辑 | 2026-06-04 | ✅ | 扩展app store添加系统参数状态(systemName/logoUrl/defaultPageSize/dateFormat/themeColor/watermarkEnabled)和initAppConfig异步初始化, 更新App.vue为router-view+onMounted初始化, 创建useAppInit composable(初始化/主题色/水印渲染), vue-tsc通过 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 442 | 2 | 20.58% |
+| P0 | 14 | 2,147 | 443 | 2 | 20.63% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **439** | **2** | **9.31%** |
+| **合计** | **46** | **4,716** | **440** | **2** | **9.33%** |
 
 ---
 

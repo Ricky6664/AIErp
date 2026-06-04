@@ -1,7 +1,14 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { onMounted } from 'vue'
+import { useAppStore } from '@/stores/modules/app'
+
+const appStore = useAppStore()
+
+onMounted(async () => {
+  await appStore.initAppConfig()
+})
 </script>
 
 <template>
-  <HelloWorld />
+  <router-view />
 </template>
