@@ -146,3 +146,20 @@ data-permission:
     field-level-enabled: false
     # 规则匹配失败时是否默认拒绝
     default-deny: true
+
+# ---- 字段权限配置页配置 ----
+field-permission:
+  table-tree:
+    # 数据表树默认展开层级（1=仅根节点, 2=展开到第2层, 0=全部展开）
+    auto-expand-level: 2
+    # 是否在表树中显示系统内部表
+    show-system-tables: false
+  field-rule:
+    # 字段默认权限模式（EDITABLE=可编辑, READONLY=只读, HIDDEN=隐藏）
+    default-mode: EDITABLE
+    # 是否启用字段权限缓存
+    cache-enabled: true
+    # 字段权限缓存 TTL（秒）
+    cache-ttl-seconds: 1800
+    # 保存字段权限前是否弹出确认框
+    confirm-before-save: true

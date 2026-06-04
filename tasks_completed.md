@@ -783,6 +783,8 @@
 
 | P0-004-009-004-001-002 | 验证编写配置项配置 | 2026-06-04T23:45 | ✅ | additional-spring-configuration-metadata.json(8属性+3分组+4提示枚举值)/编译通过 | — |
 
+| P0-004-009-005-001-001 | 编写配置文件类 | 2026-06-04T23:50 | ✅ | FieldPermissionProperties配置类(field-permission前缀/表树展示+字段规则配置)+application.yml配置项/编译通过 | — |
+
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
