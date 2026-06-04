@@ -187,3 +187,48 @@ auth-method:
     max: 999
     # 新建认证方式的默认优先级
     default-priority: 100
+
+# ---- 密码策略配置页配置 ----
+password-policy:
+  page:
+    # 分页默认每页条数
+    default-page-size: 15
+    # 默认排序字段
+    default-sort-field: updateTime
+    # 列表中是否显示已禁用的策略
+    show-disabled: true
+  form:
+    # 策略名称最小长度
+    policy-name-min-length: 2
+    # 策略名称最大长度
+    policy-name-max-length: 50
+  password:
+    # 密码最小长度
+    min-length: 8
+    # 密码最大长度
+    max-length: 32
+    # 是否必须包含大写字母
+    require-uppercase: true
+    # 是否必须包含小写字母
+    require-lowercase: true
+    # 是否必须包含数字
+    require-digit: true
+    # 是否必须包含特殊字符
+    require-special-char: true
+    # 最少特殊字符数量
+    min-special-char-count: 1
+  lockout:
+    # 最大登录失败次数
+    max-attempts: 5
+    # 锁定持续时间(分钟)
+    lock-duration-minutes: 30
+    # 失败计数重置时间(分钟)
+    reset-duration-minutes: 10
+  expire:
+    # 密码过期天数(0=永不过期)
+    password-expire-days: 90
+    # 过期前提醒天数
+    remind-before-days: 7
+  history:
+    # 历史密码不可重复次数(0=不限制)
+    max-history-count: 3
