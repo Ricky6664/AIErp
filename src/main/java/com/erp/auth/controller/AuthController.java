@@ -3,6 +3,8 @@ package com.erp.auth.controller;
 import com.erp.auth.dto.LoginRequest;
 import com.erp.auth.dto.TokenRefreshRequest;
 import com.erp.auth.service.AuthService;
+import com.erp.auth.service.CaptchaService;
+import com.erp.auth.vo.CaptchaVO;
 import com.erp.auth.vo.LoginResponse;
 import com.erp.auth.vo.TokenRefreshResponse;
 import com.erp.auth.vo.TokenVerifyResponse;
@@ -34,6 +36,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     private final AuthService authService;
+    private final CaptchaService captchaService;
+
+    /**
+     * 获取图形验证码.
+     */
+    @Operation(summary = "获取验证码", description = "生成4位图形验证码, 返回captchaKey和base64编码的图片")
+    @GetMapping("/captcha")
+    public RT<CaptchaVO> getCaptcha() {
+        CaptchaVO captcha = captchaService.generateCaptchaImage();
+        return RT.ok(captcha);
+    }
 
     /**
      * 用户登录.

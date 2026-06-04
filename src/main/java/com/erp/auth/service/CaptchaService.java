@@ -1,11 +1,18 @@
 package com.erp.auth.service;
 
 import com.erp.auth.exception.CaptchaException;
+import com.erp.auth.vo.CaptchaVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Base64;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -40,6 +47,76 @@ public class CaptchaService {
         redisTemplate.opsForValue().set(redisKey, captchaCode, CAPTCHA_TTL, CAPTCHA_TTL_UNIT);
         log.debug("验证码已生成: key={}", captchaKey);
         return captchaKey;
+    }
+
+    /**
+     * 生成图形验证码(含Base64图片).
+     *
+     * @return CaptchaVO 含captchaKey和base64图片
+     */
+    public CaptchaVO generateCaptchaImage() {
+        String captchaKey = UUID.randomUUID().toString().replace("-", "");
+        String captchaCode = generateRandomCode(4);
+        String redisKey = CAPTCHA_PREFIX + captchaKey;
+        redisTemplate.opsForValue().set(redisKey, captchaCode, CAPTCHA_TTL, CAPTCHA_TTL_UNIT);
+        String base64Image = drawCaptchaImage(captchaCode);
+        log.debug("验证码图片已生成: key={}", captchaKey);
+        return CaptchaVO.builder()
+                .captchaKey(captchaKey)
+                .captchaImage(base64Image)
+                .build();
+    }
+
+    private String drawCaptchaImage(String code) {
+        int width = 120;
+        int height = 40;
+        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        Graphics2D g = image.createGraphics();
+
+        try {
+            g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            // 背景
+            g.setColor(new Color(240, 240, 240));
+            g.fillRect(0, 0, width, height);
+
+            // 干扰线 5条
+            for (int i = 0; i < 5; i++) {
+                g.setColor(new Color(randomInt(50, 180), randomInt(50, 180), randomInt(50, 180)));
+                g.drawLine(randomInt(0, width), randomInt(0, height),
+                        randomInt(0, width), randomInt(0, height));
+            }
+
+            // 噪点 100个
+            for (int i = 0; i < 100; i++) {
+                g.setColor(new Color(randomInt(100, 200), randomInt(100, 200), randomInt(100, 200)));
+                g.fillRect(randomInt(0, width), randomInt(0, height), 1, 1);
+            }
+
+            // 文字 每个字符随机颜色、位置偏移、旋转
+            Font font = new Font("Arial", Font.BOLD, 22);
+            g.setFont(font);
+            for (int i = 0; i < code.length(); i++) {
+                g.setColor(new Color(randomInt(20, 120), randomInt(20, 120), randomInt(20, 120)));
+                int x = 10 + i * 26 + randomInt(-3, 3);
+                int y = 28 + randomInt(-3, 3);
+                double angle = (randomInt(-30, 30) * Math.PI) / 180.0;
+                g.rotate(angle, x, y);
+                g.drawString(String.valueOf(code.charAt(i)), x, y);
+                g.rotate(-angle, x, y);
+            }
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(image, "png", baos);
+            return "data:image/png;base64," + Base64.getEncoder().encodeToString(baos.toByteArray());
+        } catch (IOException e) {
+            throw new RuntimeException("验证码图片生成失败", e);
+        } finally {
+            g.dispose();
+        }
+    }
+
+    private int randomInt(int min, int max) {
+        return (int) (Math.random() * (max - min + 1)) + min;
     }
 
     /**
