@@ -55,6 +55,10 @@
           <el-icon><Sort /></el-icon>
           {{ expandAll ? '全部折叠' : '全部展开' }}
         </el-button>
+        <el-button @click="handleRefresh">
+          <el-icon><Refresh /></el-icon>
+          刷新
+        </el-button>
       </div>
     </div>
 
@@ -67,7 +71,9 @@
       stripe
       :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
       :default-expand-all="expandAll"
+      row-draggable
       style="width: 100%"
+      @row-drag-end="handleRowDragEnd"
     >
       <el-table-column prop="menuName" label="菜单名称" width="200" />
       <el-table-column label="菜单类型" width="100" align="center">
@@ -81,8 +87,8 @@
       <el-table-column prop="routePath" label="路由路径" width="160" show-overflow-tooltip />
       <el-table-column prop="icon" label="图标" width="80" align="center">
         <template #default="{ row }">
-          <el-icon v-if="row.icon" :size="18">
-            <component :is="row.icon" />
+          <el-icon v-if="row.icon && getIconComponent(row.icon)" :size="18">
+            <component :is="getIconComponent(row.icon)" />
           </el-icon>
           <span v-else>-</span>
         </template>
@@ -187,9 +193,35 @@
         </el-form-item>
         <el-form-item label="权限编码">
           <el-input v-model="formData.permissionCode" placeholder="如 system:menu:add" />
+          <div v-if="permissionCodeHint" class="permission-code-hint">
+            <el-icon><InfoFilled /></el-icon>
+            建议格式：{{ permissionCodeHint }}
+            <el-button link type="primary" size="small" @click="applyPermissionHint"
+              >应用</el-button
+            >
+          </div>
         </el-form-item>
-        <el-form-item label="图标">
-          <el-input v-model="formData.icon" placeholder="Element Plus 图标名称" />
+        <el-form-item v-if="formData.menuType !== 'button'" label="图标">
+          <div class="icon-picker-trigger">
+            <el-button
+              :icon="formData.icon ? undefined : undefined"
+              @click="iconPickerVisible = true"
+            >
+              <template v-if="formData.icon">
+                <el-icon style="margin-right: 6px"
+                  ><component :is="getIconComponent(formData.icon)"
+                /></el-icon>
+                <span>{{ formData.icon }}</span>
+              </template>
+              <template v-else>
+                <el-icon style="margin-right: 6px"><Search /></el-icon>
+                选择图标
+              </template>
+            </el-button>
+            <el-button v-if="formData.icon" type="danger" link @click="formData.icon = ''">
+              清除
+            </el-button>
+          </div>
         </el-form-item>
         <el-form-item label="排序" prop="sortOrder">
           <el-input-number v-model="formData.sortOrder" :min="0" :max="9999" style="width: 160px" />
@@ -205,6 +237,44 @@
         <el-button type="primary" :loading="submitLoading" @click="handleSubmit">确定</el-button>
       </template>
     </el-dialog>
+
+    <!-- 图标选择器弹窗 -->
+    <el-dialog
+      v-model="iconPickerVisible"
+      title="选择图标"
+      width="720px"
+      :close-on-click-modal="false"
+    >
+      <div class="icon-picker-body">
+        <el-input
+          v-model="iconSearchText"
+          placeholder="搜索图标名称"
+          clearable
+          style="margin-bottom: 16px"
+        >
+          <template #prefix>
+            <el-icon><Search /></el-icon>
+          </template>
+        </el-input>
+        <div class="icon-grid">
+          <div
+            v-for="name in filteredIcons"
+            :key="name"
+            class="icon-item"
+            :class="{ 'is-active': formData.icon === name }"
+            @click="formData.icon = formData.icon === name ? '' : name"
+          >
+            <el-icon :size="24">
+              <component :is="getIconComponent(name)" />
+            </el-icon>
+            <span class="icon-name">{{ name }}</span>
+          </div>
+        </div>
+      </div>
+      <template #footer>
+        <el-button @click="iconPickerVisible = false">关闭</el-button>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -212,8 +282,18 @@
 import { ref, reactive, computed, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
-import { Search, Refresh, Plus, Delete, Edit, Switch, Sort } from '@element-plus/icons-vue'
+import {
+  Search,
+  Refresh,
+  Plus,
+  Delete,
+  Edit,
+  Switch,
+  Sort,
+  InfoFilled
+} from '@element-plus/icons-vue'
 import type { SysMenuListItem } from '@/api/types/menu'
+import { useIconSelector, getIconComponent } from '@/composables/permission-ui/useIconSelector'
 import {
   getSysMenuTree,
   getSysMenuDetail,
@@ -225,6 +305,10 @@ import {
 
 const loading = ref(false)
 const expandAll = ref(true)
+
+// Icon picker
+const { iconSearchText, filteredIcons } = useIconSelector()
+const iconPickerVisible = ref(false)
 
 const searchMenuName = ref('')
 const searchMenuType = ref('')
@@ -359,6 +443,79 @@ function handleReset(): void {
 
 function toggleExpandAll(): void {
   expandAll.value = !expandAll.value
+}
+
+function handleRefresh(): void {
+  fetchMenuTree()
+}
+
+// Permission code auto-suggest based on parent menu path
+const permissionCodeHint = computed(() => {
+  if (!formData.parentId || formData.menuType !== 'button') return ''
+  const parent = findMenuById(allTreeData.value, formData.parentId)
+  if (!parent || !parent.routePath) return ''
+  const pathHint = parent.routePath.replace(/^\//, '').replace(/\//g, ':')
+  return `${pathHint}:<操作>`
+})
+
+function findMenuById(items: SysMenuListItem[], id: number): SysMenuListItem | null {
+  for (const item of items) {
+    if (item.id === id) return item
+    if (item.children) {
+      const found = findMenuById(item.children, id)
+      if (found) return found
+    }
+  }
+  return null
+}
+
+function applyPermissionHint(): void {
+  if (permissionCodeHint.value) {
+    const prefix = permissionCodeHint.value.replace(':<操作>', ':')
+    formData.permissionCode = prefix
+  }
+}
+
+// Drag sorting
+async function handleRowDragEnd(
+  _draggedRow: SysMenuListItem,
+  _dropRow: SysMenuListItem,
+  _dropPosition: 'before' | 'after' | 'inner',
+  _event: DragEvent
+): Promise<void> {
+  const allRows = getFlattenedRows(allTreeData.value)
+  const updates: Promise<void>[] = []
+  allRows.forEach((row, idx) => {
+    const newOrder = idx + 1
+    if (row.sortOrder !== newOrder) {
+      updates.push(updateSortOrder(row.id, newOrder))
+    }
+  })
+  try {
+    await Promise.all(updates)
+    await fetchMenuTree()
+  } catch {
+    ElMessage.error('更新排序失败')
+  }
+}
+
+function getFlattenedRows(items: SysMenuListItem[]): SysMenuListItem[] {
+  const result: SysMenuListItem[] = []
+  function walk(list: SysMenuListItem[]) {
+    for (const item of list) {
+      result.push(item)
+      if (item.children?.length) walk(item.children)
+    }
+  }
+  walk(items)
+  return result
+}
+
+async function updateSortOrder(id: number, sortOrder: number): Promise<void> {
+  await updateSysMenu(id, {
+    id,
+    sortOrder
+  })
 }
 
 // Form operations
@@ -553,6 +710,67 @@ onMounted(() => {
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+  }
+
+  .icon-picker-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .permission-code-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    padding: 6px 10px;
+    background: var(--el-color-info-light-9);
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--el-text-color-secondary);
+  }
+}
+
+.icon-picker-body {
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    max-height: 360px;
+    overflow-y: auto;
+  }
+
+  .icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 4px;
+    border: 1px solid var(--el-border-color-light);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--el-text-color-regular);
+
+    &:hover {
+      border-color: var(--el-color-primary);
+      color: var(--el-color-primary);
+      background: var(--el-color-primary-light-9);
+    }
+
+    &.is-active {
+      border-color: var(--el-color-primary);
+      color: var(--el-color-primary);
+      background: var(--el-color-primary-light-8);
+    }
+
+    .icon-name {
+      margin-top: 4px;
+      font-size: 10px;
+      text-align: center;
+      word-break: break-all;
+      line-height: 1.2;
     }
   }
 }
