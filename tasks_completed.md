@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-05T09:30
-> **归档总数**：469 条
+> **最后更新**：2026-06-05T11:00
+> **归档总数**：471 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -822,15 +822,16 @@
 | P0-004-011-002-002-002 | 实现历史密码校验 | 2026-06-04T23:45 | ✅ | 23项单元测试(UserServicePasswordHistoryTest)验证历史密码校验逻辑: 核心拒绝/接受流程+边界条件(空历史/null/1-3条)+参数校验+密码重置记录; 发现1个消息丢失问题已记录 | (pending) |
 | P0-004-011-003-001-001 | 实现登录失败计数与锁定 | 2026-06-05T08:05 | ✅ | 创建LoginAttemptService(Redis原子计数+动态策略/TTL首次设置策略/锁定标记+剩余时间)/重构AuthService使用新服务/更新22项单元测试全部通过 | 58191d3e |
 | P0-004-011-003-001-002 | 实现锁定状态查询与解锁 | 2026-06-05T09:30 | ✅ | 后端: LoginAttemptService新增getLockStatus/unlock方法+LockStatusVO+AuthController新增GET /auth/lock-status和POST /auth/unlock端点+UserServiceImpl.unlockUser集成Redis清理; 前端: useLogin添加500ms防抖锁状态轮询+登录页锁定警告+用户管理页解锁按钮和批量解锁 | 3ae1ba8f |
+| P0-004-012-002-001-001 | 编写核心代码 | 2026-06-05T11:00 | ✅ | 创建auth_sso_config/auth_oauth2_config Flyway DDL+Entity/Mapper/Service/Controller全栈(SSO CRUD+证书X.509校验+OAuth2 CRUD+ClientSecret AES-256-GCM加密+测试连接)+AesEncryptUtil工具类+mvn compile BUILD SUCCESS | 7ff75468 |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 479 | 2 | 22.3% |
+| P0 | 14 | 2,147 | 480 | 2 | 22.4% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **470** | **2** | **9.97%** |
+| **合计** | **46** | **4,716** | **471** | **2** | **9.99%** |
 
 ---
 

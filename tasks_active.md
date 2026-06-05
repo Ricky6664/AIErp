@@ -19,10 +19,10 @@
 | 项目状态 | 🔄 开发中 |
 | 当前模块 | P0-004 认证与权限基础开发 |
 | 当前任务 | P0-004-012-002-001-001 |
-| 当前任务状态 | 🔄 执行中 |
+| 当前任务状态 | ✅ 已完成 |
 | 当前任务工人 | W1 |
-| 最近完成任务 | P0-004-011-003-001-002 ✅ |
-| 最近完成任务时间 | 2026-06-05T09:30 |
+| 最近完成任务 | P0-004-012-002-001-001 ✅ |
+| 最近完成任务时间 | 2026-06-05T11:00 |
 | 当前 feature 分支 | feature/P0-004 |
 
 ---
@@ -750,7 +750,7 @@
 | P0-004-011-002-002-002 | 实现历史密码校验 | L3 | ✅ | W1 |
 | P0-004-011-003-001-001 | 实现登录失败计数与锁定 | L3 | ✅ | W1 |
 | P0-004-011-003-001-002 | 实现锁定状态查询与解锁 | L3 | ✅ | W1 |
-| P0-004-012-002-001-001 | 编写核心代码 | L3 | 🔄 | W1 |
+| P0-004-012-002-001-001 | 编写核心代码 | L3 | ✅ | W1 |
 | P0-004-012-002-001-002 | 验证功能 | L3 | ⬜ | |
 | P0-004-012-003-001-001 | 实现配置表单UI | L5 | ⬜ | |
 | P0-004-012-003-001-002 | 实现回调URL自动生成与预览 | L3 | ⬜ | |
@@ -763,7 +763,6 @@
 
 | 任务编号 | 工人 | 认领时间 |
 |---------|:---:|---------|
-| P0-004-012-002-001-001 | W1 | 2026-06-05T11:00 |
 | (无活跃认领) | — | — |
 
 > 用于：超时检测 — 超过 claim_timeout_minutes 视为工人崩溃，自动释放其资源。
@@ -779,18 +778,6 @@
 
 | 文件路径 | 任务编号 | 工人 |
 |---------|:---:|---------|
-| db/migration/*auth_sso_config*.sql | P0-004-012-002-001-001 | W1 |
-| db/migration/*auth_oauth2_config*.sql | P0-004-012-002-001-001 | W1 |
-| src/main/java/com/erp/auth/entity/AuthSsoConfig.java | P0-004-012-002-001-001 | W1 |
-| src/main/java/com/erp/auth/entity/AuthOauth2Config.java | P0-004-012-002-001-001 | W1 |
-| src/main/java/com/erp/auth/mapper/AuthSsoConfigMapper.java | P0-004-012-002-001-001 | W1 |
-| src/main/java/com/erp/auth/mapper/AuthOauth2ConfigMapper.java | P0-004-012-002-001-001 | W1 |
-| src/main/java/com/erp/auth/service/AuthSsoConfigService.java | P0-004-012-002-001-001 | W1 |
-| src/main/java/com/erp/auth/service/AuthOauth2ConfigService.java | P0-004-012-002-001-001 | W1 |
-| src/main/java/com/erp/auth/service/impl/AuthSsoConfigServiceImpl.java | P0-004-012-002-001-001 | W1 |
-| src/main/java/com/erp/auth/service/impl/AuthOauth2ConfigServiceImpl.java | P0-004-012-002-001-001 | W1 |
-| src/main/java/com/erp/auth/controller/SsoConfigController.java | P0-004-012-002-001-001 | W1 |
-| src/main/java/com/erp/auth/controller/OAuth2ConfigController.java | P0-004-012-002-001-001 | W1 |
 | (无文件锁) | — | — |
 
 ---
@@ -817,9 +804,9 @@
 | 活跃模块数 | 4 |
 | 叶子任务总数 | 658 |
 | 待认领 ⬜ | 5 |
-| 执行中 🔄 | 1 |
+| 执行中 🔄 | 0 |
 | 信息不足 ⚠️ | 3 |
-| 已完成 ✅ | 638 |
-| 活跃认领数 | 1 |
-| 文件锁数量 | 12 |
+| 已完成 ✅ | 639 |
+| 活跃认领数 | 0 |
+| 文件锁数量 | 0 |
 | 占用模块数 | 1 |
