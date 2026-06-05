@@ -27,7 +27,7 @@
               <FormField
                 :model-value="localData[fieldConfig.field]"
                 :field-config="fieldConfig"
-                :disabled="props.disabled"
+                :disabled="props.disabled || linkage.isFieldDisabled(fieldConfig)"
                 :layout-config="layout"
                 @update:model-value="handleFieldUpdate(fieldConfig.field, $event)"
                 @change="handleFieldChange(fieldConfig.field, $event)"
@@ -52,7 +52,7 @@
           <FormField
             :model-value="localData[fieldConfig.field]"
             :field-config="fieldConfig"
-            :disabled="props.disabled"
+            :disabled="props.disabled || linkage.isFieldDisabled(fieldConfig)"
             :layout-config="layout"
             @update:model-value="handleFieldUpdate(fieldConfig.field, $event)"
             @change="handleFieldChange(fieldConfig.field, $event)"
@@ -82,11 +82,11 @@ import { ref, reactive, computed, watch } from 'vue'
 import type { FormInstance } from 'element-plus'
 import FormField from './FormField.vue'
 import { useFormValidation } from '@/composables/useFormValidation'
+import { useFormLinkage } from '@/composables/useFormLinkage'
 import type {
   FormFieldConfig,
   FormLayoutConfig,
   FormGroupConfig,
-  FieldLinkageRule,
   MasterFormProps,
   MasterFormEmits
 } from '@/types/master-form'
@@ -103,6 +103,7 @@ const props = withDefaults(defineProps<MasterFormProps>(), {
 const emit = defineEmits<MasterFormEmits>()
 
 const { errors, validateForm, clearValidate } = useFormValidation()
+const linkage = useFormLinkage()
 
 const formRef = ref<FormInstance>()
 const localData = reactive<Record<string, unknown>>({ ...props.modelValue })
@@ -123,8 +124,6 @@ const sortedGroups = computed<FormGroupConfig[]>(() => {
   return [...layout.value.groups].sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0))
 })
 
-const fieldVisibility = reactive<Record<string, boolean>>({})
-
 const fieldConfigsMutable = reactive<FormFieldConfig[]>([...props.fieldConfigs])
 
 watch(
@@ -135,51 +134,9 @@ watch(
   { deep: true }
 )
 
-const allLinkages = computed<FieldLinkageRule[]>(() =>
-  fieldConfigsMutable.flatMap((f) => f.linkages ?? [])
-)
-
 const visibleFieldConfigs = computed(() =>
-  fieldConfigsMutable.filter((f) => {
-    if (f.visible === false) return false
-    if (fieldVisibility[f.field] === false) return false
-    return true
-  })
+  fieldConfigsMutable.filter((f) => linkage.isFieldVisible(f))
 )
-
-function processLinkages(changedField: string, value: unknown) {
-  if (!props.enableLinkage) return
-  for (const linkage of allLinkages.value) {
-    if (linkage.triggerField !== changedField) continue
-    if (linkage.condition && !linkage.condition(value)) continue
-
-    switch (linkage.action) {
-      case 'show':
-        fieldVisibility[linkage.targetField] = true
-        break
-      case 'hide':
-        fieldVisibility[linkage.targetField] = false
-        break
-      case 'setValue': {
-        const paramValue = linkage.params?.value
-        localData[linkage.targetField] = paramValue
-        emit('update:modelValue', { ...localData })
-        break
-      }
-      case 'setOptions': {
-        const idx = fieldConfigsMutable.findIndex((f) => f.field === linkage.targetField)
-        if (idx !== -1) {
-          const newOptions = linkage.params?.options as FormFieldConfig['options']
-          fieldConfigsMutable[idx] = { ...fieldConfigsMutable[idx], options: newOptions }
-        }
-        break
-      }
-      case 'enable':
-      case 'disable':
-        break
-    }
-  }
-}
 
 function getGroupFields(groupKey: string): FormFieldConfig[] {
   return visibleFieldConfigs.value.filter((f) => f.group === groupKey)
@@ -193,7 +150,10 @@ function fieldColSpan(config: FormFieldConfig): number {
 function handleFieldUpdate(field: string, value: unknown) {
   localData[field] = value
   emit('update:modelValue', { ...localData })
-  processLinkages(field, value)
+  if (props.enableLinkage) {
+    linkage.executeLinkages(field, value, fieldConfigsMutable, localData)
+    emit('update:modelValue', { ...localData })
+  }
 }
 
 function handleFieldChange(field: string, value: unknown) {
@@ -251,6 +211,7 @@ function resetFields() {
   for (const config of fieldConfigsMutable) {
     localData[config.field] = config.defaultValue ?? undefined
   }
+  linkage.reset()
   clearFieldValidate()
 }
 
