@@ -37,7 +37,33 @@ export interface EditRenderConfig {
   options?: { label: string; value: unknown }[]
 }
 
-/** 录入表格列配置 */
+/** 行拖拽排序配置 */
+export interface DragConfig {
+  /** 是否启用行拖拽排序 */
+  enabled?: boolean
+  /** 拖拽把手 CSS 选择器 */
+  handle?: string
+  /** 拖拽触发方式（icon=拖拽图标, row=整行拖拽） */
+  trigger?: 'icon' | 'row'
+  /** 拖拽类型（row=行拖拽, handle=把手拖拽） */
+  type?: 'row' | 'handle'
+  /** 是否显示拖拽状态提示 */
+  showTip?: boolean
+  /** 拖拽排序后是否自动更新行号 */
+  autoRowNumber?: boolean
+}
+
+/** 行拖拽排序事件参数 */
+export interface DragSortEventParams {
+  /** 被拖拽的行数据 */
+  row: Record<string, unknown>
+  /** 旧行索引 */
+  oldIndex: number
+  /** 新行索引 */
+  newIndex: number
+  /** 排序后的完整数据 */
+  newData: Record<string, unknown>[]
+}
 export interface EditTableColumn {
   /** 列字段名 */
   field: string
@@ -101,6 +127,8 @@ export interface EditTableProps {
   viewCode?: string
   /** 编辑触发方式 */
   editTrigger?: 'click' | 'dblclick' | 'manual'
+  /** 行拖拽排序配置 */
+  dragConfig?: DragConfig
   /** 合计行配置 */
   summaryConfig?: SummaryConfig
   /** 行配置 */
@@ -129,6 +157,8 @@ export interface EditTableEmits {
   focus: []
   /** 失焦事件 */
   blur: []
+  /** 行拖拽排序事件 */
+  'drag-sort': [params: DragSortEventParams]
 }
 
 /** 录入表格 Slots */
@@ -164,4 +194,6 @@ export interface EditTableExpose {
   clearValidate: () => void
   /** 一键重置：重置列+清除校验 */
   resetAll: () => void
+  /** 程序化行排序（拖拽排序回退/api调用） */
+  reorder: (fromIndex: number, toIndex: number) => void
 }

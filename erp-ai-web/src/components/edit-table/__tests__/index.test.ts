@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import EditTable from '../index.vue'
-import type { EditTableColumn, FieldConfig } from '@/types/edit-table'
+import type { EditTableColumn, FieldConfig, DragConfig } from '@/types/edit-table'
 
 const mockLocalStorage = {
   store: {} as Record<string, string>,
@@ -375,6 +375,83 @@ describe('EditTable', () => {
       const wrapper = createWrapper()
       const rcv = wrapper.vm.rowConfigValue
       expect(rcv.keyField).toBe('id')
+    })
+  })
+
+  describe('dragConfig (row drag reorder)', () => {
+    it('should accept dragConfig prop', () => {
+      const dc: DragConfig = { enabled: true, trigger: 'icon', type: 'row' }
+      const wrapper = createWrapper({ dragConfig: dc })
+      expect(wrapper.props('dragConfig')).toEqual(dc)
+    })
+
+    it('should return disabled dragConfig when prop not set', () => {
+      const wrapper = createWrapper()
+      const dcv = wrapper.vm.dragConfigValue
+      expect(dcv.enabled).toBe(false)
+    })
+
+    it('should return disabled dragConfig when enabled is false', () => {
+      const wrapper = createWrapper({ dragConfig: { enabled: false } })
+      const dcv = wrapper.vm.dragConfigValue
+      expect(dcv.enabled).toBe(false)
+    })
+
+    it('should compute dragConfigValue from prop', () => {
+      const wrapper = createWrapper({
+        dragConfig: { enabled: true, trigger: 'row', type: 'handle', showTip: false }
+      })
+      const dcv = wrapper.vm.dragConfigValue
+      expect(dcv.enabled).toBe(true)
+      expect(dcv.trigger).toBe('row')
+      expect(dcv.type).toBe('handle')
+      expect(dcv.showTip).toBe(false)
+    })
+
+    it('should default dragConfig trigger to icon and type to row', () => {
+      const wrapper = createWrapper({ dragConfig: { enabled: true } })
+      const dcv = wrapper.vm.dragConfigValue
+      expect(dcv.trigger).toBe('icon')
+      expect(dcv.type).toBe('row')
+      expect(dcv.showTip).toBe(true)
+    })
+
+    it('should expose reorder method', () => {
+      const wrapper = createWrapper()
+      expect(typeof wrapper.vm.reorder).toBe('function')
+    })
+
+    it('should reorder rows and emit events', () => {
+      const wrapper = createWrapper()
+      wrapper.vm.reorder(0, 2)
+      const emitted = wrapper.emitted()
+      expect(emitted['update:modelValue']).toBeDefined()
+      expect(emitted['drag-sort']).toBeDefined()
+      const dragSortPayload = emitted['drag-sort'][0][0]
+      expect(dragSortPayload.oldIndex).toBe(0)
+      expect(dragSortPayload.newIndex).toBe(2)
+      expect(dragSortPayload.newData).toHaveLength(3)
+      expect(dragSortPayload.newData[0].id).toBe(2)
+      expect(dragSortPayload.newData[1].id).toBe(3)
+      expect(dragSortPayload.newData[2].id).toBe(1)
+    })
+
+    it('should not reorder with invalid fromIndex', () => {
+      const wrapper = createWrapper()
+      wrapper.vm.reorder(-1, 1)
+      expect(wrapper.emitted('drag-sort')).toBeUndefined()
+    })
+
+    it('should not reorder with invalid toIndex', () => {
+      const wrapper = createWrapper()
+      wrapper.vm.reorder(0, 99)
+      expect(wrapper.emitted('drag-sort')).toBeUndefined()
+    })
+
+    it('should not reorder when indices are the same', () => {
+      const wrapper = createWrapper()
+      wrapper.vm.reorder(1, 1)
+      expect(wrapper.emitted('drag-sort')).toBeUndefined()
     })
   })
 })

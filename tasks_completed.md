@@ -865,15 +865,16 @@
 | P0-005-003-008-001-002 | 编写数据绑定与交互逻辑 | 2026-06-06T00:15 | ✅ | 数据绑定与交互逻辑: saveDemoOrder/deleteDemoOrder/getDemoOrderDetail mock API; useDemoListTable增加error/saving/deleting状态+handleSave/handleDelete/handleViewDetail+router导航+watch 300ms防抖+syncQueryToState; index.vue增加新增/编辑/删除按钮+el-dialog表单+el-alert错误展示+路由query同步 | — |
 | P0-005-004-001-001-001 | 编写核心代码 | 2026-06-06T01:10 | ✅ | EntryTable录入数据表格组件: Vue SFC(vxe-grid可编辑封装/edit-config单元格编辑/no-pagination/前端合计计算/列持久化); 类型定义(EditTableColumn/EditRule/EditChangeParams等); 41个单元测试全部通过; vue-tsc零错误+vite build通过 | (待提交) |
 | P0-005-004-001-001-002 | 验证功能 | 2026-06-06T01:20 | ✅ | 验证EntryTable组件: 41/41测试通过; vite build通过(5.63s); 6项验证:单元格编辑/校验/Tab导航/行管理4项通过; paste-config与row-drag 2项未显式配置依赖vxe-table默认行为 | (验证任务) |
+| P0-005-004-002-001-001 | 编写核心代码 | 2026-06-06T01:25 | ✅ | 行拖拽改序核心代码: DragConfig类型定义/dragConfig prop/dragConfigValue computed/handleDragSort处理/reorder方法/10个新测试(51/51通过)/vue-tsc零错误/vite build通过 | (待提交) |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 507 | 2 | 23.6% |
+| P0 | 14 | 2,147 | 508 | 2 | 23.7% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **492** | **2** | **10.4%** |
+| **合计** | **46** | **4,716** | **493** | **2** | **10.4%** |
 
 ---
 

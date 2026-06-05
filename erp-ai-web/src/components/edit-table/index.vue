@@ -13,6 +13,7 @@
       :edit-config="editConfigValue"
       :row-config="rowConfigValue"
       :column-config="columnConfigValue"
+      :drag-config="dragConfigValue"
       :size="gridSize"
       :stripe="props.stripe"
       :border="props.border"
@@ -22,6 +23,7 @@
       :empty-text="props.emptyText || props.placeholder || '暂无数据'"
       @edit-closed="handleEditClosed"
       @column-resize="handleColumnResize"
+      @drag-sort="handleDragSort"
       @focus="handleFocus"
       @blur="handleBlur"
     >
@@ -58,7 +60,9 @@ import type {
   EditChangeParams,
   ColumnPersistData,
   SummaryColumnConfig,
-  FieldConfig
+  FieldConfig,
+  DragConfig,
+  DragSortEventParams
 } from '@/types/edit-table'
 import type { SummaryConfig, RowConfig } from '@/types/list-table'
 
@@ -78,6 +82,7 @@ const props = withDefaults(
     emptyText?: string
     viewCode?: string
     editTrigger?: 'click' | 'dblclick' | 'manual'
+    dragConfig?: DragConfig
     summaryConfig?: SummaryConfig
     rowConfig?: RowConfig
   }>(),
@@ -92,6 +97,7 @@ const props = withDefaults(
     emptyText: '',
     viewCode: '',
     editTrigger: 'click',
+    dragConfig: undefined,
     rowConfig: undefined,
     height: undefined,
     maxHeight: undefined,
@@ -105,6 +111,7 @@ const emit = defineEmits<{
   change: [params: EditChangeParams]
   focus: []
   blur: []
+  'drag-sort': [params: DragSortEventParams]
 }>()
 
 const gridRef = ref<VxeGridInstance>()
@@ -223,6 +230,50 @@ const gridSize = computed(() => sizeMap[props.size] || 'medium')
 
 // 静态grid配置
 const gridOptions = computed(() => ({}))
+
+// 拖拽排序配置
+const dragConfigValue = computed(() => {
+  const dc = props.dragConfig
+  if (!dc || !dc.enabled) {
+    return { enabled: false }
+  }
+  return {
+    enabled: dc.enabled,
+    trigger: dc.trigger || 'icon',
+    type: dc.type || 'row',
+    showTip: dc.showTip !== false,
+    handle: dc.handle || '.vxe-table-icon-drag-handle'
+  }
+})
+
+// 行拖拽排序事件处理
+function handleDragSort({
+  row,
+  oldIndex,
+  newIndex
+}: {
+  row: Record<string, unknown>
+  oldIndex: number
+  newIndex: number
+}): void {
+  try {
+    const newData = [...innerData.value]
+    const moved = newData.splice(oldIndex, 1)[0]
+    newData.splice(newIndex, 0, moved)
+
+    innerData.value = newData
+    emit('update:modelValue', newData)
+
+    emit('drag-sort', {
+      row,
+      oldIndex,
+      newIndex,
+      newData
+    })
+  } catch (err) {
+    console.error('[EditTable] 行拖拽排序失败:', err)
+  }
+}
 
 // 合计行配置
 const summaryConfigValue = computed<SummaryConfig>(() => {
@@ -413,6 +464,31 @@ function resetAll(): void {
   clearValidate()
 }
 
+// 程序化行排序
+function reorder(fromIndex: number, toIndex: number): void {
+  try {
+    if (fromIndex < 0 || fromIndex >= innerData.value.length) return
+    if (toIndex < 0 || toIndex >= innerData.value.length) return
+    if (fromIndex === toIndex) return
+
+    const newData = [...innerData.value]
+    const moved = newData.splice(fromIndex, 1)[0]
+    newData.splice(toIndex, 0, moved)
+
+    innerData.value = newData
+    emit('update:modelValue', newData)
+
+    emit('drag-sort', {
+      row: moved,
+      oldIndex: fromIndex,
+      newIndex: toIndex,
+      newData
+    })
+  } catch (err) {
+    console.error('[EditTable] 程序化行排序失败:', err)
+  }
+}
+
 defineExpose({
   gridRef,
   refresh,
@@ -421,7 +497,8 @@ defineExpose({
   setData,
   validate,
   clearValidate,
-  resetAll
+  resetAll,
+  reorder
 })
 </script>
 
