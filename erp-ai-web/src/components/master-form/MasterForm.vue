@@ -86,6 +86,7 @@ import type {
   FormFieldConfig,
   FormLayoutConfig,
   FormGroupConfig,
+  FieldLinkageRule,
   MasterFormProps,
   MasterFormEmits
 } from '@/types/master-form'
@@ -122,7 +123,63 @@ const sortedGroups = computed<FormGroupConfig[]>(() => {
   return [...layout.value.groups].sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0))
 })
 
-const visibleFieldConfigs = computed(() => props.fieldConfigs.filter((f) => f.visible !== false))
+const fieldVisibility = reactive<Record<string, boolean>>({})
+
+const fieldConfigsMutable = reactive<FormFieldConfig[]>([...props.fieldConfigs])
+
+watch(
+  () => props.fieldConfigs,
+  (val) => {
+    fieldConfigsMutable.splice(0, fieldConfigsMutable.length, ...val)
+  },
+  { deep: true }
+)
+
+const allLinkages = computed<FieldLinkageRule[]>(() =>
+  fieldConfigsMutable.flatMap((f) => f.linkages ?? [])
+)
+
+const visibleFieldConfigs = computed(() =>
+  fieldConfigsMutable.filter((f) => {
+    if (f.visible === false) return false
+    if (fieldVisibility[f.field] === false) return false
+    return true
+  })
+)
+
+function processLinkages(changedField: string, value: unknown) {
+  if (!props.enableLinkage) return
+  for (const linkage of allLinkages.value) {
+    if (linkage.triggerField !== changedField) continue
+    if (linkage.condition && !linkage.condition(value)) continue
+
+    switch (linkage.action) {
+      case 'show':
+        fieldVisibility[linkage.targetField] = true
+        break
+      case 'hide':
+        fieldVisibility[linkage.targetField] = false
+        break
+      case 'setValue': {
+        const paramValue = linkage.params?.value
+        localData[linkage.targetField] = paramValue
+        emit('update:modelValue', { ...localData })
+        break
+      }
+      case 'setOptions': {
+        const idx = fieldConfigsMutable.findIndex((f) => f.field === linkage.targetField)
+        if (idx !== -1) {
+          const newOptions = linkage.params?.options as FormFieldConfig['options']
+          fieldConfigsMutable[idx] = { ...fieldConfigsMutable[idx], options: newOptions }
+        }
+        break
+      }
+      case 'enable':
+      case 'disable':
+        break
+    }
+  }
+}
 
 function getGroupFields(groupKey: string): FormFieldConfig[] {
   return visibleFieldConfigs.value.filter((f) => f.group === groupKey)
@@ -136,6 +193,7 @@ function fieldColSpan(config: FormFieldConfig): number {
 function handleFieldUpdate(field: string, value: unknown) {
   localData[field] = value
   emit('update:modelValue', { ...localData })
+  processLinkages(field, value)
 }
 
 function handleFieldChange(field: string, value: unknown) {
@@ -156,13 +214,19 @@ async function validate(): Promise<boolean> {
   if (formRef.value) {
     try {
       await formRef.value.validate()
-    } catch {
+    } catch (elErrors: unknown) {
+      const errObj = elErrors as Record<string, unknown>
+      const firstErrorField = Object.keys(errObj)[0]
+      if (firstErrorField) scrollToField(firstErrorField)
+      emit('validate', false, errObj as Record<string, string[]>)
       return false
     }
   }
 
   const result = validateForm(localData, visibleFieldConfigs.value)
   if (!result.valid) {
+    const firstErrorField = Object.keys(result.errors)[0]
+    if (firstErrorField) scrollToField(firstErrorField)
     emit('validate', false, result.errors)
     return false
   }
@@ -184,7 +248,7 @@ function clearFieldValidate(field?: string) {
 
 function resetFields() {
   Object.keys(localData).forEach((k) => delete localData[k])
-  for (const config of props.fieldConfigs) {
+  for (const config of fieldConfigsMutable) {
     localData[config.field] = config.defaultValue ?? undefined
   }
   clearFieldValidate()

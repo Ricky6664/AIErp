@@ -63,6 +63,8 @@
 
 import type { FieldConfig, FieldValidationRule, FieldLinkageRule } from './list-table'
 
+export type { FieldLinkageRule }
+
 // ============================================================
 // 基础枚举类型
 // ============================================================
