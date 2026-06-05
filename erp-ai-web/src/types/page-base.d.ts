@@ -261,6 +261,46 @@ export interface KanbanColumnConfig {
 }
 
 /**
+ * 查询字段配置
+ */
+export interface QueryFieldConfig {
+  /** 字段唯一标识 */
+  id: string
+  /** 字段标签 */
+  label: string
+  /** 字段名 */
+  field: string
+  /** 字段类型 */
+  type: 'input' | 'select' | 'date' | 'date-range' | 'number' | 'cascader'
+  /** 占位文本 */
+  placeholder?: string
+  /** 选项（select/cascader 类型使用） */
+  options?: { label: string; value: string | number }[]
+  /** 默认值 */
+  defaultValue?: unknown
+  /** 字段宽度（栅格, 1-24），默认 6 */
+  span?: number
+}
+
+/**
+ * 查询页面配置（P09）
+ */
+export interface QueryPageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 是否显示查询区面板 */
+  showQueryPanel?: boolean
+  /** 是否显示操作栏 */
+  showActionBar?: boolean
+  /** 查询字段列表 */
+  queryFields?: QueryFieldConfig[]
+  /** 是否显示结果计数 */
+  showResultCount?: boolean
+  /** 每页默认条数 */
+  pageSize?: number
+}
+
+/**
  * 看板页面配置（P08）
  */
 export interface KanbanPageConfig {
@@ -288,6 +328,7 @@ export type PageConfig =
   | MasterFormPageConfig
   | SimpleFormPageConfig
   | KanbanPageConfig
+  | QueryPageConfig
   | (Record<string, unknown> & {})
 
 /**
