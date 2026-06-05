@@ -134,6 +134,14 @@ export const DEMO_EDIT_TABLE: RouteRecordRaw = {
   meta: { title: '录入表格演示', icon: 'Edit', keepAlive: true }
 }
 
+// 录入数据表格只读/禁用态演示页
+export const DEMO_EDIT_TABLE_READONLY: RouteRecordRaw = {
+  path: '/demo/edit-table/readonly',
+  name: 'DemoEditTableReadonly',
+  component: () => import('@/views/demo/edit-table/readonly-demo.vue'),
+  meta: { title: '只读/禁用态演示', icon: 'View', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -142,6 +150,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   DEV_VIRTUAL_SCROLL,
   DEMO_LIST_TABLE,
   DEMO_EDIT_TABLE,
+  DEMO_EDIT_TABLE_READONLY,
   USER_WORKBENCH,
   AUTH_CONFIG_WORKBENCH,
   LOGIN_LOG_PAGE,

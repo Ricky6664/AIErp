@@ -876,15 +876,16 @@
 | P0-005-004-005-001-003 | 验证前端页面开发页面 | 2026-06-06T04:30 | ✅ | 验证EntryTable合计列演示页: 6项验证清单全通过(单元格编辑/校验/行管理/Tab导航/Excel粘贴/拖拽改序); 代码审查editConfig/dragConfig/editRules/summaryData实现完整; 修复测试类型错误(FieldConfig导入路径+defineExpose暴露内部状态); edit-table相关vue-tsc零错误 | (待提交) |
 | P0-005-004-006-001-001 | 编写配置文件类 | 2026-06-06T00:45 | ✅ | EditTableProperties新增CellRender嵌套配置(cell-render前缀/5项属性/组件映射7项); application.yml新增edit-table.cell-render配置块(默认组件/懒渲染/缓存/组件映射); mvn compile通过 | (待提交) |
 | P0-005-004-006-001-002 | 验证编写配置项配置 | 2026-06-06T01:00 | ✅ | 验证edit-table.cell-render配置: YAML语法正确/mvn compile通过/各环境继承正确/无敏感信息/@Component+@ConfigurationProperties正确绑定/prefix全小写中划线/cellRender嵌套+componentMapping映射绑定验证通过 | (验证任务) |
+| P0-005-004-007-001-001 | 编写页面组件 | 2026-06-06T01:10 | ✅ | 录入数据表格只读/禁用态演示页: readonly-demo.vue(ErpEditTable组件/disabled属性/formMode视图切换/isDisabled联动/工具栏联动禁用); useDemoEditTableReadonly composable(FormMode类型/fetchData/CRUD/toggleFormMode); 路由注册(DEMO_EDIT_TABLE_READONLY); vue-tsc零错误; vite build通过 | (待提交) |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 511 | 2 | 23.8% |
+| P0 | 14 | 2,147 | 512 | 2 | 23.8% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **495** | **2** | **10.5%** |
+| **合计** | **46** | **4,716** | **496** | **2** | **10.5%** |
 
 ---
 
