@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.erp.auth.entity.AuthOauth2Config;
 import com.erp.auth.service.AuthOauth2ConfigService;
 import com.erp.auth.util.AesEncryptUtil;
+import com.erp.auth.vo.OAuth2TestResult;
 import com.erp.common.annotation.RequirePermission;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.BusinessException;
@@ -29,10 +30,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.ResourceAccessException;
 
 import java.net.URI;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 
 /**
  * OAuth2配置控制器.
@@ -115,36 +116,84 @@ public class OAuth2ConfigController {
     @Operation(summary = "测试OAuth2连接")
     @RequirePermission("system:oauth2-config:query")
     @PostMapping("/{id}/test")
-    public RT<String> testConnection(@Parameter(description = "OAuth2配置ID") @PathVariable Long id) {
+    public RT<OAuth2TestResult> testConnection(@Parameter(description = "OAuth2配置ID") @PathVariable Long id) {
         AuthOauth2Config entity = authOauth2ConfigService.getById(id);
         if (entity == null) {
             throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
         }
+        String authUrl = entity.getAuthUrl();
+        long startTime = System.currentTimeMillis();
         try {
             SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
-            factory.setConnectTimeout(10000);
+            factory.setConnectTimeout(5000);
             factory.setReadTimeout(10000);
             RestTemplate restTemplate = new RestTemplate(factory);
-            URI uri = new URL(entity.getAuthUrl()).toURI();
-            String result = restTemplate.execute(uri, HttpMethod.HEAD, null, response -> {
-                int status = response.getStatusCode().value();
-                if (status == 200 || status == 302) {
-                    return "连接成功: HTTP " + status;
+            URI uri = new URL(authUrl).toURI();
+            var response = restTemplate.execute(uri, HttpMethod.GET, null, clientResponse -> {
+                int status = clientResponse.getStatusCode().value();
+                long elapsed = System.currentTimeMillis() - startTime;
+                if (status == 200 || status == 302 || status == 401) {
+                    return OAuth2TestResult.builder()
+                            .success(true)
+                            .statusCode(status)
+                            .responseTime(elapsed)
+                            .message("授权URL可访问")
+                            .testUrl(authUrl)
+                            .build();
                 }
-                return "连接失败: HTTP " + status;
+                return OAuth2TestResult.builder()
+                        .success(false)
+                        .statusCode(status)
+                        .responseTime(elapsed)
+                        .message("HTTP错误: " + status)
+                        .testUrl(authUrl)
+                        .build();
             });
-            if (result != null && result.startsWith("连接成功")) {
-                return RT.ok(result);
+            if (response != null) {
+                log.info("OAuth2连接测试完成: id={}, url={}, success={}, time={}ms",
+                        id, authUrl, response.isSuccess(), response.getResponseTime());
+                return RT.ok(response);
             }
-            return RT.fail(ErrorCode.BUSINESS_ERROR, result);
+            long elapsed = System.currentTimeMillis() - startTime;
+            return RT.ok(OAuth2TestResult.builder()
+                    .success(false).statusCode(0).responseTime(elapsed)
+                    .message("未知错误").testUrl(authUrl).build());
+        } catch (ResourceAccessException e) {
+            long elapsed = System.currentTimeMillis() - startTime;
+            Throwable cause = e.getCause();
+            if (cause instanceof java.net.UnknownHostException) {
+                log.warn("OAuth2连接测试DNS解析失败: id={}, url={}", id, authUrl);
+                return RT.ok(OAuth2TestResult.builder()
+                        .success(false).statusCode(0).responseTime(elapsed)
+                        .message("DNS解析失败: " + cause.getMessage())
+                        .testUrl(authUrl).build());
+            }
+            if (cause instanceof java.net.SocketTimeoutException) {
+                log.warn("OAuth2连接测试超时: id={}, url={}", id, authUrl);
+                return RT.ok(OAuth2TestResult.builder()
+                        .success(false).statusCode(0).responseTime(elapsed)
+                        .message("连接超时(10秒)")
+                        .testUrl(authUrl).build());
+            }
+            if (cause instanceof java.net.ConnectException) {
+                log.warn("OAuth2连接测试连接被拒绝: id={}, url={}", id, authUrl);
+                return RT.ok(OAuth2TestResult.builder()
+                        .success(false).statusCode(0).responseTime(elapsed)
+                        .message("连接失败: " + cause.getMessage())
+                        .testUrl(authUrl).build());
+            }
+            log.warn("OAuth2连接测试网络错误: id={}, url={}, error={}", id, authUrl, e.getMessage());
+            return RT.ok(OAuth2TestResult.builder()
+                    .success(false).statusCode(0).responseTime(elapsed)
+                    .message("网络错误: " + e.getMessage())
+                    .testUrl(authUrl).build());
         } catch (Exception e) {
-            boolean timeout = e instanceof java.net.SocketTimeoutException
-                    || e.getCause() instanceof java.net.SocketTimeoutException;
-            log.warn("OAuth2连接测试失败: id={}, url={}, error={}", id, entity.getAuthUrl(), e.getMessage());
-            if (timeout) {
-                return RT.fail(ErrorCode.BUSINESS_ERROR, "连接超时");
-            }
-            return RT.fail(ErrorCode.BUSINESS_ERROR, "连接失败: " + e.getMessage());
+            long elapsed = System.currentTimeMillis() - startTime;
+            log.warn("OAuth2连接测试失败: id={}, url={}, error={}", id, authUrl, e.getMessage());
+            return RT.ok(OAuth2TestResult.builder()
+                    .success(false).statusCode(0).responseTime(elapsed)
+                    .message("连接失败: " + e.getMessage())
+                    .testUrl(authUrl).build());
         }
     }
 }

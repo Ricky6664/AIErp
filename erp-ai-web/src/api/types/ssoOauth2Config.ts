@@ -54,3 +54,12 @@ export interface ConfigPageResult<T> {
   pageNum: number
   pageSize: number
 }
+
+/** OAuth2连接测试结果 */
+export interface Oauth2TestResult {
+  success: boolean
+  statusCode: number
+  responseTime: number
+  message: string
+  testUrl: string
+}

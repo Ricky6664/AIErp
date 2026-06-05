@@ -410,11 +410,51 @@
           />
         </el-form-item>
       </el-form>
+
+      <div v-if="oauth2TestResult" class="test-result-area">
+        <el-divider />
+        <el-alert
+          :title="oauth2TestResult.success ? '连接成功' : '连接失败'"
+          :type="oauth2TestResult.success ? 'success' : 'error'"
+          :closable="false"
+          show-icon
+        >
+          <template #default>
+            <div class="test-result-detail">
+              <p><span class="label">测试URL：</span>{{ oauth2TestResult.testUrl }}</p>
+              <p><span class="label">HTTP状态码：</span>{{ oauth2TestResult.statusCode || '-' }}</p>
+              <p><span class="label">响应时间：</span>{{ oauth2TestResult.responseTime }}ms</p>
+              <p><span class="label">结果：</span>{{ oauth2TestResult.message }}</p>
+            </div>
+          </template>
+        </el-alert>
+      </div>
       <template #footer>
-        <el-button @click="oauth2DialogVisible = false">取消</el-button>
-        <el-button type="primary" :loading="oauth2Submitting" @click="handleOauth2Submit">
-          保存
-        </el-button>
+        <div class="dialog-footer">
+          <div class="footer-left">
+            <el-button
+              v-if="oauth2FormMode === 'edit'"
+              type="warning"
+              :loading="oauth2Testing"
+              @click="handleOauth2TestInDialog"
+            >
+              测试连接
+            </el-button>
+          </div>
+          <div class="footer-right">
+            <el-button :disabled="oauth2Testing" @click="oauth2DialogVisible = false"
+              >取消</el-button
+            >
+            <el-button
+              type="primary"
+              :loading="oauth2Submitting"
+              :disabled="oauth2Testing"
+              @click="handleOauth2Submit"
+            >
+              保存
+            </el-button>
+          </div>
+        </div>
       </template>
     </el-dialog>
   </div>
@@ -425,7 +465,7 @@ import { ref, reactive, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
 import { Search, Refresh, Plus } from '@element-plus/icons-vue'
-import type { SsoConfigItem, Oauth2ConfigItem } from '@/api/types/ssoOauth2Config'
+import type { SsoConfigItem, Oauth2ConfigItem, Oauth2TestResult } from '@/api/types/ssoOauth2Config'
 import CallbackUrlInput from './components/CallbackUrlInput.vue'
 import {
   getSsoConfigPageApi,
@@ -541,6 +581,8 @@ const oauth2FormRules: FormRules = {
 }
 
 const testingId = ref<number | null>(null)
+const oauth2Testing = ref(false)
+const oauth2TestResult = ref<Oauth2TestResult | null>(null)
 
 const oauth2TypeMap: Record<string, string> = {
   wechat: '微信',
@@ -750,6 +792,7 @@ function resetOauth2Form(): void {
     enabled: true
   })
   editingOauth2Id.value = null
+  oauth2TestResult.value = null
 }
 
 function handleOauth2Add(): void {
@@ -761,6 +804,7 @@ function handleOauth2Add(): void {
 function handleOauth2Edit(row: Oauth2ConfigItem): void {
   oauth2FormMode.value = 'edit'
   editingOauth2Id.value = row.id ?? null
+  oauth2TestResult.value = null
   Object.assign(oauth2Form, {
     supplierName: row.supplierName,
     type: row.type,
@@ -815,11 +859,38 @@ async function handleTestConnection(row: Oauth2ConfigItem): Promise<void> {
   testingId.value = row.id ?? null
   try {
     const result = await testOauth2ConnectionApi(row.id!)
-    ElMessage.success(result)
+    ElMessage.success(result.message || '连接成功')
   } catch (e: any) {
     ElMessage.error(e?.message || '连接测试失败')
   } finally {
     testingId.value = null
+  }
+}
+
+async function handleOauth2TestInDialog(): Promise<void> {
+  if (!editingOauth2Id.value) return
+  oauth2Testing.value = true
+  oauth2TestResult.value = null
+  try {
+    const result = await testOauth2ConnectionApi(editingOauth2Id.value)
+    oauth2TestResult.value = result
+    if (result.success) {
+      ElMessage.success('连接成功：授权URL可访问')
+    } else {
+      ElMessage.error(result.message || '连接测试失败')
+    }
+  } catch (e: any) {
+    const errMsg = e?.message || '连接测试失败'
+    ElMessage.error(errMsg)
+    oauth2TestResult.value = {
+      success: false,
+      statusCode: 0,
+      responseTime: 0,
+      message: errMsg,
+      testUrl: oauth2Form.authUrl || ''
+    }
+  } finally {
+    oauth2Testing.value = false
   }
 }
 
@@ -875,6 +946,41 @@ onMounted(() => {
     margin-top: 16px;
     display: flex;
     justify-content: flex-end;
+  }
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .footer-left {
+    flex: 0 0 auto;
+  }
+
+  .footer-right {
+    display: flex;
+    gap: 8px;
+    flex: 0 0 auto;
+  }
+}
+
+.test-result-area {
+  margin-top: 8px;
+
+  .test-result-detail {
+    p {
+      margin: 4px 0;
+      font-size: 13px;
+      line-height: 1.6;
+
+      .label {
+        font-weight: 500;
+        color: var(--el-text-color-secondary);
+        margin-right: 4px;
+      }
+    }
   }
 }
 </style>

@@ -4,7 +4,8 @@ import type {
   Oauth2ConfigItem,
   SsoConfigQuery,
   Oauth2ConfigQuery,
-  ConfigPageResult
+  ConfigPageResult,
+  Oauth2TestResult
 } from '@/api/types/ssoOauth2Config'
 
 // ========== SSO配置 API ==========
@@ -69,6 +70,6 @@ export function deleteOauth2ConfigApi(id: number): Promise<boolean> {
 }
 
 /** 测试OAuth2连接 */
-export function testOauth2ConnectionApi(id: number): Promise<string> {
+export function testOauth2ConnectionApi(id: number): Promise<Oauth2TestResult> {
   return request.post(`/api/system/oauth2-config/${id}/test`)
 }
