@@ -475,6 +475,82 @@ export interface ScreenPageConfig {
 }
 
 /**
+ * 配置表单字段配置（P13）
+ */
+export interface ConfigFormFieldConfig {
+  /** 字段唯一标识 */
+  id: string
+  /** 字段标签 */
+  label: string
+  /** 字段名 */
+  field: string
+  /** 字段类型 */
+  type: 'input' | 'number' | 'select' | 'switch' | 'date' | 'textarea' | 'color'
+  /** 默认值 */
+  defaultValue?: unknown
+  /** 占位文本 */
+  placeholder?: string
+  /** 选项（select 类型使用） */
+  options?: { label: string; value: string | number }[]
+  /** 是否必填 */
+  required?: boolean
+  /** 栅格跨度（1-24），默认 24 */
+  span?: number
+}
+
+/**
+ * 配置分组配置（P13 简单配置页模式）
+ */
+export interface ConfigGroupConfig {
+  /** 分组唯一标识 */
+  id: string
+  /** 分组标题 */
+  title: string
+  /** 分组图标 */
+  icon?: string
+  /** 分组内表单字段列表 */
+  fields: ConfigFormFieldConfig[]
+}
+
+/**
+ * 左侧导航项配置（P13 复杂配置页模式）
+ */
+export interface ConfigNavItemConfig {
+  /** 导航项唯一标识 */
+  id: string
+  /** 导航项标签 */
+  label: string
+  /** 导航项图标 */
+  icon?: string
+  /** 子级导航项 */
+  children?: ConfigNavItemConfig[]
+}
+
+/**
+ * 配置页面配置（P13）
+ */
+export interface ConfigPageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 是否显示查询区面板 */
+  showQueryPanel?: boolean
+  /** 是否显示操作栏 */
+  showActionBar?: boolean
+  /** 配置布局模式：simple 简单表单式 / split 左右分栏式 */
+  configLayout?: 'simple' | 'split'
+  /** 简单模式：分组表单配置 */
+  groups?: ConfigGroupConfig[]
+  /** 分栏模式：左侧导航树 */
+  navItems?: ConfigNavItemConfig[]
+  /** 表单最大宽度，默认 960px */
+  formMaxWidth?: number | string
+  /** 是否显示保存按钮 */
+  showSaveBtn?: boolean
+  /** 是否显示重置按钮 */
+  showResetBtn?: boolean
+}
+
+/**
  * 页面配置联合类型
  */
 export type PageConfig =
@@ -490,6 +566,7 @@ export type PageConfig =
   | ReportPageConfig
   | ScreenPageConfig
   | ProfilePageConfig
+  | ConfigPageConfig
   | (Record<string, unknown> & {})
 
 /**
