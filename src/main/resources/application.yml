@@ -363,3 +363,28 @@ edit-table:
     x-large-size: 20
     # xx-large 字体大小(px)
     xx-large-size: 22
+  cell-render:
+    # 未知字段类型时的默认编辑组件(input/input-number/select/date-picker/datetime-picker/switch/textarea)
+    default-component: input
+    # 是否启用懒渲染（仅可视区域单元格渲染，提升大表格性能）
+    lazy-render: true
+    # 是否启用组件实例缓存
+    cache-enabled: true
+    # 组件实例缓存上限（个），超出后LRU淘汰
+    cache-max-size: 200
+    # 字段类型 → 编辑组件映射
+    component-mapping:
+      # 文本类型字段使用文本输入框
+      text: input
+      # 数字类型字段使用数字输入框
+      number: input-number
+      # 日期类型字段使用日期选择器
+      date: date-picker
+      # 日期时间类型字段使用日期时间选择器
+      datetime: datetime-picker
+      # 布尔类型字段使用开关组件
+      boolean-type: switch
+      # 下拉选择类型字段使用下拉选择器
+      select: select
+      # 长文本类型字段使用文本域
+      textarea: textarea

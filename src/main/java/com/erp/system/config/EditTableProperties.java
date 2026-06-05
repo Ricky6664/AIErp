@@ -33,6 +33,11 @@ import org.springframework.validation.annotation.Validated;
  *   <li>edit-table.row-height.{size}-height — 各档行高像素值(px)，共7档独立配置</li>
  *   <li>edit-table.font-size.default-size — 默认字体尺寸(mini~xx-large 共7档)，默认 medium</li>
  *   <li>edit-table.font-size.{size}-size — 各档字体大小像素值(px)，共7档独立配置</li>
+ *   <li>edit-table.cell-render.default-component — 未知字段类型时的默认编辑组件，默认 input</li>
+ *   <li>edit-table.cell-render.lazy-render — 是否启用懒渲染(仅可视区域单元格渲染)，默认 true</li>
+ *   <li>edit-table.cell-render.cache-enabled — 是否启用组件实例缓存，默认 true</li>
+ *   <li>edit-table.cell-render.cache-max-size — 组件实例缓存上限(个)，默认 200</li>
+ *   <li>edit-table.cell-render.component-mapping.{type} — 字段类型→编辑组件映射(text→input, number→input-number 等)</li>
  * </ul>
  * </p>
  *
@@ -56,6 +61,8 @@ public class EditTableProperties {
     private RowHeight rowHeight = new RowHeight();
 
     private FontSize fontSize = new FontSize();
+
+    private CellRender cellRender = new CellRender();
 
     @Data
     public static class ColumnFormat {
@@ -141,5 +148,37 @@ public class EditTableProperties {
         private int xLargeSize = 20;
 
         private int xxLargeSize = 22;
+    }
+
+    @Data
+    public static class CellRender {
+
+        private String defaultComponent = "input";
+
+        private boolean lazyRender = true;
+
+        private boolean cacheEnabled = true;
+
+        private int cacheMaxSize = 200;
+
+        private ComponentMapping componentMapping = new ComponentMapping();
+
+        @Data
+        public static class ComponentMapping {
+
+            private String text = "input";
+
+            private String number = "input-number";
+
+            private String date = "date-picker";
+
+            private String datetime = "datetime-picker";
+
+            private String booleanType = "switch";
+
+            private String select = "select";
+
+            private String textarea = "textarea";
+        }
     }
 }
