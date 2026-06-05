@@ -227,6 +227,56 @@ export interface SimpleFormPageConfig {
 }
 
 /**
+ * 看板项配置
+ */
+export interface KanbanItemConfig {
+  /** 看板项唯一标识 */
+  id: string
+  /** 看板项标题 */
+  title: string
+  /** 看板项描述 */
+  description?: string
+  /** 标签 */
+  tags?: string[]
+  /** 负责人 */
+  assignee?: string
+  /** 优先级 */
+  priority?: 'low' | 'medium' | 'high' | 'urgent'
+  /** 扩展元数据 */
+  metadata?: Record<string, unknown>
+}
+
+/**
+ * 看板列配置
+ */
+export interface KanbanColumnConfig {
+  /** 列唯一标识 */
+  id: string
+  /** 列标题 */
+  label: string
+  /** 列颜色主题 */
+  color?: 'primary' | 'success' | 'warning' | 'danger' | 'info'
+  /** 列内看板项 */
+  items?: KanbanItemConfig[]
+}
+
+/**
+ * 看板页面配置（P08）
+ */
+export interface KanbanPageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 是否显示查询区面板 */
+  showQueryPanel?: boolean
+  /** 是否显示操作栏 */
+  showActionBar?: boolean
+  /** 看板列宽度，默认 280px */
+  columnWidth?: number | string
+  /** 看板列配置 */
+  columns?: KanbanColumnConfig[]
+}
+
+/**
  * 页面配置联合类型
  */
 export type PageConfig =
@@ -237,6 +287,7 @@ export type PageConfig =
   | TreeListPageConfig
   | MasterFormPageConfig
   | SimpleFormPageConfig
+  | KanbanPageConfig
   | (Record<string, unknown> & {})
 
 /**
