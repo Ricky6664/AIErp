@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-06T02:00
-> **归档总数**：514 条
+> **最后更新**：2026-06-06T02:10
+> **归档总数**：520 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -890,15 +890,16 @@
 | P0-005-005-005-001-002 | 验证功能 | 2026-06-06T02:00 | ✅ | 验证RelatedInfoArea+HeaderToolbar完整功能: 运行76个单元测试全部通过; 补充19个验证用例覆盖分组展开折叠/懒加载/权限控制/标签切换刷新/HeaderToolbar集成; 零回归 | 444fa92c |
 | P0-005-006-001-001-001 | 编写核心代码 | 2026-06-06T02:00 | ✅ | DetailTableArea明细从表区域组件: Vue SFC(标签页容器/懒加载/fieldConfig驱动/v-model选中/disabled禁用/prefix-suffix-default插槽); 类型定义(DetailTableTab/DetailTableProps/DetailTableEmits/DetailTableSlots/DetailTableExpose); 21个单元测试全部通过; vue-tsc零错误; vite build通过 | da57875b |
 | P0-005-006-001-001-002 | 验证功能 | 2026-06-06T03:05 | ✅ | 验证DetailTableArea纯标签页容器: 21/21测试通过; vue-tsc类型检查零错误; 验证项:标签页切换✅/懒加载✅(lazy属性)/隐藏过滤✅/disabled✅/插槽✅/focus-blur事件✅/expose方法✅; 头部工具栏+区域铺满为sub-module 002/003范围 | (验证任务) |
+| P0-005-006-002-001-001 | 编写核心代码 | 2026-06-06T02:10 | ✅ | DetailTableArea HeaderToolbar头部扩展工具栏: Vue SFC(添加行下拉/铺满切换/刷新/行高调整); 类型定义(DetailTableToolbarItem/DetailTableToolbarState/DetailTableRowHeightPreset等); 36个单元测试全部通过(覆盖率88.29%/分支88.31%); vue-tsc零错误+vite build通过 | (待提交) |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 519 | 2 | 24.2% |
+| P0 | 14 | 2,147 | 520 | 2 | 24.2% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **501** | **2** | **10.6%** |
+| **合计** | **46** | **4,716** | **502** | **2** | **10.6%** |
 
 ---
 

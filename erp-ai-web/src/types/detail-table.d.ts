@@ -71,3 +71,73 @@ export interface DetailTableExpose {
   /** 获取可见标签页列表 */
   getVisibleTabs: () => DetailTableTab[]
 }
+
+// ============================================================
+// 头部扩展工具栏（HeaderToolbar）
+// ============================================================
+
+/** 行高预设值 */
+export type DetailTableRowHeightPreset = 'compact' | 'small' | 'default' | 'large' | 'extra-large'
+
+/** 工具栏按钮项配置 */
+export interface DetailTableToolbarItem {
+  /** 按钮唯一标识 */
+  key: string
+  /** 内置工具类型 */
+  tool?: 'add-row' | 'maximize' | 'refresh' | 'row-height' | string
+  /** 按钮文本 */
+  label?: string
+  /** 提示文本 */
+  tooltip?: string
+  /** 图标名称（Element Plus Icon 组件名） */
+  icon?: string
+  /** 是否禁用 */
+  disabled?: boolean
+  /** 是否隐藏 */
+  hidden?: boolean
+  /** 是否在按钮后显示分隔线 */
+  showDivider?: boolean
+}
+
+/** HeaderToolbar 状态 */
+export interface DetailTableToolbarState {
+  /** 是否铺满 */
+  maximized: boolean
+  /** 行高预设 */
+  rowHeight: DetailTableRowHeightPreset
+}
+
+/** HeaderToolbar Props */
+export interface DetailTableToolbarProps {
+  /** v-model 双向绑定值 */
+  modelValue: DetailTableToolbarState
+  /** 工具栏按钮配置列表 */
+  fieldConfig?: DetailTableToolbarItem[]
+  /** 是否全局禁用 */
+  disabled?: boolean
+  /** 占位提示文本 */
+  placeholder?: string
+}
+
+/** HeaderToolbar Emits */
+export interface DetailTableToolbarEmits {
+  'update:modelValue': [value: DetailTableToolbarState]
+  change: [tool: string, state: DetailTableToolbarState]
+  focus: [key: string]
+  blur: [key: string]
+}
+
+/** HeaderToolbar Slots */
+export interface DetailTableToolbarSlots {
+  prefix?: () => unknown
+  suffix?: () => unknown
+  default?: () => unknown
+}
+
+/** HeaderToolbar 组件暴露方法 */
+export interface DetailTableToolbarExpose {
+  /** 获取当前工具栏状态 */
+  getState: () => DetailTableToolbarState
+  /** 切换铺满状态 */
+  toggleMaximize: () => void
+}
