@@ -489,7 +489,64 @@ export type PageConfig =
   | QueryPageConfig
   | ReportPageConfig
   | ScreenPageConfig
+  | ProfilePageConfig
   | (Record<string, unknown> & {})
+
+/**
+ * 个人中心统计卡片配置（P12）
+ */
+export interface ProfileStatConfig {
+  /** 统计项唯一标识 */
+  id: string
+  /** 统计项标签 */
+  label: string
+  /** 统计值 */
+  value: number | string
+  /** 图标名 */
+  icon?: string
+  /** 颜色主题 */
+  color?: 'blue' | 'green' | 'orange' | 'purple' | 'red'
+}
+
+/**
+ * 个人中心标签页配置（P12）
+ */
+export interface ProfileTabConfig {
+  /** 标签页唯一标识 */
+  id: string
+  /** 标签页名称 */
+  label: string
+  /** 图标名 */
+  icon?: string
+}
+
+/**
+ * 个人中心页面配置（P12）
+ */
+export interface ProfilePageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 是否显示查询区面板 */
+  showQueryPanel?: boolean
+  /** 是否显示操作栏 */
+  showActionBar?: boolean
+  /** 用户头像URL */
+  avatar?: string
+  /** 用户名称 */
+  userName?: string
+  /** 用户角色 */
+  userRole?: string
+  /** 用户简介 */
+  description?: string
+  /** 统计卡片列表 */
+  stats?: ProfileStatConfig[]
+  /** 标签页列表 */
+  tabs?: ProfileTabConfig[]
+  /** 当前激活标签页（双向绑定） */
+  activeTab?: string
+  /** 表单内容最大宽度，默认 960 */
+  formMaxWidth?: number | string
+}
 
 /**
  * 页面就绪事件参数
