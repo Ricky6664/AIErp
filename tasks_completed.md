@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-05T21:25
-> **归档总数**：492 条
+> **归档总数**：493 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -850,16 +850,18 @@
 | P0-005-003-001-001-002 | 验证功能 | 2026-06-05T22:15 | ✅ | 21个vitest测试全部通过; vue-tsc类型检查零错误; 逐项验证:列配置渲染/服务端排序/列筛选(文本数字日期)/前端服务端分页/虚拟滚动/列宽localStorage持久化; vxe-table^4.19.4符合4.x要求 | def5e354 |
 | P0-005-003-002-001-001 | 编写核心代码 | 2026-06-05T22:30 | ✅ | 列排序核心逻辑: SortConfig增强(多列排序fields数组/multiple/trigger/remote/showIcon); SortField接口; setSort/getSortColumns编程式排序控制; handleSortChange多列排序状态追踪; 32个测试全部通过(新增10个排序专项) | a074027a |
 | P0-005-003-002-001-002 | 验证功能 | 2026-06-05T23:25 | ✅ | 列排序验证: 32/32测试通过; vue-tsc类型检查零错误(仅list-table组件); 逐项验证:列配置渲染/服务端排序(remote/multi/trigger)/列筛选(文本数字日期)/分页切换(via pageMode)/虚拟滚动(默认开启)/列宽localStorage持久化(viewCode前缀); vxe-table 4.19.4符合4.x要求; 浏览器性能测试(渲染/FPS/Network)需手动验证 | b0ec41cf |
-| P0-005-003-003-001-001 | 编写核心代码 | 2026-06-05T21:36 | ✅ | 列搜索筛选核心逻辑: searchModel v-model/searchModel绑定; disabled prop; prefix/suffix插槽; currentFilterModel状态管理; setFilter/getFilterColumns编程式筛选控制; clearFilter增强(支持按字段清除); change/focus/blur事件; 类型定义(ListTableSearchModel/FilterColumnInfo/ListTableSlots/ListTableExpose); 40个单元测试全部通过; vue-tsc零错误 | — |
+| P0-005-003-003-001-001 | 编写核心代码 | 2026-06-05T21:36 | ✅ | 列搜索筛选核心逻辑: searchModel v-model/searchModel绑定; disabled prop; prefix/suffix插槽; currentFilterModel状态管理; setFilter/getFilterColumns编程式筛选控制; clearFilter增强(支持按字段清除); change/focus/blur事件; 类型定义(ListTableSearchModel/FilterColumnInfo/ListTableSlots/ListTableExpose); 40个单元测试全部通过; vue-tsc零错误 | f44f2022 |
+| P0-005-003-003-001-002 | 验证功能 | 2026-06-05T21:48 | ✅ | 验证ListTable列搜索筛选功能: 40/40测试通过; vue-tsc零错误; 列配置渲染/服务端排序/列筛选(text-number-date)/分页切换(pageMode)/虚拟滚动/列宽localStorage持久化6项全部通过; 浏览器性能测试(FPS/渲染时间)需手动验证 | f44f2022 |
+| P0-005-003-004-001-001 | 编写配置文件类 | 2026-06-05T21:48 | ✅ | 后端: ListTableProperties配置类(@ConfigurationProperties/list-table前缀/@Validated校验/ColumnFormat+ColumnDefault+ColumnPersist嵌套配置); application.yml新增list-table配置块(列格式/列默认值/列持久化) | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 495 | 2 | 23.1% |
+| P0 | 14 | 2,147 | 497 | 2 | 23.1% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **483** | **2** | **10.2%** |
+| **合计** | **46** | **4,716** | **485** | **2** | **10.3%** |
 
 ---
 
