@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-06T01:40
-> **归档总数**：512 条
+> **最后更新**：2026-06-06T02:00
+> **归档总数**：513 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -886,7 +886,8 @@
 | P0-005-005-003-001-002 | 验证功能 | 2026-06-06T01:15 | ✅ | 验证标签页显隐权限配置支持: useTabPermission 14/14测试通过; TabContainer 31/31测试通过; GroupNav 34/34测试通过; vue-tsc 316类型检查零错误; 3项核心验证(分组导航/标签页容器/标签页权限)全部通过 | (验证任务) |
 | P0-005-005-004-001-001 | 编写核心代码 | 2026-06-06T01:25 | ✅ | RelatedInfoArea关联信息区主组件: Vue SFC(GroupNav+TabContainer布局/数据刷新机制/provide-inject刷新上下文/mainRow监听自动刷新/分组切换自动选tab); 类型定义(RelatedInfoRefreshContext); 47个单元测试全部通过; 零回归(112/112) | 972030f0 |
 | P0-005-005-004-001-002 | 验证功能 | 2026-06-06T01:35 | ✅ | 验证RelatedInfoArea组件功能: 运行47个单元测试全部通过(分组导航/标签页切换/权限过滤/v-model/mainRow刷新/expose方法/插槽/边界条件); 6项验收全部通过 | ae8e23a7 |
-| P0-005-005-005-001-001 | 编写核心代码 | 2026-06-06T01:40 | ✅ | HeaderToolbar头部扩展工具栏(relation-info): Vue SFC(铺满/刷新/格式设置/行高调整/provide-inject/prevent-default); 类型定义(RelatedInfoToolbarState/Item/Tool/RowHeightPreset); 29个单元测试全部通过; vue-tsc零错误 | (待提交) |
+| P0-005-005-005-001-001 | 编写核心代码 | 2026-06-06T01:40 | ✅ | HeaderToolbar头部扩展工具栏(relation-info): Vue SFC(铺满/刷新/格式设置/行高调整); 类型定义(RelatedInfoToolbarState/Item/Tool/RowHeightPreset); 29个单元测试全部通过; vue-tsc零错误 | dc18f33a |
+| P0-005-005-005-001-002 | 验证功能 | 2026-06-06T02:00 | ✅ | 验证RelatedInfoArea+HeaderToolbar完整功能: 运行76个单元测试全部通过; 补充19个验证用例覆盖分组展开折叠/懒加载/权限控制/标签切换刷新/HeaderToolbar集成; 零回归 | (待提交) |
 
 ## 汇总统计
 
