@@ -982,4 +982,5 @@
 | P0-005-010-001-001-002 | 实现组件模板结构 | 2026-06-06T07:12 | ✅ | 增强basic-input模板结构：BEM命名(.basic-input__header/content/footer)+加载态/空态/正常态三态切换+v-for错误消息列表+事件修饰符(.stop)+CSS变量主题适配；新增loading/maxLength/showWordLimit/size props；36项单元测试全部通过；vue-tsc零错误 | (待提交) |
 | P0-005-010-001-001-003 | 实现组件逻辑 | 2026-06-06T07:22 | ✅ | 重构为ref+watch模式(innerValue);新增displayValue/isValid/errorMsg计算属性;watch(fieldConfig)重新初始化;onMounted/onBeforeUnmount生命周期;handleInput事件处理;FieldConfig增加title属性;36项测试通过;vue-tsc零basic-input错误 | (待提交) |
 | P0-005-010-001-002-001-001 | 解析联动规则配置JSON | 2026-06-06T07:30 | ✅ | LinkageConditionConfig/LinkageRuleConfig类型定义;buildConditionFn(12种运算符);parseLinkageJson(JSON→FieldLinkageRule[]);默认联动配置JSON文件;配置说明文档;48单测通过;vue-tsc零错误 | (待提交) |
+| P0-005-010-001-002-001-002 | 监听触发字段变化 | 2026-06-06T07:45 | ✅ | useFormLinkage新增watchFieldLinkages(自动监听触发字段+门禁防重入+stop清理);basic-input集成联动监听(watch innerValue→emit linkage event);types新增ErpInputLinkageEvent/change emit;99单测通过;vite build成功 | (待提交) |
 

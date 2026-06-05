@@ -1,4 +1,4 @@
-import type { FieldConfig } from './query-panel'
+import type { FieldConfig, FieldLinkageRule } from './list-table'
 
 /**
  * 字段校验规则
@@ -11,6 +11,18 @@ export interface ValidatorRule {
   validator?: (value: unknown) => boolean | Promise<boolean>
   message?: string
   trigger?: 'blur' | 'change'
+}
+
+/**
+ * 联动事件负载 — 当字段值变化触发联动规则时通过 linkage 事件发出
+ */
+export interface ErpInputLinkageEvent {
+  /** 触发字段名 */
+  field: string
+  /** 当前字段值 */
+  value: unknown
+  /** 被触发的联动规则列表 */
+  linkages: FieldLinkageRule[]
 }
 
 /**
@@ -44,6 +56,8 @@ export interface ErpInputProps {
  */
 export interface ErpInputEmits {
   'update:modelValue': [value: any]
+  change: [value: any]
+  linkage: [event: ErpInputLinkageEvent]
   focus: [event: FocusEvent]
   blur: [event: FocusEvent]
   validate: [result: boolean]

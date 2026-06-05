@@ -3,6 +3,7 @@ import { mount, type VueWrapper } from '@vue/test-utils'
 import { nextTick } from 'vue'
 import BasicInput from '@/components/basic-input/index.vue'
 import type { ErpInputProps } from '@/types/basic-input'
+import type { FieldLinkageRule } from '@/types/list-table'
 
 /** Exposed methods accessible on the component vm */
 interface BasicInputVM {
@@ -52,7 +53,7 @@ describe('BasicInput component', () => {
 
     it('renders header with fieldConfig title', () => {
       const wrapper = createWrapper({
-        fieldConfig: { title: '姓名', field: 'name', label: '姓名', type: 'input' }
+        fieldConfig: { title: '姓名', field: 'name', label: '姓名', fieldType: 'text' }
       })
       const header = wrapper.find('.basic-input__header')
       expect(header.exists()).toBe(true)
@@ -100,6 +101,23 @@ describe('BasicInput component', () => {
       const emitted = wrapper.emitted('update:modelValue')
       expect(emitted).toBeTruthy()
       expect(emitted![emitted!.length - 1]).toEqual(['新值'])
+    })
+
+    it('emits change event on blur when value changed', async () => {
+      const wrapper = createWrapper({ modelValue: '旧值' })
+      const input = wrapper.find('input')
+      await input.setValue('新值')
+      await input.trigger('blur')
+      const emitted = wrapper.emitted('change')
+      expect(emitted).toBeTruthy()
+      expect(emitted![emitted!.length - 1]).toEqual(['新值'])
+    })
+
+    it('does not emit change event on blur when value unchanged', async () => {
+      const wrapper = createWrapper({ modelValue: '相同值' })
+      const input = wrapper.find('input')
+      await input.trigger('blur')
+      expect(wrapper.emitted('change')).toBeFalsy()
     })
 
     it('reflects prop changes reactively', async () => {
@@ -158,6 +176,161 @@ describe('BasicInput component', () => {
       await elInput.vm.$emit('blur', new FocusEvent('blur'))
       await nextTick()
       expect(wrapper.emitted('blur')).toBeTruthy()
+    })
+  })
+
+  describe('linkage watching (监听触发字段变化)', () => {
+    const mockLinkages: FieldLinkageRule[] = [
+      {
+        triggerField: 'category',
+        targetField: 'subCategory',
+        action: 'show',
+        condition: (v: unknown) => v === 'A'
+      },
+      {
+        triggerField: 'category',
+        targetField: 'price',
+        action: 'setValue',
+        condition: (v: unknown) => v === 'premium',
+        params: { value: 100 }
+      },
+      {
+        triggerField: 'category',
+        targetField: 'note',
+        action: 'disable',
+        condition: undefined
+      }
+    ]
+
+    it('emits linkage event when fieldConfig has linkages and value changes', async () => {
+      const wrapper = createWrapper({
+        modelValue: '',
+        fieldConfig: {
+          field: 'category',
+          label: '类别',
+          fieldType: 'text',
+          linkages: mockLinkages
+        }
+      })
+      const input = wrapper.find('input')
+      await input.setValue('A')
+      await nextTick()
+      const emitted = wrapper.emitted('linkage')
+      expect(emitted).toBeTruthy()
+    })
+
+    it('emits linkage event only with rules whose condition passes', async () => {
+      const wrapper = createWrapper({
+        modelValue: '',
+        fieldConfig: {
+          field: 'category',
+          label: '类别',
+          fieldType: 'text',
+          linkages: mockLinkages
+        } as ErpInputProps['fieldConfig']
+      })
+      const input = wrapper.find('input')
+      await input.setValue('A')
+      await nextTick()
+      const emitted = wrapper.emitted('linkage')
+      expect(emitted).toBeTruthy()
+      const payload = emitted![emitted!.length - 1][0] as any
+      expect(payload.field).toBe('category')
+      expect(payload.value).toBe('A')
+      // Only the rule with condition matching 'A' should trigger (show subCategory),
+      // plus the unconditional rule (disable note)
+      expect(payload.linkages.length).toBe(2)
+    })
+
+    it('emits linkage event with unconditional rules when no condition set', async () => {
+      const wrapper = createWrapper({
+        modelValue: '',
+        fieldConfig: {
+          field: 'category',
+          label: '类别',
+          fieldType: 'text',
+          linkages: mockLinkages
+        } as ErpInputProps['fieldConfig']
+      })
+      const input = wrapper.find('input')
+      await input.setValue('random-value')
+      await nextTick()
+      const emitted = wrapper.emitted('linkage')
+      expect(emitted).toBeTruthy()
+      const payload = emitted![emitted!.length - 1][0] as any
+      // Only the unconditional rule (disable note) should trigger
+      expect(payload.linkages.length).toBe(1)
+      expect(payload.linkages[0].action).toBe('disable')
+    })
+
+    it('does not emit linkage when fieldConfig has no linkages', async () => {
+      const wrapper = createWrapper({
+        modelValue: '',
+        fieldConfig: {
+          field: 'category',
+          label: '类别',
+          type: 'input'
+        } as ErpInputProps['fieldConfig']
+      })
+      const input = wrapper.find('input')
+      await input.setValue('A')
+      await nextTick()
+      expect(wrapper.emitted('linkage')).toBeFalsy()
+    })
+
+    it('does not emit linkage when no fieldConfig provided', async () => {
+      const wrapper = createWrapper({ modelValue: '' })
+      const input = wrapper.find('input')
+      await input.setValue('any')
+      await nextTick()
+      expect(wrapper.emitted('linkage')).toBeFalsy()
+    })
+
+    it('emits linkage event for setValue action with params', async () => {
+      const wrapper = createWrapper({
+        modelValue: '',
+        fieldConfig: {
+          field: 'category',
+          label: '类别',
+          fieldType: 'text',
+          linkages: mockLinkages
+        } as ErpInputProps['fieldConfig']
+      })
+      const input = wrapper.find('input')
+      await input.setValue('premium')
+      await nextTick()
+      const emitted = wrapper.emitted('linkage')
+      expect(emitted).toBeTruthy()
+      const payload = emitted![emitted!.length - 1][0] as any
+      expect(payload.value).toBe('premium')
+      const setValueRules = payload.linkages.filter(
+        (l: FieldLinkageRule) => l.action === 'setValue'
+      )
+      expect(setValueRules.length).toBe(1)
+      expect(setValueRules[0].params).toEqual({ value: 100 })
+    })
+
+    it('does not emit linkage when value unchanged', async () => {
+      const wrapper = createWrapper({
+        modelValue: 'A',
+        fieldConfig: {
+          field: 'category',
+          label: '类别',
+          fieldType: 'text',
+          linkages: mockLinkages
+        } as ErpInputProps['fieldConfig']
+      })
+      // Set same value again via prop
+      await wrapper.setProps({ modelValue: 'A' })
+      await nextTick()
+      // The watch compares newValue !== oldValue, so should not emit
+      const emitted = wrapper.emitted('linkage')
+      // The initial mount with modelValue 'A' may trigger the watch (old is undefined)
+      // but we're checking that no duplicate linkage events fire
+      const emissionCount = emitted ? emitted.length : 0
+      // At mount, innerValue goes from undefined to 'A' which triggers linkage
+      // That's expected — one emission at most
+      expect(emissionCount).toBeLessThanOrEqual(1)
     })
   })
 

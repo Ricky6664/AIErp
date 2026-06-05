@@ -1,10 +1,16 @@
-import { reactive } from 'vue'
+import { reactive, watch } from 'vue'
 import type {
   FieldLinkageRule,
   LinkageConditionConfig,
   LinkageRuleConfig
 } from '@/types/list-table'
 import type { FormFieldConfig } from '@/types/master-form'
+
+/** Options for watchFieldLinkages */
+export interface WatchLinkagesOptions {
+  /** If true, immediately trigger linkages when watcher is set up */
+  immediate?: boolean
+}
 
 export interface FieldLinkageState {
   /** field visibility overrides (false = hidden by linkage) */
@@ -169,6 +175,53 @@ export function useFormLinkage() {
   }
 
   /**
+   * Watch trigger fields on form data and auto-execute linkages when values change.
+   * Uses a batching guard to prevent re-entry from setValue-triggered watch loops.
+   * Returns a cleanup function that stops all watchers.
+   */
+  function watchFieldLinkages(
+    formData: Record<string, unknown>,
+    fieldConfigs: FormFieldConfig[],
+    options?: WatchLinkagesOptions
+  ): () => void {
+    // Collect unique trigger fields across all linkage rules
+    const triggerFields = new Set<string>()
+    for (const config of fieldConfigs) {
+      const linkages = config.linkages ?? []
+      for (const linkage of linkages) {
+        if (linkage.triggerField) {
+          triggerFields.add(linkage.triggerField)
+        }
+      }
+    }
+
+    let processing = false
+    const stopHandlers: (() => void)[] = []
+
+    for (const field of triggerFields) {
+      const stop = watch(
+        () => formData[field],
+        (newVal, oldVal) => {
+          if (processing) return
+          if (newVal === oldVal) return
+          processing = true
+          try {
+            executeLinkages(field, newVal, fieldConfigs, formData)
+          } finally {
+            processing = false
+          }
+        },
+        { immediate: options?.immediate ?? false }
+      )
+      stopHandlers.push(stop)
+    }
+
+    return () => {
+      stopHandlers.forEach((s) => s())
+    }
+  }
+
+  /**
    * Check if a field is visible, taking linkage overrides into account.
    */
   function isFieldVisible(fieldConfig: FormFieldConfig): boolean {
@@ -200,6 +253,7 @@ export function useFormLinkage() {
     applyLinkageResult,
     applyOptionsResult,
     executeLinkages,
+    watchFieldLinkages,
     isFieldVisible,
     isFieldDisabled,
     reset

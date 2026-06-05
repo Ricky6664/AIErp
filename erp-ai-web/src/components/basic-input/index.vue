@@ -71,8 +71,10 @@ import type {
   ErpInputProps,
   ErpInputEmits,
   ErpInputExpose,
-  ValidatorRule
+  ValidatorRule,
+  ErpInputLinkageEvent
 } from '@/types/basic-input'
+import { useFormLinkage } from '@/composables/useFormLinkage'
 
 const props = withDefaults(defineProps<ErpInputProps>(), {
   disabled: false,
@@ -88,12 +90,16 @@ const emit = defineEmits<ErpInputEmits>()
 // 响应式状态
 const innerValue = ref(props.modelValue)
 const errorMessages = ref<string[]>([])
+const lastEmittedValue = ref(props.modelValue)
+
+const { evaluateCondition } = useFormLinkage()
 
 // 监听 modelValue Props 变化 → 同步到内部状态
 watch(
   () => props.modelValue,
   (val) => {
     innerValue.value = val
+    lastEmittedValue.value = val
   }
 )
 
@@ -104,6 +110,28 @@ watch(
     errorMessages.value = []
   }
 )
+
+// 监听触发字段变化 — 联动规则检测
+watch(innerValue, (newValue, oldValue) => {
+  if (newValue === oldValue) return
+  const linkages = props.fieldConfig?.linkages
+  if (!linkages || linkages.length === 0) return
+
+  // 收集由当前字段值变化触发的联动规则
+  const triggeredLinkages = linkages.filter(
+    (linkage) =>
+      linkage.triggerField === props.fieldConfig?.field && evaluateCondition(linkage, newValue)
+  )
+
+  if (triggeredLinkages.length > 0) {
+    const event: ErpInputLinkageEvent = {
+      field: props.fieldConfig?.field ?? '',
+      value: newValue,
+      linkages: triggeredLinkages
+    }
+    emit('linkage', event)
+  }
+})
 
 // 计算属性
 const displayValue = computed(() => {
@@ -127,6 +155,11 @@ function handleFocus(event: FocusEvent): void {
 }
 
 function handleBlur(event: FocusEvent): void {
+  const currentValue = innerValue.value
+  if (currentValue !== lastEmittedValue.value) {
+    emit('change', currentValue)
+    lastEmittedValue.value = currentValue
+  }
   emit('blur', event)
 }
 

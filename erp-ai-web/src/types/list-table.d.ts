@@ -4,6 +4,10 @@
 export interface FieldConfig {
   /** 字段名 */
   field: string
+  /** 字段显示标题 */
+  title?: string
+  /** 字段显示标签 */
+  label?: string
   /** 字段类型映射（text/number/date/select等） */
   fieldType?: string
   /** 校验规则 */

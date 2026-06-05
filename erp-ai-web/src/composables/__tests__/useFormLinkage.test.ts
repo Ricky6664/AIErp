@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+import { reactive, nextTick } from 'vue'
 import { useFormLinkage, buildConditionFn, parseLinkageJson } from '@/composables/useFormLinkage'
 import type { FormFieldConfig } from '@/types/master-form'
 import type { FieldLinkageRule, LinkageRuleConfig } from '@/types/list-table'
@@ -420,6 +421,149 @@ describe('useFormLinkage', () => {
       // No error thrown
       expect(configs[0].options).toBeUndefined()
     })
+  })
+})
+
+describe('watchFieldLinkages (监听触发字段变化)', () => {
+  function makeLinkageConfigs(): FormFieldConfig[] {
+    return [
+      makeFieldConfig({
+        field: 'category',
+        fieldType: 'select',
+        linkages: [
+          {
+            triggerField: 'category',
+            targetField: 'subCategory',
+            action: 'show',
+            condition: (v: unknown) => v === 'A'
+          },
+          {
+            triggerField: 'category',
+            targetField: 'price',
+            action: 'setValue',
+            condition: (v: unknown) => v === 'premium',
+            params: { value: 100 }
+          },
+          {
+            triggerField: 'category',
+            targetField: 'note',
+            action: 'disable'
+          }
+        ]
+      }),
+      makeFieldConfig({ field: 'subCategory', fieldType: 'select' }),
+      makeFieldConfig({
+        field: 'price',
+        fieldType: 'number',
+        linkages: [
+          {
+            triggerField: 'price',
+            targetField: 'discount',
+            action: 'setValue',
+            params: { value: 10 }
+          }
+        ]
+      }),
+      makeFieldConfig({ field: 'discount', fieldType: 'number' }),
+      makeFieldConfig({ field: 'note', fieldType: 'textarea' })
+    ]
+  }
+
+  it('returns a stop function', () => {
+    const { watchFieldLinkages } = useFormLinkage()
+    const formData = reactive<Record<string, unknown>>({ category: '' })
+    const stop = watchFieldLinkages(formData, [])
+    expect(typeof stop).toBe('function')
+    stop()
+  })
+
+  it('watches trigger field and executes linkages on value change', async () => {
+    const { watchFieldLinkages, state } = useFormLinkage()
+    const configs = makeLinkageConfigs()
+    const formData = reactive<Record<string, unknown>>({ category: 'B' })
+    const stop = watchFieldLinkages(formData, configs)
+    expect(state.visibility['subCategory']).toBeUndefined()
+
+    formData.category = 'A'
+    await nextTick()
+
+    expect(state.visibility['subCategory']).toBe(true)
+    stop()
+  })
+
+  it('handles cascade linkages via setValue', async () => {
+    const { watchFieldLinkages } = useFormLinkage()
+    const configs = makeLinkageConfigs()
+    const formData = reactive<Record<string, unknown>>({
+      category: '',
+      price: 0,
+      discount: 0
+    })
+    const stop = watchFieldLinkages(formData, configs)
+
+    formData.category = 'premium'
+    await nextTick()
+
+    expect(formData.price).toBe(100)
+    expect(formData.discount).toBe(10)
+    stop()
+  })
+
+  it('stop function prevents further linkage execution', async () => {
+    const { watchFieldLinkages, state } = useFormLinkage()
+    const configs: FormFieldConfig[] = [
+      makeFieldConfig({
+        field: 'type',
+        fieldType: 'select',
+        linkages: [{ triggerField: 'type', targetField: 'detail', action: 'show' }]
+      }),
+      makeFieldConfig({ field: 'detail', fieldType: 'text' })
+    ]
+    const formData = reactive<Record<string, unknown>>({ type: '' })
+    const stop = watchFieldLinkages(formData, configs)
+
+    formData.type = 'test'
+    await nextTick()
+    expect(state.visibility['detail']).toBe(true)
+
+    stop()
+    state.visibility['detail'] = false
+
+    formData.type = 'another'
+    await nextTick()
+    expect(state.visibility['detail']).toBe(false)
+  })
+
+  it('ignores fields without linkages', () => {
+    const { watchFieldLinkages } = useFormLinkage()
+    const configs: FormFieldConfig[] = [makeFieldConfig({ field: 'name', fieldType: 'text' })]
+    const formData = reactive<Record<string, unknown>>({ name: '' })
+    const stop = watchFieldLinkages(formData, configs)
+    expect(typeof stop).toBe('function')
+    stop()
+  })
+
+  it('supports immediate option', () => {
+    const { watchFieldLinkages, state } = useFormLinkage()
+    const configs: FormFieldConfig[] = [
+      makeFieldConfig({
+        field: 'category',
+        fieldType: 'select',
+        linkages: [
+          {
+            triggerField: 'category',
+            targetField: 'subCategory',
+            action: 'show',
+            condition: (v: unknown) => v === 'A'
+          }
+        ]
+      }),
+      makeFieldConfig({ field: 'subCategory', fieldType: 'select' })
+    ]
+    const formData = reactive<Record<string, unknown>>({ category: 'A' })
+    const stop = watchFieldLinkages(formData, configs, { immediate: true })
+    expect(state.visibility['subCategory']).toBe(true)
+    stop()
   })
 })
 
