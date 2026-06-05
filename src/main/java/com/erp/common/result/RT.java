@@ -18,7 +18,7 @@ import java.io.Serializable;
  *
  * <p>字段说明:
  * <ul>
- *   <li>{@code code} — 状态码, 200=成功, 其他=失败(业务错误码由 ErrorCode 枚举定义)</li>
+ *   <li>{@code code} — 状态码, 0=成功, 其他=失败(业务错误码由 ErrorCode 枚举定义)</li>
  *   <li>{@code message} — 响应消息, 成功时为 "success", 失败时为具体错误描述</li>
  *   <li>{@code data} — 响应数据(泛型), 失败时为 null</li>
  *   <li>{@code timestamp} — 响应时间戳(毫秒)</li>
@@ -49,7 +49,7 @@ public class RT<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /** 状态码: 200=成功, 其他=失败(业务错误码由 ErrorCode 枚举定义) */
-    @Schema(description = "状态码: 200=成功, 其他=失败", example = "200")
+    @Schema(description = "状态码: 0=成功, 其他=失败", example = "0")
     private int code;
 
     /** 响应消息: 成功时="success", 失败时=具体错误描述 */
@@ -74,7 +74,7 @@ public class RT<T> implements Serializable {
      * @return 成功响应
      */
     public static <T> RT<T> ok(T data) {
-        return new RT<>(200, "success", data, System.currentTimeMillis());
+        return new RT<>(0, "success", data, System.currentTimeMillis());
     }
 
     /**
@@ -96,7 +96,7 @@ public class RT<T> implements Serializable {
      * @return 成功响应
      */
     public static <T> RT<T> ok(String message, T data) {
-        return new RT<>(200, message, data, System.currentTimeMillis());
+        return new RT<>(0, message, data, System.currentTimeMillis());
     }
 
     // ========== 失败 ==========
@@ -187,7 +187,7 @@ public class RT<T> implements Serializable {
      * @return true=成功(code=200)
      */
     public boolean isSuccess() {
-        return this.code == 200;
+        return this.code == 0;
     }
 
     /**

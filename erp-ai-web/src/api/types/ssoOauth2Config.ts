@@ -9,6 +9,7 @@ export interface SsoConfigItem {
   ssoLogoutUrl: string
   certificate: string
   enabled: boolean
+  version?: number
   createTime?: string
   updateTime?: string
 }
@@ -25,6 +26,7 @@ export interface Oauth2ConfigItem {
   userInfoUrl: string
   scope: string
   enabled: boolean
+  version?: number
   createTime?: string
   updateTime?: string
 }

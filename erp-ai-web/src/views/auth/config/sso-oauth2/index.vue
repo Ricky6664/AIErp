@@ -462,7 +462,7 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
-import { ElMessage } from 'element-plus'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
 import { Search, Refresh, Plus } from '@element-plus/icons-vue'
 import type { SsoConfigItem, Oauth2ConfigItem, Oauth2TestResult } from '@/api/types/ssoOauth2Config'
@@ -505,6 +505,21 @@ const ssoForm = reactive<SsoConfigItem>({
   enabled: true
 })
 const editingSsoId = ref<number | null>(null)
+let ssoInitialValues: SsoConfigItem | null = null
+
+const URL_REGEX = /^https?:\/\/.+\..+/
+
+function urlValidator(_rule: any, value: string, callback: (error?: Error) => void): void {
+  if (!value) {
+    callback()
+    return
+  }
+  if (!URL_REGEX.test(value)) {
+    callback(new Error('请输入有效的URL地址'))
+  } else {
+    callback()
+  }
+}
 
 const ssoFormRules: FormRules = {
   ssoName: [
@@ -512,9 +527,15 @@ const ssoFormRules: FormRules = {
     { max: 100, message: '配置名称不超过100个字符', trigger: 'blur' }
   ],
   type: [{ required: true, message: '请选择认证类型', trigger: 'change' }],
-  idpUrl: [{ required: true, message: '请输入IDP地址', trigger: 'blur' }],
+  idpUrl: [
+    { required: true, message: '请输入IDP地址', trigger: 'blur' },
+    { validator: urlValidator, trigger: 'blur' }
+  ],
   spEntityId: [{ required: true, message: '请输入SP实体ID', trigger: 'blur' }],
-  ssoLoginUrl: [{ required: true, message: '请输入SSO登录URL', trigger: 'blur' }]
+  ssoLoginUrl: [
+    { required: true, message: '请输入SSO登录URL', trigger: 'blur' },
+    { validator: urlValidator, trigger: 'blur' }
+  ]
 }
 
 const ssoTypeMap: Record<string, string> = {
@@ -567,6 +588,7 @@ const oauth2Form = reactive<Oauth2ConfigItem>({
   enabled: true
 })
 const editingOauth2Id = ref<number | null>(null)
+let oauth2InitialValues: Oauth2ConfigItem | null = null
 
 const oauth2FormRules: FormRules = {
   supplierName: [
@@ -575,9 +597,18 @@ const oauth2FormRules: FormRules = {
   ],
   type: [{ required: true, message: '请选择认证类型', trigger: 'change' }],
   clientId: [{ required: true, message: '请输入Client ID', trigger: 'blur' }],
-  clientSecret: [{ required: true, message: '请输入Client Secret', trigger: 'blur' }],
-  authUrl: [{ required: true, message: '请输入授权URL', trigger: 'blur' }],
-  tokenUrl: [{ required: true, message: '请输入Token URL', trigger: 'blur' }]
+  clientSecret: [
+    { required: true, message: '请输入Client Secret', trigger: 'blur' },
+    { min: 8, message: 'Client Secret长度不能少于8位', trigger: 'blur' }
+  ],
+  authUrl: [
+    { required: true, message: '请输入授权URL', trigger: 'blur' },
+    { validator: urlValidator, trigger: 'blur' }
+  ],
+  tokenUrl: [
+    { required: true, message: '请输入Token URL', trigger: 'blur' },
+    { validator: urlValidator, trigger: 'blur' }
+  ]
 }
 
 const testingId = ref<number | null>(null)
@@ -674,6 +705,7 @@ function resetSsoForm(): void {
     enabled: true
   })
   editingSsoId.value = null
+  ssoInitialValues = null
 }
 
 function handleSsoAdd(): void {
@@ -685,6 +717,7 @@ function handleSsoAdd(): void {
 function handleSsoEdit(row: SsoConfigItem): void {
   ssoFormMode.value = 'edit'
   editingSsoId.value = row.id ?? null
+  ssoInitialValues = { ...row }
   Object.assign(ssoForm, {
     ssoName: row.ssoName,
     type: row.type,
@@ -693,9 +726,34 @@ function handleSsoEdit(row: SsoConfigItem): void {
     ssoLoginUrl: row.ssoLoginUrl,
     ssoLogoutUrl: row.ssoLogoutUrl || '',
     certificate: row.certificate || '',
-    enabled: row.enabled
+    enabled: row.enabled,
+    version: row.version
   })
   ssoDialogVisible.value = true
+}
+
+const ssoFieldLabels: Record<string, string> = {
+  ssoName: '配置名称',
+  type: '认证类型',
+  idpUrl: 'IDP地址',
+  spEntityId: 'SP实体ID',
+  ssoLoginUrl: 'SSO登录URL',
+  ssoLogoutUrl: 'SSO登出URL',
+  certificate: '证书',
+  enabled: '启用状态'
+}
+
+function getSsoChanges(): string[] {
+  if (!ssoInitialValues) return []
+  const changes: string[] = []
+  for (const key of Object.keys(ssoFieldLabels)) {
+    const oldVal = (ssoInitialValues as any)[key]
+    const newVal = (ssoForm as any)[key]
+    if (oldVal !== newVal) {
+      changes.push(ssoFieldLabels[key] || key)
+    }
+  }
+  return changes
 }
 
 async function handleSsoSubmit(): Promise<void> {
@@ -705,19 +763,47 @@ async function handleSsoSubmit(): Promise<void> {
   } catch {
     return
   }
+
+  if (ssoFormMode.value === 'edit' && ssoInitialValues) {
+    const changes = getSsoChanges()
+    if (changes.length > 0) {
+      try {
+        await ElMessageBox.confirm(
+          `<div>修改了以下字段：</div><ul>${changes.map((c) => `<li>${c}</li>`).join('')}</ul><div style="margin-top:8px">确认保存？</div>`,
+          '变更确认',
+          {
+            confirmButtonText: '确认保存',
+            cancelButtonText: '取消',
+            dangerouslyUseHTMLString: true,
+            type: 'warning'
+          }
+        )
+      } catch {
+        return
+      }
+    }
+  }
+
   ssoSubmitting.value = true
   try {
     if (ssoFormMode.value === 'add') {
       await createSsoConfigApi(ssoForm)
       ElMessage.success('SSO配置已新增')
     } else {
-      await updateSsoConfigApi(editingSsoId.value!, ssoForm)
+      const payload = { ...ssoForm, version: ssoInitialValues?.version }
+      await updateSsoConfigApi(editingSsoId.value!, payload)
       ElMessage.success('SSO配置已修改')
     }
     ssoDialogVisible.value = false
+    ElMessage.info('配置已保存，新配置将在下次用户登录时生效')
     await fetchSsoList()
-  } catch {
-    ElMessage.error(ssoFormMode.value === 'add' ? '新增失败' : '修改失败')
+  } catch (e: any) {
+    const errMsg = e?.message || ''
+    if (errMsg && errMsg !== 'success') {
+      ElMessage.error(errMsg)
+    } else {
+      ElMessage.error(ssoFormMode.value === 'add' ? '新增失败' : '修改失败')
+    }
   } finally {
     ssoSubmitting.value = false
   }
@@ -779,6 +865,35 @@ function handleOauth2SizeChange(): void {
 }
 
 // ==================== OAuth2增/改 ====================
+const oauth2FieldLabels: Record<string, string> = {
+  supplierName: '供应商名称',
+  type: '认证类型',
+  clientId: 'Client ID',
+  clientSecret: 'Client Secret',
+  authUrl: '授权URL',
+  tokenUrl: 'Token URL',
+  userInfoUrl: '用户信息URL',
+  scope: 'Scope',
+  enabled: '启用状态'
+}
+
+function getOauth2Changes(): string[] {
+  if (!oauth2InitialValues) return []
+  const changes: string[] = []
+  for (const key of Object.keys(oauth2FieldLabels)) {
+    const oldVal = (oauth2InitialValues as any)[key]
+    const newVal = (oauth2Form as any)[key]
+    if (oldVal !== newVal) {
+      if (key === 'clientSecret') {
+        changes.push('密钥已更新')
+      } else {
+        changes.push(oauth2FieldLabels[key] || key)
+      }
+    }
+  }
+  return changes
+}
+
 function resetOauth2Form(): void {
   Object.assign(oauth2Form, {
     supplierName: '',
@@ -793,6 +908,7 @@ function resetOauth2Form(): void {
   })
   editingOauth2Id.value = null
   oauth2TestResult.value = null
+  oauth2InitialValues = null
 }
 
 function handleOauth2Add(): void {
@@ -805,6 +921,7 @@ function handleOauth2Edit(row: Oauth2ConfigItem): void {
   oauth2FormMode.value = 'edit'
   editingOauth2Id.value = row.id ?? null
   oauth2TestResult.value = null
+  oauth2InitialValues = { ...row }
   Object.assign(oauth2Form, {
     supplierName: row.supplierName,
     type: row.type,
@@ -814,7 +931,8 @@ function handleOauth2Edit(row: Oauth2ConfigItem): void {
     tokenUrl: row.tokenUrl,
     userInfoUrl: row.userInfoUrl || '',
     scope: row.scope || '',
-    enabled: row.enabled
+    enabled: row.enabled,
+    version: row.version
   })
   oauth2DialogVisible.value = true
 }
@@ -826,19 +944,51 @@ async function handleOauth2Submit(): Promise<void> {
   } catch {
     return
   }
+
+  if (oauth2FormMode.value === 'edit' && oauth2InitialValues) {
+    const changes = getOauth2Changes()
+    if (changes.length > 0) {
+      try {
+        await ElMessageBox.confirm(
+          `<div>修改了以下字段：</div><ul>${changes.map((c) => `<li>${c}</li>`).join('')}</ul><div style="margin-top:8px">确认保存？</div>`,
+          '变更确认',
+          {
+            confirmButtonText: '确认保存',
+            cancelButtonText: '取消',
+            dangerouslyUseHTMLString: true,
+            type: 'warning'
+          }
+        )
+      } catch {
+        return
+      }
+    }
+  }
+
   oauth2Submitting.value = true
   try {
     if (oauth2FormMode.value === 'add') {
       await createOauth2ConfigApi(oauth2Form)
       ElMessage.success('OAuth2配置已新增')
     } else {
-      await updateOauth2ConfigApi(editingOauth2Id.value!, oauth2Form)
+      const payload = { ...oauth2Form, version: oauth2InitialValues?.version }
+      await updateOauth2ConfigApi(editingOauth2Id.value!, payload)
       ElMessage.success('OAuth2配置已修改')
     }
     oauth2DialogVisible.value = false
+    oauth2TestResult.value = null
+    if (oauth2Form.enabled !== oauth2InitialValues?.enabled) {
+      ElMessage.warning('启用状态已变更，此操作将立即影响登录页面的认证方式显示')
+    }
+    ElMessage.info('配置已保存，新配置将在下次用户登录时生效')
     await fetchOauth2List()
-  } catch {
-    ElMessage.error(oauth2FormMode.value === 'add' ? '新增失败' : '修改失败')
+  } catch (e: any) {
+    const errMsg = e?.message || ''
+    if (errMsg && errMsg !== 'success') {
+      ElMessage.error(errMsg)
+    } else {
+      ElMessage.error(oauth2FormMode.value === 'add' ? '新增失败' : '修改失败')
+    }
   } finally {
     oauth2Submitting.value = false
   }
