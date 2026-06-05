@@ -11,6 +11,7 @@ import com.erp.auth.vo.TokenRefreshResponse;
 import com.erp.auth.vo.TokenVerifyResponse;
 import com.erp.common.exception.AuthException;
 import com.erp.common.exception.BusinessException;
+import com.erp.system.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,6 +44,8 @@ class AuthServiceTest {
     @Mock private LoginLogService loginLogService;
     @Mock private StringRedisTemplate redisTemplate;
     @Mock private ValueOperations<String, String> valueOperations;
+    @Mock private LoginAttemptService loginAttemptService;
+    @Mock private UserService userService;
 
     @InjectMocks
     private AuthService authService;
@@ -53,6 +56,11 @@ class AuthServiceTest {
     @BeforeEach
     void setUp() {
         when(redisTemplate.opsForValue()).thenReturn(valueOperations);
+
+        // Mock LoginAttemptService: 默认未锁定
+        when(loginAttemptService.isLocked(anyString())).thenReturn(false);
+        doNothing().when(loginAttemptService).incrementFailCount(anyString());
+        doNothing().when(loginAttemptService).resetFailCount(anyString());
 
         // Mock Sa-Token 静态方法
         stpUtilMock = mockStatic(StpUtil.class);
@@ -129,8 +137,7 @@ class AuthServiceTest {
 
             authService.login("admin", "123456", "ABCD", "key123", req);
 
-            verify(redisTemplate).delete("login:fail:admin");
-            verify(redisTemplate).delete("login:lock:admin");
+            verify(loginAttemptService).resetFailCount("admin");
         }
     }
 
@@ -146,13 +153,11 @@ class AuthServiceTest {
             HttpServletRequest req = mockRequest("127.0.0.1");
             when(sysUserMapper.selectByUsername("admin")).thenReturn(validUser);
             doNothing().when(captchaService).verifyCaptcha(anyString(), anyString());
-            when(valueOperations.increment("login:fail:admin")).thenReturn(1L);
-            when(redisTemplate.expire(anyString(), anyLong(), any())).thenReturn(true);
 
             AuthException ex = assertThrows(AuthException.class,
                     () -> authService.login("admin", "wrongPassword", "ABCD", "key123", req));
             assertEquals(20006, ex.getCode());
-            verify(valueOperations).increment("login:fail:admin");
+            verify(loginAttemptService).incrementFailCount("admin");
         }
     }
 
@@ -168,11 +173,10 @@ class AuthServiceTest {
             HttpServletRequest req = mockRequest("127.0.0.1");
             when(sysUserMapper.selectByUsername("ghost")).thenReturn(null);
             doNothing().when(captchaService).verifyCaptcha(anyString(), anyString());
-            when(valueOperations.increment("login:fail:ghost")).thenReturn(1L);
-            when(redisTemplate.expire(anyString(), anyLong(), any())).thenReturn(true);
 
             assertThrows(AuthException.class,
                     () -> authService.login("ghost", "password", "ABCD", "key123", req));
+            verify(loginAttemptService).incrementFailCount("ghost");
         }
     }
 
@@ -221,29 +225,29 @@ class AuthServiceTest {
     class LockMechanism {
 
         @Test
-        @DisplayName("账号锁定后 → 直接抛出AuthException不校验密码")
-        void shouldThrowAuthExceptionWhenAccountLocked() {
+        @DisplayName("账号锁定后 → 直接抛出BusinessException不校验密码")
+        void shouldThrowBusinessExceptionWhenAccountLocked() {
             HttpServletRequest req = mockRequest("127.0.0.1");
-            when(valueOperations.get("login:lock:admin")).thenReturn("1");
+            when(loginAttemptService.isLocked("admin")).thenReturn(true);
+            when(loginAttemptService.getLockRemainingSeconds("admin")).thenReturn(600L);
 
-            assertThrows(AuthException.class,
+            BusinessException ex = assertThrows(BusinessException.class,
                     () -> authService.login("admin", "123456", "ABCD", "key123", req));
+            assertEquals(20005, ex.getCode());
             verify(sysUserMapper, never()).selectByUsername(anyString());
         }
 
         @Test
-        @DisplayName("连续失败5次 → 锁定账号")
-        void shouldLockAccountAfter5ConsecutiveFailures() {
+        @DisplayName("连续失败达到阈值 → LoginAttemptService处理锁定")
+        void shouldDelegateLockToLoginAttemptService() {
             HttpServletRequest req = mockRequest("127.0.0.1");
             when(sysUserMapper.selectByUsername("admin")).thenReturn(validUser);
             doNothing().when(captchaService).verifyCaptcha(anyString(), anyString());
-            when(valueOperations.increment("login:fail:admin")).thenReturn(5L);
-            when(redisTemplate.expire(anyString(), anyLong(), any())).thenReturn(true);
 
             assertThrows(AuthException.class,
                     () -> authService.login("admin", "wrongPwd", "ABCD", "key123", req));
 
-            verify(valueOperations).set(eq("login:lock:admin"), eq("1"), eq(15L), any());
+            verify(loginAttemptService).incrementFailCount("admin");
         }
     }
 

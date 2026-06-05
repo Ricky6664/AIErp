@@ -24,7 +24,6 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 /**
  * 认证服务.
  *
@@ -36,16 +35,12 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 public class AuthService {
 
-    private static final String LOGIN_FAIL_COUNT_PREFIX = "login:fail:";
-    private static final String LOGIN_LOCK_PREFIX = "login:lock:";
-    private static final long LOCK_DURATION_MINUTES = 15;
-    private static final int MAX_LOGIN_ATTEMPTS = 5;
-
     private final SysUserMapper sysUserMapper;
     private final AuthOnlineDeviceMapper authOnlineDeviceMapper;
     private final CaptchaService captchaService;
     private final LoginLogService loginLogService;
     private final StringRedisTemplate redisTemplate;
+    private final LoginAttemptService loginAttemptService;
     private final UserService userService;
 
     /**
@@ -54,7 +49,12 @@ public class AuthService {
     public LoginResponse login(String username, String password, String captchaCode, String captchaKey,
                                 HttpServletRequest request) {
         // 1. 检查锁定状态
-        checkLockStatus(username);
+        if (loginAttemptService.isLocked(username)) {
+            long remainingSeconds = loginAttemptService.getLockRemainingSeconds(username);
+            long remainingMinutes = (long) Math.ceil(remainingSeconds / 60.0);
+            throw new BusinessException(ErrorCode.ACCOUNT_LOCKED,
+                    "账号已被锁定，请" + remainingMinutes + "分钟后再试");
+        }
 
         // 2. 校验验证码
         captchaService.verifyCaptcha(captchaKey, captchaCode);
@@ -62,7 +62,7 @@ public class AuthService {
         // 3. 查询用户
         SysUser user = sysUserMapper.selectByUsername(username);
         if (user == null) {
-            incrementLoginFailCount(username);
+            loginAttemptService.incrementFailCount(username);
             throw new AuthException(ErrorCode.PASSWORD_ERROR);
         }
 
@@ -73,13 +73,13 @@ public class AuthService {
 
         // 5. 校验密码
         if (!BCrypt.checkpw(password, user.getPasswordHash())) {
-            incrementLoginFailCount(username);
+            loginAttemptService.incrementFailCount(username);
             recordLoginLog(user.getId(), username, request, "PASSWORD", false, "密码错误");
             throw new AuthException(ErrorCode.PASSWORD_ERROR);
         }
 
         // 6. 登录成功, 清除失败计数
-        clearLoginFailCount(username);
+        loginAttemptService.resetFailCount(username);
 
         // 7. Sa-Token 登录
         StpUtil.login(user.getId());
@@ -243,36 +243,6 @@ public class AuthService {
         } catch (Exception e) {
             log.debug("更新在线设备状态失败(可能表未初始化): {}", e.getMessage());
         }
-    }
-
-    // ==================== 锁定检查 ====================
-
-    private void checkLockStatus(String username) {
-        String lockKey = LOGIN_LOCK_PREFIX + username;
-        String locked = redisTemplate.opsForValue().get(lockKey);
-        if (locked != null) {
-            throw new AuthException(ErrorCode.ACCOUNT_LOCKED);
-        }
-    }
-
-    // ==================== 失败计数 ====================
-
-    private void incrementLoginFailCount(String username) {
-        String failKey = LOGIN_FAIL_COUNT_PREFIX + username;
-        Long count = redisTemplate.opsForValue().increment(failKey);
-        redisTemplate.expire(failKey, LOCK_DURATION_MINUTES, TimeUnit.MINUTES);
-        if (count != null && count >= MAX_LOGIN_ATTEMPTS) {
-            String lockKey = LOGIN_LOCK_PREFIX + username;
-            redisTemplate.opsForValue().set(lockKey, "1", LOCK_DURATION_MINUTES, TimeUnit.MINUTES);
-            log.warn("账号已锁定: username={}, 失败次数={}", username, count);
-        }
-    }
-
-    private void clearLoginFailCount(String username) {
-        String failKey = LOGIN_FAIL_COUNT_PREFIX + username;
-        String lockKey = LOGIN_LOCK_PREFIX + username;
-        redisTemplate.delete(failKey);
-        redisTemplate.delete(lockKey);
     }
 
     // ==================== 日志 ====================
