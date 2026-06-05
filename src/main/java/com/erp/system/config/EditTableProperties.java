@@ -29,6 +29,10 @@ import org.springframework.validation.annotation.Validated;
  *   <li>edit-table.edit.auto-focus — 编辑时是否自动聚焦，默认 true</li>
  *   <li>edit-table.edit.show-status — 是否显示编辑状态图标，默认 true</li>
  *   <li>edit-table.edit.mode — 编辑模式(cell/row)，默认 cell</li>
+ *   <li>edit-table.row-height.default-size — 默认行尺寸(mini~xx-large 共7档)，默认 medium</li>
+ *   <li>edit-table.row-height.{size}-height — 各档行高像素值(px)，共7档独立配置</li>
+ *   <li>edit-table.font-size.default-size — 默认字体尺寸(mini~xx-large 共7档)，默认 medium</li>
+ *   <li>edit-table.font-size.{size}-size — 各档字体大小像素值(px)，共7档独立配置</li>
  * </ul>
  * </p>
  *
@@ -48,6 +52,10 @@ public class EditTableProperties {
     private ColumnPersist columnPersist = new ColumnPersist();
 
     private Edit edit = new Edit();
+
+    private RowHeight rowHeight = new RowHeight();
+
+    private FontSize fontSize = new FontSize();
 
     @Data
     public static class ColumnFormat {
@@ -93,5 +101,45 @@ public class EditTableProperties {
         private boolean showStatus = true;
 
         private String mode = "cell";
+    }
+
+    @Data
+    public static class RowHeight {
+
+        private String defaultSize = "medium";
+
+        private int miniHeight = 28;
+
+        private int smallHeight = 36;
+
+        private int mediumHeight = 44;
+
+        private int largeHeight = 52;
+
+        private int looseHeight = 60;
+
+        private int xLargeHeight = 68;
+
+        private int xxLargeHeight = 76;
+    }
+
+    @Data
+    public static class FontSize {
+
+        private String defaultSize = "medium";
+
+        private int miniSize = 10;
+
+        private int smallSize = 12;
+
+        private int mediumSize = 14;
+
+        private int largeSize = 16;
+
+        private int looseSize = 18;
+
+        private int xLargeSize = 20;
+
+        private int xxLargeSize = 22;
     }
 }
