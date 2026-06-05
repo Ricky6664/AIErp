@@ -38,6 +38,8 @@ export interface DetailTableProps {
   disabled?: boolean
   /** 占位提示文本（无标签页时显示） */
   placeholder?: string
+  /** 是否铺满（区域铺满切换） */
+  maximized?: boolean
 }
 
 /** DetailTableArea Emits */
@@ -70,6 +72,8 @@ export interface DetailTableExpose {
   setActiveKey: (key: string) => void
   /** 获取可见标签页列表 */
   getVisibleTabs: () => DetailTableTab[]
+  /** 切换铺满状态 */
+  toggleMaximize: () => void
 }
 
 // ============================================================

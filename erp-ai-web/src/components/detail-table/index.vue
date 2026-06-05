@@ -1,5 +1,11 @@
 <template>
-  <div class="detail-table" :class="{ 'detail-table--disabled': props.disabled }">
+  <div
+    class="detail-table"
+    :class="{
+      'detail-table--disabled': props.disabled,
+      'detail-table--maximized': props.maximized
+    }"
+  >
     <!-- prefix 插槽 -->
     <div v-if="$slots.prefix" class="detail-table__prefix">
       <slot name="prefix" />
@@ -66,12 +72,14 @@ const props = withDefaults(
     fieldConfig?: DetailTableTab[]
     disabled?: boolean
     placeholder?: string
+    maximized?: boolean
   }>(),
   {
     modelValue: '',
     fieldConfig: () => [],
     disabled: false,
-    placeholder: ''
+    placeholder: '',
+    maximized: false
   }
 )
 
@@ -83,6 +91,8 @@ const emit = defineEmits<{
   change: [key: string, tab: DetailTableTab]
   focus: [key: string]
   blur: [key: string]
+  maximize: []
+  unmaximize: []
 }>()
 
 // ============================================================
@@ -140,13 +150,28 @@ function getVisibleTabs(): DetailTableTab[] {
   return visibleTabs.value
 }
 
+/** 切换区域铺满状态 */
+async function toggleMaximize(): Promise<void> {
+  try {
+    const nextState = !props.maximized
+    if (nextState) {
+      emit('maximize')
+    } else {
+      emit('unmaximize')
+    }
+  } catch (err) {
+    console.error('[DetailTable] toggleMaximize error:', err)
+  }
+}
+
 // ============================================================
 // 暴露方法
 // ============================================================
 defineExpose({
   getActiveKey,
   setActiveKey,
-  getVisibleTabs
+  getVisibleTabs,
+  toggleMaximize
 })
 </script>
 
@@ -161,6 +186,16 @@ defineExpose({
   &--disabled {
     opacity: 0.6;
     pointer-events: none;
+  }
+
+  &--maximized {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+    background: var(--el-bg-color);
   }
 
   &__prefix {

@@ -294,4 +294,43 @@ describe('DetailTable', () => {
       expect(wrapper.emitted('blur')).toBeTruthy()
     })
   })
+
+  // ============================================================
+  // 区域铺满切换
+  // ============================================================
+
+  describe('区域铺满切换', () => {
+    it('maximized 为 false 时不应有 maximized CSS 类', () => {
+      const wrapper = createWrapper()
+      expect(wrapper.find('.detail-table--maximized').exists()).toBe(false)
+    })
+
+    it('maximized 为 true 时应添加 maximized CSS 类', () => {
+      const wrapper = createWrapper({ maximized: true })
+      expect(wrapper.find('.detail-table--maximized').exists()).toBe(true)
+    })
+
+    it('maximized prop 默认值应为 false', () => {
+      const wrapper = createWrapper()
+      expect(wrapper.props('maximized')).toBe(false)
+    })
+
+    it('toggleMaximize 从 false 切换应 emit maximize 事件', () => {
+      const wrapper = createWrapper()
+      wrapper.vm.toggleMaximize()
+      expect(wrapper.emitted('maximize')).toBeTruthy()
+    })
+
+    it('toggleMaximize 从 true 切换应 emit unmaximize 事件', () => {
+      const wrapper = createWrapper({ maximized: true })
+      wrapper.vm.toggleMaximize()
+      expect(wrapper.emitted('unmaximize')).toBeTruthy()
+    })
+
+    it('disabled 时 maximize 样式不应冲突', () => {
+      const wrapper = createWrapper({ disabled: true, maximized: true })
+      expect(wrapper.find('.detail-table--disabled').exists()).toBe(true)
+      expect(wrapper.find('.detail-table--maximized').exists()).toBe(true)
+    })
+  })
 })
