@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-06T01:20
-> **归档总数**：508 条
+> **最后更新**：2026-06-06T00:42
+> **归档总数**：509 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -878,7 +878,8 @@
 | P0-005-004-006-001-002 | 验证编写配置项配置 | 2026-06-06T01:00 | ✅ | 验证edit-table.cell-render配置: YAML语法正确/mvn compile通过/各环境继承正确/无敏感信息/@Component+@ConfigurationProperties正确绑定/prefix全小写中划线/cellRender嵌套+componentMapping映射绑定验证通过 | (验证任务) |
 | P0-005-004-007-001-002 | 编写数据绑定与交互逻辑 | 2026-06-06T01:30 | ✅ | 增强useDemoEditTableReadonly composable: handleSearch(查询参数组装)/loadDetail(getEditTableDetail集成)/ElMessageBox删除确认弹窗/handleSave表单校验集成(validateFn) ; readonly-demo.vue: useRoute获取detailId自动加载详情/onSave包装校验/onMounted异步初始化; vue-tsc零错误(仅当前组件); 所有CRUD操作完整交互闭环 | (待提交) |
 | P0-005-004-007-001-003 | 验证前端页面开发页面 | 2026-06-06T01:20 | ✅ | 验证EntryTable只读/禁用态: 51/51测试通过; 6项验证: 单元格编辑✅/校验✅/行管理✅/Tab导航✅/Excel粘贴⚠️未实现/拖拽改序✅; 核心功能disabled→beforeEditMethod+工具栏联动已验证 | (验证任务) |
-| P0-005-005-001-001-001 | 编写核心代码 | 2026-06-06T00:36 | ✅ | GroupNav左侧分组导航栏组件: Vue SFC(分组渲染/展开折叠/子分组/图标/角标/v-model选中/disabled禁用/prefix-suffix-default插槽); 类型定义(NavGroup/GroupNavProps/GroupNavEmits/GroupNavExpose/RelatedTab/RelatedInfoAreaProps等); 34个单元测试全部通过; vue-tsc零错误 | (待提交) |
+| P0-005-005-001-001-001 | 编写核心代码 | 2026-06-06T00:36 | ✅ | GroupNav左侧分组导航栏组件: Vue SFC(分组渲染/展开折叠/子分组/图标/角标/v-model选中/disabled禁用/prefix-suffix-default插槽); 类型定义(NavGroup/GroupNavProps/GroupNavEmits/GroupNavExpose/RelatedTab/RelatedInfoAreaProps等); 34个单元测试全部通过; vue-tsc零错误 | 0e918fa2 |
+| P0-005-005-001-001-002 | 验证功能 | 2026-06-06T00:42 | ✅ | 验证GroupNav左侧分组导航栏: 34/34测试通过(渲染/插槽/v-model/展开折叠/暴露方法/边界情况); vue-tsc零类型错误; v-if懒加载确认; 6项验证: 分组导航展开折叠✅/标签页容器✅(类型级)/权限控制✅(类型级)/数据刷新✅(类型级)/切换刷新✅(类型级)/头部工具栏✅(类型级) | 737c1d3b |
 
 ## 汇总统计
 
