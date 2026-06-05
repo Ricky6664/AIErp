@@ -109,6 +109,45 @@ export interface FilterConfig {
 export type PageMode = 'client' | 'server'
 
 /**
+ * 合计行计算方法
+ */
+export type SummaryMethod = 'sum' | 'avg' | 'count' | 'min' | 'max' | 'custom' | 'none'
+
+/**
+ * 合计行列配置
+ */
+export interface SummaryColumnConfig {
+  /** 字段名 */
+  field: string
+  /** 合计计算方法 */
+  method: SummaryMethod
+  /** 自定义合计函数（method为'custom'时使用，参数为当前页数据列表） */
+  customMethod?: (data: unknown[]) => number | string
+  /** 合计行值格式化函数 */
+  formatter?: (value: unknown) => string
+  /** 合计行前缀文本 */
+  prefix?: string
+  /** 合计行后缀文本 */
+  suffix?: string
+}
+
+/**
+ * 合计行配置
+ */
+export interface SummaryConfig {
+  /** 是否启用合计行 */
+  enabled: boolean
+  /** 合计行列配置列表 */
+  columns?: SummaryColumnConfig[]
+  /** 合计行高度 */
+  height?: number | string
+  /** 合计行首列标签字段（该列显示"合计"标签而非计算结果） */
+  labelField?: string
+  /** 合计行标签文本（默认"合计"） */
+  labelText?: string
+}
+
+/**
  * 行尺寸
  */
 export type RowSize = 'mini' | 'small' | 'medium' | 'large' | 'loose' | 'x-large' | 'xx-large'
@@ -163,6 +202,8 @@ export interface ListTableColumn {
   showOverflow?: boolean
   /** 自定义插槽名 */
   slot?: string
+  /** 合计行列配置 */
+  summary?: SummaryColumnConfig
 }
 
 /**
@@ -266,6 +307,8 @@ export interface ListTableProps {
   showHeader?: boolean
   /** 合计行数据 */
   summaryData?: Record<string, unknown>
+  /** 合计行配置 */
+  summaryConfig?: SummaryConfig
   /** 空数据提示文本 */
   emptyText?: string
   /** 视图编码（用于列配置持久化key区分） */
