@@ -1,7 +1,6 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi, beforeAll } from 'vitest'
 import { mount, type VueWrapper } from '@vue/test-utils'
-import { nextTick } from 'vue'
-import TabContainer from '@/components/relation-info/TabContainer.vue'
+import { nextTick, computed, ref } from 'vue'
 import type { RelatedTab } from '@/types/relation-info'
 
 const sampleTabs: RelatedTab[] = [
@@ -13,6 +12,28 @@ const sampleTabs: RelatedTab[] = [
   { key: 'finance-detail', label: '财务明细', group: 'finance', disabled: true },
   { key: 'hidden-tab', label: '隐藏标签', group: 'basic', hidden: true }
 ]
+
+// Provide a permission-free stub: return visible tabs filtered only by hidden & activeGroup
+vi.mock('@/composables/useTabPermission', () => ({
+  useTabPermission: (tabs: ReturnType<typeof ref>, activeGroup: ReturnType<typeof ref>) => {
+    const visibleTabs = computed(() => {
+      let list = tabs.value.filter((t: RelatedTab) => !t.hidden)
+      if (activeGroup && activeGroup.value) {
+        list = list.filter((t: RelatedTab) => t.group === activeGroup.value)
+      }
+      return list
+    })
+    const canAccessTab = (t: RelatedTab) => !t.hidden
+    const permissionHiddenCount = computed(() => 0)
+    return { visibleTabs, canAccessTab, permissionHiddenCount }
+  }
+}))
+
+// Must import after mock
+let TabContainer: typeof import('@/components/relation-info/TabContainer.vue').default
+beforeAll(async () => {
+  TabContainer = (await import('@/components/relation-info/TabContainer.vue')).default
+})
 
 function createWrapper(
   overrides: {

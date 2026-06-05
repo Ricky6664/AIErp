@@ -41,8 +41,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { toRef } from 'vue'
 import type { RelatedTab } from '@/types/relation-info'
+import { useTabPermission } from '@/composables/useTabPermission'
 
 const props = withDefaults(
   defineProps<{
@@ -68,14 +69,14 @@ const emit = defineEmits<{
   blur: [key: string]
 }>()
 
-/** 可见的标签页（过滤隐藏项，按 activeGroup 筛选） */
-const visibleTabs = computed<RelatedTab[]>(() => {
-  let list = props.tabs.filter((t) => !t.hidden)
-  if (props.activeGroup) {
-    list = list.filter((t) => t.group === props.activeGroup)
-  }
-  return list
-})
+const tabsRef = toRef(props, 'tabs')
+const activeGroupRef = toRef(props, 'activeGroup')
+
+/** 可见的标签页（过滤隐藏项、无权限项，按 activeGroup 筛选） */
+const { visibleTabs, permissionHiddenCount, canAccessTab } = useTabPermission(
+  tabsRef,
+  activeGroupRef
+)
 
 /** 判断标签页是否激活 */
 function isActive(key: string): boolean {
@@ -103,7 +104,7 @@ function getActiveKey(): string | undefined {
 
 /** 设置激活标签页 */
 function setActiveKey(key: string): void {
-  const tab = props.tabs.find((t) => t.key === key && !t.hidden)
+  const tab = props.tabs.find((t) => t.key === key && canAccessTab(t))
   if (tab) {
     emit('update:modelValue', key)
     emit('change', key, tab)
@@ -118,7 +119,8 @@ function getVisibleTabs(): RelatedTab[] {
 defineExpose({
   getActiveKey,
   setActiveKey,
-  getVisibleTabs
+  getVisibleTabs,
+  permissionHiddenCount
 })
 </script>
 
