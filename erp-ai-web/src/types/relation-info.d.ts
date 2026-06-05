@@ -135,6 +135,66 @@ export interface RelatedInfoAreaExpose {
 }
 
 // ============================================================
+// 头部扩展工具栏（HeaderToolbar）类型
+// ============================================================
+
+/** 工具栏行高预设值 */
+export type RelatedInfoRowHeightPreset = 'compact' | 'small' | 'default' | 'large' | 'extra-large'
+
+/** 工具栏内置工具标识 */
+export type RelatedInfoToolbarTool = 'maximize' | 'refresh' | 'format-settings' | 'row-height'
+
+/** 工具栏按钮配置项 */
+export interface RelatedInfoToolbarItem {
+  /** 唯一标识 */
+  key: string
+  /** 工具类型 */
+  tool?: RelatedInfoToolbarTool
+  /** 按钮文本 */
+  label?: string
+  /** Element Plus 图标名 */
+  icon?: string
+  /** 提示文本 */
+  tooltip?: string
+  /** 是否禁用 */
+  disabled?: boolean
+  /** 是否隐藏 */
+  hidden?: boolean
+  /** 是否在此按钮后显示分隔线 */
+  showDivider?: boolean
+}
+
+/** 工具栏状态 */
+export interface RelatedInfoToolbarState {
+  /** 是否铺满/最大化 */
+  maximized?: boolean
+  /** 行高预设 */
+  rowHeight?: RelatedInfoRowHeightPreset
+  /** 格式设置面板是否可见 */
+  formatSettingsVisible?: boolean
+}
+
+/** 头部扩展工具栏 Props */
+export interface HeaderToolbarProps {
+  /** v-model 双向绑定值 */
+  modelValue: RelatedInfoToolbarState
+  /** 工具栏按钮配置 */
+  fieldConfig?: RelatedInfoToolbarItem[]
+  /** 是否全局禁用 */
+  disabled?: boolean
+  /** 占位提示文本 */
+  placeholder?: string
+}
+
+/** 头部扩展工具栏 Emits */
+export interface HeaderToolbarEmits {
+  'update:modelValue': [value: RelatedInfoToolbarState]
+  change: [tool: string, state: RelatedInfoToolbarState]
+  focus: [key: string]
+  blur: [key: string]
+}
+
+// ============================================================
 // 数据刷新注入
 // ============================================================
 
