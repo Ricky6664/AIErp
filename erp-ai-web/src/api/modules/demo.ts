@@ -129,3 +129,65 @@ export function getDemoOrderPage(params: DemoOrderQuery): Promise<PageResult<Dem
     }, 300)
   })
 }
+
+let nextId = MOCK_TOTAL + 1
+
+export function saveDemoOrder(
+  data: Partial<DemoOrderItem> & { id?: number }
+): Promise<DemoOrderItem> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const list = getCachedData()
+      if (data.id) {
+        const idx = list.findIndex((item) => item.id === data.id)
+        if (idx >= 0) {
+          list[idx] = { ...list[idx], ...data, id: list[idx].id }
+          resolve(list[idx])
+          return
+        }
+      }
+      const newItem: DemoOrderItem = {
+        id: nextId++,
+        orderNo: `ORD-${String(nextId - 1).padStart(6, '0')}`,
+        customerName: data.customerName || customers[0],
+        productName: data.productName || products[0],
+        quantity: data.quantity || 1,
+        unitPrice: data.unitPrice || 0,
+        totalAmount: (data.quantity || 1) * (data.unitPrice || 0),
+        status: data.status || 'pending',
+        orderDate: data.orderDate || new Date().toISOString().slice(0, 10),
+        deliveryDate: data.deliveryDate || ''
+      }
+      list.unshift(newItem)
+      resolve(newItem)
+    }, 200)
+  })
+}
+
+export function deleteDemoOrder(id: number): Promise<void> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const list = getCachedData()
+      const idx = list.findIndex((item) => item.id === id)
+      if (idx >= 0) {
+        list.splice(idx, 1)
+        resolve()
+      } else {
+        reject(new Error(`订单 #${id} 不存在`))
+      }
+    }, 200)
+  })
+}
+
+export function getDemoOrderDetail(id: number): Promise<DemoOrderItem> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const item = getCachedData().find((d) => d.id === id)
+      if (item) {
+        resolve({ ...item })
+      } else {
+        reject(new Error(`订单 #${id} 不存在`))
+      }
+    }, 150)
+  })
+}

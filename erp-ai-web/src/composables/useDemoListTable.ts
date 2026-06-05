@@ -1,10 +1,18 @@
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import type { ListTableColumn, SortEventParams, RowSize, SortConfig } from '@/types/list-table'
 import type { DemoOrderItem, DemoOrderQuery } from '@/api/modules/demo'
-import { getDemoOrderPage } from '@/api/modules/demo'
+import {
+  getDemoOrderPage,
+  saveDemoOrder,
+  deleteDemoOrder,
+  getDemoOrderDetail
+} from '@/api/modules/demo'
 
 export function useDemoListTable() {
   const loading = ref(false)
+  const error = ref<string | null>(null)
   const data = ref<DemoOrderItem[]>([])
   const total = ref(0)
   const currentPage = ref(1)
@@ -14,6 +22,12 @@ export function useDemoListTable() {
 
   const searchKeyword = ref('')
   const searchStatus = ref('')
+
+  const router = useRouter()
+  const route = useRoute()
+
+  const saving = ref(false)
+  const deleting = ref(false)
 
   const sortParams = reactive<{ field: string; order: 'asc' | 'desc' | null }>({
     field: '',
@@ -118,6 +132,7 @@ export function useDemoListTable() {
 
   async function fetchData(): Promise<void> {
     loading.value = true
+    error.value = null
     try {
       const params: DemoOrderQuery = {
         pageNum: currentPage.value,
@@ -132,6 +147,10 @@ export function useDemoListTable() {
       const result = await getDemoOrderPage(params)
       data.value = result.records
       total.value = result.total
+    } catch (err) {
+      const message = err instanceof Error ? err.message : '数据加载失败'
+      error.value = message
+      ElMessage.error(message)
     } finally {
       loading.value = false
     }
@@ -178,15 +197,109 @@ export function useDemoListTable() {
   }
 
   function handleRowDblclick(row: Record<string, unknown>): void {
-    console.log('双击行:', row)
+    const id = row.id as number
+    if (id) {
+      router.push({ path: `/demo/list-table`, query: { ...route.query, detailId: String(id) } })
+    }
   }
 
   function handleSizeSelect(size: RowSize): void {
     tableSize.value = size
   }
 
+  async function handleSave(formData: Partial<DemoOrderItem> & { id?: number }): Promise<boolean> {
+    saving.value = true
+    error.value = null
+    try {
+      await saveDemoOrder(formData)
+      ElMessage.success(formData.id ? '订单修改成功' : '订单新增成功')
+      await fetchData()
+      return true
+    } catch (err) {
+      const message = err instanceof Error ? err.message : '保存失败'
+      error.value = message
+      ElMessage.error(message)
+      return false
+    } finally {
+      saving.value = false
+    }
+  }
+
+  async function handleDelete(id: number): Promise<boolean> {
+    try {
+      await ElMessageBox.confirm(`确认删除订单 #${id}？`, '删除确认', {
+        confirmButtonText: '确认删除',
+        cancelButtonText: '取消',
+        type: 'warning'
+      })
+    } catch {
+      return false
+    }
+    deleting.value = true
+    error.value = null
+    try {
+      await deleteDemoOrder(id)
+      ElMessage.success('订单已删除')
+      if (currentRow.value && (currentRow.value.id as number) === id) {
+        currentRow.value = null
+      }
+      await fetchData()
+      return true
+    } catch (err) {
+      const message = err instanceof Error ? err.message : '删除失败'
+      error.value = message
+      ElMessage.error(message)
+      return false
+    } finally {
+      deleting.value = false
+    }
+  }
+
+  async function handleViewDetail(id: number): Promise<void> {
+    try {
+      const detail = await getDemoOrderDetail(id)
+      router.push({
+        path: `/demo/list-table`,
+        query: { ...route.query, detailId: String(id) }
+      })
+      currentRow.value = detail as unknown as Record<string, unknown>
+    } catch (err) {
+      ElMessage.error('获取订单详情失败')
+    }
+  }
+
+  function syncQueryToState(): void {
+    const q = route.query
+    if (q.keyword && typeof q.keyword === 'string') searchKeyword.value = q.keyword
+    if (q.status && typeof q.status === 'string') searchStatus.value = q.status
+    if (q.page && typeof q.page === 'string') currentPage.value = Number(q.page) || 1
+    if (q.size && typeof q.size === 'string') pageSize.value = Number(q.size) || 20
+  }
+
+  let debounceTimer: ReturnType<typeof setTimeout> | null = null
+  watch([searchKeyword, searchStatus], () => {
+    if (debounceTimer) clearTimeout(debounceTimer)
+    debounceTimer = setTimeout(() => {
+      handleSearch()
+    }, 300)
+  })
+
+  watch([() => currentPage.value, () => pageSize.value], ([page, size]) => {
+    router.replace({
+      path: route.path,
+      query: {
+        ...route.query,
+        keyword: searchKeyword.value || undefined,
+        status: searchStatus.value || undefined,
+        page: page > 1 ? String(page) : undefined,
+        size: size !== 20 ? String(size) : undefined
+      }
+    })
+  })
+
   return {
     loading,
+    error,
     data,
     total,
     currentPage,
@@ -195,6 +308,8 @@ export function useDemoListTable() {
     tableSize,
     searchKeyword,
     searchStatus,
+    saving,
+    deleting,
     columns,
     sortConfig,
     totalAmountSummary,
@@ -209,6 +324,10 @@ export function useDemoListTable() {
     handleCurrentChange,
     handleRowClick,
     handleRowDblclick,
-    handleSizeSelect
+    handleSizeSelect,
+    handleSave,
+    handleDelete,
+    handleViewDetail,
+    syncQueryToState
   }
 }
