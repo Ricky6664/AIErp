@@ -409,6 +409,72 @@ export interface KanbanPageConfig {
 }
 
 /**
+ * 大屏KPI卡片配置（P11）
+ */
+export interface ScreenKpiConfig {
+  /** 卡片唯一标识 */
+  id: string
+  /** 卡片标签 */
+  label: string
+  /** 指标值 */
+  value: number | string
+  /** 单位 */
+  unit?: string
+  /** 图标名 */
+  icon?: string
+  /** 颜色主题 */
+  color?: 'blue' | 'green' | 'orange' | 'purple' | 'red'
+  /** 趋势百分比 */
+  trend?: number
+  /** 数值动画时长(ms)，默认 1000 */
+  animationDuration?: number
+}
+
+/**
+ * 大屏图表项配置（P11）
+ */
+export interface ScreenChartItemConfig {
+  /** 图表唯一标识 */
+  id: string
+  /** 图表标题 */
+  title: string
+  /** 图表类型 */
+  type: 'line' | 'bar' | 'pie' | 'number' | 'gauge' | 'map'
+  /** 数据源API路径 */
+  dataUrl?: string
+  /** 栅格列跨度 */
+  colSpan?: number
+  /** 栅格行跨度 */
+  rowSpan?: number
+  /** 图表子标题 */
+  subtitle?: string
+}
+
+/**
+ * 大屏页面配置（P11）
+ */
+export interface ScreenPageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 是否启用深色主题，默认 true */
+  darkTheme?: boolean
+  /** 是否显示全屏切换按钮 */
+  showFullscreenBtn?: boolean
+  /** 是否全屏状态（双向绑定） */
+  fullscreen?: boolean
+  /** 数据定时刷新间隔（秒），0 或未设置表示不自动刷新 */
+  refreshInterval?: number
+  /** 图表网格列数，默认 12 */
+  gridCols?: number
+  /** KPI 卡片列表 */
+  kpiCards?: ScreenKpiConfig[]
+  /** 图表列表 */
+  charts?: ScreenChartItemConfig[]
+  /** 是否显示KPI区域 */
+  showKpiArea?: boolean
+}
+
+/**
  * 页面配置联合类型
  */
 export type PageConfig =
@@ -422,6 +488,7 @@ export type PageConfig =
   | KanbanPageConfig
   | QueryPageConfig
   | ReportPageConfig
+  | ScreenPageConfig
   | (Record<string, unknown> & {})
 
 /**
