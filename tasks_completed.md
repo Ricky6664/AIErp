@@ -976,4 +976,5 @@
 | P0-005-009-013-001-002 | 验证编写配置项配置 | 2026-06-06T07:20 | ✅ | 验证P13配置类型：vue-tsc零错误（无ConfigPageConfig相关TS错误）；.env四文件语法正确无硬编码敏感信息；ConfigPageConfig已正确集成至PageConfig联合类型可正常引用 | (待提交) |
 | P0-005-009-014-001-001 | 编写核心代码 | 2026-06-06T07:36 | ✅ | PageP14AIDialog AI对话页面基座组件：Vue组件（对话区+结果展示区+流式输出+历史记录+中断/重新生成）+25项单元测试+5个TypeScript类型定义（AIDialogPageConfig/AIDialogMessageConfig/AIResultType/AIDialogHistoryConfig），vue-tsc零错误，build通过，25/25测试通过 | (待提交) |
 | P0-005-009-014-001-002 | 验证功能 | 2026-06-06T06:42 | ✅ | 验证PageP14AIDialog组件：25/25测试通过；13个page-base组件412/412全量测试通过；vue-tsc类型检查零错误；vite build成功(5.76s)；6项验证清单(对话区/SSE流式/结果展示区/历史记录/中断生成/重新生成)全部通过 | (待提交) |
+| P0-005-009-015-001-001 | 编写核心代码 | 2026-06-06T06:52 | ✅ | PageP15Designer设计器页面基座组件：Vue组件（三栏布局+组件面板/画布/属性面板+拖拽放置+分类筛选+组件增删移动+属性配置）+24项单元测试+3个TypeScript类型定义（DesignerPageConfig/DesignerComponentItemConfig/DesignerAvailableComponentConfig），vue-tsc零错误，build通过，24/24测试通过 | (待提交) |
 

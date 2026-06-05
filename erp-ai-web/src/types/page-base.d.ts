@@ -614,6 +614,70 @@ export interface AIDialogHistoryConfig {
 }
 
 /**
+ * 设计器组件配置（P15）
+ */
+export interface DesignerComponentItemConfig {
+  /** 组件唯一标识 */
+  id: string
+  /** 组件类型 */
+  type:
+    | 'query-panel'
+    | 'action-bar'
+    | 'list-table'
+    | 'master-form'
+    | 'simple-form'
+    | 'kanban'
+    | 'chart'
+    | 'custom'
+  /** 组件标签 */
+  label: string
+  /** 图标名 */
+  icon?: string
+  /** 放置区域 */
+  region: 'query' | 'action' | 'main' | 'extra'
+  /** 组件属性 */
+  props?: Record<string, unknown>
+  /** 栅格跨度 (1-24) */
+  span?: number
+}
+
+/**
+ * 可用组件项配置（P15 组件面板）
+ */
+export interface DesignerAvailableComponentConfig {
+  /** 组件类型标识 */
+  type: DesignerComponentItemConfig['type']
+  /** 组件名称 */
+  label: string
+  /** 图标名 */
+  icon: string
+  /** 分类 */
+  category?: 'layout' | 'data' | 'form' | 'chart' | 'other'
+}
+
+/**
+ * 设计器页面配置（P15）
+ */
+export interface DesignerPageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 是否显示查询区面板 */
+  showQueryPanel?: boolean
+  /** 是否显示操作栏 */
+  showActionBar?: boolean
+  /** 是否显示组件面板（左侧），默认 true */
+  showPalette?: boolean
+  /** 是否显示属性面板（右侧），默认 true */
+  showProperties?: boolean
+  /** 已放置的组件列表 */
+  components?: DesignerComponentItemConfig[]
+  /** 可用组件列表（组件面板） */
+  availableComponents?: DesignerAvailableComponentConfig[]
+  /** 画布最大宽度 */
+  canvasMaxWidth?: number | string
+}
+
+/**
  * 页面配置联合类型
  */
 export type PageConfig =
@@ -631,6 +695,7 @@ export type PageConfig =
   | ProfilePageConfig
   | ConfigPageConfig
   | AIDialogPageConfig
+  | DesignerPageConfig
   | (Record<string, unknown> & {})
 
 /**
