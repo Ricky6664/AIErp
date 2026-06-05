@@ -175,7 +175,7 @@
       <el-button type="primary" :icon="Search" @click="handleSearch"> 查询 </el-button>
       <el-button :icon="RefreshRight" @click="handleReset"> 重置 </el-button>
       <el-button
-        v-if="isCollapsible && totalFields > (props.collapseThreshold ?? 8)"
+        v-if="isCollapsible && totalFields > collapseThreshold"
         type="default"
         text
         @click="collapsed = !collapsed"
@@ -235,7 +235,7 @@ const visibleFields = computed(() => {
     return props.fieldConfig
   }
   if (collapsed.value) {
-    return props.fieldConfig.slice(0, 8)
+    return props.fieldConfig.slice(0, collapseThreshold.value)
   }
   return props.fieldConfig
 })

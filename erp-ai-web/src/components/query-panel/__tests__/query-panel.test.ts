@@ -215,6 +215,23 @@ describe('QueryPanel component', () => {
       await nextTick()
       expect(wrapper.findAll('.el-form-item').length).toBe(10)
     })
+
+    it('shows only collapseThreshold number of fields when collapsed with custom threshold', async () => {
+      const manyFields: FieldConfig[] = Array.from({ length: 12 }, (_, i) => ({
+        field: `field${i}`,
+        label: `字段${i}`,
+        type: 'input' as const
+      }))
+      const wrapper = mount(QueryPanel, {
+        props: {
+          modelValue: {},
+          fieldConfig: manyFields,
+          collapseThreshold: 4
+        }
+      })
+      await nextTick()
+      expect(wrapper.findAll('.el-form-item').length).toBe(4)
+    })
   })
 
   describe('field type rendering', () => {
