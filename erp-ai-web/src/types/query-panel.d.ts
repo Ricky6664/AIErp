@@ -44,6 +44,8 @@ export interface FieldLinkageRule {
 export interface FieldConfig {
   /** 字段名（对应modelValue中的key） */
   field: string
+  /** 字段标题（显示用） */
+  title?: string
   /** 字段标签 */
   label: string
   /** 控件类型 */

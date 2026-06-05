@@ -4,8 +4,10 @@
     :class="{
       'basic-input--loading': loading,
       'basic-input--disabled': disabled,
+      'basic-input--invalid': !isValid,
       [`basic-input--${size}`]: size && size !== 'default'
     }"
+    :title="displayValue"
   >
     <!-- 头部区域：标题 + 操作按钮 -->
     <div v-if="fieldConfig?.title || $slots.header" class="basic-input__header">
@@ -24,13 +26,14 @@
       <!-- 空态 / 正常态 -->
       <el-input
         v-else
-        v-model="localValue"
+        :model-value="innerValue"
         :placeholder="placeholder"
         :disabled="disabled"
         :clearable="clearable"
         :maxlength="maxLength"
         :show-word-limit="showWordLimit"
         :size="size"
+        @update:model-value="handleInput"
         @focus.stop="handleFocus"
         @blur.stop="handleBlur"
       >
@@ -47,7 +50,11 @@
     </div>
 
     <!-- 底部区域：校验错误信息 / 辅助信息 -->
-    <div v-if="errorMessages.length > 0 || $slots.footer" class="basic-input__footer">
+    <div
+      v-if="errorMessages.length > 0 || $slots.footer"
+      class="basic-input__footer"
+      :title="errorMsg"
+    >
       <ul v-if="errorMessages.length > 0" class="basic-input__errors">
         <li v-for="(msg, index) in errorMessages" :key="index" class="basic-input__error-item">
           {{ msg }}
@@ -59,7 +66,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import type {
   ErpInputProps,
   ErpInputEmits,
@@ -78,15 +85,42 @@ const props = withDefaults(defineProps<ErpInputProps>(), {
 
 const emit = defineEmits<ErpInputEmits>()
 
+// 响应式状态
+const innerValue = ref(props.modelValue)
 const errorMessages = ref<string[]>([])
 
-const localValue = computed({
-  get: () => props.modelValue,
-  set: (val) => {
-    errorMessages.value = []
-    emit('update:modelValue', val)
+// 监听 modelValue Props 变化 → 同步到内部状态
+watch(
+  () => props.modelValue,
+  (val) => {
+    innerValue.value = val
   }
+)
+
+// 监听 fieldConfig 变化 → 重新初始化
+watch(
+  () => props.fieldConfig,
+  () => {
+    errorMessages.value = []
+  }
+)
+
+// 计算属性
+const displayValue = computed(() => {
+  if (innerValue.value === null || innerValue.value === undefined) return ''
+  return String(innerValue.value)
 })
+
+const isValid = computed(() => errorMessages.value.length === 0)
+
+const errorMsg = computed(() => errorMessages.value.join('; '))
+
+// 事件处理方法
+function handleInput(value: unknown): void {
+  innerValue.value = value
+  errorMessages.value = []
+  emit('update:modelValue', value)
+}
 
 function handleFocus(event: FocusEvent): void {
   emit('focus', event)
@@ -96,6 +130,7 @@ function handleBlur(event: FocusEvent): void {
   emit('blur', event)
 }
 
+// 校验逻辑
 function collectErrors(value: unknown, rules?: ValidatorRule[]): string[] {
   if (!rules || rules.length === 0) return []
   const errors: string[] = []
@@ -151,8 +186,19 @@ async function validate(): Promise<boolean> {
 
 function reset(): void {
   errorMessages.value = []
+  innerValue.value = ''
   emit('update:modelValue', '')
 }
+
+// 生命周期钩子
+onMounted(() => {
+  innerValue.value = props.modelValue
+  errorMessages.value = []
+})
+
+onBeforeUnmount(() => {
+  errorMessages.value = []
+})
 
 defineExpose<ErpInputExpose>({
   validate,

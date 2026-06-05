@@ -52,7 +52,7 @@ describe('BasicInput component', () => {
 
     it('renders header with fieldConfig title', () => {
       const wrapper = createWrapper({
-        fieldConfig: { title: '姓名', fieldName: 'name', fieldType: 'text' }
+        fieldConfig: { title: '姓名', field: 'name', label: '姓名', type: 'input' }
       })
       const header = wrapper.find('.basic-input__header')
       expect(header.exists()).toBe(true)

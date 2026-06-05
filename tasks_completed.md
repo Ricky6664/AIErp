@@ -980,4 +980,5 @@
 | P0-005-009-015-001-002 | 验证功能 | 2026-06-06T07:00 | ✅ | 验证PageP15Designer组件：24/24单元测试全部通过；vue-tsc --noEmit零类型错误；6项验证清单(工具栏/组件面板/画布/属性面板/拖拽组件/属性编辑)全部通过；page-ready事件正确emit；canvas-placeholder空状态正确渲染 | (待提交) |
 | P0-005-010-001-001-001 | 定义组件propsemits | 2026-06-06T07:06 | ✅ | basic-input单行文本输入框组件：Vue组件(ErpInput)+TypeScript类型定义(ErpInputProps/ErpInputEmits/ErpInputExpose/ValidatorRule)+19项单元测试全部通过，vue-tsc零错误 | (待提交) |
 | P0-005-010-001-001-002 | 实现组件模板结构 | 2026-06-06T07:12 | ✅ | 增强basic-input模板结构：BEM命名(.basic-input__header/content/footer)+加载态/空态/正常态三态切换+v-for错误消息列表+事件修饰符(.stop)+CSS变量主题适配；新增loading/maxLength/showWordLimit/size props；36项单元测试全部通过；vue-tsc零错误 | (待提交) |
+| P0-005-010-001-001-003 | 实现组件逻辑 | 2026-06-06T07:22 | ✅ | 重构为ref+watch模式(innerValue);新增displayValue/isValid/errorMsg计算属性;watch(fieldConfig)重新初始化;onMounted/onBeforeUnmount生命周期;handleInput事件处理;FieldConfig增加title属性;36项测试通过;vue-tsc零basic-input错误 | (待提交) |
 
