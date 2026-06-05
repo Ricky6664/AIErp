@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import ListTable from '../index.vue'
-import type { ListTableColumn } from '@/types/list-table'
+import type { ListTableColumn, SortConfig } from '@/types/list-table'
 
 const mockLocalStorage = {
   store: {} as Record<string, string>,
@@ -228,5 +228,89 @@ describe('ListTable', () => {
     const sortCfg = { field: 'name', order: 'asc' as const }
     const wrapper = createWrapper({ sortConfig: sortCfg })
     expect(wrapper.props('sortConfig')).toEqual(sortCfg)
+  })
+
+  describe('column sorting', () => {
+    it('should accept single-column sortConfig', () => {
+      const sortCfg: SortConfig = { field: 'name', order: 'asc' }
+      const wrapper = createWrapper({ sortConfig: sortCfg })
+      expect(wrapper.props('sortConfig')).toEqual(sortCfg)
+    })
+
+    it('should accept multi-column sortConfig with fields array', () => {
+      const sortCfg: SortConfig = {
+        fields: [
+          { field: 'name', order: 'asc' },
+          { field: 'createTime', order: 'desc' }
+        ],
+        multiple: true
+      }
+      const wrapper = createWrapper({ sortConfig: sortCfg })
+      const cfg = wrapper.props('sortConfig') as SortConfig
+      expect(cfg.fields).toHaveLength(2)
+      expect(cfg.multiple).toBe(true)
+    })
+
+    it('should compute sortConfigValue for single sort', () => {
+      const sortCfg: SortConfig = { field: 'id', order: 'desc', trigger: 'cell' }
+      const wrapper = createWrapper({ sortConfig: sortCfg })
+      const sv = wrapper.vm.sortConfigValue
+      expect(sv.trigger).toBe('cell')
+      expect(sv.multiple).toBe(false)
+    })
+
+    it('should compute sortConfigValue for multi sort', () => {
+      const sortCfg: SortConfig = {
+        fields: [{ field: 'name', order: 'asc' }],
+        multiple: true,
+        remote: true
+      }
+      const wrapper = createWrapper({ sortConfig: sortCfg })
+      const sv = wrapper.vm.sortConfigValue
+      expect(sv.multiple).toBe(true)
+      expect(sv.remote).toBe(true)
+    })
+
+    it('should expose setSort method', () => {
+      const wrapper = createWrapper()
+      expect(typeof wrapper.vm.setSort).toBe('function')
+    })
+
+    it('should expose getSortColumns method', () => {
+      const wrapper = createWrapper()
+      expect(typeof wrapper.vm.getSortColumns).toBe('function')
+    })
+
+    it('should expose clearSort method', () => {
+      const wrapper = createWrapper()
+      expect(typeof wrapper.vm.clearSort).toBe('function')
+    })
+
+    it('should return empty array from getSortColumns when no sort active', () => {
+      const wrapper = createWrapper()
+      const cols = wrapper.vm.getSortColumns()
+      expect(cols).toEqual([])
+    })
+
+    it('should handle sortConfig with remote flag', () => {
+      const sortCfg: SortConfig = { field: 'status', order: 'desc', remote: true }
+      const wrapper = createWrapper({ sortConfig: sortCfg })
+      const sv = wrapper.vm.sortConfigValue
+      expect(sv.remote).toBe(true)
+    })
+
+    it('should default showIcon to true', () => {
+      const sortCfg: SortConfig = { field: 'name', order: 'asc' }
+      const wrapper = createWrapper({ sortConfig: sortCfg })
+      const sv = wrapper.vm.sortConfigValue
+      expect(sv.showIcon).toBe(true)
+    })
+
+    it('should respect showIcon false', () => {
+      const sortCfg: SortConfig = { field: 'name', order: 'asc', showIcon: false }
+      const wrapper = createWrapper({ sortConfig: sortCfg })
+      const sv = wrapper.vm.sortConfigValue
+      expect(sv.showIcon).toBe(false)
+    })
   })
 })

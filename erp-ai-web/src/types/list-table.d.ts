@@ -1,11 +1,31 @@
 /**
- * 排序配置
+ * 单列排序字段
  */
-export interface SortConfig {
+export interface SortField {
   /** 排序字段 */
   field: string
   /** 排序方向 */
   order: 'asc' | 'desc'
+}
+
+/**
+ * 排序配置
+ */
+export interface SortConfig {
+  /** 排序字段（单列排序简写） */
+  field?: string
+  /** 排序方向（单列排序简写） */
+  order?: 'asc' | 'desc'
+  /** 多列排序字段列表（与field/order互斥，优先使用fields） */
+  fields?: SortField[]
+  /** 是否允许多列排序（Shift+点击表头添加排序列） */
+  multiple?: boolean
+  /** 排序触发方式 */
+  trigger?: 'cell' | 'header'
+  /** 是否显示排序图标 */
+  showIcon?: boolean
+  /** 远程排序（服务端排序） */
+  remote?: boolean
 }
 
 /**
@@ -115,6 +135,8 @@ export interface SortEventParams {
   field: string
   /** 排序方向 */
   order: 'asc' | 'desc' | null
+  /** 当前所有排序字段（多列排序时包含全部排序列） */
+  sortList?: SortField[]
 }
 
 /**

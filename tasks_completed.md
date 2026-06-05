@@ -848,6 +848,7 @@
 | P0-005-002-003-001-002 | 验证功能 | 2026-06-05T22:00 | ✅ | 验证HeaderToolbar: 10项检查全部通过(工具渲染/v-model/change事件/focus-blur/disabled/hidden/行高下拉/插槽/状态切换/类型安全); 19/19测试通过; vue-tsc零错误; 更新VERIFICATION_REPORT.md | — |
 | P0-005-003-001-001-001 | 编写核心代码 | 2026-06-05T22:10 | ✅ | ListTable列表表格组件: Vue组件(列渲染/服务端排序/列筛选/分页/虚拟滚动/列宽持久化/斑马纹/边框/行高亮); 类型定义(ListTableColumn/FilterConfig/SortConfig等); 21个单元测试全部通过; vue-tsc零错误 | 2c4503dc |
 | P0-005-003-001-001-002 | 验证功能 | 2026-06-05T22:15 | ✅ | 21个vitest测试全部通过; vue-tsc类型检查零错误; 逐项验证:列配置渲染/服务端排序/列筛选(文本数字日期)/前端服务端分页/虚拟滚动/列宽localStorage持久化; vxe-table^4.19.4符合4.x要求 | def5e354 |
+| P0-005-003-002-001-001 | 编写核心代码 | 2026-06-05T22:30 | ✅ | 列排序核心逻辑: SortConfig增强(多列排序fields数组/multiple/trigger/remote/showIcon); SortField接口; setSort/getSortColumns编程式排序控制; handleSortChange多列排序状态追踪; 32个测试全部通过(新增10个排序专项) | — |
 
 ## 汇总统计
 

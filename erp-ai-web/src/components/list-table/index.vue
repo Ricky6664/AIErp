@@ -52,6 +52,7 @@ import type {
   ListTableColumn,
   ListTableProps,
   SortConfig,
+  SortField,
   SortEventParams,
   FilterEventParams,
   ColumnPersistData
@@ -188,22 +189,49 @@ const columnConfigValue = computed<VxeGridProps['columnConfig']>(() => ({
   isHover: true
 }))
 
+// 当前排序状态（响应式，用于多列排序追踪）
+const currentSortList = ref<SortField[]>([])
+
+// 根据sortConfig初始化排序状态
+function initSortState(): void {
+  if (props.sortConfig) {
+    if (props.sortConfig.fields && props.sortConfig.fields.length > 0) {
+      currentSortList.value = [...props.sortConfig.fields]
+    } else if (props.sortConfig.field) {
+      currentSortList.value = [
+        { field: props.sortConfig.field, order: props.sortConfig.order ?? 'asc' }
+      ]
+    }
+  }
+}
+initSortState()
+
 // 排序配置值
 const sortConfigValue = computed<VxeGridProps['sortConfig']>(() => {
-  const defaultConfig: VxeGridProps['sortConfig'] = {
-    trigger: 'cell',
-    defaultSort: undefined,
-    multiple: false
+  const config: VxeGridProps['sortConfig'] = {
+    trigger: props.sortConfig?.trigger ?? 'cell',
+    multiple: props.sortConfig?.multiple ?? false,
+    remote: props.sortConfig?.remote ?? false,
+    showIcon: props.sortConfig?.showIcon ?? true
   }
 
   if (props.sortConfig) {
-    defaultConfig.defaultSort = {
-      field: props.sortConfig.field,
-      order: props.sortConfig.order
+    // 多列排序：fields数组优先
+    if (props.sortConfig.fields && props.sortConfig.fields.length > 0) {
+      config.defaultSort = props.sortConfig.fields.map((f) => ({
+        field: f.field,
+        order: f.order
+      }))
+    } else if (props.sortConfig.field) {
+      // 单列排序
+      config.defaultSort = {
+        field: props.sortConfig.field,
+        order: props.sortConfig.order ?? 'asc'
+      }
     }
   }
 
-  return defaultConfig
+  return config
 })
 
 // 行配置值
@@ -244,8 +272,28 @@ const gridOptions = computed(() => ({
 }))
 
 // 排序变更处理
-function handleSortChange({ field, order }: { field: string; order: 'asc' | 'desc' | null }): void {
-  emit('sort-change', { field, order })
+function handleSortChange({
+  field,
+  order,
+  sortList
+}: {
+  field: string
+  order: 'asc' | 'desc' | null
+  sortList?: SortField[]
+}): void {
+  if (sortList && sortList.length > 0) {
+    currentSortList.value = sortList
+  } else if (order) {
+    const idx = currentSortList.value.findIndex((s) => s.field === field)
+    if (idx >= 0) {
+      currentSortList.value[idx] = { field, order }
+    } else {
+      currentSortList.value = [{ field, order }]
+    }
+  } else {
+    currentSortList.value = currentSortList.value.filter((s) => s.field !== field)
+  }
+  emit('sort-change', { field, order, sortList: [...currentSortList.value] })
 }
 
 // 筛选变更处理
@@ -337,7 +385,40 @@ function refresh(): void {
 
 // 清除排序
 function clearSort(): void {
+  currentSortList.value = []
   gridRef.value?.clearSort()
+}
+
+// 设置排序（编程式控制）
+function setSort(field: string, order: 'asc' | 'desc' | null): void {
+  if (order) {
+    gridRef.value?.sort(field, order)
+    const idx = currentSortList.value.findIndex((s) => s.field === field)
+    if (idx >= 0) {
+      currentSortList.value[idx] = { field, order }
+    } else {
+      if (!props.sortConfig?.multiple) {
+        currentSortList.value = [{ field, order }]
+      } else {
+        currentSortList.value.push({ field, order })
+      }
+    }
+  } else {
+    gridRef.value?.clearSort(field)
+    currentSortList.value = currentSortList.value.filter((s) => s.field !== field)
+  }
+}
+
+// 获取当前排序状态
+function getSortColumns(): SortField[] {
+  const vxeSort = gridRef.value?.getSortColumns?.()
+  if (vxeSort && vxeSort.length > 0) {
+    return vxeSort.map((s: { field: string; order: string }) => ({
+      field: s.field,
+      order: s.order as 'asc' | 'desc'
+    }))
+  }
+  return [...currentSortList.value]
 }
 
 // 清除筛选
@@ -368,7 +449,9 @@ defineExpose({
   clearFilter,
   clearCurrent,
   getCurrentRow,
-  setCurrentRow
+  setCurrentRow,
+  setSort,
+  getSortColumns
 })
 </script>
 
