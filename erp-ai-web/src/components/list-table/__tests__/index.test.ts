@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import ListTable from '../index.vue'
-import type { ListTableColumn, SortConfig } from '@/types/list-table'
+import type { ListTableColumn, SortConfig, FieldConfig } from '@/types/list-table'
 
 const mockLocalStorage = {
   store: {} as Record<string, string>,
@@ -361,6 +361,55 @@ describe('ListTable', () => {
     it('should default disabled to false', () => {
       const wrapper = createWrapper()
       expect(wrapper.props('disabled')).toBe(false)
+    })
+  })
+
+  describe('modelValue prop', () => {
+    it('should accept modelValue prop', () => {
+      const row = { id: 1, name: 'test' }
+      const wrapper = createWrapper({ modelValue: row })
+      expect(wrapper.props('modelValue')).toEqual(row)
+    })
+
+    it('should default modelValue to null', () => {
+      const wrapper = createWrapper()
+      expect(wrapper.props('modelValue')).toBeNull()
+    })
+  })
+
+  describe('fieldConfig prop', () => {
+    it('should accept fieldConfig prop', () => {
+      const fieldConfig: Record<string, FieldConfig> = {
+        name: { field: 'name', fieldType: 'text', required: true }
+      }
+      const wrapper = createWrapper({ fieldConfig })
+      expect(wrapper.props('fieldConfig')).toEqual(fieldConfig)
+    })
+  })
+
+  describe('placeholder prop', () => {
+    it('should accept placeholder prop', () => {
+      const wrapper = createWrapper({ placeholder: '请输入搜索条件' })
+      expect(wrapper.props('placeholder')).toBe('请输入搜索条件')
+    })
+
+    it('should default placeholder to empty string', () => {
+      const wrapper = createWrapper()
+      expect(wrapper.props('placeholder')).toBe('')
+    })
+  })
+
+  describe('resetAll', () => {
+    it('should expose resetAll method', () => {
+      const wrapper = createWrapper()
+      expect(typeof wrapper.vm.resetAll).toBe('function')
+    })
+  })
+
+  describe('clearSearchAndSort', () => {
+    it('should expose clearSearchAndSort method', () => {
+      const wrapper = createWrapper()
+      expect(typeof wrapper.vm.clearSearchAndSort).toBe('function')
     })
   })
 })

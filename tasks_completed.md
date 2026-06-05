@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-05T22:35
-> **归档总数**：496 条
+> **最后更新**：2026-06-05T23:15
+> **归档总数**：497 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -856,15 +856,16 @@
 | P0-005-003-004-001-002 | 验证编写配置项配置 | 2026-06-05T22:00 | ✅ | 验证ListTableProperties配置: YAML语法正确/编译通过/dev-prod环境无冲突/无敏感信息硬编码/@Component+@ConfigurationProperties正确绑定/@Validated校验注解完整/prefix全小写中划线分隔 | — |
 | P0-005-003-005-001-001 | 编写配置文件类 | 2026-06-05T22:10 | ✅ | 后端: ListTableProperties新增RowHeight(7档行高px)/FontSize(7档字体px)嵌套配置; application.yml新增list-table.row-height+font-size配置块 | 8b2ab37d |
 | P0-005-003-005-001-002 | 验证编写配置项配置 | 2026-06-05T22:35 | ✅ | 验证ListTableProperties行高/字体大小配置: YAML语法正确/mvn compile通过/无敏感信息/@Component+@ConfigurationProperties正确/@Validated/prefix全小写中划线/7档配置与默认值一致 | — |
+| P0-005-003-006-001-001 | 编写核心代码 | 2026-06-05T23:15 | ✅ | ListTable一键初始化/一键清空搜索排序: modelValue/fieldConfig/placeholder props; update:modelValue/focus/blur事件emit; resetAll()/clearSearchAndSort()方法; 类型定义(FieldConfig/FieldValidationRule/FieldLinkageRule); 47个测试通过; vue-tsc零错误 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 499 | 2 | 23.2% |
+| P0 | 14 | 2,147 | 500 | 2 | 23.3% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **487** | **2** | **10.3%** |
+| **合计** | **46** | **4,716** | **488** | **2** | **10.3%** |
 
 ---
 

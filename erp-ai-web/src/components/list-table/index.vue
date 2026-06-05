@@ -26,7 +26,7 @@
       :height="props.height"
       :max-height="props.maxHeight"
       :show-header="props.showHeader"
-      :empty-text="props.emptyText || '暂无数据'"
+      :empty-text="props.emptyText || props.placeholder || '暂无数据'"
       :virtual-scroll="{ enabled: props.virtualScroll !== false }"
       @sort-change="handleSortChange"
       @filter-change="handleFilterChange"
@@ -36,6 +36,8 @@
       @row-dblclick="handleRowDblclick"
       @page-change="handlePageChange"
       @column-resize="handleColumnResize"
+      @focus="handleFocus"
+      @blur="handleBlur"
     >
       <!-- 自定义列插槽 -->
       <template v-for="col in slottedColumns" :key="col.field" #[col.slot]="{ row }">
@@ -67,7 +69,8 @@ import type {
   SortField,
   SortEventParams,
   FilterEventParams,
-  ColumnPersistData
+  ColumnPersistData,
+  FieldConfig
 } from '@/types/list-table'
 
 const props = withDefaults(
@@ -95,6 +98,9 @@ const props = withDefaults(
     showToolbar?: boolean
     searchModel?: ListTableSearchModel
     disabled?: boolean
+    modelValue?: Record<string, unknown> | null
+    fieldConfig?: Record<string, FieldConfig>
+    placeholder?: string
   }>(),
   {
     loading: false,
@@ -117,7 +123,10 @@ const props = withDefaults(
     emptyText: '',
     viewCode: '',
     searchModel: undefined,
-    disabled: false
+    disabled: false,
+    modelValue: null,
+    fieldConfig: undefined,
+    placeholder: ''
   }
 )
 
@@ -125,6 +134,7 @@ const emit = defineEmits<{
   'update:currentPage': [page: number]
   'update:pageSize': [size: number]
   'update:searchModel': [model: ListTableSearchModel]
+  'update:modelValue': [row: Record<string, unknown> | null]
   'sort-change': [params: SortEventParams]
   'filter-change': [params: FilterEventParams]
   change: [params: FilterEventParams]
@@ -338,6 +348,7 @@ function handleFilterChange({ field, values }: { field: string; values: unknown[
 
 // 当前行变更处理
 function handleCurrentChange({ row }: { row: Record<string, unknown> | null }): void {
+  emit('update:modelValue', row)
   emit('current-change', row)
 }
 
@@ -509,6 +520,35 @@ function setCurrentRow(row: Record<string, unknown>): void {
   gridRef.value?.setCurrentRow(row)
 }
 
+// 焦点事件处理
+function handleFocus(): void {
+  emit('focus')
+}
+
+// 失焦事件处理
+function handleBlur(): void {
+  emit('blur')
+}
+
+// 一键初始化：重置列配置+清除排序+清除筛选+清除选中+重置分页到第一页
+function resetAll(): void {
+  resetColumns()
+  clearSort()
+  clearFilter()
+  clearCurrent()
+  currentFilterModel.value = {}
+  emit('update:searchModel', {})
+  emit('update:currentPage', 1)
+}
+
+// 一键清空搜索排序：清除排序+清除筛选
+function clearSearchAndSort(): void {
+  clearSort()
+  clearFilter()
+  currentFilterModel.value = {}
+  emit('update:searchModel', {})
+}
+
 defineExpose({
   gridRef,
   resetColumns,
@@ -521,7 +561,9 @@ defineExpose({
   setSort,
   getSortColumns,
   setFilter,
-  getFilterColumns
+  getFilterColumns,
+  resetAll,
+  clearSearchAndSort
 })
 </script>
 

@@ -1,4 +1,54 @@
 /**
+ * 字段配置（字段类型映射、校验规则、联动规则）
+ */
+export interface FieldConfig {
+  /** 字段名 */
+  field: string
+  /** 字段类型映射（text/number/date/select等） */
+  fieldType?: string
+  /** 校验规则 */
+  rules?: FieldValidationRule[]
+  /** 联动规则 */
+  linkages?: FieldLinkageRule[]
+  /** 是否只读 */
+  readonly?: boolean
+  /** 是否必填 */
+  required?: boolean
+  /** 占位提示 */
+  placeholder?: string
+}
+
+/**
+ * 字段校验规则
+ */
+export interface FieldValidationRule {
+  /** 规则类型 */
+  type: 'required' | 'min' | 'max' | 'pattern' | 'custom'
+  /** 规则参数 */
+  value?: unknown
+  /** 错误提示 */
+  message?: string
+  /** 自定义校验函数 */
+  validator?: (value: unknown) => boolean | string
+}
+
+/**
+ * 字段联动规则
+ */
+export interface FieldLinkageRule {
+  /** 触发字段 */
+  triggerField: string
+  /** 触发条件（值匹配） */
+  condition?: (value: unknown) => boolean
+  /** 目标字段 */
+  targetField: string
+  /** 联动动作 */
+  action: 'show' | 'hide' | 'enable' | 'disable' | 'setValue' | 'setOptions'
+  /** 联动参数 */
+  params?: Record<string, unknown>
+}
+
+/**
  * 单列排序字段
  */
 export interface SortField {
@@ -230,6 +280,12 @@ export interface ListTableProps {
   searchModel?: ListTableSearchModel
   /** 是否禁用所有交互 */
   disabled?: boolean
+  /** v-model绑定值（当前选中行） */
+  modelValue?: Record<string, unknown> | null
+  /** 字段配置映射（field_type映射+校验规则+联动规则） */
+  fieldConfig?: Record<string, FieldConfig>
+  /** 占位提示文本 */
+  placeholder?: string
 }
 
 /**
@@ -258,6 +314,8 @@ export interface ListTableEmits {
   /** 焦点事件 */
   focus: []
   blur: []
+  /** v-model更新事件 */
+  'update:modelValue': [row: Record<string, unknown> | null]
 }
 
 /**
@@ -309,4 +367,8 @@ export interface ListTableExpose {
   setFilter: (field: string, values: unknown[]) => void
   /** 获取当前筛选列 */
   getFilterColumns: () => FilterColumnInfo[]
+  /** 一键初始化：重置列配置+清除排序+清除筛选+清除选中+重置分页 */
+  resetAll: () => void
+  /** 一键清空搜索排序：清除排序+清除筛选 */
+  clearSearchAndSort: () => void
 }
