@@ -1,5 +1,10 @@
 <template>
   <div class="query-panel">
+    <!-- prefix 插槽 -->
+    <div v-if="$slots.prefix" class="query-panel__prefix">
+      <slot name="prefix" />
+    </div>
+
     <el-form
       ref="formRef"
       :model="localModel"
@@ -18,7 +23,7 @@
             <el-input
               v-if="field.type === 'input'"
               v-model="localModel[field.field]"
-              :placeholder="field.placeholder || '请输入'"
+              :placeholder="field.placeholder || props.placeholder || '请输入'"
               :clearable="field.clearable !== false"
               :disabled="field.disabled"
               @change="handleFieldChange(field, $event)"
@@ -32,7 +37,7 @@
               v-model="localModel[field.field]"
               type="textarea"
               :rows="3"
-              :placeholder="field.placeholder || '请输入'"
+              :placeholder="field.placeholder || props.placeholder || '请输入'"
               :clearable="field.clearable !== false"
               :disabled="field.disabled"
               @change="handleFieldChange(field, $event)"
@@ -42,7 +47,7 @@
             <el-input-number
               v-else-if="field.type === 'number'"
               v-model="localModel[field.field]"
-              :placeholder="field.placeholder || '请输入'"
+              :placeholder="field.placeholder || props.placeholder || '请输入'"
               :disabled="field.disabled"
               controls-position="right"
               style="width: 100%"
@@ -53,7 +58,7 @@
             <el-select
               v-else-if="field.type === 'select'"
               v-model="localModel[field.field]"
-              :placeholder="field.placeholder || '请选择'"
+              :placeholder="field.placeholder || props.placeholder || '请选择'"
               :clearable="field.clearable !== false"
               :disabled="field.disabled"
               style="width: 100%"
@@ -156,6 +161,16 @@
       </el-row>
     </el-form>
 
+    <!-- suffix 插槽 -->
+    <div v-if="$slots.suffix" class="query-panel__suffix">
+      <slot name="suffix" />
+    </div>
+
+    <!-- default 插槽 -->
+    <div v-if="$slots.default" class="query-panel__default">
+      <slot />
+    </div>
+
     <div class="query-panel__actions">
       <el-button type="primary" :icon="Search" @click="handleSearch"> 查询 </el-button>
       <el-button :icon="RefreshRight" @click="handleReset"> 重置 </el-button>
@@ -186,11 +201,13 @@ const props = withDefaults(
     modelValue: Record<string, unknown>
     fieldConfig: FieldConfig[]
     disabled?: boolean
+    placeholder?: string
     collapsible?: boolean
     collapseThreshold?: number
   }>(),
   {
     disabled: false,
+    placeholder: '',
     collapsible: true,
     collapseThreshold: 8
   }
@@ -247,21 +264,33 @@ function buildFormRules(fieldRules?: FieldValidationRule[]): Record<string, unkn
 }
 
 function handleFieldChange(field: FieldConfig, value: unknown): void {
-  emit('change', field.field, value)
-  emit('update:modelValue', { ...localModel })
+  try {
+    emit('change', field.field, value)
+    emit('update:modelValue', { ...localModel })
+  } catch (err) {
+    console.error('[QueryPanel] field change error:', err)
+  }
 }
 
 function handleSearch(): void {
-  emit('update:modelValue', { ...localModel })
-  emit('search')
+  try {
+    emit('update:modelValue', { ...localModel })
+    emit('search')
+  } catch (err) {
+    console.error('[QueryPanel] search error:', err)
+  }
 }
 
 function handleReset(): void {
-  for (const field of props.fieldConfig) {
-    localModel[field.field] = field.defaultValue ?? undefined
+  try {
+    for (const field of props.fieldConfig) {
+      localModel[field.field] = field.defaultValue ?? undefined
+    }
+    emit('update:modelValue', { ...localModel })
+    emit('reset')
+  } catch (err) {
+    console.error('[QueryPanel] reset error:', err)
   }
-  emit('update:modelValue', { ...localModel })
-  emit('reset')
 }
 
 watch(
@@ -295,6 +324,18 @@ defineExpose({
   background: var(--el-bg-color);
   border-radius: 8px;
   border: 1px solid var(--el-border-color-light);
+
+  &__prefix {
+    margin-bottom: 12px;
+  }
+
+  &__suffix {
+    margin-top: 12px;
+  }
+
+  &__default {
+    margin-top: 12px;
+  }
 
   &__actions {
     display: flex;

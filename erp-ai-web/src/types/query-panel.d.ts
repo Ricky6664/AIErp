@@ -76,6 +76,8 @@ export interface QueryPanelProps {
   fieldConfig: FieldConfig[]
   /** 是否禁用 */
   disabled?: boolean
+  /** 组件级默认占位提示（字段级placeholder优先） */
+  placeholder?: string
   /** 是否显示展开/折叠（字段数超过阈值时生效） */
   collapsible?: boolean
   /** 折叠阈值（字段数超过此值显示展开按钮，默认8） */

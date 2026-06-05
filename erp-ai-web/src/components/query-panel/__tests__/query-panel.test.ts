@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { mount, type VueWrapper } from '@vue/test-utils'
 import { nextTick } from 'vue'
 import QueryPanel from '@/components/query-panel/index.vue'
@@ -354,6 +354,78 @@ describe('QueryPanel component', () => {
       const wrapper = createWrapper()
       const vm = wrapper.vm as unknown as { formRef: unknown }
       expect(vm.formRef).toBeDefined()
+    })
+  })
+
+  describe('component-level placeholder', () => {
+    it('uses component-level placeholder when field-level is not set', () => {
+      const fields: FieldConfig[] = [{ field: 'keyword', label: '关键词', type: 'input' }]
+      const wrapper = mount(QueryPanel, {
+        props: { modelValue: {}, fieldConfig: fields, placeholder: '全局占位提示' }
+      })
+      const input = wrapper.find('.el-form-item input[type="text"]')
+      expect(input.attributes('placeholder')).toBe('全局占位提示')
+    })
+
+    it('field-level placeholder takes precedence over component-level', () => {
+      const fields: FieldConfig[] = [
+        { field: 'keyword', label: '关键词', type: 'input', placeholder: '字段级提示' }
+      ]
+      const wrapper = mount(QueryPanel, {
+        props: { modelValue: {}, fieldConfig: fields, placeholder: '全局占位提示' }
+      })
+      const input = wrapper.find('.el-form-item input[type="text"]')
+      expect(input.attributes('placeholder')).toBe('字段级提示')
+    })
+  })
+
+  describe('slots', () => {
+    it('renders prefix slot content', () => {
+      const wrapper = mount(QueryPanel, {
+        props: { modelValue: {}, fieldConfig: baseFields },
+        slots: { prefix: '<div class="prefix-content">前缀区域</div>' }
+      })
+      expect(wrapper.find('.query-panel__prefix').exists()).toBe(true)
+      expect(wrapper.find('.prefix-content').text()).toBe('前缀区域')
+    })
+
+    it('renders suffix slot content', () => {
+      const wrapper = mount(QueryPanel, {
+        props: { modelValue: {}, fieldConfig: baseFields },
+        slots: { suffix: '<div class="suffix-content">后缀区域</div>' }
+      })
+      expect(wrapper.find('.query-panel__suffix').exists()).toBe(true)
+      expect(wrapper.find('.suffix-content').text()).toBe('后缀区域')
+    })
+
+    it('renders default slot content', () => {
+      const wrapper = mount(QueryPanel, {
+        props: { modelValue: {}, fieldConfig: baseFields },
+        slots: { default: '<div class="default-content">自定义内容</div>' }
+      })
+      expect(wrapper.find('.query-panel__default').exists()).toBe(true)
+      expect(wrapper.find('.default-content').text()).toBe('自定义内容')
+    })
+
+    it('does not render slot wrappers when slots are empty', () => {
+      const wrapper = createWrapper()
+      expect(wrapper.find('.query-panel__prefix').exists()).toBe(false)
+      expect(wrapper.find('.query-panel__suffix').exists()).toBe(false)
+      expect(wrapper.find('.query-panel__default').exists()).toBe(false)
+    })
+  })
+
+  describe('error handling', () => {
+    it('handles search errors gracefully', async () => {
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+      const wrapper = mount(QueryPanel, {
+        props: { modelValue: {}, fieldConfig: baseFields }
+      })
+      await nextTick()
+      const searchBtn = wrapper.findAllComponents({ name: 'ElButton' })[0]
+      await searchBtn.trigger('click')
+      expect(consoleSpy).not.toHaveBeenCalled()
+      consoleSpy.mockRestore()
     })
   })
 
