@@ -155,9 +155,29 @@ export interface WorkbenchPageConfig {
 }
 
 /**
+ * 主从列表页面配置（P03）
+ */
+export interface MasterListPageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 是否显示查询区面板 */
+  showQueryPanel?: boolean
+  /** 是否显示操作栏 */
+  showActionBar?: boolean
+  /** 主列表宽度占比 (0-100)，默认 40 */
+  listWidthPercent?: number
+  /** 列表高度 */
+  listHeight?: number | string
+}
+
+/**
  * 页面配置联合类型
  */
-export type PageConfig = DashboardPageConfig | (WorkbenchPageConfig & Record<string, unknown>)
+export type PageConfig =
+  | DashboardPageConfig
+  | WorkbenchPageConfig
+  | MasterListPageConfig
+  | (Record<string, unknown> & {})
 
 /**
  * 页面就绪事件参数
