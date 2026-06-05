@@ -123,7 +123,7 @@ function getVisibleTabs(): TabItem[] {
   return visibleTabs.value
 }
 
-const permissionHiddenCount = 0
+const permissionHiddenCount = computed(() => props.fieldConfig.filter((t) => t.hidden).length)
 
 defineExpose({
   getActiveKey,
