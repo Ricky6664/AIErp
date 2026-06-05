@@ -930,7 +930,8 @@
 | P0-005-009-004-001-001 | 编写核心代码 | 2026-06-06T04:40 | ✅ | PageP04SimpleList核心代码: page-base.d.ts新增SimpleListPageConfig; PageP04SimpleList.vue(查询区/操作栏/全宽主列表区+4个插槽); 23个单元测试全部通过; vue-tsc零错误 | (待提交) |
 | P0-005-009-004-001-002 | 验证功能 | 2026-06-06T05:05 | ✅ | 验证PageP04SimpleList组件: 23/23单元测试全部通过; vue-tsc零错误; vite build通过; 6项验证清单(查询区/主列表区/分页/批量操作/导出/响应式)全部审查通过 | (验证任务) |
 
-| P0-005-009-005-001-001 | 编写核心代码 | 2026-06-06T04:55 | ✅ | PageP05TreeList核心代码: page-base.d.ts新增TreeListPageConfig类型; PageP05TreeList.vue(查询区/左侧树形导航280px+搜索/右侧操作栏+数据列表+4个标准插槽+3个P05专有插槽); 30个单元测试全部通过; vue-tsc零错误 | (待提交) |
+| P0-005-009-005-001-001 | 编写核心代码 | 2026-06-06T04:55 | ✅ | PageP05TreeList核心代码: page-base.d.ts新增TreeListPageConfig类型; PageP05TreeList.vue(查询区/左侧树形导航280px+搜索/右侧操作栏+数据列表+4个标准插槽+3个P05专有插槽); 30个单元测试全部通过; vue-tsc零错误 | dbdf31e3 |
+| P0-005-009-005-001-002 | 验证功能 | 2026-06-06T05:00 | ✅ | 验证PageP05TreeList: 30个单元测试全部通过; vue-tsc类型检查零错误; vite build编译通过 | — |
 
 ## 汇总统计
 
