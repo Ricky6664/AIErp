@@ -1,8 +1,33 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach } from 'vitest'
 import { mount, type VueWrapper } from '@vue/test-utils'
 import { nextTick } from 'vue'
 import type { TabItem } from '@/types/tab-container'
 import TabPageContainer from '@/components/tab-container/TabPageContainer.vue'
+
+// Mock usePermission — controls hasPermission behavior via mutable module state
+const mockPermissions: string[] = []
+const mockRoles: string[] = []
+
+vi.mock('@/composables/usePermission', () => ({
+  usePermission: () => ({
+    hasPermission: (code: string) => {
+      if (mockRoles.includes('superadmin')) return true
+      if (!code) return false
+      return mockPermissions.includes(code)
+    },
+    hasAnyPermission: (codes: string[]) => {
+      if (mockRoles.includes('superadmin')) return true
+      return codes.some((c: string) => mockPermissions.includes(c))
+    },
+    hasRole: (code: string) => {
+      if (mockRoles.includes('superadmin')) return true
+      return mockRoles.includes(code)
+    }
+  })
+}))
+
+// 引入 vi 必须在 vi.mock 之后（vi.mock 会被 hoisted）
+import { vi } from 'vitest'
 
 const sampleTabs: TabItem[] = [
   { key: 'basic-info', label: '基本信息', group: 'basic' },
@@ -35,6 +60,11 @@ function createWrapper(
 }
 
 describe('TabPageContainer component', () => {
+  beforeEach(() => {
+    mockPermissions.length = 0
+    mockRoles.length = 0
+  })
+
   describe('rendering', () => {
     it('renders all visible tabs when no activeGroup set', () => {
       const wrapper = createWrapper()
@@ -267,6 +297,101 @@ describe('TabPageContainer component', () => {
       const tabs = wrapper.vm.getVisibleTabs()
       expect(tabs.length).toBe(1)
       expect(tabs[0].key).toBe('basic-info')
+    })
+  })
+
+  describe('permission filtering', () => {
+    const tabsWithPermission: TabItem[] = [
+      { key: 'public', label: '公开标签' },
+      { key: 'order-view', label: '订单查看', permission: 'order:view' },
+      { key: 'finance-view', label: '财务查看', permission: 'finance:view' },
+      { key: 'admin-panel', label: '管理面板', permission: 'admin:access' }
+    ]
+
+    it('shows tabs without permission field regardless of user permissions', () => {
+      const wrapper = createWrapper({ fieldConfig: tabsWithPermission })
+      const tabs = wrapper.findAll('.tab-page-container__tab')
+      // public tab has no permission → always visible; other 3 require permissions user lacks
+      expect(tabs.length).toBe(1)
+      expect(tabs[0].text()).toContain('公开标签')
+    })
+
+    it('shows tabs where user has the required permission', () => {
+      mockPermissions.push('order:view')
+      const wrapper = createWrapper({ fieldConfig: tabsWithPermission })
+      const tabs = wrapper.findAll('.tab-page-container__tab')
+      expect(tabs.length).toBe(2)
+      expect(tabs[0].text()).toContain('公开标签')
+      expect(tabs[1].text()).toContain('订单查看')
+    })
+
+    it('shows all non-hidden tabs for superadmin', () => {
+      mockRoles.push('superadmin')
+      const wrapper = createWrapper({ fieldConfig: tabsWithPermission })
+      const tabs = wrapper.findAll('.tab-page-container__tab')
+      expect(tabs.length).toBe(4)
+    })
+
+    it('permissionHiddenCount counts tabs hidden by lack of permission', () => {
+      mockPermissions.push('order:view')
+      const wrapper = createWrapper({ fieldConfig: tabsWithPermission })
+      // 2 tabs require permissions user lacks: finance:view, admin:access
+      expect(wrapper.vm.permissionHiddenCount).toBe(2)
+    })
+
+    it('permissionHiddenCount excludes hidden=true tabs', () => {
+      const mixedTabs: TabItem[] = [
+        { key: 'a', label: 'A', permission: 'perm:a' },
+        { key: 'b', label: 'B', hidden: true, permission: 'perm:b' },
+        { key: 'c', label: 'C', permission: 'perm:c' }
+      ]
+      mockPermissions.push('perm:a')
+      const wrapper = createWrapper({ fieldConfig: mixedTabs })
+      // b is config-hidden (not counted), c lacks permission (counted) → 1
+      expect(wrapper.vm.permissionHiddenCount).toBe(1)
+    })
+
+    it('permissionHiddenCount is 0 for superadmin', () => {
+      mockRoles.push('superadmin')
+      const wrapper = createWrapper({ fieldConfig: tabsWithPermission })
+      expect(wrapper.vm.permissionHiddenCount).toBe(0)
+    })
+
+    it('setActiveKey does nothing for permission-denied tabs', () => {
+      const wrapper = createWrapper({ fieldConfig: tabsWithPermission })
+      wrapper.vm.setActiveKey('finance-view')
+      expect(wrapper.emitted('update:modelValue')).toBeFalsy()
+    })
+
+    it('setActiveKey works for permission-allowed tabs', async () => {
+      mockPermissions.push('finance:view')
+      const wrapper = createWrapper({ fieldConfig: tabsWithPermission })
+      wrapper.vm.setActiveKey('finance-view')
+      await nextTick()
+      expect(wrapper.emitted('update:modelValue')![0]).toEqual(['finance-view'])
+    })
+
+    it('clicking a permission-denied tab does not emit', async () => {
+      const wrapper = createWrapper({ fieldConfig: tabsWithPermission })
+      // Only "公开标签" is visible (no permission required)
+      const tabs = wrapper.findAll('.tab-page-container__tab')
+      expect(tabs.length).toBe(1)
+      // The permission-required tabs are not rendered at all
+    })
+
+    it('activeGroup filter combines with permission filter', () => {
+      const groupedTabs: TabItem[] = [
+        { key: 'g1-public', label: 'G1 Public', group: 'g1' },
+        { key: 'g1-protected', label: 'G1 Protected', group: 'g1', permission: 'g1:access' },
+        { key: 'g2-public', label: 'G2 Public', group: 'g2' },
+        { key: 'g2-protected', label: 'G2 Protected', group: 'g2', permission: 'g2:access' }
+      ]
+      mockPermissions.push('g1:access')
+      const wrapper = createWrapper({ fieldConfig: groupedTabs, activeGroup: 'g1' })
+      const tabs = wrapper.findAll('.tab-page-container__tab')
+      expect(tabs.length).toBe(2)
+      expect(tabs[0].text()).toContain('G1 Public')
+      expect(tabs[1].text()).toContain('G1 Protected')
     })
   })
 

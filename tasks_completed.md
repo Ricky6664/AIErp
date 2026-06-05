@@ -909,16 +909,18 @@
 
 | P0-005-008-001-001-001 | 编写核心代码 | 2026-06-06T03:28 | ✅ | TabPageContainer标签页容器组件: TabPageContainer.vue(配置驱动渲染/v-model双向绑定/activeGroup筛选/prefix+suffix+default三插槽/disabled模式); 34个单元测试全部通过; tab-container.d.ts类型定义(TabItem/TabPageContainerProps/TabPageContainerEmits/TabPageContainerExpose) | (待提交) |
 
-| P0-005-008-001-001-002 | 验证功能 | 2026-06-06T03:36 | ✅ | 验证TabPageContainer组件: 34/34单元测试全部通过; vue-tsc零错误; 6项验证清单(标签页切换/懒加载/权限控制/active tab持久化/标签页插槽/tab关闭)全部通过; 修复permissionHiddenCount硬编码为0的bug | (待提交) |
+| P0-005-008-001-001-002 | 验证功能 | 2026-06-06T03:36 | ✅ | 验证TabPageContainer组件: 34/34单元测试全部通过; vue-tsc零错误; 6项验证清单(标签页切换/懒加载/权限控制/active tab持久化/标签页插槽/tab关闭)全部通过; 修复permissionHiddenCount硬编码为0的bug | 783ee4d6 |
+
+| P0-005-008-002-001-001 | 编写配置文件类 | 2026-06-06T03:45 | ✅ | TabPageContainer集成usePermission权限控制: visibleTabs增加权限过滤/ permissionHiddenCount改为统计无权限隐藏/findTab增加权限检查; 44个单元测试全部通过(34已有+10新增权限); vue-tsc零错误 | (待提交) |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 531 | 2 | 24.7% |
+| P0 | 14 | 2,147 | 532 | 2 | 24.8% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **531** | **2** | **11.3%** |
+| **合计** | **46** | **4,716** | **532** | **2** | **11.3%** |
 
 ---
 

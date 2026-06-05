@@ -46,6 +46,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { TabItem } from '@/types/tab-container'
+import { usePermission } from '@/composables/usePermission'
+
+const { hasPermission } = usePermission()
 
 const props = withDefaults(
   defineProps<{
@@ -71,9 +74,10 @@ const emit = defineEmits<{
   blur: [key: string]
 }>()
 
-/** 可见标签页（过滤 hidden、按 activeGroup 筛选） */
+/** 可见标签页（过滤 hidden、无权限、按 activeGroup 筛选） */
 const visibleTabs = computed<TabItem[]>(() => {
   let tabs = props.fieldConfig.filter((t) => !t.hidden)
+  tabs = tabs.filter((t) => !t.permission || hasPermission(t.permission))
   if (props.activeGroup) {
     tabs = tabs.filter((t) => !t.group || t.group === props.activeGroup)
   }
@@ -99,9 +103,12 @@ function handleTabClick(tab: TabItem): void {
   }
 }
 
-/** 查找标签页（不区分可见性） */
+/** 查找可访问的标签页（不区分可见性，但排除 disabled/hidden/无权限） */
 function findTab(key: string): TabItem | undefined {
-  return props.fieldConfig.find((t) => t.key === key && !t.disabled && !t.hidden)
+  return props.fieldConfig.find(
+    (t) =>
+      t.key === key && !t.disabled && !t.hidden && (!t.permission || hasPermission(t.permission))
+  )
 }
 
 /** 获取当前激活标签页 key */
@@ -123,7 +130,12 @@ function getVisibleTabs(): TabItem[] {
   return visibleTabs.value
 }
 
-const permissionHiddenCount = computed(() => props.fieldConfig.filter((t) => t.hidden).length)
+/** 因权限不足被隐藏的标签页数量（不含 hidden=true 的配置隐藏） */
+const permissionHiddenCount = computed(
+  () =>
+    props.fieldConfig.filter((t) => !t.hidden && t.permission && !hasPermission(t.permission))
+      .length
+)
 
 defineExpose({
   getActiveKey,
