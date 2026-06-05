@@ -21,12 +21,22 @@ export interface ErpInputProps {
   modelValue: any
   /** 是否禁用/只读 */
   disabled?: boolean
+  /** 是否加载中 */
+  loading?: boolean
   /** 字段配置（来自字段配置体系） */
   fieldConfig?: FieldConfig
   /** 校验规则列表 */
   rules?: ValidatorRule[]
   /** 占位提示文字 */
   placeholder?: string
+  /** 最大字符长度 */
+  maxLength?: number
+  /** 是否可清空 */
+  clearable?: boolean
+  /** 是否显示字数统计 */
+  showWordLimit?: boolean
+  /** 尺寸 */
+  size?: 'large' | 'default' | 'small'
 }
 
 /**

@@ -47,8 +47,42 @@ describe('BasicInput component', () => {
 
     it('renders clearable by default when not disabled', () => {
       const wrapper = createWrapper()
-      // clearable is enabled, clear icon rendered by Element Plus
       expect(wrapper.find('.el-input').exists()).toBe(true)
+    })
+
+    it('renders header with fieldConfig title', () => {
+      const wrapper = createWrapper({
+        fieldConfig: { title: '姓名', fieldName: 'name', fieldType: 'text' }
+      })
+      const header = wrapper.find('.basic-input__header')
+      expect(header.exists()).toBe(true)
+      expect(header.find('.basic-input__label').text()).toBe('姓名')
+    })
+
+    it('does not render header when fieldConfig has no title', () => {
+      const wrapper = createWrapper()
+      expect(wrapper.find('.basic-input__header').exists()).toBe(false)
+    })
+
+    it('renders loading skeleton when loading is true', () => {
+      const wrapper = createWrapper({ loading: true })
+      expect(wrapper.find('.basic-input__loading').exists()).toBe(true)
+      expect(wrapper.find('.el-skeleton').exists()).toBe(true)
+    })
+
+    it('does not render el-input when loading', () => {
+      const wrapper = createWrapper({ loading: true, modelValue: 'test' })
+      expect(wrapper.find('.el-input').exists()).toBe(false)
+    })
+
+    it('applies size modifier class', () => {
+      const wrapper = createWrapper({ size: 'small' })
+      expect(wrapper.find('.basic-input--small').exists()).toBe(true)
+    })
+
+    it('does not apply size class for default size', () => {
+      const wrapper = createWrapper({ size: 'default' })
+      expect(wrapper.find('.basic-input--default').exists()).toBe(false)
     })
   })
 
@@ -74,6 +108,20 @@ describe('BasicInput component', () => {
       const input = wrapper.find('input')
       expect((input.element as HTMLInputElement).value).toBe('更新值')
     })
+
+    it('clears error messages on input change', async () => {
+      const wrapper = createWrapper({
+        modelValue: '',
+        rules: [{ required: true, message: '必填' }]
+      })
+      await vm(wrapper).validate()
+      await nextTick()
+      expect(wrapper.find('.basic-input__error-item').exists()).toBe(true)
+      const input = wrapper.find('input')
+      await input.setValue('new')
+      await nextTick()
+      expect(wrapper.find('.basic-input__error-item').exists()).toBe(false)
+    })
   })
 
   describe('disabled state', () => {
@@ -87,6 +135,11 @@ describe('BasicInput component', () => {
       const wrapper = createWrapper({ disabled: false })
       const input = wrapper.find('input')
       expect(input.attributes('disabled')).toBeUndefined()
+    })
+
+    it('applies disabled modifier class', () => {
+      const wrapper = createWrapper({ disabled: true })
+      expect(wrapper.find('.basic-input--disabled').exists()).toBe(true)
     })
   })
 
@@ -132,6 +185,45 @@ describe('BasicInput component', () => {
       })
       expect(wrapper.find('.append-slot').exists()).toBe(true)
     })
+
+    it('renders header slot content', () => {
+      const wrapper = mount(BasicInput, {
+        props: { modelValue: '' },
+        slots: { header: '<span class="header-slot">标题区</span>' }
+      })
+      expect(wrapper.find('.basic-input__header').exists()).toBe(true)
+      expect(wrapper.find('.header-slot').exists()).toBe(true)
+    })
+
+    it('renders footer slot content', () => {
+      const wrapper = mount(BasicInput, {
+        props: { modelValue: '' },
+        slots: { footer: '<span class="footer-slot">底部区</span>' }
+      })
+      expect(wrapper.find('.basic-input__footer').exists()).toBe(true)
+      expect(wrapper.find('.footer-slot').exists()).toBe(true)
+    })
+  })
+
+  describe('error display', () => {
+    it('renders error messages in footer via v-for', async () => {
+      const wrapper = createWrapper({
+        modelValue: '',
+        rules: [
+          { required: true, message: '必填项' },
+          { min: 3, message: '至少3个字符' }
+        ]
+      })
+      await vm(wrapper).validate()
+      await nextTick()
+      const errors = wrapper.findAll('.basic-input__error-item')
+      expect(errors.length).toBeGreaterThanOrEqual(1)
+    })
+
+    it('renders no footer when no errors', () => {
+      const wrapper = createWrapper({ modelValue: 'test' })
+      expect(wrapper.find('.basic-input__footer').exists()).toBe(false)
+    })
   })
 
   describe('exposed methods', () => {
@@ -150,6 +242,42 @@ describe('BasicInput component', () => {
       expect(result).toBe(false)
     })
 
+    it('exposes validate method that returns false when min rule not met', async () => {
+      const wrapper = createWrapper({
+        modelValue: 'ab',
+        rules: [{ min: 3, message: '至少3个字符' }]
+      })
+      const result = await vm(wrapper).validate()
+      expect(result).toBe(false)
+    })
+
+    it('exposes validate method that returns false when max rule exceeded', async () => {
+      const wrapper = createWrapper({
+        modelValue: 'abcdef',
+        rules: [{ max: 5, message: '最多5个字符' }]
+      })
+      const result = await vm(wrapper).validate()
+      expect(result).toBe(false)
+    })
+
+    it('exposes validate method that returns false when pattern not matched', async () => {
+      const wrapper = createWrapper({
+        modelValue: 'abc',
+        rules: [{ pattern: /^[0-9]+$/, message: '仅允许数字' }]
+      })
+      const result = await vm(wrapper).validate()
+      expect(result).toBe(false)
+    })
+
+    it('exposes validate method that returns true when pattern matched', async () => {
+      const wrapper = createWrapper({
+        modelValue: '123',
+        rules: [{ pattern: /^[0-9]+$/ }]
+      })
+      const result = await vm(wrapper).validate()
+      expect(result).toBe(true)
+    })
+
     it('exposes reset method that clears value', async () => {
       const wrapper = createWrapper({ modelValue: '待清空' })
       vm(wrapper).reset()
@@ -157,6 +285,19 @@ describe('BasicInput component', () => {
       const emitted = wrapper.emitted('update:modelValue')
       expect(emitted).toBeTruthy()
       expect(emitted![0]).toEqual([''])
+    })
+
+    it('exposes reset method that clears error messages', async () => {
+      const wrapper = createWrapper({
+        modelValue: '',
+        rules: [{ required: true, message: '必填' }]
+      })
+      await vm(wrapper).validate()
+      await nextTick()
+      expect(wrapper.find('.basic-input__error-item').exists()).toBe(true)
+      vm(wrapper).reset()
+      await nextTick()
+      expect(wrapper.find('.basic-input__error-item').exists()).toBe(false)
     })
 
     it('validate with custom validator function', async () => {
