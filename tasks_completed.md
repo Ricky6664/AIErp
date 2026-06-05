@@ -872,13 +872,14 @@
 | P0-005-004-004-001-001 | 编写配置文件类 | 2026-06-06T03:00 | ✅ | 后端: EditTableProperties新增RowHeight(7档行高px)/FontSize(7档字体px)嵌套配置; application.yml新增edit-table.row-height+font-size配置块 | b142f047 |
 | P0-005-004-004-001-002 | 验证编写配置项配置 | 2026-06-06T03:30 | ✅ | 验证EditTableProperties行高/字体大小配置: YAML语法正确/mvn compile通过/无敏感信息/@Component+@ConfigurationProperties正确/@Validated/prefix全小写中划线/7档配置与默认值一致 | (待提交) |
 | P0-005-004-005-001-001 | 编写页面组件 | 2026-06-06T03:50 | ✅ | 录入数据表格合计列演示页: ErpEditTable组件demo页面(useDemoEditTable composable/合计行配置/summaryConfig/行拖拽/单元格编辑/路由注册); vue-tsc零错误; vite build通过 | (待提交) |
-| P0-005-004-005-001-002 | 编写数据绑定与交互逻辑 | 2026-06-06T04:05 | ✅ | API调用层(src/api/modules/edit-table.ts: EditTableRow类型/CRUD/分页/mock数据); composable重构(API集成/useRouter路由导航/useRoute参数读取/searchParams+watch 300ms防抖/loading状态/异步错误处理); demo页面添加v-loading指令; vue-tsc零错误; 51个组件测试全部通过 | (待提交) |
+| P0-005-004-005-001-002 | 编写数据绑定与交互逻辑 | 2026-06-06T04:05 | ✅ | API调用层(src/api/modules/edit-table.ts: EditTableRow类型/CRUD/分页/mock数据); composable重构(API集成/useRouter路由导航/useRoute参数读取/searchParams+watch 300ms防抖/loading状态/异步错误处理); demo页面添加v-loading指令; vue-tsc零错误; 51个组件测试全部通过 | c6cf486b |
+| P0-005-004-005-001-003 | 验证前端页面开发页面 | 2026-06-06T04:30 | ✅ | 验证EntryTable合计列演示页: 6项验证清单全通过(单元格编辑/校验/行管理/Tab导航/Excel粘贴/拖拽改序); 代码审查editConfig/dragConfig/editRules/summaryData实现完整; 修复测试类型错误(FieldConfig导入路径+defineExpose暴露内部状态); edit-table相关vue-tsc零错误 | (待提交) |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 510 | 2 | 23.8% |
+| P0 | 14 | 2,147 | 511 | 2 | 23.8% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **495** | **2** | **10.5%** |

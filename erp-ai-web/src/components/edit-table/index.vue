@@ -498,7 +498,16 @@ defineExpose({
   validate,
   clearValidate,
   resetAll,
-  reorder
+  reorder,
+  // 内部状态暴露（供测试使用）
+  innerData,
+  displayColumns,
+  slottedColumns,
+  gridSize,
+  editConfigValue,
+  dragConfigValue,
+  rowConfigValue,
+  summaryData
 })
 </script>
 

@@ -1,7 +1,8 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import EditTable from '../index.vue'
-import type { EditTableColumn, FieldConfig, DragConfig } from '@/types/edit-table'
+import type { EditTableColumn, DragConfig } from '@/types/edit-table'
+import type { FieldConfig } from '@/types/list-table'
 
 const mockLocalStorage = {
   store: {} as Record<string, string>,
