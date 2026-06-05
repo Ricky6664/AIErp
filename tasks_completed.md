@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-05T23:15
-> **归档总数**：500 条
+> **最后更新**：2026-06-06T01:20
+> **归档总数**：501 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -864,15 +864,16 @@
 | P0-005-003-008-001-001 | 编写页面组件 | 2026-06-05T23:55 | ✅ | 列表表格基础标配功能演示页: Vue3 page组件(template+script setup+style scoped); DemoOrderItem类型定义+API模块(mock 156条数据/搜索/排序/分页); useDemoListTable组合式函数(columns/sortConfig/summaryData/事件处理); 路由注册/demo/list-table; vue-tsc零错误+vite build通过 | — |
 | P0-005-003-008-001-002 | 编写数据绑定与交互逻辑 | 2026-06-06T00:15 | ✅ | 数据绑定与交互逻辑: saveDemoOrder/deleteDemoOrder/getDemoOrderDetail mock API; useDemoListTable增加error/saving/deleting状态+handleSave/handleDelete/handleViewDetail+router导航+watch 300ms防抖+syncQueryToState; index.vue增加新增/编辑/删除按钮+el-dialog表单+el-alert错误展示+路由query同步 | — |
 | P0-005-004-001-001-001 | 编写核心代码 | 2026-06-06T01:10 | ✅ | EntryTable录入数据表格组件: Vue SFC(vxe-grid可编辑封装/edit-config单元格编辑/no-pagination/前端合计计算/列持久化); 类型定义(EditTableColumn/EditRule/EditChangeParams等); 41个单元测试全部通过; vue-tsc零错误+vite build通过 | (待提交) |
+| P0-005-004-001-001-002 | 验证功能 | 2026-06-06T01:20 | ✅ | 验证EntryTable组件: 41/41测试通过; vite build通过(5.63s); 6项验证:单元格编辑/校验/Tab导航/行管理4项通过; paste-config与row-drag 2项未显式配置依赖vxe-table默认行为 | (验证任务) |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 506 | 2 | 23.6% |
+| P0 | 14 | 2,147 | 507 | 2 | 23.6% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **491** | **2** | **10.4%** |
+| **合计** | **46** | **4,716** | **492** | **2** | **10.4%** |
 
 ---
 
