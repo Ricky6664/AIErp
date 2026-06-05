@@ -101,6 +101,24 @@ export interface RecentVisitConfig {
 }
 
 /**
+ * 工作台统计卡片配置
+ */
+export interface WorkbenchStatCardConfig {
+  /** 卡片唯一标识 */
+  id: string
+  /** 卡片标题 */
+  label: string
+  /** 统计值 */
+  value: number | string
+  /** 图标名 */
+  icon: string
+  /** 颜色主题 */
+  color?: 'blue' | 'green' | 'orange' | 'purple' | 'red'
+  /** 下钻路由 */
+  to?: string
+}
+
+/**
  * 仪表盘页面配置（P01）
  */
 export interface DashboardPageConfig {
@@ -123,9 +141,23 @@ export interface DashboardPageConfig {
 }
 
 /**
+ * 工作台页面配置（P02）
+ */
+export interface WorkbenchPageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 统计卡片行 */
+  statCards?: WorkbenchStatCardConfig[]
+  /** 是否显示查询区面板 */
+  showQueryPanel?: boolean
+  /** 是否显示操作栏 */
+  showActionBar?: boolean
+}
+
+/**
  * 页面配置联合类型
  */
-export type PageConfig = DashboardPageConfig & Record<string, unknown>
+export type PageConfig = DashboardPageConfig | (WorkbenchPageConfig & Record<string, unknown>)
 
 /**
  * 页面就绪事件参数
