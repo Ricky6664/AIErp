@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-06T02:30
-> **归档总数**：506 条
+> **最后更新**：2026-06-06T01:00
+> **归档总数**：507 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -875,6 +875,7 @@
 | P0-005-004-005-001-002 | 编写数据绑定与交互逻辑 | 2026-06-06T04:05 | ✅ | API调用层(src/api/modules/edit-table.ts: EditTableRow类型/CRUD/分页/mock数据); composable重构(API集成/useRouter路由导航/useRoute参数读取/searchParams+watch 300ms防抖/loading状态/异步错误处理); demo页面添加v-loading指令; vue-tsc零错误; 51个组件测试全部通过 | c6cf486b |
 | P0-005-004-005-001-003 | 验证前端页面开发页面 | 2026-06-06T04:30 | ✅ | 验证EntryTable合计列演示页: 6项验证清单全通过(单元格编辑/校验/行管理/Tab导航/Excel粘贴/拖拽改序); 代码审查editConfig/dragConfig/editRules/summaryData实现完整; 修复测试类型错误(FieldConfig导入路径+defineExpose暴露内部状态); edit-table相关vue-tsc零错误 | (待提交) |
 | P0-005-004-006-001-001 | 编写配置文件类 | 2026-06-06T00:45 | ✅ | EditTableProperties新增CellRender嵌套配置(cell-render前缀/5项属性/组件映射7项); application.yml新增edit-table.cell-render配置块(默认组件/懒渲染/缓存/组件映射); mvn compile通过 | (待提交) |
+| P0-005-004-006-001-002 | 验证编写配置项配置 | 2026-06-06T01:00 | ✅ | 验证edit-table.cell-render配置: YAML语法正确/mvn compile通过/各环境继承正确/无敏感信息/@Component+@ConfigurationProperties正确绑定/prefix全小写中划线/cellRender嵌套+componentMapping映射绑定验证通过 | (验证任务) |
 
 ## 汇总统计
 
