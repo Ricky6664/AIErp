@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-06T01:25
-> **归档总数**：510 条
+> **最后更新**：2026-06-06T01:35
+> **归档总数**：511 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -884,7 +884,8 @@
 | P0-005-005-002-001-002 | 验证功能 | 2026-06-06T01:00 | ✅ | 验证TabContainer: 31/31+34/34=65/65测试通过; vue-tsc零错误; vite build通过(5.62s); 6项验证: 分组导航✅/标签页切换✅/权限控制✅/数据刷新API✅/切换刷新API✅/工具栏插槽✅ | (验证任务) |
 | P0-005-005-003-001-001 | 编写核心代码 | 2026-06-06T01:05 | ✅ | 标签页显隐权限配置支持: useTabPermission组合式函数(权限过滤/activeGroup筛选/hidden过滤/canAccessTab检查/permissionHiddenCount统计); TabContainer集成权限过滤; 14个组合式函数测试+31个组件测试全部通过; vue-tsc零错误 | 6c75bfd8 |
 | P0-005-005-003-001-002 | 验证功能 | 2026-06-06T01:15 | ✅ | 验证标签页显隐权限配置支持: useTabPermission 14/14测试通过; TabContainer 31/31测试通过; GroupNav 34/34测试通过; vue-tsc 316类型检查零错误; 3项核心验证(分组导航/标签页容器/标签页权限)全部通过 | (验证任务) |
-| P0-005-005-004-001-001 | 编写核心代码 | 2026-06-06T01:25 | ✅ | RelatedInfoArea关联信息区主组件: Vue SFC(GroupNav+TabContainer布局/数据刷新机制/provide-inject刷新上下文/mainRow监听自动刷新/分组切换自动选tab); 类型定义(RelatedInfoRefreshContext); 47个单元测试全部通过; 零回归(112/112) | (待提交) |
+| P0-005-005-004-001-001 | 编写核心代码 | 2026-06-06T01:25 | ✅ | RelatedInfoArea关联信息区主组件: Vue SFC(GroupNav+TabContainer布局/数据刷新机制/provide-inject刷新上下文/mainRow监听自动刷新/分组切换自动选tab); 类型定义(RelatedInfoRefreshContext); 47个单元测试全部通过; 零回归(112/112) | 972030f0 |
+| P0-005-005-004-001-002 | 验证功能 | 2026-06-06T01:35 | ✅ | 验证RelatedInfoArea组件功能: 运行47个单元测试全部通过(分组导航/标签页切换/权限过滤/v-model/mainRow刷新/expose方法/插槽/边界条件); 6项验收全部通过 | (待提交) |
 
 ## 汇总统计
 
