@@ -102,3 +102,57 @@
 2. **无 v-permission 集成** — 权限控制需由父组件通过 hidden 属性处理
 3. **无溢出折叠** — 未实现"更多"响应式下拉
 4. **无 selectedRows** — 批量操作的选中行状态完全由父组件管理
+
+---
+
+## HeaderToolbar 验证（P0-005-002-003-001-002）
+
+**验证日期**: 2026-06-05  
+**验证工人**: W1  
+**验证方法**: 代码审查 + vitest 单元测试 + vue-tsc 类型检查
+
+### 验证结果汇总
+
+| 序号 | 验证项                     |  结果   | 说明                                                                                       |
+| :--: | -------------------------- | :-----: | ------------------------------------------------------------------------------------------ |
+|  1   | 工具按钮配置渲染           | ✅ 通过 | fieldConfig 驱动渲染，支持 icon/label/tooltip；fieldConfig 为空时渲染默认工具集            |
+|  2   | v-model 双向绑定           | ✅ 通过 | emit('update:modelValue') 正确触发；外部 modelValue 变更响应式同步                         |
+|  3   | change 事件冒泡            | ✅ 通过 | maximize/refresh/format-settings/row-height 四种工具点击均正确 emit('change', tool, state) |
+|  4   | focus/blur 事件            | ✅ 通过 | 按钮 focus/blur 正确 emit                                                                  |
+|  5   | disabled 全局禁用          | ✅ 通过 | disabled=true 时所有按钮禁用且阻止 click 事件                                              |
+|  6   | hidden 工具隐藏            | ✅ 通过 | hidden=true 的工具按钮不渲染                                                               |
+|  7   | 行高下拉面板               | ✅ 通过 | 5 个行高预设选项（紧凑/较小/默认/较大/超大），当前选中项有勾选标记                         |
+|  8   | prefix/suffix/default 插槽 | ✅ 通过 | 三个插槽均正确渲染                                                                         |
+|  9   | 铺满按钮状态切换           | ✅ 通过 | maximized=true 时铺满按钮变 primary 类型                                                   |
+|  10  | TypeScript 类型安全        | ✅ 通过 | vue-tsc --noEmit 零错误；HeaderToolbarState/HeaderToolbarItem 类型定义完整                 |
+
+### 单元测试
+
+- **测试文件**: `src/components/action-bar/__tests__/HeaderToolbar.test.ts`
+- **测试结果**: **19/19 全部通过** ✅
+- **测试覆盖**: 渲染(7) + v-model(3) + change事件(3) + focus/blur(2) + 行高下拉(2) + 禁用状态(1) + 隐藏工具(1)
+
+### 编译状态
+
+- `vue-tsc --noEmit`: 零类型错误 ✅
+- 组件 Props/Events/Slots 接口定义完整且 TypeScript 类型正确
+
+### 与 ActionBar 主组件对比
+
+| 项目      | ActionBar (index.vue)                 | HeaderToolbar (HeaderToolbar.vue)           |
+| --------- | ------------------------------------- | ------------------------------------------- |
+| 权限控制  | 无 v-permission，通过 hidden 间接控制 | 通过 hidden 属性控制                        |
+| 溢出处理  | 未实现 ResizeObserver/"更多"菜单      | 使用 flex-wrap 换行                         |
+| 批量操作  | 无 selectedRows prop                  | 不适用                                      |
+| 布局      | 左右分栏 (list) / 右对齐 (form)       | prefix/tools/suffix/default 四区            |
+| icon 渲染 | ActionItem.icon 定义但未渲染          | getIcon() 回退逻辑 + 模板内 el-icon 渲染 ✅ |
+
+### 总结
+
+HeaderToolbar 组件核心功能完整可用：
+
+- 四种内置工具（铺满/刷新/格式设置/行高）全部正确实现
+- v-model 双向绑定、事件通信、插槽系统均工作正常
+- 19 个单元测试全部通过，TypeScript 类型检查零错误
+- hidden 属性替代 v-permission 提供工具显隐控制（HeaderToolbar 作为系统级工具，权限粒度需求较低，hidden 方案合理）
+- 响应式溢出处理未实现，但工具栏按钮数量有限（默认 4 个），flex-wrap 换行已可覆盖常用场景
