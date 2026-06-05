@@ -192,6 +192,90 @@ describe('DetailTable', () => {
   })
 
   // ============================================================
+  // 懒加载
+  // ============================================================
+
+  describe('懒加载', () => {
+    it('默认懒加载：未激活标签页的具名插槽内容不应渲染', () => {
+      const wrapper = mount(DetailTable, {
+        props: {
+          fieldConfig: [
+            { key: 'tab-a', label: '标签A' },
+            { key: 'tab-b', label: '标签B', lazy: true },
+            { key: 'tab-c', label: '标签C' }
+          ],
+          modelValue: 'tab-a'
+        },
+        slots: {
+          'tab-a': '<div class="slot-a">Content A</div>',
+          'tab-b': '<div class="slot-b">Content B</div>',
+          'tab-c': '<div class="slot-c">Content C</div>'
+        }
+      })
+      // 只有激活标签页的内容应渲染
+      expect(wrapper.find('.slot-a').exists()).toBe(true)
+      expect(wrapper.find('.slot-b').exists()).toBe(false)
+      expect(wrapper.find('.slot-c').exists()).toBe(false)
+    })
+
+    it('lazy=false 时标签页内容应始终渲染（非懒加载）', () => {
+      const wrapper = mount(DetailTable, {
+        props: {
+          fieldConfig: [
+            { key: 'tab-a', label: '标签A' },
+            { key: 'tab-b', label: '标签B', lazy: false }
+          ],
+          modelValue: 'tab-a'
+        },
+        slots: {
+          'tab-a': '<div class="slot-a">Content A</div>',
+          'tab-b': '<div class="slot-b">Content B</div>'
+        }
+      })
+      // lazy=false 的标签页内容也应渲染
+      expect(wrapper.find('.slot-a').exists()).toBe(true)
+      expect(wrapper.find('.slot-b').exists()).toBe(true)
+    })
+
+    it('切换标签页后新激活标签页内容应变为可见', async () => {
+      const wrapper = mount(DetailTable, {
+        props: {
+          fieldConfig: [
+            { key: 'tab-a', label: '标签A' },
+            { key: 'tab-b', label: '标签B' }
+          ],
+          modelValue: 'tab-a'
+        },
+        slots: {
+          'tab-a': '<div class="slot-a">Content A</div>',
+          'tab-b': '<div class="slot-b">Content B</div>'
+        }
+      })
+      expect(wrapper.find('.slot-b').exists()).toBe(false)
+
+      await wrapper.setProps({ modelValue: 'tab-b' })
+      // 切换后 tab-b 内容应渲染
+      expect(wrapper.find('.slot-b').exists()).toBe(true)
+    })
+
+    it('默认插槽应始终渲染', () => {
+      const wrapper = mount(DetailTable, {
+        props: {
+          fieldConfig: [
+            { key: 'tab-a', label: '标签A' },
+            { key: 'tab-b', label: '标签B' }
+          ],
+          modelValue: 'tab-a'
+        },
+        slots: {
+          default: '<div class="default-slot">Default Content</div>'
+        }
+      })
+      expect(wrapper.find('.default-slot').exists()).toBe(true)
+    })
+  })
+
+  // ============================================================
   // 焦点事件
   // ============================================================
 
