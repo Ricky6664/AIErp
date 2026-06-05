@@ -1,12 +1,15 @@
 <template>
-  <div class="action-bar" :class="{ 'action-bar--disabled': props.disabled }">
+  <div
+    class="action-bar"
+    :class="[`action-bar--${props.mode}`, { 'action-bar--disabled': props.disabled }]"
+  >
     <!-- prefix 插槽 -->
     <div v-if="$slots.prefix" class="action-bar__prefix">
       <slot name="prefix" />
     </div>
 
-    <!-- 左侧操作按钮组 -->
-    <div class="action-bar__left">
+    <!-- 左侧操作按钮组（表单模式下隐藏，所有按钮放右侧） -->
+    <div v-if="props.mode === 'list'" class="action-bar__left">
       <template v-for="item in leftActions" :key="item.key">
         <!-- 下拉菜单按钮 -->
         <el-dropdown
@@ -55,8 +58,8 @@
     </div>
 
     <!-- 右侧操作按钮组 -->
-    <div class="action-bar__right">
-      <template v-for="item in rightActions" :key="item.key">
+    <div class="action-bar__right" :class="{ 'action-bar__right--form': props.mode === 'form' }">
+      <template v-for="item in allActions" :key="item.key">
         <el-dropdown
           v-if="item.children && item.children.length > 0"
           :disabled="item.disabled || props.disabled"
@@ -117,7 +120,7 @@
 import { computed } from 'vue'
 import { ArrowDown } from '@element-plus/icons-vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import type { ActionItem } from '@/types/action-bar'
+import type { ActionItem, ActionBarMode } from '@/types/action-bar'
 
 const props = withDefaults(
   defineProps<{
@@ -125,10 +128,12 @@ const props = withDefaults(
     fieldConfig: ActionItem[]
     disabled?: boolean
     placeholder?: string
+    mode?: ActionBarMode
   }>(),
   {
     disabled: false,
-    placeholder: ''
+    placeholder: '',
+    mode: 'list'
   }
 )
 
@@ -154,6 +159,14 @@ const rightActions = computed<ActionItem[]>(() => {
   const defaultActions = visible.filter((item) => !item.type || item.type === 'default')
   const midPoint = Math.ceil(defaultActions.length / 2)
   return defaultActions.slice(midPoint)
+})
+
+/** 表单模式：全部可见按钮（右侧对齐布局） */
+const allActions = computed<ActionItem[]>(() => {
+  if (props.mode === 'form') {
+    return props.fieldConfig.filter((item) => !item.hidden)
+  }
+  return rightActions.value
 })
 
 function getButtonProps(item: ActionItem): Record<string, unknown> {
@@ -216,6 +229,10 @@ function handleDropdownCommand(parent: ActionItem, childKey: string): void {
     pointer-events: none;
   }
 
+  &--form {
+    justify-content: flex-end;
+  }
+
   &__prefix {
     margin-right: 4px;
   }
@@ -233,6 +250,10 @@ function handleDropdownCommand(parent: ActionItem, childKey: string): void {
     gap: 8px;
     margin-left: auto;
     flex: 0 0 auto;
+
+    &--form {
+      margin-left: 0;
+    }
   }
 
   &__suffix {

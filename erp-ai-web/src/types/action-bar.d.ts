@@ -16,7 +16,18 @@ export type BuiltInAction =
   | 'refresh'
   | 'print'
   | 'audit'
+  | 'anti-audit'
+  | 'submit'
+  | 'save-draft'
+  | 'cancel'
+  | 'reset'
+  | 'submit-continue'
   | 'custom'
+
+/**
+ * ActionBar 显示模式
+ */
+export type ActionBarMode = 'list' | 'form'
 
 /**
  * 操作按钮配置项
@@ -68,6 +79,8 @@ export interface ActionBarProps {
   disabled?: boolean
   /** 占位提示 */
   placeholder?: string
+  /** 显示模式：list=列表页(左主右辅) / form=表单页(右对齐) */
+  mode?: ActionBarMode
 }
 
 /**

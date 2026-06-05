@@ -76,6 +76,17 @@ export function useActionBar(options?: UseActionBarOptions) {
     ]
   }
 
+  /** 获取默认的表单页操作按钮配置 */
+  function getDefaultFormActions(): ActionItem[] {
+    return [
+      { key: 'submit', label: '提交', type: 'primary', action: 'submit' },
+      { key: 'save-draft', label: '保存草稿', type: 'default', action: 'save-draft' },
+      { key: 'submit-continue', label: '提交并新增', type: 'success', action: 'submit-continue' },
+      { key: 'reset', label: '重置', type: 'default', action: 'reset' },
+      { key: 'cancel', label: '取消', type: 'default', action: 'cancel' }
+    ]
+  }
+
   return {
     actions,
     loading,
@@ -88,6 +99,7 @@ export function useActionBar(options?: UseActionBarOptions) {
     setLoading,
     setDisabled,
     setHidden,
-    getDefaultListActions
+    getDefaultListActions,
+    getDefaultFormActions
   }
 }
