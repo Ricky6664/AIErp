@@ -118,12 +118,21 @@ export const CHANGE_PASSWORD_ROUTE: RouteRecordRaw = {
   meta: { title: '修改密码', hideMenu: true, hideTab: true }
 }
 
+// 列表表格基础标配功能演示页
+export const DEMO_LIST_TABLE: RouteRecordRaw = {
+  path: '/demo/list-table',
+  name: 'DemoListTable',
+  component: () => import('@/views/demo/list-table/index.vue'),
+  meta: { title: '列表表格演示', icon: 'List', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
   ROOT_ROUTE,
   HOME_ROUTE,
   DEV_VIRTUAL_SCROLL,
+  DEMO_LIST_TABLE,
   USER_WORKBENCH,
   AUTH_CONFIG_WORKBENCH,
   LOGIN_LOG_PAGE,

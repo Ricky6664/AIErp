@@ -860,12 +860,13 @@
 860	| P0-005-003-006-001-002 | 验证功能 | 2026-06-05T23:18 | ✅ | 验证ListTable一键初始化/一键清空搜索排序: 47/47测试通过; vue-tsc零错误; 逐项验证:列配置渲染/服务端排序/列筛选/分页切换/虚拟滚动/列宽localStorage持久化/resetAll+clearSearchAndSort方法暴露; 浏览器性能测试(FPS/渲染)需手动验证 | — |
 | P0-005-003-007-001-001 | 编写配置文件类 | 2026-06-05T23:35 | ✅ | ListTable合计行列配置类型定义: SummaryMethod/SummaryColumnConfig/SummaryConfig类型; ListTableColumn.summary字段; ListTableProps.summaryConfig/SummaryData | 3cf16dc0 |
 | P0-005-003-007-001-002 | 验证编写配置项配置 | 2026-06-05T23:42 | ✅ | 验证ListTable合计行列配置类型: SummaryConfig/SummaryColumnConfig/SummaryMethod类型语法正确; 47/47测试通过; 无敏感信息; 类型通过@/types/list-table正确导出 | — |
+| P0-005-003-008-001-001 | 编写页面组件 | 2026-06-05T23:55 | ✅ | 列表表格基础标配功能演示页: Vue3 page组件(template+script setup+style scoped); DemoOrderItem类型定义+API模块(mock 156条数据/搜索/排序/分页); useDemoListTable组合式函数(columns/sortConfig/summaryData/事件处理); 路由注册/demo/list-table; vue-tsc零错误+vite build通过 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 503 | 2 | 23.4% |
+| P0 | 14 | 2,147 | 504 | 2 | 23.5% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **489** | **2** | **10.4%** |
