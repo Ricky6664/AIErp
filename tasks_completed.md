@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-06T01:30
-> **归档总数**：502 条
+> **最后更新**：2026-06-06T02:30
+> **归档总数**：503 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -866,8 +866,9 @@
 | P0-005-004-001-001-001 | 编写核心代码 | 2026-06-06T01:10 | ✅ | EntryTable录入数据表格组件: Vue SFC(vxe-grid可编辑封装/edit-config单元格编辑/no-pagination/前端合计计算/列持久化); 类型定义(EditTableColumn/EditRule/EditChangeParams等); 41个单元测试全部通过; vue-tsc零错误+vite build通过 | (待提交) |
 | P0-005-004-001-001-002 | 验证功能 | 2026-06-06T01:20 | ✅ | 验证EntryTable组件: 41/41测试通过; vite build通过(5.63s); 6项验证:单元格编辑/校验/Tab导航/行管理4项通过; paste-config与row-drag 2项未显式配置依赖vxe-table默认行为 | (验证任务) |
 | P0-005-004-002-001-001 | 编写核心代码 | 2026-06-06T01:25 | ✅ | 行拖拽改序核心代码: DragConfig类型定义/dragConfig prop/dragConfigValue computed/handleDragSort处理/reorder方法/10个新测试(51/51通过)/vue-tsc零错误/vite build通过 | (待提交) |
-| P0-005-004-002-001-002 | 验证功能 | 2026-06-06T01:30 | ✅ | 验证行拖拽改序: 51/51测试通过(含7项drag专项); 6项验证清单全通过(编辑/校验/行管理/Tab/粘贴/拖拽); 代码审查确认editConfig/dragConfig/editRules/validate/reorder完整实现 | (待提交) |
-| P0-005-004-003-001-001 | 编写配置文件类 | 2026-06-06T02:15 | ✅ | 后端: EditTableProperties配置类(@ConfigurationProperties/edit-table前缀/@Validated校验/ColumnFormat+ColumnDefault+ColumnPersist+Edit嵌套配置); application.yml新增edit-table配置块(列格式/列默认值/列持久化/编辑设置) | (待提交) |
+| P0-005-004-002-001-002 | 验证功能 | 2026-06-06T02:30 | ✅ | 验证行拖拽改序: 51/51测试通过(含7项drag专项); 6项验证清单全通过(编辑/校验/行管理/Tab/粘贴/拖拽); 代码审查确认editConfig/dragConfig/editRules/validate/reorder完整实现 | (待提交) |
+| P0-005-004-003-001-001 | 编写配置文件类 | 2026-06-06T02:15 | ✅ | 后端: EditTableProperties配置类(@ConfigurationProperties/edit-table前缀/@Validated校验/ColumnFormat+ColumnDefault+ColumnPersist+Edit嵌套配置); application.yml新增edit-table配置块(列格式/列默认值/列持久化/编辑设置) | b4fa0e07 |
+| P0-005-004-003-001-002 | 验证编写配置项配置 | 2026-06-06T02:30 | ✅ | 验证edit-table配置: YAML语法正确/编译通过/属性绑定正确/环境继承正确/无敏感信息/@Component注解标注 | (待提交) |
 
 ## 汇总统计
 
