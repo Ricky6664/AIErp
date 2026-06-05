@@ -47,7 +47,7 @@ export interface FieldLinkageRule {
   /** 目标字段 */
   targetField: string
   /** 联动动作 */
-  action: 'show' | 'hide' | 'enable' | 'disable' | 'setValue' | 'setOptions'
+  action: 'show' | 'hide' | 'enable' | 'disable' | 'setValue' | 'setOptions' | 'setRequired'
   /** 联动参数 */
   params?: Record<string, unknown>
 }
@@ -55,6 +55,7 @@ export interface FieldLinkageRule {
 /**
  * 联动条件运算符（JSON可序列化）
  */
+
 export type LinkageConditionOperator =
   | 'eq'
   | 'neq'
@@ -91,7 +92,7 @@ export interface LinkageRuleConfig {
   /** 目标字段 */
   targetField: string
   /** 联动动作 */
-  action: 'show' | 'hide' | 'enable' | 'disable' | 'setValue' | 'setOptions'
+  action: 'show' | 'hide' | 'enable' | 'disable' | 'setValue' | 'setOptions' | 'setRequired'
   /** 联动参数 */
   params?: Record<string, unknown>
 }

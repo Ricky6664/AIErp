@@ -17,6 +17,8 @@ export interface FieldLinkageState {
   visibility: Record<string, boolean>
   /** field disabled state overrides (true = disabled by linkage) */
   disabled: Record<string, boolean>
+  /** field required overrides (true = required by linkage, false = optional by linkage) */
+  required: Record<string, boolean>
 }
 
 export interface LinkageProcessResult {
@@ -24,12 +26,14 @@ export interface LinkageProcessResult {
   setOptions: Array<{ field: string; options: unknown[] }>
   visibilityChanges: Array<{ field: string; visible: boolean }>
   disabledChanges: Array<{ field: string; disabled: boolean }>
+  requiredChanges: Array<{ field: string; required: boolean }>
 }
 
 export function useFormLinkage() {
   const state = reactive<FieldLinkageState>({
     visibility: {},
-    disabled: {}
+    disabled: {},
+    required: {}
   })
 
   function collectLinkages(fieldConfigs: FormFieldConfig[]): FieldLinkageRule[] {
@@ -62,7 +66,8 @@ export function useFormLinkage() {
       setValues: [],
       setOptions: [],
       visibilityChanges: [],
-      disabledChanges: []
+      disabledChanges: [],
+      requiredChanges: []
     }
 
     const allLinkages = collectLinkages(fieldConfigs)
@@ -96,6 +101,11 @@ export function useFormLinkage() {
           }
           break
         }
+        case 'setRequired': {
+          const required = linkage.params?.required !== false
+          result.requiredChanges.push({ field: linkage.targetField, required })
+          break
+        }
       }
     }
 
@@ -117,6 +127,9 @@ export function useFormLinkage() {
     }
     for (const { field, disabled } of result.disabledChanges) {
       state.disabled[field] = disabled
+    }
+    for (const { field, required } of result.requiredChanges) {
+      state.required[field] = required
     }
     for (const { field, value } of result.setValues) {
       localData[field] = value
@@ -239,11 +252,23 @@ export function useFormLinkage() {
   }
 
   /**
+   * Check if a field is required, taking linkage overrides into account.
+   * Linkage override takes precedence over fieldConfig.required.
+   */
+  function isFieldRequired(fieldConfig: FormFieldConfig): boolean {
+    if (fieldConfig.field in state.required) {
+      return state.required[fieldConfig.field]
+    }
+    return fieldConfig.required === true
+  }
+
+  /**
    * Reset all linkage state.
    */
   function reset(): void {
     Object.keys(state.visibility).forEach((k) => delete state.visibility[k])
     Object.keys(state.disabled).forEach((k) => delete state.disabled[k])
+    Object.keys(state.required).forEach((k) => delete state.required[k])
   }
 
   return {
@@ -256,6 +281,7 @@ export function useFormLinkage() {
     watchFieldLinkages,
     isFieldVisible,
     isFieldDisabled,
+    isFieldRequired,
     reset
   }
 }

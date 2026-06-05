@@ -157,6 +157,18 @@
         "operator": "notIn",
         "value": []
       }
+    },
+    {
+      "triggerField": "amount",
+      "targetField": "reason",
+      "action": "setRequired",
+      "condition": {
+        "operator": "gt",
+        "value": 5000
+      },
+      "params": {
+        "required": true
+      }
     }
   ]
 }

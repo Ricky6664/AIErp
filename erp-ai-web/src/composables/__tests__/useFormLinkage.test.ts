@@ -49,6 +49,13 @@ function makeFieldConfigs(): FormFieldConfig[] {
           targetField: 'discount',
           action: 'enable',
           condition: (v: unknown) => v === 'unlocked'
+        },
+        {
+          triggerField: 'category',
+          targetField: 'subCategory',
+          action: 'setRequired',
+          params: { required: true },
+          condition: (v: unknown) => v === 'A'
         }
       ]
     }),
@@ -129,6 +136,7 @@ describe('useFormLinkage', () => {
       expect(result.visibilityChanges).toHaveLength(0)
       expect(result.disabledChanges).toHaveLength(0)
       expect(result.setOptions).toHaveLength(0)
+      expect(result.requiredChanges).toHaveLength(0)
     })
 
     it('returns show visibility change when condition passes', () => {
@@ -178,6 +186,16 @@ describe('useFormLinkage', () => {
       expect(result.disabledChanges).toContainEqual({
         field: 'discount',
         disabled: false
+      })
+    })
+
+    it('returns setRequired when condition passes', () => {
+      const { processLinkages } = useFormLinkage()
+      const configs = makeFieldConfigs()
+      const result = processLinkages('category', 'A', configs)
+      expect(result.requiredChanges).toContainEqual({
+        field: 'subCategory',
+        required: true
       })
     })
 
@@ -241,6 +259,7 @@ describe('useFormLinkage', () => {
         {
           visibilityChanges: [{ field: 'a', visible: false }],
           disabledChanges: [],
+          requiredChanges: [],
           setValues: [],
           setOptions: []
         },
@@ -256,12 +275,29 @@ describe('useFormLinkage', () => {
         {
           visibilityChanges: [],
           disabledChanges: [{ field: 'a', disabled: true }],
+          requiredChanges: [],
           setValues: [],
           setOptions: []
         },
         localData
       )
       expect(state.disabled['a']).toBe(true)
+    })
+
+    it('applies required changes', () => {
+      const { state, applyLinkageResult } = useFormLinkage()
+      const localData: Record<string, unknown> = {}
+      applyLinkageResult(
+        {
+          visibilityChanges: [],
+          disabledChanges: [],
+          requiredChanges: [{ field: 'a', required: true }],
+          setValues: [],
+          setOptions: []
+        },
+        localData
+      )
+      expect(state.required['a']).toBe(true)
     })
 
     it('applies setValues and returns changed fields', () => {
@@ -271,6 +307,7 @@ describe('useFormLinkage', () => {
         {
           visibilityChanges: [],
           disabledChanges: [],
+          requiredChanges: [],
           setValues: [{ field: 'x', value: 42 }],
           setOptions: []
         },
@@ -373,6 +410,34 @@ describe('useFormLinkage', () => {
     })
   })
 
+  describe('isFieldRequired', () => {
+    it('returns true when fieldConfig.required is true', () => {
+      const { isFieldRequired } = useFormLinkage()
+      const config = makeFieldConfig({ field: 'a', fieldType: 'text', required: true })
+      expect(isFieldRequired(config)).toBe(true)
+    })
+
+    it('returns false by default (fieldConfig.required not set)', () => {
+      const { isFieldRequired } = useFormLinkage()
+      const config = makeFieldConfig({ field: 'a', fieldType: 'text' })
+      expect(isFieldRequired(config)).toBe(false)
+    })
+
+    it('returns true when linkage sets field as required', () => {
+      const { isFieldRequired, state } = useFormLinkage()
+      state.required['a'] = true
+      const config = makeFieldConfig({ field: 'a', fieldType: 'text', required: false })
+      expect(isFieldRequired(config)).toBe(true)
+    })
+
+    it('returns false when linkage sets field as not required despite fieldConfig', () => {
+      const { isFieldRequired, state } = useFormLinkage()
+      state.required['a'] = false
+      const config = makeFieldConfig({ field: 'a', fieldType: 'text', required: true })
+      expect(isFieldRequired(config)).toBe(false)
+    })
+  })
+
   describe('reset', () => {
     it('clears all visibility and disabled state', () => {
       const { state, reset } = useFormLinkage()
@@ -381,6 +446,13 @@ describe('useFormLinkage', () => {
       reset()
       expect(state.visibility['a']).toBeUndefined()
       expect(state.disabled['b']).toBeUndefined()
+    })
+
+    it('clears required state', () => {
+      const { state, reset } = useFormLinkage()
+      state.required['a'] = true
+      reset()
+      expect(state.required['a']).toBeUndefined()
     })
   })
 
@@ -682,12 +754,19 @@ describe('parseLinkageJson', () => {
       targetField: 'detail',
       action: 'setOptions',
       params: { options: [{ label: '新选项', value: 'new' }] }
+    },
+    {
+      triggerField: 'amount',
+      targetField: 'reason',
+      action: 'setRequired',
+      condition: { operator: 'gt', value: 5000 },
+      params: { required: true }
     }
   ]
 
   it('parses LinkageRuleConfig[] into FieldLinkageRule[]', () => {
     const result = parseLinkageJson(sampleRules)
-    expect(result).toHaveLength(3)
+    expect(result).toHaveLength(4)
     expect(result[0].triggerField).toBe('category')
     expect(result[0].targetField).toBe('subCategory')
     expect(result[0].action).toBe('show')

@@ -199,6 +199,13 @@ describe('BasicInput component', () => {
         targetField: 'note',
         action: 'disable',
         condition: undefined
+      },
+      {
+        triggerField: 'category',
+        targetField: 'reason',
+        action: 'setRequired',
+        condition: (v: unknown) => v === 'A',
+        params: { required: true }
       }
     ]
 
@@ -237,9 +244,9 @@ describe('BasicInput component', () => {
       const payload = emitted![emitted!.length - 1][0] as any
       expect(payload.field).toBe('category')
       expect(payload.value).toBe('A')
-      // Only the rule with condition matching 'A' should trigger (show subCategory),
+      // Only the rule with condition matching 'A' should trigger (show subCategory + setRequired reason),
       // plus the unconditional rule (disable note)
-      expect(payload.linkages.length).toBe(2)
+      expect(payload.linkages.length).toBe(3)
     })
 
     it('emits linkage event with unconditional rules when no condition set', async () => {
