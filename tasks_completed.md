@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-06T02:15
-> **归档总数**：521 条
+> **最后更新**：2026-06-06T03:35
+> **归档总数**：522 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -896,12 +896,13 @@
 | P0-005-006-003-001-001 | 编写核心代码 | 2026-06-06T04:35 | ✅ | 实现DetailTableArea区域铺满切换: 新增maximized prop+CSS铺满样式+toggleMaximize方法+maximize/unmaximize事件; 31个单元测试全部通过(25已有+6新增铺满切换) | — |
 | P0-005-006-003-001-002 | 验证功能 | 2026-06-06T02:30 | ✅ | 验证DetailTableArea区域铺满切换: 67/67单元测试全部通过(index+HeaderToolbar); vue-tsc零错误; 逐项验证标签页切换/懒加载/铺满CSS类/maximize-unmaximize事件/添加行下拉/行高调整/disabled/toggleMaximize/插槽 | (验证任务) |
 | P0-005-007-001-001-001 | 编写配置文件类 | 2026-06-06T03:05 | ✅ | 前端: MasterForm+FormField类型定义(master-form.d.ts): FormFieldConfig(20种fieldType)/FormLayoutConfig(布局模式/标签/栅格/分组)/FormFieldProps-Emits-Slots-Expose/MasterFormProps-Emits-Slots-Expose; 内置配置说明文档(JSDoc表格); tsc --noEmit零错误 | (待commit) |
+| P0-005-007-001-001-002 | 验证编写配置项配置 | 2026-06-06T03:35 | ✅ | 验证MasterForm+FormField类型定义: 语法正确(tsc零错误)/导入路径正确/20种fieldType完整/Props-Emits-Slots-Expose全部满足规范/无敏感信息/12 interface+4 type全部export | (待commit) |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 524 | 2 | 24.4% |
+| P0 | 14 | 2,147 | 525 | 2 | 24.5% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **505** | **2** | **10.7%** |
