@@ -551,6 +551,69 @@ export interface ConfigPageConfig {
 }
 
 /**
+ * AI对话消息配置（P14）
+ */
+export interface AIDialogMessageConfig {
+  /** 消息唯一标识 */
+  id: string
+  /** 角色 */
+  role: 'user' | 'assistant' | 'system'
+  /** 消息内容 */
+  content: string
+  /** 时间戳 */
+  timestamp?: string
+}
+
+/**
+ * AI结果展示类型（P14）
+ */
+export type AIResultType = 'form' | 'table' | 'chart' | 'analysis' | 'none'
+
+/**
+ * AI对话页面配置（P14）
+ */
+export interface AIDialogPageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 是否显示查询区面板 */
+  showQueryPanel?: boolean
+  /** 是否显示操作栏 */
+  showActionBar?: boolean
+  /** 对话区标题 */
+  dialogTitle?: string
+  /** 左侧对话区宽度占比（0-100），默认 40 */
+  dialogWidthPercent?: number
+  /** 初始欢迎语 */
+  welcomeMessage?: string
+  /** 预设提示词列表 */
+  prompts?: string[]
+  /** 对话消息列表 */
+  messages?: AIDialogMessageConfig[]
+  /** 当前流式输出内容 */
+  streamingContent?: string
+  /** 是否正在流式输出 */
+  isStreaming?: boolean
+  /** 结果展示类型 */
+  resultType?: AIResultType
+  /** 结果数据 */
+  resultData?: unknown
+  /** 历史对话列表 */
+  historyList?: AIDialogHistoryConfig[]
+}
+
+/**
+ * 历史对话配置（P14）
+ */
+export interface AIDialogHistoryConfig {
+  /** 对话唯一标识 */
+  id: string
+  /** 对话标题 */
+  title: string
+  /** 最近更新时间 */
+  updatedAt?: string
+}
+
+/**
  * 页面配置联合类型
  */
 export type PageConfig =
@@ -567,6 +630,7 @@ export type PageConfig =
   | ScreenPageConfig
   | ProfilePageConfig
   | ConfigPageConfig
+  | AIDialogPageConfig
   | (Record<string, unknown> & {})
 
 /**
