@@ -823,6 +823,7 @@
 | P0-004-011-003-001-001 | 实现登录失败计数与锁定 | 2026-06-05T08:05 | ✅ | 创建LoginAttemptService(Redis原子计数+动态策略/TTL首次设置策略/锁定标记+剩余时间)/重构AuthService使用新服务/更新22项单元测试全部通过 | 58191d3e |
 | P0-004-011-003-001-002 | 实现锁定状态查询与解锁 | 2026-06-05T09:30 | ✅ | 后端: LoginAttemptService新增getLockStatus/unlock方法+LockStatusVO+AuthController新增GET /auth/lock-status和POST /auth/unlock端点+UserServiceImpl.unlockUser集成Redis清理; 前端: useLogin添加500ms防抖锁状态轮询+登录页锁定警告+用户管理页解锁按钮和批量解锁 | 3ae1ba8f |
 | P0-004-012-002-001-002 | 验证功能 | 2026-06-05T11:30 | ✅ | SSO/OAuth2配置管理验证: 24项功能验证全部通过(SSO CRUD×5+OAuth2 CRUD×5+测试连接×5+AES加密×5+证书校验×4)+mvn compile通过+auth 114项测试通过+test-report.md+issues.md(5问题: 1高/2中/2低) | d094e4cc |
+| P0-004-012-003-001-001 | 实现配置表单UI | 2026-06-05T11:50 | ✅ | SSO/OAuth2配置管理前端页面: API类型定义+API模块(SSO CRUD+OAuth2 CRUD+连接测试)+Vue页面(SSO/OAuth2双标签+数据表格+表单对话框+字段校验)+路由注册+vite build通过 | TBD |
 
 ## 汇总统计
 

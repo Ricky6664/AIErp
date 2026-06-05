@@ -102,6 +102,14 @@ export const ONLINE_DEVICE_PAGE: RouteRecordRaw = {
   meta: { title: '在线设备管理', icon: 'Monitor', keepAlive: true }
 }
 
+// SSO/OAuth2配置管理页
+export const SSO_OAUTH2_CONFIG_PAGE: RouteRecordRaw = {
+  path: '/auth/config/sso-oauth2',
+  name: 'SsoOauth2Config',
+  component: () => import('@/views/auth/config/sso-oauth2/index.vue'),
+  meta: { title: 'SSO/OAuth2配置', icon: 'Setting', keepAlive: true }
+}
+
 // 修改密码页 - 密码过期强制跳转
 export const CHANGE_PASSWORD_ROUTE: RouteRecordRaw = {
   path: '/change-password',
@@ -120,6 +128,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   AUTH_CONFIG_WORKBENCH,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
+  SSO_OAUTH2_CONFIG_PAGE,
   CHANGE_PASSWORD_ROUTE,
   REDIRECT_ROUTE,
   ERROR_404,
