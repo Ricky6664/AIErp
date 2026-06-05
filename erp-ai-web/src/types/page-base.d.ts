@@ -183,6 +183,22 @@ export interface SimpleListPageConfig {
 }
 
 /**
+ * 树形列表页面配置（P05）
+ */
+export interface TreeListPageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 是否显示查询区面板 */
+  showQueryPanel?: boolean
+  /** 是否显示操作栏 */
+  showActionBar?: boolean
+  /** 树形导航区宽度，默认 280px */
+  treeWidth?: number
+  /** 是否显示树区域搜索框 */
+  showTreeSearch?: boolean
+}
+
+/**
  * 页面配置联合类型
  */
 export type PageConfig =
@@ -190,6 +206,7 @@ export type PageConfig =
   | WorkbenchPageConfig
   | MasterListPageConfig
   | SimpleListPageConfig
+  | TreeListPageConfig
   | (Record<string, unknown> & {})
 
 /**
