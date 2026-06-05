@@ -171,12 +171,25 @@ export interface MasterListPageConfig {
 }
 
 /**
+ * 单一列表页面配置（P04）
+ */
+export interface SimpleListPageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 是否显示查询区面板 */
+  showQueryPanel?: boolean
+  /** 是否显示操作栏 */
+  showActionBar?: boolean
+}
+
+/**
  * 页面配置联合类型
  */
 export type PageConfig =
   | DashboardPageConfig
   | WorkbenchPageConfig
   | MasterListPageConfig
+  | SimpleListPageConfig
   | (Record<string, unknown> & {})
 
 /**
