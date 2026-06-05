@@ -838,7 +838,7 @@
 | P0-005-001-001-001-002 | 验证功能 | 2026-06-05T19:20 | ✅ | 验证QueryPanel组件6项功能: 字段渲染/模糊查询/折叠展开/重置/配置驱动/防抖; 单元测试32/32通过; vue-tsc类型检查通过 | 24092d24 |
 | P0-005-001-002-001-001 | 编写核心代码 | 2026-06-05T20:05 | ✅ | 增强QueryPanel: 组件级placeholder prop/prefix suffix default插槽/try-catch错误处理; 类型定义更新; 新增7个测试(106/106通过) | 43cdad2f |
 | P0-005-001-002-001-002 | 验证功能 | 2026-06-05T19:45 | ✅ | 验证QueryPanel增强功能: 39/39测试通过; vue-tsc类型检查通过; 覆盖props/事件/插槽/字段类型/折叠/错误处理 | d5fb3ddf |
-| P0-005-001-003-001-001 | 编写核心代码 | 2026-06-05T20:20 | ✅ | 实现QueryPanel折叠/展开控制: collapsible+collapseThreshold props/visibleFields computed/展开收起按钮; 新增8个折叠测试(107/107通过) | <pending> |
+| P0-005-001-003-001-001 | 编写核心代码 | 2026-06-05T20:20 | ✅ | 实现QueryPanel折叠/展开控制: collapsible+collapseThreshold props/visibleFields computed/展开收起按钮; 新增8个折叠测试(107/107通过) | 18a0eb23 |
 
 ## 汇总统计
 
