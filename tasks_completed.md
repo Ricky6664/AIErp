@@ -900,14 +900,16 @@
 | P0-005-007-002-001-001 | 编写配置文件类 | 2026-06-06T04:05 | ✅ | 前端: 表单布局配置类型定义(form-layout.d.ts): ResponsiveFormGridConfig/FormTabLayoutConfig/FormStepLayoutConfig/FormSectionLayoutConfig/FormRowLayoutConfig/FormLayoutExtendedConfig/FieldLayoutPosition/FormLayoutResult/FormLayoutPresets常量声明; 内置JSDoc配置项说明文档; tsc --noEmit零错误 | 28caf85e |
 | P0-005-007-002-001-002 | 验证编写配置项配置 | 2026-06-06T04:30 | ✅ | 验证表单布局配置: tsc零错误; 创建form-layout.ts运行时实现(FORM_LAYOUT_PRESETS 6种预设); 语法正确/无敏感信息/配置可正常读取 | — |
 
+| P0-005-007-003-001-001 | 编写核心代码 | 2026-06-06T05:05 | ✅ | 表单校验引擎核心: useFormValidation组合式函数(5种校验规则)+FormField.vue(20种fieldType映射)+MasterForm.vue(校验引擎+分组栅格布局); 31测试/82.5%覆盖率/vue-tsc零错误/vite build通过 | 2116bbce |
+
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 527 | 2 | 24.5% |
+| P0 | 14 | 2,147 | 528 | 2 | 24.6% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **507** | **2** | **10.7%** |
+| **合计** | **46** | **4,716** | **508** | **2** | **10.8%** |
 
 ---
 
