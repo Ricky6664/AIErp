@@ -199,6 +199,20 @@ export interface TreeListPageConfig {
 }
 
 /**
+ * 主从表单页面配置（P06）
+ */
+export interface MasterFormPageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 是否显示查询区面板 */
+  showQueryPanel?: boolean
+  /** 是否显示操作栏 */
+  showActionBar?: boolean
+  /** 表单最大宽度，默认 960px */
+  formMaxWidth?: number | string
+}
+
+/**
  * 页面配置联合类型
  */
 export type PageConfig =
@@ -207,6 +221,7 @@ export type PageConfig =
   | MasterListPageConfig
   | SimpleListPageConfig
   | TreeListPageConfig
+  | MasterFormPageConfig
   | (Record<string, unknown> & {})
 
 /**
