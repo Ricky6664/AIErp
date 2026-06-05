@@ -913,7 +913,7 @@
 
 | P0-005-008-002-001-001 | 编写配置文件类 | 2026-06-06T03:45 | ✅ | TabPageContainer集成usePermission权限控制: visibleTabs增加权限过滤/ permissionHiddenCount改为统计无权限隐藏/findTab增加权限检查; 44个单元测试全部通过(34已有+10新增权限); vue-tsc零错误 | (待提交) |
 
-| P0-005-008-002-001-002 | 验证编写配置项配置 | 2026-06-06T04:00 | ✅ | 验证TabPageContainer配置: 89个单元测试全部通过(TabPageContainer 44+useTabPermission 14+relation-info/TabContainer 31); vue-tsc零错误; TabItem类型定义完整; Props/Events/Slots/expose与规格一致; 无硬编码敏感信息 | (待提交) |
+| P0-005-008-002-001-002 | 验证编写配置项配置 | 2026-06-06T04:00 | ✅ | 验证TabPageContainer配置: 89个单元测试全部通过(TabPageContainer 44+useTabPermission 14+relation-info/TabContainer 31); vue-tsc零错误; TabItem类型定义完整; Props/Events/Slots/expose与规格一致; 无硬编码敏感信息 | fdd9edd4 |
 
 ## 汇总统计
 
