@@ -32,7 +32,18 @@
             :placeholder="$t('login.username')"
             :prefix-icon="User"
             clearable
+            @input="onUsernameInput"
+            @blur="onUsernameBlur(form.username)"
+            @clear="onUsernameInput('')"
           />
+        </el-form-item>
+
+        <el-form-item v-if="lockStatus.locked" prop="password">
+          <el-alert type="warning" :closable="false" show-icon>
+            <template #title>
+              该账户已被锁定，请 {{ lockStatus.remainingMinutes }} 分钟后重试
+            </template>
+          </el-alert>
         </el-form-item>
 
         <el-form-item prop="password">
@@ -96,8 +107,11 @@ const {
   rules,
   loading,
   captchaImage,
+  lockStatus,
   loadCaptcha,
   loadRememberedUsername,
+  onUsernameInput,
+  onUsernameBlur,
   handleLogin,
   handleCaptchaRefresh
 } = useLogin()

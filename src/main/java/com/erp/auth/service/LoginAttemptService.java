@@ -3,6 +3,7 @@ package com.erp.auth.service;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.erp.auth.entity.AuthPasswordPolicy;
 import com.erp.auth.mapper.AuthPasswordPolicyMapper;
+import com.erp.auth.vo.LockStatusVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -78,6 +79,31 @@ public class LoginAttemptService {
         redisTemplate.delete(failKey);
         redisTemplate.delete(lockKey);
         log.debug("登录成功, 清除失败计数与锁定: username={}", username);
+    }
+
+    public LockStatusVO getLockStatus(String username) {
+        String lockKey = LOGIN_LOCK_PREFIX + username;
+        boolean locked = Boolean.TRUE.equals(redisTemplate.hasKey(lockKey));
+        long remainingSeconds = 0;
+        long remainingMinutes = 0;
+        if (locked) {
+            Long ttl = redisTemplate.getExpire(lockKey);
+            remainingSeconds = (ttl != null && ttl > 0) ? ttl : 0;
+            remainingMinutes = remainingSeconds > 0 ? (remainingSeconds + 59) / 60 : 0;
+        }
+        return LockStatusVO.builder()
+                .locked(locked)
+                .remainingSeconds(remainingSeconds)
+                .remainingMinutes(remainingMinutes)
+                .build();
+    }
+
+    public void unlock(String username) {
+        String failKey = LOGIN_FAIL_PREFIX + username;
+        String lockKey = LOGIN_LOCK_PREFIX + username;
+        redisTemplate.delete(failKey);
+        redisTemplate.delete(lockKey);
+        log.info("管理员手动解锁用户: username={}", username);
     }
 
     private int getMaxAttempts() {

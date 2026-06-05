@@ -63,6 +63,15 @@
           <el-icon><Delete /></el-icon>
           批量删除
         </el-button>
+        <el-button
+          v-permission="'system:user:unlock'"
+          type="success"
+          :disabled="selectedIds.length === 0"
+          @click="handleBatchUnlock"
+        >
+          <el-icon><Unlock /></el-icon>
+          批量解锁
+        </el-button>
         <el-button @click="handleExport">
           <el-icon><Download /></el-icon>
           导出
@@ -104,6 +113,17 @@
           >
             <el-icon><Edit /></el-icon>
             编辑
+          </el-button>
+          <el-button
+            v-if="row.status === 'locked'"
+            v-permission="'system:user:unlock'"
+            type="success"
+            link
+            size="small"
+            @click="handleUnlock(row)"
+          >
+            <el-icon><Unlock /></el-icon>
+            解锁
           </el-button>
           <el-button
             v-permission="'system:user:delete'"
@@ -148,11 +168,20 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { Search, Refresh, Plus, Delete, Download, Edit, Lock } from '@element-plus/icons-vue'
+import {
+  Search,
+  Refresh,
+  Plus,
+  Delete,
+  Download,
+  Edit,
+  Lock,
+  Unlock
+} from '@element-plus/icons-vue'
 import { debounce } from 'lodash-es'
 import type { UserListItem } from '@/types/user'
 import type { MenuItem } from '@/api/types/menu'
-import { getUserPageList, deleteUser, resetUserPassword } from '@/api/modules/user'
+import { getUserPageList, deleteUser, resetUserPassword, unlockUser } from '@/api/modules/user'
 import { getMenuTree } from '@/api/modules/menu'
 import UserForm from './UserForm.vue'
 
@@ -243,7 +272,7 @@ function handleAdd(): void {
   formVisible.value = true
 }
 
-type RowData = { id?: number; username?: string }
+type RowData = { id?: number; username?: string; status?: string }
 
 function handleEdit(row: RowData): void {
   editUserId.value = row.id
@@ -288,6 +317,48 @@ function handleBatchDelete(): void {
         await deleteUser(id)
       }
       ElMessage.success('批量删除成功')
+      selectedIds.value = []
+      await fetchUserList()
+    })
+    .catch(() => {
+      // user cancelled
+    })
+}
+
+function handleUnlock(row: RowData): void {
+  const name = row.username ?? ''
+  const id = row.id
+  if (!id) return
+  ElMessageBox.confirm(`确定解锁用户 ${name}？解锁后该用户可立即登录。`, '解锁确认', {
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning'
+  })
+    .then(async () => {
+      await unlockUser(id)
+      ElMessage.success(`用户 ${name} 已解锁`)
+      await fetchUserList()
+    })
+    .catch(() => {
+      // user cancelled
+    })
+}
+
+function handleBatchUnlock(): void {
+  if (selectedIds.value.length === 0) {
+    ElMessage.warning('请至少选择一条记录')
+    return
+  }
+  ElMessageBox.confirm(`确定解锁选中的 ${selectedIds.value.length} 个用户？`, '批量解锁确认', {
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning'
+  })
+    .then(async () => {
+      for (const id of selectedIds.value) {
+        await unlockUser(id)
+      }
+      ElMessage.success('批量解锁成功')
       selectedIds.value = []
       await fetchUserList()
     })

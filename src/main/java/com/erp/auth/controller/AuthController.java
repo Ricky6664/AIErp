@@ -1,10 +1,13 @@
 package com.erp.auth.controller;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
 import com.erp.auth.dto.LoginRequest;
 import com.erp.auth.dto.TokenRefreshRequest;
 import com.erp.auth.service.AuthService;
 import com.erp.auth.service.CaptchaService;
+import com.erp.auth.service.LoginAttemptService;
 import com.erp.auth.vo.CaptchaVO;
+import com.erp.auth.vo.LockStatusVO;
 import com.erp.auth.vo.LoginResponse;
 import com.erp.auth.vo.TokenRefreshResponse;
 import com.erp.auth.vo.TokenVerifyResponse;
@@ -17,9 +20,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -37,6 +42,7 @@ public class AuthController {
 
     private final AuthService authService;
     private final CaptchaService captchaService;
+    private final LoginAttemptService loginAttemptService;
 
     /**
      * 获取图形验证码.
@@ -106,5 +112,20 @@ public class AuthController {
         }
         TokenRefreshResponse response = authService.refreshToken(request.getRefreshToken());
         return RT.ok(response);
+    }
+
+    @Operation(summary = "查询用户锁定状态", description = "根据用户名查询该用户是否被锁定及剩余锁定时间, 供前端登录页实时判断")
+    @GetMapping("/lock-status")
+    public RT<LockStatusVO> getLockStatus(@RequestParam String username) {
+        LockStatusVO status = loginAttemptService.getLockStatus(username);
+        return RT.ok(status);
+    }
+
+    @Operation(summary = "管理员解锁用户", description = "手动清除用户的登录失败计数和锁定状态, 需要 system:user:unlock 权限")
+    @SaCheckPermission("system:user:unlock")
+    @PostMapping("/unlock/{username}")
+    public RT<Void> unlockUser(@PathVariable String username) {
+        loginAttemptService.unlock(username);
+        return RT.ok("用户" + username + "已解锁", null);
     }
 }

@@ -26,3 +26,9 @@ export interface UserInfoResponse {
   roles: string[]
   menuTree: import('@/types/user').MenuTreeNode[]
 }
+
+export interface LockStatusResponse {
+  locked: boolean
+  remainingSeconds: number
+  remainingMinutes: number
+}

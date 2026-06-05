@@ -3,8 +3,9 @@ import { useRouter, useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { useUserStore } from '@/stores/modules/user'
 import { usePermissionStore } from '@/stores/modules/permission'
-import { getCaptchaApi } from '@/api/modules/auth'
+import { getCaptchaApi, getLockStatusApi } from '@/api/modules/auth'
 import type { LoginDTO } from '@/api/types/auth'
+import type { LockStatusResponse } from '@/api/types/auth'
 import type { FormInstance, FormRules } from 'element-plus'
 
 const REMEMBERED_USERNAME_KEY = 'remembered_username'
@@ -48,6 +49,13 @@ export function useLogin() {
   const loading = ref(false)
   const captchaImage = ref('')
   const captchaKey = ref('')
+  const lockStatus = ref<LockStatusResponse>({
+    locked: false,
+    remainingSeconds: 0,
+    remainingMinutes: 0
+  })
+  let lockTimer: ReturnType<typeof setInterval> | null = null
+  let debounceTimer: ReturnType<typeof setTimeout> | null = null
 
   const form = reactive<LoginFormData>({
     username: '',
@@ -70,6 +78,67 @@ export function useLogin() {
       { required: true, message: '请输入验证码', trigger: 'blur' },
       { len: 4, message: '验证码为4位', trigger: 'blur' }
     ]
+  }
+
+  async function checkLockStatus(username: string) {
+    if (!username || username.trim().length === 0) {
+      lockStatus.value = { locked: false, remainingSeconds: 0, remainingMinutes: 0 }
+      stopLockTimer()
+      return
+    }
+    try {
+      const status = await getLockStatusApi(username.trim())
+      lockStatus.value = status
+      if (status.locked) {
+        startLockTimer()
+      } else {
+        stopLockTimer()
+      }
+    } catch {
+      lockStatus.value = { locked: false, remainingSeconds: 0, remainingMinutes: 0 }
+      stopLockTimer()
+    }
+  }
+
+  function startLockTimer() {
+    stopLockTimer()
+    lockTimer = setInterval(() => {
+      if (lockStatus.value.remainingSeconds > 0) {
+        lockStatus.value.remainingSeconds--
+        lockStatus.value.remainingMinutes = Math.ceil(lockStatus.value.remainingSeconds / 60)
+      } else {
+        lockStatus.value = { locked: false, remainingSeconds: 0, remainingMinutes: 0 }
+        stopLockTimer()
+      }
+    }, 1000)
+  }
+
+  function stopLockTimer() {
+    if (lockTimer !== null) {
+      clearInterval(lockTimer)
+      lockTimer = null
+    }
+  }
+
+  function onUsernameInput(username: string) {
+    if (debounceTimer !== null) {
+      clearTimeout(debounceTimer)
+    }
+    if (!username || username.trim().length === 0) {
+      lockStatus.value = { locked: false, remainingSeconds: 0, remainingMinutes: 0 }
+      stopLockTimer()
+      return
+    }
+    debounceTimer = setTimeout(() => {
+      checkLockStatus(username)
+    }, 500)
+  }
+
+  function onUsernameBlur(username: string) {
+    if (debounceTimer !== null) {
+      clearTimeout(debounceTimer)
+    }
+    checkLockStatus(username)
   }
 
   async function loadCaptcha() {
@@ -164,8 +233,12 @@ export function useLogin() {
     loading,
     captchaImage,
     captchaKey,
+    lockStatus,
     loadCaptcha,
     loadRememberedUsername,
+    checkLockStatus,
+    onUsernameInput,
+    onUsernameBlur,
     handleLogin,
     handleCaptchaRefresh
   }

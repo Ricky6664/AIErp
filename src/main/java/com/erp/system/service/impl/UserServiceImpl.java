@@ -2,6 +2,7 @@ package com.erp.system.service.impl;
 
 import cn.dev33.satoken.stp.StpUtil;
 import com.erp.auth.service.AuthPasswordPolicyService;
+import com.erp.auth.service.LoginAttemptService;
 import com.erp.auth.entity.AuthPasswordPolicy;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.BusinessException;
@@ -34,6 +35,7 @@ import java.util.List;
 public class UserServiceImpl extends ServiceImplX<UserMapper, SysUser> implements UserService {
 
     private final AuthPasswordPolicyService passwordPolicyService;
+    private final LoginAttemptService loginAttemptService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -125,7 +127,8 @@ public class UserServiceImpl extends ServiceImplX<UserMapper, SysUser> implement
         user.setLockedUntil(null);
         updateById(user);
 
-        log.info("用户已解锁: userId={}", userId);
+        loginAttemptService.resetFailCount(user.getUsername());
+        log.info("用户已解锁: userId={}, username={}", userId, user.getUsername());
     }
 
     @Override

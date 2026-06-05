@@ -1,5 +1,11 @@
 import request from '@/utils/request'
-import type { LoginDTO, LoginResponse, CaptchaResponse, UserInfoResponse } from '@/api/types/auth'
+import type {
+  LoginDTO,
+  LoginResponse,
+  CaptchaResponse,
+  UserInfoResponse,
+  LockStatusResponse
+} from '@/api/types/auth'
 
 export function loginApi(data: LoginDTO): Promise<LoginResponse> {
   return request.post('/api/auth/login', data)
@@ -23,4 +29,12 @@ export function verifyTokenApi(): Promise<boolean> {
 
 export function getUserInfoApi(): Promise<UserInfoResponse> {
   return request.get('/api/auth/user-info')
+}
+
+export function getLockStatusApi(username: string): Promise<LockStatusResponse> {
+  return request.get('/api/auth/lock-status', { params: { username } })
+}
+
+export function unlockUserAuthApi(username: string): Promise<void> {
+  return request.post(`/api/auth/unlock/${username}`)
 }
