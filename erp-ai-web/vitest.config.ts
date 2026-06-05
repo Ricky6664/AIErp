@@ -1,6 +1,9 @@
 import { defineConfig } from 'vitest/config'
-import { resolve } from 'path'
+import { fileURLToPath } from 'url'
+import { resolve, dirname } from 'path'
 import vue from '@vitejs/plugin-vue'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [vue()],
