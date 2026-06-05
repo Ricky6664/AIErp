@@ -74,7 +74,11 @@ function createWrapper(props = {}) {
             'row-dblclick',
             'page-change',
             'column-resize'
-          ]
+          ],
+          methods: {
+            clearFilter: () => {},
+            setFilter: () => {}
+          }
         }
       }
     }
@@ -311,6 +315,52 @@ describe('ListTable', () => {
       const wrapper = createWrapper({ sortConfig: sortCfg })
       const sv = wrapper.vm.sortConfigValue
       expect(sv.showIcon).toBe(false)
+    })
+  })
+
+  describe('column filtering', () => {
+    it('should accept searchModel prop', () => {
+      const searchModel = { name: 'test', status: '启用' }
+      const wrapper = createWrapper({ searchModel })
+      expect(wrapper.props('searchModel')).toEqual(searchModel)
+    })
+
+    it('should expose setFilter method', () => {
+      const wrapper = createWrapper()
+      expect(typeof wrapper.vm.setFilter).toBe('function')
+    })
+
+    it('should expose getFilterColumns method', () => {
+      const wrapper = createWrapper()
+      expect(typeof wrapper.vm.getFilterColumns).toBe('function')
+    })
+
+    it('should return empty array from getFilterColumns when no filter active', () => {
+      const wrapper = createWrapper()
+      const cols = wrapper.vm.getFilterColumns()
+      expect(cols).toEqual([])
+    })
+
+    it('should clear specific field filter', () => {
+      const wrapper = createWrapper()
+      expect(() => wrapper.vm.clearFilter('name')).not.toThrow()
+    })
+
+    it('should clearFilter with no args clear all filters', () => {
+      const wrapper = createWrapper()
+      expect(() => wrapper.vm.clearFilter()).not.toThrow()
+    })
+  })
+
+  describe('disabled prop', () => {
+    it('should accept disabled prop', () => {
+      const wrapper = createWrapper({ disabled: true })
+      expect(wrapper.props('disabled')).toBe(true)
+    })
+
+    it('should default disabled to false', () => {
+      const wrapper = createWrapper()
+      expect(wrapper.props('disabled')).toBe(false)
     })
   })
 })

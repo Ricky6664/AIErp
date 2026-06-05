@@ -1,5 +1,10 @@
 <template>
   <div class="list-table">
+    <!-- 前缀插槽 -->
+    <div v-if="$slots.prefix" class="list-table__prefix">
+      <slot name="prefix" />
+    </div>
+
     <!-- 头部工具栏区域 -->
     <div v-if="$slots.toolbar || showToolbar" class="list-table__toolbar">
       <slot name="toolbar" :grid-ref="gridRef" />
@@ -38,6 +43,11 @@
       </template>
     </vxe-grid>
 
+    <!-- 后缀插槽 -->
+    <div v-if="$slots.suffix" class="list-table__suffix">
+      <slot name="suffix" />
+    </div>
+
     <!-- 底部插槽 -->
     <div v-if="$slots.footer" class="list-table__footer">
       <slot name="footer" />
@@ -51,6 +61,8 @@ import type { VxeGridInstance, VxeGridProps } from 'vxe-table'
 import type {
   ListTableColumn,
   ListTableProps,
+  ListTableSearchModel,
+  FilterColumnInfo,
   SortConfig,
   SortField,
   SortEventParams,
@@ -81,6 +93,8 @@ const props = withDefaults(
     currentRow?: Record<string, unknown> | null
     sortConfig?: SortConfig | null
     showToolbar?: boolean
+    searchModel?: ListTableSearchModel
+    disabled?: boolean
   }>(),
   {
     loading: false,
@@ -101,19 +115,25 @@ const props = withDefaults(
     maxHeight: undefined,
     summaryData: undefined,
     emptyText: '',
-    viewCode: ''
+    viewCode: '',
+    searchModel: undefined,
+    disabled: false
   }
 )
 
 const emit = defineEmits<{
   'update:currentPage': [page: number]
   'update:pageSize': [size: number]
+  'update:searchModel': [model: ListTableSearchModel]
   'sort-change': [params: SortEventParams]
   'filter-change': [params: FilterEventParams]
+  change: [params: FilterEventParams]
   'current-change': [row: Record<string, unknown> | null]
   'cell-click': [row: Record<string, unknown>, column: ListTableColumn]
   'row-click': [row: Record<string, unknown>]
   'row-dblclick': [row: Record<string, unknown>]
+  focus: []
+  blur: []
 }>()
 
 const gridRef = ref<VxeGridInstance>()
@@ -150,6 +170,17 @@ function saveColumnPersist(data: ColumnPersistData[]): void {
 
 // 已持久化的列配置
 const persistedColumns = ref<ColumnPersistData[] | null>(loadColumnPersist())
+
+// 当前筛选状态
+const currentFilterModel = ref<ListTableSearchModel>({ ...(props.searchModel ?? {}) })
+
+// 从searchModel初始化筛选状态
+function initFilterState(): void {
+  if (props.searchModel && Object.keys(props.searchModel).length > 0) {
+    currentFilterModel.value = { ...props.searchModel }
+  }
+}
+initFilterState()
 
 // 带插槽的列
 const slottedColumns = computed(() => props.columns.filter((col) => col.slot))
@@ -298,7 +329,11 @@ function handleSortChange({
 
 // 筛选变更处理
 function handleFilterChange({ field, values }: { field: string; values: unknown[] }): void {
-  emit('filter-change', { field, values })
+  currentFilterModel.value = { ...currentFilterModel.value, [field]: values }
+  const params: FilterEventParams = { field, values }
+  emit('update:searchModel', { ...currentFilterModel.value })
+  emit('filter-change', params)
+  emit('change', params)
 }
 
 // 当前行变更处理
@@ -422,8 +457,41 @@ function getSortColumns(): SortField[] {
 }
 
 // 清除筛选
-function clearFilter(): void {
-  gridRef.value?.clearFilter()
+function clearFilter(field?: string): void {
+  if (field) {
+    gridRef.value?.clearFilter(field)
+    const newModel = { ...currentFilterModel.value }
+    delete newModel[field]
+    currentFilterModel.value = newModel
+  } else {
+    gridRef.value?.clearFilter()
+    currentFilterModel.value = {}
+  }
+  emit('update:searchModel', { ...currentFilterModel.value })
+}
+
+// 设置列筛选
+function setFilter(field: string, values: unknown[]): void {
+  currentFilterModel.value = { ...currentFilterModel.value, [field]: values }
+  gridRef.value?.setFilter(field, values)
+  const params: FilterEventParams = { field, values }
+  emit('update:searchModel', { ...currentFilterModel.value })
+  emit('filter-change', params)
+  emit('change', params)
+}
+
+// 获取当前筛选列
+function getFilterColumns(): FilterColumnInfo[] {
+  const result: FilterColumnInfo[] = []
+  for (const [field, values] of Object.entries(currentFilterModel.value)) {
+    if (values !== undefined && values !== null && values !== '') {
+      const vals = Array.isArray(values) ? values : [values]
+      if (vals.length > 0) {
+        result.push({ field, values: vals })
+      }
+    }
+  }
+  return result
 }
 
 // 清除选中
@@ -451,7 +519,9 @@ defineExpose({
   getCurrentRow,
   setCurrentRow,
   setSort,
-  getSortColumns
+  getSortColumns,
+  setFilter,
+  getFilterColumns
 })
 </script>
 
@@ -461,11 +531,19 @@ defineExpose({
   flex-direction: column;
   height: 100%;
 
+  &__prefix {
+    flex-shrink: 0;
+  }
+
   &__toolbar {
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 8px 0;
+    flex-shrink: 0;
+  }
+
+  &__suffix {
     flex-shrink: 0;
   }
 

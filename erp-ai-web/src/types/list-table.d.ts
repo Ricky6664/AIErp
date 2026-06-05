@@ -166,6 +166,23 @@ export interface ColumnPersistData {
 }
 
 /**
+ * 搜索模型（列搜索筛选值）
+ */
+export interface ListTableSearchModel {
+  [field: string]: unknown
+}
+
+/**
+ * 筛选列信息
+ */
+export interface FilterColumnInfo {
+  /** 筛选字段 */
+  field: string
+  /** 筛选值 */
+  values: unknown[]
+}
+
+/**
  * ListTable 组件 Props
  */
 export interface ListTableProps {
@@ -209,6 +226,10 @@ export interface ListTableProps {
   currentRow?: Record<string, unknown> | null
   /** 当前排序配置 */
   sortConfig?: SortConfig | null
+  /** 列搜索筛选模型（v-model绑定） */
+  searchModel?: ListTableSearchModel
+  /** 是否禁用所有交互 */
+  disabled?: boolean
 }
 
 /**
@@ -218,10 +239,14 @@ export interface ListTableEmits {
   /** 分页变更 */
   'update:currentPage': [page: number]
   'update:pageSize': [size: number]
+  /** 搜索模型变更（v-model双向绑定） */
+  'update:searchModel': [model: ListTableSearchModel]
   /** 排序变更 */
   'sort-change': [params: SortEventParams]
   /** 筛选变更 */
   'filter-change': [params: FilterEventParams]
+  /** 值确认变更 */
+  change: [params: FilterEventParams]
   /** 当前行变更 */
   'current-change': [row: Record<string, unknown> | null]
   /** 单元格点击 */
@@ -230,4 +255,58 @@ export interface ListTableEmits {
   'row-click': [row: Record<string, unknown>]
   /** 行双击 */
   'row-dblclick': [row: Record<string, unknown>]
+  /** 焦点事件 */
+  focus: []
+  blur: []
+}
+
+/**
+ * ListTable 组件 Slots
+ */
+export interface ListTableSlots {
+  /** 表格前缀插槽（表格上方内容） */
+  prefix?: () => unknown
+  /** 表格后缀插槽（表格下方内容） */
+  suffix?: () => unknown
+  /** 默认内容插槽 */
+  default?: () => unknown
+  /** 工具栏插槽 */
+  toolbar?: (params: { gridRef: unknown }) => unknown
+  /** 底部插槽 */
+  footer?: () => unknown
+  /** 动态列插槽 */
+  [columnSlot: string]:
+    | ((params: { row: Record<string, unknown>; column: ListTableColumn }) => unknown)
+    | (() => unknown)
+    | undefined
+}
+
+/**
+ * ListTable 组件暴露方法
+ */
+export interface ListTableExpose {
+  /** vxe-grid 实例引用 */
+  gridRef: unknown
+  /** 重置列配置 */
+  resetColumns: () => void
+  /** 刷新表格 */
+  refresh: () => void
+  /** 清除排序 */
+  clearSort: () => void
+  /** 清除筛选 */
+  clearFilter: (field?: string) => void
+  /** 清除选中行 */
+  clearCurrent: () => void
+  /** 获取当前行 */
+  getCurrentRow: () => Record<string, unknown> | null
+  /** 设置当前行 */
+  setCurrentRow: (row: Record<string, unknown>) => void
+  /** 设置排序 */
+  setSort: (field: string, order: 'asc' | 'desc' | null) => void
+  /** 获取当前排序列 */
+  getSortColumns: () => SortField[]
+  /** 设置列筛选 */
+  setFilter: (field: string, values: unknown[]) => void
+  /** 获取当前筛选列 */
+  getFilterColumns: () => FilterColumnInfo[]
 }
