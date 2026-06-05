@@ -945,7 +945,7 @@
 | P0-005-009-009-001-001 | 编写核心代码 | 2026-06-06T06:10 | ✅ | page-base.d.ts新增QueryPageConfig/QueryFieldConfig类型+更新PageConfig联合类型; PageP09Query.vue(查询区配置驱动渲染/操作栏/结果计数/主内容区/分页区/extra-area+6个插槽); 33个单元测试全部通过; vue-tsc零错误 | (待提交) |
 | P0-005-009-009-001-002 | 验证功能 | 2026-06-06T05:50 | ✅ | PageP09Query功能验证: 33/33测试通过; vue-tsc零错误; 全部9个page-base组件259/259测试通过; 验证清单6项中4项PASS+2项N/A(属消费者页面范围) | 118c8055 |
 | P0-005-009-010-001-001 | 编写核心代码 | 2026-06-06T06:00 | ✅ | page-base.d.ts新增ReportPageConfig+ReportFilterConfig+ReportColumnConfig+ReportTreeConfig+ReportLedgerConfig类型+更新PageConfig联合类型; PageP10Report.vue(报表条件过滤面板/操作栏打印导出/3种报表布局table+tree+ledger/5个插槽); 47个单元测试全部通过; vue-tsc零错误 | 20365f1a |
-| P0-005-009-010-001-002 | 验证功能 | 2026-06-06T06:15 | ✅ | 验证PageP10Report: 47/47单元测试全部通过; vue-tsc零错误; 6项验证清单(条件区/报表展示/穿透钻取事件/图表插槽/导出功能/打印功能)全部审查通过 | (待提交) |
+| P0-005-009-010-001-002 | 验证功能 | 2026-06-06T06:15 | ✅ | 验证PageP10Report: 47/47单元测试全部通过; vue-tsc零错误; 6项验证清单(条件区/报表展示/穿透钻取事件/图表插槽/导出功能/打印功能)全部审查通过 | 727c9671 |
 
 ## 汇总统计
 
