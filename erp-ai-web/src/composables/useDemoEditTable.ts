@@ -1,51 +1,34 @@
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import type { EditTableColumn, EditChangeParams, DragSortEventParams } from '@/types/edit-table'
 import type { SummaryConfig } from '@/types/list-table'
-
-interface EditTableRow {
-  id: number
-  lineNo: number
-  productName: string
-  spec: string
-  quantity: number
-  unitPrice: number
-  totalAmount: number
-  status: string
-}
-
-function generateMockRows(): EditTableRow[] {
-  const products = [
-    'ERP管理系统V3',
-    'CRM客户管理软件',
-    'WMS仓储管理平台',
-    'MES生产执行系统',
-    'QMS质量管理系统'
-  ]
-  const statuses = ['draft', 'confirmed', 'cancelled']
-  return Array.from({ length: 8 }, (_, i) => {
-    const quantity = Math.floor(Math.random() * 50) + 1
-    const unitPrice = Math.round((Math.random() * 2000 + 100) * 100) / 100
-    return {
-      id: i + 1,
-      lineNo: i + 1,
-      productName: products[i % products.length],
-      spec: `规格-${String.fromCharCode(65 + i)}`,
-      quantity,
-      unitPrice,
-      totalAmount: Math.round(quantity * unitPrice * 100) / 100,
-      status: statuses[i % statuses.length]
-    }
-  })
-}
+import {
+  getEditTablePage,
+  saveEditTableRow,
+  deleteEditTableRow,
+  resetEditTableCache,
+  type EditTableRow,
+  type EditTableQuery
+} from '@/api/modules/edit-table'
 
 export function useDemoEditTable() {
+  const router = useRouter()
+  const route = useRoute()
+
   const loading = ref(false)
   const error = ref<string | null>(null)
   const tableData = ref<EditTableRow[]>([])
   const summaryEnabled = ref(true)
   const tableSize = ref<'mini' | 'small' | 'medium' | 'large'>('medium')
   const selectedMethod = ref<string>('sum')
+
+  const searchParams = ref<EditTableQuery>({
+    pageNum: 1,
+    pageSize: 100,
+    keyword: (route.query.keyword as string) || '',
+    status: (route.query.status as string) || ''
+  })
 
   const columns: EditTableColumn[] = [
     { field: 'lineNo', title: '行号', width: 70, align: 'center', editable: false },
@@ -138,11 +121,12 @@ export function useDemoEditTable() {
     cancelled: 'warning'
   }
 
-  function fetchData(): void {
+  async function fetchData(): Promise<void> {
     loading.value = true
     error.value = null
     try {
-      tableData.value = generateMockRows()
+      const result = await getEditTablePage(searchParams.value)
+      tableData.value = result.records as EditTableRow[]
     } catch (err) {
       error.value = err instanceof Error ? err.message : '数据加载失败'
       ElMessage.error(error.value!)
@@ -188,21 +172,38 @@ export function useDemoEditTable() {
     tableData.value = [...tableData.value, newRow]
   }
 
-  function deleteRow(rowIndex: number): void {
-    const newData = [...tableData.value]
-    newData.splice(rowIndex, 1)
-    newData.forEach((row, idx) => {
-      row.lineNo = idx + 1
-    })
-    tableData.value = newData
-    ElMessage.success('行已删除')
+  async function deleteRow(rowIndex: number): Promise<void> {
+    const row = tableData.value[rowIndex]
+    if (!row) return
+    try {
+      await deleteEditTableRow(row.id)
+      const newData = [...tableData.value]
+      newData.splice(rowIndex, 1)
+      newData.forEach((r, idx) => {
+        r.lineNo = idx + 1
+      })
+      tableData.value = newData
+      ElMessage.success('行已删除')
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : '删除失败'
+      ElMessage.error(msg)
+    }
   }
 
-  function handleSave(): void {
-    ElMessage.success('数据保存成功（演示）')
+  async function handleSave(): Promise<void> {
+    try {
+      for (const row of tableData.value) {
+        await saveEditTableRow(row)
+      }
+      ElMessage.success('数据保存成功（演示）')
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : '保存失败'
+      ElMessage.error(msg)
+    }
   }
 
   function handleReset(): void {
+    resetEditTableCache()
     fetchData()
     ElMessage.info('数据已重置')
   }
@@ -211,6 +212,23 @@ export function useDemoEditTable() {
     summaryEnabled.value = !summaryEnabled.value
     ElMessage.info(summaryEnabled.value ? '合计行已启用' : '合计行已禁用')
   }
+
+  function handleViewDetail(id: number): void {
+    router.push({ name: 'DemoEditTable', query: { ...route.query, detailId: id } })
+  }
+
+  // 搜索参数变化时自动查询（300ms 防抖）
+  let debounceTimer: ReturnType<typeof setTimeout> | null = null
+  watch(
+    () => [searchParams.value.keyword, searchParams.value.status],
+    () => {
+      if (debounceTimer) clearTimeout(debounceTimer)
+      debounceTimer = setTimeout(() => {
+        searchParams.value.pageNum = 1
+        fetchData()
+      }, 300)
+    }
+  )
 
   const methodOptions = [
     { label: '求和 (sum)', value: 'sum' },
@@ -234,6 +252,7 @@ export function useDemoEditTable() {
     summaryEnabled,
     tableSize,
     selectedMethod,
+    searchParams,
     columns,
     summaryConfig,
     statusLabelMap,
@@ -247,6 +266,7 @@ export function useDemoEditTable() {
     deleteRow,
     handleSave,
     handleReset,
-    toggleSummary
+    toggleSummary,
+    handleViewDetail
   }
 }

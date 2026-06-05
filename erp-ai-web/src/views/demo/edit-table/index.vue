@@ -89,7 +89,7 @@
       </el-tag>
     </div>
 
-    <div class="table-wrapper">
+    <div v-loading="loading" class="table-wrapper">
       <ErpEditTable
         ref="tableRef"
         v-model="tableData"
@@ -135,6 +135,7 @@ import ErpEditTable from '@/components/edit-table/index.vue'
 import { useDemoEditTable } from '@/composables/useDemoEditTable'
 
 const {
+  loading,
   error,
   tableData,
   summaryEnabled,
