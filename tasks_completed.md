@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-06T02:30
-> **归档总数**：504 条
+> **归档总数**：505 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -871,6 +871,7 @@
 | P0-005-004-003-001-002 | 验证编写配置项配置 | 2026-06-06T02:30 | ✅ | 验证edit-table配置: YAML语法正确/编译通过/属性绑定正确/环境继承正确/无敏感信息/@Component注解标注 | 227934ab |
 | P0-005-004-004-001-001 | 编写配置文件类 | 2026-06-06T03:00 | ✅ | 后端: EditTableProperties新增RowHeight(7档行高px)/FontSize(7档字体px)嵌套配置; application.yml新增edit-table.row-height+font-size配置块 | b142f047 |
 | P0-005-004-004-001-002 | 验证编写配置项配置 | 2026-06-06T03:30 | ✅ | 验证EditTableProperties行高/字体大小配置: YAML语法正确/mvn compile通过/无敏感信息/@Component+@ConfigurationProperties正确/@Validated/prefix全小写中划线/7档配置与默认值一致 | (待提交) |
+| P0-005-004-005-001-001 | 编写页面组件 | 2026-06-06T03:50 | ✅ | 录入数据表格合计列演示页: ErpEditTable组件demo页面(useDemoEditTable composable/合计行配置/summaryConfig/行拖拽/单元格编辑/路由注册); vue-tsc零错误; vite build通过 | (待提交) |
 
 ## 汇总统计
 

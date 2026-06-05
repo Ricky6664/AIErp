@@ -126,6 +126,14 @@ export const DEMO_LIST_TABLE: RouteRecordRaw = {
   meta: { title: '列表表格演示', icon: 'List', keepAlive: true }
 }
 
+// 录入数据表格合计列演示页
+export const DEMO_EDIT_TABLE: RouteRecordRaw = {
+  path: '/demo/edit-table',
+  name: 'DemoEditTable',
+  component: () => import('@/views/demo/edit-table/index.vue'),
+  meta: { title: '录入表格演示', icon: 'Edit', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -133,6 +141,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   HOME_ROUTE,
   DEV_VIRTUAL_SCROLL,
   DEMO_LIST_TABLE,
+  DEMO_EDIT_TABLE,
   USER_WORKBENCH,
   AUTH_CONFIG_WORKBENCH,
   LOGIN_LOG_PAGE,
