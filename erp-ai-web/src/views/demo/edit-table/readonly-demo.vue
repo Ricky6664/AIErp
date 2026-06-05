@@ -33,7 +33,7 @@
           <el-icon><Delete /></el-icon>
           删除末行
         </el-button>
-        <el-button :disabled="isDisabled" @click="handleSave">
+        <el-button :disabled="isDisabled" @click="onSave">
           <el-icon><Check /></el-icon>
           保存
         </el-button>
@@ -144,9 +144,12 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { Plus, Delete, Check, Refresh, ArrowDown, View, Edit } from '@element-plus/icons-vue'
 import ErpEditTable from '@/components/edit-table/index.vue'
 import { useDemoEditTableReadonly } from '@/composables/useDemoEditTableReadonly'
+
+const route = useRoute()
 
 const {
   loading,
@@ -159,6 +162,7 @@ const {
   statusTagTypeMap,
   rowSizeOptions,
   fetchData,
+  loadDetail,
   handleCellChange,
   addRow,
   deleteRow,
@@ -178,8 +182,17 @@ const sizeLabelMap: Record<string, string> = {
 
 const sizeLabel = computed(() => sizeLabelMap[tableSize.value] || tableSize.value)
 
-onMounted(() => {
-  fetchData()
+const onSave = async () => {
+  const validate = tableRef.value?.validate ? () => tableRef.value!.validate() : undefined
+  await handleSave(validate)
+}
+
+onMounted(async () => {
+  await fetchData()
+  const detailId = Number(route.query.detailId)
+  if (detailId) {
+    await loadDetail(detailId)
+  }
 })
 </script>
 

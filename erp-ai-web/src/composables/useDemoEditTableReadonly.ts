@@ -1,9 +1,10 @@
 import { ref, computed, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { ElMessage } from 'element-plus'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import type { EditTableColumn, EditChangeParams } from '@/types/edit-table'
 import {
   getEditTablePage,
+  getEditTableDetail,
   saveEditTableRow,
   deleteEditTableRow,
   resetEditTableCache,
@@ -120,6 +121,35 @@ export function useDemoEditTableReadonly() {
     }
   }
 
+  function handleSearch(params?: Partial<EditTableQuery>): void {
+    if (params) {
+      searchParams.value = { ...searchParams.value, ...params, pageNum: 1 }
+    } else {
+      searchParams.value.pageNum = 1
+    }
+    fetchData()
+  }
+
+  async function loadDetail(detailId: number): Promise<void> {
+    loading.value = true
+    error.value = null
+    try {
+      const detail = await getEditTableDetail(detailId)
+      const idx = tableData.value.findIndex((r) => r.id === detailId)
+      if (idx >= 0) {
+        const newData = [...tableData.value]
+        newData[idx] = detail
+        tableData.value = newData
+      }
+      ElMessage.success('详情已加载')
+    } catch (err) {
+      error.value = err instanceof Error ? err.message : '详情加载失败'
+      ElMessage.error(error.value!)
+    } finally {
+      loading.value = false
+    }
+  }
+
   function handleCellChange(params: EditChangeParams): void {
     const { row, field, rowIndex } = params
     const newData = [...tableData.value]
@@ -153,6 +183,15 @@ export function useDemoEditTableReadonly() {
     const row = tableData.value[rowIndex]
     if (!row) return
     try {
+      await ElMessageBox.confirm(
+        `确认删除行 #${row.lineNo}「${row.productName || '未命名'}」？`,
+        '删除确认',
+        { confirmButtonText: '确认删除', cancelButtonText: '取消', type: 'warning' }
+      )
+    } catch {
+      return
+    }
+    try {
       await deleteEditTableRow(row.id)
       const newData = [...tableData.value]
       newData.splice(rowIndex, 1)
@@ -167,12 +206,19 @@ export function useDemoEditTableReadonly() {
     }
   }
 
-  async function handleSave(): Promise<void> {
+  async function handleSave(validateFn?: () => Promise<boolean>): Promise<void> {
+    if (validateFn) {
+      const valid = await validateFn()
+      if (!valid) {
+        ElMessage.warning('请修正表格中的校验错误后再保存')
+        return
+      }
+    }
     try {
       for (const row of tableData.value) {
         await saveEditTableRow(row)
       }
-      ElMessage.success('数据保存成功（演示）')
+      ElMessage.success('数据保存成功')
     } catch (err) {
       const msg = err instanceof Error ? err.message : '保存失败'
       ElMessage.error(msg)
@@ -230,6 +276,8 @@ export function useDemoEditTableReadonly() {
     statusTagTypeMap,
     rowSizeOptions,
     fetchData,
+    handleSearch,
+    loadDetail,
     handleCellChange,
     addRow,
     deleteRow,
