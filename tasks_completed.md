@@ -825,7 +825,7 @@
 | P0-004-012-002-001-002 | 验证功能 | 2026-06-05T11:30 | ✅ | SSO/OAuth2配置管理验证: 24项功能验证全部通过(SSO CRUD×5+OAuth2 CRUD×5+测试连接×5+AES加密×5+证书校验×4)+mvn compile通过+auth 114项测试通过+test-report.md+issues.md(5问题: 1高/2中/2低) | d094e4cc |
 | P0-004-012-003-001-001 | 实现配置表单UI | 2026-06-05T11:50 | ✅ | SSO/OAuth2配置管理前端页面: API类型定义+API模块(SSO CRUD+OAuth2 CRUD+连接测试)+Vue页面(SSO/OAuth2双标签+数据表格+表单对话框+字段校验)+路由注册+vite build通过 | 91b18d1e |
 | P0-004-012-003-001-002 | 实现回调URL自动生成与预览 | 2026-06-05T11:45 | ✅ | CallbackUrlInput.vue组件: 回调URL自动生成(computed响应式)+providerType映射(wecom→wechat_work)+一键复制(clipboard API+execCommand降级)+HTTP警告提示+等宽字体展示+集成至OAuth2表单 | 8721ec82 |
-| P0-004-012-003-002-001 | 实现OAuth2测试连接按钮 | 2026-06-05T12:15 | ✅ | 后端: OAuth2TestResult VO(结构化测试结果)+OAuth2ConfigController.testConnection重构(GET请求/5s+10s超时/200+302+401判定/错误分类DNS+超时+连接拒绝); 前端: 表单对话框测试连接按钮(编辑模式)/el-alert详细日志展示(testUrl+statusCode+responseTime+message)/保存取消按钮联动禁用 | (pending) |
+| P0-004-012-003-002-001 | 实现OAuth2测试连接按钮 | 2026-06-05T12:15 | ✅ | 后端: OAuth2TestResult VO(结构化测试结果)+OAuth2ConfigController.testConnection重构(GET请求/5s+10s超时/200+302+401判定/错误分类DNS+超时+连接拒绝); 前端: 表单对话框测试连接按钮(编辑模式)/el-alert详细日志展示(testUrl+statusCode+responseTime+message)/保存取消按钮联动禁用 | c3417e46 |
 
 ## 汇总统计
 
