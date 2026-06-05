@@ -301,6 +301,98 @@ export interface QueryPageConfig {
 }
 
 /**
+ * 报表过滤字段配置
+ */
+export interface ReportFilterConfig {
+  /** 字段唯一标识 */
+  id: string
+  /** 字段标签 */
+  label: string
+  /** 字段名 */
+  field: string
+  /** 字段类型 */
+  type: 'input' | 'select' | 'date' | 'date-range' | 'number'
+  /** 占位文本 */
+  placeholder?: string
+  /** 选项（select 类型使用） */
+  options?: { label: string; value: string | number }[]
+  /** 字段宽度（栅格，1-24），默认 6 */
+  span?: number
+}
+
+/**
+ * 报表列配置
+ */
+export interface ReportColumnConfig {
+  /** 列唯一标识 */
+  id: string
+  /** 列标签 */
+  label: string
+  /** 列字段 */
+  field: string
+  /** 列宽度 */
+  width?: number | string
+  /** 对齐方式 */
+  align?: 'left' | 'center' | 'right'
+  /** 固定列 */
+  fixed?: 'left' | 'right'
+}
+
+/**
+ * 报表树形配置
+ */
+export interface ReportTreeConfig {
+  /** 树数据源 API */
+  dataUrl?: string
+  /** 标签字段名 */
+  labelField?: string
+  /** 子节点字段名 */
+  childrenField?: string
+}
+
+/**
+ * 报表账簿配置
+ */
+export interface ReportLedgerConfig {
+  /** 借方金额字段 */
+  debitField?: string
+  /** 贷方金额字段 */
+  creditField?: string
+  /** 余额字段 */
+  balanceField?: string
+}
+
+/**
+ * 报表页面配置（P10）
+ */
+export interface ReportPageConfig {
+  /** 页面标题 */
+  title?: string
+  /** 是否显示条件过滤面板 */
+  showFilterPanel?: boolean
+  /** 是否显示操作栏 */
+  showActionBar?: boolean
+  /** 报表类型 */
+  reportType?: 'table' | 'tree' | 'ledger'
+  /** 过滤条件字段列表 */
+  filterFields?: ReportFilterConfig[]
+  /** 报表列定义（table/ledger 类型使用） */
+  columns?: ReportColumnConfig[]
+  /** 报表行数据 */
+  rows?: Record<string, unknown>[]
+  /** 树形报表配置（tree 类型使用） */
+  treeConfig?: ReportTreeConfig
+  /** 账簿配置（ledger 类型使用） */
+  ledgerConfig?: ReportLedgerConfig
+  /** 是否显示打印按钮 */
+  showPrint?: boolean
+  /** 是否显示导出 Excel 按钮 */
+  showExportExcel?: boolean
+  /** 是否显示导出 PDF 按钮 */
+  showExportPdf?: boolean
+}
+
+/**
  * 看板页面配置（P08）
  */
 export interface KanbanPageConfig {
@@ -329,6 +421,7 @@ export type PageConfig =
   | SimpleFormPageConfig
   | KanbanPageConfig
   | QueryPageConfig
+  | ReportPageConfig
   | (Record<string, unknown> & {})
 
 /**
