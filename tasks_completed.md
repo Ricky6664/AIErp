@@ -822,7 +822,7 @@
 | P0-004-011-002-002-002 | 实现历史密码校验 | 2026-06-04T23:45 | ✅ | 23项单元测试(UserServicePasswordHistoryTest)验证历史密码校验逻辑: 核心拒绝/接受流程+边界条件(空历史/null/1-3条)+参数校验+密码重置记录; 发现1个消息丢失问题已记录 | (pending) |
 | P0-004-011-003-001-001 | 实现登录失败计数与锁定 | 2026-06-05T08:05 | ✅ | 创建LoginAttemptService(Redis原子计数+动态策略/TTL首次设置策略/锁定标记+剩余时间)/重构AuthService使用新服务/更新22项单元测试全部通过 | 58191d3e |
 | P0-004-011-003-001-002 | 实现锁定状态查询与解锁 | 2026-06-05T09:30 | ✅ | 后端: LoginAttemptService新增getLockStatus/unlock方法+LockStatusVO+AuthController新增GET /auth/lock-status和POST /auth/unlock端点+UserServiceImpl.unlockUser集成Redis清理; 前端: useLogin添加500ms防抖锁状态轮询+登录页锁定警告+用户管理页解锁按钮和批量解锁 | 3ae1ba8f |
-| P0-004-012-002-001-002 | 验证功能 | 2026-06-05T11:30 | ✅ | SSO/OAuth2配置管理验证: 24项功能验证全部通过(SSO CRUD×5+OAuth2 CRUD×5+测试连接×5+AES加密×5+证书校验×4)+mvn compile通过+auth 114项测试通过+test-report.md+issues.md(5问题: 1高/2中/2低) | (pending) |
+| P0-004-012-002-001-002 | 验证功能 | 2026-06-05T11:30 | ✅ | SSO/OAuth2配置管理验证: 24项功能验证全部通过(SSO CRUD×5+OAuth2 CRUD×5+测试连接×5+AES加密×5+证书校验×4)+mvn compile通过+auth 114项测试通过+test-report.md+issues.md(5问题: 1高/2中/2低) | d094e4cc |
 
 ## 汇总统计
 
