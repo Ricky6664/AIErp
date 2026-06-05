@@ -1,5 +1,9 @@
 import { reactive } from 'vue'
-import type { FieldLinkageRule } from '@/types/list-table'
+import type {
+  FieldLinkageRule,
+  LinkageConditionConfig,
+  LinkageRuleConfig
+} from '@/types/list-table'
 import type { FormFieldConfig } from '@/types/master-form'
 
 export interface FieldLinkageState {
@@ -200,4 +204,70 @@ export function useFormLinkage() {
     isFieldDisabled,
     reset
   }
+}
+
+/**
+ * 将 JSON 可序列化的条件配置转换为可执行的条件函数
+ */
+export function buildConditionFn(config: LinkageConditionConfig): (value: unknown) => boolean {
+  const { operator, value } = config
+  switch (operator) {
+    case 'eq':
+      return (v: unknown) => v === value
+    case 'neq':
+      return (v: unknown) => v !== value
+    case 'gt':
+      return (v: unknown) => Number(v) > Number(value)
+    case 'gte':
+      return (v: unknown) => Number(v) >= Number(value)
+    case 'lt':
+      return (v: unknown) => Number(v) < Number(value)
+    case 'lte':
+      return (v: unknown) => Number(v) <= Number(value)
+    case 'in':
+      return (v: unknown) => {
+        if (!Array.isArray(value)) return false
+        return (value as unknown[]).includes(v)
+      }
+    case 'notIn':
+      return (v: unknown) => {
+        if (!Array.isArray(value)) return true
+        return !(value as unknown[]).includes(v)
+      }
+    case 'isEmpty':
+      return (v: unknown) => v === null || v === undefined || v === ''
+    case 'isNotEmpty':
+      return (v: unknown) => v !== null && v !== undefined && v !== ''
+    case 'startsWith':
+      return (v: unknown) => String(v).startsWith(String(value))
+    case 'endsWith':
+      return (v: unknown) => String(v).endsWith(String(value))
+    case 'contains':
+      return (v: unknown) => String(v).includes(String(value))
+    default:
+      return () => false
+  }
+}
+
+/**
+ * 解析 JSON 可序列化的联动规则配置，转换为运行时 FieldLinkageRule[]
+ */
+export function parseLinkageJson(rules: LinkageRuleConfig[]): FieldLinkageRule[] {
+  if (!Array.isArray(rules)) {
+    throw new Error('联动规则配置必须是数组')
+  }
+  return rules.map((rule) => {
+    if (!rule.triggerField || !rule.targetField || !rule.action) {
+      throw new Error(
+        `联动规则缺少必填字段(triggerField/targetField/action): ${JSON.stringify(rule)}`
+      )
+    }
+    return {
+      triggerField: rule.triggerField,
+      targetField: rule.targetField,
+      action: rule.action,
+      condition: rule.condition ? buildConditionFn(rule.condition) : undefined,
+      params: rule.params
+    }
+  })
 }

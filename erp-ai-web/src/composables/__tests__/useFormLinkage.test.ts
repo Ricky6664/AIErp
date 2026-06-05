@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import { useFormLinkage } from '@/composables/useFormLinkage'
+import { useFormLinkage, buildConditionFn, parseLinkageJson } from '@/composables/useFormLinkage'
 import type { FormFieldConfig } from '@/types/master-form'
-import type { FieldLinkageRule } from '@/types/list-table'
+import type { FieldLinkageRule, LinkageRuleConfig } from '@/types/list-table'
 
 function makeFieldConfig(overrides: Partial<FormFieldConfig> = {}): FormFieldConfig {
   return {
@@ -420,5 +420,167 @@ describe('useFormLinkage', () => {
       // No error thrown
       expect(configs[0].options).toBeUndefined()
     })
+  })
+})
+
+describe('buildConditionFn', () => {
+  it('returns true for eq match', () => {
+    const fn = buildConditionFn({ operator: 'eq', value: 'hello' })
+    expect(fn('hello')).toBe(true)
+    expect(fn('world')).toBe(false)
+  })
+
+  it('returns true for neq match', () => {
+    const fn = buildConditionFn({ operator: 'neq', value: 'hello' })
+    expect(fn('world')).toBe(true)
+    expect(fn('hello')).toBe(false)
+  })
+
+  it('returns true for gt match', () => {
+    const fn = buildConditionFn({ operator: 'gt', value: 100 })
+    expect(fn(200)).toBe(true)
+    expect(fn(50)).toBe(false)
+    expect(fn(100)).toBe(false)
+  })
+
+  it('returns true for gte match', () => {
+    const fn = buildConditionFn({ operator: 'gte', value: 100 })
+    expect(fn(200)).toBe(true)
+    expect(fn(100)).toBe(true)
+    expect(fn(50)).toBe(false)
+  })
+
+  it('returns true for lt match', () => {
+    const fn = buildConditionFn({ operator: 'lt', value: 100 })
+    expect(fn(50)).toBe(true)
+    expect(fn(100)).toBe(false)
+    expect(fn(200)).toBe(false)
+  })
+
+  it('returns true for lte match', () => {
+    const fn = buildConditionFn({ operator: 'lte', value: 100 })
+    expect(fn(50)).toBe(true)
+    expect(fn(100)).toBe(true)
+    expect(fn(200)).toBe(false)
+  })
+
+  it('returns true for in match', () => {
+    const fn = buildConditionFn({ operator: 'in', value: ['a', 'b', 'c'] })
+    expect(fn('b')).toBe(true)
+    expect(fn('d')).toBe(false)
+  })
+
+  it('returns true for notIn match', () => {
+    const fn = buildConditionFn({ operator: 'notIn', value: ['a', 'b'] })
+    expect(fn('c')).toBe(true)
+    expect(fn('a')).toBe(false)
+  })
+
+  it('returns true for isEmpty match', () => {
+    const fn = buildConditionFn({ operator: 'isEmpty' })
+    expect(fn('')).toBe(true)
+    expect(fn(null)).toBe(true)
+    expect(fn(undefined)).toBe(true)
+    expect(fn('hello')).toBe(false)
+    expect(fn(0)).toBe(false)
+  })
+
+  it('returns true for isNotEmpty match', () => {
+    const fn = buildConditionFn({ operator: 'isNotEmpty' })
+    expect(fn('hello')).toBe(true)
+    expect(fn(0)).toBe(true)
+    expect(fn('')).toBe(false)
+    expect(fn(null)).toBe(false)
+    expect(fn(undefined)).toBe(false)
+  })
+
+  it('returns true for startsWith match', () => {
+    const fn = buildConditionFn({ operator: 'startsWith', value: 'TEST-' })
+    expect(fn('TEST-001')).toBe(true)
+    expect(fn('NOTEST-001')).toBe(false)
+  })
+
+  it('returns true for endsWith match', () => {
+    const fn = buildConditionFn({ operator: 'endsWith', value: '.pdf' })
+    expect(fn('document.pdf')).toBe(true)
+    expect(fn('document.doc')).toBe(false)
+  })
+
+  it('returns true for contains match', () => {
+    const fn = buildConditionFn({ operator: 'contains', value: 'urgent' })
+    expect(fn('this is urgent task')).toBe(true)
+    expect(fn('this is normal')).toBe(false)
+  })
+
+  it('returns false for unknown operator', () => {
+    const fn = buildConditionFn({ operator: 'unknown' as never })
+    expect(fn('anything')).toBe(false)
+  })
+})
+
+describe('parseLinkageJson', () => {
+  const sampleRules: LinkageRuleConfig[] = [
+    {
+      triggerField: 'category',
+      targetField: 'subCategory',
+      action: 'show',
+      condition: { operator: 'eq', value: 'A' }
+    },
+    {
+      triggerField: 'category',
+      targetField: 'price',
+      action: 'setValue',
+      condition: { operator: 'eq', value: 'premium' },
+      params: { value: 100 }
+    },
+    {
+      triggerField: 'type',
+      targetField: 'detail',
+      action: 'setOptions',
+      params: { options: [{ label: '新选项', value: 'new' }] }
+    }
+  ]
+
+  it('parses LinkageRuleConfig[] into FieldLinkageRule[]', () => {
+    const result = parseLinkageJson(sampleRules)
+    expect(result).toHaveLength(3)
+    expect(result[0].triggerField).toBe('category')
+    expect(result[0].targetField).toBe('subCategory')
+    expect(result[0].action).toBe('show')
+    expect(typeof result[0].condition).toBe('function')
+  })
+
+  it('converts condition config to executable function', () => {
+    const result = parseLinkageJson(sampleRules)
+    expect(result[0].condition!('A')).toBe(true)
+    expect(result[0].condition!('B')).toBe(false)
+  })
+
+  it('preserves params', () => {
+    const result = parseLinkageJson(sampleRules)
+    expect(result[1].params).toEqual({ value: 100 })
+  })
+
+  it('returns rule with undefined condition when no condition config', () => {
+    const result = parseLinkageJson(sampleRules)
+    expect(result[2].condition).toBeUndefined()
+  })
+
+  it('throws error for non-array input', () => {
+    expect(() => parseLinkageJson(null as unknown as LinkageRuleConfig[])).toThrow(
+      '联动规则配置必须是数组'
+    )
+  })
+
+  it('throws error for missing required fields', () => {
+    const badRules: LinkageRuleConfig[] = [
+      { triggerField: '', targetField: '', action: '' as never }
+    ]
+    expect(() => parseLinkageJson(badRules)).toThrow('联动规则缺少必填字段')
+  })
+
+  it('handles empty array', () => {
+    const result = parseLinkageJson([])
+    expect(result).toHaveLength(0)
   })
 })

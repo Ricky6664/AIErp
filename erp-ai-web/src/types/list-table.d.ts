@@ -49,6 +49,50 @@ export interface FieldLinkageRule {
 }
 
 /**
+ * 联动条件运算符（JSON可序列化）
+ */
+export type LinkageConditionOperator =
+  | 'eq'
+  | 'neq'
+  | 'gt'
+  | 'gte'
+  | 'lt'
+  | 'lte'
+  | 'in'
+  | 'notIn'
+  | 'isEmpty'
+  | 'isNotEmpty'
+  | 'startsWith'
+  | 'endsWith'
+  | 'contains'
+
+/**
+ * 联动条件配置（JSON可序列化形式）
+ */
+export interface LinkageConditionConfig {
+  /** 条件运算符 */
+  operator: LinkageConditionOperator
+  /** 条件参考值 */
+  value?: unknown
+}
+
+/**
+ * 联动规则配置（JSON可序列化形式）
+ */
+export interface LinkageRuleConfig {
+  /** 触发字段 */
+  triggerField: string
+  /** 触发条件（JSON可序列化） */
+  condition?: LinkageConditionConfig
+  /** 目标字段 */
+  targetField: string
+  /** 联动动作 */
+  action: 'show' | 'hide' | 'enable' | 'disable' | 'setValue' | 'setOptions'
+  /** 联动参数 */
+  params?: Record<string, unknown>
+}
+
+/**
  * 单列排序字段
  */
 export interface SortField {
