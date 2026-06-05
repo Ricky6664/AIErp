@@ -846,7 +846,7 @@
 | P0-005-002-002-001-002 | 验证功能 | 2026-06-05T21:25 | ✅ | ActionBar组件验证: 逐项检查6项(按钮渲染/权限鉴权/批量禁用/左右布局/溢出折叠/事件emit); icon未渲染+无v-permission+无溢出折叠为已知差距; 编译零错误; 产出验证报告VERIFICATION_REPORT.md | — |
 | P0-005-002-003-001-001 | 编写核心代码 | 2026-06-05T21:55 | ✅ | HeaderToolbar头部扩展工具栏: Vue组件(铺满/刷新/格式设置/行高调整下拉面板); 类型定义(HeaderToolbarState/HeaderToolbarItem/RowHeightPreset等); 19个单元测试全部通过; TypeScript类型检查零错误 | — |
 | P0-005-002-003-001-002 | 验证功能 | 2026-06-05T22:00 | ✅ | 验证HeaderToolbar: 10项检查全部通过(工具渲染/v-model/change事件/focus-blur/disabled/hidden/行高下拉/插槽/状态切换/类型安全); 19/19测试通过; vue-tsc零错误; 更新VERIFICATION_REPORT.md | — |
-| P0-005-003-001-001-001 | 编写核心代码 | 2026-06-05T22:10 | ✅ | ListTable列表表格组件: Vue组件(列渲染/服务端排序/列筛选/分页/虚拟滚动/列宽持久化/斑马纹/边框/行高亮); 类型定义(ListTableColumn/FilterConfig/SortConfig等); 21个单元测试全部通过; vue-tsc零错误 | — |
+| P0-005-003-001-001-001 | 编写核心代码 | 2026-06-05T22:10 | ✅ | ListTable列表表格组件: Vue组件(列渲染/服务端排序/列筛选/分页/虚拟滚动/列宽持久化/斑马纹/边框/行高亮); 类型定义(ListTableColumn/FilterConfig/SortConfig等); 21个单元测试全部通过; vue-tsc零错误 | 2c4503dc |
 
 ## 汇总统计
 
