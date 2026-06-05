@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-05T22:10
-> **归档总数**：495 条
+> **最后更新**：2026-06-05T22:35
+> **归档总数**：496 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -854,7 +854,8 @@
 | P0-005-003-003-001-002 | 验证功能 | 2026-06-05T21:48 | ✅ | 验证ListTable列搜索筛选功能: 40/40测试通过; vue-tsc零错误; 列配置渲染/服务端排序/列筛选(text-number-date)/分页切换(pageMode)/虚拟滚动/列宽localStorage持久化6项全部通过; 浏览器性能测试(FPS/渲染时间)需手动验证 | f44f2022 |
 | P0-005-003-004-001-001 | 编写配置文件类 | 2026-06-05T21:48 | ✅ | 后端: ListTableProperties配置类(@ConfigurationProperties/list-table前缀/@Validated校验/ColumnFormat+ColumnDefault+ColumnPersist嵌套配置); application.yml新增list-table配置块(列格式/列默认值/列持久化) | — |
 | P0-005-003-004-001-002 | 验证编写配置项配置 | 2026-06-05T22:00 | ✅ | 验证ListTableProperties配置: YAML语法正确/编译通过/dev-prod环境无冲突/无敏感信息硬编码/@Component+@ConfigurationProperties正确绑定/@Validated校验注解完整/prefix全小写中划线分隔 | — |
-| P0-005-003-005-001-001 | 编写配置文件类 | 2026-06-05T22:10 | ✅ | 后端: ListTableProperties新增RowHeight(7档行高px)/FontSize(7档字体px)嵌套配置; application.yml新增list-table.row-height+font-size配置块 | — |
+| P0-005-003-005-001-001 | 编写配置文件类 | 2026-06-05T22:10 | ✅ | 后端: ListTableProperties新增RowHeight(7档行高px)/FontSize(7档字体px)嵌套配置; application.yml新增list-table.row-height+font-size配置块 | 8b2ab37d |
+| P0-005-003-005-001-002 | 验证编写配置项配置 | 2026-06-05T22:35 | ✅ | 验证ListTableProperties行高/字体大小配置: YAML语法正确/mvn compile通过/无敏感信息/@Component+@ConfigurationProperties正确/@Validated/prefix全小写中划线/7档配置与默认值一致 | — |
 
 ## 汇总统计
 
