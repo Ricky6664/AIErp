@@ -400,6 +400,7 @@
         <el-form-item label="Scope" prop="scope">
           <el-input v-model="oauth2Form.scope" placeholder="openid profile email（可选）" />
         </el-form-item>
+        <CallbackUrlInput :provider-type="oauth2Form.type" />
         <el-form-item label="启用状态" prop="enabled">
           <el-switch
             v-model="oauth2Form.enabled"
@@ -425,6 +426,7 @@ import { ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
 import { Search, Refresh, Plus } from '@element-plus/icons-vue'
 import type { SsoConfigItem, Oauth2ConfigItem } from '@/api/types/ssoOauth2Config'
+import CallbackUrlInput from './components/CallbackUrlInput.vue'
 import {
   getSsoConfigPageApi,
   createSsoConfigApi,

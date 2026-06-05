@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-05T11:00
-> **归档总数**：471 条
+> **最后更新**：2026-06-05T11:45
+> **归档总数**：472 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -824,6 +824,7 @@
 | P0-004-011-003-001-002 | 实现锁定状态查询与解锁 | 2026-06-05T09:30 | ✅ | 后端: LoginAttemptService新增getLockStatus/unlock方法+LockStatusVO+AuthController新增GET /auth/lock-status和POST /auth/unlock端点+UserServiceImpl.unlockUser集成Redis清理; 前端: useLogin添加500ms防抖锁状态轮询+登录页锁定警告+用户管理页解锁按钮和批量解锁 | 3ae1ba8f |
 | P0-004-012-002-001-002 | 验证功能 | 2026-06-05T11:30 | ✅ | SSO/OAuth2配置管理验证: 24项功能验证全部通过(SSO CRUD×5+OAuth2 CRUD×5+测试连接×5+AES加密×5+证书校验×4)+mvn compile通过+auth 114项测试通过+test-report.md+issues.md(5问题: 1高/2中/2低) | d094e4cc |
 | P0-004-012-003-001-001 | 实现配置表单UI | 2026-06-05T11:50 | ✅ | SSO/OAuth2配置管理前端页面: API类型定义+API模块(SSO CRUD+OAuth2 CRUD+连接测试)+Vue页面(SSO/OAuth2双标签+数据表格+表单对话框+字段校验)+路由注册+vite build通过 | 91b18d1e |
+| P0-004-012-003-001-002 | 实现回调URL自动生成与预览 | 2026-06-05T11:45 | ✅ | CallbackUrlInput.vue组件: 回调URL自动生成(computed响应式)+providerType映射(wecom→wechat_work)+一键复制(clipboard API+execCommand降级)+HTTP警告提示+等宽字体展示+集成至OAuth2表单 | — |
 
 ## 汇总统计
 
