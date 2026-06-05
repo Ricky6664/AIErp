@@ -869,7 +869,8 @@
 | P0-005-004-002-001-002 | 验证功能 | 2026-06-06T02:30 | ✅ | 验证行拖拽改序: 51/51测试通过(含7项drag专项); 6项验证清单全通过(编辑/校验/行管理/Tab/粘贴/拖拽); 代码审查确认editConfig/dragConfig/editRules/validate/reorder完整实现 | (待提交) |
 | P0-005-004-003-001-001 | 编写配置文件类 | 2026-06-06T02:15 | ✅ | 后端: EditTableProperties配置类(@ConfigurationProperties/edit-table前缀/@Validated校验/ColumnFormat+ColumnDefault+ColumnPersist+Edit嵌套配置); application.yml新增edit-table配置块(列格式/列默认值/列持久化/编辑设置) | b4fa0e07 |
 | P0-005-004-003-001-002 | 验证编写配置项配置 | 2026-06-06T02:30 | ✅ | 验证edit-table配置: YAML语法正确/编译通过/属性绑定正确/环境继承正确/无敏感信息/@Component注解标注 | 227934ab |
-| P0-005-004-004-001-001 | 编写配置文件类 | 2026-06-06T03:00 | ✅ | 后端: EditTableProperties新增RowHeight(7档行高px)/FontSize(7档字体px)嵌套配置; application.yml新增edit-table.row-height+font-size配置块 | (待提交) |
+| P0-005-004-004-001-001 | 编写配置文件类 | 2026-06-06T03:00 | ✅ | 后端: EditTableProperties新增RowHeight(7档行高px)/FontSize(7档字体px)嵌套配置; application.yml新增edit-table.row-height+font-size配置块 | b142f047 |
+| P0-005-004-004-001-002 | 验证编写配置项配置 | 2026-06-06T03:30 | ✅ | 验证EditTableProperties行高/字体大小配置: YAML语法正确/mvn compile通过/无敏感信息/@Component+@ConfigurationProperties正确/@Validated/prefix全小写中划线/7档配置与默认值一致 | (待提交) |
 
 ## 汇总统计
 
