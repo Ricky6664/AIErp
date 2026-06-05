@@ -292,3 +292,40 @@ list-table:
     x-large-size: 20
     # xx-large 字体大小(px)
     xx-large-size: 22
+
+# ---- 录入数据表格列格式配置 ----
+edit-table:
+  column-format:
+    # 日期列格式化模式
+    date-format: yyyy-MM-dd
+    # 日期时间列格式化模式
+    datetime-format: yyyy-MM-dd HH:mm:ss
+    # 数字列小数位数
+    number-decimal-places: 2
+    # 数字列是否显示千分位分隔符
+    number-thousands-separator: true
+  column-default:
+    # 列默认宽度(px)
+    width: 120
+    # 列最小宽度(px)
+    min-width: 60
+    # 列默认对齐方式(left/center/right)
+    align: left
+    # 内容超出时是否显示省略提示
+    show-overflow: true
+    # 列是否默认可编辑
+    editable: false
+  column-persist:
+    # 列配置持久化模式(local=仅localStorage, remote=后端API, both=双写)
+    mode: local
+    # 远程持久化缓存TTL(秒)
+    cache-ttl-seconds: 1800
+  edit:
+    # 编辑触发方式(click/dblclick/manual)
+    trigger: click
+    # 编辑时是否自动聚焦
+    auto-focus: true
+    # 是否显示编辑状态图标
+    show-status: true
+    # 编辑模式(cell=单元格编辑, row=行编辑)
+    mode: cell
