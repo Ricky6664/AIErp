@@ -258,3 +258,37 @@ list-table:
     mode: local
     # 远程持久化缓存TTL(秒)
     cache-ttl-seconds: 1800
+  row-height:
+    # 默认行尺寸(mini/small/medium/large/loose/x-large/xx-large)
+    default-size: medium
+    # mini 行高(px)
+    mini-height: 28
+    # small 行高(px)
+    small-height: 36
+    # medium 行高(px)
+    medium-height: 44
+    # large 行高(px)
+    large-height: 52
+    # loose 行高(px)
+    loose-height: 60
+    # x-large 行高(px)
+    x-large-height: 68
+    # xx-large 行高(px)
+    xx-large-height: 76
+  font-size:
+    # 默认字体尺寸(mini/small/medium/large/loose/x-large/xx-large)
+    default-size: medium
+    # mini 字体大小(px)
+    mini-size: 10
+    # small 字体大小(px)
+    small-size: 12
+    # medium 字体大小(px)
+    medium-size: 14
+    # large 字体大小(px)
+    large-size: 16
+    # loose 字体大小(px)
+    loose-size: 18
+    # x-large 字体大小(px)
+    x-large-size: 20
+    # xx-large 字体大小(px)
+    xx-large-size: 22

@@ -24,6 +24,10 @@ import org.springframework.validation.annotation.Validated;
  *   <li>list-table.column-default.show-overflow — 内容超出时是否显示省略提示，默认 true</li>
  *   <li>list-table.column-persist.mode — 列配置持久化模式(local/remote/both)，默认 local</li>
  *   <li>list-table.column-persist.cache-ttl-seconds — 远程持久化缓存TTL(秒)，默认 1800</li>
+ *   <li>list-table.row-height.default-size — 默认行尺寸(mini~xx-large 共7档)，默认 medium</li>
+ *   <li>list-table.row-height.{size}-height — 各档行高像素值(px)，共7档独立配置</li>
+ *   <li>list-table.font-size.default-size — 默认字体尺寸(mini~xx-large 共7档)，默认 medium</li>
+ *   <li>list-table.font-size.{size}-size — 各档字体大小像素值(px)，共7档独立配置</li>
  * </ul>
  * </p>
  *
@@ -41,6 +45,10 @@ public class ListTableProperties {
     private ColumnDefault columnDefault = new ColumnDefault();
 
     private ColumnPersist columnPersist = new ColumnPersist();
+
+    private RowHeight rowHeight = new RowHeight();
+
+    private FontSize fontSize = new FontSize();
 
     @Data
     public static class ColumnFormat {
@@ -72,5 +80,45 @@ public class ListTableProperties {
         private String mode = "local";
 
         private long cacheTtlSeconds = 1800;
+    }
+
+    @Data
+    public static class RowHeight {
+
+        private String defaultSize = "medium";
+
+        private int miniHeight = 28;
+
+        private int smallHeight = 36;
+
+        private int mediumHeight = 44;
+
+        private int largeHeight = 52;
+
+        private int looseHeight = 60;
+
+        private int xLargeHeight = 68;
+
+        private int xxLargeHeight = 76;
+    }
+
+    @Data
+    public static class FontSize {
+
+        private String defaultSize = "medium";
+
+        private int miniSize = 10;
+
+        private int smallSize = 12;
+
+        private int mediumSize = 14;
+
+        private int largeSize = 16;
+
+        private int looseSize = 18;
+
+        private int xLargeSize = 20;
+
+        private int xxLargeSize = 22;
     }
 }
