@@ -5,6 +5,8 @@
  * （GroupNav）和右侧标签页容器组成，用于展示主记录的所有关联信息。
  */
 
+import type { Ref } from 'vue'
+
 // ============================================================
 // 分组导航栏（GroupNav）类型
 // ============================================================
@@ -130,4 +132,18 @@ export interface RelatedInfoAreaExpose {
   refreshAllTabs: () => void
   /** 获取当前主行数据 */
   getMainRow: () => Record<string, unknown> | null
+}
+
+// ============================================================
+// 数据刷新注入
+// ============================================================
+
+/** 关联信息区提供给子组件的数据刷新上下文 */
+export interface RelatedInfoRefreshContext {
+  /** 各标签页刷新计数（key → 计数），子组件 watch 对应 key 来响应刷新 */
+  tabRefreshKeys: Ref<Record<string, number>>
+  /** 全局刷新计数（refreshAllTabs 时递增），所有子组件都 watch 此项 */
+  globalRefreshKey: Ref<number>
+  /** 当前主行数据 */
+  mainRow: Ref<Record<string, unknown> | null | undefined>
 }
