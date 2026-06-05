@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-06T01:00
-> **归档总数**：507 条
+> **最后更新**：2026-06-06T01:20
+> **归档总数**：508 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -877,12 +877,13 @@
 | P0-005-004-006-001-001 | 编写配置文件类 | 2026-06-06T00:45 | ✅ | EditTableProperties新增CellRender嵌套配置(cell-render前缀/5项属性/组件映射7项); application.yml新增edit-table.cell-render配置块(默认组件/懒渲染/缓存/组件映射); mvn compile通过 | (待提交) |
 | P0-005-004-006-001-002 | 验证编写配置项配置 | 2026-06-06T01:00 | ✅ | 验证edit-table.cell-render配置: YAML语法正确/mvn compile通过/各环境继承正确/无敏感信息/@Component+@ConfigurationProperties正确绑定/prefix全小写中划线/cellRender嵌套+componentMapping映射绑定验证通过 | (验证任务) |
 | P0-005-004-007-001-002 | 编写数据绑定与交互逻辑 | 2026-06-06T01:30 | ✅ | 增强useDemoEditTableReadonly composable: handleSearch(查询参数组装)/loadDetail(getEditTableDetail集成)/ElMessageBox删除确认弹窗/handleSave表单校验集成(validateFn) ; readonly-demo.vue: useRoute获取detailId自动加载详情/onSave包装校验/onMounted异步初始化; vue-tsc零错误(仅当前组件); 所有CRUD操作完整交互闭环 | (待提交) |
+| P0-005-004-007-001-003 | 验证前端页面开发页面 | 2026-06-06T01:20 | ✅ | 验证EntryTable只读/禁用态: 51/51测试通过; 6项验证: 单元格编辑✅/校验✅/行管理✅/Tab导航✅/Excel粘贴⚠️未实现/拖拽改序✅; 核心功能disabled→beforeEditMethod+工具栏联动已验证 | (验证任务) |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 512 | 2 | 23.8% |
+| P0 | 14 | 2,147 | 513 | 2 | 23.9% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
 | **合计** | **46** | **4,716** | **496** | **2** | **10.5%** |
