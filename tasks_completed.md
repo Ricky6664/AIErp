@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-05T23:15
-> **归档总数**：497 条
+> **归档总数**：500 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -857,15 +857,18 @@
 | P0-005-003-005-001-001 | 编写配置文件类 | 2026-06-05T22:10 | ✅ | 后端: ListTableProperties新增RowHeight(7档行高px)/FontSize(7档字体px)嵌套配置; application.yml新增list-table.row-height+font-size配置块 | 8b2ab37d |
 | P0-005-003-005-001-002 | 验证编写配置项配置 | 2026-06-05T22:35 | ✅ | 验证ListTableProperties行高/字体大小配置: YAML语法正确/mvn compile通过/无敏感信息/@Component+@ConfigurationProperties正确/@Validated/prefix全小写中划线/7档配置与默认值一致 | — |
 | P0-005-003-006-001-001 | 编写核心代码 | 2026-06-05T23:15 | ✅ | ListTable一键初始化/一键清空搜索排序: modelValue/fieldConfig/placeholder props; update:modelValue/focus/blur事件emit; resetAll()/clearSearchAndSort()方法; 类型定义(FieldConfig/FieldValidationRule/FieldLinkageRule); 47个测试通过; vue-tsc零错误 | — |
+860	| P0-005-003-006-001-002 | 验证功能 | 2026-06-05T23:18 | ✅ | 验证ListTable一键初始化/一键清空搜索排序: 47/47测试通过; vue-tsc零错误; 逐项验证:列配置渲染/服务端排序/列筛选/分页切换/虚拟滚动/列宽localStorage持久化/resetAll+clearSearchAndSort方法暴露; 浏览器性能测试(FPS/渲染)需手动验证 | — |
+| P0-005-003-007-001-001 | 编写配置文件类 | 2026-06-05T23:35 | ✅ | ListTable合计行列配置类型定义: SummaryMethod/SummaryColumnConfig/SummaryConfig类型; ListTableColumn.summary字段; ListTableProps.summaryConfig/SummaryData | 3cf16dc0 |
+| P0-005-003-007-001-002 | 验证编写配置项配置 | 2026-06-05T23:42 | ✅ | 验证ListTable合计行列配置类型: SummaryConfig/SummaryColumnConfig/SummaryMethod类型语法正确; 47/47测试通过; 无敏感信息; 类型通过@/types/list-table正确导出 | — |
 
 ## 汇总统计
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 500 | 2 | 23.3% |
+| P0 | 14 | 2,147 | 503 | 2 | 23.4% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **488** | **2** | **10.3%** |
+| **合计** | **46** | **4,716** | **489** | **2** | **10.4%** |
 
 ---
 
