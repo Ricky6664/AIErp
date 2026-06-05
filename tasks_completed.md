@@ -881,6 +881,7 @@
 | P0-005-005-001-001-001 | 编写核心代码 | 2026-06-06T00:36 | ✅ | GroupNav左侧分组导航栏组件: Vue SFC(分组渲染/展开折叠/子分组/图标/角标/v-model选中/disabled禁用/prefix-suffix-default插槽); 类型定义(NavGroup/GroupNavProps/GroupNavEmits/GroupNavExpose/RelatedTab/RelatedInfoAreaProps等); 34个单元测试全部通过; vue-tsc零错误 | 0e918fa2 |
 | P0-005-005-001-001-002 | 验证功能 | 2026-06-06T00:42 | ✅ | 验证GroupNav左侧分组导航栏: 34/34测试通过(渲染/插槽/v-model/展开折叠/暴露方法/边界情况); vue-tsc零类型错误; v-if懒加载确认; 6项验证: 分组导航展开折叠✅/标签页容器✅(类型级)/权限控制✅(类型级)/数据刷新✅(类型级)/切换刷新✅(类型级)/头部工具栏✅(类型级) | b9ccf344 |
 | P0-005-005-002-001-001 | 编写核心代码 | 2026-06-06T00:50 | ✅ | TabContainer右侧标签页容器组件: Vue SFC(标签页渲染/activeGroup筛选/v-model选中/disabled禁用/prefix-suffix-default插槽/暴露方法); 类型定义使用已有RelatedTab; 31个单元测试全部通过(覆盖率96.87%); vue-tsc零错误 | 97b697a2 |
+| P0-005-005-002-001-002 | 验证功能 | 2026-06-06T01:00 | ✅ | 验证TabContainer: 31/31+34/34=65/65测试通过; vue-tsc零错误; vite build通过(5.62s); 6项验证: 分组导航✅/标签页切换✅/权限控制✅/数据刷新API✅/切换刷新API✅/工具栏插槽✅ | (验证任务) |
 
 ## 汇总统计
 
