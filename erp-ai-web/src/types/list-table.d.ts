@@ -20,6 +20,8 @@ export interface FieldConfig {
   required?: boolean
   /** 占位提示 */
   placeholder?: string
+  /** 是否为扩展字段（非主表列，存储于扩展字段表） */
+  isExtension?: boolean
 }
 
 /**

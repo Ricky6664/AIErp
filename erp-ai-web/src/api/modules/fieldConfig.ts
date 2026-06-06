@@ -59,3 +59,48 @@ export function updateFieldConfig(
 ): Promise<FieldConfigSaveResult> {
   return request.put(`/api/system/field-config/${id}`, data) as Promise<FieldConfigSaveResult>
 }
+
+/** 扩展字段值保存参数 */
+export interface ExtFieldSaveParams {
+  /** 视图编码 */
+  viewCode: string
+  /** 主记录 ID */
+  recordId: string | number
+  /** 扩展字段名 → 字段值的映射 */
+  extFields: Record<string, unknown>
+  /** 乐观锁版本号 */
+  version?: number
+}
+
+/** 扩展字段值保存结果 */
+export interface ExtFieldSaveResult {
+  /** 保存后的记录 ID */
+  id: string | number
+  /** 更新后的版本号 */
+  version: number
+}
+
+/**
+ * 新增扩展字段值（POST）
+ * @param data 保存参数（viewCode + recordId + extFields 键值对）
+ * @returns 保存结果（id + version）
+ */
+export function saveExtensionFields(data: ExtFieldSaveParams): Promise<ExtFieldSaveResult> {
+  return request.post('/api/system/field-config/extensions', data) as Promise<ExtFieldSaveResult>
+}
+
+/**
+ * 更新扩展字段值（PUT），携带乐观锁版本号
+ * @param id 记录 ID
+ * @param data 保存参数（viewCode + recordId + extFields + version）
+ * @returns 保存结果（id + version）
+ */
+export function updateExtensionFields(
+  id: string | number,
+  data: ExtFieldSaveParams
+): Promise<ExtFieldSaveResult> {
+  return request.put(
+    `/api/system/field-config/extensions/${id}`,
+    data
+  ) as Promise<ExtFieldSaveResult>
+}
