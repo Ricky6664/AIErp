@@ -48,10 +48,12 @@ import type {
 } from '@/types/basic-input'
 import ErpInput from './index.vue'
 import ErpTextarea from './ErpTextarea.vue'
+import ErpNumberInput from './ErpNumberInput.vue'
 
 const FIELD_TYPE_MAP: FieldTypeComponentMapping = {
   text: 'ErpInput',
-  textarea: 'ErpTextarea'
+  textarea: 'ErpTextarea',
+  number: 'ErpNumberInput'
 }
 
 const props = withDefaults(defineProps<ErpFieldRendererProps>(), {
@@ -70,6 +72,7 @@ const resolvedComponent = computed(() => {
   const fieldType = props.fieldConfig?.fieldType || 'text'
   const componentName = FIELD_TYPE_MAP[fieldType]
   if (componentName === 'ErpTextarea') return ErpTextarea
+  if (componentName === 'ErpNumberInput') return ErpNumberInput
   return ErpInput
 })
 

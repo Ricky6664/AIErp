@@ -997,4 +997,5 @@
 | P0-005-010-002-002-002-003 | 保存主表字段值 | 2026-06-06T09:15 | ✅ | useMutation组合式函数(create/update/autoDetectMode/version回调)+fieldConfig API save endpoints(createFieldConfig/updateFieldConfig)+23单测全通过+1210全量回归零失败;测试报告已产出 | dbcbb9bd |
 | P0-005-010-002-002-002-004 | 保存扩展字段值 | 2026-06-06T09:30 | ✅ | useExtFieldSave组合式函数(extractExtensionFields分离扩展字段+saveExtFields新增/更新自动判断)+fieldConfig API扩展端点(saveExtensionFields/updateExtensionFields)+FieldConfig新增isExtension标记+23单测全通过;vue-tsc零错误;测试报告已产出 | dfedf04b |
 | P0-005-010-002-002-003 | 验证字段配置集成 | 2026-06-06T09:35 | ✅ | 验证字段配置集成:46单测全通过(useMutation23+useExtFieldSave23);全量1233回归通过;vue-tsc零错误;无硬编码敏感信息;类型→API→Composable→组件集成链路完整;验证报告已产出 | (验证任务) |
+| P0-005-010-003-001-001 | 定义组件propsemits | 2026-06-06T09:45 | ✅ | ErpNumberInput整数录入框组件:Vue组件(175行)+TypeScript类型(ErpNumberInputProps/Emits/Expose types/basic-input.d.ts)+29项单元测试全部通过(182全量回归)+ErpFieldRenderer.number映射+FieldTypeComponentMapping扩展;vue-tsc零错误 | (待提交)
 

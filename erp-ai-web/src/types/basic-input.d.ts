@@ -126,6 +126,60 @@ export interface ErpTextareaExpose {
 }
 
 /**
+ * ErpNumberInput 整数/数字录入框 Props
+ */
+export interface ErpNumberInputProps {
+  /** v-model 绑定值 */
+  modelValue: any
+  /** 是否禁用/只读 */
+  disabled?: boolean
+  /** 是否加载中 */
+  loading?: boolean
+  /** 字段配置（来自字段配置体系） */
+  fieldConfig?: FieldConfig
+  /** 校验规则列表 */
+  rules?: ValidatorRule[]
+  /** 占位提示文字 */
+  placeholder?: string
+  /** 最小值 */
+  min?: number
+  /** 最大值 */
+  max?: number
+  /** 步长，默认 1 */
+  step?: number
+  /** 是否显示增减按钮 */
+  controls?: boolean
+  /** 增减按钮位置 */
+  controlsPosition?: 'right' | ''
+  /** 数值精度（小数位数），默认 0 表示整数 */
+  precision?: number
+  /** 尺寸 */
+  size?: 'large' | 'default' | 'small'
+}
+
+/**
+ * ErpNumberInput 整数/数字录入框 Emits
+ */
+export interface ErpNumberInputEmits {
+  'update:modelValue': [value: any]
+  change: [value: any]
+  linkage: [event: ErpInputLinkageEvent]
+  focus: [event: FocusEvent]
+  blur: [event: FocusEvent]
+  validate: [result: boolean]
+}
+
+/**
+ * ErpNumberInput 整数/数字录入框 Exposed 方法
+ */
+export interface ErpNumberInputExpose {
+  /** 执行校验，返回是否通过 */
+  validate: () => Promise<boolean>
+  /** 重置值为 null */
+  reset: () => void
+}
+
+/**
  * ErpFieldRenderer 字段组件动态渲染器 Props
  *
  * 根据 fieldConfig.fieldType 动态渲染对应的录入组件：
@@ -174,7 +228,10 @@ export interface ErpFieldRendererExpose {
 /**
  * fieldType → 组件名映射
  */
-export type FieldTypeComponentMapping = Record<string, 'ErpInput' | 'ErpTextarea'>
+export type FieldTypeComponentMapping = Record<
+  string,
+  'ErpInput' | 'ErpTextarea' | 'ErpNumberInput'
+>
 
 /**
  * 字段值收集器统一接口 — 所有录入组件通过此接口向上层表单暴露值收集能力
