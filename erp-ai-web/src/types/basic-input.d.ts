@@ -175,3 +175,39 @@ export interface ErpFieldRendererExpose {
  * fieldType → 组件名映射
  */
 export type FieldTypeComponentMapping = Record<string, 'ErpInput' | 'ErpTextarea'>
+
+/**
+ * 字段值收集器统一接口 — 所有录入组件通过此接口向上层表单暴露值收集能力
+ *
+ * 支持两种收集方式：
+ * 1. v-model 双向绑定（实时同步值变化）
+ * 2. collect() 手动批量收集（如表单提交时统一收值）
+ */
+export interface IFieldCollector {
+  /** 字段名 */
+  readonly fieldName: string
+  /** 响应式当前值 */
+  readonly value: import('vue').Ref<any>
+  /** 响应式错误信息列表 */
+  readonly errors: import('vue').Ref<string[]>
+  /** 手动收集当前字段值 */
+  collect(): any
+  /** 以编程方式设置字段值 */
+  setValue(val: any): void
+  /** 重置值为空并清除错误 */
+  reset(): void
+  /** 执行校验，返回是否通过 */
+  validate(): Promise<boolean>
+}
+
+/**
+ * useFieldCollector 构造选项
+ */
+export interface FieldCollectorOptions {
+  /** 字段配置 */
+  fieldConfig: import('./list-table').FieldConfig
+  /** 外部 v-model 绑定值 */
+  modelValue?: any
+  /** v-model 值更新回调 */
+  onUpdate?: (value: any) => void
+}
