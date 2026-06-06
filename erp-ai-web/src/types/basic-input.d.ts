@@ -124,3 +124,52 @@ export interface ErpTextareaExpose {
   /** 重置值为空字符串 */
   reset: () => void
 }
+
+/**
+ * ErpFieldRenderer 字段组件动态渲染器 Props
+ *
+ * 根据 fieldConfig.fieldType 动态渲染对应的录入组件：
+ * - text → ErpInput
+ * - textarea → ErpTextarea
+ * - 未来扩展 number/select/date 等
+ */
+export interface ErpFieldRendererProps {
+  /** v-model 绑定值 */
+  modelValue: any
+  /** 字段配置（fieldType 决定渲染哪个组件） */
+  fieldConfig?: FieldConfig
+  /** 是否禁用/只读 */
+  disabled?: boolean
+  /** 是否加载中 */
+  loading?: boolean
+  /** 占位提示文字 */
+  placeholder?: string
+  /** 尺寸 */
+  size?: 'large' | 'default' | 'small'
+}
+
+/**
+ * ErpFieldRenderer 字段组件动态渲染器 Emits
+ */
+export interface ErpFieldRendererEmits {
+  'update:modelValue': [value: any]
+  change: [value: any]
+  linkage: [event: ErpInputLinkageEvent]
+  focus: [event: FocusEvent]
+  blur: [event: FocusEvent]
+}
+
+/**
+ * ErpFieldRenderer 字段组件动态渲染器 Exposed 方法
+ */
+export interface ErpFieldRendererExpose {
+  /** 执行校验，返回是否通过 */
+  validate: () => Promise<boolean>
+  /** 重置值为空字符串 */
+  reset: () => void
+}
+
+/**
+ * fieldType → 组件名映射
+ */
+export type FieldTypeComponentMapping = Record<string, 'ErpInput' | 'ErpTextarea'>

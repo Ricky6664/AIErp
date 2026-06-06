@@ -989,4 +989,5 @@
 | P0-005-010-002-001-002 | 实现组件模板结构 | 2026-06-06T08:20 | ✅ | ErpTextarea模板结构:BEM命名(basic-input--textarea/__header/__content/__footer)+条件渲染(v-if:loading/header/footer/errors)+列表渲染(v-for errorMessages :key)+Element Plus(el-input textarea/el-skeleton)+事件修饰符(.stop)+Scoped样式;40单测通过;vue-tsc零错误 | c8496710 |
 | P0-005-010-002-001-003 | 实现组件逻辑 | 2026-06-06T08:20 | ✅ | ErpTextarea组件逻辑:ref响应式状态(innerValue/errorMessages/lastEmittedValue)+computed(displayValue/isValid/errorMsg)+watch(modelValue/fieldConfig/linkage)+事件处理(handleInput/handleFocus/handleBlur)+validate(同步+异步校验器)+reset+onMounted/onBeforeUnmount生命周期;40单测全部通过;vue-tsc零错误 | fcc89084 |
 | P0-005-010-002-002-001-001 | 调用字段配置API获取当前单据的字段配置列表 | 2026-06-06T08:45 | ✅ | fieldConfig API模块+类型定义:src/api/types/fieldConfig.ts(FieldConfigItem/FieldConfigQuery/FieldConfigListResponse)+src/api/modules/fieldConfig.ts(getFieldConfigList/getFieldConfigItem);vue-tsc零错误;JSDoc文档配置说明 | 7fde4eee |
+| P0-005-010-002-002-001-002 | 动态渲染字段组件 | 2026-06-06T09:00 | ✅ | ErpFieldRenderer动态渲染器:Vue组件(133行)+TypeScript类型(ErpFieldRendererProps/Emits/Expose/FieldTypeComponentMapping)+36项单元测试全部通过;vue-tsc零错误;覆盖率80.64% | (待commit) |
 
