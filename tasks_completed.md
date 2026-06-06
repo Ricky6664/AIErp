@@ -992,5 +992,6 @@
 | P0-005-010-002-002-001-002 | 动态渲染字段组件 | 2026-06-06T09:00 | ✅ | ErpFieldRenderer动态渲染器:Vue组件(133行)+TypeScript类型(ErpFieldRendererProps/Emits/Expose/FieldTypeComponentMapping)+36项单元测试全部通过;vue-tsc零错误;覆盖率80.64% | daf4feb3 |
 | P0-005-010-002-002-001-003 | 执行字段校验规则 | 2026-06-06T09:35 | ✅ | 验证ErpFieldRenderer+ErpTextarea字段校验规则:76/76单元测试全部通过(ErpFieldRenderer 36+ErpTextarea 40);vue-tsc零错误;6项验证全通过(autoSize/maxRow/maxLength/v-model/disabled/校验) | e0d59e29 |
 | P0-005-010-002-002-001-004 | 执行字段显隐联动 | 2026-06-06T09:50 | ✅ | ErpFieldRenderer新增visible prop(v-if控制渲染/validate+reset适配隐藏态)+类型定义更新(ErpFieldRendererProps.visible)+6项新测试(41/41通过);1160/1160全量测试零回归;vue-tsc零错误 | ea6e3aac |
-| P0-005-010-002-002-002-001 | 收集表单字段值 | 2026-06-06T09:00 | ✅ | 字段值收集器:IFieldCollector接口+useFieldCollector组合式函数(27单测)+FieldConfigBinder(规则转换)+FormValidator(表单级校验编排);types/basic-input.d.ts更新;vue-tsc零错误 | (待提交) |
+| P0-005-010-002-002-002-001 | 收集表单字段值 | 2026-06-06T09:00 | ✅ | 字段值收集器:IFieldCollector接口+useFieldCollector组合式函数(27单测)+FieldConfigBinder(规则转换)+FormValidator(表单级校验编排);types/basic-input.d.ts更新;vue-tsc零错误 | 67bf65a9 |
+| P0-005-010-002-002-002-002 | 执行字段校验规则 | 2026-06-06T09:06 | ✅ | 验证字段校验规则:153个单元测试全部通过(ErpInput 50+ErpTextarea 31+ErpFieldRenderer 36+useFieldCollector 27+v-model联动9);验证清单6项全部通过(autoSize/maxRow/maxLength/v-model/校验规则绑定/disabled态);测试报告已产出 | (验证任务) |
 
