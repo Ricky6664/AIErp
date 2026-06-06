@@ -985,4 +985,5 @@
 | P0-005-010-001-002-001-002 | 监听触发字段变化 | 2026-06-06T07:45 | ✅ | useFormLinkage新增watchFieldLinkages(自动监听触发字段+门禁防重入+stop清理);basic-input集成联动监听(watch innerValue→emit linkage event);types新增ErpInputLinkageEvent/change emit;99单测通过;vite build成功 | (待提交) |
 | P0-005-010-001-002-001-003 | 执行联动动作 | 2026-06-06T07:50 | ✅ | 新增setRequired联动动作(types/list-table.d.ts);FieldLinkageState.required;processLinkages处理setRequired;applyLinkageResult应用requiredChanges;isFieldRequired查询函数;reset清理;默认规则JSON示例;106单测通过;vue-tsc零错误 | (待提交) |
 | P0-005-010-001-002-002 | 实现联动执行引擎 | 2026-06-06T08:10 | ✅ | useFormLinkage联动执行引擎完整实现:processLinkages(7种动作)/executeLinkages(全流程)/runLinkageChain(级联+循环检测)/watchFieldLinkages(自动监听)/applyLinkageResult+applyOptionsResult(结果应用)/state查询(isFieldVisible/Disabled/Required);覆盖率96.13%(>80%);106联动单测通过;vue-tsc零错误 | 51696454 |
+| P0-005-010-002-001-001 | 定义组件propsemits | 2026-06-06T08:15 | ✅ | ErpTextarea多行文本输入框组件:Vue组件(210行)+TypeScript类型(ErpTextareaProps/Emits/Expose扩展至basic-input.d.ts)+40项单元测试全部通过;vue-tsc零错误 | (待提交) |
 

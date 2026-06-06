@@ -72,3 +72,55 @@ export interface ErpInputExpose {
   /** 重置值为空字符串 */
   reset: () => void
 }
+
+/**
+ * ErpTextarea 多行文本输入框 Props
+ */
+export interface ErpTextareaProps {
+  /** v-model 绑定值 */
+  modelValue: any
+  /** 是否禁用/只读 */
+  disabled?: boolean
+  /** 是否加载中 */
+  loading?: boolean
+  /** 字段配置（来自字段配置体系） */
+  fieldConfig?: FieldConfig
+  /** 校验规则列表 */
+  rules?: ValidatorRule[]
+  /** 占位提示文字 */
+  placeholder?: string
+  /** 最大字符长度 */
+  maxLength?: number
+  /** 是否显示字数统计 */
+  showWordLimit?: boolean
+  /** 是否可清空 */
+  clearable?: boolean
+  /** 行数 */
+  rows?: number
+  /** 是否可拖拽调整大小 */
+  resize?: 'none' | 'both' | 'horizontal' | 'vertical'
+  /** 尺寸 */
+  size?: 'large' | 'default' | 'small'
+}
+
+/**
+ * ErpTextarea 多行文本输入框 Emits
+ */
+export interface ErpTextareaEmits {
+  'update:modelValue': [value: any]
+  change: [value: any]
+  linkage: [event: ErpInputLinkageEvent]
+  focus: [event: FocusEvent]
+  blur: [event: FocusEvent]
+  validate: [result: boolean]
+}
+
+/**
+ * ErpTextarea 多行文本输入框 Exposed 方法
+ */
+export interface ErpTextareaExpose {
+  /** 执行校验，返回是否通过 */
+  validate: () => Promise<boolean>
+  /** 重置值为空字符串 */
+  reset: () => void
+}
