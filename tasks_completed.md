@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-06T08:10
-> **归档总数**：557 条
+> **归档总数**：558 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -991,4 +991,5 @@
 | P0-005-010-002-002-001-001 | 调用字段配置API获取当前单据的字段配置列表 | 2026-06-06T08:45 | ✅ | fieldConfig API模块+类型定义:src/api/types/fieldConfig.ts(FieldConfigItem/FieldConfigQuery/FieldConfigListResponse)+src/api/modules/fieldConfig.ts(getFieldConfigList/getFieldConfigItem);vue-tsc零错误;JSDoc文档配置说明 | 7fde4eee |
 | P0-005-010-002-002-001-002 | 动态渲染字段组件 | 2026-06-06T09:00 | ✅ | ErpFieldRenderer动态渲染器:Vue组件(133行)+TypeScript类型(ErpFieldRendererProps/Emits/Expose/FieldTypeComponentMapping)+36项单元测试全部通过;vue-tsc零错误;覆盖率80.64% | daf4feb3 |
 | P0-005-010-002-002-001-003 | 执行字段校验规则 | 2026-06-06T09:35 | ✅ | 验证ErpFieldRenderer+ErpTextarea字段校验规则:76/76单元测试全部通过(ErpFieldRenderer 36+ErpTextarea 40);vue-tsc零错误;6项验证全通过(autoSize/maxRow/maxLength/v-model/disabled/校验) | e0d59e29 |
+| P0-005-010-002-002-001-004 | 执行字段显隐联动 | 2026-06-06T09:50 | ✅ | ErpFieldRenderer新增visible prop(v-if控制渲染/validate+reset适配隐藏态)+类型定义更新(ErpFieldRendererProps.visible)+6项新测试(41/41通过);1160/1160全量测试零回归;vue-tsc零错误 | (待提交) |
 

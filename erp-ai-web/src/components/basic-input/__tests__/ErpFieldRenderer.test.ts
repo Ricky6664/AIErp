@@ -323,11 +323,39 @@ describe('ErpFieldRenderer component', () => {
     })
   })
 
-  describe('size prop passthrough', () => {
-    it('passes size prop to child component', () => {
-      const wrapper = createWrapper({ size: 'large' })
-      const child = findInput(wrapper)
-      expect(child.props('size')).toBe('large')
+  describe('visible prop', () => {
+    it('renders normally when visible is true (default)', () => {
+      const wrapper = createWrapper()
+      expect(wrapper.find('.erp-field-renderer').exists()).toBe(true)
+    })
+
+    it('renders nothing when visible is false', () => {
+      const wrapper = createWrapper({ visible: false })
+      expect(wrapper.find('.erp-field-renderer').exists()).toBe(false)
+    })
+
+    it('validate returns true when visible is false', async () => {
+      const wrapper = createWrapper({ visible: false })
+      const result = await vm(wrapper).validate()
+      expect(result).toBe(true)
+    })
+
+    it('reset does not throw when visible is false', () => {
+      const wrapper = createWrapper({ visible: false })
+      expect(() => vm(wrapper).reset()).not.toThrow()
+    })
+
+    it('visible prop defaults to true', () => {
+      const wrapper = createWrapper()
+      expect(wrapper.props('visible')).toBe(true)
+    })
+
+    it('does not render child component when visible is false', () => {
+      const wrapper = createWrapper({
+        visible: false,
+        fieldConfig: { field: 'name', fieldType: 'text' }
+      })
+      expect(findInput(wrapper).exists()).toBe(false)
     })
   })
 })

@@ -140,6 +140,8 @@ export interface ErpFieldRendererProps {
   fieldConfig?: FieldConfig
   /** 是否禁用/只读 */
   disabled?: boolean
+  /** 是否可见（联动规则控制，false 时隐藏字段） */
+  visible?: boolean
   /** 是否加载中 */
   loading?: boolean
   /** 占位提示文字 */

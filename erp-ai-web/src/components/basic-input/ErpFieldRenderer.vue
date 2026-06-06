@@ -1,5 +1,9 @@
 <template>
-  <div class="erp-field-renderer" :class="{ 'erp-field-renderer--loading': loading }">
+  <div
+    v-if="visible"
+    class="erp-field-renderer"
+    :class="{ 'erp-field-renderer--loading': loading }"
+  >
     <!-- 加载态 -->
     <div v-if="loading" class="erp-field-renderer__loading">
       <el-skeleton :rows="1" animated />
@@ -52,6 +56,7 @@ const FIELD_TYPE_MAP: FieldTypeComponentMapping = {
 
 const props = withDefaults(defineProps<ErpFieldRendererProps>(), {
   disabled: false,
+  visible: true,
   loading: false,
   placeholder: '请输入',
   size: 'default'
@@ -98,6 +103,7 @@ function handleBlur(event: FocusEvent): void {
 }
 
 async function validate(): Promise<boolean> {
+  if (!props.visible) return true
   try {
     const child = fieldRef.value as { validate?: () => Promise<boolean> } | null
     if (child && typeof child.validate === 'function') {
@@ -110,6 +116,7 @@ async function validate(): Promise<boolean> {
 }
 
 function reset(): void {
+  if (!props.visible) return
   try {
     const child = fieldRef.value as { reset?: () => void } | null
     if (child && typeof child.reset === 'function') {
