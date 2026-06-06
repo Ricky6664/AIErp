@@ -7,7 +7,7 @@
       'basic-input--invalid': !isValid,
       [`basic-input--${size}`]: size && size !== 'default'
     }"
-    :title="String(innerValue ?? '')"
+    :title="displayValue"
   >
     <!-- 头部区域：标题 -->
     <div v-if="fieldConfig?.title || $slots.header" class="basic-input__header">
@@ -79,6 +79,7 @@ import type {
   ErpInputLinkageEvent
 } from '@/types/basic-input'
 import { useFormLinkage } from '@/composables/useFormLinkage'
+import { formatQty } from '@/utils/number'
 
 const props = withDefaults(defineProps<ErpNumberInputProps>(), {
   disabled: false,
@@ -139,6 +140,8 @@ watch(innerValue, (newValue, oldValue) => {
 const isValid = computed(() => errorMessages.value.length === 0)
 
 const errorMsg = computed(() => errorMessages.value.join('; '))
+
+const displayValue = computed(() => formatQty(innerValue.value))
 
 function handleInput(value: unknown): void {
   innerValue.value = value
