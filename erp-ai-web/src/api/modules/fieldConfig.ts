@@ -19,3 +19,43 @@ export function getFieldConfigList(viewCode: string): Promise<FieldConfigListRes
 export function getFieldConfigItem(viewCode: string, field: string): Promise<FieldConfigItem> {
   return request.get(`/api/system/field-config/${viewCode}/${field}`) as Promise<FieldConfigItem>
 }
+
+/** 字段配置值保存参数 */
+export interface FieldConfigSaveParams {
+  /** 视图编码 */
+  viewCode: string
+  /** 字段名 → 字段值的映射 */
+  fields: Record<string, unknown>
+  /** 乐观锁版本号 */
+  version?: number
+}
+
+/** 字段配置值保存结果 */
+export interface FieldConfigSaveResult {
+  /** 保存后的记录 ID */
+  id: string | number
+  /** 更新后的版本号 */
+  version: number
+}
+
+/**
+ * 新增字段配置值（POST）
+ * @param data 保存参数（viewCode + fields 键值对）
+ * @returns 保存结果（id + version）
+ */
+export function createFieldConfig(data: FieldConfigSaveParams): Promise<FieldConfigSaveResult> {
+  return request.post('/api/system/field-config', data) as Promise<FieldConfigSaveResult>
+}
+
+/**
+ * 更新字段配置值（PUT），携带乐观锁版本号
+ * @param id 记录 ID
+ * @param data 保存参数（viewCode + fields + version）
+ * @returns 保存结果（id + version）
+ */
+export function updateFieldConfig(
+  id: string | number,
+  data: FieldConfigSaveParams
+): Promise<FieldConfigSaveResult> {
+  return request.put(`/api/system/field-config/${id}`, data) as Promise<FieldConfigSaveResult>
+}
