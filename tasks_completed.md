@@ -953,10 +953,10 @@
 
 | 优先级 | 模块数 | 叶子任务总数 | 已完成 | 已跳过 | 完成率 |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
-| P0 | 14 | 2,147 | 553 | 2 | 25.8% |
+| P0 | 14 | 2,147 | 554 | 2 | 25.8% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **合计** | **46** | **4,716** | **551** | **2** | **11.7%** |
+| **合计** | **46** | **4,716** | **552** | **2** | **11.7%** |
 
 ---
 
@@ -990,4 +990,5 @@
 | P0-005-010-002-001-003 | 实现组件逻辑 | 2026-06-06T08:20 | ✅ | ErpTextarea组件逻辑:ref响应式状态(innerValue/errorMessages/lastEmittedValue)+computed(displayValue/isValid/errorMsg)+watch(modelValue/fieldConfig/linkage)+事件处理(handleInput/handleFocus/handleBlur)+validate(同步+异步校验器)+reset+onMounted/onBeforeUnmount生命周期;40单测全部通过;vue-tsc零错误 | fcc89084 |
 | P0-005-010-002-002-001-001 | 调用字段配置API获取当前单据的字段配置列表 | 2026-06-06T08:45 | ✅ | fieldConfig API模块+类型定义:src/api/types/fieldConfig.ts(FieldConfigItem/FieldConfigQuery/FieldConfigListResponse)+src/api/modules/fieldConfig.ts(getFieldConfigList/getFieldConfigItem);vue-tsc零错误;JSDoc文档配置说明 | 7fde4eee |
 | P0-005-010-002-002-001-002 | 动态渲染字段组件 | 2026-06-06T09:00 | ✅ | ErpFieldRenderer动态渲染器:Vue组件(133行)+TypeScript类型(ErpFieldRendererProps/Emits/Expose/FieldTypeComponentMapping)+36项单元测试全部通过;vue-tsc零错误;覆盖率80.64% | daf4feb3 |
+| P0-005-010-002-002-001-003 | 执行字段校验规则 | 2026-06-06T09:35 | ✅ | 验证ErpFieldRenderer+ErpTextarea字段校验规则:76/76单元测试全部通过(ErpFieldRenderer 36+ErpTextarea 40);vue-tsc零错误;6项验证全通过(autoSize/maxRow/maxLength/v-model/disabled/校验) | e0d59e29 |
 
