@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-06T08:10
-> **归档总数**：556 条
+> **归档总数**：557 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -987,4 +987,5 @@
 | P0-005-010-001-002-002 | 实现联动执行引擎 | 2026-06-06T08:10 | ✅ | useFormLinkage联动执行引擎完整实现:processLinkages(7种动作)/executeLinkages(全流程)/runLinkageChain(级联+循环检测)/watchFieldLinkages(自动监听)/applyLinkageResult+applyOptionsResult(结果应用)/state查询(isFieldVisible/Disabled/Required);覆盖率96.13%(>80%);106联动单测通过;vue-tsc零错误 | 51696454 |
 | P0-005-010-002-001-001 | 定义组件propsemits | 2026-06-06T08:15 | ✅ | ErpTextarea多行文本输入框组件:Vue组件(210行)+TypeScript类型(ErpTextareaProps/Emits/Expose扩展至basic-input.d.ts)+40项单元测试全部通过;vue-tsc零错误 | 18ef7fbd |
 | P0-005-010-002-001-002 | 实现组件模板结构 | 2026-06-06T08:20 | ✅ | ErpTextarea模板结构:BEM命名(basic-input--textarea/__header/__content/__footer)+条件渲染(v-if:loading/header/footer/errors)+列表渲染(v-for errorMessages :key)+Element Plus(el-input textarea/el-skeleton)+事件修饰符(.stop)+Scoped样式;40单测通过;vue-tsc零错误 | c8496710 |
+| P0-005-010-002-001-003 | 实现组件逻辑 | 2026-06-06T08:20 | ✅ | ErpTextarea组件逻辑:ref响应式状态(innerValue/errorMessages/lastEmittedValue)+computed(displayValue/isValid/errorMsg)+watch(modelValue/fieldConfig/linkage)+事件处理(handleInput/handleFocus/handleBlur)+validate(同步+异步校验器)+reset+onMounted/onBeforeUnmount生命周期;40单测全部通过;vue-tsc零错误 | (待提交) |
 
