@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-06T09:00
-> **归档总数**：559 条
+> **最后更新**：2026-06-06T10:00
+> **归档总数**：560 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -998,4 +998,5 @@
 | P0-005-010-002-002-002-004 | 保存扩展字段值 | 2026-06-06T09:30 | ✅ | useExtFieldSave组合式函数(extractExtensionFields分离扩展字段+saveExtFields新增/更新自动判断)+fieldConfig API扩展端点(saveExtensionFields/updateExtensionFields)+FieldConfig新增isExtension标记+23单测全通过;vue-tsc零错误;测试报告已产出 | dfedf04b |
 | P0-005-010-002-002-003 | 验证字段配置集成 | 2026-06-06T09:35 | ✅ | 验证字段配置集成:46单测全通过(useMutation23+useExtFieldSave23);全量1233回归通过;vue-tsc零错误;无硬编码敏感信息;类型→API→Composable→组件集成链路完整;验证报告已产出 | (验证任务) |
 | P0-005-010-003-001-001 | 定义组件propsemits | 2026-06-06T09:45 | ✅ | ErpNumberInput整数录入框组件:Vue组件(175行)+TypeScript类型(ErpNumberInputProps/Emits/Expose types/basic-input.d.ts)+29项单元测试全部通过(182全量回归)+ErpFieldRenderer.number映射+FieldTypeComponentMapping扩展;vue-tsc零错误 | (待提交)
+| P0-005-010-003-001-002 | 实现组件模板结构 | 2026-06-06T10:00 | ✅ | ErpNumberInput模板增强:三态渲染(加载骨架屏/正常el-input-number)/BEM命名空间(basic-input--number)/v-if+v-for+事件修饰符(.stop)/Scoped样式(CSS变量主题适配/5种状态变体/6个BEM元素/Element Plus深度选择器);29个单元测试全部通过;182全量回归通过;vue-tsc零错误 | (待提交)
 
