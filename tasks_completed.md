@@ -1001,3 +1001,6 @@
 | P0-005-010-003-001-001 | 定义组件propsemits | 2026-06-06T09:45 | ✅ | ErpNumberInput整数录入框组件:Vue组件(175行)+TypeScript类型(ErpNumberInputProps/Emits/Expose types/basic-input.d.ts)+29项单元测试全部通过(182全量回归)+ErpFieldRenderer.number映射+FieldTypeComponentMapping扩展;vue-tsc零错误 | (待提交)
 | P0-005-010-003-001-002 | 实现组件模板结构 | 2026-06-06T10:00 | ✅ | ErpNumberInput模板增强:三态渲染(加载骨架屏/正常el-input-number)/BEM命名空间(basic-input--number)/v-if+v-for+事件修饰符(.stop)/Scoped样式(CSS变量主题适配/5种状态变体/6个BEM元素/Element Plus深度选择器);29个单元测试全部通过;182全量回归通过;vue-tsc零错误 | (待提交)
 
+
+### 模块完成: P0-005 ✅
+
