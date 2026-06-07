@@ -1153,4 +1153,4 @@
 | 状态 | ✅ |
 | 摘要 | 编写LocationServiceImpl(继承ServiceImpl<LocationMapper,LocationEntity>，实现ILocationService，含库位编码仓库内唯一性校验/状态流转校验/@Transactional/OperLog注解/BusinessException异常处理/分页查询排序) |
 | 工人 | W4 |
-| Git Commit | TBD |
+| Git Commit | fc2e247b |
