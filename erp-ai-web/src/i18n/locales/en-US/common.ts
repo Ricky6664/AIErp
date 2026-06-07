@@ -87,6 +87,24 @@ const common = {
       recentCompany: 'Recent Companies',
       recentDept: 'Recent Departments',
       recentPosition: 'Recent Positions'
+    },
+    company: {
+      addTitle: 'Add Company',
+      editTitle: 'Edit Company',
+      companyName: 'Company Name',
+      companyShortName: 'Short Name',
+      creditCode: 'Credit Code',
+      creditCodePlaceholder: 'Enter 18-digit credit code',
+      legalPerson: 'Legal Representative',
+      registeredCapital: 'Registered Capital',
+      address: 'Address',
+      phone: 'Phone',
+      phonePlaceholder: 'Enter phone (landline or mobile)',
+      registeredCapitalUnit: '10K CNY',
+      creditCodeInvalid: 'Please enter a valid credit code',
+      creditCodeDuplicate: 'Credit code already exists',
+      companyNameRequired: 'Company name is required',
+      companyNameLength: 'Company name must be 2-100 characters'
     }
   },
   operate: 'Operation',

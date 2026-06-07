@@ -1098,6 +1098,14 @@
 
 ### 模块完成: P0-006 ✅
 
+---
+
+## P0-008 CRM客户管理模块开发
+
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | Git SHA |
+|---------|---------|---------|:---:|------|---------|
+| P0-008-001-001-001-003 | 验证Service | 2026-06-08 02:44 | ✅ | CustomerClassService单元测试43用例覆盖CRUD/边界/异常/事务 | 7d2bd799 |
+
 
 ### P0-008 - CRM客户管理模块开发
 
@@ -1763,3 +1771,7 @@ n#### P0-006-001-004-001-002 验证功能
 | P0-007-001-002-001-003 | 验证Service | 2026-06-08T02:36 | ✅ | ProductServiceTest(58用例全通过)+@ExtendWith(MockitoExtension)+@Nested分组(list/getById/save/update/delete/Transactional/ToVO/EdgeCases)+边界(编码50/名称200/备注500字符)+审核状态流转全覆盖+transaction注解验证+toVO映射+产品测试数据SQL | 5ee51ae6 |
 
 | P0-007-001-004-001-001 | 编写接口定义Service接口 | 2026-06-08T02:42 | ✅ | ProductControlService接口(extends IServiceX<ProductControl>)+list/getById/save/update/delete+@Valid+@Transactional + ProductControlDTO(11字段)/ProductControlQueryDTO(extends PageQuery)/ProductControlVO(含审计字段), 文件已存在完整实现, mvn compile通过 | TBD |
+
+## P0-006 - 组织架构模块开发
+
+| P0-006-002-003-001-001 | 编写核心代码 | 2026-06-08T02:47 | ✅ | CompanyForm.vue(7表单字段:公司名称/简称/信用代码/法人/注册资本/地址/联系电话)+信用代码18位格式校验(正则匹配后端)+编辑模式GET回填+新增POST/编辑PUT+保存防重复提交(loading)+$t()国际化+form reset on close+w:720px el-dialog,vue-tsc编译通过 | TBD |

@@ -121,6 +121,24 @@ const common = {
       recentCompany: '最近新增公司',
       recentDept: '最近新增部门',
       recentPosition: '最近新增岗位'
+    },
+    company: {
+      addTitle: '新增公司',
+      editTitle: '编辑公司',
+      companyName: '公司名称',
+      companyShortName: '公司简称',
+      creditCode: '统一社会信用代码',
+      creditCodePlaceholder: '请输入18位统一社会信用代码',
+      legalPerson: '法定代表人',
+      registeredCapital: '注册资本',
+      address: '公司地址',
+      phone: '联系电话',
+      phonePlaceholder: '请输入联系电话（座机或手机）',
+      registeredCapitalUnit: '万元',
+      creditCodeInvalid: '请输入有效的统一社会信用代码',
+      creditCodeDuplicate: '统一社会信用代码已存在',
+      companyNameRequired: '公司名称不能为空',
+      companyNameLength: '公司名称长度须在2-100个字符之间'
     }
   }
 }

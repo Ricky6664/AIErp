@@ -1,7 +1,7 @@
 /** 公司查询参数 */
 export interface CompanyQueryDTO {
-  name?: string
-  code?: string
+  companyName?: string
+  creditCode?: string
   status?: number
   pageNum?: number
   pageSize?: number
@@ -9,41 +9,55 @@ export interface CompanyQueryDTO {
 
 /** 公司创建参数 */
 export interface CompanyCreateDTO {
-  name: string
-  code: string
-  shortName?: string
+  companyName: string
+  companyShortName?: string
+  creditCode?: string
+  legalPerson?: string
+  registeredCapital?: number
   address?: string
-  contactPerson?: string
-  contactPhone?: string
-  email?: string
-  taxNo?: string
-  remark?: string
+  phone?: string
 }
 
 /** 公司更新参数 */
-export interface CompanyUpdateDTO extends Partial<CompanyCreateDTO> {
+export interface CompanyUpdateDTO {
   id: number
+  companyName?: string
+  companyShortName?: string
+  creditCode?: string
+  legalPerson?: string
+  registeredCapital?: number
+  address?: string
+  phone?: string
 }
 
 /** 公司列表项 */
 export interface CompanyListVO {
   id: number
-  name: string
-  code: string
-  shortName?: string
-  contactPerson?: string
-  contactPhone?: string
+  companyName: string
+  companyShortName?: string
+  creditCode?: string
+  legalPerson?: string
+  phone?: string
+  enableFlag?: boolean
   status: number
   createTime: string
 }
 
 /** 公司详情 */
-export interface CompanyDetailVO extends CompanyListVO {
+export interface CompanyDetailVO {
+  id: number
+  companyName: string
+  companyShortName?: string
+  creditCode?: string
+  legalPerson?: string
+  registeredCapital?: number
   address?: string
-  email?: string
-  taxNo?: string
-  remark?: string
+  phone?: string
+  enableFlag?: boolean
+  createTime: string
   updateTime: string
+  createdByName?: string
+  updatedByName?: string
 }
 
 /** 导入结果 */

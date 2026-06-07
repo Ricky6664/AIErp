@@ -53,7 +53,7 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 | P0-006-002-001-001-002 | 验证功能 | L5 | �?| W4 |
 | P0-006-002-002-001-001 | 编写核心代码 | L5 | �?| W8 |
 | P0-006-002-002-001-002 | 验证功能 | L5 | �?| W2 |
-| P0-006-002-003-001-001 | 编写核心代码 | L5 | 🔄 | W4 |�?| W4 |
+| P0-006-002-003-001-001 | 编写核心代码 | L5 | ✅ | W4 |�?| W4 |
 | P0-006-002-003-001-002 | 验证功能 | L5 | �?| W7 |
 | P0-006-002-004-001-001 | 编写核心代码 | L5 | �?| W7 |
 | P0-006-002-004-001-002 | 验证功能 | L5 | �?| W2 |
@@ -98,7 +98,7 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 |---------|---------|:---:|:---:|:---:|
 | P0-008-001-001-001-001 | 编写接口定义Service接口 | L3 | ✅ | W4 |
 | P0-008-001-001-001-002 | 编写ServiceImpl实现类 | L3 | ✅ | W7 |
-| P0-008-001-001-001-003 | 验证Service | L3 | 🔄 | W7 |
+| P0-008-001-001-001-003 | 验证Service | L3 | ✅ | W7 |
 | P0-008-001-002-001-001 | 编写接口定义Service接口 | L3 | �?| W1 |
 | P0-008-001-002-001-002 | 编写ServiceImpl实现�?| L3 | �?| W4 |
 | P0-008-001-002-001-003 | 验证Service | L3 | �?| W2 |
@@ -222,9 +222,7 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 ## 四、活跃认领注册表
 | 任务编号 | 工人 | 认领时间 |
 |---------|:---:|---------|
-| P0-008-001-001-001-003 | W7 | 2026-06-08 02:39 |
 | P0-007-001-002-001-003 | W7 | 2026-06-08T02:31:59 |
-| P0-007-001-003-001-002 | W4 | 2026-06-08T02:32:47 |
 | P0-007-001-003-001-003 | W5 | 2026-06-08T02:40:00 |
 
 
@@ -236,22 +234,16 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 | 文件路径 | 任务编号 | 工人 |
 | src/test/java/com/erp/module/product/service/ProductServiceTest.java | P0-007-001-002-001-003 | W7 |
 | src/test/resources/sql/product/product_test_data.sql | P0-007-001-002-001-003 | W7 |
-| src/main/java/com/erp/module/product/service/impl/ProductUnitServiceImpl.java | P0-007-001-003-001-002 | W4 |
-| src/main/java/com/erp/module/product/mapper/ProductUnitMapper.java | P0-007-001-003-001-002 | W4 |
 | src/test/java/com/erp/module/product/service/ProductUnitServiceTest.java | P0-007-001-003-001-003 | W5 |
 | src/test/resources/sql/product/productunit_test_data.sql | P0-007-001-003-001-003 | W5 |
-| src/test/java/com/erp/module/crm/service/CustomerClassServiceTest.java | P0-008-001-001-001-003 | W7 |
-| src/test/resources/sql/crm/customerclass_test_data.sql | P0-008-001-001-001-003 | W7 |
 ## 六、模块占用表
 > 记录每个活跃模块被哪些工人占用、执行模式�?
 > 用于：SERIAL 模块独占检查（C2 约束）—�?SERIAL 模块已有工人占用时，其他工人跳过该模块�?
 > PARALLEL 模块可有多行（多个工人同时执行同一模块的不同任务）
 | 模块编号 | 工人 | 执行模式 |
 |---------|:---:|:-------:|
-| P0-007 | W4 | PARALLEL |
 | P0-007 | W7 | PARALLEL |
 | P0-007 | W5 | PARALLEL |
-| P0-008 | W7 | PARALLEL |
 ## 七、统�?
 | 指标 | 数�?|
 |------|------|
