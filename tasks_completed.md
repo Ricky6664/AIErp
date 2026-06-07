@@ -1183,6 +1183,17 @@
 | 工人 | W3 |
 | Git Commit | d5a3b4dd |
 
+### P0-010-002-001-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-010-002-001-001-002 |
+| 完成时间 | 2026-06-07T22:05:00 |
+| 状态 | ✅ |
+| 摘要 | 验证仓库定义列表页(审核index.vue+warehouse.ts+types代码/运行pnpm build编译通过/编写测试报告含8项验证+5项边界分析/问题清单4项含路由未注册+API路径不一致+缺负责人列+统计仅当前页/代码规范合规/异常处理完善) |
+| 工人 | W3 |
+| Git Commit | [待填入] |
+
 | P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07 21:22:55 | ✅ | 编写BankAccountServiceImpl实现类，包含CRUD+唯一性校验+状态流转校验+@Transactional | 7b195f18 |
 
 | P0-011-001-003-001-001 | 编写接口定义Service接口 | 2026-06-07T21:30 | ✅ | IAccountService接口(extends IServiceX<AccountEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + AccountEntity/AccountCreateDTO/AccountUpdateDTO/AccountQueryDTO/AccountVO | f6a76404 |
