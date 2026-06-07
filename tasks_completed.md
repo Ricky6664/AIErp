@@ -1253,3 +1253,14 @@
 | 摘要 | 编写VoucherWordService单元测试(38个用例)，覆盖CRUD/唯一性校验/状态流转/事务注解，全部通过 |
 | Git SHA | 331547694e756525d86122c87d07e7b18edf0a9d |
 
+### P0-010-001-000-001-001 编写工作台聚合SQL（仓库模块重执行）
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-010-001-000-001-001 |
+| 完成时间 | 2026-06-07T22:35 |
+| 状态 | ✅ |
+| 摘要 | 创建仓库模块WorkbenchAggregateAggregateMapper(接口+XML)，实现KPI聚合统计(warehouseTotal/warehouseActive/locationTotal/locationActive)和趋势查询(按日分组)，存放于warehouse模块正确位置 |
+| 工人 | W5 |
+| Git SHA | (待提交) |
+
