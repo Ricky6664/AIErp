@@ -1015,7 +1015,7 @@
 | P0-006-001-001-001-003 | 验证Service | 2026-06-08T01:12 | ✅ | OrgCompanyServiceImplTest(20测试用例):create(5)/update(3)/delete(3)/page(2)/getById(2)/事务回滚(1)/@Transactional注解验证(4)+5个Salary桩文件 | f911aa50 |
 | P0-006-001-002-001-003 | 验证Service | 2026-06-08T01:58 | ✅ | OrgDepartmentServiceImplTest(22测试用例全部通过):create(5含companyNotFound/duplicateName/diffParent/topLevel)+update(3含circularRef_self+circularRef_descendant)+delete(4含childDept/position/employee)+tree(2含multiLevel+empty)+page(1)+getById(2)+@Transactional(5) | 10fbe0bc |
 
-| P0-006-002-000-001-001 | 编写核心代码 | 2026-06-08T02:30 | ✅ | OrgWorkbench.vue(4KPI卡片+ECharts饼图+柱状图+快捷操作入口+CountUp动画+Pinia缓存)+workbench.ts(API类型+getOrgWorkbenchApi)+workbench.ts(Pinia store含TTL缓存)+router注册+i18n词条(org.workbench) | (pending)
+| (pending) → 1a5156f8
 
 ### P0-013 - 部署与DevOps基础
 
