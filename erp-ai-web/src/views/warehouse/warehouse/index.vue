@@ -89,6 +89,11 @@
           </template>
         </vxe-column>
         <vxe-column field="address" title="地址" min-width="200" />
+        <vxe-column field="managerId" title="负责人" width="100" align="center">
+          <template #default="{ row }">
+            <span>{{ row.managerId || '-' }}</span>
+          </template>
+        </vxe-column>
         <vxe-column field="phone" title="联系电话" width="140" />
         <vxe-column field="status" title="状态" width="100" align="center">
           <template #default="{ row }">

@@ -190,6 +190,14 @@ export const FINANCE_VOUCHERWORD: RouteRecordRaw = {
   meta: { title: '凭证字管理', icon: 'Document', keepAlive: true }
 }
 
+// 仓库定义列表页
+export const WAREHOUSE_LIST: RouteRecordRaw = {
+  path: '/warehouse/warehouse',
+  name: 'WarehouseList',
+  component: () => import('@/views/warehouse/warehouse/index.vue'),
+  meta: { title: '仓库定义', icon: 'Box', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -207,6 +215,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   FINANCE_ACCOUNT,
   FINANCE_VOUCHERWORD,
   ORG_WORKBENCH,
+  WAREHOUSE_LIST,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,

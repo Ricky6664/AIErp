@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> ****最后更新**：2026-06-08T05:10
-> ****归档总数**：576 条
+> ****最后更新**：2026-06-08T04:05
+> ****归档总数**：577 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -1084,6 +1084,7 @@
 | P0-010-001-000-001-001 | 编写工作台聚合SQL | 2026-06-07T22:29 | ✅ | WorkbenchAggregateMapper.java+XML(KPI统计selectKpiStats+仓库趋势selectWarehouseTrendByDay+库位趋势selectLocationTrendByDay)+@Mapper+@Param+tenant_id多租户隔离+PostgreSQL DATE_TRUNC | 26d0994b |
 | P0-010-001-000-001-002 | 编写ServiceImpl实现类 | 2026-06-07T22:37 | ✅ | 修复WorkbenchAggregateServiceImpl导入(WorkbenchAggregateAggregateMapper从inventory改warehouse模块)+更新测试(16用例全通过)+编译通过 | (pending) |
 | P0-010-002-000-002-001 | ECharts图表组件开发 | 2026-06-08T05:10 | ✅ | ChartArea.vue(折线趋势/柱状对比/饼图分布+ResizeObserver+showLoading+时间范围日/周/月切换)+warehouse-workbench.ts图表API类型 | (pending) |
+| P0-010-002-001-001-001 | 编写核心代码 | 2026-06-08T05:00 | ✅ | 仓库定义P04单一列表页(搜索表单+统计卡片+VxeTable虚拟滚动+防抖300ms+新增/编辑弹窗/启用停用/删除确认)+API端点对齐层级规范+路由注册/warehouse/warehouse | (pending) |
 
 
 ### 模块完成: P0-007 ✅
@@ -1822,3 +1823,14 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W5 |
 | 摘要 | 增强KpiCardArea(注入工作台上下文响应时间范围变化/趋势百分比display红绿箭头/onUnmounted清理watch避免内存泄漏)+ 扩展WarehouseWorkbenchKpiVO(新增可选trend字段)+ TypeScript编译0错误 |
 | Git commit | TBD |
+
+---
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-010-002-000-003-001 |
+| 任务名称 | 工作台全流程联调 |
+| 完成时间 | 2026-06-08T04:05 |
+| 状态 | ✅ |
+| 工人 | W5 |
+| 摘要 | 修复KPI加载协调(defineExpose+错误传播)+移除双重watch+更新联调验证报告(架构图/数据流/7项验收全通过)+vue-tsc 0错误 |
+| Git commit | 8cb96b30 |
