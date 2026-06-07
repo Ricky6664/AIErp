@@ -1118,3 +1118,13 @@
 | 摘要 | 编写WorkbenchAggregateServiceTest(16用例全通过)，覆盖KPI统计/仓库趋势/库位趋势正常流程+null处理+租户ID获取(String/Long/null/异常)+参数传递验证+@Cacheable注解验证 |
 | 工人 | W3 |
 | Git Commit | 888ebbe4 |
+
+### P0-010-001-001-001-002 编写ServiceImpl实现类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-010-001-001-001-002 |
+| 完成时间 | 2026-06-07T20:50 |
+| 状态 | ✅ |
+| 摘要 | 创建WarehouseMapper(WarehouseEntity的BaseMapperX) + WarehouseServiceImpl(继承ServiceImpl，实现IWarehouseService，含仓库编码唯一性校验/状态流转校验/软删除/@Transactional/OperLog注解) |
+| 工人 | W2 |
