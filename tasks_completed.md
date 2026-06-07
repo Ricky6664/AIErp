@@ -1358,4 +1358,4 @@
 | 状态 | ✅ |
 | 摘要 | 验证币种汇率P04列表页前端功能：代码审查通过，路由注册缺失已修复(FINANCE_CURRENCYRATE)，Controller缺失已标记，创建issues.md(4项问题1已修复)，更新前端验证报告 |
 | 工人 | W6 |
-| Git SHA | 待填入
+| Git SHA | 6a91a652
