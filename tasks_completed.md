@@ -1551,5 +1551,5 @@
 | 完成时间 | 2026-06-08T10:30 |
 | 状态 | ✅ |
 | 摘要 | 创建凭证字列表页(voucherword/index.vue含统计卡片/搜索表单防抖/VxeTable虚拟滚动/新增编辑弹窗表单/状态切换/删除二次确认)和API层(finance-voucherword.ts含CRUD+状态更新+分页查询)，注册路由/finance/voucherword并添加中英文i18n词条，vite build通过 |
-| Git commit | (待提交) |
+| Git commit | 385831eb |
 | 工人 | W6 |
