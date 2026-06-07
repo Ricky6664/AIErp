@@ -51,6 +51,7 @@ public class ProductControlServiceImpl extends ServiceImpl<ProductControlMapper,
     public void save(ProductControlDTO dto) {
         validateProductControlUniqueness(dto.getProductId(), null);
         validateMutualExclusion(dto.getBatchManageFlag(), dto.getSerialManageFlag());
+        validateUnitExists(dto.getDefaultPurchaseUnitId(), dto.getDefaultSaleUnitId());
 
         ProductControl entity = new ProductControl();
         BeanUtils.copyProperties(dto, entity);
@@ -67,6 +68,7 @@ public class ProductControlServiceImpl extends ServiceImpl<ProductControlMapper,
 
         validateProductControlUniqueness(dto.getProductId(), id);
         validateMutualExclusion(dto.getBatchManageFlag(), dto.getSerialManageFlag());
+        validateUnitExists(dto.getDefaultPurchaseUnitId(), dto.getDefaultSaleUnitId());
 
         BeanUtils.copyProperties(dto, existing);
         existing.setId(id);
@@ -98,6 +100,20 @@ public class ProductControlServiceImpl extends ServiceImpl<ProductControlMapper,
         if (Boolean.TRUE.equals(batchManageFlag) && Boolean.TRUE.equals(serialManageFlag)) {
             throw new BusinessException(ErrorCode.BUSINESS_ERROR, "序列号管理与批次管理不可同时开启");
         }
+    }
+
+    /**
+     * 校验默认采购单位/销售单位在商品多单位表中存在.
+     * TODO: 待P0-007-001-003商品多单位模块完成后，注入ProductUnitMapper并启用校验逻辑.
+     */
+    private void validateUnitExists(Long defaultPurchaseUnitId, Long defaultSaleUnitId) {
+        // 待ProductUnitMapper创建后启用:
+        // if (defaultPurchaseUnitId != null && productUnitMapper.selectById(defaultPurchaseUnitId) == null) {
+        //     throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "默认采购单位不存在");
+        // }
+        // if (defaultSaleUnitId != null && productUnitMapper.selectById(defaultSaleUnitId) == null) {
+        //     throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "默认销售单位不存在");
+        // }
     }
 
     private ProductControlVO toVO(ProductControl entity) {
