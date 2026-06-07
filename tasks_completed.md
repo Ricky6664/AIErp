@@ -1809,3 +1809,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W5 |
 | 摘要 | 编写CustomerService单元测试，42个测试用例全部通过，覆盖list(10)/getById(2)/save(8)/update(7)/delete(2)/Transactional(5)/EdgeCase(7)/toVO(1)，包含名称唯一性校验、邮箱格式校验、排除自身更新校验、分页筛选排序等完整场景 |
 | Git commit | 7a94f2c1 |
+
+### P0-010-002-000-001-001 KPI卡片组件开发（重执行-增强趋势和时间范围响应）
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-010-002-000-001-001 |
+| 任务名称 | KPI卡片组件开发 |
+| 完成时间 | 2026-06-08T04:20 |
+| 状态 | ✅ |
+| 工人 | W5 |
+| 摘要 | 增强KpiCardArea(注入工作台上下文响应时间范围变化/趋势百分比display红绿箭头/onUnmounted清理watch避免内存泄漏)+ 扩展WarehouseWorkbenchKpiVO(新增可选trend字段)+ TypeScript编译0错误 |
+| Git commit | TBD |

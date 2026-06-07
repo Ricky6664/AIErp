@@ -5,6 +5,11 @@ export interface WarehouseWorkbenchKpiVO {
   warehouseEnabled: number
   locationTotal: number
   locationEnabled: number
+  /** 同比/环比趋势百分比，正数为增长，负数为下降 */
+  warehouseTotalTrend?: number
+  warehouseEnabledTrend?: number
+  locationTotalTrend?: number
+  locationEnabledTrend?: number
 }
 
 /** 获取仓库管理工作台KPI统计数据 */

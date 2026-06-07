@@ -17,11 +17,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { ref, computed, watch, inject, onMounted, onUnmounted, type Ref } from 'vue'
 import { Box, CircleCheck, Grid } from '@element-plus/icons-vue'
 import KpiCard from '@/components/KpiCard/index.vue'
 import { getWarehouseWorkbenchKpiApi } from '@/api/modules/warehouse-workbench'
-import type { WarehouseWorkbenchKpiVO } from '@/api/modules/warehouse-workbench'
+import type { WarehouseWorkbenchKpiVO, TimeRange } from '@/api/modules/warehouse-workbench'
+import { WORKBENCH_CONTEXT_KEY, type WorkbenchContext } from '../types'
 
 const loading = ref(false)
 const kpiData = ref<WarehouseWorkbenchKpiVO>({
@@ -49,7 +50,8 @@ const kpiCards = computed<KpiCardConfig[]>(() => [
     label: '仓库总数',
     value: kpiData.value.warehouseTotal,
     color: 'blue',
-    to: '/warehouse/warehouse'
+    to: '/warehouse/warehouse',
+    trend: kpiData.value.warehouseTotalTrend
   },
   {
     key: 'warehouseEnabled',
@@ -57,7 +59,8 @@ const kpiCards = computed<KpiCardConfig[]>(() => [
     label: '启用仓库',
     value: kpiData.value.warehouseEnabled,
     color: 'green',
-    to: '/warehouse/warehouse'
+    to: '/warehouse/warehouse',
+    trend: kpiData.value.warehouseEnabledTrend
   },
   {
     key: 'locationTotal',
@@ -65,7 +68,8 @@ const kpiCards = computed<KpiCardConfig[]>(() => [
     label: '库位总数',
     value: kpiData.value.locationTotal,
     color: 'purple',
-    to: '/warehouse/location'
+    to: '/warehouse/location',
+    trend: kpiData.value.locationTotalTrend
   },
   {
     key: 'locationEnabled',
@@ -73,7 +77,8 @@ const kpiCards = computed<KpiCardConfig[]>(() => [
     label: '启用库位',
     value: kpiData.value.locationEnabled,
     color: 'orange',
-    to: '/warehouse/location'
+    to: '/warehouse/location',
+    trend: kpiData.value.locationEnabledTrend
   }
 ])
 
@@ -96,8 +101,30 @@ async function fetchKpiData(): Promise<void> {
   }
 }
 
+// Inject workbench context for time range reactivity
+const context = inject<WorkbenchContext | null>(WORKBENCH_CONTEXT_KEY, null)
+
+let unwatchTimeRange: (() => void) | null = null
+
 onMounted(() => {
   fetchKpiData()
+
+  // Watch time range changes from parent workbench
+  if (context?.timeRange) {
+    unwatchTimeRange = watch(
+      () => (context.timeRange as Ref<TimeRange>).value,
+      () => {
+        fetchKpiData()
+      }
+    )
+  }
+})
+
+onUnmounted(() => {
+  if (unwatchTimeRange) {
+    unwatchTimeRange()
+    unwatchTimeRange = null
+  }
 })
 </script>
 
