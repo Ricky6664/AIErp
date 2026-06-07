@@ -1008,7 +1008,7 @@
 
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-013-001-001-001 | 编写后端Dockerfile | 2026-06-06T11:00 | ✅ | 多阶段Dockerfile(maven:3.9-eclipse-temurin-17构建→eclipse-temurin:17-jre-alpine运行)+JAR分层+非root+HEALTHCHECK | (待提交) |
+| P0-013-001-001-001 | 编写后端Dockerfile | 2026-06-07T23:32 | ✅ | 多阶段Dockerfile(maven:3.9-eclipse-temurin-17构建→eclipse-temurin:17-jre-alpine运行)+JAR分层+非root+HEALTHCHECK+.dockerignore | a7f6c21b |
 | P0-013-001-001-002 | 编写前端Dockerfile | 2026-06-06T10:50 | ✅ | 前端多阶段Dockerfile(node:20-alpine pnpm→nginx:1.27-alpine)+nginx.conf(gzip+SPA+安全头CSP/HSTS+缓存策略+healthz)+非root+HEALTHCHECK | 0d0150d4 |
 | P0-013-001-002-001 | 编写docker-compose服务编排 | 2026-06-06T11:05 | ✅ | docker-compose.yml(7服务+网络erp_network+5命名卷)+全服务健康检查+depends_on service_healthy+.env.example模板 | e8c441ea |
 | P0-013-002-002 | 多环境Nginx配置 | 2026-06-06T20:25 | ✅ | nginx.dev.conf(HTTP/CORS */无日志)+nginx.staging.conf(HTTP-HTTPS/SSL/受限CORS)+nginx.prod.conf(SSL/限流/CSP/HSTS/OCSP)+ssl/README.md+.gitignore更新 | 557f251b |
@@ -1056,6 +1056,8 @@
 
 
 ### 模块完成: P0-007 ✅
+
+| P0-007-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T23:30 | ✅ | ProductClassService接口(extends IServiceX<ProductClass>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductClassDTO/ProductClassQueryDTO/ProductClassVO + ProductClass实体 | 9c6e2343 |
 
 
 ### 模块完成: P0-013 ✅
