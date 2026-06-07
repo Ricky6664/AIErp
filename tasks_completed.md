@@ -1297,3 +1297,14 @@
 | 摘要 | 创建finance-workbench API层(getFinanceWorkbenchApi调用/api/finance/workbench)和财务工作台页面组件(index.vue含KPI卡片4指标/科目类型饼图/月度趋势折线图/loading错误状态/Suspense降级/ECharts渲染/resize监听)，注册静态路由/finance/workbench并添加中英文i18n词条，vue-tsc类型检查通过 |
 | 工人 | W5 |
 | Git SHA | (待提交)
+
+### P0-011-001-006-001-002 ✅
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-011-001-006-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-07T22:48 |
+| 状态 | ✅ |
+| 摘要 | 验证FinanceWorkbenchAggregateServiceImpl后端功能（代码审查+编译验证），创建后端验证报告和问题清单（4项建议0项阻塞），mvn compile通过 |
+| 工人 | W4 |
+| Git SHA | 821f1a79
