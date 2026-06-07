@@ -1025,7 +1025,7 @@
 | P0-013-001-002-001 | 编写docker-compose服务编排 | 2026-06-06T11:05 | ✅ | docker-compose.yml(7服务+网络erp_network+5命名卷)+全服务健康检查+depends_on service_healthy+.env.example模板 | e8c441ea |
 | P0-013-001-002-001 | 编写docker-compose服务编排(重建) | 2026-06-08T22:30 | ✅ | 修复前端端口3000:80+健康检查URL+nginx ENV变量HTTPS端口+docker-compose.override.yml+docker-compose.prod.yml | b619612c |
 | P0-013-002-002 | 多环境Nginx配置 | 2026-06-06T20:25 | ✅ | nginx.dev.conf(HTTP/CORS */无日志)+nginx.staging.conf(HTTP-HTTPS/SSL/受限CORS)+nginx.prod.conf(SSL/限流/CSP/HSTS/OCSP)+ssl/README.md+.gitignore更新 | 557f251b |
-| P0-013-001-003 | .env环境变量文件 | 2026-06-08T02:10 | ✅ | .env.example(变量名对齐docker-compose:POSTGRES_USER/POSTGRES_DB/MINIO_ROOT_USER/MINIO_ROOT_PASSWORD)+.env.dev/.env.staging/.env.prod(3套环境差异化配置)+docs/env-variables.md(变量说明文档更新) | (pending)
+| P0-013-001-003 | .env环境变量文件 | 2026-06-08T02:10 | ✅ | .env.example(变量名对齐docker-compose:POSTGRES_USER/POSTGRES_DB/MINIO_ROOT_USER/MINIO_ROOT_PASSWORD)+.env.dev/.env.staging/.env.prod(3套环境差异化配置)+docs/env-variables.md(变量说明文档更新) | 057764c0
 | P0-013-001-004 | .dockerignore文件编写 | 2026-06-08T01:42 | ✅ | 完整.dockerignore(版本控制/IDE/构建产物/文档/环境变量/日志/测试/Docker/CI/CD/部署/AI开发/OS共12类排除规则)+LF换行+.env.example白名单 | (pending)
 | P0-013-001-002-002 | 验证docker-compose编排 | 2026-06-08T01:49 | ✅ | scripts/verify-compose.sh(9项自动化验证:YAML/镜像/启动/健康检查/通信/持久化/端到端/故障恢复/日志)+docs/verification/docker-compose-report.md(静态审查+问题清单) | (pending)
 
