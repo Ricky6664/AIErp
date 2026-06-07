@@ -1473,6 +1473,16 @@
   - docs/test-reports/finance-BankAccount-issues.md
 - **工人**：W6
 
+## P0-011-002-006-001-002 — 验证功能
+
+- **完成时间**：2026-06-08T00:45
+- **状态**：✅ 已完成
+- **摘要**：会计科目树形列表页前端代码验证通过，前端类型编译通过，36项验证覆盖页面/API/筛选/交互/表单/异常，发现4个阻塞/中等问题（Controller缺失+路由未注册+Service方法缺失+VO类型声明）
+- **交付物**：
+  - docs/test-reports/finance-Account-frontend-test.md
+  - docs/test-reports/finance-Account-issues.md
+- **工人**：W5
+
 - **任务编号**：P0-012-001-002-001-003
 - **任务名称**：验证Service
 - **完成时间**：2026-06-08T00:20
