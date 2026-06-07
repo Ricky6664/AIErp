@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-07T22:55
-> **归档总数**：567 条
+> **最后更新**：2026-06-08T00:33
+> **归档总数**：568 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -1084,6 +1084,7 @@
 | P0-008-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07T19:25 | ✅ | TagDefinitionServiceImpl(extends ServiceImpl<TagDefinitionMapper,TagDefinitionEntity>)+CRUD(list/getById/save/update/delete)+校验(标签名称全局唯一+颜色格式#RRGGBB)+BusinessException+@Transactional + TagDefinitionMapper | (pending) |
 | P0-008-001-002-001-003 | 验证Service | 2026-06-07T19:37 | ✅ | TagDefinitionServiceTest(18 test cases: CRUD/list/getById/save/update/delete+边界条件+异常处理)+Mockito+JUnit5 + TagDefinitionService接口+TagDefinitionEntity/TagDefinitionDTO/TagDefinitionQueryDTO/TagDefinitionVO+test_data.sql | (pending) |
 | P0-008-001-003-001-001 | 编写接口定义Service接口 | 2026-06-07T19:37 | ✅ | CustomerService接口(extends IServiceX<Customer>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional + Customer实体/CustomerDTO/CustomerQueryDTO/CustomerVO | 020e821f |
+| P0-008-001-003-001-001 | 编写接口定义Service接口 | 2026-06-08T00:33 | ✅ | [重做] CustomerService接口(extends IServiceX<Customer>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional + Customer实体/CustomerDTO/CustomerQueryDTO/CustomerVO | (pending) |
 | P0-008-001-001-001-003 | 验证Service | 2026-06-07T19:41 | ✅ | CustomerClassServiceTest(24 test cases: CRUD/list/getById/save/update/delete+边界条件+名称唯一性+上级校验+@Transactional注解验证)+Mockito+JUnit5+Spy + test_data.sql | (pending) |
 | P0-008-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-07T19:52 | ✅ | CustomerServiceImpl(extends ServiceImpl<CustomerMapper,Customer>)+CRUD(list/getById/save/update/delete)+校验(客户名称同公司唯一+邮箱格式+审核状态流转)+BusinessException+@Transactional + CustomerMapper | b5ee0799 |
 | P0-008-001-003-001-003 | 验证Service | 2026-06-07T19:49 | ✅ | CustomerServiceTest(38 test cases: CRUD/list/getById/save/update/delete+边界条件+审核状态流转+名称唯一性+邮箱格式+事务注解验证)+Mockito+JUnit5+Spy | 3f48e9db |
