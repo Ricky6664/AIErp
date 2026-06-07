@@ -1751,3 +1751,5 @@ n#### P0-006-001-004-001-002 验证功能
 | P0-011-001-001-001-003 | 验证Service | 2026-06-08T01:54 | ✅ | W7:CurrencyRateServiceTest增强(44用例全通过)+新增3测试(null exchangeRate/currencyName+关联删除验证)+Mockito+JUnit5+10嵌套组+测试报告 | TBD |
 
 | P0-007-001-004-001-002 | 编写ServiceImpl实现类 | 2026-06-08T02:22 | ✅ | ProductControlServiceImpl(CRUD+业务校验:productId唯一性/批次与序列号互斥/单位存在性校验占位)+Entity/Mapper/DTO/QueryDTO/VO/Service接口,mvn compile通过 | f0be73a0 |
+
+| P0-007-001-003-001-001 | 编写接口定义Service接口 | 2026-06-08T02:34 | ✅ | ProductUnitService接口(extends IServiceX<ProductUnit>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductUnitDTO/ProductUnitQueryDTO/ProductUnitVO + ProductUnit实体(prod_product_unit) | c29ab253 |
