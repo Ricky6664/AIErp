@@ -1684,3 +1684,5 @@
 | 工人 | W6 |
 
 | P0-007-001-001-001-003 | 验证Service | 2026-06-08T01:43 | ✅ | ProductClassServiceTest(45用例全通过)+@ExtendWith(MockitoExtension)+@Nested分组(list/getById/save/update/delete/Transactional/EdgeCases/ToVO)+sortOrder边界(0/9999)+parentId校验+className唯一性+子分类删除检查+transaction注解验证+toVO映射 | 1d76436d |
+
+| P0-011-001-001-001-003 | 验证Service | 2026-06-08T01:54 | ✅ | W7:CurrencyRateServiceTest增强(44用例全通过)+新增3测试(null exchangeRate/currencyName+关联删除验证)+Mockito+JUnit5+10嵌套组+测试报告 | TBD |

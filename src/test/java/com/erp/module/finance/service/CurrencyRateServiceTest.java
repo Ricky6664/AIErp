@@ -763,5 +763,48 @@ class CurrencyRateServiceTest {
             assertNotNull(result);
             assertNull(result.getRateType());
         }
+
+        @Test
+        @DisplayName("exchangeRate为null -> Service层不做校验直接持久化(校验由Controller负责)")
+        void shouldNotValidateNullExchangeRateAtServiceLevel() {
+            createDTO.setExchangeRate(null);
+            when(currencyRateMapper.insert(any())).thenReturn(1);
+
+            CurrencyRateVO result = currencyRateService.create(createDTO);
+
+            assertNotNull(result);
+            assertNull(result.getExchangeRate());
+            verify(currencyRateMapper).insert(any());
+        }
+
+        @Test
+        @DisplayName("currencyName为null -> Service层不做校验直接持久化(校验由Controller负责)")
+        void shouldNotValidateNullCurrencyNameAtServiceLevel() {
+            createDTO.setCurrencyName(null);
+            when(currencyRateMapper.insert(any())).thenReturn(1);
+
+            CurrencyRateVO result = currencyRateService.create(createDTO);
+
+            assertNotNull(result);
+            assertNull(result.getCurrencyName());
+            verify(currencyRateMapper).insert(any());
+        }
+    }
+
+    // ==================== 关联数据删除验证 ====================
+
+    @Nested
+    @DisplayName("关联数据删除验证")
+    class RelatedDataDeleteTests {
+
+        @Test
+        @DisplayName("delete不检查关联数据 -> 直接软删除(关联数据校验未实现)")
+        void shouldNotCheckRelatedDataOnDelete() throws Exception {
+            when(currencyRateMapper.selectById(1L)).thenReturn(existingEntity);
+            doReturn(true).when(currencyRateService).removeById(1L);
+
+            assertDoesNotThrow(() -> currencyRateService.delete(1L));
+            verify(currencyRateService).removeById(1L);
+        }
     }
 }
