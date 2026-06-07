@@ -1143,3 +1143,14 @@
 | Git Commit | 503e1fdd |
 
 | P0-010-001-001-001-003 | 验证Service | 2026-06-07T21:05:35 | ✅ | 编写WarehouseService单元测试31个用例全部通过 | W3 |
+
+### P0-010-001-002-001-002 编写ServiceImpl实现类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-010-001-002-001-002 |
+| 完成时间 | 2026-06-07T21:10:34 |
+| 状态 | ✅ |
+| 摘要 | 编写LocationServiceImpl(继承ServiceImpl<LocationMapper,LocationEntity>，实现ILocationService，含库位编码仓库内唯一性校验/状态流转校验/@Transactional/OperLog注解/BusinessException异常处理/分页查询排序) |
+| 工人 | W4 |
+| Git Commit | TBD |
