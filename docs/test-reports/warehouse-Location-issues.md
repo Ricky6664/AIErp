@@ -1,8 +1,8 @@
 # 库位管理列表页 - 问题清单与修复方案
 
 > **任务编号**：P0-010-002-003-001-002
-> **验证日期**：2026-06-07
-> **验证人员**：W3
+> **验证日期**：2026-06-08
+> **验证人员**：W5
 
 ---
 
@@ -12,9 +12,10 @@
 
 | 属性 | 值 |
 |------|-----|
-| 严重程度 | 🔴 严重 |
+| 严重程度 | 🔴 严重（阻塞） |
 | 问题类型 | 后端缺失 |
 | 发现方式 | 代码审查 |
+| 修复状态 | ❌ 未修复 |
 
 **描述**：
 前端 `location.ts` API 模块调用 `/api/warehouse/location/page`、`/api/warehouse/location/{id}` 等端点，但后端 `warehouse` 模块没有 `LocationController` 类。`ILocationService` 和 `LocationServiceImpl` 已完整实现所有业务逻辑，只是没有 REST 控制器将其暴露为 HTTP API。
@@ -58,12 +59,13 @@ public class LocationController {
 
 | 属性 | 值 |
 |------|-----|
-| 严重程度 | 🔴 严重 |
+| 严重程度 | 🔴 严重（阻塞） |
 | 问题类型 | 后端缺失 |
 | 发现方式 | 代码审查 |
+| 修复状态 | ❌ 未修复 |
 
 **描述**：
-库位列表页的"所属仓库"下拉框调用 `getWarehousePage()` 加载仓库列表（`/api/warehouse/warehouse/page`）。但后端同样没有 `WarehouseController`。`IWarehouseService` 和 `WarehouseServiceImpl` 已完整实现。
+库位列表页的"所属仓库"下拉框调用 `getWarehousePage()` 加载仓库列表（`/api/warehouse/warehouse/page`）。后端同样没有 `WarehouseController`。`IWarehouseService` 和 `WarehouseServiceImpl` 已完整实现。
 
 **影响**：
 - 库位表单中"所属仓库"下拉框无数据
@@ -74,30 +76,20 @@ public class LocationController {
 
 ---
 
-### 问题 #3：缺少前端路由配置（高）
+### 问题 #3：前端路由配置缺失 — ✅ 已修复（2026-06-08）
 
 | 属性 | 值 |
 |------|-----|
-| 严重程度 | 🟡 高 |
+| 严重程度 | 已修复 |
 | 问题类型 | 前端缺失 |
 | 发现方式 | 代码审查 |
+| 修复状态 | ✅ 已修复 |
 
 **描述**：
-库位列表页组件位于 `@/views/warehouse/location/index.vue`，但在 `router/modules/static.ts` 中没有对应的路由配置。无法通过 URL 访问该页面。
+~~库位列表页组件位于 `@/views/warehouse/location/index.vue`，但在 `router/modules/static.ts` 中没有对应的路由配置。~~
 
-**修复方案**：
-在 `router/modules/static.ts` 中添加路由配置：
-
-```typescript
-export const WAREHOUSE_LOCATION_LIST: RouteRecordRaw = {
-  path: '/warehouse/location',
-  name: 'WarehouseLocationList',
-  component: () => import('@/views/warehouse/location/index.vue'),
-  meta: { title: '库位管理', icon: 'Location', keepAlive: true }
-}
-```
-
-并加入 `staticRoutes` 数组。
+**当前状态**：
+路由配置已完成。`WAREHOUSE_LOCATION` 已定义为 `RouteRecordRaw`（`static.ts:202-207`），路径 `/warehouse/location`，已加入 `staticRoutes` 数组（第227行）。
 
 ---
 
@@ -108,16 +100,13 @@ export const WAREHOUSE_LOCATION_LIST: RouteRecordRaw = {
 | 严重程度 | 🟢 低 |
 | 问题类型 | 代码规范 |
 | 发现方式 | 代码审查 |
+| 修复状态 | ❌ 未修复 |
 
 **描述**：
-搜索表单 label 和部分 UI 文案使用中文硬编码而非 `$t()` 国际化函数。例如：
-- `label="库位名称"` 应为 `label="$t('location.locationName')"`
-- `label="所属仓库"` 应为 `label="$t('location.warehouseName')"`
-
-其他同模块页面（如仓库列表页、工作台）也存在类似情况，可统一处理。
+搜索表单 label 和部分 UI 文案使用中文硬编码而非 `$t()` 国际化函数。`src/i18n/locales/` 目录下不存在 warehouse 专属的 i18n 文件。
 
 **修复方案**：
-1. 在 i18n 配置中添加对应的中英文词条
+1. 在 i18n 配置中添加 warehouse/location 对应的中英文词条
 2. 将硬编码文案替换为 `$t()` 调用
 
 ---
@@ -126,15 +115,15 @@ export const WAREHOUSE_LOCATION_LIST: RouteRecordRaw = {
 
 | 严重程度 | 数量 |
 |:---:|:---:|
-| 🔴 严重 | 2 |
-| 🟡 高 | 1 |
-| 🟢 低 | 1 |
+| 🔴 严重（未修复） | 2 |
+| 🟡 高（未修复） | 0 |
+| 🟢 低（未修复） | 1 |
+| ✅ 已修复 | 1 |
 | **合计** | **4** |
 
 ---
 
 ## 修复优先级建议
 
-1. **立即修复**：问题 #1 和 #2（LocationController + WarehouseController），这是页面功能的核心依赖
-2. **尽快修复**：问题 #3（路由配置），Controller 修复后路由配置也需要就位才能访问页面
-3. **后续优化**：问题 #4（国际化），不影响功能可用性
+1. **立即修复**：问题 #1 和 #2（LocationController + WarehouseController），这是页面功能的核心依赖。建议由 P0-010 L4 CONTROLLER 任务覆盖。
+2. **后续优化**：问题 #4（国际化），不影响功能可用性，可在模块打磨阶段统一处理。
