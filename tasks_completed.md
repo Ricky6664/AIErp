@@ -1027,5 +1027,5 @@
 
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-011-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T17:45 | ✅ | ICurrencyRateService接口(extends IServiceX<CurrencyRateEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 | (待提交) |
+| P0-011-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T17:45 | ✅ | ICurrencyRateService接口(extends IServiceX<CurrencyRateEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 | 1f792e1d |
 
