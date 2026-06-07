@@ -28,9 +28,23 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, AccountEntity
     @OperLog(module = "财务基础设置", action = "新增", description = "新增会计科目")
     public AccountVO create(AccountCreateDTO dto) {
         validateAccountCodeUniqueness(dto.getAccountCode(), null);
+        if (dto.getParentId() != null) {
+            AccountEntity parent = super.getById(dto.getParentId());
+            if (parent == null) {
+                throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "上级会计科目不存在");
+            }
+            if (Boolean.TRUE.equals(parent.getIsLeaf())) {
+                throw new BusinessException(ErrorCode.BUSINESS_ERROR, "上级科目已是末级科目, 无法添加子科目");
+            }
+        }
         AccountEntity entity = new AccountEntity();
         BeanUtils.copyProperties(dto, entity);
         save(entity);
+        if (dto.getParentId() != null) {
+            lambdaUpdate().set(AccountEntity::getIsLeaf, false)
+                    .eq(AccountEntity::getId, dto.getParentId())
+                    .update();
+        }
         return toVO(entity);
     }
 
@@ -57,7 +71,24 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, AccountEntity
         if (existing == null) {
             throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "会计科目不存在");
         }
+        Long childrenCount = lambdaQuery()
+                .eq(AccountEntity::getParentId, id)
+                .count();
+        if (childrenCount > 0) {
+            throw new BusinessException(ErrorCode.BUSINESS_ERROR, "该科目下存在子科目, 请先删除子科目");
+        }
+        Long parentId = existing.getParentId();
         removeById(id);
+        if (parentId != null) {
+            Long remainingSiblings = lambdaQuery()
+                    .eq(AccountEntity::getParentId, parentId)
+                    .count();
+            if (remainingSiblings == 0) {
+                lambdaUpdate().set(AccountEntity::getIsLeaf, true)
+                        .eq(AccountEntity::getId, parentId)
+                        .update();
+            }
+        }
     }
 
     @Override

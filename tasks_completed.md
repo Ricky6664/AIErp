@@ -1004,6 +1004,12 @@
 
 ### 模块完成: P0-005 ✅
 
+### P0-006 - 组织架构模块开发
+
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
+|---------|---------|---------|:---:|------|-----|
+| P0-006-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-07T23:41 | ✅ | OrgPositionServiceImpl: page/getById/create/update/delete 5方法;create(部门存在性校验+同部门岗位名称唯一性校验+positionCode生成);update(名称唯一性校验排除自身+乐观锁);delete(员工引用检查hrm_employee.position_id+逻辑删除);配套创建Entity/DTO/VO/Mapper/Service接口 | a201eee1 |
+
 ### P0-013 - 部署与DevOps基础
 
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
