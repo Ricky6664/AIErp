@@ -1411,4 +1411,4 @@
 | 工人 | W5 |
 | Git SHA | (pending-commit) |
 
-| P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07T23:43 | ✅ | BankAccountServiceImpl(extends ServiceImpl/CRUD完整/唯一性校验+状态流转校验/@Transactional+BusinessException+@OperLog/mvn compile通过) | (pending-commit) |
+| P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07T23:43 | ✅ | BankAccountServiceImpl(extends ServiceImpl/CRUD完整/唯一性校验+状态流转校验/@Transactional+BusinessException+@OperLog/mvn compile通过) | 3a965dac |
