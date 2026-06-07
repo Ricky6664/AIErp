@@ -1577,7 +1577,7 @@
 | 完成时间 | 2026-06-08T14:00 |
 | 状态 | ✅ |
 | 摘要 | 凭证字P07单一表单页核心代码(代码已由W6在P0-011-002-008-001-001中完整实现，含el-dialog表单/字段校验/新增编辑模式/API绑定/防抖搜索/操作列)，API层(finance-voucherword.ts)完整，路由已注册(/finance/voucherword)，i18n词条已添加，vue-tsc类型检查通过 |
-| Git commit | (pending-commit) |
+| Git commit | 30eea751 |
 | 工人 | W4 |
 
 ### P0-012 - HRM人力资源管理模块开发
