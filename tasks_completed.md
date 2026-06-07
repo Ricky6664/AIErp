@@ -1024,6 +1024,7 @@
 | P0-013-001-002-001 | 编写docker-compose服务编排 | 2026-06-06T11:05 | ✅ | docker-compose.yml(7服务+网络erp_network+5命名卷)+全服务健康检查+depends_on service_healthy+.env.example模板 | e8c441ea |
 | P0-013-001-002-001 | 编写docker-compose服务编排(重建) | 2026-06-08T22:30 | ✅ | 修复前端端口3000:80+健康检查URL+nginx ENV变量HTTPS端口+docker-compose.override.yml+docker-compose.prod.yml | b619612c |
 | P0-013-002-002 | 多环境Nginx配置 | 2026-06-06T20:25 | ✅ | nginx.dev.conf(HTTP/CORS */无日志)+nginx.staging.conf(HTTP-HTTPS/SSL/受限CORS)+nginx.prod.conf(SSL/限流/CSP/HSTS/OCSP)+ssl/README.md+.gitignore更新 | 557f251b |
+| P0-013-001-003 | .env环境变量文件 | 2026-06-08T01:42 | ✅ | .env.example(32变量含DB/Redis/MinIO/ES/JWT/SMTP模板)+.env.dev/.env.staging/.env.prod(3套环境差异化配置)+docs/env-variables.md(变量说明文档) | (pending)
 
 ### P0-014 - 测试基础模块
 
@@ -1655,5 +1656,5 @@
 | 完成时间 | 2026-06-08T01:35 |
 | 状态 | ✅ |
 | 摘要 | 创建OrgDepartmentServiceImpl(6方法:page/tree/getById/create/update/delete) + OrgDepartment实体新增deptCode字段，含公司校验+名称唯一性+循环引用检查+编码生成+子部门/岗位/员工删除检查，编译通过 |
-| Git commit | (pending-commit) |
+| Git commit | be90082c |
 | 工人 | W6 |
