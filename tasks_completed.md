@@ -1085,6 +1085,7 @@
 | P0-009-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-07T23:30 | ✅ | SupplierServiceImpl(CRUD+名称公司内唯一+邮箱格式+审核状态流转校验+事务) + SupplierMapper | 759b2cb8 |
 | P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07T20:17 | ✅ | BankAccountServiceImpl.java (CRUD+唯一性校验+事务管理+BusinessException异常处理) + BankAccountMapper.java | TBD |
 | P0-011-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-07T21:16 | ✅ | CurrencyRateServiceImpl.java (CRUD+币种编码唯一性校验+汇率日期校验+事务管理+BusinessException异常处理) + CurrencyRateMapper.java | b8a3cd7b |
+| P0-011-001-001-001-003 | 验证Service | 2026-06-07T21:30 | ✅ | CurrencyRateServiceTest (41个测试用例，覆盖CRUD/编码唯一性/日期校验/分页查询/边界条件/@Transactional注解/事务回滚) + CurrencyRateService-test-report.md | 45f428a7 |
 | P0-009-001-004-001-001 | 编写供应商联系人核心代码 | 2026-06-07T23:45 | ✅ | SupplierContact全套(Entity/DTO/QueryDTO/VO/Mapper/Service/ServiceImpl)+CRUD完整功能+BusinessException异常处理+事务管理 | 7c39a05d |
 | P0-009-001-004-001-002 | 验证供应商联系人Service | 2026-06-07T22:25 | ✅ | SupplierContactService验证(CRUD完整+事务注解正确+BusinessException异常处理+编译通过) | TBD |
 | P0-009-001-003-001-003 | 验证SupplierService | 2026-06-07T20:28 | ✅ | SupplierServiceTest(36个测试用例，覆盖CRUD正常流程+边界条件+事务注解+异常处理+名称唯一性+邮箱格式+审核状态流转) + supplier_test_data.sql | 2d6a16b0 |
