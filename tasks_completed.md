@@ -1176,7 +1176,7 @@
 | 状态 | ✅ |
 | 摘要 | 编写KpiCardArea组件(仓库工作台KPI卡片区/4个指标卡片含仓库总数+启用仓库+库位总数+启用库位/响应式栅格布局el-row+el-col/调用GET /api/warehouse/workbench/kpi/安全处理null+NaN值)+ warehouse-workbench API模块 |
 | 工人 | W3 |
-| Git Commit | __SHA__ |
+| Git Commit | d5a3b4dd |
 
 | P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07 21:22:55 | ✅ | 编写BankAccountServiceImpl实现类，包含CRUD+唯 一性校验+状态流转校验+@Transactional |  |
 
