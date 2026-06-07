@@ -1032,6 +1032,13 @@
 | P0-011-001-002-001-001 | 编写接口定义Service接口 | 2026-06-07T18:10 | ✅ | IBankAccountService接口(extends IServiceX<BankAccountEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + BankAccountEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 52fc201f |
 
 
+### P0-010 - 仓库与库位管理开发
+
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
+|---------|---------|---------|:---:|------|-----|
+| P0-010-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T18:10 | ✅ | IWarehouseService接口(extends IServiceX<WarehouseEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + WarehouseEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 05a99243 |
+
+
 ### 模块完成: P0-007 ✅
 
 
@@ -1039,4 +1046,12 @@
 
 
 ### 模块完成: P0-006 ✅
+
+
+### P0-008 - CRM客户管理模块开发
+
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
+|---------|---------|---------|:---:|------|-----|
+| P0-008-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T18:15 | ✅ | CustomerClassService接口(extends IServiceX<CustomerClass>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + CustomerClass实体/CustomerClassDTO/CustomerClassQueryDTO/CustomerClassVO | (pending) |
+
 
