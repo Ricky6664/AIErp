@@ -53,6 +53,106 @@
       </el-form>
     </el-card>
 
+    <!-- 新增/编辑弹窗 -->
+    <el-dialog
+      v-model="dialogVisible"
+      :title="isEdit ? '编辑币种汇率' : '新增币种汇率'"
+      width="600px"
+      destroy-on-close
+      @closed="handleDialogClosed"
+    >
+      <el-form
+        ref="formRef"
+        :model="formData"
+        :rules="formRules"
+        label-width="100px"
+        @submit.prevent
+      >
+        <el-row :gutter="20">
+          <el-col :span="12">
+            <el-form-item label="币种编码" prop="currencyCode">
+              <el-input
+                v-model="formData.currencyCode"
+                placeholder="请输入币种编码"
+                :maxlength="20"
+                :disabled="isEdit"
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="币种名称" prop="currencyName">
+              <el-input
+                v-model="formData.currencyName"
+                placeholder="请输入币种名称"
+                maxlength="50"
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :span="12">
+            <el-form-item label="基准币种" prop="currencySymbol">
+              <el-select
+                v-model="formData.currencySymbol"
+                placeholder="请选择基准币种"
+                filterable
+                allow-create
+                style="width: 100%"
+              >
+                <el-option
+                  v-for="item in baseCurrencyOptions"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="汇率" prop="exchangeRate">
+              <el-input-number
+                v-model="formData.exchangeRate"
+                :precision="6"
+                :min="0"
+                placeholder="请输入汇率"
+                style="width: 100%"
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :span="12">
+            <el-form-item label="汇率日期" prop="effectiveDate">
+              <el-date-picker
+                v-model="formData.effectiveDate"
+                type="date"
+                placeholder="请选择汇率日期"
+                :disabled-date="disabledDate"
+                value-format="YYYY-MM-DD"
+                style="width: 100%"
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="汇率类型" prop="rateType">
+              <el-select
+                v-model="formData.rateType"
+                placeholder="请选择汇率类型"
+                style="width: 100%"
+              >
+                <el-option label="固定汇率" :value="1" />
+                <el-option label="浮动汇率" :value="2" />
+              </el-select>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-form>
+      <template #footer>
+        <el-button @click="dialogVisible = false">取消</el-button>
+        <el-button type="primary" :loading="submitLoading" @click="handleSubmit"> 确认 </el-button>
+      </template>
+    </el-dialog>
+
     <!-- 数据表格 -->
     <el-card shadow="never" class="table-card">
       <template #header>
@@ -122,13 +222,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
-import { ElMessage } from 'element-plus'
+import { ref, reactive, onMounted, computed } from 'vue'
+import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
 import { Search, RefreshRight, Plus } from '@element-plus/icons-vue'
 import {
   getCurrencyRatePageApi,
+  getCurrencyRateByIdApi,
+  createCurrencyRateApi,
+  updateCurrencyRateApi,
   deleteCurrencyRateApi,
-  type CurrencyRateVO
+  checkCurrencyCodeApi,
+  type CurrencyRateVO,
+  type CurrencyRateSaveDTO
 } from '@/api/modules/finance-currencyrate'
 
 const tableLoading = ref(false)
@@ -150,6 +255,134 @@ const stats = reactive({
   todayCount: 0,
   typeCount: 0
 })
+
+// ---------- 表单弹窗 ----------
+const dialogVisible = ref(false)
+const isEdit = ref(false)
+const submitLoading = ref(false)
+const editId = ref<number | null>(null)
+const formRef = ref<FormInstance>()
+
+const baseCurrencyOptions = [
+  { label: 'CNY - 人民币', value: 'CNY' },
+  { label: 'USD - 美元', value: 'USD' },
+  { label: 'EUR - 欧元', value: 'EUR' },
+  { label: 'JPY - 日元', value: 'JPY' },
+  { label: 'GBP - 英镑', value: 'GBP' },
+  { label: 'HKD - 港币', value: 'HKD' },
+  { label: 'KRW - 韩元', value: 'KRW' },
+  { label: 'AUD - 澳元', value: 'AUD' }
+]
+
+const initFormData = (): CurrencyRateSaveDTO => ({
+  currencyCode: '',
+  currencyName: '',
+  currencySymbol: '',
+  exchangeRate: 1,
+  rateType: 1,
+  effectiveDate: ''
+})
+
+const formData = reactive<CurrencyRateSaveDTO>(initFormData())
+
+const validateCurrencyCode = async (
+  _rule: unknown,
+  value: string,
+  callback: (err?: Error) => void
+) => {
+  if (!value) {
+    callback(new Error('请输入币种编码'))
+    return
+  }
+  if (isEdit.value) {
+    callback()
+    return
+  }
+  try {
+    const exists = await checkCurrencyCodeApi(value)
+    if (exists) {
+      callback(new Error('币种编码已存在'))
+    } else {
+      callback()
+    }
+  } catch {
+    callback()
+  }
+}
+
+const formRules: FormRules = {
+  currencyCode: [
+    { required: true, message: '请输入币种编码', trigger: 'blur' },
+    { max: 20, message: '币种编码最长20个字符', trigger: 'blur' },
+    { validator: validateCurrencyCode, trigger: 'blur' }
+  ],
+  currencyName: [
+    { required: true, message: '请输入币种名称', trigger: 'blur' },
+    { max: 50, message: '币种名称最长50个字符', trigger: 'blur' }
+  ],
+  exchangeRate: [{ required: true, message: '请输入汇率', trigger: 'blur' }],
+  rateType: [{ required: true, message: '请选择汇率类型', trigger: 'change' }]
+}
+
+const maxDate = computed(() => {
+  const d = new Date()
+  d.setDate(d.getDate() + 30)
+  return d
+})
+
+function disabledDate(date: Date): boolean {
+  return date.getTime() > maxDate.value.getTime()
+}
+
+function handleAdd(): void {
+  isEdit.value = false
+  editId.value = null
+  Object.assign(formData, initFormData())
+  dialogVisible.value = true
+}
+
+async function handleEdit(row: CurrencyRateVO): Promise<void> {
+  isEdit.value = true
+  editId.value = row.id
+  try {
+    const detail = await getCurrencyRateByIdApi(row.id)
+    formData.currencyCode = detail.currencyCode
+    formData.currencyName = detail.currencyName
+    formData.currencySymbol = detail.currencySymbol || ''
+    formData.exchangeRate = detail.exchangeRate
+    formData.rateType = detail.rateType
+    formData.effectiveDate = detail.effectiveDate || ''
+    dialogVisible.value = true
+  } catch {
+    ElMessage.error('获取币种汇率详情失败')
+  }
+}
+
+async function handleSubmit(): Promise<void> {
+  const valid = await formRef.value?.validate().catch(() => false)
+  if (!valid) return
+  submitLoading.value = true
+  try {
+    if (isEdit.value && editId.value != null) {
+      await updateCurrencyRateApi(editId.value, { ...formData })
+      ElMessage.success('更新成功')
+    } else {
+      await createCurrencyRateApi({ ...formData })
+      ElMessage.success('新增成功')
+    }
+    dialogVisible.value = false
+    await loadData()
+  } catch {
+    ElMessage.error(isEdit.value ? '更新失败' : '新增失败')
+  } finally {
+    submitLoading.value = false
+  }
+}
+
+function handleDialogClosed(): void {
+  formRef.value?.resetFields()
+}
+// ---------- 表单弹窗结束 ----------
 
 const rateTypeMap: Record<number, string> = {
   1: '固定汇率',
@@ -229,14 +462,6 @@ async function handleDelete(row: CurrencyRateVO): Promise<void> {
   } catch {
     ElMessage.error('删除失败')
   }
-}
-
-function handleEdit(row: CurrencyRateVO): void {
-  ElMessage.info(`编辑功能将在表单页实现，ID: ${row.id}`)
-}
-
-function handleAdd(): void {
-  ElMessage.info('新增功能将在表单页实现')
 }
 
 function handleSizeChange(): void {
