@@ -1036,7 +1036,7 @@
 
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-010-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T18:10 | ✅ | IWarehouseService接口(extends IServiceX<WarehouseEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + WarehouseEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 05a99243 |
+| P0-010-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T18:10 | ✅ | IWarehouseService接口(extends IServiceX<WarehouseEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + WarehouseEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 2b118054 |
 
 
 ### 模块完成: P0-007 ✅
@@ -1053,5 +1053,6 @@
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
 |---------|---------|---------|:---:|------|-----|
 | P0-008-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T18:15 | ✅ | CustomerClassService接口(extends IServiceX<CustomerClass>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + CustomerClass实体/CustomerClassDTO/CustomerClassQueryDTO/CustomerClassVO | (pending) |
+| P0-008-001-002-001-001 | 编写接口定义Service接口 | 2026-06-07T13:15 | ✅ | TagDefinitionService接口(extends IServiceX<TagDefinitionEntity>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + TagDefinitionEntity/TagDefinitionDTO/TagDefinitionQueryDTO/TagDefinitionVO | (pending) |
 
 
