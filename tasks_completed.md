@@ -1114,7 +1114,7 @@
 | P0-008-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T18:15 | ✅ | CustomerClassService接口(extends IServiceX<CustomerClass>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + CustomerClass实体/CustomerClassDTO/CustomerClassQueryDTO/CustomerClassVO | 34a7e18a |
 | P0-008-001-002-001-001 | 编写接口定义Service接口 | 2026-06-07T13:15 | ✅ | TagDefinitionService接口(extends IServiceX<TagDefinitionEntity>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + TagDefinitionEntity/TagDefinitionDTO/TagDefinitionQueryDTO/TagDefinitionVO | (pending) |
 | P0-008-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-07T19:22 | ✅ | CustomerClassServiceImpl(extends ServiceImpl<CustomerClassMapper,CustomerClass>)+CRUD(list/getById/save/update/delete)+校验(同级名称唯一性+parentId引用检查+子分类检查)+BusinessException+@Transactional + CustomerClassMapper | (pending) |
-| P0-008-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07T19:25 | ✅ | TagDefinitionServiceImpl(extends ServiceImpl<TagDefinitionMapper,TagDefinitionEntity>)+CRUD(list/getById/save/update/delete)+校验(标签名称全局唯一+颜色格式#RRGGBB)+BusinessException+@Transactional + TagDefinitionMapper | (pending) |
+| P0-008-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-08T03:25 | ✅ | TagDefinitionServiceImpl(extends ServiceImpl<TagDefinitionMapper,TagDefinitionEntity>)+CRUD(list/getById/save/update/delete)+校验(标签名称全局唯一+颜色格式#RRGGBB+删除前关联引用检查)+BusinessException+@Transactional+@OperLog + TagDefinitionMapper | 6717d775 |
 | P0-008-001-002-001-003 | 验证Service | 2026-06-07T19:37 | ✅ | TagDefinitionServiceTest(18 test cases: CRUD/list/getById/save/update/delete+边界条件+异常处理)+Mockito+JUnit5 + TagDefinitionService接口+TagDefinitionEntity/TagDefinitionDTO/TagDefinitionQueryDTO/TagDefinitionVO+test_data.sql | (pending) |
 | P0-008-001-003-001-001 | 编写接口定义Service接口 | 2026-06-07T19:37 | ✅ | CustomerService接口(extends IServiceX<Customer>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional + Customer实体/CustomerDTO/CustomerQueryDTO/CustomerVO | 020e821f |
 | P0-008-001-003-001-001 | 编写接口定义Service接口 | 2026-06-08T00:33 | ✅ | [重做] CustomerService接口(extends IServiceX<Customer>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional + Customer实体/CustomerDTO/CustomerQueryDTO/CustomerVO | (pending) |
@@ -1789,3 +1789,20 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W5 |
 | 摘要 | 编写ProductUnitService单元测试，16个测试用例全部通过，覆盖CRUD正常流程+边界条件+异常场景 |
 | Git commit | 08611d14 |
+
+### P0-006 组织架构模块开发
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
+|---------|---------|---------|:---:|------|-----|
+| P0-006-002-000-001-002 | 验证功能 | 2026-06-08T03:15 | ✅ | 验证OrgWorkbench: 12/12通过, 修复Pinia store集成和缺失路由, 编译0错误 | 1c98391d |
+
+## P0-008-001-003-001-003 验证Service (CustomerService)
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-008-001-003-001-003 |
+| 任务名称 | 验证Service |
+| 完成时间 | 2026-06-08T03:36 |
+| 状态 | ✅ |
+| 工人 | W5 |
+| 摘要 | 编写CustomerService单元测试，42个测试用例全部通过，覆盖list(10)/getById(2)/save(8)/update(7)/delete(2)/Transactional(5)/EdgeCase(7)/toVO(1)，包含名称唯一性校验、邮箱格式校验、排除自身更新校验、分页筛选排序等完整场景 |
+| Git commit | TBD |
