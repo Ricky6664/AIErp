@@ -1082,7 +1082,7 @@
 | P0-007-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T23:30 | ✅ | ProductClassService接口(extends IServiceX<ProductClass>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductClassDTO/ProductClassQueryDTO/ProductClassVO + ProductClass实体 | 9c6e2343 |
 | P0-007-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-08T01:33 | ✅ | ProductClassServiceImpl(extends ServiceImpl<ProductClassMapper,ProductClass>)+CRUD+业务校验(同级名称唯一/parentId引用/子分类检查/排序号0~9999)+@Transactional+BusinessException + ProductClassMapper | 4b922993 |
 | P0-007-001-002-001-001 | 编写接口定义Service接口 | 2026-06-08T02:13 | ✅ | ProductService接口(extends IServiceX<Product>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductDTO/ProductQueryDTO/ProductVO + Product实体 | 6858ad4e |
-| P0-007-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-08T02:20 | ✅ | ProductServiceImpl(extends ServiceImpl<ProductMapper,Product>)+CRUD+业务校验(编码唯一/分类引用/审核状态草稿→待审核→已审核→已驳回流转)+@Transactional+BusinessException + ProductMapper | (pending) |
+| P0-007-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-08T02:20 | ✅ | ProductServiceImpl(extends ServiceImpl<ProductMapper,Product>)+CRUD+业务校验(编码唯一/分类引用/审核状态草稿→待审核→已审核→已驳回流转)+@Transactional+BusinessException + ProductMapper | 639034e6 |
 
 
 ### 模块完成: P0-013 ✅
