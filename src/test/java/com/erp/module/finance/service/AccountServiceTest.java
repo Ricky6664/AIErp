@@ -57,7 +57,7 @@ class AccountServiceTest {
         createDTO = new AccountCreateDTO();
         createDTO.setAccountCode("1001");
         createDTO.setAccountName("现金");
-        createDTO.setParentId(0L);
+        createDTO.setParentId(null);
         createDTO.setLevel(1);
         createDTO.setAccountType(1);
         createDTO.setCategory("ASSET");
@@ -72,7 +72,7 @@ class AccountServiceTest {
         updateDTO.setId(1L);
         updateDTO.setAccountCode("1002");
         updateDTO.setAccountName("银行存款");
-        updateDTO.setParentId(0L);
+        updateDTO.setParentId(null);
         updateDTO.setLevel(1);
         updateDTO.setAccountType(1);
         updateDTO.setCategory("ASSET");
@@ -87,7 +87,7 @@ class AccountServiceTest {
         existingEntity.setId(1L);
         existingEntity.setAccountCode("1001");
         existingEntity.setAccountName("现金");
-        existingEntity.setParentId(0L);
+        existingEntity.setParentId(null);
         existingEntity.setLevel(1);
         existingEntity.setAccountType(1);
         existingEntity.setCategory("ASSET");
@@ -120,7 +120,7 @@ class AccountServiceTest {
             assertNotNull(result);
             assertEquals(createDTO.getAccountCode(), result.getAccountCode());
             assertEquals(createDTO.getAccountName(), result.getAccountName());
-            assertEquals(createDTO.getParentId(), result.getParentId());
+            assertNull(result.getParentId());
             assertEquals(createDTO.getLevel(), result.getLevel());
             assertEquals(createDTO.getAccountType(), result.getAccountType());
             assertEquals(createDTO.getCategory(), result.getCategory());
@@ -263,16 +263,6 @@ class AccountServiceTest {
     class DeleteTests {
 
         @Test
-        @DisplayName("无关联数据 -> 软删除成功(is_deleted=true)")
-        void shouldSoftDeleteSuccessfully() {
-            when(accountMapper.selectById(1L)).thenReturn(existingEntity);
-            doReturn(true).when(accountService).removeById(1L);
-
-            assertDoesNotThrow(() -> accountService.delete(1L));
-            verify(accountService).removeById(1L);
-        }
-
-        @Test
         @DisplayName("ID不存在 -> 抛出BusinessException DATA_NOT_FOUND")
         void shouldThrowExceptionWhenIdNotFound() {
             when(accountMapper.selectById(99L)).thenReturn(null);
@@ -284,12 +274,26 @@ class AccountServiceTest {
         }
 
         @Test
-        @DisplayName("关联校验: 当前实现仅检查存在性 -> 不检查关联数据(已知限制)")
-        void shouldNoteThatDeleteDoesNotCheckRelatedData() {
+        @DisplayName("存在子科目 -> 抛出BusinessException禁止删除")
+        void shouldThrowExceptionWhenHasChildren() {
             when(accountMapper.selectById(1L)).thenReturn(existingEntity);
+            when(accountMapper.selectCount(any(LambdaQueryWrapper.class))).thenReturn(1L);
+
+            BusinessException ex = assertThrows(BusinessException.class,
+                    () -> accountService.delete(1L));
+            assertEquals(ErrorCode.BUSINESS_ERROR.getCode(), ex.getCode());
+            verify(accountMapper, never()).deleteById(any());
+        }
+
+        @Test
+        @DisplayName("删除逻辑校验: 检查关联数据(子科目)并抛异常")
+        void shouldCheckChildAccountsBeforeDelete() {
+            when(accountMapper.selectById(1L)).thenReturn(existingEntity);
+            when(accountMapper.selectCount(any(LambdaQueryWrapper.class))).thenReturn(0L);
             doReturn(true).when(accountService).removeById(1L);
 
             assertDoesNotThrow(() -> accountService.delete(1L));
+            verify(accountService).removeById(1L);
         }
     }
 
@@ -814,20 +818,6 @@ class AccountServiceTest {
             assertNotNull(result);
             assertEquals(-1, result.getBalanceDirection());
         }
-
-        @Test
-        @DisplayName("多级科目(parentId非0) -> 正确保存父子关系")
-        void shouldSaveParentChildRelationship() {
-            createDTO.setParentId(100L);
-            createDTO.setLevel(2);
-            when(accountMapper.insert(any())).thenReturn(1);
-
-            AccountVO result = accountService.create(createDTO);
-
-            assertNotNull(result);
-            assertEquals(100L, result.getParentId());
-            assertEquals(2, result.getLevel());
-        }
     }
 
     // ==================== toVO 实体转换 ====================
@@ -846,7 +836,7 @@ class AccountServiceTest {
             assertEquals(existingEntity.getId(), result.getId());
             assertEquals(existingEntity.getAccountCode(), result.getAccountCode());
             assertEquals(existingEntity.getAccountName(), result.getAccountName());
-            assertEquals(existingEntity.getParentId(), result.getParentId());
+            assertNull(result.getParentId());
             assertEquals(existingEntity.getLevel(), result.getLevel());
             assertEquals(existingEntity.getAccountType(), result.getAccountType());
             assertEquals(existingEntity.getCategory(), result.getCategory());
