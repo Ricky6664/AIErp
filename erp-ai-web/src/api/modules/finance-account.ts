@@ -14,6 +14,7 @@ export interface AccountVO {
   isBank: boolean
   isForeignCurrency: string
   isAuxiliary: string
+  status: number
   createTime: string
   updateTime: string
 }
@@ -65,8 +66,8 @@ export interface AccountSaveDTO {
   balanceDirection: number
   isCash?: boolean
   isBank?: boolean
-  isForeignCurrency?: string
-  isAuxiliary?: string
+  isForeignCurrency?: boolean | string
+  isAuxiliary?: boolean | string
   status: number
 }
 

@@ -285,11 +285,12 @@
         </el-row>
         <el-row :gutter="20">
           <el-col :span="12">
-            <el-form-item label="科目类别" prop="category">
+            <el-form-item label="科目类别" prop="accountType">
               <el-select
-                v-model="formData.category"
+                v-model="formData.accountType"
                 placeholder="请选择科目类别"
                 style="width: 100%"
+                @change="onAccountTypeChange"
               >
                 <el-option
                   v-for="item in accountTypeOptions"
@@ -422,17 +423,26 @@ const accountTypeOptions = [
   { label: '损益类', value: 6 }
 ]
 
-const categoryMap: Record<string, string> = {
-  资产类: '资产类',
-  负债类: '负债类',
-  共同类: '共同类',
-  所有者权益类: '所有者权益类',
-  成本类: '成本类',
-  损益类: '损益类'
+const categoryMap: Record<number, string> = {
+  1: '资产类',
+  2: '负债类',
+  3: '共同类',
+  4: '所有者权益类',
+  5: '成本类',
+  6: '损益类'
 }
 
-function categoryLabel(category: string): string {
-  return categoryMap[category] || category
+function categoryLabel(category: string | number): string {
+  if (typeof category === 'number') return categoryMap[category] || String(category)
+  return (
+    categoryMap[
+      Object.keys(categoryMap).find((k) => categoryMap[Number(k)] === category) as unknown as number
+    ] || category
+  )
+}
+
+function onAccountTypeChange(value: number): void {
+  formData.category = categoryMap[value] || ''
 }
 
 const dialogVisible = ref(false)
@@ -457,8 +467,8 @@ const initFormData = (): AccountSaveDTO => ({
   balanceDirection: 1,
   isCash: false,
   isBank: false,
-  isForeignCurrency: false as unknown as string,
-  isAuxiliary: false as unknown as string,
+  isForeignCurrency: false,
+  isAuxiliary: false,
   status: 1
 })
 
@@ -469,7 +479,7 @@ const formRules: FormRules = {
     { required: true, message: '请输入科目名称', trigger: 'blur' },
     { max: 100, message: '科目名称最长100个字符', trigger: 'blur' }
   ],
-  category: [{ required: true, message: '请选择科目类别', trigger: 'change' }],
+  accountType: [{ required: true, message: '请选择科目类别', trigger: 'change' }],
   balanceDirection: [{ required: true, message: '请选择余额方向', trigger: 'change' }]
 }
 
@@ -511,10 +521,9 @@ async function loadEditData(id: number): Promise<void> {
     formData.balanceDirection = detail.balanceDirection
     formData.isCash = detail.isCash
     formData.isBank = detail.isBank
-    formData.isForeignCurrency = (detail.isForeignCurrency === 'true' ||
-      detail.isForeignCurrency === '1') as unknown as string
-    formData.isAuxiliary = (detail.isAuxiliary === 'true' ||
-      detail.isAuxiliary === '1') as unknown as string
+    formData.isForeignCurrency =
+      detail.isForeignCurrency === 'true' || detail.isForeignCurrency === '1'
+    formData.isAuxiliary = detail.isAuxiliary === 'true' || detail.isAuxiliary === '1'
     formData.status = detail.status
     dialogVisible.value = true
   } catch {
@@ -597,9 +606,11 @@ function handleTreeNodeClick(data: AccountTreeVO): void {
   loadTableData()
 }
 
-function filterTreeNode(value: string, data: AccountTreeVO): boolean {
+function filterTreeNode(value: string, data: Record<string, unknown>): boolean {
   if (!value) return true
-  return data.accountName.includes(value) || data.accountCode.includes(value)
+  const accountName = data.accountName as string
+  const accountCode = data.accountCode as string
+  return accountName.includes(value) || accountCode.includes(value)
 }
 
 async function loadTree(): Promise<void> {

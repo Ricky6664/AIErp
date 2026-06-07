@@ -2,7 +2,9 @@
 
 > **任务编号**：P0-011-002-007-001-002
 > **创建日期**：2026-06-08
-> **创建工人**：W6
+> **原始工人**：W6（初版问题识别）
+> **修复工人**：W5（修复验证）
+> **更新日期**：2026-06-08
 
 ---
 
@@ -13,46 +15,35 @@
 | 属性 | 值 |
 |------|-----|
 | 严重程度 | 🔴 阻塞 |
+| 状态 | ⬜ 未修复（后端任务范围） |
 | 发现方式 | 代码审查 |
-| 问题描述 | 前端调用 `/finance/account` 系列API，但 `src/main/java/com/erp/module/finance/controller/` 目录下不存在 AccountController |
-| 影响范围 | 7个API端点（列表、详情、树、创建、更新、状态切换、删除）全部不可用 |
+| 问题描述 | 前端调用 `/finance/account` 系列API，但后端 `AccountController` 不存在 |
+| 影响范围 | 7个API端点全部404 |
 
 **缺失的端点：**
-| 方法 | 路径 | 前端调用 | Controller方法 |
-|------|------|---------|:---:|
-| GET | /finance/account | getAccountPageApi | ❌ |
-| GET | /finance/account/tree | getAccountTreeApi | ❌ |
-| GET | /finance/account/{id} | getAccountByIdApi | ❌ |
-| POST | /finance/account | createAccountApi | ❌ |
-| PUT | /finance/account/{id} | updateAccountApi | ❌ |
-| PUT | /finance/account/{id}/status | updateAccountStatusApi | ❌ |
-| DELETE | /finance/account/{id} | deleteAccountApi | ❌ |
+| 方法 | 路径 | Controller方法 |
+|------|------|:---:|
+| GET | /finance/account | ❌ |
+| GET | /finance/account/tree | ❌ |
+| GET | /finance/account/{id} | ❌ |
+| POST | /finance/account | ❌ |
+| PUT | /finance/account/{id} | ❌ |
+| PUT | /finance/account/{id}/status | ❌ |
+| DELETE | /finance/account/{id} | ❌ |
 
-**修复方案：**
-创建 `src/main/java/com/erp/module/finance/controller/AccountController.java`，注入 `IAccountService`，映射上述7个端点。
+**修复方案：** 创建 `AccountController.java`，注入 `IAccountService`，映射上述7个端点。
 
 ---
 
-### 问题 #2：路由未注册（阻塞级）
+### 问题 #2：路由未注册（已修复 ✅）
 
 | 属性 | 值 |
 |------|-----|
 | 严重程度 | 🔴 阻塞 |
+| 状态 | ✅ 已修复 (W5) |
 | 发现方式 | 代码审查 |
-| 问题描述 | `/finance/account` 路由未在 `erp-ai-web/src/router/modules/static.ts` 中注册 |
-| 影响范围 | 用户无法通过URL导航到会计科目页面；菜单也无法自动生成 |
-
-**修复方案：**
-在 `static.ts` 添加：
-```typescript
-export const FINANCE_ACCOUNT: RouteRecordRaw = {
-  path: '/finance/account',
-  name: 'FinanceAccount',
-  component: () => import('@/views/finance/account/index.vue'),
-  meta: { title: '会计科目', icon: 'List', keepAlive: true }
-}
-```
-将 `FINANCE_ACCOUNT` 添加到 `staticRoutes` 数组中。
+| 问题描述 | `/finance/account` 路由未在 `static.ts` 中注册 |
+| 修复内容 | 添加 `FINANCE_ACCOUNT` 路由到 `staticRoutes` 数组，路径 `/finance/account`，meta title '会计科目' |
 
 ---
 
@@ -61,12 +52,11 @@ export const FINANCE_ACCOUNT: RouteRecordRaw = {
 | 属性 | 值 |
 |------|-----|
 | 严重程度 | 🟡 中等 |
+| 状态 | ⬜ 未修复（后端任务范围） |
 | 发现方式 | 前后端契约对比 |
-| 问题描述 | 前端 `getAccountTreeApi()` 调用 `GET /finance/account/tree`，但 `IAccountService` 接口中无 `getTree()` 方法 |
+| 问题描述 | 前端 `getAccountTreeApi()` → `GET /finance/account/tree`，但 `IAccountService` 无 `getTree()` |
 
-**修复方案：**
-- 在 `IAccountService` 添加 `List<AccountTreeVO> getTree()` 方法
-- 在 `AccountServiceImpl` 实现：查询所有科目，使用已有 `TreeUtil.buildTree()` 构建树形结构
+**修复方案：** 在 `IAccountService` 添加 `List<AccountTreeVO> getTree()` 并在 `AccountServiceImpl` 实现。
 
 ---
 
@@ -75,49 +65,66 @@ export const FINANCE_ACCOUNT: RouteRecordRaw = {
 | 属性 | 值 |
 |------|-----|
 | 严重程度 | 🟡 中等 |
+| 状态 | ⬜ 未修复（后端任务范围） |
 | 发现方式 | 前后端契约对比 |
-| 问题描述 | 前端 `updateAccountStatusApi()` 调用 `PUT /finance/account/{id}/status`，但 `IAccountService` 接口中无 `updateStatus()` 方法 |
+| 问题描述 | 前端 `updateAccountStatusApi()` → `PUT /finance/account/{id}/status`，但 `IAccountService` 无 `updateStatus()` |
 
-**修复方案：**
-- 在 `IAccountService` 添加 `void updateStatus(Long id, Integer status)` 方法
-- 在 `AccountServiceImpl` 实现
+**修复方案：** 在 `IAccountService` 添加 `void updateStatus(Long id, Integer status)` 并实现。
 
 ---
 
-### 问题 #5：前端 AccountVO 缺少 status 字段（低优先级）
+### 问题 #5：前端 AccountVO 缺少 status 字段（已修复 ✅）
 
 | 属性 | 值 |
 |------|-----|
 | 严重程度 | 🟢 低 |
-| 发现方式 | 代码审查 |
-| 问题描述 | `finance-account.ts` 中 `AccountVO` 接口未显式声明 `status: number` 字段，但页面使用 `row.status` |
-
-**说明**：vue-tsc 编译通过（`row.status` 通过后端额外字段隐式传递），建议显式声明：
-```typescript
-export interface AccountVO {
-  // ...existing fields...
-  status: number   // 0=停用 1=启用
-}
-```
+| 状态 | ✅ 已修复 (W5) |
+| 发现方式 | TypeScript编译 |
+| 修复内容 | `finance-account.ts` 的 `AccountVO` 接口添加 `status: number` 字段 |
 
 ---
 
-### 问题 #6：表单 isForeignCurrency / isAuxiliary 类型不匹配（低优先级）
+### 问题 #6：表单 isForeignCurrency / isAuxiliary 类型不匹配（已修复 ✅）
 
 | 属性 | 值 |
 |------|-----|
 | 严重程度 | 🟢 低 |
+| 状态 | ✅ 已修复 (W5) |
 | 发现方式 | 代码审查 |
-| 问题描述 | `AccountSaveDTO` 定义 `isForeignCurrency: string`，但表单使用 `el-switch` 绑定 `boolean`，提交时需要手动转换为 `'true'/'false'` 字符串 |
+| 问题描述 | `AccountSaveDTO` 定义 `isForeignCurrency: string` 但表单 switch 绑定 `boolean`，代码中使用 `as unknown as string` 类型强转 |
+| 修复内容 | `AccountSaveDTO` 中 `isForeignCurrency` 和 `isAuxiliary` 改为 `boolean | string`；移除 `initFormData()` 和 `loadEditData()` 中的 `as unknown as string` 类型断言 |
 
-**说明**：vue-tsc 编译通过，功能正常。建议将 `AccountSaveDTO` 中 `isForeignCurrency` 和 `isAuxiliary` 改为 `boolean` 类型以消除类型不匹配。
+---
+
+### 问题 #7：filter-node-method TS类型错误（已修复 ✅）
+
+| 属性 | 值 |
+|------|-----|
+| 严重程度 | 🔴 编译错误 |
+| 状态 | ✅ 已修复 (W5) |
+| 发现方式 | `pnpm build` 编译 |
+| 问题描述 | `el-tree` 的 `filter-node-method` 接收 `TreeNodeData` 类型参数，但函数签名使用 `AccountTreeVO`，类型不兼容 |
+| 修复内容 | 函数参数类型改为 `Record<string, unknown>`，内部通过属性名访问 |
+
+---
+
+### 问题 #8：表单 category 下拉绑定错误（已修复 ✅）
+
+| 属性 | 值 |
+|------|-----|
+| 严重程度 | 🟡 中等 |
+| 状态 | ✅ 已修复 (W5) |
+| 发现方式 | 代码审查 |
+| 问题描述 | 科目类别下拉绑定 `formData.category`（string），但选项值为数字1-6；编辑时API返回category为字符串（如"资产类"）导致下拉无法正确选中 |
+| 修复内容 | 下拉改为绑定 `formData.accountType`（number）；添加 `onAccountTypeChange()` 自动同步 `formData.category`（string）；表单校验 prop 从 `category` 改为 `accountType` |
 
 ---
 
 ## 总结
 
-| 严重度 | 数量 | 说明 |
-|:---:|:---:|------|
-| 🔴 阻塞 | 2 | Controller缺失 + 路由未注册 |
-| 🟡 中等 | 2 | getTree() + updateStatus() 方法缺失 |
-| 🟢 低 | 2 | VO类型声明 + 布尔类型不匹配 |
+| 严重度 | 总数 | 已修复 | 未修复 | 说明 |
+|:---:|:---:|:---:|:---:|------|
+| 🔴 阻塞 | 3 | 2 | 1 | Controller缺失需后端任务修复 |
+| 🟡 中等 | 3 | 1 | 2 | getTree/updateStatus需后端任务修复 |
+| 🟢 低 | 2 | 2 | 0 | 全部修复 |
+| **合计** | **8** | **5** | **3** | 3项遗留为后端任务范围 |

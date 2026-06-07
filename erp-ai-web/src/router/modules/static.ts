@@ -166,6 +166,14 @@ export const FINANCE_BANKACCOUNT: RouteRecordRaw = {
   meta: { title: '银行账户', icon: 'CreditCard', keepAlive: true }
 }
 
+// 会计科目列表页
+export const FINANCE_ACCOUNT: RouteRecordRaw = {
+  path: '/finance/account',
+  name: 'FinanceAccount',
+  component: () => import('@/views/finance/account/index.vue'),
+  meta: { title: '会计科目', icon: 'List', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -180,6 +188,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   FINANCE_WORKBENCH,
   FINANCE_CURRENCYRATE,
   FINANCE_BANKACCOUNT,
+  FINANCE_ACCOUNT,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,
