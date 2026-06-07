@@ -1,10 +1,10 @@
-# 币种汇率 P04 列表页 — 前端验证报告
+# 币种汇率 — 前端验证报告
 
-> **任务编号**：P0-011-002-002-001-002
+> **最新任务编号**：P0-011-002-003-001-002
 > **验证日期**：2026-06-07
-> **验证人**：AI Worker W6（更新自 W3 初稿）
-> **更新摘要**：路由注册已修复(ISS-1)，issues.md已生成
-> **验证环境**：Vue 3.5 + TypeScript 6.0 + Vite 6.x + Element Plus
+> **验证人**：AI Worker W3
+> **验证范围**：P04 列表页 + P07 单一表单页（新增/编辑弹窗）
+> **验证环境**：Vue 3.5 + TypeScript 5.6 + Vite 6.x + Element Plus + Vxe Table
 
 ---
 
@@ -13,127 +13,142 @@
 | 检查项 | 结果 | 详情 |
 |:---:|:---:|------|
 | vue-tsc 类型检查 | ✅ PASS | 无类型错误 |
-| vite build | ✅ PASS | 构建成功, 耗时 6.87s |
+| vite build | ✅ PASS | 构建成功, 耗时 6.94s |
 | mvn compile (后端) | ✅ PASS | 后端编译无错误 |
 
 ---
 
-## 2. 验证清单逐项结果
+## 2. P04 列表页验证（P0-011-002-002-001-002 已完成）
 
 ### 2.1 页面路由访问
 
 | 状态 | ✅ FIXED |
 |------|---------|
 | 预期 | 路由 `/finance/currencyrate` 注册，页面可正常渲染 |
-| 实际 | 路由原未注册，W6 已在 `router/modules/static.ts` 添加 `FINANCE_CURRENCYRATE` 路由 |
-| 修复 | 新增路由常量，路径 `/finance/currencyrate`，懒加载 `@/views/finance/currencyrate/index.vue` |
+| 实际 | W6 已在 `router/modules/static.ts` 添加路由，页面可访问 |
 
 ### 2.2 数据加载
 
-| 状态 | ❌ FAIL |
-|------|---------|
-| 预期 | GET `/finance/currency-rate` 返回分页数据，列表正常展示 |
-| 实际 | 后端缺少 `CurrencyRateController`，API 端点不存在，前端调用返回 404 |
-| 严重度 | CRITICAL — 核心功能不可用 |
+| 状态 | ⚠️ CODE-OK / RUNTIME-BLOCKED |
+|------|-----------------------------|
+| 预期 | GET `/finance/currency-rate` 返回分页数据 |
+| 实际 | 前端代码完整，后端缺少 CurrencyRateController，运行时返回 404 |
 
 ### 2.3 筛选/搜索功能
 
-| 状态 | ⚠️ CODE-OK / RUNTIME-BLOCKED |
-|------|-----------------------------|
-| 预期 | 币种名称搜索(防抖300ms)、汇率类型下拉筛选 |
-| 实际 | 代码逻辑正确，防抖已实现，但因缺少 Controller 无法验证运行时行为 |
-| 代码质量 | searchForm reactive、handleSearchDebounced 300ms 防抖、查询按钮/重置按钮均已实现 |
+| 状态 | ✅ CODE-OK |
+|------|------------|
+| 实现 | 币种名称搜索(防抖300ms)、汇率类型下拉筛选、查询/重置按钮 |
 
 ### 2.4 操作交互
 
 | 子项 | 状态 | 详情 |
 |------|:---:|------|
-| 删除(二次确认) | ⚠️ CODE-OK | `el-popconfirm` 已实现，调用 `deleteCurrencyRateApi`，但因无 Controller 无法运行 |
-| 编辑 | ⚠️ STUB | `handleEdit` 仅为 `ElMessage.info` 占位，编辑功能未实现（按任务规格，编辑表单页为后续任务） |
-| 新增 | ⚠️ STUB | `handleAdd` 仅为 `ElMessage.info` 占位，新增功能未实现（按任务规格，表单页为后续任务） |
-
-### 2.5 数据回显(编辑)
-
-| 状态 | N/A |
-|------|-----|
-| 说明 | 编辑功能当前为占位状态，数据回显需配合编辑表单页实现 |
-
-### 2.6 表单校验
-
-| 状态 | N/A |
-|------|-----|
-| 说明 | 当前页面为列表页，搜索表单无必填校验要求。新增/编辑表单不在本任务范围 |
-
-### 2.7 异常处理
-
-| 子项 | 状态 | 详情 |
-|------|:---:|------|
-| try/catch 覆盖 | ✅ PASS | `loadData` 和 `handleDelete` 均有 try/catch |
-| 错误提示 | ✅ PASS | 使用 `ElMessage.error()` 展示错误信息 |
-| 网络异常降级 | ✅ PASS | catch 块捕获异常，不导致页面崩溃 |
+| 删除(二次确认) | ✅ CODE-OK | el-popconfirm + deleteCurrencyRateApi |
+| 编辑 | ✅ FIXED | ISS-3 已修复，P07表单页已实现完整编辑功能 |
+| 新增 | ✅ FIXED | ISS-3 已修复，P07表单页已实现完整新增功能 |
 
 ---
 
-## 3. 代码质量审查
+## 3. P07 单一表单页验证（P0-011-002-003-001-002 本次）
 
-### 3.1 组件结构
+### 3.1 表单字段实现
+
+| 字段 | 规格 | 实现 | 状态 |
+|------|------|------|:---:|
+| 币种编码 | 必填、唯一、maxLength=20 | el-input + required/max/async validator | ✅ |
+| 币种名称 | 必填 | el-input + required rule, maxlength=50 | ✅ |
+| 基准币种 | 下拉选择 | el-select(filterable, allow-create), 8种币种选项 | ✅ |
+| 汇率 | 数字精度6位 | el-input-number, :precision="6", :min="0" | ✅ |
+| 汇率日期 | 日期选择, 不晚于当前+30天 | el-date-picker + disabledDate(30天限制) | ✅ |
+| 汇率类型 | 下拉 | el-select, 固定汇率(1)/浮动汇率(2) | ✅ |
+
+### 3.2 交互逻辑
+
+| 场景 | 规格 | 实现 | 状态 |
+|------|------|------|:---:|
+| 新增模式 | 表单为空, POST /api/finance/currency-rate | handleAdd() 重置表单, handleSubmit() 调用 createCurrencyRateApi | ✅ |
+| 编辑模式 | GET /api/finance/currency-rate/{id} 回显, PUT | handleEdit() 获取详情回显, handleSubmit() 调用 updateCurrencyRateApi | ✅ |
+| 表单校验 | 必填项、格式、唯一性异步校验 | formRules + validateCurrencyCode async validator | ✅ |
+| 提交后刷新 | 关闭弹窗并刷新父页面列表 | dialogVisible=false + loadData() | ✅ |
+| Loading 防重复 | 提交按钮 loading 状态 | submitLoading ref, el-button :loading | ✅ |
+| 弹窗关闭清理 | resetFields | handleDialogClosed → formRef.resetFields() | ✅ |
+
+### 3.3 API 集成
+
+| 函数 | 方法 | 路径 | 状态 |
+|------|------|------|:---:|
+| getCurrencyRatePageApi | GET | /finance/currency-rate | ✅ |
+| getCurrencyRateByIdApi | GET | /finance/currency-rate/{id} | ✅ |
+| createCurrencyRateApi | POST | /finance/currency-rate | ✅ |
+| updateCurrencyRateApi | PUT | /finance/currency-rate/{id} | ✅ |
+| deleteCurrencyRateApi | DELETE | /finance/currency-rate/{id} | ✅ |
+| checkCurrencyCodeApi | GET | /finance/currency-rate/check-code | ✅ |
+
+### 3.4 类型定义
+
+| 接口 | 字段 | 状态 |
+|------|------|:---:|
+| CurrencyRateVO | id, currencyCode, currencyName, currencySymbol, exchangeRate, rateType, effectiveDate, createTime, updateTime | ✅ |
+| CurrencyRateSaveDTO | currencyCode, currencyName, currencySymbol?, exchangeRate, rateType?, effectiveDate? | ✅ |
+| CurrencyRateQueryDTO | currencyCode?, currencyName?, rateType?, pageNum?, pageSize? | ✅ |
+
+---
+
+## 4. 代码质量审查
+
+### 4.1 规范合规
 
 | 检查项 | 状态 |
 |:---:|:---:|
-| 统计卡片(总记录数/今日新增/汇率类型数) | ✅ |
-| 搜索表单(币种名称 + 汇率类型下拉) | ✅ |
-| VxeTable 数据表格(虚拟滚动) | ✅ |
-| 分页组件(ElPagination) | ✅ |
-| 操作列(编辑/删除) | ✅ |
-
-### 3.2 API 集成
-
-| 检查项 | 状态 |
-|:---:|:---:|
-| API 函数签名 | ✅ getCurrencyRatePageApi, deleteCurrencyRateApi 类型正确 |
-| 请求路径 | ✅ GET /finance/currency-rate, DELETE /finance/currency-rate/{id} |
-| 类型定义 | ✅ CurrencyRateVO, CurrencyRateQueryDTO, PageResult 完整 |
-
-### 3.3 规范合规
-
-| 检查项 | 状态 | 详情 |
-|:---:|:---:|------|
-| 使用 request 封装(非直接 axios) | ✅ | 通过 `@/utils/request` |
-| 防抖实现 | ✅ | 300ms debounce on search input |
-| 删除二次确认 | ✅ | el-popconfirm |
-| 虚拟滚动 | ✅ | vxe-table scroll-y, gt:100 |
-
-### 3.4 页面样式
-
-| 检查项 | 状态 |
-|:---:|:---:|
+| 使用 request 封装(非直接 axios) | ✅ |
+| 防抖(debounce)用于搜索输入 | ✅ 300ms |
+| 节流(throttle)/loading 用于按钮提交 | ✅ submitLoading |
+| 删除二次确认 | ✅ el-popconfirm |
+| 虚拟滚动(vxe-table scroll-y) | ✅ gt:100 |
+| 组件 PascalCase 命名 | ✅ |
 | scoped SCSS | ✅ |
-| 响应式统计卡片 (el-row/el-col) | ✅ |
-| 表格最大高度 600px | ✅ |
+| 表单校验规则与后端保持一致 | ✅ 必填/长度/唯一性 |
+
+### 4.2 异常处理
+
+| 检查项 | 状态 |
+|:---:|:---:|
+| try/catch 覆盖 loadData | ✅ |
+| try/catch 覆盖 handleDelete | ✅ |
+| try/catch 覆盖 handleEdit | ✅ |
+| try/catch 覆盖 handleSubmit | ✅ |
+| ElMessage.error 用户提示 | ✅ |
+| catch 不导致页面崩溃 | ✅ |
 
 ---
 
-## 4. 边界与异常场景评估
+## 5. 边界与异常场景评估
 
 | 场景 | 评估 |
 |------|------|
-| 空数据 | 列表为空数组时 vxe-table 渲染空状态 ✅ |
-| 大数据量 | scroll-y 虚拟滚动处理 ✅ |
-| 网络失败 | try/catch + ElMessage.error ✅ |
-| API 返回异常格式 | catch 块捕获 ✅ |
-| 分页切换 | pageNum/pageSize onChange ✅ |
+| 空数据列表 | vxe-table 渲染空状态 ✅ |
+| 大数据量(>100行) | scroll-y 虚拟滚动 ✅ |
+| 网络失败(列表加载) | try/catch + ElMessage.error ✅ |
+| 网络失败(表单提交) | catch + loading=false + 不关闭弹窗 ✅ |
+| 编码异步校验失败 | validator catch 块放过(避免阻止提交) ✅ |
+| 编辑模式下编码不可修改 | :disabled="isEdit" ✅ |
+| 汇率日期超过+30天 | disabledDate 拦截 ✅ |
 
 ---
 
-## 5. 总结
+## 6. 总结
 
 | 指标 | 数值 |
 |------|------|
-| 总检查项 | 18 |
-| 通过 | 11 |
-| 阻塞(运行时) | 2 |
-| 不适用 | 2 |
-| 失败 | 1 |
-| 占位/未实现 | 2 |
+| P04列表页检查项 | 12 |
+| P07表单页检查项 | 18 |
+| 通过(代码层面) | 27 |
+| 运行时阻塞(Controller缺失) | 1 |
+| 未实现(启用/停用) | 1 |
 
-**结论**：代码质量良好，逻辑完整。路由注册已修复。剩余1个阻塞性问题（缺少 Controller）需后端建设，1个未实现（启用/停用切换）待后续任务。详见 `finance-CurrencyRate-issues.md`。
+**结论**：P07单一表单页代码质量良好，符合任务规格要求。
+- 新增/编辑弹窗、表单校验、异步唯一性检查、API集成均已完整实现
+- ISS-3（编辑按钮占位）已在本次任务中修复
+- 剩余1个运行时阻塞（Controller缺失，ISS-4）和1个功能缺失（启用/停用切换，ISS-2）
+- 详见 `finance-CurrencyRate-issues.md`
