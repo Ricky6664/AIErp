@@ -413,7 +413,7 @@ function handleSearchDebounced(): void {
   }, 300)
 }
 
-async function handleSearch(): void {
+async function handleSearch(): Promise<void> {
   pagination.pageNum = 1
   await loadData()
 }
