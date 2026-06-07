@@ -1073,7 +1073,7 @@
 ### 模块完成: P0-007 ✅
 
 | P0-007-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T23:30 | ✅ | ProductClassService接口(extends IServiceX<ProductClass>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductClassDTO/ProductClassQueryDTO/ProductClassVO + ProductClass实体 | 9c6e2343 |
-| P0-007-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-08T01:33 | ✅ | ProductClassServiceImpl(extends ServiceImpl<ProductClassMapper,ProductClass>)+CRUD+业务校验(同级名称唯一/parentId引用/子分类检查/排序号0~9999)+@Transactional+BusinessException + ProductClassMapper | (pending) |
+| P0-007-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-08T01:33 | ✅ | ProductClassServiceImpl(extends ServiceImpl<ProductClassMapper,ProductClass>)+CRUD+业务校验(同级名称唯一/parentId引用/子分类检查/排序号0~9999)+@Transactional+BusinessException + ProductClassMapper | 4b922993 |
 
 
 ### 模块完成: P0-013 ✅
