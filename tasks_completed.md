@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-08T01:30
-> **归档总数**：573 条
+> ****最后更新**：2026-06-08T02:11
+> ****归档总数**：574 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -1728,6 +1728,17 @@
 | 摘要 | 创建WorkbenchVO(4指标+3分布列表+3内部类)+OrgWorkbenchService接口+OrgWorkbenchServiceImpl(getWorkbenchData含@Cacheable缓存/4项计数/部门类型分布/公司部门统计/人员分布含占比)+OrgWorkbenchController(GET /api/org/workbench)+OrgDepartment新增deptType字段,编译通过 |
 | Git commit | 4fa56441 |
 | 工人 | W6 |
+n#### P0-006-001-004-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-006-001-004-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-08T02:11 |
+| 状态 | ✅ |
+| 摘要 | OrgWorkbenchServiceImplTest(15用例全通过):KpiCounts(4指标验证+空数据)+DeptTypeDistribution(3类型统计+null过滤)+CompanyDeptCount(公司部门映射+禁用过滤)+DeptStaffDistribution(分布+百分比)+HrmFallback(降级处理)+MultiTenant(3场景租户ID)+CacheAnnotation(2注解验证)+TransactionalAnnotation(1注解验证)+DataFilter禁用过滤 |
+| Git commit | TBD |
+| 工人 | W5 |
 
 | P0-007-001-001-001-003 | 验证Service | 2026-06-08T01:43 | ✅ | ProductClassServiceTest(45用例全通过)+@ExtendWith(MockitoExtension)+@Nested分组(list/getById/save/update/delete/Transactional/EdgeCases/ToVO)+sortOrder边界(0/9999)+parentId校验+className唯一性+子分类删除检查+transaction注解验证+toVO映射 | 1d76436d |
 
