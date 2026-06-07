@@ -40,10 +40,10 @@
 
 | 变量 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
-| `DB_HOST` | string | `postgres` | 数据库主机名（容器内服务名） |
-| `DB_PORT` | int | `5432` | 数据库端口 |
-| `DB_NAME` | string | `erp` | 数据库名称 |
-| `DB_USER` | string | `erp_user` | 数据库用户名 |
+| `DB_HOST` | string | `postgres` | 数据库主机名（应用连接用） |
+| `DB_PORT` | int | `5432` | 数据库端口（应用连接用） |
+| `POSTGRES_DB` | string | `erp` | 数据库名称 |
+| `POSTGRES_USER` | string | `erp_user` | 数据库用户名 |
 | `DB_PASSWORD` | string | — | 数据库密码（必填，≥16字符强密码） |
 | `DB_POOL_SIZE` | int | `20` | 连接池大小 |
 
@@ -51,25 +51,25 @@
 
 | 变量 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
-| `REDIS_HOST` | string | `redis` | Redis 主机名 |
-| `REDIS_PORT` | int | `6379` | Redis 端口 |
+| `REDIS_HOST` | string | `redis` | Redis 主机名（应用连接用） |
+| `REDIS_PORT` | int | `6379` | Redis 端口（应用连接用） |
 | `REDIS_PASSWORD` | string | — | Redis 密码（必填） |
 
 ### 3.5 MinIO 对象存储
 
 | 变量 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
-| `MINIO_ENDPOINT` | string | `http://minio:9000` | MinIO 服务端点 |
-| `MINIO_ACCESS_KEY` | string | `erp_minio` | MinIO Access Key |
-| `MINIO_SECRET_KEY` | string | — | MinIO Secret Key（必填） |
+| `MINIO_ENDPOINT` | string | `http://minio:9000` | MinIO 服务端点（应用连接用） |
+| `MINIO_ROOT_USER` | string | `minioadmin` | MinIO 管理员用户名 |
+| `MINIO_ROOT_PASSWORD` | string | — | MinIO 管理员密码（必填） |
 | `MINIO_BUCKET` | string | `erp-files` | 默认存储桶名称 |
 
 ### 3.6 Elasticsearch
 
 | 变量 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
-| `ES_HOST` | string | `elasticsearch` | Elasticsearch 主机名 |
-| `ES_PORT` | int | `9200` | Elasticsearch 端口 |
+| `ES_HOST` | string | `elasticsearch` | Elasticsearch 主机名（应用连接用） |
+| `ES_PORT` | int | `9200` | Elasticsearch 端口（应用连接用） |
 | `ES_USERNAME` | string | `elastic` | ES 用户名（生产环境启用 xpack 后生效） |
 | `ES_PASSWORD` | string | — | ES 密码（生产环境必填） |
 
@@ -123,7 +123,7 @@
 ## 五、密钥生成命令
 
 ```bash
-# 数据库密码 / Redis 密码 / MinIO Secret Key / ES 密码
+# 数据库密码 / Redis 密码 / MinIO Root Password / ES 密码
 openssl rand -base64 32
 
 # JWT 签名密钥（256位）
