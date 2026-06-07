@@ -1031,6 +1031,7 @@
 |---------|---------|---------|:---:|------|-----|
 | P0-011-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T17:45 | ✅ | ICurrencyRateService接口(extends IServiceX<CurrencyRateEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 | 1f792e1d |
 | P0-011-001-002-001-001 | 编写接口定义Service接口 | 2026-06-07T18:10 | ✅ | IBankAccountService接口(extends IServiceX<BankAccountEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + BankAccountEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 52fc201f |
+| P0-011-001-002-001-003 | 验证Service | 2026-06-07T21:49 | ✅ | BankAccountServiceTest(40 test cases: CRUD/create/update/delete/getById/pageList+状态流转+唯一性校验+@Transactional注解验证+边界条件)+Mockito+JUnit5+Spy + 测试报告 | (pending) |
 
 
 ### P0-010 - 仓库与库位管理开发
@@ -1038,6 +1039,7 @@
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
 |---------|---------|---------|:---:|------|-----|
 | P0-010-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T18:10 | ✅ | IWarehouseService接口(extends IServiceX<WarehouseEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + WarehouseEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 2b118054 |
+| P0-010-002-000-003-001 | 工作台全流程联调 | 2026-06-07T21:42 | ✅ | 工作台主页面index.vue(KPI+图表+待办三区联调)+Promise.allSettled+计数器loading+时间筛选联动+异常降级+Symbol上下文+types.ts | 0c9cc54c |
 
 
 ### 模块完成: P0-007 ✅
@@ -1182,3 +1184,5 @@
 | P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07 21:22:55 | ✅ | 编写BankAccountServiceImpl实现类，包含CRUD+唯一性校验+状态流转校验+@Transactional | 7b195f18 |
 
 | P0-011-001-003-001-001 | 编写接口定义Service接口 | 2026-06-07T21:30 | ✅ | IAccountService接口(extends IServiceX<AccountEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + AccountEntity/AccountCreateDTO/AccountUpdateDTO/AccountQueryDTO/AccountVO | f6a76404 |
+
+| P0-010-002-000-002-001 | echarts图表组件开发 | 2026-06-07T22:25 | ✅ | 创建ChartArea.vue(折线图趋势+柱状图对比+饼图分布4图2x2布局)+扩展warehouse-workbench.ts(ChartTrendItem/ChartDistributionItem/WarehouseWorkbenchChartVO类型+getWarehouseWorkbenchChartApi)+ResizeObserver自适应+日/周/月时间范围筛选+ECharts showLoading/hideLoading | 1262abf1 |
