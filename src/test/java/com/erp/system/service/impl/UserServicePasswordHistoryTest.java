@@ -2,6 +2,7 @@ package com.erp.system.service.impl;
 
 import com.erp.auth.entity.AuthPasswordPolicy;
 import com.erp.auth.service.AuthPasswordPolicyService;
+import com.erp.auth.service.LoginAttemptService;
 import com.erp.common.exception.BusinessException;
 import com.erp.system.entity.SysUser;
 import com.erp.system.mapper.UserMapper;
@@ -41,6 +42,9 @@ class UserServicePasswordHistoryTest {
     @Mock
     private AuthPasswordPolicyService passwordPolicyService;
 
+    @Mock
+    private LoginAttemptService loginAttemptService;
+
     private UserServiceImpl userService;
 
     private SysUser testUser;
@@ -50,7 +54,7 @@ class UserServicePasswordHistoryTest {
 
     @BeforeEach
     void setUp() {
-        userService = new UserServiceImpl(passwordPolicyService);
+        userService = new UserServiceImpl(passwordPolicyService, loginAttemptService);
         ReflectionTestUtils.setField(userService, "baseMapper", userMapper);
 
         testUser = new SysUser();

@@ -1107,3 +1107,13 @@
 | 状态 | ✅ |
 | 摘要 | 编写WorkbenchAggregateService接口+WorkbenchAggregateServiceImpl实现类，封装工作台KPI聚合查询和趋势查询，集成@Cacheable缓存(TTL=5min)，使用Sa-Token获取租户ID实现多租户隔离 |
 | 工人 | W1 |
+
+### P0-010-001-000-001-003 验证Service
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-010-001-000-001-003 |
+| 完成时间 | 2026-06-07T20:50 |
+| 状态 | ✅ |
+| 摘要 | 编写WorkbenchAggregateServiceTest(16用例全通过)，覆盖KPI统计/仓库趋势/库位趋势正常流程+null处理+租户ID获取(String/Long/null/异常)+参数传递验证+@Cacheable注解验证 |
+| 工人 | W3 |
