@@ -1042,6 +1042,8 @@
 |---------|---------|---------|:---:|------|-----|
 | P0-010-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T18:10 | ✅ | IWarehouseService接口(extends IServiceX<WarehouseEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + WarehouseEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 2b118054 |
 | P0-010-002-000-003-001 | 工作台全流程联调 | 2026-06-07T21:42 | ✅ | 工作台主页面index.vue(KPI+图表+待办三区联调)+Promise.allSettled+计数器loading+时间筛选联动+异常降级+Symbol上下文+types.ts | 0c9cc54c |
+| P0-010-002-003-001-001 | 编写核心代码 | 2026-06-07T21:55 | ✅ | 库位管理P04单一列表页(index.vue)+API模块(location.ts)+类型定义(location.ts) |
+| P0-010-002-002-001-001 | 编写核心代码 | 2026-06-07T21:55 | ✅ | 仓库列表页集成P07表单弹窗(el-dialog+el-form)+新增/编辑双模式+表单校验(名称必填/类型必选/手机号格式/地址长度)+createWarehouse/updateWarehouse/getWarehouseDetail API联调+状态切换+submitLoading防重复 | acb2ca85 |
 
 
 ### 模块完成: P0-007 ✅
@@ -1192,7 +1194,7 @@
 | 状态 | ✅ |
 | 摘要 | 验证仓库定义列表页(审核index.vue+warehouse.ts+types代码/运行pnpm build编译通过/编写测试报告含8项验证+5项边界分析/问题清单4项含路由未注册+API路径不一致+缺负责人列+统计仅当前页/代码规范合规/异常处理完善) |
 | 工人 | W3 |
-| Git Commit | [待填入] |
+| Git Commit | 92df00d6 |
 
 | P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07 21:22:55 | ✅ | 编写BankAccountServiceImpl实现类，包含CRUD+唯一性校验+状态流转校验+@Transactional | 7b195f18 |
 
