@@ -1451,7 +1451,7 @@
 | 状态 | ✅ |
 | 摘要 | 编写CacheManagerController(5个RESTful端点: list/value/stats/deleteByKey/deleteByPattern)+@RequirePermission("system:cache:manage")+RT<T>统一响应+Swagger注解完整 |
 | 工人 | W5 |
-| Git SHA | (待提交)
+| Git SHA | 6f639e60
 
 | P0-012-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T23:50 | ✅ | 创建IEmployeeService接口(继承IServiceX)及相关Entity/DTO/VO | (pending-commit) |
 | P0-012-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-07T23:40 | ✅ | 创建EmployeeServiceImpl(继承ServiceImpl/完整CRUD/工号唯一性校验/身份证脱敏)及EmployeeMapper | (pending-commit) |
