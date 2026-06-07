@@ -1013,7 +1013,7 @@
 | P0-006-001-001-001-001 | 编写接口定义Service接口 | 2026-06-08T00:41 | ✅ | OrgCompanyService接口(5方法:page/getById/create/update/delete)+CompanyCreateDTO(7字段+校验注解)+CompanyUpdateDTO+CompanyQueryDTO+CompanyListVO(9字段+@JsonFormat)+CompanyDetailVO(含扩展字段)+OrgCompany实体 | (pending) |
 | P0-006-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-08T01:05 | ✅ | OrgCompanyServiceImpl(5CRUD方法):page(keyword模糊搜索+enabled筛选)+create(名称唯一性+信用代码格式+唯一性校验)+update(乐观锁+排除自身)+delete(关联部门检查+逻辑删除)+@OperLog记录 | (pending) |
 | P0-006-001-001-001-003 | 验证Service | 2026-06-08T01:12 | ✅ | OrgCompanyServiceImplTest(20测试用例):create(5)/update(3)/delete(3)/page(2)/getById(2)/事务回滚(1)/@Transactional注解验证(4)+5个Salary桩文件 | f911aa50 |
-| P0-006-001-002-001-003 | 验证Service | 2026-06-08T01:58 | ✅ | OrgDepartmentServiceImplTest(22测试用例全部通过):create(5含companyNotFound/duplicateName/diffParent/topLevel)+update(3含circularRef_self+circularRef_descendant)+delete(4含childDept/position/employee)+tree(2含multiLevel+empty)+page(1)+getById(2)+@Transactional(5) | TBD |
+| P0-006-001-002-001-003 | 验证Service | 2026-06-08T01:58 | ✅ | OrgDepartmentServiceImplTest(22测试用例全部通过):create(5含companyNotFound/duplicateName/diffParent/topLevel)+update(3含circularRef_self+circularRef_descendant)+delete(4含childDept/position/employee)+tree(2含multiLevel+empty)+page(1)+getById(2)+@Transactional(5) | 10fbe0bc |
 
 ### P0-013 - 部署与DevOps基础
 
@@ -1335,6 +1335,17 @@
 | 摘要 | 创建finance-workbench API层(getFinanceWorkbenchApi调用/api/finance/workbench)和财务工作台页面组件(index.vue含KPI卡片4指标/科目类型饼图/月度趋势折线图/loading错误状态/Suspense降级/ECharts渲染/resize监听)，注册静态路由/finance/workbench并添加中英文i18n词条，vue-tsc类型检查通过 |
 | 工人 | W5 |
 | Git SHA | (待提交)
+
+### P0-011-001-006-001-001 ✅
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-011-001-006-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-08T01:58 |
+| 状态 | ✅ |
+| 摘要 | 创建FinanceWorkbenchAggregateServiceImpl(@Cacheable缓存/KPI聚合/科目类型分布/月度趋势/多租户隔离)+FinanceWorkbenchAggregateVO(聚合数据VO/TrendItem内部类)，mvn compile通过，后续验证任务(001-006-001-002)已通过 |
+| 工人 | W4 |
+| Git SHA | 10fbe0b
 
 ### P0-011-001-006-001-002 ✅
 | 属性 | 值 |
