@@ -247,12 +247,29 @@
         @submit.prevent
       >
         <el-row :gutter="20">
+          <el-col :span="24">
+            <el-form-item label="上级科目" prop="parentId">
+              <el-tree-select
+                v-model="formData.parentId"
+                :data="treeData"
+                :props="treeSelectProps"
+                :check-strictly="true"
+                :render-after-expand="false"
+                placeholder="请选择上级科目（不选则为根科目）"
+                clearable
+                style="width: 100%"
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
           <el-col :span="12">
-            <el-form-item label="科目编码" prop="accountCode">
+            <el-form-item label="科目编码">
               <el-input
                 v-model="formData.accountCode"
-                placeholder="请输入科目编码"
+                placeholder="保存后自动生成"
                 maxlength="20"
+                disabled
               />
             </el-form-item>
           </el-col>
@@ -315,12 +332,8 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="辅助核算" prop="isAuxiliary">
-              <el-input
-                v-model="formData.isAuxiliary"
-                placeholder="请输入辅助核算"
-                maxlength="100"
-              />
+            <el-form-item label="辅助核算">
+              <el-switch v-model="formData.isAuxiliary" />
             </el-form-item>
           </el-col>
         </el-row>
@@ -394,6 +407,12 @@ const treeProps = {
   label: 'accountName'
 }
 
+const treeSelectProps = {
+  children: 'children',
+  label: 'accountName',
+  value: 'id'
+}
+
 const accountTypeOptions = [
   { label: '资产类', value: 1 },
   { label: '负债类', value: 2 },
@@ -438,18 +457,14 @@ const initFormData = (): AccountSaveDTO => ({
   balanceDirection: 1,
   isCash: false,
   isBank: false,
-  isForeignCurrency: '',
-  isAuxiliary: '',
+  isForeignCurrency: false as unknown as string,
+  isAuxiliary: false as unknown as string,
   status: 1
 })
 
 const formData = reactive<AccountSaveDTO>(initFormData())
 
 const formRules: FormRules = {
-  accountCode: [
-    { required: true, message: '请输入科目编码', trigger: 'blur' },
-    { max: 20, message: '科目编码最长20个字符', trigger: 'blur' }
-  ],
   accountName: [
     { required: true, message: '请输入科目名称', trigger: 'blur' },
     { max: 100, message: '科目名称最长100个字符', trigger: 'blur' }
@@ -496,8 +511,10 @@ async function loadEditData(id: number): Promise<void> {
     formData.balanceDirection = detail.balanceDirection
     formData.isCash = detail.isCash
     formData.isBank = detail.isBank
-    formData.isForeignCurrency = detail.isForeignCurrency || ''
-    formData.isAuxiliary = detail.isAuxiliary || ''
+    formData.isForeignCurrency = (detail.isForeignCurrency === 'true' ||
+      detail.isForeignCurrency === '1') as unknown as string
+    formData.isAuxiliary = (detail.isAuxiliary === 'true' ||
+      detail.isAuxiliary === '1') as unknown as string
     formData.status = detail.status
     dialogVisible.value = true
   } catch {
@@ -511,10 +528,18 @@ async function handleSubmit(): Promise<void> {
   submitLoading.value = true
   try {
     if (isEdit.value && editId.value != null) {
-      await updateAccountApi(editId.value, { ...formData })
+      await updateAccountApi(editId.value, {
+        ...formData,
+        isForeignCurrency: formData.isForeignCurrency ? 'true' : 'false',
+        isAuxiliary: formData.isAuxiliary ? 'true' : 'false'
+      })
       ElMessage.success('更新成功')
     } else {
-      await createAccountApi({ ...formData })
+      await createAccountApi({
+        ...formData,
+        isForeignCurrency: formData.isForeignCurrency ? 'true' : 'false',
+        isAuxiliary: formData.isAuxiliary ? 'true' : 'false'
+      })
       ElMessage.success('新增成功')
     }
     dialogVisible.value = false
