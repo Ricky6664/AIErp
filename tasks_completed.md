@@ -1413,6 +1413,7 @@
 | P0-012-001-002-001-001 | 编写接口定义Service接口 | 2026-06-08T00:20 | ✅ | 创建IRecruitmentService接口(继承IServiceX<RecruitmentEntity>/5个CRUD方法/@Valid入参/@Transactional写操作)及RecruitmentEntity/DTO/VO | (pending-commit) |
 | P0-012-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-08T00:40 | ✅ | 创建RecruitmentServiceImpl(继承ServiceImpl/完整CRUD/截止日期校验+状态流转校验/@Transactional+BusinessException+@OperLog)+RecruitmentMapper | (pending-commit) |
 | P0-012-001-003-001-001 | 编写接口定义Service接口 | 2026-06-08T00:34 | ✅ | 创建IAttendanceService接口(继承IServiceX<AttendanceEntity>/5个CRUD方法/@Valid入参/@Transactional写操作/完整JavaDoc)及AttendanceEntity/DTO/VO | (pending-commit) |
+| P0-012-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-08T00:42 | ✅ | 创建AttendanceServiceImpl(继承ServiceImpl/完整CRUD/员工+日期唯一性校验/@Transactional+BusinessException+@OperLog)+AttendanceMapper | (pending-commit) |
 
 ### P0-011-001-002-001-001 ✅
 | 属性 | 值 |
