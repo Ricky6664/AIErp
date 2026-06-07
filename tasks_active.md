@@ -229,10 +229,6 @@
 
 | 文件路径 | 任务编号 | 工人 |
 |---------|---------|:---:|
-| src/main/java/com/erp/module/srm/service/SupplierClassService.java | P0-009-001-001-001-001 | W2 |
-| src/main/java/com/erp/module/srm/dto/SupplierClassDTO.java | P0-009-001-001-001-001 | W2 |
-| src/main/java/com/erp/module/srm/dto/SupplierClassQueryDTO.java | P0-009-001-001-001-001 | W2 |
-| src/main/java/com/erp/module/srm/vo/SupplierClassVO.java | P0-009-001-001-001-001 | W2 |
 
 ---
 
@@ -245,7 +241,6 @@
 | 模块编号 | 工人 | 执行模式 |
 |---------|:---:|:-------:|
 | P0-008 | W4 | PARALLEL |
-| P0-009 | W2 | PARALLEL |
 | P0-011 | W7 | PARALLEL |
 
 ---
@@ -256,9 +251,9 @@
 |------|------|
 | 活跃模块数 | 7 |
 | 叶子任务总数 | 109 |
-| 执行中 | 2 |
-| 已完成 ✅ | 68 |
+| 执行中 | 1 |
+| 已完成 ✅ | 69 |
 | 待认领 | 38 |
-| 活跃认领数 | 2 |
-| 文件锁数量 | 4 |
-| 占用模块数 | 3 |
+| 活跃认领数 | 1 |
+| 文件锁数量 | 0 |
+| 占用模块数 | 2 |
