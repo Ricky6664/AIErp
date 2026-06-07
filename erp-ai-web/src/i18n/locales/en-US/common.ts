@@ -52,6 +52,16 @@ const common = {
       chartTitle: 'Analytics',
       trendTitle: 'Monthly Trend',
       distTitle: 'Account Type Distribution'
+    },
+    voucherword: {
+      title: 'Voucher Word Management',
+      wordCode: 'Voucher Word Code',
+      wordName: 'Voucher Word Name',
+      sortOrder: 'Sort Order',
+      status: 'Status',
+      addTitle: 'Add Voucher Word',
+      editTitle: 'Edit Voucher Word',
+      confirmDelete: 'Confirm to delete this voucher word?'
     }
   },
   operate: 'Operation',

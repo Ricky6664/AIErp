@@ -174,6 +174,14 @@ export const FINANCE_ACCOUNT: RouteRecordRaw = {
   meta: { title: '会计科目', icon: 'List', keepAlive: true }
 }
 
+// 凭证字列表页
+export const FINANCE_VOUCHERWORD: RouteRecordRaw = {
+  path: '/finance/voucherword',
+  name: 'FinanceVoucherword',
+  component: () => import('@/views/finance/voucherword/index.vue'),
+  meta: { title: '凭证字管理', icon: 'Document', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -189,6 +197,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   FINANCE_CURRENCYRATE,
   FINANCE_BANKACCOUNT,
   FINANCE_ACCOUNT,
+  FINANCE_VOUCHERWORD,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,

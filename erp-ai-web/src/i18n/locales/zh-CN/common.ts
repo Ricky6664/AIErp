@@ -85,6 +85,16 @@ const common = {
       chartTitle: '数据分析',
       trendTitle: '月创建趋势',
       distTitle: '科目类型分布'
+    },
+    voucherword: {
+      title: '凭证字管理',
+      wordCode: '凭证字编码',
+      wordName: '凭证字名称',
+      sortOrder: '排序号',
+      status: '状态',
+      addTitle: '新增凭证字',
+      editTitle: '编辑凭证字',
+      confirmDelete: '确认删除该凭证字？'
     }
   }
 }
