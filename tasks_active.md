@@ -239,6 +239,7 @@
 
 | src/test/java/com/erp/module/product/service/ProductClassServiceTest.java | P0-007-001-001-001-003 | W5 |
 | src/test/resources/sql/product/productclass_test_data.sql | P0-007-001-001-001-003 | W5 |
+| erp-finance-module/src/main/java/com/erp/finance/service/ICurrencyRateService.java | P0-011-001-001-001-001 | W6 |
 
 ---
 ## 六、模块占用表
@@ -249,6 +250,7 @@
 |---------|:---:|:-------:|
 
 | P0-007 | W5 | PARALLEL |
+| P0-011 | W6 | PARALLEL |
 
 
 

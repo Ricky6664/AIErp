@@ -1503,10 +1503,19 @@
 - **完成时间**：2026-06-08T00:45
 - **状态**：✅ 已完成
 - **摘要**：会计科目树形列表页前端代码验证通过，前端类型编译通过，36项验证覆盖页面/API/筛选/交互/表单/异常，发现4个阻塞/中等问题（Controller缺失+路由未注册+Service方法缺失+VO类型声明）
-- **交付物**：
-  - docs/test-reports/finance-Account-frontend-test.md
-  - docs/test-reports/finance-Account-issues.md
 - **工人**：W5
+
+
+## P0-011-002-003-001-002 — 验证功能
+
+- **完成时间**：2026-06-08T01:34
+- **状态**：✅ 已完成
+- **摘要**：币种汇率P07单一表单页验证通过，后端mvn compile通过，前端currencyrate组件零TS错误，37项验证覆盖页面/API/表单校验/弹窗交互/异常处理，发现5个问题（2严重：Controller缺失+check-code端点缺失，1中：启用停用功能，2低：debounce清理+路径确认）
+- **交付物**：
+  - docs/test-reports/finance-CurrencyRate-frontend-test.md
+  - docs/test-reports/finance-CurrencyRate-issues.md
+- **工人**：W4
+- **Git SHA**：(待提交)
 
 - **任务编号**：P0-012-001-002-001-003
 - **任务名称**：验证Service
