@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-07T22:29
-> **归档总数**：566 条
+> **最后更新**：2026-06-07T22:55
+> **归档总数**：567 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -1275,3 +1275,25 @@
 | 摘要 | 创建AccountingPeriodServiceImpl(继承ServiceImpl<AccountingPeriodMapper,AccountingPeriodEntity>/实现IAccountingPeriodService/CRUD/crate含重叠校验/update含存在性+重叠校验/delete含存在性校验+软删除/getById含存在性校验/pageList含fiscalYear/period/periodStatus筛选+排序/@Transactional/BusinessException)+AccountingPeriodMapper(BaseMapperX)/mvn compile通过 |
 | 工人 | W4 |
 | Git SHA | bb0b97ff
+
+### P0-011-001-005-001-003 ✅
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-011-001-005-001-003 |
+| 任务名称 | 验证Service |
+| 完成时间 | 2026-06-07T22:50 |
+| 状态 | ✅ |
+| 摘要 | 创建AccountingPeriodServiceTest(35个测试用例全通过：create6/update5/delete2/getById2/pageList10/toVO1/@Transactional5/边界4)，测试报告已生成，mvn compile通过 |
+| 工人 | W3 |
+| Git SHA | e42fd55d
+
+### P0-011-002-001-001-001 ✅
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-011-002-001-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-07T22:55 |
+| 状态 | ✅ |
+| 摘要 | 创建finance-workbench API层(getFinanceWorkbenchApi调用/api/finance/workbench)和财务工作台页面组件(index.vue含KPI卡片4指标/科目类型饼图/月度趋势折线图/loading错误状态/Suspense降级/ECharts渲染/resize监听)，注册静态路由/finance/workbench并添加中英文i18n词条，vue-tsc类型检查通过 |
+| 工人 | W5 |
+| Git SHA | (待提交)

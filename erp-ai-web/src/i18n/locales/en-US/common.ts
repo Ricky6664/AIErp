@@ -39,6 +39,21 @@ const common = {
     loginFailed: 'Login failed',
     welcomeBack: 'Welcome back'
   },
+  // Finance workbench
+  finance: {
+    workbench: {
+      title: 'Finance Settings Workbench',
+      desc: 'Overview of core finance settings metrics',
+      kpiTitle: 'KPIs',
+      currencyRateCount: 'Currency Rates',
+      bankAccountCount: 'Bank Accounts',
+      accountCount: 'Accounts',
+      voucherWordCount: 'Voucher Words',
+      chartTitle: 'Analytics',
+      trendTitle: 'Monthly Trend',
+      distTitle: 'Account Type Distribution'
+    }
+  },
   operate: 'Operation',
   status: 'Status',
   createTime: 'Create Time',

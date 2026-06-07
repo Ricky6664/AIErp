@@ -71,6 +71,21 @@ const common = {
     loginSuccess: '登录成功',
     loginFailed: '登录失败',
     welcomeBack: '欢迎回来'
+  },
+  // 财务工作台
+  finance: {
+    workbench: {
+      title: '财务基础设置工作台',
+      desc: '概览财务基础设置核心数据指标',
+      kpiTitle: '数据概览',
+      currencyRateCount: '币种汇率',
+      bankAccountCount: '银行账户',
+      accountCount: '会计科目',
+      voucherWordCount: '凭证字',
+      chartTitle: '数据分析',
+      trendTitle: '月创建趋势',
+      distTitle: '科目类型分布'
+    }
   }
 }
 

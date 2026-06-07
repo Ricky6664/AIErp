@@ -142,6 +142,14 @@ export const DEMO_EDIT_TABLE_READONLY: RouteRecordRaw = {
   meta: { title: '只读/禁用态演示', icon: 'View', keepAlive: true }
 }
 
+// 财务基础设置工作台
+export const FINANCE_WORKBENCH: RouteRecordRaw = {
+  path: '/finance/workbench',
+  name: 'FinanceWorkbench',
+  component: () => import('@/views/finance/financeworkbench/index.vue'),
+  meta: { title: '财务工作台', icon: 'DataBoard', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -153,6 +161,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   DEMO_EDIT_TABLE_READONLY,
   USER_WORKBENCH,
   AUTH_CONFIG_WORKBENCH,
+  FINANCE_WORKBENCH,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,
