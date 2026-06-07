@@ -14,11 +14,11 @@
 |------|-----|
 | 项目状�?| 🔄 开发中 |
 | ��ǰģ�� | P0-011 �����������ģ�鿪�� |
-| 当前任务 | P0-012-001-004-001-002 |
+| 当前任务 | P0-011-002-009-001-002 |
 | 当前任务状态 | ✅ 已完成 |
 | 当前工人 | W6 |
 | ��ǰ feature 分支 | feature/P0-011 |
-| 最后完成的任务 | P0-012-001-004-001-002 ✅ |
+| 最后完成的任务 | P0-011-002-009-001-002 ✅ |
 ---
 ## 二、取任务游标
 | 属�?| �?|
@@ -39,7 +39,7 @@
 | P0-006-001-001-001-001 | 编写接口定义Service接口 | L4 | ✅ | W4 |
 | P0-006-001-001-001-002 | 编写ServiceImpl实现类 | L3 | ✅ | W4 |
 | P0-006-001-001-001-003 | 验证Service | L3 | ✅ | W4 |
-| P0-006-001-002-001-001 | 编写接口定义Service接口 | L4 | �?| W11 |
+| P0-006-001-002-001-001 | 编写接口定义Service接口 | L4 | 🔄 | W7 |
 | P0-006-001-002-001-002 | 编写ServiceImpl实现�?| L3 | �?| W11 |
 | P0-006-001-002-001-003 | 验证Service | L3 | �?| W2 |
 | P0-006-001-003-001-001 | 编写接口定义Service接口 | L4 | ✅ | W5 |
@@ -144,7 +144,7 @@
 | P0-011-002-008-001-001 | 编写核心代码 | L3 | ✅ | W6 |
 | P0-011-002-008-001-002 | 验证功能 | L3 | ✅ | W5 |
 | P0-011-002-009-001-001 | 编写核心代码 | L3 | ✅ | W4 |
-| P0-011-002-009-001-002 | 验证功能 | L3 | 🔄 | W4 |
+| P0-011-002-009-001-002 | 验证功能 | L3 | ✅ | W4 |
 | P0-011-002-010-001-001 | 编写CacheManager Service | L3 | ✅ | W4 |
 
 ### P0-012 - HRM人力资源管理模块开发（PARALLEL）
@@ -220,7 +220,7 @@
 ## 四、活跃认领注册表
 | 任务编号 | 工人 | 认领时间 |
 |---------|:---:|---------|
-| P0-011-002-009-001-002 | W4 | 2026-06-08 01:24 |
+| P0-006-001-002-001-001 | W7 | 2026-06-08 |
 
 
 
@@ -233,7 +233,19 @@
 > 认领时追加（所有预期修改的文件），完成/阻塞/超时时删除该任务的所有行�?
 | 文件路径 | 任务编号 | 工人 |
 |---------|---------|:---:|
-| erp-ai-web/src/views/finance/voucherword/index.vue | P0-011-002-009-001-002 | W4 |
+| src/main/java/com/erp/module/org/service/OrgDepartmentService.java | P0-006-001-002-001-001 | W7 |
+| src/main/java/com/erp/module/org/dto/DeptCreateDTO.java | P0-006-001-002-001-001 | W7 |
+| src/main/java/com/erp/module/org/dto/DeptUpdateDTO.java | P0-006-001-002-001-001 | W7 |
+| src/main/java/com/erp/module/org/dto/DeptQueryDTO.java | P0-006-001-002-001-001 | W7 |
+| src/main/java/com/erp/module/org/vo/DeptListVO.java | P0-006-001-002-001-001 | W7 |
+| src/main/java/com/erp/module/org/vo/DeptTreeVO.java | P0-006-001-002-001-001 | W7 |
+| src/main/java/com/erp/module/org/vo/DeptDetailVO.java | P0-006-001-002-001-001 | W7 |
+| src/main/java/com/erp/module/org/dto/DeptCreateDTO.java | P0-006-001-002-001-001 | W7 |
+| src/main/java/com/erp/module/org/dto/DeptUpdateDTO.java | P0-006-001-002-001-001 | W7 |
+| src/main/java/com/erp/module/org/dto/DeptQueryDTO.java | P0-006-001-002-001-001 | W7 |
+| src/main/java/com/erp/module/org/vo/DeptListVO.java | P0-006-001-002-001-001 | W7 |
+| src/main/java/com/erp/module/org/vo/DeptTreeVO.java | P0-006-001-002-001-001 | W7 |
+| src/main/java/com/erp/module/org/vo/DeptDetailVO.java | P0-006-001-002-001-001 | W7 |
 
 ---
 ## 六、模块占用表
@@ -242,7 +254,7 @@
 > PARALLEL 模块可有多行（多个工人同时执行同一模块的不同任务）�?
 | 模块编号 | 工人 | 执行模式 |
 |---------|:---:|:-------:|
-| P0-011 | W4 | PARALLEL |
+| P0-006 | W7 | SERIAL |
 
 
 
