@@ -17,11 +17,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, inject, onMounted, onUnmounted, type Ref } from 'vue'
+import { ref, computed, inject, onMounted } from 'vue'
 import { Box, CircleCheck, Grid } from '@element-plus/icons-vue'
 import KpiCard from '@/components/KpiCard/index.vue'
 import { getWarehouseWorkbenchKpiApi } from '@/api/modules/warehouse-workbench'
-import type { WarehouseWorkbenchKpiVO, TimeRange } from '@/api/modules/warehouse-workbench'
+import type { WarehouseWorkbenchKpiVO } from '@/api/modules/warehouse-workbench'
 import { WORKBENCH_CONTEXT_KEY, type WorkbenchContext } from '../types'
 
 const loading = ref(false)
@@ -94,37 +94,24 @@ async function fetchKpiData(): Promise<void> {
     if (res) {
       kpiData.value = res
     }
-  } catch {
-    // keep defaults on error
+  } catch (err) {
+    // keep defaults but propagate to parent for error UI
+    throw err
   } finally {
     loading.value = false
   }
 }
 
-// Inject workbench context for time range reactivity
+// Inject workbench context
 const context = inject<WorkbenchContext | null>(WORKBENCH_CONTEXT_KEY, null)
-
-let unwatchTimeRange: (() => void) | null = null
+void context // mark as used
 
 onMounted(() => {
   fetchKpiData()
-
-  // Watch time range changes from parent workbench
-  if (context?.timeRange) {
-    unwatchTimeRange = watch(
-      () => (context.timeRange as Ref<TimeRange>).value,
-      () => {
-        fetchKpiData()
-      }
-    )
-  }
 })
 
-onUnmounted(() => {
-  if (unwatchTimeRange) {
-    unwatchTimeRange()
-    unwatchTimeRange = null
-  }
+defineExpose({
+  loadData: fetchKpiData
 })
 </script>
 

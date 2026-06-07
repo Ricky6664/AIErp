@@ -35,7 +35,7 @@
           </el-result>
         </div>
         <Suspense v-else>
-          <KpiCardArea />
+          <KpiCardArea ref="kpiCardAreaRef" />
         </Suspense>
       </section>
 
@@ -169,6 +169,7 @@ interface TodoItem {
   route?: string
 }
 
+const kpiCardAreaRef = ref<InstanceType<typeof KpiCardArea> | null>(null)
 const todoItems = ref<TodoItem[]>([])
 
 // ========== 全局loading计数器 ==========
@@ -189,9 +190,7 @@ async function loadKpiArea(): Promise<void> {
   kpiError.value = false
   incrementLoading()
   try {
-    // KpiCardArea 组件自行管理数据加载
-    // 此处仅作为全局loading的一部分
-    await new Promise((resolve) => setTimeout(resolve, 100))
+    await kpiCardAreaRef.value?.loadData()
   } catch {
     kpiError.value = true
   } finally {
