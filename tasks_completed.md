@@ -1035,7 +1035,7 @@
 | P0-014-003-001 | 测试命名规范 | 2026-06-06T20:15 | ✅ | docs/TESTING_GUIDE.md(测试框架版本/命名规范/GivenWhenThen三段式/目录结构/覆盖率门禁/Mock策略)+docs/TEST_NAMING_CONVENTION.md(后端类名方法名规范/前端文件名it规范/三段式示例/测试数据TEST_前缀/检查清单) | (待提交) |
 | P0-014-002-003 | Composable测试模板 | 2026-06-07T17:49 | ✅ | ComposableTestTemplate.spec.ts(6种测试模式:直接调用/withSetup/异步操作/Mock/边界条件/响应式深度)+withSetup工具函数+flushPromises+vi.mock模式+Pinia/Router mock+fakeTimers | 16b03ee2 |
 | P0-014-002-004 | API Mock策略 | 2026-06-07T20:00 | ✅ | MSW 2.14.6安装+src/mocks/server.ts(setupServer)+src/mocks/handlers.ts(正常/空/401/403/500/Loading)+test-setup.ts(beforeAll/afterEach/afterAll/onUnhandledRequest:error) | 4a5410cc |
-| P0-014-001-001 | JUnit 5 Mockito测试依赖引入 | 2026-06-08T01:55 | ✅ | pom.xml添加testcontainers 1.19.7(testcontainers/postgresql/junit-jupiter)+jacoco-maven-plugin 0.8.11+spring-boot-starter-test(JUnit5.11.4/Mockito5.14.2/AssertJ3.26.3)+H2, application-test.yml已存在, 1118测试执行通过 | (pending) |
+| P0-014-001-001 | JUnit 5 Mockito测试依赖引入 | 2026-06-08T01:55 | ✅ | pom.xml添加testcontainers 1.19.7(testcontainers/postgresql/junit-jupiter)+jacoco-maven-plugin 0.8.11+spring-boot-starter-test(JUnit5.11.4/Mockito5.14.2/AssertJ3.26.3)+H2, application-test.yml已存在, 1118测试执行通过 | 7136118d |
 
 
 
