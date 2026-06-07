@@ -1369,4 +1369,4 @@
 | 状态 | ✅ |
 | 摘要 | 实现币种汇率P07单一表单页：新增el-dialog弹窗表单(6字段含异步唯一性校验)，API层添加create/update/checkCode接口，vue-tsc类型检查通过，vite build通过 |
 | 工人 | W4 |
-| Git SHA | 待填入
+| Git SHA | bb69d9d5
