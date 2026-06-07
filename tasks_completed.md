@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-07T19:25
-> **归档总数**：564 条
+> **最后更新**：2026-06-07T22:29
+> **归档总数**：566 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -1036,6 +1036,7 @@
 | P0-011-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-07T22:05 | ✅ | AccountServiceImpl(extends ServiceImpl<AccountMapper, AccountEntity>)+CRUD+唯一性校验+@Transactional+OperLog + AccountMapper | (pending) |
 | P0-011-001-003-001-003 | 验证Service | 2026-06-07T22:08 | ✅ | AccountServiceTest(39个测试用例，覆盖CRUD/编码唯一性/分页查询/边界条件/@Transactional注解)+AccountService-test-report.md | (pending) |
 | P0-011-001-004-001-001 | 编写接口定义Service接口 | 2026-06-07T22:05 | ✅ | IVoucherWordService接口(extends IServiceX<VoucherWordEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 | 65db290e |
+| P0-011-001-005-001-001 | 编写接口定义Service接口 | 2026-06-07T22:20 | ✅ | IAccountingPeriodService接口(extends IServiceX<AccountingPeriodEntity>)+CRUD方法+@Valid+@Transactional+JavaDoc完整 + AccountingPeriodEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 22c35e9c |
 
 
 ### P0-010 - 仓库与库位管理开发
@@ -1048,6 +1049,7 @@
 | P0-010-002-002-001-001 | 编写核心代码 | 2026-06-07T21:55 | ✅ | 仓库列表页集成P07表单弹窗(el-dialog+el-form)+新增/编辑双模式+表单校验(名称必填/类型必选/手机号格式/地址长度)+createWarehouse/updateWarehouse/getWarehouseDetail API联调+状态切换+submitLoading防重复 | acb2ca85 |
 | P0-010-002-004-001-001 | 编写核心代码 | 2026-06-07T22:05 | ✅ | 库位管理P07单一表单页(el-dialog+el-form)+新增/编辑双模式+库位类型(存储/拣货/暂存/不良品)+createLocation/updateLocation/getLocationDetail API联调+表单校验+submitLoading防重复 | (pending) |
 | P0-010-002-004-001-002 | 验证功能 | 2026-06-07T22:07 | ✅ | 编写前端验证报告(10项验证+6项边界分析+编译检查)+问题清单(2CRITICAL Controller缺失+2MINOR 类型/提示) | 197c2a3f |
+| P0-010-001-000-001-001 | 编写工作台聚合SQL | 2026-06-07T22:29 | ✅ | WorkbenchAggregateMapper.java+XML(KPI统计selectKpiStats+仓库趋势selectWarehouseTrendByDay+库位趋势selectLocationTrendByDay)+@Mapper+@Param+tenant_id多租户隔离+PostgreSQL DATE_TRUNC | 26d0994b |
 
 
 ### 模块完成: P0-007 ✅
