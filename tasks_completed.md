@@ -1179,6 +1179,6 @@
 | 工人 | W3 |
 | Git Commit | d5a3b4dd |
 
-| P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07 21:22:55 | ✅ | 编写BankAccountServiceImpl实现类，包含CRUD+唯 一性校验+状态流转校验+@Transactional |  |
+| P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07 21:22:55 | ✅ | 编写BankAccountServiceImpl实现类，包含CRUD+唯一性校验+状态流转校验+@Transactional | 7b195f18 |
 
 | P0-011-001-003-001-001 | 编写接口定义Service接口 | 2026-06-07T21:30 | ✅ | IAccountService接口(extends IServiceX<AccountEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + AccountEntity/AccountCreateDTO/AccountUpdateDTO/AccountQueryDTO/AccountVO | f6a76404 |
