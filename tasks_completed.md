@@ -1037,7 +1037,8 @@
 | P0-011-001-003-001-003 | 验证Service | 2026-06-07T22:08 | ✅ | AccountServiceTest(39个测试用例，覆盖CRUD/编码唯一性/分页查询/边界条件/@Transactional注解)+AccountService-test-report.md | (pending) |
 | P0-011-001-004-001-001 | 编写接口定义Service接口 | 2026-06-07T22:05 | ✅ | IVoucherWordService接口(extends IServiceX<VoucherWordEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 | 65db290e |
 | P0-011-001-005-001-001 | 编写接口定义Service接口 | 2026-06-07T22:20 | ✅ | IAccountingPeriodService接口(extends IServiceX<AccountingPeriodEntity>)+CRUD方法+@Valid+@Transactional+JavaDoc完整 + AccountingPeriodEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 22c35e9c |
-| P0-011-002-004-001-001 | 编写核心代码 | 2026-06-07T23:15 | ✅ | 银行账户P04单一列表页(index.vue)+API模块(finance-bankaccount.ts)+VxeTable虚拟滚动+统计卡片+搜索防抖+新增/编辑弹窗+状态切换+删除确认+路由注册/finance/bankaccount | (pending) |
+| P0-011-002-004-001-001 | 编写核心代码 | 2026-06-07T23:15 | ✅ | 银行账户P04单一列表页(index.vue)+API模块(finance-bankaccount.ts)+VxeTable虚拟滚动+统计卡片+搜索防抖+新增/编辑弹窗+状态切换+删除确认+路由注册/finance/bankaccount | 26c88b0f |
+| P0-011-002-006-001-001 | 编写核心代码 | 2026-06-07T23:35 | ✅ | 会计科目P05树形列表页(index.vue)+API模块(finance-account.ts)+el-tree树形+VxeTable表格+统计卡片+搜索防抖+CRUD弹窗+状态切换+删除确认 | (pending) |
 
 
 ### P0-010 - 仓库与库位管理开发
