@@ -1398,6 +1398,7 @@
 | Git SHA | 253fe624
 
 | P0-012-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T23:50 | ✅ | 创建IEmployeeService接口(继承IServiceX)及相关Entity/DTO/VO | (pending-commit) |
+| P0-012-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-07T23:40 | ✅ | 创建EmployeeServiceImpl(继承ServiceImpl/完整CRUD/工号唯一性校验/身份证脱敏)及EmployeeMapper | (pending-commit) |
 
 ### P0-011-001-002-001-001 ✅
 | 属性 | 值 |
