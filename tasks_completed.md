@@ -1044,6 +1044,7 @@
 | P0-010-002-000-003-001 | 工作台全流程联调 | 2026-06-07T21:42 | ✅ | 工作台主页面index.vue(KPI+图表+待办三区联调)+Promise.allSettled+计数器loading+时间筛选联动+异常降级+Symbol上下文+types.ts | 0c9cc54c |
 | P0-010-002-003-001-001 | 编写核心代码 | 2026-06-07T21:55 | ✅ | 库位管理P04单一列表页(index.vue)+API模块(location.ts)+类型定义(location.ts) |
 | P0-010-002-002-001-001 | 编写核心代码 | 2026-06-07T21:55 | ✅ | 仓库列表页集成P07表单弹窗(el-dialog+el-form)+新增/编辑双模式+表单校验(名称必填/类型必选/手机号格式/地址长度)+createWarehouse/updateWarehouse/getWarehouseDetail API联调+状态切换+submitLoading防重复 | acb2ca85 |
+| P0-010-002-004-001-001 | 编写核心代码 | 2026-06-07T22:05 | ✅ | 库位管理P07单一表单页(el-dialog+el-form)+新增/编辑双模式+库位类型(存储/拣货/暂存/不良品)+createLocation/updateLocation/getLocationDetail API联调+表单校验+submitLoading防重复 | (pending) |
 
 
 ### 模块完成: P0-007 ✅
