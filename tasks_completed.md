@@ -1018,6 +1018,7 @@
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
 |---------|---------|---------|:---:|------|-----|
 | P0-014-003-001 | 测试命名规范 | 2026-06-06T20:15 | ✅ | docs/TESTING_GUIDE.md(测试框架版本/命名规范/GivenWhenThen三段式/目录结构/覆盖率门禁/Mock策略)+docs/TEST_NAMING_CONVENTION.md(后端类名方法名规范/前端文件名it规范/三段式示例/测试数据TEST_前缀/检查清单) | (待提交) |
+| P0-014-002-003 | Composable测试模板 | 2026-06-07T17:49 | ✅ | ComposableTestTemplate.spec.ts(6种测试模式:直接调用/withSetup/异步操作/Mock/边界条件/响应式深度)+withSetup工具函数+flushPromises+vi.mock模式+Pinia/Router mock+fakeTimers | (待提交) |
 
 
 
@@ -1028,5 +1029,14 @@
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
 |---------|---------|---------|:---:|------|-----|
 | P0-011-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T17:45 | ✅ | ICurrencyRateService接口(extends IServiceX<CurrencyRateEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 | 1f792e1d |
-| P0-011-001-002-001-001 | 编写接口定义Service接口 | 2026-06-07T18:10 | ✅ | IBankAccountService接口(extends IServiceX<BankAccountEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + BankAccountEntity/CreateDTO/UpdateDTO/QueryDTO/VO | (待提交) |
+| P0-011-001-002-001-001 | 编写接口定义Service接口 | 2026-06-07T18:10 | ✅ | IBankAccountService接口(extends IServiceX<BankAccountEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + BankAccountEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 52fc201f |
+
+
+### 模块完成: P0-007 ✅
+
+
+### 模块完成: P0-013 ✅
+
+
+### 模块完成: P0-006 ✅
 
