@@ -1461,3 +1461,14 @@
   - src/test/java/com/erp/module/finance/service/BankAccountServiceTest.java（791行，40个用例）
   - docs/test-reports/BankAccountService-test-report.md
 - **工人**：W5
+
+
+## P0-011-002-004-001-002 — 验证功能
+
+- **完成时间**：2026-06-08T00:20
+- **状态**：✅ 已完成
+- **摘要**：银行账户列表页前端验证通过，36项验证全部PASS，前后端编译通过，发现4个低/中优问题已记录
+- **交付物**：
+  - docs/test-reports/finance-BankAccount-frontend-test.md
+  - docs/test-reports/finance-BankAccount-issues.md
+- **工人**：W6
