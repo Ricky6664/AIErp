@@ -134,17 +134,133 @@
         />
       </div>
     </el-card>
+
+    <!-- 仓库表单弹窗 -->
+    <el-dialog
+      v-model="dialogVisible"
+      :title="isEdit ? '编辑仓库' : '新增仓库'"
+      width="640px"
+      destroy-on-close
+      @closed="handleDialogClosed"
+    >
+      <el-form ref="formRef" :model="formData" :rules="formRules" label-width="100px">
+        <el-row :gutter="20">
+          <el-col :span="12">
+            <el-form-item label="仓库编码" prop="warehouseCode">
+              <el-input v-model="formData.warehouseCode" disabled placeholder="系统自动生成" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="仓库名称" prop="warehouseName">
+              <el-input
+                v-model="formData.warehouseName"
+                placeholder="请输入仓库名称"
+                maxlength="100"
+                show-word-limit
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :span="12">
+            <el-form-item label="仓库类型" prop="warehouseType">
+              <el-select
+                v-model="formData.warehouseType"
+                placeholder="请选择仓库类型"
+                style="width: 100%"
+              >
+                <el-option label="普通仓" value="NORMAL" />
+                <el-option label="保税仓" value="BONDED" />
+                <el-option label="虚拟仓" value="VIRTUAL" />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="状态" prop="status">
+              <el-radio-group v-model="formData.status">
+                <el-radio :value="1">启用</el-radio>
+                <el-radio :value="0">停用</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :span="12">
+            <el-form-item label="负责人" prop="managerId">
+              <el-input v-model="formData.managerId" placeholder="请输入负责人ID" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="联系电话" prop="phone">
+              <el-input v-model="formData.phone" placeholder="请输入联系电话" maxlength="11" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-form-item label="地址" prop="address">
+          <el-input
+            v-model="formData.address"
+            type="textarea"
+            placeholder="请输入仓库地址"
+            maxlength="500"
+            show-word-limit
+            :rows="3"
+          />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <el-button @click="dialogVisible = false">取消</el-button>
+        <el-button type="primary" :loading="submitLoading" @click="handleSubmit">确定</el-button>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
-import { getWarehousePage, deleteWarehouse } from '@/api/modules/warehouse'
-import type { WarehouseListVO } from '@/api/types/warehouse'
+import {
+  getWarehousePage,
+  getWarehouseDetail,
+  createWarehouse,
+  updateWarehouse,
+  deleteWarehouse
+} from '@/api/modules/warehouse'
+import type { WarehouseListVO, WarehouseCreateDTO } from '@/api/types/warehouse'
+import type { FormInstance, FormRules } from 'element-plus'
 
+const formRef = ref<FormInstance>()
 const tableLoading = ref(false)
 const tableData = ref<WarehouseListVO[]>([])
+const dialogVisible = ref(false)
+const isEdit = ref(false)
+const editingId = ref(0)
+const submitLoading = ref(false)
+
+const formData = reactive<WarehouseCreateDTO & { id?: number }>({
+  warehouseCode: '',
+  warehouseName: '',
+  warehouseType: '',
+  address: '',
+  managerId: undefined,
+  phone: '',
+  status: 1
+})
+
+const formRules: FormRules = {
+  warehouseName: [
+    { required: true, message: '请输入仓库名称', trigger: 'blur' },
+    { max: 100, message: '仓库名称不超过100个字符', trigger: 'blur' }
+  ],
+  warehouseType: [{ required: true, message: '请选择仓库类型', trigger: 'change' }],
+  phone: [
+    {
+      pattern: /^1[3-9]\d{9}$/,
+      message: '请输入正确的手机号',
+      trigger: 'blur'
+    }
+  ],
+  address: [{ max: 500, message: '地址不超过500个字符', trigger: 'blur' }]
+}
 
 const searchForm = reactive({
   warehouseName: '',
@@ -214,15 +330,74 @@ function warehouseTypeLabel(type: string): string {
 }
 
 function handleCreate() {
-  ElMessage.info('新建仓库功能将在后续任务中实现')
+  isEdit.value = false
+  editingId.value = 0
+  formData.warehouseCode = ''
+  formData.warehouseName = ''
+  formData.warehouseType = ''
+  formData.address = ''
+  formData.managerId = undefined
+  formData.phone = ''
+  formData.status = 1
+  dialogVisible.value = true
 }
 
-function handleEdit(row: WarehouseListVO) {
-  ElMessage.info(`编辑仓库: ${row.warehouseName}`)
+async function handleEdit(row: WarehouseListVO) {
+  isEdit.value = true
+  editingId.value = row.id
+  try {
+    const detail = await getWarehouseDetail(row.id)
+    if (detail) {
+      formData.warehouseCode = detail.warehouseCode
+      formData.warehouseName = detail.warehouseName
+      formData.warehouseType = detail.warehouseType
+      formData.address = detail.address || ''
+      formData.managerId = detail.managerId
+      formData.phone = detail.phone || ''
+      formData.status = detail.status
+    }
+  } catch {
+    ElMessage.error('获取仓库详情失败')
+    return
+  }
+  dialogVisible.value = true
+}
+
+function handleDialogClosed() {
+  formRef.value?.resetFields()
+}
+
+async function handleSubmit() {
+  const valid = await formRef.value?.validate().catch(() => false)
+  if (!valid) return
+  submitLoading.value = true
+  try {
+    if (isEdit.value) {
+      await updateWarehouse({ id: editingId.value, ...formData })
+      ElMessage.success('更新成功')
+    } else {
+      await createWarehouse(formData)
+      ElMessage.success('创建成功')
+    }
+    dialogVisible.value = false
+    await handleSearch()
+  } catch {
+    ElMessage.error(isEdit.value ? '更新失败' : '创建失败')
+  } finally {
+    submitLoading.value = false
+  }
 }
 
 async function handleToggleStatus(row: WarehouseListVO) {
-  ElMessage.info(`${row.status === 1 ? '停用' : '启用'}仓库: ${row.warehouseName}`)
+  const newStatus = row.status === 1 ? 0 : 1
+  const actionText = newStatus === 0 ? '停用' : '启用'
+  try {
+    await updateWarehouse({ id: row.id, status: newStatus })
+    ElMessage.success(`${actionText}成功`)
+    await handleSearch()
+  } catch {
+    ElMessage.error(`${actionText}失败`)
+  }
 }
 
 async function handleDelete(row: WarehouseListVO) {
