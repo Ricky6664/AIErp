@@ -61,6 +61,12 @@ export function updateBankAccountStatusApi(id: number, status: number): Promise<
   return request.put(`/finance/bank-account/${id}/status`, { status })
 }
 
+export function checkBankAccountNoApi(accountNo: string): Promise<boolean> {
+  return request.get('/finance/bank-account/check-account-no', {
+    params: { accountNo }
+  })
+}
+
 export function deleteBankAccountApi(id: number): Promise<void> {
   return request.delete(`/finance/bank-account/${id}`)
 }

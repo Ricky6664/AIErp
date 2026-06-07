@@ -255,6 +255,7 @@ import {
   updateBankAccountApi,
   updateBankAccountStatusApi,
   deleteBankAccountApi,
+  checkBankAccountNoApi,
   type BankAccountVO,
   type BankAccountSaveDTO
 } from '@/api/modules/finance-bankaccount'
@@ -315,7 +316,8 @@ const formRules: FormRules = {
   ],
   bankAccountNo: [
     { required: true, message: '请输入银行账号', trigger: 'blur' },
-    { max: 50, message: '银行账号最长50个字符', trigger: 'blur' }
+    { max: 50, message: '银行账号最长50个字符', trigger: 'blur' },
+    { validator: validateBankAccountNo, trigger: 'blur' }
   ],
   bankName: [
     { required: true, message: '请输入开户银行', trigger: 'blur' },
@@ -323,6 +325,27 @@ const formRules: FormRules = {
   ],
   currencyId: [{ required: true, message: '请选择币种', trigger: 'change' }],
   accountType: [{ required: true, message: '请选择账户类型', trigger: 'change' }]
+}
+
+async function validateBankAccountNo(
+  _rule: unknown,
+  value: string,
+  callback: (error?: Error) => void
+): Promise<void> {
+  if (!value) {
+    callback()
+    return
+  }
+  try {
+    const exists = await checkBankAccountNoApi(value)
+    if (exists) {
+      callback(new Error('银行账号已存在'))
+    } else {
+      callback()
+    }
+  } catch {
+    callback()
+  }
 }
 
 function handleAdd(): void {
