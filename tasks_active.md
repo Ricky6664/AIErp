@@ -45,7 +45,7 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 | P0-006-001-003-001-001 | 编写接口定义Service接口 | L4 | ✅ | W5 |
 | P0-006-001-003-001-002 | 编写ServiceImpl实现类 | L3 | ✅ | W6 |
 | P0-006-001-003-001-003 | 验证Service | L3 | ✅ | W4 |
-| P0-006-001-004-001-001 | 编写核心代码 | L3 | 🔄 | W6 |
+| P0-006-001-004-001-001 | 编写核心代码 | L3 | ✅ | W6 |
 | P0-006-001-004-001-002 | 验证功能 | L3 | �?| W12 |
 | P0-006-002-000-001-001 | 编写核心代码 | L5 | �?| W14 |
 | P0-006-002-000-001-002 | 验证功能 | L5 | �?| W16 |
@@ -190,7 +190,7 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 | P0-013-001-001-002 | 编写前端Dockerfile | L0 | ✅ | W5 |
 | P0-013-001-002-001 | 编写docker-compose服务编排 | L0 | ✅ | W5 |
 | P0-013-001-002-002 | 验证docker-compose编排 | L0 | ✅ | W4 |
-| P0-013-001-003 | .env环境变量文件 | L0 | �?| W9 |
+| P0-013-001-003 | .env环境变量文件 | L0 | ✅ | W4 |
 | P0-013-001-004 | .dockerignore文件编写 | L0 | ✅ | W7 | �?| W7 |
 | P0-013-002-001 | nginx.conf主配�?| L0 | �?| W10 |
 | P0-013-002-002 | 多环境Nginx配置 | L0 | �?| W3 |
@@ -221,7 +221,7 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 ## 四、活跃认领注册表
 | 任务编号 | 工人 | 认领时间 |
 |---------|:---:|---------|
-| P0-006-001-004-001-001 | W6 | 2026-06-08T00:00:00 |
+| P0-013-001-003 | W4 | 2026-06-08T02:04:02 |
 
 
 
@@ -236,17 +236,19 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 > 认领时追加（所有预期修改的文件），完成/阻塞/超时时删除该任务的所有行�?
 | 文件路径 | 任务编号 | 工人 |
 |---------|---------|:---:|
-| src/main/java/com/erp/module/org/service/OrgWorkbenchService.java | P0-006-001-004-001-001 | W6 |
-| src/main/java/com/erp/module/org/service/impl/OrgWorkbenchServiceImpl.java | P0-006-001-004-001-001 | W6 |
-| src/main/java/com/erp/module/org/controller/OrgWorkbenchController.java | P0-006-001-004-001-001 | W6 |
-| src/main/java/com/erp/module/org/vo/WorkbenchVO.java | P0-006-001-004-001-001 | W6 |---
+| .env.example | P0-013-001-003 | W4 |
+| .env.dev | P0-013-001-003 | W4 |
+| .env.staging | P0-013-001-003 | W4 |
+| .env.prod | P0-013-001-003 | W4 |
+| .gitignore | P0-013-001-003 | W4 |
+| docs/env-variables.md | P0-013-001-003 | W4 |---
 ## 六、模块占用表
 > 记录每个活跃模块被哪些工人占用、执行模式�?
 > 用于：SERIAL 模块独占检查（C2 约束）—�?SERIAL 模块已有工人占用时，其他工人跳过该模块�?
 > PARALLEL 模块可有多行（多个工人同时执行同一模块的不同任务）�?
 | 模块编号 | 工人 | 执行模式 |
 |---------|:---:|:-------:|
-| P0-006 | W6 | SERIAL |
+| P0-013 | W4 | SERIAL |
 ---
 ## 七、统�?
 | 指标 | 数�?|

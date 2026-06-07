@@ -23,4 +23,6 @@ public class OrgDepartment extends BaseEntity {
     private Integer sortNo;
 
     private Boolean enableFlag;
+
+    private String deptType;
 }

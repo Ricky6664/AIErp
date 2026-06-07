@@ -1706,6 +1706,18 @@
 | Git commit | be90082c |
 | 工人 | W6 |
 
+#### P0-006-001-004-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-006-001-004-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-08T02:15 |
+| 状态 | ✅ |
+| 摘要 | 创建WorkbenchVO(4指标+3分布列表+3内部类)+OrgWorkbenchService接口+OrgWorkbenchServiceImpl(getWorkbenchData含@Cacheable缓存/4项计数/部门类型分布/公司部门统计/人员分布含占比)+OrgWorkbenchController(GET /api/org/workbench)+OrgDepartment新增deptType字段,编译通过 |
+| Git commit | TBD |
+| 工人 | W6 |
+
 | P0-007-001-001-001-003 | 验证Service | 2026-06-08T01:43 | ✅ | ProductClassServiceTest(45用例全通过)+@ExtendWith(MockitoExtension)+@Nested分组(list/getById/save/update/delete/Transactional/EdgeCases/ToVO)+sortOrder边界(0/9999)+parentId校验+className唯一性+子分类删除检查+transaction注解验证+toVO映射 | 1d76436d |
 
 | P0-011-001-001-001-003 | 验证Service | 2026-06-08T01:54 | ✅ | W7:CurrencyRateServiceTest增强(44用例全通过)+新增3测试(null exchangeRate/currencyName+关联删除验证)+Mockito+JUnit5+10嵌套组+测试报告 | TBD |
