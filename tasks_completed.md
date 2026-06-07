@@ -1037,7 +1037,7 @@
 |---------|---------|---------|:---:|------|-----|
 | P0-011-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T17:45 | ✅ | ICurrencyRateService接口(extends IServiceX<CurrencyRateEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 | 1f792e1d |
 | P0-011-001-002-001-001 | 编写接口定义Service接口 | 2026-06-07T18:10 | ✅ | IBankAccountService接口(extends IServiceX<BankAccountEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 + BankAccountEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 52fc201f |
-| P0-011-001-002-001-003 | 验证Service | 2026-06-07T21:49 | ✅ | BankAccountServiceTest(40 test cases: CRUD/create/update/delete/getById/pageList+状态流转+唯一性校验+@Transactional注解验证+边界条件)+Mockito+JUnit5+Spy + 测试报告 | (pending) |
+| P0-011-001-002-001-003 | 验证Service | 2026-06-07T23:50 | ✅ | BankAccountServiceTest(40 test cases: CRUD/create/update/delete/getById/pageList+状态流转+唯一性校验+@Transactional注解验证+边界条件)+Mockito+JUnit5+Spy + 测试报告 | 388aaa86 |
 | P0-011-001-003-001-001 | 编写接口定义Service接口 | 2026-06-07T21:32 | ✅ | IAccountService接口(extends IServiceX<AccountEntity>)+CRUD方法(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDoc完整 | (pending) |
 | P0-011-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-07T22:05 | ✅ | AccountServiceImpl(extends ServiceImpl<AccountMapper, AccountEntity>)+CRUD+唯一性校验+@Transactional+OperLog + AccountMapper | (pending) |
 | P0-011-001-003-001-003 | 验证Service | 2026-06-07T22:08 | ✅ | AccountServiceTest(39个测试用例，覆盖CRUD/编码唯一性/分页查询/边界条件/@Transactional注解)+AccountService-test-report.md | (pending) |
