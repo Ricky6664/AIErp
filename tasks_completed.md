@@ -1078,7 +1078,7 @@
 
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-008-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T18:15 | ✅ | CustomerClassService接口(extends IServiceX<CustomerClass>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + CustomerClass实体/CustomerClassDTO/CustomerClassQueryDTO/CustomerClassVO | (pending) |
+| P0-008-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T18:15 | ✅ | CustomerClassService接口(extends IServiceX<CustomerClass>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + CustomerClass实体/CustomerClassDTO/CustomerClassQueryDTO/CustomerClassVO | 34a7e18a |
 | P0-008-001-002-001-001 | 编写接口定义Service接口 | 2026-06-07T13:15 | ✅ | TagDefinitionService接口(extends IServiceX<TagDefinitionEntity>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + TagDefinitionEntity/TagDefinitionDTO/TagDefinitionQueryDTO/TagDefinitionVO | (pending) |
 | P0-008-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-07T19:22 | ✅ | CustomerClassServiceImpl(extends ServiceImpl<CustomerClassMapper,CustomerClass>)+CRUD(list/getById/save/update/delete)+校验(同级名称唯一性+parentId引用检查+子分类检查)+BusinessException+@Transactional + CustomerClassMapper | (pending) |
 | P0-008-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07T19:25 | ✅ | TagDefinitionServiceImpl(extends ServiceImpl<TagDefinitionMapper,TagDefinitionEntity>)+CRUD(list/getById/save/update/delete)+校验(标签名称全局唯一+颜色格式#RRGGBB)+BusinessException+@Transactional + TagDefinitionMapper | (pending) |
