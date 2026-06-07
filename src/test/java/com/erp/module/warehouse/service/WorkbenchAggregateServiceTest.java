@@ -2,7 +2,7 @@ package com.erp.module.warehouse.service;
 
 import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.StpUtil;
-import com.erp.module.inventory.mapper.WorkbenchAggregateMapper;
+import com.erp.module.warehouse.mapper.WorkbenchAggregateAggregateMapper;
 import com.erp.module.warehouse.service.impl.WorkbenchAggregateServiceImpl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +29,7 @@ import static org.mockito.Mockito.*;
 class WorkbenchAggregateServiceTest {
 
     @Mock
-    private WorkbenchAggregateMapper workbenchAggregateMapper;
+    private WorkbenchAggregateAggregateMapper workbenchAggregateMapper;
 
     @Mock
     private SaSession saSession;

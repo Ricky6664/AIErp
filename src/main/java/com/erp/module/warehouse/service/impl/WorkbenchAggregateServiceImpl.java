@@ -1,7 +1,7 @@
 package com.erp.module.warehouse.service.impl;
 
 import cn.dev33.satoken.stp.StpUtil;
-import com.erp.module.inventory.mapper.WorkbenchAggregateMapper;
+import com.erp.module.warehouse.mapper.WorkbenchAggregateAggregateMapper;
 import com.erp.module.warehouse.service.WorkbenchAggregateService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
@@ -20,9 +20,9 @@ import java.util.Map;
 @Service
 public class WorkbenchAggregateServiceImpl implements WorkbenchAggregateService {
 
-    private final WorkbenchAggregateMapper workbenchAggregateMapper;
+    private final WorkbenchAggregateAggregateMapper workbenchAggregateMapper;
 
-    public WorkbenchAggregateServiceImpl(WorkbenchAggregateMapper workbenchAggregateMapper) {
+    public WorkbenchAggregateServiceImpl(WorkbenchAggregateAggregateMapper workbenchAggregateMapper) {
         this.workbenchAggregateMapper = workbenchAggregateMapper;
     }
 

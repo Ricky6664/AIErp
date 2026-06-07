@@ -1050,6 +1050,7 @@
 | P0-010-002-004-001-001 | 编写核心代码 | 2026-06-07T22:05 | ✅ | 库位管理P07单一表单页(el-dialog+el-form)+新增/编辑双模式+库位类型(存储/拣货/暂存/不良品)+createLocation/updateLocation/getLocationDetail API联调+表单校验+submitLoading防重复 | (pending) |
 | P0-010-002-004-001-002 | 验证功能 | 2026-06-07T22:07 | ✅ | 编写前端验证报告(10项验证+6项边界分析+编译检查)+问题清单(2CRITICAL Controller缺失+2MINOR 类型/提示) | 197c2a3f |
 | P0-010-001-000-001-001 | 编写工作台聚合SQL | 2026-06-07T22:29 | ✅ | WorkbenchAggregateMapper.java+XML(KPI统计selectKpiStats+仓库趋势selectWarehouseTrendByDay+库位趋势selectLocationTrendByDay)+@Mapper+@Param+tenant_id多租户隔离+PostgreSQL DATE_TRUNC | 26d0994b |
+| P0-010-001-000-001-002 | 编写ServiceImpl实现类 | 2026-06-07T22:37 | ✅ | 修复WorkbenchAggregateServiceImpl导入(WorkbenchAggregateAggregateMapper从inventory改warehouse模块)+更新测试(16用例全通过)+编译通过 | (pending) |
 
 
 ### 模块完成: P0-007 ✅
