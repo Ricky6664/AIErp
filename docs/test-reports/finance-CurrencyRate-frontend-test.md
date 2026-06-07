@@ -2,7 +2,8 @@
 
 > **任务编号**：P0-011-002-002-001-002
 > **验证日期**：2026-06-07
-> **验证人**：AI Worker W3
+> **验证人**：AI Worker W6（更新自 W3 初稿）
+> **更新摘要**：路由注册已修复(ISS-1)，issues.md已生成
 > **验证环境**：Vue 3.5 + TypeScript 6.0 + Vite 6.x + Element Plus
 
 ---
@@ -21,11 +22,11 @@
 
 ### 2.1 页面路由访问
 
-| 状态 | ❌ FAIL |
+| 状态 | ✅ FIXED |
 |------|---------|
 | 预期 | 路由 `/finance/currencyrate` 注册，页面可正常渲染 |
-| 实际 | 路由未在 `router/modules/static.ts` 中注册，页面不可通过 URL 访问 |
-| 严重度 | MAJOR — 页面无法使用 |
+| 实际 | 路由原未注册，W6 已在 `router/modules/static.ts` 添加 `FINANCE_CURRENCYRATE` 路由 |
+| 修复 | 新增路由常量，路径 `/finance/currencyrate`，懒加载 `@/views/finance/currencyrate/index.vue` |
 
 ### 2.2 数据加载
 
@@ -129,10 +130,10 @@
 | 指标 | 数值 |
 |------|------|
 | 总检查项 | 18 |
-| 通过 | 10 |
-| 阻塞(运行时) | 3 |
+| 通过 | 11 |
+| 阻塞(运行时) | 2 |
 | 不适用 | 2 |
-| 失败 | 2 |
+| 失败 | 1 |
 | 占位/未实现 | 2 |
 
-**结论**：代码质量良好，逻辑完整，但存在 2 个阻塞性问题（缺少 Controller 和路由注册）导致页面无法实际运行。详见 `finance-CurrencyRate-issues.md`。
+**结论**：代码质量良好，逻辑完整。路由注册已修复。剩余1个阻塞性问题（缺少 Controller）需后端建设，1个未实现（启用/停用切换）待后续任务。详见 `finance-CurrencyRate-issues.md`。

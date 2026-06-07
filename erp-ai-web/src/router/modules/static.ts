@@ -150,6 +150,14 @@ export const FINANCE_WORKBENCH: RouteRecordRaw = {
   meta: { title: '财务工作台', icon: 'DataBoard', keepAlive: true }
 }
 
+// 币种汇率列表页
+export const FINANCE_CURRENCYRATE: RouteRecordRaw = {
+  path: '/finance/currencyrate',
+  name: 'FinanceCurrencyrate',
+  component: () => import('@/views/finance/currencyrate/index.vue'),
+  meta: { title: '币种汇率', icon: 'Money', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -162,6 +170,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   USER_WORKBENCH,
   AUTH_CONFIG_WORKBENCH,
   FINANCE_WORKBENCH,
+  FINANCE_CURRENCYRATE,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,
