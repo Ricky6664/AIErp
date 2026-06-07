@@ -1084,6 +1084,7 @@
 | P0-009-001-005-001-001 | 编写供应商地址Service接口定义 | 2026-06-07T23:00 | ✅ | SupplierAddressService接口(extends IServiceX<SupplierAddress>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional + SupplierAddress实体/SupplierAddressDTO/SupplierAddressQueryDTO/SupplierAddressVO | TBD |
 | P0-009-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-07T23:30 | ✅ | SupplierServiceImpl(CRUD+名称公司内唯一+邮箱格式+审核状态流转校验+事务) + SupplierMapper | 759b2cb8 |
 | P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07T20:17 | ✅ | BankAccountServiceImpl.java (CRUD+唯一性校验+事务管理+BusinessException异常处理) + BankAccountMapper.java | TBD |
+| P0-011-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-07T21:16 | ✅ | CurrencyRateServiceImpl.java (CRUD+币种编码唯一性校验+汇率日期校验+事务管理+BusinessException异常处理) + CurrencyRateMapper.java | b8a3cd7b |
 | P0-009-001-004-001-001 | 编写供应商联系人核心代码 | 2026-06-07T23:45 | ✅ | SupplierContact全套(Entity/DTO/QueryDTO/VO/Mapper/Service/ServiceImpl)+CRUD完整功能+BusinessException异常处理+事务管理 | 7c39a05d |
 | P0-009-001-004-001-002 | 验证供应商联系人Service | 2026-06-07T22:25 | ✅ | SupplierContactService验证(CRUD完整+事务注解正确+BusinessException异常处理+编译通过) | TBD |
 | P0-009-001-003-001-003 | 验证SupplierService | 2026-06-07T20:28 | ✅ | SupplierServiceTest(36个测试用例，覆盖CRUD正常流程+边界条件+事务注解+异常处理+名称唯一性+邮箱格式+审核状态流转) + supplier_test_data.sql | 2d6a16b0 |
@@ -1165,3 +1166,5 @@
 | 摘要 | 编写LocationServiceTest(36个单元测试用例，覆盖CRUD正常流程/仓库内唯一性校验/状态流转校验/软删除/分页查询多条件筛选/边界场景/toVO转换/事务注解验证，使用JUnit5+Mockito+MockitoExtension) |
 | 工人 | W3 |
 | Git Commit | 1ae36978 |
+
+| P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07 21:22:55 | ✅ | 编写BankAccountServiceImpl实现类，包含CRUD+唯 一性校验+状态流转校验+@Transactional |  |
