@@ -1,0 +1,54 @@
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Maven build output
+target/
+*.jar
+!target/*.jar
+
+# Node
+node_modules/
+erp-ai-web/node_modules/
+erp-ai-web/dist/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Docker
+Dockerfile*
+.dockerignore
+docker-compose*.yml
+
+# Session & temp
+.session-id-*
+.tmp-restore/
+.catalog.lock
+.parallel.lock
+.commit-msg-tmp
+.relay-*
+
+# Claude
+.claude/
+
+# Documentation
+*.md
+erp_ai_tasks_docs/
+
+# OS
+.DS_Store
+Thumbs.db
