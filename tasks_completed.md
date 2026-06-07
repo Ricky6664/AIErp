@@ -1553,3 +1553,17 @@
 | 摘要 | 创建凭证字列表页(voucherword/index.vue含统计卡片/搜索表单防抖/VxeTable虚拟滚动/新增编辑弹窗表单/状态切换/删除二次确认)和API层(finance-voucherword.ts含CRUD+状态更新+分页查询)，注册路由/finance/voucherword并添加中英文i18n词条，vite build通过 |
 | Git commit | 385831eb |
 | 工人 | W6 |
+
+### P0-012 - HRM人力资源管理模块开发
+
+#### P0-012-001-004-001-001 编写接口定义Service接口
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-012-001-004-001-001 |
+| 任务名称 | 编写接口定义Service接口 |
+| 完成时间 | 2026-06-08T12:00 |
+| 状态 | ✅ |
+| 摘要 | 创建ISalaryService.java接口，继承IServiceX<SalaryEntity>，声明CRUD方法(create/update/delete/getById/pageList)，写操作标注@Transactional，入参使用@Valid DTO，JavaDoc注释完整 |
+| Git commit | eace9884 |
+| 工人 | W5 |
