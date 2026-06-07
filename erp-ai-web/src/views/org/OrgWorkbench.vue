@@ -1,18 +1,20 @@
-<template>
+﻿<template>
   <div class="org-workbench-page">
     <div class="page-header">
       <h2>{{ $t('org.workbench.title') }}</h2>
       <p class="page-desc">{{ $t('org.workbench.desc') }}</p>
       <el-button :icon="RefreshRight" :loading="loading" @click="loadData">
-        {{ $t('common.refresh') }}
+        {{ $t('refresh') }}
       </el-button>
     </div>
 
     <div v-loading="loading" class="workbench-content">
       <div v-if="error" class="area-error">
-        <el-result icon="error" sub-title="数据加载失败">
+        <el-result icon="error" :sub-title="$t('org.workbench.loadFailed')">
           <template #extra>
-            <el-button type="primary" size="small" @click="loadData">重试</el-button>
+            <el-button type="primary" size="small" @click="loadData">{{
+              $t('org.workbench.retry')
+            }}</el-button>
           </template>
         </el-result>
       </div>
@@ -81,40 +83,103 @@
           <div class="section-header">
             <h3>{{ $t('org.workbench.quickActions') }}</h3>
           </div>
-          <div class="action-buttons">
-            <el-button
-              v-permission="'org:company:add'"
-              type="primary"
-              :icon="Plus"
-              @click="navigateTo('/org/company')"
-            >
-              {{ $t('org.workbench.addCompany') }}
-            </el-button>
-            <el-button
-              v-permission="'org:department:add'"
-              type="success"
-              :icon="Plus"
-              @click="navigateTo('/org/department')"
-            >
-              {{ $t('org.workbench.addDepartment') }}
-            </el-button>
-            <el-button
-              v-permission="'org:position:add'"
-              type="warning"
-              :icon="Plus"
-              @click="navigateTo('/org/position')"
-            >
-              {{ $t('org.workbench.addPosition') }}
-            </el-button>
-            <el-button
-              v-permission="'org:chart:view'"
-              type="info"
-              :icon="Share"
-              @click="navigateTo('/org/chart')"
-            >
-              {{ $t('org.workbench.orgChart') }}
-            </el-button>
+          <el-row :gutter="16" class="action-row">
+            <el-col :xs="12" :sm="6">
+              <el-button
+                v-permission="'org:company:add'"
+                type="primary"
+                :icon="Plus"
+                class="action-btn"
+                @click="handleNavigate('/org/company')"
+              >
+                {{ $t('org.workbench.addCompany') }}
+              </el-button>
+            </el-col>
+            <el-col :xs="12" :sm="6">
+              <el-button
+                v-permission="'org:department:add'"
+                type="success"
+                :icon="Plus"
+                class="action-btn"
+                @click="handleNavigate('/org/department')"
+              >
+                {{ $t('org.workbench.addDepartment') }}
+              </el-button>
+            </el-col>
+            <el-col :xs="12" :sm="6">
+              <el-button
+                v-permission="'org:position:add'"
+                type="warning"
+                :icon="Plus"
+                class="action-btn"
+                @click="handleNavigate('/org/position')"
+              >
+                {{ $t('org.workbench.addPosition') }}
+              </el-button>
+            </el-col>
+            <el-col :xs="12" :sm="6">
+              <el-button
+                v-permission="'org:structure:view'"
+                type="info"
+                :icon="Share"
+                class="action-btn"
+                @click="handleNavigate('/org/structure')"
+              >
+                {{ $t('org.workbench.orgChart') }}
+              </el-button>
+            </el-col>
+          </el-row>
+        </section>
+
+        <!-- 最近新增记录 -->
+        <section class="workbench-section">
+          <div class="section-header">
+            <h3>{{ $t('org.workbench.recentRecords') }}</h3>
           </div>
+          <el-row :gutter="16">
+            <el-col :xs="24" :md="8">
+              <el-card shadow="never" class="recent-card">
+                <template #header>
+                  <span class="card-title">{{ $t('org.workbench.recentCompany') }}</span>
+                </template>
+                <div v-if="recentCompanies.length === 0" class="empty-tip">
+                  {{ $t('noData') }}
+                </div>
+                <div v-for="item in recentCompanies" :key="item.id" class="recent-item">
+                  <span class="recent-name">{{ item.name }}</span>
+                  <span class="recent-time">{{ item.createTime }}</span>
+                </div>
+              </el-card>
+            </el-col>
+            <el-col :xs="24" :md="8">
+              <el-card shadow="never" class="recent-card">
+                <template #header>
+                  <span class="card-title">{{ $t('org.workbench.recentDept') }}</span>
+                </template>
+                <div v-if="recentDepartments.length === 0" class="empty-tip">
+                  {{ $t('noData') }}
+                </div>
+                <div v-for="item in recentDepartments" :key="item.id" class="recent-item">
+                  <span class="recent-name">{{ item.name }}</span>
+                  <span class="recent-time">{{ item.createTime }}</span>
+                </div>
+              </el-card>
+            </el-col>
+            <el-col :xs="24" :md="8">
+              <el-card shadow="never" class="recent-card">
+                <template #header>
+                  <span class="card-title">{{ $t('org.workbench.recentPosition') }}</span>
+                </template>
+                <div v-if="recentPositions.length === 0" class="empty-tip">
+                  {{ $t('noData') }}
+                </div>
+                <div v-for="item in recentPositions" :key="item.id" class="recent-item">
+                  <span class="recent-name">{{ item.name }}</span>
+                  <span class="recent-time">{{ item.createTime }}</span>
+                </div>
+              </el-card>
+            </el-col>
+          </el-row>
         </section>
       </template>
     </div>
@@ -130,13 +195,13 @@ import * as echarts from 'echarts/core'
 import { PieChart, BarChart } from 'echarts/charts'
 import { GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
-import { useOrgWorkbenchStore } from '@/stores/org/workbench'
-import type { OrgWorkbenchVO } from '@/api/org/workbench'
+import { getOrgWorkbenchApi, type OrgWorkbenchVO } from '@/api/org/workbench'
+import { getCompanyPage } from '@/api/modules/org'
+import request from '@/utils/request'
 
 echarts.use([PieChart, BarChart, GridComponent, TooltipComponent, LegendComponent, CanvasRenderer])
 
 const router = useRouter()
-const store = useOrgWorkbenchStore()
 
 const loading = ref(false)
 const error = ref(false)
@@ -147,31 +212,32 @@ const barChartRef = ref<HTMLElement | null>(null)
 let pieChartInstance: echarts.ECharts | null = null
 let barChartInstance: echarts.ECharts | null = null
 
+// CountUp animation state
 const animatedCompanyCount = ref(0)
 const animatedDeptCount = ref(0)
 const animatedPositionCount = ref(0)
 const animatedEmployeeCount = ref(0)
 
-function animateValue(
-  target: number,
-  refKey: 'companyCount' | 'deptCount' | 'positionCount' | 'employeeCount',
-  duration = 1000
-): void {
-  const refMap = {
-    companyCount: animatedCompanyCount,
-    deptCount: animatedDeptCount,
-    positionCount: animatedPositionCount,
-    employeeCount: animatedEmployeeCount
-  }
-  const animatedRef = refMap[refKey]
-  const start = 0
+interface RecentItem {
+  id: number
+  name: string
+  createTime: string
+}
+
+const recentCompanies = ref<RecentItem[]>([])
+const recentDepartments = ref<RecentItem[]>([])
+const recentPositions = ref<RecentItem[]>([])
+
+function animateValue(target: number, refObj: { value: number }, duration = 1000): void {
+  const start = refObj.value
+  const diff = target - start
   const startTime = performance.now()
 
   function step(currentTime: number): void {
     const elapsed = currentTime - startTime
     const progress = Math.min(elapsed / duration, 1)
     const eased = 1 - Math.pow(1 - progress, 3)
-    animatedRef.value = Math.round(start + (target - start) * eased)
+    refObj.value = Math.round(start + diff * eased)
     if (progress < 1) {
       requestAnimationFrame(step)
     }
@@ -180,27 +246,68 @@ function animateValue(
   requestAnimationFrame(step)
 }
 
-function animateAllKpis(): void {
+function startAnimations(): void {
   if (!data.value) return
-  animateValue(data.value.companyCount, 'companyCount')
-  animateValue(data.value.departmentCount, 'deptCount')
-  animateValue(data.value.positionCount, 'positionCount')
-  animateValue(data.value.employeeCount, 'employeeCount')
+  animateValue(data.value.companyCount ?? 0, animatedCompanyCount as unknown as { value: number })
+  animateValue(data.value.departmentCount ?? 0, animatedDeptCount as unknown as { value: number })
+  animateValue(data.value.positionCount ?? 0, animatedPositionCount as unknown as { value: number })
+  animateValue(data.value.employeeCount ?? 0, animatedEmployeeCount as unknown as { value: number })
 }
 
 async function loadData(): Promise<void> {
   loading.value = true
   error.value = false
   try {
-    data.value = await store.fetchData(true)
+    data.value = await getOrgWorkbenchApi()
+    startAnimations()
     await nextTick()
     renderCharts()
-    animateAllKpis()
+    fetchRecentRecords()
   } catch {
     error.value = true
-    ElMessage.error('加载工作台数据失败')
+    ElMessage.error('Failed to load workbench data')
   } finally {
     loading.value = false
+  }
+}
+
+async function fetchRecentRecords(): Promise<void> {
+  try {
+    const [companyRes] = await Promise.allSettled([getCompanyPage({ page: 1, pageSize: 5 } as any)])
+    if (companyRes.status === 'fulfilled' && companyRes.value?.records) {
+      recentCompanies.value = companyRes.value.records.slice(0, 5).map((r: any) => ({
+        id: r.id,
+        name: r.companyName ?? r.name,
+        createTime: r.createTime ?? ''
+      }))
+    }
+  } catch {
+    // silent fail for non-critical recent records
+  }
+
+  try {
+    const [deptRes, posRes] = await Promise.allSettled([
+      request.get('/api/org/department/page', { params: { page: 1, pageSize: 5 } }),
+      request.get('/api/org/position/page', { params: { page: 1, pageSize: 5 } })
+    ])
+    if (deptRes.status === 'fulfilled') {
+      const deptData = deptRes.value as any
+      recentDepartments.value = (deptData?.records ?? []).slice(0, 5).map((r: any) => ({
+        id: r.id,
+        name: r.deptName ?? r.name,
+        createTime: r.createTime ?? ''
+      }))
+    }
+    if (posRes.status === 'fulfilled') {
+      const posData = posRes.value as any
+      recentPositions.value = (posData?.records ?? []).slice(0, 5).map((r: any) => ({
+        id: r.id,
+        name: r.positionName ?? r.name,
+        createTime: r.createTime ?? ''
+      }))
+    }
+  } catch {
+    // silent fail
   }
 }
 
@@ -210,6 +317,15 @@ function renderCharts(): void {
   renderBarChart()
 }
 
+function getDeptTypeLabel(type: string): string {
+  const labels: Record<string, string> = {
+    business: '业务部门',
+    functional: '职能部门',
+    project: '项目部门'
+  }
+  return labels[type] ?? type
+}
+
 function renderPieChart(): void {
   if (!pieChartRef.value || !data.value) return
 
@@ -217,15 +333,21 @@ function renderPieChart(): void {
     pieChartInstance = echarts.init(pieChartRef.value)
   }
 
-  const dist = data.value.deptTypeDistribution || []
-  const pieData = dist.map((item) => ({
-    name: item.deptType,
+  const distribution = data.value.deptTypeDistribution || []
+  const pieData = distribution.map((item) => ({
+    name: getDeptTypeLabel(item.deptType),
     value: item.count
   }))
 
   pieChartInstance.setOption({
-    tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
-    legend: { bottom: 0, type: 'scroll' },
+    tooltip: {
+      trigger: 'item',
+      formatter: '{b}: {c} ({d}%)'
+    },
+    legend: {
+      bottom: 0,
+      type: 'scroll'
+    },
     series: [
       {
         name: '部门类型',
@@ -234,7 +356,11 @@ function renderPieChart(): void {
         center: ['50%', '45%'],
         data: pieData.length > 0 ? pieData : [{ name: '暂无数据', value: 0 }],
         emphasis: {
-          itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)' }
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          }
         },
         label: { show: false },
         labelLine: { show: false }
@@ -250,37 +376,52 @@ function renderBarChart(): void {
     barChartInstance = echarts.init(barChartRef.value)
   }
 
-  const companyDept = data.value.companyDeptCount || []
-  const names = companyDept.map((item) => item.companyName)
-  const values = companyDept.map((item) => item.deptCount)
+  const companyData = data.value.companyDeptCount || []
+  const names = companyData.map((item) => item.companyName)
+  const counts = companyData.map((item) => item.deptCount)
 
   barChartInstance.setOption({
-    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
-    grid: { left: '3%', right: '4%', bottom: '8%', containLabel: true },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: { type: 'shadow' }
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '8%',
+      containLabel: true
+    },
     xAxis: {
       type: 'category',
-      data: names,
-      axisLabel: { rotate: names.length > 5 ? 30 : 0 }
+      data: names.length > 0 ? names : ['暂无数据'],
+      axisLabel: { rotate: 15 }
     },
-    yAxis: { type: 'value', minInterval: 1 },
+    yAxis: {
+      type: 'value',
+      minInterval: 1
+    },
     series: [
       {
         name: '部门数量',
         type: 'bar',
-        data: values,
+        data: counts.length > 0 ? counts : [0],
+        barWidth: '50%',
         itemStyle: {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
             { offset: 0, color: '#409EFF' },
-            { offset: 1, color: '#79bbff' }
-          ])
+            { offset: 1, color: '#73C0DE' }
+          ]),
+          borderRadius: [4, 4, 0, 0]
         },
-        barMaxWidth: 40
+        emphasis: {
+          itemStyle: { color: '#337ECC' }
+        }
       }
     ]
   })
 }
 
-function navigateTo(path: string): void {
+function handleNavigate(path: string): void {
   router.push(path)
 }
 
@@ -346,12 +487,6 @@ onUnmounted(() => {
         color: var(--el-text-color-primary);
       }
     }
-
-    .action-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
   }
 
   .kpi-row {
@@ -384,6 +519,50 @@ onUnmounted(() => {
     .chart-container {
       width: 100%;
       height: 320px;
+    }
+  }
+
+  .action-row {
+    .action-btn {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  }
+
+  .recent-card {
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--el-text-color-primary);
+    }
+
+    .empty-tip {
+      text-align: center;
+      padding: 16px;
+      color: var(--el-text-color-secondary);
+      font-size: 14px;
+    }
+
+    .recent-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--el-border-color-lighter);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .recent-name {
+        font-size: 14px;
+        color: var(--el-text-color-primary);
+      }
+
+      .recent-time {
+        font-size: 12px;
+        color: var(--el-text-color-secondary);
+      }
     }
   }
 

@@ -64,6 +64,31 @@ const common = {
       confirmDelete: 'Confirm to delete this voucher word?'
     }
   },
+  org: {
+    workbench: {
+      title: 'Organization Workbench',
+      desc: 'Overview of core organization metrics',
+      kpiTitle: 'KPIs',
+      companyCount: 'Companies',
+      departmentCount: 'Departments',
+      positionCount: 'Positions',
+      employeeCount: 'Active Employees',
+      chartTitle: 'Analytics',
+      deptTypeDist: 'Department Type Distribution',
+      companyDeptCompare: 'Company Department Comparison',
+      quickActions: 'Quick Actions',
+      addCompany: 'Add Company',
+      addDepartment: 'Add Department',
+      addPosition: 'Add Position',
+      orgChart: 'Organization Chart',
+      loadFailed: 'Data loading failed',
+      retry: 'Retry',
+      recentRecords: 'Recent Records',
+      recentCompany: 'Recent Companies',
+      recentDept: 'Recent Departments',
+      recentPosition: 'Recent Positions'
+    }
+  },
   operate: 'Operation',
   status: 'Status',
   createTime: 'Create Time',

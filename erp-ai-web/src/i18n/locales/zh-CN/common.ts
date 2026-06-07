@@ -114,7 +114,13 @@ const common = {
       addCompany: '新增公司',
       addDepartment: '新增部门',
       addPosition: '新增岗位',
-      orgChart: '组织架构图'
+      orgChart: '组织架构图',
+      loadFailed: '数据加载失败',
+      retry: '重试',
+      recentRecords: '最近新增记录',
+      recentCompany: '最近新增公司',
+      recentDept: '最近新增部门',
+      recentPosition: '最近新增岗位'
     }
   }
 }

@@ -1,38 +1,34 @@
-import { defineStore } from 'pinia'
+﻿import { defineStore } from 'pinia'
 import { getOrgWorkbenchApi, type OrgWorkbenchVO } from '@/api/org/workbench'
 
 interface OrgWorkbenchState {
   data: OrgWorkbenchVO | null
   loading: boolean
-  fetchedAt: number | null
+  lastFetchTime: number | null
 }
-
-const CACHE_TTL = 5 * 60 * 1000
 
 export const useOrgWorkbenchStore = defineStore('orgWorkbench', {
   state: (): OrgWorkbenchState => ({
     data: null,
     loading: false,
-    fetchedAt: null
+    lastFetchTime: null
   }),
 
   getters: {
-    isCacheValid(): boolean {
-      return this.fetchedAt !== null && Date.now() - this.fetchedAt < CACHE_TTL
+    hasData: (state): boolean => state.data !== null,
+    isStale: (state): boolean => {
+      if (!state.lastFetchTime) return true
+      return Date.now() - state.lastFetchTime > 5 * 60 * 1000
     }
   },
 
   actions: {
-    async fetchData(force = false): Promise<OrgWorkbenchVO> {
-      if (!force && this.data && this.isCacheValid) {
-        return this.data
-      }
-
+    async fetchData(force = false): Promise<void> {
+      if (this.data && !force && !this.isStale) return
       this.loading = true
       try {
         this.data = await getOrgWorkbenchApi()
-        this.fetchedAt = Date.now()
-        return this.data
+        this.lastFetchTime = Date.now()
       } finally {
         this.loading = false
       }
@@ -40,7 +36,12 @@ export const useOrgWorkbenchStore = defineStore('orgWorkbench', {
 
     clearCache(): void {
       this.data = null
-      this.fetchedAt = null
+      this.lastFetchTime = null
     }
+  },
+
+  persist: {
+    key: 'erp_org_workbench',
+    pick: ['data', 'lastFetchTime']
   }
 })

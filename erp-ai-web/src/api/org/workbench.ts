@@ -1,7 +1,7 @@
-import request from '@/utils/request'
+﻿import request from '@/utils/request'
 
 /** 部门类型分布项 */
-export interface TypeDistribution {
+export interface DeptTypeDistribution {
   deptType: string
   count: number
 }
@@ -27,7 +27,7 @@ export interface OrgWorkbenchVO {
   departmentCount: number
   positionCount: number
   employeeCount: number
-  deptTypeDistribution: TypeDistribution[]
+  deptTypeDistribution: DeptTypeDistribution[]
   companyDeptCount: CompanyDeptCount[]
   deptStaffDistribution: DeptStaffCount[]
 }
