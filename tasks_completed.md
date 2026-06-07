@@ -1581,3 +1581,15 @@
 | 摘要 | 创建ISalaryService.java接口，继承IServiceX<SalaryEntity>，声明CRUD方法(create/update/delete/getById/pageList)，写操作标注@Transactional，入参使用@Valid DTO，JavaDoc注释完整 |
 | Git commit | 92f4fd6f |
 | 工人 | W5 |
+
+#### P0-012-001-004-001-002 编写ServiceImpl实现类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-012-001-004-001-002 |
+| 任务名称 | 编写ServiceImpl实现类 |
+| 完成时间 | 2026-06-08T12:30 |
+| 状态 | ✅ |
+| 摘要 | 创建SalaryServiceImpl(继承ServiceImpl/完整CRUD/员工+月份唯一性校验/netSalary计算/@Transactional+BusinessException+@OperLog)+SalaryMapper |
+| Git commit | (pending-commit) |
+| 工人 | W6 |
