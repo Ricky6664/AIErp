@@ -1117,3 +1117,4 @@
 | 状态 | ✅ |
 | 摘要 | 编写WorkbenchAggregateServiceTest(16用例全通过)，覆盖KPI统计/仓库趋势/库位趋势正常流程+null处理+租户ID获取(String/Long/null/异常)+参数传递验证+@Cacheable注解验证 |
 | 工人 | W3 |
+| Git Commit | 888ebbe4 |
