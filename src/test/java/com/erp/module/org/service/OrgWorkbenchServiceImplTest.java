@@ -1,10 +1,12 @@
 package com.erp.module.org.service;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.erp.hrm.entity.EmployeeEntity;
 import com.erp.hrm.mapper.EmployeeMapper;
+import com.erp.module.org.controller.OrgWorkbenchController;
 import com.erp.module.org.entity.OrgCompany;
 import com.erp.module.org.entity.OrgDepartment;
 import com.erp.module.org.entity.OrgPosition;
@@ -25,6 +27,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -409,6 +412,96 @@ class OrgWorkbenchServiceImplTest {
             assertNotNull(annotation);
             assertTrue(annotation.key().contains("org:workbench:"),
                     "cache key应包含'org:workbench:'前缀, 实际: " + annotation.key());
+        }
+
+        @Test
+        @DisplayName("getWorkbenchData -> @Cacheable unless条件防止缓存null")
+        void test_cache_unless_condition() throws NoSuchMethodException {
+            var method = OrgWorkbenchServiceImpl.class.getMethod("getWorkbenchData");
+            var annotation = method.getAnnotation(Cacheable.class);
+
+            assertNotNull(annotation);
+            assertEquals("#result == null", annotation.unless(),
+                    "unless应防止缓存null结果, 实际: " + annotation.unless());
+        }
+
+        @Test
+        @DisplayName("getWorkbenchData -> @Cacheable key包含getTenantId()调用确保租户隔离")
+        void test_cache_key_contains_tenantId() throws NoSuchMethodException {
+            var method = OrgWorkbenchServiceImpl.class.getMethod("getWorkbenchData");
+            var annotation = method.getAnnotation(Cacheable.class);
+
+            assertNotNull(annotation);
+            String keyExpr = annotation.key();
+            assertTrue(keyExpr.contains("getTenantId"),
+                    "cache key应使用getTenantId()实现租户隔离, 实际: " + keyExpr);
+        }
+    }
+
+    @Nested
+    @DisplayName("缓存命中行为")
+    class CacheHitTests {
+
+        @Test
+        @DisplayName("getTenantId返回不同值 -> 生成不同的缓存key")
+        void test_tenantId_differentValues() {
+            SaSession sessionA = mock(SaSession.class);
+            when(sessionA.get("tenantId")).thenReturn(100L);
+
+            SaSession sessionB = mock(SaSession.class);
+            when(sessionB.get("tenantId")).thenReturn(200L);
+
+            try (MockedStatic<StpUtil> stpMock = mockStatic(StpUtil.class)) {
+                stpMock.when(StpUtil::getSession).thenReturn(sessionA);
+                assertEquals(Long.valueOf(100L), workbenchService.getTenantId());
+
+                stpMock.when(StpUtil::getSession).thenReturn(sessionB);
+                assertEquals(Long.valueOf(200L), workbenchService.getTenantId());
+            }
+        }
+
+        @Test
+        @DisplayName("getTenantId -> 同一会话多次调用返回一致的tenantId")
+        void test_tenantId_consistent() {
+            SaSession session = mock(SaSession.class);
+            when(session.get("tenantId")).thenReturn(42L);
+
+            try (MockedStatic<StpUtil> stpMock = mockStatic(StpUtil.class)) {
+                stpMock.when(StpUtil::getSession).thenReturn(session);
+
+                Long first = workbenchService.getTenantId();
+                Long second = workbenchService.getTenantId();
+
+                assertEquals(first, second, "同一会话tenantId应一致");
+            }
+        }
+    }
+
+    @Nested
+    @DisplayName("权限控制")
+    class PermissionAnnotationTests {
+
+        @Test
+        @DisplayName("Controller.workbench() -> 标注@SaCheckPermission(org:workbench:query)")
+        void test_controller_permission_annotation() throws NoSuchMethodException {
+            Method method = OrgWorkbenchController.class.getMethod("workbench");
+            var annotation = method.getAnnotation(SaCheckPermission.class);
+
+            assertNotNull(annotation, "workbench接口应标注@SaCheckPermission");
+            assertTrue(annotation.value().length > 0);
+            assertEquals("org:workbench:query", annotation.value()[0],
+                    "权限值应为org:workbench:query");
+        }
+
+        @Test
+        @DisplayName("Controller.workbench() -> 权限值为单一权限(非OR组合)")
+        void test_controller_permission_single() throws NoSuchMethodException {
+            Method method = OrgWorkbenchController.class.getMethod("workbench");
+            var annotation = method.getAnnotation(SaCheckPermission.class);
+
+            assertNotNull(annotation);
+            assertEquals(1, annotation.value().length,
+                    "工作台查询应是单一权限");
         }
     }
 

@@ -1,5 +1,6 @@
 package com.erp.module.org.controller;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
 import com.erp.common.result.RT;
 import com.erp.module.org.service.OrgWorkbenchService;
 import com.erp.module.org.vo.WorkbenchVO;
@@ -28,6 +29,7 @@ public class OrgWorkbenchController {
 
     @Operation(summary = "获取组织架构工作台聚合数据")
     @GetMapping("/workbench")
+    @SaCheckPermission("org:workbench:query")
     public RT<WorkbenchVO> workbench() {
         return RT.ok(workbenchService.getWorkbenchData());
     }
