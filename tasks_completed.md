@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> ****最后更新**：2026-06-08T04:05
-> ****归档总数**：577 条
+> ****最后更新**：2026-06-08T05:20
+> ****归档总数**：578 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -1081,10 +1081,11 @@
 | P0-010-002-002-001-001 | 编写核心代码 | 2026-06-07T21:55 | ✅ | 仓库列表页集成P07表单弹窗(el-dialog+el-form)+新增/编辑双模式+表单校验(名称必填/类型必选/手机号格式/地址长度)+createWarehouse/updateWarehouse/getWarehouseDetail API联调+状态切换+submitLoading防重复 | acb2ca85 |
 | P0-010-002-004-001-001 | 编写核心代码 | 2026-06-07T22:05 | ✅ | 库位管理P07单一表单页(el-dialog+el-form)+新增/编辑双模式+库位类型(存储/拣货/暂存/不良品)+createLocation/updateLocation/getLocationDetail API联调+表单校验+submitLoading防重复 | (pending) |
 | P0-010-002-004-001-002 | 验证功能 | 2026-06-07T22:07 | ✅ | 编写前端验证报告(10项验证+6项边界分析+编译检查)+问题清单(2CRITICAL Controller缺失+2MINOR 类型/提示) | 197c2a3f |
+| P0-010-002-001-001-002 | 验证功能 | 2026-06-08T05:20 | ✅ | 前端代码审查41项全部通过(vue-tsc零错误/路由正确/表单校验完整/异常处理覆盖/边界场景容错)+问题清单3项(Controller缺失/菜单缺失/构建依赖) | (pending) |
 | P0-010-001-000-001-001 | 编写工作台聚合SQL | 2026-06-07T22:29 | ✅ | WorkbenchAggregateMapper.java+XML(KPI统计selectKpiStats+仓库趋势selectWarehouseTrendByDay+库位趋势selectLocationTrendByDay)+@Mapper+@Param+tenant_id多租户隔离+PostgreSQL DATE_TRUNC | 26d0994b |
 | P0-010-001-000-001-002 | 编写ServiceImpl实现类 | 2026-06-07T22:37 | ✅ | 修复WorkbenchAggregateServiceImpl导入(WorkbenchAggregateAggregateMapper从inventory改warehouse模块)+更新测试(16用例全通过)+编译通过 | (pending) |
 | P0-010-002-000-002-001 | ECharts图表组件开发 | 2026-06-08T05:10 | ✅ | ChartArea.vue(折线趋势/柱状对比/饼图分布+ResizeObserver+showLoading+时间范围日/周/月切换)+warehouse-workbench.ts图表API类型 | (pending) |
-| P0-010-002-001-001-001 | 编写核心代码 | 2026-06-08T05:00 | ✅ | 仓库定义P04单一列表页(搜索表单+统计卡片+VxeTable虚拟滚动+防抖300ms+新增/编辑弹窗/启用停用/删除确认)+API端点对齐层级规范+路由注册/warehouse/warehouse | (pending) |
+| P0-010-002-001-001-001 | 编写核心代码 | 2026-06-08T05:00 | ✅ | 仓库定义P04单一列表页(搜索表单+统计卡片+VxeTable虚拟滚动+防抖300ms+新增/编辑弹窗/启用停用/删除确认)+API端点对齐层级规范+路由注册/warehouse/warehouse | 71344c97 |
 
 
 ### 模块完成: P0-007 ✅
@@ -1254,6 +1255,17 @@
 | 摘要 | 验证仓库定义列表页(审核index.vue+warehouse.ts+types代码/运行pnpm build编译通过/编写测试报告含8项验证+5项边界分析/问题清单4项含路由未注册+API路径不一致+缺负责人列+统计仅当前页/代码规范合规/异常处理完善) |
 | 工人 | W3 |
 | Git Commit | 92df00d6 |
+
+### P0-010-002-001-001-002 验证功能（重执行）
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-010-002-001-001-002 |
+| 完成时间 | 2026-06-08T05:20:00 |
+| 状态 | ✅ |
+| 摘要 | 重执行验证：前端代码审查41项全部通过(vue-tsc零错误/路由正确/表单校验完整/异常处理覆盖/边界场景容错)+交付物(test-report+issues)+问题清单3项(P0:Controller缺失/P1:菜单缺失/P2:构建依赖) |
+| 工人 | W5 |
+| Git Commit | (pending) |
 
 | P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07 21:22:55 | ✅ | 编写BankAccountServiceImpl实现类，包含CRUD+唯一性校验+状态流转校验+@Transactional | 7b195f18 |
 

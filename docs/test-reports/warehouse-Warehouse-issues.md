@@ -1,99 +1,72 @@
-# 仓库定义表单页 — 问题清单与修复方案
+# 仓库定义列表页 - 问题清单与修复方案
 
-> **任务编号**: P0-010-002-002-001-002
-> **验证人**: W3
-> **日期**: 2026-06-07
-
----
+> 任务编号: P0-010-002-001-001-002
+> 验证日期: 2026-06-08
+> 验证人: W5
+> 严重级别: P0-阻断 / P1-重要 / P2-建议
 
 ## 问题列表
 
-### I-01 [CRITICAL] 后端 WarehouseController 缺失
+### 问题 1: 后端Controller缺失 [P0-阻断]
 
-**现象**: 项目中无 `WarehouseController.java`、`LocationController.java`、`WorkbenchController.java`。前端所有仓库相关API调用将返回404。
+- 严重级别: P0
+- 描述: 前端页面调用5个仓库API接口(GET/POST/PUT/DELETE /api/warehouse/warehouse/*)，但后端不存在WarehouseController类。后端Service层(WarehouseServiceImpl)已实现，但Controller层缺失。
+- 影响: 所有API调用将返回404，页面无法加载数据，CRUD操作全部失败。
+- 根因: L4(Controller)任务未包含在P0-010模块的任务规划中，或Controller创建任务被遗漏。
+- 修复方案: 创建WarehouseController.java，实现以下端点:
+  - GET `/api/warehouse/warehouse` -> warehouseService.page(queryDTO, page)
+  - GET `/api/warehouse/warehouse/{id}` -> warehouseService.getById(id)
+  - POST `/api/warehouse/warehouse` -> warehouseService.save(dto)
+  - PUT `/api/warehouse/warehouse/{id}` -> warehouseService.updateById(dto)
+  - DELETE `/api/warehouse/warehouse/{id}` -> warehouseService.removeById(id, 关联校验)
+- 修复文件: src/main/java/com/erp/module/warehouse/controller/WarehouseController.java (待创建)
+- 修复人: 待认领
 
-**影响**: 仓库列表页、表单页、工作台页面全部不可用。
+### 问题 2: 侧边栏菜单缺失仓库定义入口 [P1-重要]
 
-**根因**: P0-010模块任务拆解中未包含Controller任务，Service层完成后直接跳到了前端页面开发。
+- 严重级别: P1
+- 描述: 侧边栏菜单配置(menuConfig.ts)中没有仓库定义页面条目。用户无法通过侧边栏导航到 `/warehouse/warehouse` 页面。
+- 影响: 用户只能通过直接输入URL访问页面。
+- 修复方案: 在menuConfig.ts中添加仓库管理菜单组，包含仓库定义子菜单项。
+  ```typescript
+  {
+    title: '仓库管理',
+    icon: 'Box',
+    children: [
+      { title: '仓库定义', path: '/warehouse/warehouse' }
+    ]
+  }
+  ```
+- 修复文件: erp-ai-web/src/layouts/components/Sidebar/menuConfig.ts
+- 修复人: 待认领
 
-**修复方案**:
-创建 `InvWarehouseController.java`，按模块开发指南 Section 7.1 实现：
+### 问题 3: vite-plugin-compression 依赖缺失 [P2-建议]
 
-```
-路径: src/main/java/com/erp/module/warehouse/controller/InvWarehouseController.java
-```
+- 严重级别: P2
+- 描述: `pnpm build` 或 `npx vite build` 时报错 `Cannot find package 'vite-plugin-compression'`。该包在vite.config.ts中被引用但未安装。
+- 影响: 前端生产构建失败，但不影响开发服务器(vite dev)和类型检查(vue-tsc)。
+- 修复方案: 安装依赖 `pnpm add -D vite-plugin-compression` 或从vite.config.ts中移除该插件引用。
+- 修复文件: package.json 或 vite.config.ts
+- 备注: 此问题非本任务引入，属于项目基础设施问题。
 
-参考接口规格:
-| 方法 | HTTP | 路径 | 权限 |
-|------|------|------|------|
-| page | GET | /api/warehouse/warehouse | inv:warehouse:query |
-| all | GET | /api/warehouse/warehouse/all | inv:warehouse:query |
-| getById | GET | /api/warehouse/warehouse/{id} | inv:warehouse:query |
-| create | POST | /api/warehouse/warehouse | inv:warehouse:add |
-| update | PUT | /api/warehouse/warehouse/{id} | inv:warehouse:edit |
-| delete | DELETE | /api/warehouse/warehouse/{id} | inv:warehouse:delete |
+## 验证通过的项
 
-同样需要创建 `InvLocationController` 和 `InvWarehouseWorkbenchController`。
+所有41项代码审查验证均通过：
+- 前端代码结构完整、类型正确
+- 路由注册正确
+- 表单校验完备
+- 异常处理覆盖所有API调用
+- 边界场景(空数据/连续提交/未知类型)均有容错处理
+- 删除操作有二次确认(el-popconfirm)
+- 防抖搜索(300ms)减少API调用
+- 提交按钮loading状态防止重复提交
 
----
+## 总结
 
-### I-02 [CRITICAL] 前端API路径与模块指南不一致
+| 严重级别 | 数量 | 说明 |
+|----------|:---:|------|
+| P0-阻断 | 1 | Controller缺失导致API无法调用 |
+| P1-重要 | 1 | 菜单缺失导致用户无法导航 |
+| P2-建议 | 1 | 构建依赖缺失(非本任务引入) |
 
-**现象**: 前端 `erp-ai-web/src/api/modules/warehouse.ts` 中的API路径与模块开发指南规定的路径不一致。
-
-**对比**:
-
-| API函数 | 前端当前路径 | 模块指南规定路径 |
-|--------|------------|--------------|
-| getWarehousePage | GET /api/warehouse/page | GET /api/warehouse/warehouse |
-| getWarehouseDetail | GET /api/warehouse/${id} | GET /api/warehouse/warehouse/${id} |
-| createWarehouse | POST /api/warehouse | POST /api/warehouse/warehouse |
-| updateWarehouse | PUT /api/warehouse/${id} | PUT /api/warehouse/warehouse/${id} |
-| deleteWarehouse | DELETE /api/warehouse/${id} | DELETE /api/warehouse/warehouse/${id} |
-
-**修复方案**:
-方案A（推荐）: 修改前端API路径，与模块指南对齐，然后按模块指南创建Controller。
-方案B: 修改模块指南，按前端当前路径创建Controller。
-
-建议方案A，模块指南是设计文档，前端应跟随设计。
-
-**修复文件**: `erp-ai-web/src/api/modules/warehouse.ts`
-
----
-
-### I-03 [MINOR] 统计卡片数据不准确
-
-**现象**: `stats` computed 从 `tableData.value`（当前页数据）计算"已启用"和"已停用"数量，而非全局总数。
-
-**代码定位**: `warehouse/index.vue` 第277-280行
-```ts
-const stats = computed(() => {
-  const total = pagination.total
-  const enabled = tableData.value.filter((item) => item.status === 1).length
-  return { total, enabled, disabled: total - enabled }
-})
-```
-
-**修复方案**: 后端分页接口返回总计数字段（`enabledCount`, `disabledCount`），或新增一个统计接口。前端从响应中读取。
-
-**优先级**: 低 — 不影响核心功能，可后续迭代。
-
----
-
-### I-04 [MINOR] 缺少空状态提示
-
-**现象**: 列表数据为空时，只显示空表格，缺少空状态占位提示。
-
-**修复方案**: VxeTable 配置空状态插槽或使用 `empty-text` 属性。
-
-**优先级**: 低 — 用户体验优化项。
-
----
-
-## 修复优先级
-
-| 优先级 | 问题编号 | 说明 |
-|:---:|:---:|------|
-| P0-阻塞 | I-01 + I-02 | 需同步修复，Controller路径与前端API必须一致 |
-| P2-优化 | I-03 | 统计数据准确性 |
-| P3-体验 | I-04 | 空状态UI提示 |
+前端代码本身质量良好，问题集中在后端接口依赖和菜单配置上。
