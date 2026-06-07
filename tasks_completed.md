@@ -1772,6 +1772,20 @@ n#### P0-006-001-004-001-002 验证功能
 
 | P0-007-001-004-001-001 | 编写接口定义Service接口 | 2026-06-08T02:42 | ✅ | ProductControlService接口(extends IServiceX<ProductControl>)+list/getById/save/update/delete+@Valid+@Transactional + ProductControlDTO(11字段)/ProductControlQueryDTO(extends PageQuery)/ProductControlVO(含审计字段), 文件已存在完整实现, mvn compile通过 | TBD |
 
+| P0-007-001-004-001-003 | 验证Service | 2026-06-08T02:52 | ✅ | ProductControlServiceTest(28用例全通过)+@ExtendWith(MockitoExtension)+@Nested分组(list/GetById/Save/Update/Delete)+互斥校验(批次与序列号)+唯一性校验(productId重复)+边界(null值/零值BigDecimal)+ArgumentCaptor字段映射验证+productcontrol_test_data.sql(5条测试数据)+mvn test通过 | TBD |
+
 ## P0-006 - 组织架构模块开发
 
 | P0-006-002-003-001-001 | 编写核心代码 | 2026-06-08T02:47 | ✅ | CompanyForm.vue(7表单字段:公司名称/简称/信用代码/法人/注册资本/地址/联系电话)+信用代码18位格式校验(正则匹配后端)+编辑模式GET回填+新增POST/编辑PUT+保存防重复提交(loading)+$t()国际化+form reset on close+w:720px el-dialog,vue-tsc编译通过 | TBD |
+
+## P0-007-001-003-001-003 验证Service (ProductUnitService)
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-007-001-003-001-003 |
+| 任务名称 | 验证Service |
+| 完成时间 | 2026-06-08T02:47 |
+| 状态 | ✅ |
+| 工人 | W5 |
+| 摘要 | 编写ProductUnitService单元测试，16个测试用例全部通过，覆盖CRUD正常流程+边界条件+异常场景 |
+| Git commit | 08611d14 |

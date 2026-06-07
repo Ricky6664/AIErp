@@ -18,7 +18,7 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 | 当前任务状态 | ✅ 已完成 |
 | 当前工人 | W6 |
 | ��ǰ feature 分支 | feature/P0-011 |
-| 最后完成的任务 | P0-007-001-004-001-001 ✅
+| 最后完成的任务 | P0-007-001-004-001-003 ✅
 ---
 ## 二、取任务游标
 | 属�?| �?|
@@ -74,10 +74,10 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 | P0-007-001-002-001-003 | 验证Service | L3 | ✅ | W7 |
 | P0-007-001-003-001-001 | 编写接口定义Service接口 | L3 | ✅ | W6 |
 | P0-007-001-003-001-002 | 编写ServiceImpl实现类 | L3 | ✅ | W4 |
-| P0-007-001-003-001-003 | 验证Service | L3 | 🔄 | W5 |
+| P0-007-001-003-001-003 | 验证Service | L3 | ✅ | W5 |
 | P0-007-001-004-001-001 | 编写接口定义Service接口 | L3 | ✅ | W6 |
 | P0-007-001-004-001-002 | 编写ServiceImpl实现类 | L3 | ✅ | W4 |
-| P0-007-001-004-001-003 | 验证Service | L3 | �?| W2 |
+| P0-007-001-004-001-003 | 验证Service | L3 | ✅ | W6 |
 ### P0-009 - SRM供应商管理模块开发（PARALLEL�?
 | 任务编号 | 任务名称 | 层级 | 状�?| 工人 |
 |---------|---------|:---:|:---:|:---:|
@@ -222,8 +222,6 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 ## 四、活跃认领注册表
 | 任务编号 | 工人 | 认领时间 |
 |---------|:---:|---------|
-| P0-007-001-002-001-003 | W7 | 2026-06-08T02:31:59 |
-| P0-007-001-003-001-003 | W5 | 2026-06-08T02:40:00 |
 
 
 ---
@@ -232,10 +230,6 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 > 用于：文件隔离检查（C4 约束）—�?新工人认领时检查自己的文件作用域是否与此表有交集�?
 > 认领时追加（所有预期修改的文件），完成/阻塞/超时时删除该任务的所有行）
 | 文件路径 | 任务编号 | 工人 |
-| src/test/java/com/erp/module/product/service/ProductServiceTest.java | P0-007-001-002-001-003 | W7 |
-| src/test/resources/sql/product/product_test_data.sql | P0-007-001-002-001-003 | W7 |
-| src/test/java/com/erp/module/product/service/ProductUnitServiceTest.java | P0-007-001-003-001-003 | W5 |
-| src/test/resources/sql/product/productunit_test_data.sql | P0-007-001-003-001-003 | W5 |
 ## 六、模块占用表
 > 记录每个活跃模块被哪些工人占用、执行模式�?
 > 用于：SERIAL 模块独占检查（C2 约束）—�?SERIAL 模块已有工人占用时，其他工人跳过该模块�?
@@ -243,7 +237,6 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 | 模块编号 | 工人 | 执行模式 |
 |---------|:---:|:-------:|
 | P0-007 | W7 | PARALLEL |
-| P0-007 | W5 | PARALLEL |
 ## 七、统�?
 | 指标 | 数�?|
 |------|------|
