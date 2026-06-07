@@ -1,112 +1,165 @@
-# 仓库定义列表页 - 前端验证报告
+# 仓库定义表单页 - 前端验证报告
 
-> 任务编号: P0-010-002-001-001-002
+> 任务编号: P0-010-002-002-001-002
 > 验证日期: 2026-06-08
 > 验证人: W5
+> 父任务: P0-010-002-002 (新增/编辑仓库定义表单页)
+> 关联代码: erp-ai-web/src/views/warehouse/warehouse/index.vue (el-dialog表单区域)
 
 ## 一、代码编译验证
 
 | 检查项 | 结果 | 说明 |
 |--------|:----:|------|
 | TypeScript类型检查 (vue-tsc --noEmit) | PASS | 零类型错误 |
-| API模块导入 | PASS | warehouse.ts 正确导入类型和请求工具 |
-| 路由配置 | PASS | WAREHOUSE_LIST正确注册到staticRoutes数组 |
-| 组件导入 | PASS | index.vue正确导入所有依赖 |
+| 后端编译 (mvn compile -q) | PASS | 零编译错误 |
+| API模块导入 | PASS | warehouse.ts 所有5个API函数类型正确 |
+| 组件导入 | PASS | Element Plus组件(ElDialog/ElForm/ElSelect/ElRadioGroup)、VxeTable正确导入 |
+| 类型导入 | PASS | WarehouseListVO/WarehouseCreateDTO/WarehouseUpdateDTO 正确引用 |
 
-## 二、功能代码审查
+## 二、表单功能验证
 
-### 2.1 页面路由访问
+### 2.1 表单弹窗结构
 | 检查项 | 结果 | 说明 |
 |--------|:----:|------|
-| 路由路径 /warehouse/warehouse | PASS | 定义在static.ts:194-199 |
-| 路由注册到主路由 | PASS | staticRoutes包含WAREHOUSE_LIST |
-| 组件懒加载 | PASS | () => import(...) |
-| meta配置 | PASS | title/icon/keepAlive |
+| 弹窗组件 | PASS | el-dialog, width=640px |
+| 标题动态切换 | PASS | :title="isEdit ? '编辑仓库' : '新增仓库'" |
+| destroy-on-close | PASS | 关闭时销毁DOM，避免残留状态 |
+| @closed回调 | PASS | handleDialogClosed -> formRef.resetFields() + 清空userOptions |
+| 取消按钮 | PASS | dialogVisible = false |
+| 确定按钮loading | PASS | submitLoading防止重复提交 |
 
-### 2.2 数据加载
+### 2.2 表单字段布局
+| 序号 | 字段 | 组件 | 属性 | 结果 |
+|:---:|------|------|------|:----:|
+| 1 | 仓库编码 | el-input disabled | 系统自动生成，不可编辑 | PASS |
+| 2 | 仓库名称 | el-input | maxlength=100, show-word-limit, clearable | PASS |
+| 3 | 仓库类型 | el-select | NORMAL/BONDED/VIRTUAL三种类型 | PASS |
+| 4 | 状态 | el-radio-group | 启用(1)/停用(0)单选 | PASS |
+| 5 | 负责人 | el-select | remote搜索, filterable, clearable | PASS |
+| 6 | 联系电话 | el-input | maxlength=11 | PASS |
+| 7 | 地址 | el-input textarea | maxlength=500, show-word-limit, rows=3 | PASS |
+
+### 2.3 表单校验规则
+| 校验项 | 规则 | 触发方式 | 结果 |
+|--------|------|:---:|:----:|
+| 仓库名称 | required: true | blur | PASS |
+| 仓库名称 | max: 100 字符 | blur | PASS |
+| 仓库类型 | required: true | change | PASS |
+| 手机号 | pattern: /^1[3-9]\d{9}$/ | blur | PASS |
+| 地址 | max: 500 字符 | blur | PASS |
+
+### 2.4 新增流程
+| 步骤 | 代码位置 | 结果 |
+|------|---------|:----:|
+| 点击"新建仓库"按钮 | line 73: @click="handleCreate" | PASS |
+| 设置isEdit=false, editingId=0 | line 375-376 | PASS |
+| 清空所有表单字段 | line 377-383 | PASS |
+| 清空userOptions | line 384 | PASS |
+| 打开弹窗 | line 385: dialogVisible=true | PASS |
+| 提交调用createWarehouse | line 437 | PASS |
+| 成功后关闭弹窗并刷新列表 | line 439-441 | PASS |
+| 失败显示错误提示 | line 443: ElMessage.error | PASS |
+
+### 2.5 编辑流程（数据回显）
+| 步骤 | 代码位置 | 结果 |
+|------|---------|:----:|
+| 点击行"编辑"按钮 | line 108: @click="handleEdit(row)" | PASS |
+| 设置isEdit=true, editingId=row.id | line 389-390 | PASS |
+| 调用getWarehouseDetail加载详情 | line 392 | PASS |
+| warehouseCode回显 | line 394 | PASS |
+| warehouseName回显 | line 395 | PASS |
+| warehouseType回显 | line 396 | PASS |
+| address回显 | line 397 | PASS |
+| managerId回显 | line 398 | PASS |
+| phone回显 | line 399 | PASS |
+| status回显 | line 400 | PASS |
+| 远程加载当前负责人选项 | line 401-413 | PASS |
+| 获取失败阻止弹窗打开 | line 416-419: catch -> return | PASS |
+| 提交调用updateWarehouse | line 435 | PASS |
+
+### 2.6 负责人远程搜索
 | 检查项 | 结果 | 说明 |
 |--------|:----:|------|
-| API函数定义 | PASS | getWarehousePage -> GET /api/warehouse/warehouse |
-| 参数传递 | PASS | 搜索参数+分页参数正确传递 |
-| 响应处理 | PASS | records赋值tableData, total赋值pagination.total |
-| onMounted触发 | PASS | handleSearch()在onMounted中调用 |
+| el-select remote属性 | PASS | 支持远程搜索 |
+| remote-method绑定 | PASS | :remote-method="handleUserSearch" |
+| filterable属性 | PASS | 支持本地过滤 |
+| clearable属性 | PASS | 支持清除选择 |
+| loading状态 | PASS | :loading="userSearchLoading" |
+| 空关键字处理 | PASS | keyword为空时清空userOptions并return |
+| API调用 | PASS | getUserPageList({pageNum:1, pageSize:20, keyword}) |
+| 异常处理 | PASS | catch中清空userOptions |
 
-### 2.3 筛选/搜索功能
-| 检查项 | 结果 | 说明 |
-|--------|:----:|------|
-| 仓库名称输入框 | PASS | v-model + clearable + 300ms防抖 |
-| 仓库类型下拉 | PASS | NORMAL/BONDED/VIRTUAL三项 |
-| 状态下拉 | PASS | 启用(1)/停用(0) |
-| 查询/重置按钮 | PASS | 清空所有筛选条件后重新查询 |
+### 2.7 异常处理覆盖
+| 场景 | 处理方式 | 结果 |
+|------|---------|:----:|
+| 详情加载失败 | ElMessage.error('获取仓库详情失败') + return阻止弹窗 | PASS |
+| 表单校验不通过 | await formRef.validate().catch(() => false) -> return | PASS |
+| 创建失败 | ElMessage.error('创建失败') | PASS |
+| 更新失败 | ElMessage.error('更新失败') | PASS |
+| 人员搜索失败 | catch: userOptions = [] | PASS |
 
-### 2.4 操作交互
-| 检查项 | 结果 | 说明 |
-|--------|:----:|------|
-| 新建仓库 | PASS | 打开空表单弹窗，系统自动生成编码 |
-| 编辑 | PASS | 加载详情->回显到表单 |
-| 状态切换 | PASS | 启用<->停用 |
-| 删除确认 | PASS | el-popconfirm二次确认弹窗 |
-| 表单弹窗关闭 | PASS | destroy-on-close + resetFields |
-
-### 2.5 数据回显(编辑)
-| 检查项 | 结果 | 说明 |
-|--------|:----:|------|
-| 异步加载详情 | PASS | getWarehouseDetail(row.id) |
-| 表单字段回显 | PASS | 全部字段正确赋值 |
-| 回显失败处理 | PASS | catch块显示错误提示并return |
-
-### 2.6 表单校验
-| 检查项 | 结果 | 说明 |
-|--------|:----:|------|
-| 仓库名称必填 | PASS | { required: true, trigger: 'blur' } |
-| 仓库类型必填 | PASS | { required: true, trigger: 'change' } |
-| 手机号格式 | PASS | /^1[3-9]\d{9}$/ |
-| 名称/地址最大长度 | PASS | name:100, address:500 |
-
-### 2.7 异常处理
-| 检查项 | 结果 | 说明 |
-|--------|:----:|------|
-| 列表加载失败 | PASS | ElMessage.error + 清空数据 |
-| 详情加载失败 | PASS | ElMessage.error + 阻止弹窗打开 |
-| 创建失败 | PASS | ElMessage.error |
-| 更新失败 | PASS | ElMessage.error |
-| 删除失败 | PASS | ElMessage.error |
-| 状态切换失败 | PASS | ElMessage.error |
-
-## 三、边界场景
+## 三、边界场景验证
 
 | 场景 | 处理方式 | 结果 |
 |------|----------|:----:|
-| 空数据 | tableData初始化为空数组 | PASS |
-| 大数据量 | 分页处理，pageSize默认20 | PASS |
-| API调用失败 | try/catch捕获并显示错误提示 | PASS |
-| 编辑时取消 | dialogVisible=false | PASS |
+| 新增时仓库编码为空 | disabled属性+placeholder"系统自动生成" | PASS |
+| 编辑时仓库编码保护 | disabled属性防止修改编码 | PASS |
+| 表单关闭后状态清理 | @closed事件中resetFields()+清空userOptions | PASS |
 | 连续点击提交 | submitLoading防止重复提交 | PASS |
-| 仓库类型未知值 | warehouseTypeLabel容错处理 | PASS |
-| 负责人无值 | 显示'-' | PASS |
+| 负责人搜索无结果 | catch中清空options，不阻断其他操作 | PASS |
+| 编辑时负责人为空 | managerId回显undefined，不影响表单 | PASS |
+| 手机号格式校验 | 正则/^1[3-9]\d{9}$/，非必填 | PASS |
+| 地址超长 | maxlength=500 + show-word-limit | PASS |
+| el-popconfirm删除确认 | 二次确认弹窗（列表页已有） | PASS |
+| 编辑回显时人员信息 | 调用getUserPageList获取当前负责人姓名显示 | PASS |
 
-## 四、验证总结
+## 四、与后端接口对照
 
-| 类别 | 总数 | 通过 | 需修复 | 阻塞 |
+| 前端调用 | API路径 | 后端Controller | 后端Service | 状态 |
+|---------|--------|:---:|:---:|:----:|
+| getWarehousePage | GET /api/warehouse/warehouse | ❌ 缺失 | ✅ pageList() | ⚠️ P0阻断 |
+| getWarehouseDetail | GET /api/warehouse/warehouse/{id} | ❌ 缺失 | ✅ getById() | ⚠️ P0阻断 |
+| createWarehouse | POST /api/warehouse/warehouse | ❌ 缺失 | ✅ create() | ⚠️ P0阻断 |
+| updateWarehouse | PUT /api/warehouse/warehouse/{id} | ❌ 缺失 | ✅ update() | ⚠️ P0阻断 |
+| deleteWarehouse | DELETE /api/warehouse/warehouse/{id} | ❌ 缺失 | ✅ delete() | ⚠️ P0阻断 |
+| getUserPageList | GET /api/user/page | ✅ | ✅ | ✅ 正常 |
+
+## 五、代码规范合规检查
+
+| 检查项 | 结果 |
+|--------|:----:|
+| 使用 <script setup lang="ts"> | PASS |
+| 类型标注完整（无隐式any） | PASS |
+| FormInstance/FormRules 类型正确导入 | PASS |
+| reactive/ref 正确使用 | PASS |
+| 事件处理函数命名规范 | PASS |
+| Element Plus组件使用正确 | PASS |
+| 表单ref绑定正确 | PASS |
+| :rules绑定正确 | PASS |
+
+## 六、验证总结
+
+| 类别 | 总数 | 通过 | 需修复 | 阻断 |
 |------|:---:|:---:|:---:|:---:|
-| 代码编译 | 4 | 4 | 0 | 0 |
-| 路由配置 | 4 | 4 | 0 | 0 |
-| 数据加载 | 4 | 4 | 0 | 0 |
-| 筛选搜索 | 4 | 4 | 0 | 0 |
-| 操作交互 | 5 | 5 | 0 | 0 |
-| 数据回显 | 3 | 3 | 0 | 0 |
-| 表单校验 | 4 | 4 | 0 | 0 |
-| 异常处理 | 6 | 6 | 0 | 0 |
-| 边界场景 | 7 | 7 | 0 | 0 |
-| **合计** | **41** | **41** | **0** | **0** |
+| 代码编译 | 5 | 5 | 0 | 0 |
+| 表单弹窗结构 | 6 | 6 | 0 | 0 |
+| 表单字段布局 | 7 | 7 | 0 | 0 |
+| 表单校验规则 | 5 | 5 | 0 | 0 |
+| 新增流程 | 8 | 8 | 0 | 0 |
+| 编辑流程(回显) | 13 | 13 | 0 | 0 |
+| 负责人远程搜索 | 7 | 7 | 0 | 0 |
+| 异常处理 | 5 | 5 | 0 | 0 |
+| 边界场景 | 10 | 10 | 0 | 0 |
+| 接口对照 | 6 | 1 | 0 | 5 |
+| 代码规范 | 8 | 8 | 0 | 0 |
+| **合计** | **80** | **75** | **0** | **5** |
 
-## 五、后端联调前置条件
+> 5个阻断项均为后端WarehouseController缺失导致，前端代码本身无问题。
+> Controller创建后，所有接口即可正常联调。
 
-以下后端接口需要就绪才能进行联调：
-- GET /api/warehouse/warehouse - 分页查询仓库列表
-- GET /api/warehouse/warehouse/{id} - 查询仓库详情
-- POST /api/warehouse/warehouse - 新增仓库
-- PUT /api/warehouse/warehouse/{id} - 修改仓库
-- DELETE /api/warehouse/warehouse/{id} - 删除仓库
+## 七、核心结论
 
-当前状态：后端Service层已实现，Controller层尚未创建。
+1. **前端表单代码质量优秀**：类型安全、校验完备、异常覆盖全面、边界场景容错到位
+2. **人员选择器增强**是本次表单实现的核心亮点：remote搜索 + filterable + loading状态 + 编辑回显时加载当前值
+3. **唯一阻断项**：后端WarehouseController未创建（Service层已就绪），需优先解决才能进行前后端联调
+4. **菜单导航**：仓库定义路由已注册在staticRoutes中，侧边栏通过filterRoutesByPermission动态生成，无额外菜单配置问题
