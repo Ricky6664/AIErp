@@ -1805,4 +1805,4 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W5 |
 | 摘要 | 编写CustomerService单元测试，42个测试用例全部通过，覆盖list(10)/getById(2)/save(8)/update(7)/delete(2)/Transactional(5)/EdgeCase(7)/toVO(1)，包含名称唯一性校验、邮箱格式校验、排除自身更新校验、分页筛选排序等完整场景 |
-| Git commit | TBD |
+| Git commit | 7a94f2c1 |
