@@ -23,6 +23,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -541,6 +545,190 @@ class SupplierServiceTest {
 
             assertNotNull(annotation);
             assertTrue(annotation.readOnly());
+        }
+    }
+
+    // ==================== 并发数据一致性 ====================
+
+    @Nested
+    @DisplayName("并发场景数据一致性")
+    class ConcurrentTests {
+
+        @Test
+        @DisplayName("两个线程同时新增同名供应商 -> 仅一个成功，另一个抛出BusinessException")
+        void shouldPreventDuplicateNameUnderConcurrency() throws Exception {
+            SupplierDTO dto1 = new SupplierDTO();
+            dto1.setSupplierCode("SUP-CONC-001");
+            dto1.setSupplierName("并发测试供应商");
+            dto1.setCompanyId(1L);
+            dto1.setIsActive(true);
+
+            SupplierDTO dto2 = new SupplierDTO();
+            dto2.setSupplierCode("SUP-CONC-002");
+            dto2.setSupplierName("并发测试供应商");
+            dto2.setCompanyId(1L);
+            dto2.setIsActive(true);
+
+            when(supplierMapper.selectCount(any(LambdaQueryWrapper.class)))
+                    .thenReturn(0L)
+                    .thenReturn(1L);
+            when(supplierMapper.insert(any(Supplier.class))).thenReturn(1);
+
+            ExecutorService executor = Executors.newFixedThreadPool(2);
+            CountDownLatch startLatch = new CountDownLatch(1);
+            CountDownLatch endLatch = new CountDownLatch(2);
+            AtomicReference<Exception> errorInThread = new AtomicReference<>();
+
+            executor.submit(() -> {
+                try {
+                    startLatch.await();
+                    supplierService.save(dto1);
+                } catch (Exception e) {
+                    errorInThread.set(e);
+                } finally {
+                    endLatch.countDown();
+                }
+            });
+
+            executor.submit(() -> {
+                try {
+                    startLatch.await();
+                    supplierService.save(dto2);
+                } catch (Exception e) {
+                    errorInThread.set(e);
+                } finally {
+                    endLatch.countDown();
+                }
+            });
+
+            startLatch.countDown();
+            endLatch.await();
+            executor.shutdown();
+
+            assertNotNull(errorInThread.get());
+            assertInstanceOf(BusinessException.class, errorInThread.get());
+            assertEquals(50003, ((BusinessException) errorInThread.get()).getCode());
+        }
+    }
+
+    // ==================== 边界条件补充 ====================
+
+    @Nested
+    @DisplayName("边界条件 - 字符串超长/空值")
+    class BoundaryTests {
+
+        @Test
+        @DisplayName("save时supplierName为null -> 唯一性校验跳过(null)，保存成功")
+        void shouldSaveWhenNameIsNull() {
+            SupplierDTO dto = new SupplierDTO();
+            dto.setSupplierCode("SUP-BND-001");
+            dto.setSupplierName(null);
+            dto.setCompanyId(1L);
+            dto.setIsActive(true);
+
+            when(supplierMapper.insert(any(Supplier.class))).thenReturn(1);
+
+            assertDoesNotThrow(() -> supplierService.save(dto));
+            verify(supplierMapper).insert(any(Supplier.class));
+            verify(supplierMapper, never()).selectCount(any(LambdaQueryWrapper.class));
+        }
+
+        @Test
+        @DisplayName("save时supplierName为空字符串 -> 唯一性校验跳过，保存成功")
+        void shouldSaveWhenNameIsEmpty() {
+            SupplierDTO dto = new SupplierDTO();
+            dto.setSupplierCode("SUP-BND-002");
+            dto.setSupplierName("");
+            dto.setCompanyId(1L);
+            dto.setIsActive(true);
+
+            when(supplierMapper.insert(any(Supplier.class))).thenReturn(1);
+
+            assertDoesNotThrow(() -> supplierService.save(dto));
+            verify(supplierMapper).insert(any(Supplier.class));
+            verify(supplierMapper, never()).selectCount(any(LambdaQueryWrapper.class));
+        }
+
+        @Test
+        @DisplayName("update时newStatus为null -> 审核状态流转校验跳过")
+        void shouldSkipAuditStatusValidationWhenNewStatusIsNull() {
+            existingEntity.setAuditStatus("DRAFT");
+            SupplierDTO dto = new SupplierDTO();
+            dto.setSupplierCode("SUP-001");
+            dto.setSupplierName("华为技术有限公司");
+            dto.setCompanyId(1L);
+            dto.setAuditStatus(null);
+            dto.setIsActive(true);
+
+            when(supplierMapper.selectById(1L)).thenReturn(existingEntity);
+            when(supplierMapper.selectCount(any(LambdaQueryWrapper.class))).thenReturn(0L);
+            when(supplierMapper.updateById(any(Supplier.class))).thenReturn(1);
+
+            assertDoesNotThrow(() -> supplierService.update(1L, dto));
+            verify(supplierMapper).updateById(any(Supplier.class));
+        }
+
+        @Test
+        @DisplayName("update时newStatus与oldStatus相同 -> 跳过流转校验")
+        void shouldSkipTransitionWhenSameStatus() {
+            existingEntity.setAuditStatus("PENDING");
+            SupplierDTO dto = new SupplierDTO();
+            dto.setSupplierCode("SUP-001");
+            dto.setSupplierName("华为技术有限公司");
+            dto.setCompanyId(1L);
+            dto.setAuditStatus("PENDING");
+            dto.setIsActive(true);
+
+            when(supplierMapper.selectById(1L)).thenReturn(existingEntity);
+            when(supplierMapper.selectCount(any(LambdaQueryWrapper.class))).thenReturn(0L);
+            when(supplierMapper.updateById(any(Supplier.class))).thenReturn(1);
+
+            assertDoesNotThrow(() -> supplierService.update(1L, dto));
+            verify(supplierMapper).updateById(any(Supplier.class));
+        }
+
+        @Test
+        @DisplayName("分页查询时sortField为非法值 -> 仍正常查询(兜底按createTime降序)")
+        void shouldFallbackToDefaultSortWhenInvalidSortField() {
+            SupplierQueryDTO query = new SupplierQueryDTO();
+            query.setSortField("invalidField");
+            query.setSortOrder("ASC");
+            query.setPageNum(1);
+            query.setPageSize(10);
+
+            Page<Supplier> page = new Page<>(1, 10);
+            page.setRecords(List.of(existingEntity));
+            page.setTotal(1);
+
+            when(supplierMapper.selectPage(any(Page.class), any(LambdaQueryWrapper.class)))
+                    .thenReturn(page);
+
+            IPage<SupplierVO> result = supplierService.list(query);
+
+            assertNotNull(result);
+            assertEquals(1, result.getTotal());
+        }
+
+        @Test
+        @DisplayName("分页查询时sortOrder为无效值 -> 默认升序")
+        void shouldUseDefaultOrderWhenInvalidSortOrder() {
+            SupplierQueryDTO query = new SupplierQueryDTO();
+            query.setSortField("supplierCode");
+            query.setSortOrder("INVALID");
+            query.setPageNum(1);
+            query.setPageSize(10);
+
+            Page<Supplier> page = new Page<>(1, 10);
+            page.setRecords(List.of(existingEntity));
+            page.setTotal(1);
+
+            when(supplierMapper.selectPage(any(Page.class), any(LambdaQueryWrapper.class)))
+                    .thenReturn(page);
+
+            IPage<SupplierVO> result = supplierService.list(query);
+
+            assertNotNull(result);
+            assertEquals(1, result.getTotal());
         }
     }
 }
