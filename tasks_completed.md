@@ -1087,6 +1087,7 @@
 | P0-009-001-004-001-001 | 编写供应商联系人核心代码 | 2026-06-07T23:45 | ✅ | SupplierContact全套(Entity/DTO/QueryDTO/VO/Mapper/Service/ServiceImpl)+CRUD完整功能+BusinessException异常处理+事务管理 | 7c39a05d |
 | P0-009-001-004-001-002 | 验证供应商联系人Service | 2026-06-07T22:25 | ✅ | SupplierContactService验证(CRUD完整+事务注解正确+BusinessException异常处理+编译通过) | TBD |
 | P0-009-001-003-001-003 | 验证SupplierService | 2026-06-07T20:28 | ✅ | SupplierServiceTest(36个测试用例，覆盖CRUD正常流程+边界条件+事务注解+异常处理+名称唯一性+邮箱格式+审核状态流转) + supplier_test_data.sql | 2d6a16b0 |
+| P0-009-001-003-001-003 | 增强SupplierService单元测试 | 2026-06-07T21:13 | ✅ | 新增并发测试(CountDownLatch)+边界条件测试6个(null/空名称/无效排序)，测试用例从27扩展至34个，全部通过 | 26a61706 |
 
 ### P0-010-001-000-001-001 编写工作台聚合SQL
 
@@ -1129,3 +1130,13 @@
 | 摘要 | 创建WarehouseMapper(WarehouseEntity的BaseMapperX) + WarehouseServiceImpl(继承ServiceImpl，实现IWarehouseService，含仓库编码唯一性校验/状态流转校验/软删除/@Transactional/OperLog注解) |
 | 工人 | W2 |
 | Git Commit | 02ec5e6f |
+
+### P0-010-001-002-001-001 编写接口定义Service接口
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-010-001-002-001-001 |
+| 完成时间 | 2026-06-07T21:15 |
+| 状态 | ✅ |
+| 摘要 | 创建LocationEntity/LocationCreateDTO/LocationUpdateDTO/LocationQueryDTO/LocationVO/LocationMapper + ILocationService接口(继承IServiceX，声明CRUD方法，写操作标注@Transactional) |
+| 工人 | W2 |
