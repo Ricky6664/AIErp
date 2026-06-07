@@ -1281,7 +1281,7 @@
 | 状态 | ✅ |
 | 摘要 | 验证凭证字P04列表页功能(代码审查前端Vue/API模块/路由/国际化/后端API对齐)，发现并修复VoucherWordController缺失(创建Controller暴露6个REST端点)+updateStatus方法缺失(添加Service方法)，编写前端验证报告和问题清单 |
 | 工人 | W5 |
-| Git SHA | (待提交) |
+| Git SHA | 2f6327c8 |
 
 ### P0-010-001-000-001-001 编写工作台聚合SQL（仓库模块重执行）
 
