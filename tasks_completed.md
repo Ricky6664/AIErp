@@ -1013,6 +1013,7 @@
 | P0-006-001-001-001-001 | 编写接口定义Service接口 | 2026-06-08T00:41 | ✅ | OrgCompanyService接口(5方法:page/getById/create/update/delete)+CompanyCreateDTO(7字段+校验注解)+CompanyUpdateDTO+CompanyQueryDTO+CompanyListVO(9字段+@JsonFormat)+CompanyDetailVO(含扩展字段)+OrgCompany实体 | (pending) |
 | P0-006-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-08T01:05 | ✅ | OrgCompanyServiceImpl(5CRUD方法):page(keyword模糊搜索+enabled筛选)+create(名称唯一性+信用代码格式+唯一性校验)+update(乐观锁+排除自身)+delete(关联部门检查+逻辑删除)+@OperLog记录 | (pending) |
 | P0-006-001-001-001-003 | 验证Service | 2026-06-08T01:12 | ✅ | OrgCompanyServiceImplTest(20测试用例):create(5)/update(3)/delete(3)/page(2)/getById(2)/事务回滚(1)/@Transactional注解验证(4)+5个Salary桩文件 | f911aa50 |
+| P0-006-001-002-001-003 | 验证Service | 2026-06-08T01:58 | ✅ | OrgDepartmentServiceImplTest(22测试用例全部通过):create(5含companyNotFound/duplicateName/diffParent/topLevel)+update(3含circularRef_self+circularRef_descendant)+delete(4含childDept/position/employee)+tree(2含multiLevel+empty)+page(1)+getById(2)+@Transactional(5) | TBD |
 
 ### P0-013 - 部署与DevOps基础
 
