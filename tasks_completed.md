@@ -1154,3 +1154,14 @@
 | 摘要 | 编写LocationServiceImpl(继承ServiceImpl<LocationMapper,LocationEntity>，实现ILocationService，含库位编码仓库内唯一性校验/状态流转校验/@Transactional/OperLog注解/BusinessException异常处理/分页查询排序) |
 | 工人 | W4 |
 | Git Commit | fc2e247b |
+
+### P0-010-001-002-001-003 验证Service
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-010-001-002-001-003 |
+| 完成时间 | 2026-06-07T21:14:18 |
+| 状态 | ✅ |
+| 摘要 | 编写LocationServiceTest(36个单元测试用例，覆盖CRUD正常流程/仓库内唯一性校验/状态流转校验/软删除/分页查询多条件筛选/边界场景/toVO转换/事务注解验证，使用JUnit5+Mockito+MockitoExtension) |
+| 工人 | W3 |
+| Git Commit | (待提交) |
