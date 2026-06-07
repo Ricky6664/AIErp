@@ -1759,3 +1759,5 @@ n#### P0-006-001-004-001-002 验证功能
 | P0-007-001-004-001-002 | 编写ServiceImpl实现类 | 2026-06-08T02:22 | ✅ | ProductControlServiceImpl(CRUD+业务校验:productId唯一性/批次与序列号互斥/单位存在性校验占位)+Entity/Mapper/DTO/QueryDTO/VO/Service接口,mvn compile通过 | f0be73a0 |
 
 | P0-007-001-003-001-001 | 编写接口定义Service接口 | 2026-06-08T02:34 | ✅ | ProductUnitService接口(extends IServiceX<ProductUnit>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductUnitDTO/ProductUnitQueryDTO/ProductUnitVO + ProductUnit实体(prod_product_unit) | c29ab253 |
+
+| P0-007-001-002-001-003 | 验证Service | 2026-06-08T02:36 | ✅ | ProductServiceTest(58用例全通过)+@ExtendWith(MockitoExtension)+@Nested分组(list/getById/save/update/delete/Transactional/ToVO/EdgeCases)+边界(编码50/名称200/备注500字符)+审核状态流转全覆盖+transaction注解验证+toVO映射+产品测试数据SQL | TBD |
