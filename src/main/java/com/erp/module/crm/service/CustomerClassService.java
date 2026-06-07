@@ -22,6 +22,7 @@ public interface CustomerClassService extends IServiceX<CustomerClass> {
      * @param query 查询条件DTO
      * @return 分页结果
      */
+    @Transactional(readOnly = true)
     IPage<CustomerClassVO> list(CustomerClassQueryDTO query);
 
     /**
@@ -30,6 +31,7 @@ public interface CustomerClassService extends IServiceX<CustomerClass> {
      * @param id 客户分类ID
      * @return 客户分类VO
      */
+    @Transactional(readOnly = true)
     CustomerClassVO getById(Long id);
 
     /**

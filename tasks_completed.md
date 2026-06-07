@@ -1418,3 +1418,9 @@
 | Git SHA | (pending-commit) |
 
 | P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07T23:43 | ✅ | BankAccountServiceImpl(extends ServiceImpl/CRUD完整/唯一性校验+状态流转校验/@Transactional+BusinessException+@OperLog/mvn compile通过) | 3a965dac |
+
+## P0-008-001-001-001-001 编写接口定义Service接口
+- 完成时间: 2026-06-07 23:54
+- 状态: ✅
+- 摘要: 完善CustomerClassService接口，添加@Transactional(readOnly=true)和@Valid注解
+- 模块: P0-008 CRM客户管理模块
