@@ -1240,3 +1240,14 @@
 | 摘要 | 实现VoucherWordServiceImpl(继承ServiceImpl/实现CRUD方法/create含编码唯一性校验/update含存在性+唯一性+状态流转校验/delete含存在性校验+软删除/pageList分页查询/@Transactional事务管理/BusinessException统一异常/创建VoucherWordEntity+DTO+VO+Mapper支持类/mvn compile通过) |
 | 工人 | W4 |
 | Git Commit | e673e4d5 |
+
+### P0-011-001-004-001-003 ✅
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-011-001-004-001-003 |
+| 任务名称 | 验证Service |
+| 完成时间 | 2026-06-07T22:25 |
+| 状态 | ✅ |
+| 摘要 | 编写VoucherWordService单元测试(38个用例)，覆盖CRUD/唯一性校验/状态流转/事务注解，全部通过 |
+| Git SHA | 331547694e756525d86122c87d07e7b18edf0a9d |
+
