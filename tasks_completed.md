@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-07T17:45
-> **归档总数**：562 条
+> **最后更新**：2026-06-07T19:25
+> **归档总数**：564 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -1019,6 +1019,7 @@
 |---------|---------|---------|:---:|------|-----|
 | P0-014-003-001 | 测试命名规范 | 2026-06-06T20:15 | ✅ | docs/TESTING_GUIDE.md(测试框架版本/命名规范/GivenWhenThen三段式/目录结构/覆盖率门禁/Mock策略)+docs/TEST_NAMING_CONVENTION.md(后端类名方法名规范/前端文件名it规范/三段式示例/测试数据TEST_前缀/检查清单) | (待提交) |
 | P0-014-002-003 | Composable测试模板 | 2026-06-07T17:49 | ✅ | ComposableTestTemplate.spec.ts(6种测试模式:直接调用/withSetup/异步操作/Mock/边界条件/响应式深度)+withSetup工具函数+flushPromises+vi.mock模式+Pinia/Router mock+fakeTimers | 16b03ee2 |
+| P0-014-002-004 | API Mock策略 | 2026-06-07T20:00 | ✅ | MSW 2.14.6安装+src/mocks/server.ts(setupServer)+src/mocks/handlers.ts(正常/空/401/403/500/Loading)+test-setup.ts(beforeAll/afterEach/afterAll/onUnhandledRequest:error) | 4a5410cc |
 
 
 
@@ -1054,6 +1055,16 @@
 |---------|---------|---------|:---:|------|-----|
 | P0-008-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T18:15 | ✅ | CustomerClassService接口(extends IServiceX<CustomerClass>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + CustomerClass实体/CustomerClassDTO/CustomerClassQueryDTO/CustomerClassVO | (pending) |
 | P0-008-001-002-001-001 | 编写接口定义Service接口 | 2026-06-07T13:15 | ✅ | TagDefinitionService接口(extends IServiceX<TagDefinitionEntity>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + TagDefinitionEntity/TagDefinitionDTO/TagDefinitionQueryDTO/TagDefinitionVO | (pending) |
+| P0-008-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-07T19:22 | ✅ | CustomerClassServiceImpl(extends ServiceImpl<CustomerClassMapper,CustomerClass>)+CRUD(list/getById/save/update/delete)+校验(同级名称唯一性+parentId引用检查+子分类检查)+BusinessException+@Transactional + CustomerClassMapper | (pending) |
+| P0-008-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07T19:25 | ✅ | TagDefinitionServiceImpl(extends ServiceImpl<TagDefinitionMapper,TagDefinitionEntity>)+CRUD(list/getById/save/update/delete)+校验(标签名称全局唯一+颜色格式#RRGGBB)+BusinessException+@Transactional + TagDefinitionMapper | (pending) |
+| P0-008-001-002-001-003 | 验证Service | 2026-06-07T19:37 | ✅ | TagDefinitionServiceTest(18 test cases: CRUD/list/getById/save/update/delete+边界条件+异常处理)+Mockito+JUnit5 + TagDefinitionService接口+TagDefinitionEntity/TagDefinitionDTO/TagDefinitionQueryDTO/TagDefinitionVO+test_data.sql | (pending) |
+| P0-008-001-003-001-001 | 编写接口定义Service接口 | 2026-06-07T19:37 | ✅ | CustomerService接口(extends IServiceX<Customer>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional + Customer实体/CustomerDTO/CustomerQueryDTO/CustomerVO | 020e821f |
+| P0-008-001-001-001-003 | 验证Service | 2026-06-07T19:41 | ✅ | CustomerClassServiceTest(24 test cases: CRUD/list/getById/save/update/delete+边界条件+名称唯一性+上级校验+@Transactional注解验证)+Mockito+JUnit5+Spy + test_data.sql | (pending) |
+| P0-008-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-07T19:52 | ✅ | CustomerServiceImpl(extends ServiceImpl<CustomerMapper,Customer>)+CRUD(list/getById/save/update/delete)+校验(客户名称同公司唯一+邮箱格式+审核状态流转)+BusinessException+@Transactional + CustomerMapper | b5ee0799 |
+| P0-008-001-003-001-003 | 验证Service | 2026-06-07T19:49 | ✅ | CustomerServiceTest(38 test cases: CRUD/list/getById/save/update/delete+边界条件+审核状态流转+名称唯一性+邮箱格式+事务注解验证)+Mockito+JUnit5+Spy | 3f48e9db |
+| P0-008-001-004-001-001 | 编写核心代码 | 2026-06-07T20:00 | ✅ | CustomerContactService接口+CustomerContactServiceImpl(extends ServiceImpl<CustomerContactMapper,CustomerContact>)+CRUD(list/getById/save/update/delete)+BusinessException+@Transactional + CustomerContact实体/Mapper/DTO/QueryDTO/VO | e99215cb |
+| P0-008-001-004-001-002 | 验证功能 | 2026-06-07T20:25 | ✅ | 验证CustomerContactService+ServiceImpl编译通过、CRUD完整、@Transactional正确、异常处理规范、代码规范合规 | 614e16b6 |
+| P0-008-001-005-001-001 | 编写接口定义Service接口 | 2026-06-07T20:55 | ✅ | CustomerAddressService接口(extends IServiceX<CustomerAddress>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional + CustomerAddress实体/CustomerAddressDTO/CustomerAddressQueryDTO/CustomerAddressVO | 6c861b71 |
 
 ### P0-009 - SRM供应商管理模块开发
 
@@ -1062,3 +1073,37 @@
 | P0-009-001-001-001-001 | 编写供应商分类Service接口定义 | 2026-06-07T18:20 | ✅ | SupplierClassService接口(extends IServiceX<SupplierClass>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + SupplierClass实体/SupplierClassDTO/SupplierClassQueryDTO/SupplierClassVO | 235a6637 |
 
 
+
+| P0-009-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-07T20:35 | ✅ | 实现SupplierClassServiceImpl，含CRUD+业务校验（名称同级唯一性、父节点存在性、子分类检查）+事务管理 | 3dc516c4 |
+| P0-009-001-002-001-001 | 编写SRM标签定义Service接口 | 2026-06-07T20:00 | ✅ | SrmTagDefinitionService接口(extends IServiceX<SrmTagDefinition>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional + SrmTagDefinition实体/SrmTagDefinitionDTO/SrmTagDefinitionQueryDTO/SrmTagDefinitionVO | ea269fb7 |
+| P0-009-001-002-001-002 | 编写SRM标签定义ServiceImpl实现类 | 2026-06-07T21:05 | ✅ | 实现SrmTagDefinitionServiceImpl(CRUD+标签名称全局唯一校验+颜色格式#RRGGBB校验+事务管理)+SrmTagDefinitionMapper | 7f9d7892 |
+| 
+| P0-009-001-001-001-003 | 验证SupplierClassService | 2026-06-07T20:05 | ✅ | SupplierClassServiceTest(24个测试用例，覆盖CRUD正常流程+边界条件+事务回滚验证+异常处理+名称唯一性+上级存在性校验) + supplierclass_test_data.sql | 247343a6 |
+| P0-009-001-002-001-003 | 验证SrmTagDefinitionService | 2026-06-07T22:10 | ✅ | SrmTagDefinitionServiceTest(30个测试用例，覆盖CRUD正常流程+边界条件+颜色格式校验+标签名称唯一性+事务注解验证) + srmtagdefinition_test_data.sql | f26cf3f0 |
+| P0-009-001-003-001-001 | 编写供应商Service接口定义 | 2026-06-07T20:07 | ✅ | SupplierService接口(extends IServiceX<Supplier>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional + Supplier实体/SupplierDTO/SupplierQueryDTO/SupplierVO | 8ae5c328 |
+| P0-009-001-005-001-001 | 编写供应商地址Service接口定义 | 2026-06-07T23:00 | ✅ | SupplierAddressService接口(extends IServiceX<SupplierAddress>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional + SupplierAddress实体/SupplierAddressDTO/SupplierAddressQueryDTO/SupplierAddressVO | TBD |
+| P0-009-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-07T23:30 | ✅ | SupplierServiceImpl(CRUD+名称公司内唯一+邮箱格式+审核状态流转校验+事务) + SupplierMapper | 759b2cb8 |
+| P0-011-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-07T20:17 | ✅ | BankAccountServiceImpl.java (CRUD+唯一性校验+事务管理+BusinessException异常处理) + BankAccountMapper.java | TBD |
+| P0-009-001-004-001-001 | 编写供应商联系人核心代码 | 2026-06-07T23:45 | ✅ | SupplierContact全套(Entity/DTO/QueryDTO/VO/Mapper/Service/ServiceImpl)+CRUD完整功能+BusinessException异常处理+事务管理 | 7c39a05d |
+| P0-009-001-004-001-002 | 验证供应商联系人Service | 2026-06-07T22:25 | ✅ | SupplierContactService验证(CRUD完整+事务注解正确+BusinessException异常处理+编译通过) | TBD |
+| P0-009-001-003-001-003 | 验证SupplierService | 2026-06-07T20:28 | ✅ | SupplierServiceTest(36个测试用例，覆盖CRUD正常流程+边界条件+事务注解+异常处理+名称唯一性+邮箱格式+审核状态流转) + supplier_test_data.sql | 2d6a16b0 |
+
+### P0-010-001-000-001-001 编写工作台聚合SQL
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-010-001-000-001-001 |
+| 完成时间 | 2026-06-07T20:38 |
+| 状态 | ✅ |
+| 摘要 | 编写WorkbenchAggregateMapper接口及XML，实现KPI聚合统计(warehouseTotal/warehouseActive/locationTotal/locationActive)和趋势查询(按日分组) |
+| 工人 | W2 |
+
+### P0-010-001-000-001-002 编写ServiceImpl实现类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-010-001-000-001-002 |
+| 完成时间 | 2026-06-07T20:41 |
+| 状态 | ✅ |
+| 摘要 | 编写WorkbenchAggregateService接口+WorkbenchAggregateServiceImpl实现类，封装工作台KPI聚合查询和趋势查询，集成@Cacheable缓存(TTL=5min)，使用Sa-Token获取租户ID实现多租户隔离 |
+| 工人 | W1 |
