@@ -1093,6 +1093,7 @@
 | P0-008-001-004-001-001 | 编写核心代码 | 2026-06-07T20:00 | ✅ | CustomerContactService接口+CustomerContactServiceImpl(extends ServiceImpl<CustomerContactMapper,CustomerContact>)+CRUD(list/getById/save/update/delete)+BusinessException+@Transactional + CustomerContact实体/Mapper/DTO/QueryDTO/VO | e99215cb |
 | P0-008-001-004-001-002 | 验证功能 | 2026-06-07T20:25 | ✅ | 验证CustomerContactService+ServiceImpl编译通过、CRUD完整、@Transactional正确、异常处理规范、代码规范合规 | 614e16b6 |
 | P0-008-001-005-001-001 | 编写接口定义Service接口 | 2026-06-07T20:55 | ✅ | CustomerAddressService接口(extends IServiceX<CustomerAddress>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional + CustomerAddress实体/CustomerAddressDTO/CustomerAddressQueryDTO/CustomerAddressVO | 6c861b71 |
+| P0-008-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-08T00:46 | ✅ | CustomerServiceImpl(extends ServiceImpl<CustomerMapper,Customer>)+CRUD(list/getById/save/update/delete)+校验(客户名称同公司唯一+邮箱格式)+BusinessException+@Transactional+@OperLog + CustomerMapper | (pending) |
 
 ### P0-009 - SRM供应商管理模块开发
 
