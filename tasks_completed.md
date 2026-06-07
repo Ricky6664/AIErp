@@ -1055,4 +1055,10 @@
 | P0-008-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T18:15 | ✅ | CustomerClassService接口(extends IServiceX<CustomerClass>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + CustomerClass实体/CustomerClassDTO/CustomerClassQueryDTO/CustomerClassVO | (pending) |
 | P0-008-001-002-001-001 | 编写接口定义Service接口 | 2026-06-07T13:15 | ✅ | TagDefinitionService接口(extends IServiceX<TagDefinitionEntity>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + TagDefinitionEntity/TagDefinitionDTO/TagDefinitionQueryDTO/TagDefinitionVO | (pending) |
 
+### P0-009 - SRM供应商管理模块开发
+
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
+|---------|---------|---------|:---:|------|-----|
+| P0-009-001-001-001-001 | 编写供应商分类Service接口定义 | 2026-06-07T18:20 | ✅ | SupplierClassService接口(extends IServiceX<SupplierClass>)+CRUD方法(list/getById/save/update/delete)+@Valid+@Transactional+JavaDoc完整 + SupplierClass实体/SupplierClassDTO/SupplierClassQueryDTO/SupplierClassVO | 235a6637 |
+
 
