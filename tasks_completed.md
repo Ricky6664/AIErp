@@ -1128,3 +1128,4 @@
 | 状态 | ✅ |
 | 摘要 | 创建WarehouseMapper(WarehouseEntity的BaseMapperX) + WarehouseServiceImpl(继承ServiceImpl，实现IWarehouseService，含仓库编码唯一性校验/状态流转校验/软删除/@Transactional/OperLog注解) |
 | 工人 | W2 |
+| Git Commit | 02ec5e6f |
