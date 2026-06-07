@@ -1472,3 +1472,13 @@
   - docs/test-reports/finance-BankAccount-frontend-test.md
   - docs/test-reports/finance-BankAccount-issues.md
 - **工人**：W6
+
+- **任务编号**：P0-012-001-002-001-003
+- **任务名称**：验证Service
+- **完成时间**：2026-06-08T00:20
+- **状态**：✅
+- **摘要**：编写RecruitmentServiceTest单元测试，30个用例全部通过，覆盖CRUD正常流程、异常处理、状态流转校验、事务注解验证、边界场景
+- **交付物**：
+  - src/test/java/com/erp/hrm/service/RecruitmentServiceTest.java
+  - docs/test-reports/RecruitmentService-test-report.md
+- **工人**：W3
