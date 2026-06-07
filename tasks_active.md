@@ -201,7 +201,7 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 ### P0-014 - 测试基础模块（SERIAL�?
 | 任务编号 | 任务名称 | 层级 | 状�?| 工人 |
 |---------|---------|:---:|:---:|:---:|
-| P0-014-001-001 | JUnit 5 Mockito测试依赖引入 | L0 | 🔄 | W5 |
+| P0-014-001-001 | JUnit 5 Mockito测试依赖引入 | L0 | ✅ | W5 |
 | P0-014-001-002-001 | 编写BaseServiceTest基类 | L1 | �?| W1 |
 | P0-014-001-002-002 | 编写测试数据工厂 | L1 | �?| W6 |
 | P0-014-001-003 | Service层测试模�?| L1 | �?| W2 |
@@ -221,7 +221,6 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 | 任务编号 | 工人 | 认领时间 |
 |---------|:---:|---------|
 
-| P0-014-001-001 | W5 | 2026-06-08 01:46 |
 | P0-011-001-001-001-003 | W7 | 2026-06-08 01:50 |
 | P0-006-001-002-001-003 | W6 | 2026-06-08 01:52 |
 
@@ -239,8 +238,6 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 |---------|---------|:---:|
 
 
-| pom.xml | P0-014-001-001 | W5 |
-| src/test/resources/application-test.yml | P0-014-001-001 | W5 |
 | erp-finance-module/src/test/java/com/erp/finance/service/CurrencyRateServiceTest.java | P0-011-001-001-001-003 | W7 |
 | docs/test-reports/CurrencyRateService-test-report.md | P0-011-001-001-001-003 | W7 |
 | src/test/java/com/erp/module/org/service/OrgDepartmentServiceImplTest.java | P0-006-001-002-001-003 | W6 |
@@ -253,7 +250,6 @@ param($m) $count = [int]$m.Groups[1].Value - 1; "ִ���� | $count"  |
 | 模块编号 | 工人 | 执行模式 |
 |---------|:---:|:-------:|
 
-| P0-014 | W5 | SERIAL |
 | P0-011 | W7 | PARALLEL |
 | P0-006 | W6 | SERIAL |
 
