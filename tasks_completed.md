@@ -1073,6 +1073,7 @@
 ### 模块完成: P0-007 ✅
 
 | P0-007-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T23:30 | ✅ | ProductClassService接口(extends IServiceX<ProductClass>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductClassDTO/ProductClassQueryDTO/ProductClassVO + ProductClass实体 | 9c6e2343 |
+| P0-007-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-08T01:33 | ✅ | ProductClassServiceImpl(extends ServiceImpl<ProductClassMapper,ProductClass>)+CRUD+业务校验(同级名称唯一/parentId引用/子分类检查/排序号0~9999)+@Transactional+BusinessException + ProductClassMapper | (pending) |
 
 
 ### 模块完成: P0-013 ✅
@@ -1618,3 +1619,17 @@
 | 摘要 | 创建SalaryServiceImpl(继承ServiceImpl/完整CRUD/员工+月份唯一性校验/netSalary计算/@Transactional+BusinessException+@OperLog)+SalaryMapper |
 | Git commit | (pending-commit) |
 | 工人 | W6 |
+
+---
+
+#### P0-006-001-002-001-001 编写接口定义Service接口
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-006-001-002-001-001 |
+| 任务名称 | 编写接口定义Service接口 |
+| 完成时间 | 2026-06-08T01:33 |
+| 状态 | ✅ |
+| 摘要 | 创建OrgDepartmentService接口(6方法) + DeptCreateDTO/DeptUpdateDTO/DeptQueryDTO(3DTO) + DeptListVO/DeptTreeVO/DeptDetailVO(3VO)，编译通过 |
+| Git commit | 5a7ac3c1 |
+| 工人 | W7 |
