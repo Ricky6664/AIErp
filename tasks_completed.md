@@ -1164,4 +1164,4 @@
 | 状态 | ✅ |
 | 摘要 | 编写LocationServiceTest(36个单元测试用例，覆盖CRUD正常流程/仓库内唯一性校验/状态流转校验/软删除/分页查询多条件筛选/边界场景/toVO转换/事务注解验证，使用JUnit5+Mockito+MockitoExtension) |
 | 工人 | W3 |
-| Git Commit | (待提交) |
+| Git Commit | 1ae36978 |
