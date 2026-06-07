@@ -1,54 +1,89 @@
-# Git
-.git/
+# ==================== 版本控制 ====================
+.git
 .gitignore
 .gitattributes
 
-# Maven build output
-target/
-*.jar
-!target/*.jar
-
-# Node
-node_modules/
-erp-ai-web/node_modules/
-erp-ai-web/dist/
-
-# IDE
-.idea/
-.vscode/
+# ==================== IDE与编辑器 ====================
+.idea
+.vscode
 *.iml
 *.iws
 *.ipr
+*.swp
+*.swo
+*~
 
-# Logs
+# ==================== 后端构建产物与依赖 ====================
+target/
+*.class
+*.jar
 *.log
-logs/
+dependency-reduced-pom.xml
 
-# Environment
+# ==================== 前端构建产物与依赖 ====================
+node_modules/
+dist/
+build/
+.npm
+.eslintcache
+.parcel-cache
+
+# ==================== 文档 ====================
+README.md
+README*.md
+CHANGELOG.md
+LICENSE
+docs/
+**/*.md
+!**/README.md
+
+# ==================== 本地配置与环境文件 ====================
 .env
 .env.local
 .env.*.local
+!.env.example
 
-# Docker
-Dockerfile*
-.dockerignore
+# ==================== 日志与临时文件 ====================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==================== 测试与覆盖率 ====================
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# ==================== Docker自身 ====================
+Dockerfile
 docker-compose*.yml
+.dockerignore
 
-# Session & temp
+# ==================== CI/CD配置 ====================
+.github/
+.gitlab-ci.yml
+.travis.yml
+Jenkinsfile
+
+# ==================== 部署脚本（不进镜像）====================
+deploy/
+scripts/
+helm/
+k8s/
+
+# ==================== Claude Code AI开发（不进镜像）====================
+.claude/
+.claude-code/
 .session-id-*
-.tmp-restore/
+.relay-*
 .catalog.lock
 .parallel.lock
 .commit-msg-tmp
-.relay-*
+.tmp-restore/
 
-# Claude
-.claude/
-
-# Documentation
-*.md
-erp_ai_tasks_docs/
-
-# OS
+# ==================== OS ====================
 .DS_Store
 Thumbs.db

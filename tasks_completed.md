@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-08T01:30
-> **归档总数**：572 条
+> **归档总数**：573 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -1025,6 +1025,7 @@
 | P0-013-001-002-001 | 编写docker-compose服务编排(重建) | 2026-06-08T22:30 | ✅ | 修复前端端口3000:80+健康检查URL+nginx ENV变量HTTPS端口+docker-compose.override.yml+docker-compose.prod.yml | b619612c |
 | P0-013-002-002 | 多环境Nginx配置 | 2026-06-06T20:25 | ✅ | nginx.dev.conf(HTTP/CORS */无日志)+nginx.staging.conf(HTTP-HTTPS/SSL/受限CORS)+nginx.prod.conf(SSL/限流/CSP/HSTS/OCSP)+ssl/README.md+.gitignore更新 | 557f251b |
 | P0-013-001-003 | .env环境变量文件 | 2026-06-08T01:42 | ✅ | .env.example(32变量含DB/Redis/MinIO/ES/JWT/SMTP模板)+.env.dev/.env.staging/.env.prod(3套环境差异化配置)+docs/env-variables.md(变量说明文档) | (pending)
+| P0-013-001-004 | .dockerignore文件编写 | 2026-06-08T01:42 | ✅ | 完整.dockerignore(版本控制/IDE/构建产物/文档/环境变量/日志/测试/Docker/CI/CD/部署/AI开发/OS共12类排除规则)+LF换行+.env.example白名单 | (pending)
 
 ### P0-014 - 测试基础模块
 
