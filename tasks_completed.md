@@ -1,7 +1,7 @@
-﻿# tasks_completed.md — 已完成任务归档
+# tasks_completed.md — 已完成任务归档
 
-> ****最后更新**：2026-06-08T02:11
-> ****归档总数**：574 条
+> ****最后更新**：2026-06-08T02:30
+> ****归档总数**：575 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -1014,6 +1014,8 @@
 | P0-006-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-08T01:05 | ✅ | OrgCompanyServiceImpl(5CRUD方法):page(keyword模糊搜索+enabled筛选)+create(名称唯一性+信用代码格式+唯一性校验)+update(乐观锁+排除自身)+delete(关联部门检查+逻辑删除)+@OperLog记录 | (pending) |
 | P0-006-001-001-001-003 | 验证Service | 2026-06-08T01:12 | ✅ | OrgCompanyServiceImplTest(20测试用例):create(5)/update(3)/delete(3)/page(2)/getById(2)/事务回滚(1)/@Transactional注解验证(4)+5个Salary桩文件 | f911aa50 |
 | P0-006-001-002-001-003 | 验证Service | 2026-06-08T01:58 | ✅ | OrgDepartmentServiceImplTest(22测试用例全部通过):create(5含companyNotFound/duplicateName/diffParent/topLevel)+update(3含circularRef_self+circularRef_descendant)+delete(4含childDept/position/employee)+tree(2含multiLevel+empty)+page(1)+getById(2)+@Transactional(5) | 10fbe0bc |
+
+| P0-006-002-000-001-001 | 编写核心代码 | 2026-06-08T02:30 | ✅ | OrgWorkbench.vue(4KPI卡片+ECharts饼图+柱状图+快捷操作入口+CountUp动画+Pinia缓存)+workbench.ts(API类型+getOrgWorkbenchApi)+workbench.ts(Pinia store含TTL缓存)+router注册+i18n词条(org.workbench) | (pending)
 
 ### P0-013 - 部署与DevOps基础
 

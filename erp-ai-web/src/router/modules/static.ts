@@ -174,6 +174,14 @@ export const FINANCE_ACCOUNT: RouteRecordRaw = {
   meta: { title: '会计科目', icon: 'List', keepAlive: true }
 }
 
+// 组织架构工作台
+export const ORG_WORKBENCH: RouteRecordRaw = {
+  path: '/org/workbench',
+  name: 'OrgWorkbench',
+  component: () => import('@/views/org/OrgWorkbench.vue'),
+  meta: { title: '组织架构工作台', icon: 'DataBoard', keepAlive: true }
+}
+
 // 凭证字列表页
 export const FINANCE_VOUCHERWORD: RouteRecordRaw = {
   path: '/finance/voucherword',
@@ -198,6 +206,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   FINANCE_BANKACCOUNT,
   FINANCE_ACCOUNT,
   FINANCE_VOUCHERWORD,
+  ORG_WORKBENCH,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,

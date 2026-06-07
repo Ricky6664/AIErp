@@ -1,0 +1,396 @@
+<template>
+  <div class="org-workbench-page">
+    <div class="page-header">
+      <h2>{{ $t('org.workbench.title') }}</h2>
+      <p class="page-desc">{{ $t('org.workbench.desc') }}</p>
+      <el-button :icon="RefreshRight" :loading="loading" @click="loadData">
+        {{ $t('common.refresh') }}
+      </el-button>
+    </div>
+
+    <div v-loading="loading" class="workbench-content">
+      <div v-if="error" class="area-error">
+        <el-result icon="error" sub-title="数据加载失败">
+          <template #extra>
+            <el-button type="primary" size="small" @click="loadData">重试</el-button>
+          </template>
+        </el-result>
+      </div>
+
+      <template v-else-if="data">
+        <!-- KPI 统计卡片区 -->
+        <section class="workbench-section">
+          <div class="section-header">
+            <h3>{{ $t('org.workbench.kpiTitle') }}</h3>
+          </div>
+          <el-row :gutter="16" class="kpi-row">
+            <el-col :xs="12" :sm="12" :md="6">
+              <el-card shadow="never" class="kpi-card">
+                <div class="kpi-value">{{ animatedCompanyCount }}</div>
+                <div class="kpi-label">{{ $t('org.workbench.companyCount') }}</div>
+              </el-card>
+            </el-col>
+            <el-col :xs="12" :sm="12" :md="6">
+              <el-card shadow="never" class="kpi-card">
+                <div class="kpi-value">{{ animatedDeptCount }}</div>
+                <div class="kpi-label">{{ $t('org.workbench.departmentCount') }}</div>
+              </el-card>
+            </el-col>
+            <el-col :xs="12" :sm="12" :md="6">
+              <el-card shadow="never" class="kpi-card">
+                <div class="kpi-value">{{ animatedPositionCount }}</div>
+                <div class="kpi-label">{{ $t('org.workbench.positionCount') }}</div>
+              </el-card>
+            </el-col>
+            <el-col :xs="12" :sm="12" :md="6">
+              <el-card shadow="never" class="kpi-card">
+                <div class="kpi-value">{{ animatedEmployeeCount }}</div>
+                <div class="kpi-label">{{ $t('org.workbench.employeeCount') }}</div>
+              </el-card>
+            </el-col>
+          </el-row>
+        </section>
+
+        <!-- 图表区 -->
+        <section class="workbench-section">
+          <div class="section-header">
+            <h3>{{ $t('org.workbench.chartTitle') }}</h3>
+          </div>
+          <el-row :gutter="16" class="chart-row">
+            <el-col :xs="24" :md="12">
+              <el-card shadow="never">
+                <template #header>
+                  <span class="card-title">{{ $t('org.workbench.deptTypeDist') }}</span>
+                </template>
+                <div ref="pieChartRef" class="chart-container"></div>
+              </el-card>
+            </el-col>
+            <el-col :xs="24" :md="12">
+              <el-card shadow="never">
+                <template #header>
+                  <span class="card-title">{{ $t('org.workbench.companyDeptCompare') }}</span>
+                </template>
+                <div ref="barChartRef" class="chart-container"></div>
+              </el-card>
+            </el-col>
+          </el-row>
+        </section>
+
+        <!-- 快捷操作区 -->
+        <section class="workbench-section">
+          <div class="section-header">
+            <h3>{{ $t('org.workbench.quickActions') }}</h3>
+          </div>
+          <div class="action-buttons">
+            <el-button
+              v-permission="'org:company:add'"
+              type="primary"
+              :icon="Plus"
+              @click="navigateTo('/org/company')"
+            >
+              {{ $t('org.workbench.addCompany') }}
+            </el-button>
+            <el-button
+              v-permission="'org:department:add'"
+              type="success"
+              :icon="Plus"
+              @click="navigateTo('/org/department')"
+            >
+              {{ $t('org.workbench.addDepartment') }}
+            </el-button>
+            <el-button
+              v-permission="'org:position:add'"
+              type="warning"
+              :icon="Plus"
+              @click="navigateTo('/org/position')"
+            >
+              {{ $t('org.workbench.addPosition') }}
+            </el-button>
+            <el-button
+              v-permission="'org:chart:view'"
+              type="info"
+              :icon="Share"
+              @click="navigateTo('/org/chart')"
+            >
+              {{ $t('org.workbench.orgChart') }}
+            </el-button>
+          </div>
+        </section>
+      </template>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { useRouter } from 'vue-router'
+import { ElMessage } from 'element-plus'
+import { RefreshRight, Plus, Share } from '@element-plus/icons-vue'
+import * as echarts from 'echarts/core'
+import { PieChart, BarChart } from 'echarts/charts'
+import { GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
+import { CanvasRenderer } from 'echarts/renderers'
+import { useOrgWorkbenchStore } from '@/stores/org/workbench'
+import type { OrgWorkbenchVO } from '@/api/org/workbench'
+
+echarts.use([PieChart, BarChart, GridComponent, TooltipComponent, LegendComponent, CanvasRenderer])
+
+const router = useRouter()
+const store = useOrgWorkbenchStore()
+
+const loading = ref(false)
+const error = ref(false)
+const data = ref<OrgWorkbenchVO | null>(null)
+
+const pieChartRef = ref<HTMLElement | null>(null)
+const barChartRef = ref<HTMLElement | null>(null)
+let pieChartInstance: echarts.ECharts | null = null
+let barChartInstance: echarts.ECharts | null = null
+
+const animatedCompanyCount = ref(0)
+const animatedDeptCount = ref(0)
+const animatedPositionCount = ref(0)
+const animatedEmployeeCount = ref(0)
+
+function animateValue(
+  target: number,
+  refKey: 'companyCount' | 'deptCount' | 'positionCount' | 'employeeCount',
+  duration = 1000
+): void {
+  const refMap = {
+    companyCount: animatedCompanyCount,
+    deptCount: animatedDeptCount,
+    positionCount: animatedPositionCount,
+    employeeCount: animatedEmployeeCount
+  }
+  const animatedRef = refMap[refKey]
+  const start = 0
+  const startTime = performance.now()
+
+  function step(currentTime: number): void {
+    const elapsed = currentTime - startTime
+    const progress = Math.min(elapsed / duration, 1)
+    const eased = 1 - Math.pow(1 - progress, 3)
+    animatedRef.value = Math.round(start + (target - start) * eased)
+    if (progress < 1) {
+      requestAnimationFrame(step)
+    }
+  }
+
+  requestAnimationFrame(step)
+}
+
+function animateAllKpis(): void {
+  if (!data.value) return
+  animateValue(data.value.companyCount, 'companyCount')
+  animateValue(data.value.departmentCount, 'deptCount')
+  animateValue(data.value.positionCount, 'positionCount')
+  animateValue(data.value.employeeCount, 'employeeCount')
+}
+
+async function loadData(): Promise<void> {
+  loading.value = true
+  error.value = false
+  try {
+    data.value = await store.fetchData(true)
+    await nextTick()
+    renderCharts()
+    animateAllKpis()
+  } catch {
+    error.value = true
+    ElMessage.error('加载工作台数据失败')
+  } finally {
+    loading.value = false
+  }
+}
+
+function renderCharts(): void {
+  if (!data.value) return
+  renderPieChart()
+  renderBarChart()
+}
+
+function renderPieChart(): void {
+  if (!pieChartRef.value || !data.value) return
+
+  if (!pieChartInstance) {
+    pieChartInstance = echarts.init(pieChartRef.value)
+  }
+
+  const dist = data.value.deptTypeDistribution || []
+  const pieData = dist.map((item) => ({
+    name: item.deptType,
+    value: item.count
+  }))
+
+  pieChartInstance.setOption({
+    tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+    legend: { bottom: 0, type: 'scroll' },
+    series: [
+      {
+        name: '部门类型',
+        type: 'pie',
+        radius: ['45%', '70%'],
+        center: ['50%', '45%'],
+        data: pieData.length > 0 ? pieData : [{ name: '暂无数据', value: 0 }],
+        emphasis: {
+          itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)' }
+        },
+        label: { show: false },
+        labelLine: { show: false }
+      }
+    ]
+  })
+}
+
+function renderBarChart(): void {
+  if (!barChartRef.value || !data.value) return
+
+  if (!barChartInstance) {
+    barChartInstance = echarts.init(barChartRef.value)
+  }
+
+  const companyDept = data.value.companyDeptCount || []
+  const names = companyDept.map((item) => item.companyName)
+  const values = companyDept.map((item) => item.deptCount)
+
+  barChartInstance.setOption({
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    grid: { left: '3%', right: '4%', bottom: '8%', containLabel: true },
+    xAxis: {
+      type: 'category',
+      data: names,
+      axisLabel: { rotate: names.length > 5 ? 30 : 0 }
+    },
+    yAxis: { type: 'value', minInterval: 1 },
+    series: [
+      {
+        name: '部门数量',
+        type: 'bar',
+        data: values,
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            { offset: 0, color: '#409EFF' },
+            { offset: 1, color: '#79bbff' }
+          ])
+        },
+        barMaxWidth: 40
+      }
+    ]
+  })
+}
+
+function navigateTo(path: string): void {
+  router.push(path)
+}
+
+function handleResize(): void {
+  pieChartInstance?.resize()
+  barChartInstance?.resize()
+}
+
+onMounted(async () => {
+  await loadData()
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+  pieChartInstance?.dispose()
+  barChartInstance?.dispose()
+})
+</script>
+
+<style scoped lang="scss">
+.org-workbench-page {
+  padding: 20px;
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+
+    h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--el-text-color-primary);
+    }
+
+    .page-desc {
+      flex: 1;
+      margin: 0;
+      font-size: 14px;
+      color: var(--el-text-color-secondary);
+    }
+  }
+
+  .workbench-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .workbench-section {
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+
+      h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--el-text-color-primary);
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  }
+
+  .kpi-row {
+    .kpi-card {
+      text-align: center;
+      cursor: default;
+
+      .kpi-value {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--el-color-primary);
+        line-height: 1.2;
+      }
+
+      .kpi-label {
+        margin-top: 8px;
+        font-size: 14px;
+        color: var(--el-text-color-secondary);
+      }
+    }
+  }
+
+  .chart-row {
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--el-text-color-primary);
+    }
+
+    .chart-container {
+      width: 100%;
+      height: 320px;
+    }
+  }
+
+  .area-error {
+    padding: 20px;
+    background: var(--el-bg-color);
+    border-radius: 8px;
+  }
+}
+</style>

@@ -96,6 +96,26 @@ const common = {
       editTitle: '编辑凭证字',
       confirmDelete: '确认删除该凭证字？'
     }
+  },
+  // 组织架构工作台
+  org: {
+    workbench: {
+      title: '组织架构工作台',
+      desc: '概览组织架构核心数据指标',
+      kpiTitle: '数据概览',
+      companyCount: '公司数量',
+      departmentCount: '部门数量',
+      positionCount: '岗位数量',
+      employeeCount: '在职人数',
+      chartTitle: '数据分析',
+      deptTypeDist: '部门类型分布',
+      companyDeptCompare: '各公司部门数量对比',
+      quickActions: '快捷操作',
+      addCompany: '新增公司',
+      addDepartment: '新增部门',
+      addPosition: '新增岗位',
+      orgChart: '组织架构图'
+    }
   }
 }
 
