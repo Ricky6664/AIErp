@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.module.inventory.mapper.WorkbenchAggregateMapper">
+
+    <!-- ==================== KPI聚合统计 ==================== -->
+    <select id="selectKpiStats" resultType="java.util.HashMap">
+        SELECT
+            (SELECT COUNT(*)
+             FROM inv_warehouse
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE)                        AS "warehouseTotal",
+
+            (SELECT COUNT(*)
+             FROM inv_warehouse
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE
+               AND status = 1)                                 AS "warehouseActive",
+
+            (SELECT COUNT(*)
+             FROM inv_location
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE)                        AS "locationTotal",
+
+            (SELECT COUNT(*)
+             FROM inv_location
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE
+               AND status = 1)                                 AS "locationActive"
+    </select>
+
+    <!-- ==================== 仓库创建趋势（按日） ==================== -->
+    <select id="selectWarehouseTrendByDay" resultType="java.util.HashMap">
+        SELECT
+            DATE_TRUNC('day', created_at) AS "period",
+            COUNT(*)                      AS "count"
+        FROM inv_warehouse
+        WHERE tenant_id = #{tenantId}
+          AND is_deleted = FALSE
+          AND created_at BETWEEN #{startDate}::TIMESTAMP AND #{endDate}::TIMESTAMP
+        GROUP BY "period"
+        ORDER BY "period"
+    </select>
+
+    <!-- ==================== 库位创建趋势（按日） ==================== -->
+    <select id="selectLocationTrendByDay" resultType="java.util.HashMap">
+        SELECT
+            DATE_TRUNC('day', created_at) AS "period",
+            COUNT(*)                      AS "count"
+        FROM inv_location
+        WHERE tenant_id = #{tenantId}
+          AND is_deleted = FALSE
+          AND created_at BETWEEN #{startDate}::TIMESTAMP AND #{endDate}::TIMESTAMP
+        GROUP BY "period"
+        ORDER BY "period"
+    </select>
+
+</mapper>
