@@ -1645,3 +1645,15 @@
 | 摘要 | 创建OrgDepartmentService接口(6方法) + DeptCreateDTO/DeptUpdateDTO/DeptQueryDTO(3DTO) + DeptListVO/DeptTreeVO/DeptDetailVO(3VO)，编译通过 |
 | Git commit | 5a7ac3c1 |
 | 工人 | W7 |
+
+#### P0-006-001-002-001-002 编写ServiceImpl实现类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-006-001-002-001-002 |
+| 任务名称 | 编写ServiceImpl实现类 |
+| 完成时间 | 2026-06-08T01:35 |
+| 状态 | ✅ |
+| 摘要 | 创建OrgDepartmentServiceImpl(6方法:page/tree/getById/create/update/delete) + OrgDepartment实体新增deptCode字段，含公司校验+名称唯一性+循环引用检查+编码生成+子部门/岗位/员工删除检查，编译通过 |
+| Git commit | (pending-commit) |
+| 工人 | W6 |

@@ -14,6 +14,8 @@ public class OrgDepartment extends BaseEntity {
 
     private String departmentName;
 
+    private String deptCode;
+
     private Long parentId;
 
     private String managerName;
