@@ -1273,4 +1273,4 @@
 | 状态 | ✅ |
 | 摘要 | 创建AccountingPeriodServiceImpl(继承ServiceImpl<AccountingPeriodMapper,AccountingPeriodEntity>/实现IAccountingPeriodService/CRUD/crate含重叠校验/update含存在性+重叠校验/delete含存在性校验+软删除/getById含存在性校验/pageList含fiscalYear/period/periodStatus筛选+排序/@Transactional/BusinessException)+AccountingPeriodMapper(BaseMapperX)/mvn compile通过 |
 | 工人 | W4 |
-| Git SHA | (待提交)
+| Git SHA | bb0b97ff
