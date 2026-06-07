@@ -1017,6 +1017,12 @@
 
 | (pending) → 1a5156f8
 
+### P0-007 - 商品管理模块开发
+
+| 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
+|---------|---------|---------|:---:|------|-----|
+| P0-007-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-08T02:32 | ✅ | ProductUnitServiceImpl(5CRUD方法):list(productId/unitId筛选+排序)/getById(存在性校验)+save(转换比例>0+同商品单位唯一+基础单位唯一)/update(排除自身校验)+delete(存在性校验)+ProductUnitMapper创建;toVO映射creatorId→createBy | (pending)|
+
 ### P0-013 - 部署与DevOps基础
 
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
