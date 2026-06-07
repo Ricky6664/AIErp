@@ -1047,6 +1047,7 @@
 | P0-010-002-003-001-001 | 编写核心代码 | 2026-06-07T21:55 | ✅ | 库位管理P04单一列表页(index.vue)+API模块(location.ts)+类型定义(location.ts) |
 | P0-010-002-002-001-001 | 编写核心代码 | 2026-06-07T21:55 | ✅ | 仓库列表页集成P07表单弹窗(el-dialog+el-form)+新增/编辑双模式+表单校验(名称必填/类型必选/手机号格式/地址长度)+createWarehouse/updateWarehouse/getWarehouseDetail API联调+状态切换+submitLoading防重复 | acb2ca85 |
 | P0-010-002-004-001-001 | 编写核心代码 | 2026-06-07T22:05 | ✅ | 库位管理P07单一表单页(el-dialog+el-form)+新增/编辑双模式+库位类型(存储/拣货/暂存/不良品)+createLocation/updateLocation/getLocationDetail API联调+表单校验+submitLoading防重复 | (pending) |
+| P0-010-002-004-001-002 | 验证功能 | 2026-06-07T22:07 | ✅ | 编写前端验证报告(10项验证+6项边界分析+编译检查)+问题清单(2CRITICAL Controller缺失+2MINOR 类型/提示) | (pending) |
 
 
 ### 模块完成: P0-007 ✅
