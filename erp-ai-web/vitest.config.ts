@@ -9,9 +9,17 @@ export default defineConfig({
   plugins: [vue()],
   test: {
     include: ['src/**/*.test.ts'],
-    environment: 'jsdom',
+    environment: 'happy-dom',
     globals: true,
-    setupFiles: ['src/test-setup.ts']
+    setupFiles: ['src/test-setup.ts'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text-summary', 'lcov'],
+      thresholds: {
+        lines: 70,
+        branches: 60
+      }
+    }
   },
   resolve: {
     alias: {

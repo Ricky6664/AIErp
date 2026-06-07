@@ -1038,6 +1038,7 @@
 | P0-014-002-003 | Composable测试模板 | 2026-06-07T17:49 | ✅ | ComposableTestTemplate.spec.ts(6种测试模式:直接调用/withSetup/异步操作/Mock/边界条件/响应式深度)+withSetup工具函数+flushPromises+vi.mock模式+Pinia/Router mock+fakeTimers | 16b03ee2 |
 | P0-014-002-004 | API Mock策略 | 2026-06-07T20:00 | ✅ | MSW 2.14.6安装+src/mocks/server.ts(setupServer)+src/mocks/handlers.ts(正常/空/401/403/500/Loading)+test-setup.ts(beforeAll/afterEach/afterAll/onUnhandledRequest:error) | 4a5410cc |
 | P0-014-001-001 | JUnit 5 Mockito测试依赖引入 | 2026-06-08T01:55 | ✅ | pom.xml添加testcontainers 1.19.7(testcontainers/postgresql/junit-jupiter)+jacoco-maven-plugin 0.8.11+spring-boot-starter-test(JUnit5.11.4/Mockito5.14.2/AssertJ3.26.3)+H2, application-test.yml已存在, 1118测试执行通过 | 7136118d |
+| P0-014-002-001 | Vitest测试依赖引入 | 2026-06-08T02:20 | ✅ | package.json添加happy-dom 14.12.3+msw 2.14.6, vitest.config.ts更新环境为happy-dom+coverage配置(provider:v8/thresholds:lines=70/branches=60), test-setup.ts已存在, 40测试文件1262测试通过 | a6403d0b |
 
 
 
