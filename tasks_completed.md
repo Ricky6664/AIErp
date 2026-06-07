@@ -1679,3 +1679,5 @@
 | 摘要 | 创建OrgDepartmentServiceImpl(6方法:page/tree/getById/create/update/delete) + OrgDepartment实体新增deptCode字段，含公司校验+名称唯一性+循环引用检查+编码生成+子部门/岗位/员工删除检查，编译通过 |
 | Git commit | be90082c |
 | 工人 | W6 |
+
+| P0-007-001-001-001-003 | 验证Service | 2026-06-08T01:43 | ✅ | ProductClassServiceTest(45用例全通过)+@ExtendWith(MockitoExtension)+@Nested分组(list/getById/save/update/delete/Transactional/EdgeCases/ToVO)+sortOrder边界(0/9999)+parentId校验+className唯一性+子分类删除检查+transaction注解验证+toVO映射 | (pending) |
