@@ -46,6 +46,15 @@ public interface IVoucherWordService extends IServiceX<VoucherWordEntity> {
     void delete(Long id);
 
     /**
+     * 切换凭证字启用状态.
+     *
+     * @param id     凭证字ID
+     * @param status 新状态
+     */
+    @Transactional(rollbackFor = Exception.class)
+    void updateStatus(Long id, Integer status);
+
+    /**
      * 根据ID查询凭证字.
      *
      * @param id 凭证字ID

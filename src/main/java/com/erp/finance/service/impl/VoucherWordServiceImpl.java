@@ -62,6 +62,19 @@ public class VoucherWordServiceImpl extends ServiceImpl<VoucherWordMapper, Vouch
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
+    @OperLog(module = "财务基础设置", action = "切换状态", description = "切换凭证字启用状态")
+    public void updateStatus(Long id, Integer status) {
+        VoucherWordEntity existing = super.getById(id);
+        if (existing == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "凭证字不存在");
+        }
+        validateStatusTransition(existing.getStatus(), status);
+        existing.setStatus(status);
+        updateById(existing);
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public VoucherWordVO getById(Long id) {
         VoucherWordEntity entity = super.getById(id);
