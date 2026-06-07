@@ -1022,6 +1022,7 @@
 | P0-013-001-001-002 | 编写前端Dockerfile | 2026-06-06T10:50 | ✅ | 前端多阶段Dockerfile(node:20-alpine pnpm→nginx:1.27-alpine)+nginx.conf(gzip+SPA+安全头CSP/HSTS+缓存策略+healthz)+非root+HEALTHCHECK | 0d0150d4 |
 | P0-013-001-001-002 | 编写前端Dockerfile(补建) | 2026-06-08T02:00 | ✅ | 补建erp-ai-web/Dockerfile+nginx.conf+集成vite-plugin-compression | f046086e |
 | P0-013-001-002-001 | 编写docker-compose服务编排 | 2026-06-06T11:05 | ✅ | docker-compose.yml(7服务+网络erp_network+5命名卷)+全服务健康检查+depends_on service_healthy+.env.example模板 | e8c441ea |
+| P0-013-001-002-001 | 编写docker-compose服务编排(重建) | 2026-06-08T22:30 | ✅ | 修复前端端口3000:80+健康检查URL+nginx ENV变量HTTPS端口+docker-compose.override.yml+docker-compose.prod.yml | b619612c |
 | P0-013-002-002 | 多环境Nginx配置 | 2026-06-06T20:25 | ✅ | nginx.dev.conf(HTTP/CORS */无日志)+nginx.staging.conf(HTTP-HTTPS/SSL/受限CORS)+nginx.prod.conf(SSL/限流/CSP/HSTS/OCSP)+ssl/README.md+.gitignore更新 | 557f251b |
 
 ### P0-014 - 测试基础模块
