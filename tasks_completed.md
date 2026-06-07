@@ -1027,6 +1027,7 @@
 | P0-013-002-002 | 多环境Nginx配置 | 2026-06-06T20:25 | ✅ | nginx.dev.conf(HTTP/CORS */无日志)+nginx.staging.conf(HTTP-HTTPS/SSL/受限CORS)+nginx.prod.conf(SSL/限流/CSP/HSTS/OCSP)+ssl/README.md+.gitignore更新 | 557f251b |
 | P0-013-001-003 | .env环境变量文件 | 2026-06-08T02:10 | ✅ | .env.example(变量名对齐docker-compose:POSTGRES_USER/POSTGRES_DB/MINIO_ROOT_USER/MINIO_ROOT_PASSWORD)+.env.dev/.env.staging/.env.prod(3套环境差异化配置)+docs/env-variables.md(变量说明文档更新) | 057764c0
 | P0-013-001-004 | .dockerignore文件编写 | 2026-06-08T01:42 | ✅ | 完整.dockerignore(版本控制/IDE/构建产物/文档/环境变量/日志/测试/Docker/CI/CD/部署/AI开发/OS共12类排除规则)+LF换行+.env.example白名单 | (pending)
+| P0-013-002-001 | nginx.conf主配置 | 2026-06-08T02:15 | ✅ | nginx.conf(全局设置+gzip/安全头/upstream/server include)+conf.d/upstream.conf(backend:8080+frontend:80)+conf.d/erp.conf(健康检查/API代理/WebSocket/静态资源+HTML no-cache)+conf.d/gzip.conf(级别6)+conf.d/security-headers.conf(7安全头) | 60ea2eb6
 | P0-013-001-002-002 | 验证docker-compose编排 | 2026-06-08T01:49 | ✅ | scripts/verify-compose.sh(9项自动化验证:YAML/镜像/启动/健康检查/通信/持久化/端到端/故障恢复/日志)+docs/verification/docker-compose-report.md(静态审查+问题清单) | (pending)
 
 ### P0-014 - 测试基础模块
@@ -1079,6 +1080,7 @@
 
 | P0-007-001-001-001-001 | 编写接口定义Service接口 | 2026-06-07T23:30 | ✅ | ProductClassService接口(extends IServiceX<ProductClass>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductClassDTO/ProductClassQueryDTO/ProductClassVO + ProductClass实体 | 9c6e2343 |
 | P0-007-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-08T01:33 | ✅ | ProductClassServiceImpl(extends ServiceImpl<ProductClassMapper,ProductClass>)+CRUD+业务校验(同级名称唯一/parentId引用/子分类检查/排序号0~9999)+@Transactional+BusinessException + ProductClassMapper | 4b922993 |
+| P0-007-001-002-001-001 | 编写接口定义Service接口 | 2026-06-08T02:13 | ✅ | ProductService接口(extends IServiceX<Product>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductDTO/ProductQueryDTO/ProductVO + Product实体 | 6858ad4e |
 
 
 ### 模块完成: P0-013 ✅
@@ -1734,10 +1736,10 @@ n#### P0-006-001-004-001-002 验证功能
 |------|-----|
 | 任务编号 | P0-006-001-004-001-002 |
 | 任务名称 | 验证功能 |
-| 完成时间 | 2026-06-08T02:11 |
+| 完成时间 | 2026-06-08T02:18 |
 | 状态 | ✅ |
-| 摘要 | OrgWorkbenchServiceImplTest(15用例全通过):KpiCounts(4指标验证+空数据)+DeptTypeDistribution(3类型统计+null过滤)+CompanyDeptCount(公司部门映射+禁用过滤)+DeptStaffDistribution(分布+百分比)+HrmFallback(降级处理)+MultiTenant(3场景租户ID)+CacheAnnotation(2注解验证)+TransactionalAnnotation(1注解验证)+DataFilter禁用过滤 |
-| Git commit | 51ef20de |
+| 摘要 | OrgWorkbenchServiceImplTest增强(21用例全通过):原15用例+CacheAnnotation新增unless/tenantId验证+CacheHitTests(2用例)+PermissionAnnotationTests(2用例 @SaCheckPermission验证); OrgWorkbenchController补充@SaCheckPermission("org:workbench:query"); compile通过, 模块84测试全通过 |
+| Git commit | 47e4e81e |
 | 工人 | W5 |
 
 | P0-007-001-001-001-003 | 验证Service | 2026-06-08T01:43 | ✅ | ProductClassServiceTest(45用例全通过)+@ExtendWith(MockitoExtension)+@Nested分组(list/getById/save/update/delete/Transactional/EdgeCases/ToVO)+sortOrder边界(0/9999)+parentId校验+className唯一性+子分类删除检查+transaction注解验证+toVO映射 | 1d76436d |
