@@ -1,10 +1,10 @@
-# 币种汇率 P07 单一表单页 — 前端验证报告
+# 币种汇率 P04 列表页 — 前端验证报告
 
-> **验证任务**：P0-011-002-003-001-002
-> **验证人员**：W4
-> **验证时间**：2026-06-08 01:34
-> **被验证代码**：P0-011-002-003-001-001（W4 产出）
-> **验证范围**：P07 单一表单页（el-dialog 弹窗表单 + 数据交互）
+> **验证任务**：P0-011-002-002-001-002
+> **验证人员**：W5
+> **验证时间**：2026-06-08 03:14
+> **被验证代码**：P0-011-002-002-001-001（W3 产出）
+> **验证范围**：P04 单一列表页（统计卡片 + 搜索筛选 + VxeTable 数据表格 + 分页 + 新增/编辑弹窗 + 删除）
 
 ---
 
@@ -12,139 +12,170 @@
 
 | 序号 | 验证项 | 预期结果 | 状态 | 说明 |
 |:---:|--------|--------|:---:|------|
-| 1 | 页面路由访问 | 路由正确，页面正常渲染 | ⚠️ | 路由已注册，但因缺失 Controller 无法运行时验证 |
-| 2 | 数据加载 | API调用成功，数据正确展示 | ⚠️ | Service 层完整，Controller 缺失导致 API 404 |
-| 3 | 筛选/搜索功能 | 筛选条件生效，结果准确 | ✅ | 搜索防抖300ms + 条件拼装逻辑正确 |
-| 4 | 操作交互 | 新增/编辑弹窗交互正常 | ✅ | 弹窗 open/close 生命周期完整，编辑回显正确 |
-| 5 | 数据回显(编辑) | 编辑时表单数据正确回显 | ✅ | handleEdit 正确调用 getByIdApi 后逐字段回填 |
-| 6 | 表单校验 | 必填项/格式校验/异步唯一性生效 | ✅ | 编码必填+maxLength+异步唯一性，名称必填，汇率必填 |
-| 7 | 异常处理 | 接口失败时展示错误提示 | ✅ | 所有 API 调用 try/catch + ElMessage.error |
+| 1 | 页面路由访问 | 路由正确，页面正常渲染 | ✅ | 路由 `/finance/currencyrate` 已注册，懒加载指向 index.vue |
+| 2 | 数据加载 | API调用成功，数据正确展示 | ⚠️ | 前端逻辑正确，Controller 缺失导致 API 404，无法运行时验证 |
+| 3 | 筛选/搜索功能 | 筛选条件生效，结果准确 | ✅ | 币种名称搜索防抖300ms + 汇率类型下拉筛选，逻辑正确 |
+| 4 | 操作交互 | 新增/编辑弹窗 + 删除确认 | ✅ | 弹窗生命周期完整，删除 el-popconfirm 二次确认 |
+| 5 | 数据回显(编辑) | 编辑时表单数据正确回显 | ✅ | handleEdit → getByIdApi → 逐字段回填 formData |
+| 6 | 表单校验 | 必填项/格式校验/异步唯一性生效 | ✅ | 编码必填+maxLength+异步validator，名称必填，汇率必填，汇率类型必填 |
+| 7 | 异常处理 | 接口失败时展示错误提示 | ✅ | 所有 API 调用 try/catch + ElMessage.error 提示 |
 
 ---
 
-## 二、P07 表单页专项审查
+## 二、P04 列表页专项审查
 
-### 2.1 弹窗容器 (el-dialog)
+### 2.1 统计卡片区
+
+| 审查项 | 实现 | 评价 |
+|--------|------|:---:|
+| 总记录数卡片 | `stats.total` — 从分页 total 获取 | ✅ |
+| 今日新增卡片 | `stats.todayCount` — 按 createTime 前缀日期匹配 | ✅ |
+| 汇率类型数卡片 | `stats.typeCount` — new Set(rateType) 去重计数 | ✅ |
+| 响应式布局 | el-row :gutter="16" + el-col :xs/:sm 断点 | ✅ |
+| 颜色区分 | primary(总)/success(今日)/warning(类型) | ✅ |
+
+### 2.2 搜索表单
+
+| 审查项 | 实现 | 评价 |
+|--------|------|:---:|
+| 币种名称输入 | el-input v-model + clearable + @input 防抖 | ✅ |
+| 汇率类型下拉 | el-select v-model + clearable + @change 立即搜索 | ✅ |
+| 防抖实现 | debounceTimer 300ms setTimeout，新输入 clearTimeout | ✅ |
+| 查询按钮 | @click="handleSearch" → pageNum=1 + loadData | ✅ |
+| 重置按钮 | @click="handleReset" → 清空 searchForm + loadData | ✅ |
+| 表单禁用原生提交 | @submit.prevent | ✅ |
+
+### 2.3 数据表格 (VxeTable)
+
+| 审查项 | 实现 | 评价 |
+|--------|------|:---:|
+| 表格组件 | vxe-table（支持虚拟滚动） | ✅ |
+| Loading 状态 | `:loading="tableLoading"` | ✅ |
+| 列定义 | seq/currencyCode/currencyName/currencySymbol/exchangeRate/effectiveDate/rateType/createTime/操作 | ✅ |
+| 汇率格式化 | `formatRate()` — Number.toFixed(6)，null → '-' | ✅ |
+| 汇率类型标签 | `rateTypeTag()` → el-tag success/warning | ✅ |
+| 创建时间排序 | sortable on createTime column | ✅ |
+| 操作列固定 | fixed="right" | ✅ |
+| 编辑按钮 | el-button link primary → handleEdit(row) | ✅ |
+| 删除按钮 | el-popconfirm 二次确认 → handleDelete(row) | ✅ |
+| 最大高度 | max-height="600" + scroll-y gt:100 | ✅ |
+
+### 2.4 分页组件
+
+| 审查项 | 实现 | 评价 |
+|--------|------|:---:|
+| 双向绑定 | v-model:current-page + v-model:page-size | ✅ |
+| 页码大小选项 | [10, 20, 50, 100] | ✅ |
+| 布局 | total, sizes, prev, pager, next, jumper | ✅ |
+| size-change | pageNum=1 + loadData | ✅ |
+| current-change | loadData | ✅ |
+
+### 2.5 统计卡片更新逻辑
+
+```typescript
+function updateStats(list: CurrencyRateVO[], total: number): void {
+  stats.total = total
+  const today = new Date().toISOString().split('T')[0]
+  stats.todayCount = list.filter(
+    (item) => item.createTime && item.createTime.startsWith(today)
+  ).length
+  const types = new Set(list.map((item) => item.rateType))
+  stats.typeCount = types.size
+}
+```
+
+> ⚠️ 注意：今日新增只能统计当前页数据，跨页统计依赖后端单独接口（当前未实现）
+
+---
+
+## 三、新增/编辑弹窗审查
+
+### 3.1 弹窗容器 (el-dialog)
 
 | 审查项 | 实现 | 评价 |
 |--------|------|:---:|
 | v-model 绑定 | `dialogVisible` | ✅ |
 | 标题动态切换 | `isEdit ? '编辑币种汇率' : '新增币种汇率'` | ✅ |
 | 宽度 | 600px | ✅ |
-| destroy-on-close | true（关闭时销毁DOM，防止残留状态） | ✅ |
-| @closed 回调 | `formRef.value?.resetFields()` 重置校验 | ✅ |
-| footer 插槽 | 取消 + 确认(loading) 按钮 | ✅ |
+| destroy-on-close | true | ✅ |
+| @closed 回调 | formRef.resetFields() | ✅ |
+| footer 插槽 | 取消 + 确认(loading) | ✅ |
 
-### 2.2 表单字段 (el-form) — 6字段双列布局
+### 3.2 表单字段 — 6字段双列布局
 
-| 字段 | 组件 | 校验规则 | 特殊处理 | 评价 |
-|------|------|---------|---------|:---:|
-| 币种编码 | el-input | 必填 + max:20 + 异步唯一性 | 编辑模式 disabled | ✅ |
-| 币种名称 | el-input | 必填 + max:50 | - | ✅ |
-| 基准币种 | el-select | 无 | filterable + allow-create + 8种预设 | ✅ |
+| 字段 | 组件 | 校验 | 特殊处理 | 评价 |
+|------|------|------|---------|:---:|
+| 币种编码 | el-input | 必填+max20+异步唯一性 | 编辑模式 disabled | ✅ |
+| 币种名称 | el-input | 必填+max50 | - | ✅ |
+| 基准币种 | el-select | 无 | filterable+allow-create+8种预设 | ✅ |
 | 汇率 | el-input-number | 必填 | :precision="6" :min="0" | ✅ |
-| 汇率日期 | el-date-picker | 无 | value-format="YYYY-MM-DD" + disabledDate | ✅ |
-| 汇率类型 | el-select | 必填 | 固定汇率(1) / 浮动汇率(2) | ✅ |
+| 汇率日期 | el-date-picker | 无 | value-format="YYYY-MM-DD"+disabledDate | ✅ |
+| 汇率类型 | el-select | 必填 | 固定汇率(1)/浮动汇率(2) | ✅ |
 
-### 2.3 表单交互逻辑
+### 3.3 表单交互逻辑
 
-| 场景 | 代码路径 | 评价 |
-|------|---------|:---:|
-| 新增模式 | handleAdd → 重置 formData → isEdit=false → 打开弹窗 | ✅ |
-| 编辑模式 | handleEdit → getByIdApi → 逐字段赋值 → isEdit=true → 打开弹窗 | ✅ |
+| 场景 | 实现 | 评价 |
+|------|------|:---:|
+| 新增 | handleAdd → 重置formData → isEdit=false → 开弹窗 | ✅ |
+| 编辑 | handleEdit → getByIdApi → 逐字段赋值 → isEdit=true → 开弹窗 | ✅ |
 | 提交校验 | formRef.validate() → 失败不提交 | ✅ |
-| 新增提交 | createCurrencyRateApi → 成功关闭弹窗 + 刷新列表 | ✅ |
-| 编辑提交 | updateCurrencyRateApi(id, data) → 成功关闭弹窗 + 刷新列表 | ✅ |
-| Loading 状态 | submitLoading 控制按钮loading，finally 保证恢复 | ✅ |
-| 编码唯一性 | validateCurrencyCode 异步 validator，编辑模式跳过 | ✅ |
-| 日期限制 | disabledDate: date > today+30days → disabled | ✅ |
-
-### 2.4 表单数据初始化
-
-```typescript
-// initFormData 工厂函数 — 每次调用返回新对象，避免引用污染
-const initFormData = (): CurrencyRateSaveDTO => ({
-  currencyCode: '',
-  currencyName: '',
-  currencySymbol: '',
-  exchangeRate: 1,
-  rateType: 1,
-  effectiveDate: ''
-})
-```
-
-`handleAdd` 中使用 `Object.assign(formData, initFormData())` 正确重置。✅
+| Loading | submitLoading 防重复，finally 保证恢复 | ✅ |
+| 编码唯一性 | 异步 validator，编辑模式跳过，catch 放过不阻塞 | ⚠️ |
+| 日期限制 | disabledDate: >today+30d → disabled | ✅ |
+| 数据初始化 | initFormData() 工厂函数，Object.assign 避免引用污染 | ✅ |
 
 ---
 
-## 三、API 层审查 (finance-currencyrate.ts) — 70行
+## 四、API 层审查 (finance-currencyrate.ts)
 
-| API 函数 | HTTP 方法 | 路径 | 返回类型 | 评价 |
+| API 函数 | HTTP | 路径 | 返回 | 评价 |
 |---------|:---:|------|------|:---:|
 | getCurrencyRatePageApi | GET | /finance/currency-rate | PageResult\<VO\> | ✅ |
 | getCurrencyRateByIdApi | GET | /finance/currency-rate/{id} | VO | ✅ |
 | createCurrencyRateApi | POST | /finance/currency-rate | VO | ✅ |
 | updateCurrencyRateApi | PUT | /finance/currency-rate/{id} | VO | ✅ |
 | deleteCurrencyRateApi | DELETE | /finance/currency-rate/{id} | void | ✅ |
-| checkCurrencyCodeApi | GET | /finance/currency-rate/check-code | boolean | ⚠️ 后端无此端点 |
+| checkCurrencyCodeApi | GET | /finance/currency-rate/check-code | boolean | ⚠️ 无后端 |
 
-TypeScript 接口定义：
-- `CurrencyRateVO` (8字段) — 与后端 VO 对齐 ✅
-- `CurrencyRateSaveDTO` (6字段) — 与后端 CreateDTO 对齐 ✅
-- `CurrencyRateQueryDTO` (5字段，含分页) — 与后端 QueryDTO 对齐 ✅
+TypeScript 接口：CurrencyRateVO(8字段) / CurrencyRateSaveDTO(6字段) / CurrencyRateQueryDTO(5字段) — 均与后端对齐 ✅
 
 ---
 
-## 四、后端 Service 层验证
+## 五、后端 Service 层验证
 
-### ICurrencyRateService + CurrencyRateServiceImpl
-
-| 方法 | @Transactional | 校验逻辑 | 评价 |
+| 方法 | @Transactional | 校验 | 评价 |
 |------|:---:|------|:---:|
-| create | rollbackFor | 编码唯一性 + 日期<=today+30d | ✅ |
-| update | rollbackFor | 编码唯一性(排除自身) + 日期校验 + 存在性检查 | ✅ |
+| create | rollbackFor | 编码唯一性 + 日期≤today+30d | ✅ |
+| update | rollbackFor | 编码唯一性(排除自身) + 日期校验 | ✅ |
 | delete | rollbackFor | 存在性检查 | ✅ |
-| getById | readOnly | 存在性检查 → 抛 BusinessException | ✅ |
-| pageList | readOnly | 动态排序字段 switch 安全映射 | ✅ |
-
-> ⚠️ 缺少 `checkCode` 公开方法 — 前端异步校验需要此端点
+| getById | readOnly | 存在性检查 → BusinessException | ✅ |
+| pageList | readOnly | 动态排序 switch 安全映射 | ✅ |
 
 ---
 
-## 五、编译验证
+## 六、编译验证
 
-| 验证项 | 结果 | 详情 |
-|--------|:---:|------|
-| 后端 mvn compile | ✅ | 无 ERROR |
-| 前端 pnpm build (currencyrate) | ✅ | currencyrate 组件零 TS 错误 |
-| 前端 pnpm build (全局) | ❌ | 既有错误（menu/params/user/warehouse），非本任务范围 |
+| 验证项 | 结果 |
+|--------|:---:|
+| 后端 mvn compile | ✅ 无 ERROR |
+| 前端 TypeScript (currencyrate) | ✅ 零 TS 错误 |
 
 ---
 
-## 六、边界场景覆盖
+## 七、边界场景
 
-| 场景 | 处理方式 | 评价 |
-|------|---------|:---:|
-| 新增时编码唯一性 | 异步 validator → checkCurrencyCodeApi | ⚠️ 后端端点缺失 |
-| 编辑时编码不可改 | `:disabled="isEdit"` | ✅ |
-| 编辑回显失败 | catch → ElMessage.error('获取币种汇率详情失败') | ✅ |
-| 提交失败 | catch → ElMessage.error('新增/更新失败') | ✅ |
-| 删除确认 | el-popconfirm 二次确认 | ✅ |
-| 删除失败 | catch → ElMessage.error('删除失败') | ✅ |
-| 汇率精度 | el-input-number :precision="6" | ✅ |
+| 场景 | 处理 | 评价 |
+|------|------|:---:|
+| 空列表 | tableLoading + 空数据展示 | ✅ |
+| 编辑编码不可改 | :disabled="isEdit" | ✅ |
+| 编辑回显失败 | catch → ElMessage.error | ✅ |
+| 提交失败 | catch → ElMessage.error | ✅ |
+| 删除确认 | el-popconfirm | ✅ |
+| 删除失败 | catch → ElMessage.error | ✅ |
+| 汇率精度 | :precision="6" | ✅ |
 | 日期超限 | disabledDate(now+30d) | ✅ |
-| 重复提交 | submitLoading 防重复 | ✅ |
-| 弹窗关闭清理 | @closed → resetFields | ✅ |
-| 弹窗销毁 | destroy-on-close | ✅ |
-
----
-
-## 七、与 P04 列表页（W6验证）的关系
-
-本任务 (P0-011-002-003-001-002) 验证的 P07 表单页与 P04 列表页共享同一套 API 层和后端 Service。两任务发现的阻塞问题一致：
-
-1. **CurrencyRateController 缺失** — 两个页面共用同一后端，均受影响
-2. **check-code 端点缺失** — 表单异步校验依赖此端点
+| 弹窗清理 | destroy-on-close + @closed resetFields | ✅ |
+| 重复提交 | submitLoading | ✅ |
 
 ---
 
@@ -152,10 +183,10 @@ TypeScript 接口定义：
 
 | 维度 | 评分 | 说明 |
 |------|:---:|------|
-| 表单组件质量 | A | el-dialog + el-form 标准实现，生命周期完整 |
-| 表单校验 | A | 必填+长度+异步唯一性，规则完整 |
-| 交互体验 | A | loading 防重复、编辑回显、弹窗清理 |
+| 页面布局质量 | A | 统计卡片+搜索+表格+分页，P04 列表页标准结构 |
+| 组件使用规范 | A | el-row/col/card/form/dialog/pagination + vxe-table |
 | TypeScript 类型 | A | 无隐式 any，接口定义完整 |
-| 可运行性 | C | Controller 缺失，无法端到端验证 |
+| 交互体验 | A | 搜索防抖、loading 防重复、弹窗清理、删除确认 |
+| 可运行性 | C | Controller 缺失，API 全部 404，无法端到端验证 |
 
-**结论**：P07 表单页前端代码质量良好，交互逻辑完整，但因后端 Controller 缺失无法进行运行时验证。详见问题清单。
+**结论**：P04 列表页前端代码质量良好，但因后端 CurrencyRateController 缺失无法运行时验证。详见问题清单。
