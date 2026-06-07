@@ -1140,3 +1140,6 @@
 | 状态 | ✅ |
 | 摘要 | 创建LocationEntity/LocationCreateDTO/LocationUpdateDTO/LocationQueryDTO/LocationVO/LocationMapper + ILocationService接口(继承IServiceX，声明CRUD方法，写操作标注@Transactional) |
 | 工人 | W2 |
+| Git Commit | 503e1fdd |
+
+| P0-010-001-001-001-003 | 验证Service | 2026-06-07T21:05:35 | ✅ | 编写WarehouseService单元测试31个用例全部通过 | W3 |
