@@ -66,7 +66,7 @@
 ### P0-007 - 商品管理模块开发（PARALLEL�?
 | 任务编号 | 任务名称 | 层级 | 状�?| 工人 |
 |---------|---------|:---:|:---:|:---:|
-| P0-007-001-001-001-001 | 编写接口定义Service接口 | L3 | 🔄 | W6 |
+| P0-007-001-001-001-001 | 编写接口定义Service接口 | L3 | ✅ | W6 |
 | P0-007-001-001-001-002 | 编写ServiceImpl实现�?| L3 | �?| W9 |
 | P0-007-001-001-001-003 | 验证Service | L3 | �?| W10 |
 | P0-007-001-002-001-001 | 编写接口定义Service接口 | L3 | �?| W8 |
@@ -221,7 +221,6 @@
 | ������ | ���� | ����ʱ�� |
 | P0-011-002-006-001-001 | W5 | 2026-06-07T23:19 |
 | P0-013-001-001-001 | W4 | 2026-06-07T23:21 |
-| P0-007-001-001-001-001 | W6 | 2026-06-07T23:28 |
 | P0-012-001-001-001-002 | W3 | 2026-06-07T23:40 |
 
 
@@ -238,10 +237,6 @@
 |---------|---------|:---:|
 | deploy/backend/Dockerfile | P0-013-001-001-001 | W4 |
 | .dockerignore | P0-013-001-001-001 | W4 |
-| src/main/java/com/erp/module/product/service/ProductClassService.java | P0-007-001-001-001-001 | W6 |
-| src/main/java/com/erp/module/product/dto/ProductClassDTO.java | P0-007-001-001-001-001 | W6 |
-| src/main/java/com/erp/module/product/dto/ProductClassQueryDTO.java | P0-007-001-001-001-001 | W6 |
-| src/main/java/com/erp/module/product/vo/ProductClassVO.java | P0-007-001-001-001-001 | W6 |
 | src/main/java/com/erp/hrm/mapper/EmployeeMapper.java | P0-012-001-001-001-002 | W3 |
 | src/main/java/com/erp/hrm/service/impl/EmployeeServiceImpl.java | P0-012-001-001-001-002 | W3 |
 
@@ -253,7 +248,6 @@
 | ģ���� | ���� | ִ��ģʽ |
 |---------|:---:|:-------:|
 | P0-013 | W4 | SERIAL |
-| P0-007 | W6 | PARALLEL |
 | P0-012 | W3 | PARALLEL |
 ---
 ## 七、统�?
