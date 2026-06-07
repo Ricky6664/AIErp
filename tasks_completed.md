@@ -1010,6 +1010,7 @@
 |---------|---------|---------|:---:|------|-----|
 | P0-006-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-07T23:41 | ✅ | OrgPositionServiceImpl: page/getById/create/update/delete 5方法;create(部门存在性校验+同部门岗位名称唯一性校验+positionCode生成);update(名称唯一性校验排除自身+乐观锁);delete(员工引用检查hrm_employee.position_id+逻辑删除);配套创建Entity/DTO/VO/Mapper/Service接口 | a201eee1 |
 | P0-006-001-003-001-003 | 验证Service | 2026-06-08T00:10 | ✅ | OrgPositionServiceImplTest(21个测试用例全部通过):CreateTests 5个(正常+deptNotFound+duplicateName+differentDept+blankName)+UpdateTests 4个(success+duplicateNameExcludeSelf+changeDept+notFound)+DeleteTests 3个(success+hasEmployee+notFound)+PageTests 4个(deptFilter+keywordSearch+combinedFilter+noFilter)+GetByIdTests 2个(success+notFound)+TransactionalAnnotationTests 3个 | 5e7dff25 |
+| P0-006-001-001-001-001 | 编写接口定义Service接口 | 2026-06-08T00:41 | ✅ | OrgCompanyService接口(5方法:page/getById/create/update/delete)+CompanyCreateDTO(7字段+校验注解)+CompanyUpdateDTO+CompanyQueryDTO+CompanyListVO(9字段+@JsonFormat)+CompanyDetailVO(含扩展字段)+OrgCompany实体 | (pending) |
 
 ### P0-013 - 部署与DevOps基础
 
