@@ -1,104 +1,80 @@
-# Warehouse 仓库定义列表页 — 前端验证报告
+# 仓库定义表单页 — 前端验证报告
 
-> **验证任务**: P0-010-002-001-001-002
+> **任务编号**: P0-010-002-002-001-002
+> **验证人**: W3
 > **验证日期**: 2026-06-07
-> **验证工人**: W3
-> **验证对象**: `erp-ai-web/src/views/warehouse/warehouse/index.vue` + `erp-ai-web/src/api/modules/warehouse.ts`
-> **实现工人**: W2
+> **验证对象**: `erp-ai-web/src/views/warehouse/warehouse/index.vue` — 仓库列表页+表单弹窗(P07单一表单页)
 
 ---
 
-## 验证结果总览
+## 一、验证覆盖清单
 
-| 序号 | 验证项 | 结果 | 备注 |
-|:---:|--------|:---:|------|
-| 1 | 页面路由访问 | FAIL | 路由未注册，页面不可访问 |
-| 2 | 数据加载 | PARTIAL | API 路径与规格不一致 |
-| 3 | 筛选/搜索功能 | PASS | 防抖300ms正确实现 |
-| 4 | 操作交互 — 删除 | PASS | 二次确认弹窗 + API调用 |
-| 5 | 操作交互 — 编辑 | STUB | 占位实现，等待表单页任务 |
-| 6 | 操作交互 — 启停 | STUB | 占位实现，等待表单页任务 |
-| 7 | 异常处理 | PASS | try/catch + ElMessage 降级 |
-| 8 | 代码规范合规 | PASS | 使用封装的request工具，类型标注完整 |
-
----
-
-## 逐项详细验证
-
-### 1. 页面路由访问 — FAIL
-
-**预期**: 路由 `/warehouse/warehouse` 注册，可正常访问
-**实际**: `erp-ai-web/src/router/modules/static.ts` 中未找到 warehouse 相关路由
-**影响**: 页面无法通过 URL 访问，需补充路由注册
-
-### 2. 数据加载 — PARTIAL PASS
-
-**预期**: `GET /api/warehouse/warehouse?page=1&size=20`
-**实际**: `GET /api/warehouse/page` (via `getWarehousePage`)
-**差异**: API 路径 `/api/warehouse/page` vs 规格 `/api/warehouse/warehouse`
-**代码质量**:
-- 使用封装的 `request` 工具 ✓
-- 类型标注完整 (WarehouseQueryDTO, PageResult<WarehouseListVO>) ✓
-- 分页参数正确传递 ✓
-- loading 状态管理正确 ✓
-
-### 3. 筛选/搜索功能 — PASS
-
-- 仓库名称输入框 + 300ms 防抖 (`handleSearchDebounced`) ✓
-- 仓库类型下拉选择 (NORMAL/BONDED/VIRTUAL) ✓
-- 状态下拉选择 (启用/停用) ✓
-- 重置按钮清除所有筛选条件 ✓
-- 筛选条件变化后自动查询 ✓
-
-### 4. 操作交互 — 删除 — PASS
-
-- `el-popconfirm` 二次确认弹窗 ✓
-- 调用 `deleteWarehouse(row.id)` API ✓
-- 成功后刷新列表 ✓
-- 失败时 `ElMessage.error` 提示 ✓
-
-### 5-6. 编辑/启停 — STUB
-
-- `handleCreate()`: 仅显示 "新建仓库功能将在后续任务中实现"
-- `handleEdit(row)`: 仅显示 "编辑仓库: xxx"
-- `handleToggleStatus(row)`: 仅显示 "停用/启用仓库: xxx"
-- **评估**: 符合预期，表单功能由 P0-010-002-002 任务实现
-
-### 7. 异常处理 — PASS
-
-- `handleSearch()`: try/catch 包裹，失败时清空数据并提示 ✓
-- `handleDelete()`: try/catch 包裹，失败时提示 ✓
-- loading 状态在 finally 中正确重置 ✓
-
-### 8. 代码规范 — PASS
-
-- 使用 `@/utils/request` 封装而非直接 axios ✓
-- TypeScript 类型标注完整，无隐式 any ✓
-- 组件使用 `<script setup lang="ts">` ✓
-- 样式使用 `scoped lang="scss"` ✓
-- Vxe Table 开启虚拟滚动 `scroll-y` ✓
+| 序号 | 验证项 | 预期结果 | 实际结果 | 状态 |
+|:---:|--------|--------|--------|:---:|
+| 1 | 页面路由访问 | 路由正确，页面正常渲染 | 动态路由(glob)，需后端菜单配置驱动 | ⚠️ |
+| 2 | 数据加载 | API调用成功，数据正确展示 | 代码逻辑正确，但后端Controller缺失导致API不可用 | ❌ |
+| 3 | 筛选/搜索功能 | 筛选条件生效，结果准确 | 代码实现正确，防抖300ms | ✅ |
+| 4 | 操作交互 | 编辑/删除/状态切换正常 | 代码实现正确，含二次确认 | ✅ |
+| 5 | 数据回显(编辑) | 编辑时表单数据正确回显 | 代码实现正确，先调详情接口再填充表单 | ✅ |
+| 6 | 表单校验 | 必填项/格式校验生效 | warehouseName必填+长度、warehouseType必填、phone正则 | ✅ |
+| 7 | 异常处理 | 接口失败时展示错误提示 | 所有async函数含try-catch + ElMessage.error | ✅ |
 
 ---
 
-## 编译验证
+## 二、代码质量评估
 
-- `pnpm build` 运行结果: warehouse 模块页面无 TypeScript 错误
-- 预存编译错误均为其他模块问题 (system/menu, system/params, system/user)，与本任务无关
+### 2.1 页面结构
+- 快捷统计卡片（仓库总数/已启用/已停用）
+- 搜索表单（仓库名称/类型/状态）+ 查询/重置按钮
+- VxeTable 数据表格（虚拟滚动，gt:100行自动启用）
+- VxePager 分页组件
+- el-dialog 表单弹窗（P07单一表单页模式，destroy-on-close）
+
+### 2.2 交互细节
+| 功能 | 实现 | 评价 |
+|------|------|:---:|
+| 搜索防抖 | 300ms setTimeout防抖 | ✅ |
+| 状态标签 | el-tag success(启用绿)/danger(停用红) | ✅ |
+| 删除确认 | el-popconfirm 二次确认 | ✅ |
+| 表单重置 | dialog @closed 调用 resetFields | ✅ |
+| 提交加载态 | submitLoading 控制按钮loading | ✅ |
+| 空数据处理 | catch 块设置 tableData=[] total=0 | ✅ |
+
+### 2.3 编译检查
+- `vue-tsc -b` 类型检查: warehouse/index.vue **无类型错误** ✅
+- 其他文件的预存编译错误不涉及本验证范围
+
+### 2.4 API封装
+- `getWarehousePage(params)` → GET /api/warehouse/page
+- `getWarehouseDetail(id)` → GET /api/warehouse/${id}
+- `createWarehouse(data)` → POST /api/warehouse
+- `updateWarehouse(data)` → PUT /api/warehouse/${id}
+- `deleteWarehouse(id)` → DELETE /api/warehouse/${id}
+- 所有函数类型标注完整，无隐式 any ✅
 
 ---
 
-## 边界场景分析
+## 三、边界场景分析
 
-| 场景 | 处理方式 | 评估 |
+| 场景 | 代码处理 | 评价 |
 |------|---------|:---:|
-| 空数据列表 | `res.records \|\| []` 空数组兜底 | PASS |
-| 接口异常 | catch 块清空数据 + 错误提示 | PASS |
-| 并发请求 | 无竞态处理，可能旧数据覆盖新数据 | LOW |
-| 大数据量 (>100行) | Vxe Table scroll-y 虚拟滚动 | PASS |
-| 统计卡片 | 仅统计当前页数据，非全量 | ISSUE |
+| 空列表 | catch中tableData=[] | ✅ |
+| 大数据量 | VxeTable虚拟滚动(scroll-y.gt=100) | ✅ |
+| 编辑时详情加载失败 | catch后return，不弹窗 | ✅ |
+| 表单校验失败 | validate().catch(()=>false)阻止提交 | ✅ |
+| 仓库名称过长 | maxlength=100 + show-word-limit | ✅ |
 
 ---
 
-## 总结
+## 四、整体评价
 
-仓库定义列表页核心框架正确，代码质量良好。**阻塞级问题 2 项**（路由未注册、API路径不一致），**优化建议 1 项**（统计卡片仅计算当前页）。
+前端代码质量良好，架构规范，交互逻辑完整。但后端Controller缺失导致页面无法实际运行，需同步修复问题清单中的阻塞项。
+
+---
+
+## 五、验证结论
+
+- **代码实现**: 通过 ✅ — 代码逻辑、交互细节、异常处理均符合规格
+- **编译检查**: 通过 ✅ — 无类型错误
+- **功能可用**: 不通过 ❌ — 受后端Controller缺失阻塞
+- **整体判断**: **条件通过** — 前端代码本身合格，需完成I-01/I-02修复后方可联调验证
