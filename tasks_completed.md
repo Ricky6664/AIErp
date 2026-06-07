@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-08T00:34
-> **归档总数**：569 条
+> **最后更新**：2026-06-08T00:51
+> **归档总数**：570 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -1416,6 +1416,7 @@
 | P0-012-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-08T00:40 | ✅ | 创建RecruitmentServiceImpl(继承ServiceImpl/完整CRUD/截止日期校验+状态流转校验/@Transactional+BusinessException+@OperLog)+RecruitmentMapper | (pending-commit) |
 | P0-012-001-003-001-001 | 编写接口定义Service接口 | 2026-06-08T00:34 | ✅ | 创建IAttendanceService接口(继承IServiceX<AttendanceEntity>/5个CRUD方法/@Valid入参/@Transactional写操作/完整JavaDoc)及AttendanceEntity/DTO/VO | (pending-commit) |
 | P0-012-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-08T00:42 | ✅ | 创建AttendanceServiceImpl(继承ServiceImpl/完整CRUD/员工+日期唯一性校验/@Transactional+BusinessException+@OperLog)+AttendanceMapper | (pending-commit) |
+| P0-012-001-003-001-003 | 验证Service | 2026-06-08T00:51 | ✅ | 编写AttendanceServiceTest(37个测试用例全通过/JUnit5+Mockito/覆盖CRUD+唯一性+关联校验+事务回滚+边界场景)及测试报告 | (pending-commit) |
 
 ### P0-011-001-002-001-001 ✅
 | 属性 | 值 |
