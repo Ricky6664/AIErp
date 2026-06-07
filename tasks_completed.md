@@ -1868,4 +1868,4 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W5 |
 | 摘要 | 库位管理P04单列表页(统计卡片/搜索筛选防抖300ms/VxeTable虚拟滚动/新增编辑删除启用停用操作/el-tag状态标签)+API类型定义+API调用模块+路由注册/warehouse/location+vue-tsc零错误 |
-| Git commit | TBD |
+| Git commit | c249b3b3 |
