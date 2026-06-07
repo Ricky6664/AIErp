@@ -164,6 +164,8 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product>
     private ProductVO toVO(Product entity) {
         ProductVO vo = new ProductVO();
         BeanUtils.copyProperties(entity, vo);
+        vo.setCreateBy(entity.getCreatorId());
+        vo.setUpdateBy(entity.getUpdaterId());
         return vo;
     }
 }

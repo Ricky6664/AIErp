@@ -1,4 +1,4 @@
-# tasks_completed.md — 已完成任务归档
+﻿# tasks_completed.md — 已完成任务归档
 
 > ****最后更新**：2026-06-08T02:30
 > ****归档总数**：575 条
@@ -1750,4 +1750,4 @@ n#### P0-006-001-004-001-002 验证功能
 
 | P0-011-001-001-001-003 | 验证Service | 2026-06-08T01:54 | ✅ | W7:CurrencyRateServiceTest增强(44用例全通过)+新增3测试(null exchangeRate/currencyName+关联删除验证)+Mockito+JUnit5+10嵌套组+测试报告 | TBD |
 
-| P0-007-001-004-001-002 | 编写ServiceImpl实现类 | 2026-06-08T02:22 | ✅ | ProductControlServiceImpl(CRUD+业务校验:productId唯一性/批次与序列号互斥)+新增Entity/Mapper/DTO/QueryDTO/VO/Service接口共7文件,mvn compile通过 | aaaeab4c |
+| P0-007-001-004-001-002 | 编写ServiceImpl实现类 | 2026-06-08T02:22 | ✅ | ProductControlServiceImpl(CRUD+业务校验:productId唯一性/批次与序列号互斥/单位存在性校验占位)+Entity/Mapper/DTO/QueryDTO/VO/Service接口,mvn compile通过 | f0be73a0 |
