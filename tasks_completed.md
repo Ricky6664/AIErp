@@ -1009,7 +1009,7 @@
 | 任务编号 | 任务名称 | 完成时间 | 状态 | 摘要 | SHA |
 |---------|---------|---------|:---:|------|-----|
 | P0-006-001-003-001-002 | 编写ServiceImpl实现类 | 2026-06-07T23:41 | ✅ | OrgPositionServiceImpl: page/getById/create/update/delete 5方法;create(部门存在性校验+同部门岗位名称唯一性校验+positionCode生成);update(名称唯一性校验排除自身+乐观锁);delete(员工引用检查hrm_employee.position_id+逻辑删除);配套创建Entity/DTO/VO/Mapper/Service接口 | a201eee1 |
-| P0-006-001-003-001-003 | 验证Service | 2026-06-08T00:10 | ✅ | OrgPositionServiceImplTest(21个测试用例全部通过):CreateTests 5个(正常+deptNotFound+duplicateName+differentDept+blankName)+UpdateTests 4个(success+duplicateNameExcludeSelf+changeDept+notFound)+DeleteTests 3个(success+hasEmployee+notFound)+PageTests 4个(deptFilter+keywordSearch+combinedFilter+noFilter)+GetByIdTests 2个(success+notFound)+TransactionalAnnotationTests 3个 | (pending) |
+| P0-006-001-003-001-003 | 验证Service | 2026-06-08T00:10 | ✅ | OrgPositionServiceImplTest(21个测试用例全部通过):CreateTests 5个(正常+deptNotFound+duplicateName+differentDept+blankName)+UpdateTests 4个(success+duplicateNameExcludeSelf+changeDept+notFound)+DeleteTests 3个(success+hasEmployee+notFound)+PageTests 4个(deptFilter+keywordSearch+combinedFilter+noFilter)+GetByIdTests 2个(success+notFound)+TransactionalAnnotationTests 3个 | 5e7dff25 |
 
 ### P0-013 - 部署与DevOps基础
 
@@ -1409,6 +1409,7 @@
 | P0-012-001-001-001-002 | 编写ServiceImpl实现类 | 2026-06-07T23:40 | ✅ | 创建EmployeeServiceImpl(继承ServiceImpl/完整CRUD/工号唯一性校验/身份证脱敏)及EmployeeMapper | (pending-commit) |
 | P0-012-001-001-001-003 | 验证Service | 2026-06-08T00:01 | ✅ | 编写EmployeeServiceTest(34个测试用例全通过/JUnit5+Mockito/覆盖CRUD+唯一性+关联校验+事务回滚+边界场景+身份证脱敏) | (pending-commit) |
 | P0-012-001-002-001-001 | 编写接口定义Service接口 | 2026-06-08T00:20 | ✅ | 创建IRecruitmentService接口(继承IServiceX<RecruitmentEntity>/5个CRUD方法/@Valid入参/@Transactional写操作)及RecruitmentEntity/DTO/VO | (pending-commit) |
+| P0-012-001-002-001-002 | 编写ServiceImpl实现类 | 2026-06-08T00:40 | ✅ | 创建RecruitmentServiceImpl(继承ServiceImpl/完整CRUD/截止日期校验+状态流转校验/@Transactional+BusinessException+@OperLog)+RecruitmentMapper | (pending-commit) |
 
 ### P0-011-001-002-001-001 ✅
 | 属性 | 值 |
