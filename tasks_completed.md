@@ -1047,6 +1047,7 @@
 | P0-011-001-005-001-001 | 编写接口定义Service接口 | 2026-06-07T22:20 | ✅ | IAccountingPeriodService接口(extends IServiceX<AccountingPeriodEntity>)+CRUD方法+@Valid+@Transactional+JavaDoc完整 + AccountingPeriodEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 22c35e9c |
 | P0-011-002-004-001-001 | 编写核心代码 | 2026-06-07T23:15 | ✅ | 银行账户P04单一列表页(index.vue)+API模块(finance-bankaccount.ts)+VxeTable虚拟滚动+统计卡片+搜索防抖+新增/编辑弹窗+状态切换+删除确认+路由注册/finance/bankaccount | 26c88b0f |
 | P0-011-002-006-001-001 | 编写核心代码 | 2026-06-07T23:35 | ✅ | 会计科目P05树形列表页(index.vue)+API模块(finance-account.ts)+el-tree树形+VxeTable表格+统计卡片+搜索防抖+CRUD弹窗+状态切换+删除确认 | bdaac116 |
+| P0-011-002-007-001-001 | 编写核心代码 | 2026-06-08T00:36 | ✅ | 会计科目P07单一表单页优化:上级科目树形选择器(el-tree-select)+科目编码自动生成只读+辅助核算开关+布尔字符串双向转换+表单校验优化+提交loading防重复 | c57f5867 |
 | P0-011-002-004-001-002 | 验证功能 | 2026-06-07T23:55 | ✅ | 银行账户列表页验证报告+问题清单(6项:缺Controller/缺币种列/币种硬编码/缺权限指令/缺国际化/统计偏差)+vue-tsc通过+mvn编译通过 | b9267a14 |
 
 
@@ -1525,5 +1526,5 @@
 | 完成时间 | 2026-06-08T00:45 |
 | 状态 | ✅ |
 | 摘要 | AccountService单元测试：38个测试用例全部通过，覆盖CRUD/唯一性校验/关联校验/事务注解/边界场景/实体转换 |
-| Git commit | (pending) |
+| Git commit | 0bb65558 |
 | 工人 | W5 |
