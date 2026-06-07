@@ -1435,3 +1435,26 @@
 - **交付物**：
   - erp-ai-web/src/views/finance/financeworkbench/index.vue
   - erp-ai-web/src/api/modules/finance-workbench.ts
+
+## P0-011-002-005-001-001 — 编写核心代码
+
+- **完成时间**：2026-06-08T00:15
+- **状态**：✅ 已完成
+- **摘要**：银行账户表单页核心代码，新增checkBankAccountNoApi异步唯一性校验函数，bankAccountNo字段添加异步唯一性校验
+- **交付物**：
+  - erp-ai-web/src/views/finance/bankaccount/index.vue（更新）
+  - erp-ai-web/src/api/modules/finance-bankaccount.ts（更新）
+- **工人**：W6
+- **Git SHA**：39534344
+
+
+
+## P0-011-001-002-001-003 — 验证Service
+
+- **完成时间**：2026-06-08T00:10
+- **状态**：✅ 已完成
+- **摘要**：BankAccountService单元测试验证通过，40个测试用例全部PASS，覆盖CRUD、唯一性校验、状态流转、@Transactional注解验证、边界场景
+- **交付物**：
+  - src/test/java/com/erp/module/finance/service/BankAccountServiceTest.java（791行，40个用例）
+  - docs/test-reports/BankAccountService-test-report.md
+- **工人**：W5
