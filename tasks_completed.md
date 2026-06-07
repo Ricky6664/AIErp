@@ -1079,6 +1079,7 @@
 | P0-010-002-000-003-001 | 工作台全流程联调 | 2026-06-07T21:42 | ✅ | 工作台主页面index.vue(KPI+图表+待办三区联调)+Promise.allSettled+计数器loading+时间筛选联动+异常降级+Symbol上下文+types.ts | 0c9cc54c |
 | P0-010-002-003-001-001 | 编写核心代码 | 2026-06-07T21:55 | ✅ | 库位管理P04单一列表页(index.vue)+API模块(location.ts)+类型定义(location.ts) |
 | P0-010-002-002-001-001 | 编写核心代码 | 2026-06-07T21:55 | ✅ | 仓库列表页集成P07表单弹窗(el-dialog+el-form)+新增/编辑双模式+表单校验(名称必填/类型必选/手机号格式/地址长度)+createWarehouse/updateWarehouse/getWarehouseDetail API联调+状态切换+submitLoading防重复 | acb2ca85 |
+| P0-010-002-002-001-001 | 编写核心代码（重执行-人员选择器） | 2026-06-08T06:10 | ✅ | 负责人字段从纯文本输入改为远程搜索人员选择器(el-select+remote+filterable)+getUserPageList API集成+编辑模式预加载已选用户+弹窗关闭清除选项 | (pending) |
 | P0-010-002-004-001-001 | 编写核心代码 | 2026-06-07T22:05 | ✅ | 库位管理P07单一表单页(el-dialog+el-form)+新增/编辑双模式+库位类型(存储/拣货/暂存/不良品)+createLocation/updateLocation/getLocationDetail API联调+表单校验+submitLoading防重复 | (pending) |
 | P0-010-002-004-001-002 | 验证功能 | 2026-06-07T22:07 | ✅ | 编写前端验证报告(10项验证+6项边界分析+编译检查)+问题清单(2CRITICAL Controller缺失+2MINOR 类型/提示) | 197c2a3f |
 | P0-010-002-001-001-002 | 验证功能 | 2026-06-08T05:20 | ✅ | 前端代码审查41项全部通过(vue-tsc零错误/路由正确/表单校验完整/异常处理覆盖/边界场景容错)+问题清单3项(Controller缺失/菜单缺失/构建依赖) | (pending) |

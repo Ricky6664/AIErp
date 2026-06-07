@@ -192,7 +192,23 @@
         <el-row :gutter="20">
           <el-col :span="12">
             <el-form-item label="负责人" prop="managerId">
-              <el-input v-model="formData.managerId" placeholder="请输入负责人ID" />
+              <el-select
+                v-model="formData.managerId"
+                placeholder="请选择负责人"
+                clearable
+                filterable
+                remote
+                :remote-method="handleUserSearch"
+                :loading="userSearchLoading"
+                style="width: 100%"
+              >
+                <el-option
+                  v-for="user in userOptions"
+                  :key="user.id"
+                  :label="user.realName || user.username"
+                  :value="user.id"
+                />
+              </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -230,6 +246,8 @@ import {
   updateWarehouse,
   deleteWarehouse
 } from '@/api/modules/warehouse'
+import { getUserPageList } from '@/api/modules/user'
+import type { UserListItem } from '@/types/user'
 import type { WarehouseListVO, WarehouseCreateDTO } from '@/api/types/warehouse'
 import type { FormInstance, FormRules } from 'element-plus'
 
@@ -286,6 +304,25 @@ const stats = computed(() => {
 })
 
 let debounceTimer: ReturnType<typeof setTimeout> | null = null
+
+const userOptions = ref<UserListItem[]>([])
+const userSearchLoading = ref(false)
+
+async function handleUserSearch(keyword: string) {
+  if (!keyword) {
+    userOptions.value = []
+    return
+  }
+  userSearchLoading.value = true
+  try {
+    const res = await getUserPageList({ pageNum: 1, pageSize: 20, keyword })
+    userOptions.value = res?.list || []
+  } catch {
+    userOptions.value = []
+  } finally {
+    userSearchLoading.value = false
+  }
+}
 
 function handleSearchDebounced() {
   if (debounceTimer) clearTimeout(debounceTimer)
@@ -344,6 +381,7 @@ function handleCreate() {
   formData.managerId = undefined
   formData.phone = ''
   formData.status = 1
+  userOptions.value = []
   dialogVisible.value = true
 }
 
@@ -360,6 +398,20 @@ async function handleEdit(row: WarehouseListVO) {
       formData.managerId = detail.managerId
       formData.phone = detail.phone || ''
       formData.status = detail.status
+      if (detail.managerId) {
+        try {
+          const res = await getUserPageList({
+            pageNum: 1,
+            pageSize: 1,
+            keyword: String(detail.managerId)
+          })
+          if (res?.list?.length) {
+            userOptions.value = res.list
+          }
+        } catch {
+          /* ignore */
+        }
+      }
     }
   } catch {
     ElMessage.error('获取仓库详情失败')
@@ -370,6 +422,7 @@ async function handleEdit(row: WarehouseListVO) {
 
 function handleDialogClosed() {
   formRef.value?.resetFields()
+  userOptions.value = []
 }
 
 async function handleSubmit() {
