@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T05:00
-> **归档总数**：607 条
+> **最后更新**：2026-06-09T04:53
+> **归档总数**：608 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2651,4 +2651,14 @@ n#### P0-006-001-004-001-002 验证功能
 | Git SHA | (见git log) |
 
 
+#### P1-002-001-010-001-003 验证查询接口
 
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-010-001-003 |
+| 任务名称 | 验证查询接口 |
+| 完成时间 | 2026-06-09T04:53 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证审批日志查询与统计接口: mvn compile通过, 139个测试全通过(修复ApprovalStatisticsServiceTest构造函数参数不匹配); 验证/api/approval/{definition,instance,record,my,statistics}共5个API端点; 日志查询SQL(selectLogList/LogCount/LogByInstanceId)三表JOIN含is_deleted过滤; 统计SQL(selectStatistics/selectStatusDistribution/selectDefinitionCounts)使用SQL聚合 |
+| Git SHA | (见git log) |

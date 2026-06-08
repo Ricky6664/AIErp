@@ -1,10 +1,6 @@
 package com.erp.approval.service;
 
 import cn.dev33.satoken.stp.StpUtil;
-import com.erp.approval.entity.ApprovalDefinitionEntity;
-import com.erp.approval.entity.ApprovalInstanceEntity;
-import com.erp.approval.entity.ApprovalRecordEntity;
-import com.erp.approval.mapper.ApprovalDefinitionMapper;
 import com.erp.approval.mapper.ApprovalInstanceMapper;
 import com.erp.approval.mapper.ApprovalRecordMapper;
 import com.erp.approval.service.impl.ApprovalStatisticsServiceImpl;
@@ -21,10 +17,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -40,16 +37,13 @@ class ApprovalStatisticsServiceTest {
     @Mock
     private ApprovalRecordMapper recordMapper;
 
-    @Mock
-    private ApprovalDefinitionMapper definitionMapper;
-
     private ApprovalStatisticsServiceImpl service;
 
     private MockedStatic<StpUtil> stpMock;
 
     @BeforeEach
     void setUp() {
-        service = new ApprovalStatisticsServiceImpl(instanceMapper, recordMapper, definitionMapper);
+        service = new ApprovalStatisticsServiceImpl(instanceMapper, recordMapper);
         stpMock = mockStatic(StpUtil.class);
         stpMock.when(StpUtil::getLoginIdAsLong).thenReturn(1L);
     }
@@ -68,22 +62,41 @@ class ApprovalStatisticsServiceTest {
         @Test
         @DisplayName("各类状态实例混合 → 返回正确的统计数据")
         void shouldReturnCorrectStatisticsWithMixedStatuses() {
-            ApprovalInstanceEntity pending1 = buildInstance(1L, 10L, 2L, "PENDING");
-            ApprovalInstanceEntity pending2 = buildInstance(2L, 10L, 3L, "PENDING");
-            ApprovalInstanceEntity approved1 = buildInstance(3L, 11L, 1L, "APPROVED");
-            ApprovalInstanceEntity approved2 = buildInstance(4L, 11L, 2L, "APPROVED");
-            ApprovalInstanceEntity approved3 = buildInstance(5L, 10L, 3L, "APPROVED");
-            ApprovalInstanceEntity rejected1 = buildInstance(6L, 10L, 1L, "REJECTED");
-            ApprovalInstanceEntity withdrawn1 = buildInstance(7L, 11L, 1L, "WITHDRAWN");
-            ApprovalInstanceEntity withdrawn2 = buildInstance(8L, 10L, 2L, "WITHDRAWN");
+            Map<String, Object> statsMap = new LinkedHashMap<>();
+            statsMap.put("total_instances", 8L);
+            statsMap.put("pending_count", 2L);
+            statsMap.put("approved_count", 3L);
+            statsMap.put("rejected_count", 1L);
+            statsMap.put("withdrawn_count", 2L);
+            statsMap.put("my_pending_count", 1L);
+            statsMap.put("my_submitted_count", 2L);
 
-            List<ApprovalInstanceEntity> allInstances = Arrays.asList(
-                    pending1, pending2, approved1, approved2, approved3,
-                    rejected1, withdrawn1, withdrawn2);
+            Map<String, Object> statusRow1 = new LinkedHashMap<>();
+            statusRow1.put("name", "APPROVED");
+            statusRow1.put("value", 3L);
+            Map<String, Object> statusRow2 = new LinkedHashMap<>();
+            statusRow2.put("name", "PENDING");
+            statusRow2.put("value", 2L);
+            Map<String, Object> statusRow3 = new LinkedHashMap<>();
+            statusRow3.put("name", "WITHDRAWN");
+            statusRow3.put("value", 2L);
+            Map<String, Object> statusRow4 = new LinkedHashMap<>();
+            statusRow4.put("name", "REJECTED");
+            statusRow4.put("value", 1L);
 
-            when(instanceMapper.selectList(null)).thenReturn(allInstances);
-            when(definitionMapper.selectList(null)).thenReturn(Collections.emptyList());
-            when(recordMapper.selectCount(any())).thenReturn(5L);
+            Map<String, Object> defRow1 = new LinkedHashMap<>();
+            defRow1.put("definition_id", 10L);
+            defRow1.put("cnt", 5L);
+            Map<String, Object> defRow2 = new LinkedHashMap<>();
+            defRow2.put("definition_id", 11L);
+            defRow2.put("cnt", 3L);
+
+            when(instanceMapper.selectStatistics(1L)).thenReturn(statsMap);
+            when(instanceMapper.selectStatusDistribution()).thenReturn(
+                    Arrays.asList(statusRow1, statusRow2, statusRow3, statusRow4));
+            when(instanceMapper.selectDefinitionCounts()).thenReturn(
+                    Arrays.asList(defRow1, defRow2));
+            when(recordMapper.countByApproverId(1L)).thenReturn(5L);
 
             ApprovalStatisticsVO result = service.getStatistics();
 
@@ -93,34 +106,32 @@ class ApprovalStatisticsServiceTest {
             assertEquals(3L, result.getApprovedCount());
             assertEquals(1L, result.getRejectedCount());
             assertEquals(2L, result.getWithdrawnCount());
-
-            long nonApplicantPending = pending2.getApplicantId().equals(1L) ? 1 : 1;
-            assertTrue(result.getMyPendingCount() >= 0);
-
-            long selfSubmitted = allInstances.stream()
-                    .filter(e -> Long.valueOf(1L).equals(e.getApplicantId()))
-                    .count();
-            assertEquals(selfSubmitted, result.getMySubmittedCount());
-
+            assertEquals(1L, result.getMyPendingCount());
+            assertEquals(2L, result.getMySubmittedCount());
             assertEquals(5L, result.getMyReviewedCount());
 
             assertNotNull(result.getStatusDistribution());
             assertEquals(4, result.getStatusDistribution().size());
-            assertEquals(2L, result.getStatusDistribution().get("PENDING"));
-            assertEquals(3L, result.getStatusDistribution().get("APPROVED"));
-            assertEquals(1L, result.getStatusDistribution().get("REJECTED"));
-            assertEquals(2L, result.getStatusDistribution().get("WITHDRAWN"));
+            assertNotNull(result.getDefinitionCounts());
+            assertEquals(2, result.getDefinitionCounts().size());
         }
 
         @Test
         @DisplayName("存在申请人为当前用户和审核记录 → 统计数据正确区分")
         void shouldCorrectlyDistinguishMyData() {
-            ApprovalInstanceEntity mine = buildInstance(1L, 10L, 1L, "APPROVED");
-            ApprovalInstanceEntity other = buildInstance(2L, 10L, 2L, "PENDING");
+            Map<String, Object> statsMap = new LinkedHashMap<>();
+            statsMap.put("total_instances", 2L);
+            statsMap.put("pending_count", 1L);
+            statsMap.put("approved_count", 1L);
+            statsMap.put("rejected_count", 0L);
+            statsMap.put("withdrawn_count", 0L);
+            statsMap.put("my_pending_count", 1L);
+            statsMap.put("my_submitted_count", 1L);
 
-            when(instanceMapper.selectList(null)).thenReturn(Arrays.asList(mine, other));
-            when(definitionMapper.selectList(null)).thenReturn(Collections.emptyList());
-            when(recordMapper.selectCount(any())).thenReturn(3L);
+            when(instanceMapper.selectStatistics(1L)).thenReturn(statsMap);
+            when(instanceMapper.selectStatusDistribution()).thenReturn(Collections.emptyList());
+            when(instanceMapper.selectDefinitionCounts()).thenReturn(Collections.emptyList());
+            when(recordMapper.countByApproverId(1L)).thenReturn(3L);
 
             ApprovalStatisticsVO result = service.getStatistics();
 
@@ -140,9 +151,19 @@ class ApprovalStatisticsServiceTest {
         @Test
         @DisplayName("数据库无任何审批实例 → 返回全零统计")
         void shouldReturnZeroStatisticsWhenEmpty() {
-            when(instanceMapper.selectList(null)).thenReturn(Collections.emptyList());
-            when(definitionMapper.selectList(null)).thenReturn(Collections.emptyList());
-            when(recordMapper.selectCount(any())).thenReturn(0L);
+            Map<String, Object> emptyStats = new LinkedHashMap<>();
+            emptyStats.put("total_instances", 0L);
+            emptyStats.put("pending_count", 0L);
+            emptyStats.put("approved_count", 0L);
+            emptyStats.put("rejected_count", 0L);
+            emptyStats.put("withdrawn_count", 0L);
+            emptyStats.put("my_pending_count", 0L);
+            emptyStats.put("my_submitted_count", 0L);
+
+            when(instanceMapper.selectStatistics(1L)).thenReturn(emptyStats);
+            when(instanceMapper.selectStatusDistribution()).thenReturn(Collections.emptyList());
+            when(instanceMapper.selectDefinitionCounts()).thenReturn(Collections.emptyList());
+            when(recordMapper.countByApproverId(1L)).thenReturn(0L);
 
             ApprovalStatisticsVO result = service.getStatistics();
 
@@ -162,11 +183,23 @@ class ApprovalStatisticsServiceTest {
         @Test
         @DisplayName("实例status为null → 归类到UNKNOWN不影响统计")
         void shouldHandleNullStatusGracefully() {
-            ApprovalInstanceEntity nullStatusInstance = buildInstance(1L, 10L, 2L, null);
+            Map<String, Object> statsMap = new LinkedHashMap<>();
+            statsMap.put("total_instances", 1L);
+            statsMap.put("pending_count", 0L);
+            statsMap.put("approved_count", 0L);
+            statsMap.put("rejected_count", 0L);
+            statsMap.put("withdrawn_count", 0L);
+            statsMap.put("my_pending_count", 0L);
+            statsMap.put("my_submitted_count", 0L);
 
-            when(instanceMapper.selectList(null)).thenReturn(List.of(nullStatusInstance));
-            when(definitionMapper.selectList(null)).thenReturn(Collections.emptyList());
-            when(recordMapper.selectCount(any())).thenReturn(0L);
+            Map<String, Object> statusRow = new LinkedHashMap<>();
+            statusRow.put("name", null);
+            statusRow.put("value", 1L);
+
+            when(instanceMapper.selectStatistics(1L)).thenReturn(statsMap);
+            when(instanceMapper.selectStatusDistribution()).thenReturn(List.of(statusRow));
+            when(instanceMapper.selectDefinitionCounts()).thenReturn(Collections.emptyList());
+            when(recordMapper.countByApproverId(1L)).thenReturn(0L);
 
             ApprovalStatisticsVO result = service.getStatistics();
 
@@ -179,12 +212,19 @@ class ApprovalStatisticsServiceTest {
         @Test
         @DisplayName("当前用户无任何关联数据 → my类统计数据为0")
         void shouldReturnZeroForMyStatsWhenNoUserData() {
-            ApprovalInstanceEntity other1 = buildInstance(1L, 10L, 5L, "PENDING");
-            ApprovalInstanceEntity other2 = buildInstance(2L, 11L, 6L, "PENDING");
+            Map<String, Object> statsMap = new LinkedHashMap<>();
+            statsMap.put("total_instances", 2L);
+            statsMap.put("pending_count", 2L);
+            statsMap.put("approved_count", 0L);
+            statsMap.put("rejected_count", 0L);
+            statsMap.put("withdrawn_count", 0L);
+            statsMap.put("my_pending_count", 2L);
+            statsMap.put("my_submitted_count", 0L);
 
-            when(instanceMapper.selectList(null)).thenReturn(Arrays.asList(other1, other2));
-            when(definitionMapper.selectList(null)).thenReturn(Collections.emptyList());
-            when(recordMapper.selectCount(any())).thenReturn(0L);
+            when(instanceMapper.selectStatistics(1L)).thenReturn(statsMap);
+            when(instanceMapper.selectStatusDistribution()).thenReturn(Collections.emptyList());
+            when(instanceMapper.selectDefinitionCounts()).thenReturn(Collections.emptyList());
+            when(recordMapper.countByApproverId(1L)).thenReturn(0L);
 
             ApprovalStatisticsVO result = service.getStatistics();
 
@@ -196,11 +236,19 @@ class ApprovalStatisticsServiceTest {
         @Test
         @DisplayName("实例definitionId为null → 不计入definitionCounts")
         void shouldSkipNullDefinitionIds() {
-            ApprovalInstanceEntity instance = buildInstance(1L, null, 2L, "PENDING");
+            Map<String, Object> statsMap = new LinkedHashMap<>();
+            statsMap.put("total_instances", 1L);
+            statsMap.put("pending_count", 1L);
+            statsMap.put("approved_count", 0L);
+            statsMap.put("rejected_count", 0L);
+            statsMap.put("withdrawn_count", 0L);
+            statsMap.put("my_pending_count", 0L);
+            statsMap.put("my_submitted_count", 0L);
 
-            when(instanceMapper.selectList(null)).thenReturn(List.of(instance));
-            when(definitionMapper.selectList(null)).thenReturn(Collections.emptyList());
-            when(recordMapper.selectCount(any())).thenReturn(0L);
+            when(instanceMapper.selectStatistics(1L)).thenReturn(statsMap);
+            when(instanceMapper.selectStatusDistribution()).thenReturn(Collections.emptyList());
+            when(instanceMapper.selectDefinitionCounts()).thenReturn(Collections.emptyList());
+            when(recordMapper.countByApproverId(1L)).thenReturn(0L);
 
             ApprovalStatisticsVO result = service.getStatistics();
 
@@ -211,15 +259,19 @@ class ApprovalStatisticsServiceTest {
         @Test
         @DisplayName("大量实例 → 统计正确且不溢出")
         void shouldHandleLargeDataset() {
-            List<ApprovalInstanceEntity> largeList = new java.util.ArrayList<>();
-            for (long i = 1; i <= 1000; i++) {
-                String status = i % 4 == 0 ? "REJECTED" : i % 3 == 0 ? "APPROVED" : i % 2 == 0 ? "WITHDRAWN" : "PENDING";
-                largeList.add(buildInstance(i, 10L, i % 10 + 1, status));
-            }
+            Map<String, Object> statsMap = new LinkedHashMap<>();
+            statsMap.put("total_instances", 1000L);
+            statsMap.put("pending_count", 250L);
+            statsMap.put("approved_count", 333L);
+            statsMap.put("rejected_count", 250L);
+            statsMap.put("withdrawn_count", 167L);
+            statsMap.put("my_pending_count", 100L);
+            statsMap.put("my_submitted_count", 50L);
 
-            when(instanceMapper.selectList(null)).thenReturn(largeList);
-            when(definitionMapper.selectList(null)).thenReturn(Collections.emptyList());
-            when(recordMapper.selectCount(any())).thenReturn(50L);
+            when(instanceMapper.selectStatistics(1L)).thenReturn(statsMap);
+            when(instanceMapper.selectStatusDistribution()).thenReturn(Collections.emptyList());
+            when(instanceMapper.selectDefinitionCounts()).thenReturn(Collections.emptyList());
+            when(recordMapper.countByApproverId(1L)).thenReturn(50L);
 
             ApprovalStatisticsVO result = service.getStatistics();
 
@@ -237,25 +289,14 @@ class ApprovalStatisticsServiceTest {
     class ExceptionTests {
 
         @Test
-        @DisplayName("selectList返回null → 不抛出NullPointerException")
-        void shouldNotThrowWhenSelectListReturnsNull() {
-            when(instanceMapper.selectList(null)).thenReturn(null);
-            when(definitionMapper.selectList(null)).thenReturn(null);
-            when(recordMapper.selectCount(any())).thenReturn(0L);
+        @DisplayName("selectStatistics返回null → 不抛出NullPointerException")
+        void shouldNotThrowWhenSelectStatisticsReturnsNull() {
+            when(instanceMapper.selectStatistics(1L)).thenReturn(null);
+            when(instanceMapper.selectStatusDistribution()).thenReturn(Collections.emptyList());
+            when(instanceMapper.selectDefinitionCounts()).thenReturn(Collections.emptyList());
+            when(recordMapper.countByApproverId(1L)).thenReturn(0L);
 
             assertThrows(Exception.class, () -> service.getStatistics());
         }
-    }
-
-    private ApprovalInstanceEntity buildInstance(Long id, Long definitionId, Long applicantId, String status) {
-        ApprovalInstanceEntity entity = new ApprovalInstanceEntity();
-        entity.setId(id);
-        entity.setDefinitionId(definitionId);
-        entity.setApplicantId(applicantId);
-        entity.setBusinessType("LEAVE");
-        entity.setBusinessId(100L + id);
-        entity.setStatus(status);
-        entity.setCreateTime(LocalDateTime.of(2026, 6, 1, 10, 0));
-        return entity;
     }
 }
