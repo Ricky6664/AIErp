@@ -2524,4 +2524,4 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 实现审批流程运行时引擎: ApprovalWorkflowRuntimeService(状态机编排:启动/推进/完成/驳回/撤回+flowConfig JSON解析+@Transactional事务), ApprovalWorkflowController(/api/approval/runtime/*运行时API); mvn compile通过 |
-| Git SHA | |
+| Git SHA | 01f0a021 |
