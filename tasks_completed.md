@@ -1730,6 +1730,18 @@
 | Git commit | 037e5639 |
 | 工人 | W7 |
 
+#### P0-011-002-011-001-002 编写Service+Controller
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-011-002-011-001-002 |
+| 任务名称 | 编写Service+Controller |
+| 完成时间 | 2026-06-08T19:53 |
+| 状态 | ✅ |
+| 摘要 | IAnnouncementService(extends IServiceX, CRUD+getUnreadList+markAsRead) + AnnouncementServiceImpl(CRUD实现+未读查询+已读标记) + AnnouncementController(6 RESTful端点, CRUD需system:announcement:manage权限) + DTO(AnnouncementCreateDTO/UpdateDTO/QueryDTO) + AnnouncementVO + 公告已读记录表DDL+Entity+Mapper + mvn compile通过 |
+| Git commit | (pending-commit) |
+| 工人 | W5 |
+
 ### P0-012 - HRM人力资源管理模块开发
 
 #### P0-012-001-004-001-001 编写接口定义Service接口
