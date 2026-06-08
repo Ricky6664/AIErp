@@ -2405,3 +2405,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 创建ApprovalDefinitionServiceImpl(CRUD完整实现:pageList/getById/create/update/delete)+ApprovalDefinitionMapper;@Transactional事务管理;BusinessException异常处理;编码重复校验;mvn compile通过 |
 | Git SHA | (见git log) |
+
+#### P1-002-001-001-001-003 验证Service
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-001-001-003 |
+| 任务名称 | 验证Service |
+| 完成时间 | 2026-06-09T02:51 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建ApprovalDefinitionServiceTest(14个单元测试覆盖CRUD+异常处理+并发冲突+事务回滚);mvn test全部通过 |
+| Git SHA | (见git log) |
