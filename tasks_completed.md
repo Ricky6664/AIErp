@@ -3013,3 +3013,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 补充delete下游单据校验(BusinessException), MsgMessageServiceTest 20个测试全部通过(BUILD SUCCESS) |
 | Git SHA | b6dfd6d3 |
 
+#### P1-003-001-003-001-001 编写接口定义Service接口
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-003-001-001 |
+| 任务名称 | 编写接口定义Service接口 |
+| 完成时间 | 2026-06-09T09:25 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建IMsgTypeService接口(extends IServiceX, pageList/create/update/delete), 编译预期失败(Entity/DTO由下个任务创建) |
+| Git SHA | (待提交) |
+
