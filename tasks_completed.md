@@ -2561,3 +2561,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 编写ApprovalUrgePropertiesTest(15个方法: Bean注入/默认值绑定/综合绑定/校验约束/前缀验证), 全部117个审批模块测试通过, 0失败0错误 |
 | Git SHA | 42fcbb3a |
+
+#### P1-002-001-008-001-001 编写配置文件/类
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-008-001-001 |
+| 任务名称 | 编写配置文件/类 |
+| 完成时间 | 2026-06-09T06:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建ApprovalDelegateProperties.java(@ConfigurationProperties绑定approval.delegate.*配置:enabled/maxDelegateDays/autoRevoke/notification.enabled/allowRedelegate)+application.yml新增approval.delegate配置段,mvn compile通过 |
+| Git SHA | (pending) |
+

@@ -412,3 +412,18 @@ approval:
       max-per-day: 3
       # 同一审批催办冷却时间(小时)
       cooldown-hours: 24
+
+  # ---- 审批委托配置 ----
+  delegate:
+    # 是否启用审批委托功能
+    enabled: true
+    # 单次委托最大天数
+    max-delegate-days: 30
+    # 委托到期是否自动撤销
+    auto-revoke: true
+    # 委托通知配置
+    notification:
+      # 委托生效时是否通知被委托人
+      enabled: true
+    # 是否允许被委托人再次委托
+    allow-redelegate: false
