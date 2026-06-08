@@ -2512,4 +2512,4 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 编写ApprovalStatisticsServiceTest(8个单元测试:正常流程2+边界5+异常1,全部PASS); 创建测试报告; mvn compile+test通过 |
-| Git SHA | (待提交) |
+| Git SHA | 8ab61544 |
