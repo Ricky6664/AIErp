@@ -2525,3 +2525,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 实现审批流程运行时引擎: ApprovalWorkflowRuntimeService(状态机编排:启动/推进/完成/驳回/撤回+flowConfig JSON解析+@Transactional事务), ApprovalWorkflowController(/api/approval/runtime/*运行时API); mvn compile通过 |
 | Git SHA | 01f0a021 |
+
+#### P1-002-001-006-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-006-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T05:00 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 编写ApprovalWorkflowRuntimeServiceTest(21个单元测试:启动3+推进5+完成1+驳回1+撤回4+状态查询2+边界4+并发1,全部PASS); 创建测试报告; mvn compile+test 102测试全通过 |
+| Git SHA | (待提交) |
