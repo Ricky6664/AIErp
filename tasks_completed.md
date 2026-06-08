@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-08T08:10
-> **归档总数**：580 条
+> **归档总数**：581 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -1705,6 +1705,18 @@
 | 摘要 | 验证ICurrencyRateService接口已存在且完整(继承IServiceX+CRUD方法+@Transactional+@Valid+JavaDoc)，mvn compile通过 |
 | Git commit | bbcc0ea0 |
 | 工人 | W6 |
+
+#### P0-011-002-011-001-001 编写DDL+Entity/Mapper
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-011-002-011-001-001 |
+| 任务名称 | 编写DDL+Entity/Mapper |
+| 完成时间 | 2026-06-08T19:35 |
+| 状态 | ✅ |
+| 摘要 | 创建V20260608001__create_sys_announcement.sql(Flyway迁移/16字段+COMMENT) + AnnouncementEntity(继承BaseEntity/6业务字段) + AnnouncementMapper(继承BaseMapperX) |
+| Git commit | (pending-commit) |
+| 工人 | W8 |
 
 ### P0-012 - HRM人力资源管理模块开发
 
