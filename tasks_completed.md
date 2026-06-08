@@ -2548,4 +2548,4 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建ApprovalUrgeProperties配置类(催办方式/频率/自动定时/限流四项配置), 追加application.yml审批催办配置段; mvn compile通过 |
-| Git SHA | <待填入> |
+| Git SHA | c1c5b11c |
