@@ -2429,3 +2429,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 创建ApprovalInstanceEntity/ApprovalRecordEntity/InstanceCreateDTO/RecordActionDTO/InstanceQueryDTO/InstanceVO/RecordVO/ApprovalInstanceMapper/ApprovalRecordMapper/IApprovalInstanceService/ApprovalInstanceServiceImpl/IApprovalRecordService/ApprovalRecordServiceImpl/ApprovalInstanceController/ApprovalRecordController共15个文件;实现审批实例提交/撤回/分页查询+审批记录操作(通过/驳回);@Transactional事务一致性;BusinessException异常提示;mvn compile通过 |
 | Git SHA | (见git log) |
+
+#### P1-002-001-002-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-002-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T03:06 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建ApprovalInstanceServiceTest(18个测试)+ApprovalRecordServiceTest(12个测试)覆盖提交/撤回/分页查询/审批操作+边界条件+并发冲突+异常场景;30/30 tests passed;mvn test通过;交付测试报告 |
+| Git SHA | (见git log) |
