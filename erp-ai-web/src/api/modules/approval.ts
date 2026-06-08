@@ -10,7 +10,8 @@ import type {
   InstanceCreateDTO,
   InstanceVO,
   MyApprovalQueryDTO,
-  MyApprovalVO
+  MyApprovalVO,
+  ApprovalStatisticsVO
 } from '@/api/types/approval'
 
 /** 分页查询审批定义列表 */
@@ -72,4 +73,9 @@ export function recordAction(data: {
   comment?: string
 }): Promise<number> {
   return request.post('/api/approval/record', data)
+}
+
+/** 获取审批统计数据 */
+export function getStatistics(): Promise<ApprovalStatisticsVO> {
+  return request.get('/api/approval/statistics')
 }

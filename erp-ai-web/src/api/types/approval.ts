@@ -104,6 +104,20 @@ export interface MyApprovalQueryDTO {
   pageSize?: number
 }
 
+/** 审批统计VO */
+export interface ApprovalStatisticsVO {
+  totalInstances: number
+  pendingCount: number
+  approvedCount: number
+  rejectedCount: number
+  withdrawnCount: number
+  myPendingCount: number
+  myReviewedCount: number
+  mySubmittedCount: number
+  statusDistribution: Record<string, number>
+  definitionCounts: Record<string, number>
+}
+
 /** 我的审批列表项 */
 export interface MyApprovalVO {
   instanceId: number
