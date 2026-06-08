@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-08T20:20
-> **归档总数**：583 条
+> **最后更新**：2026-06-09T00:00
+> **归档总数**：584 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2113,4 +2113,14 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 实现HRM员工中心P06主从表单页: 升级dialog为大型P06表单(900px), 新增身份证号/部门/岗位字段及格式校验, 添加员工档案Vxe Table从表(学历/专业/毕业院校/紧急联系人/银行卡号)支持行内点击编辑+增删行, 主从数据联动提交, API层新增EmployeeArchiveDTO类型, 后端mvn compile通过, 前端无新增类型错误 |
+| Git commit | (见git log) |
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-011-002-011-002-001 |
+| 任务名称 | 实现公告管理页 |
+| 完成时间 | 2026-06-09T00:00 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 实现系统公告管理P04单一列表页: announcement/index.vue页面(标题/类型/时间/置顶/状态表格+搜索筛选+新增编辑Dialog+置顶切换+删除二次确认), announcement.ts API模块(getAnnouncementPageList/createAnnouncement/updateAnnouncement/deleteAnnouncement), announcement.ts类型定义, 路由注册/system/announcement, 前端pnpm build通过 |
 | Git commit | (见git log) |

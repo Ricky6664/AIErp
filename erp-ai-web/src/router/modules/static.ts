@@ -238,6 +238,14 @@ export const HRM_EMPLOYEECENTER: RouteRecordRaw = {
   meta: { title: '员工中心', icon: 'User', keepAlive: true }
 }
 
+// 公告管理页
+export const SYSTEM_ANNOUNCEMENT: RouteRecordRaw = {
+  path: '/system/announcement',
+  name: 'SystemAnnouncement',
+  component: () => import('@/views/system/announcement/index.vue'),
+  meta: { title: '公告管理', icon: 'Bell', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -258,6 +266,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   WAREHOUSE_LIST,
   WAREHOUSE_LOCATION,
   SYSTEM_CACHE,
+  SYSTEM_ANNOUNCEMENT,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,
