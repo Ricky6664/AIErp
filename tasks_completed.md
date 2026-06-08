@@ -2941,3 +2941,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 创建MsgMessageServiceTest(12个测试用例覆盖CRUD/事务回滚/并发冲突/校验失败场景); mvn test BUILD SUCCESS |
 | Git SHA | 2c430280 |
+
+#### P1-003-001-001-001-001 编写接口定义Service接口
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-001-001-001 |
+| 任务名称 | 编写接口定义Service接口 |
+| 完成时间 | 2026-06-09T09:50 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 增强IMsgMessageService(新增update/delete/read/readAll); 新增MsgMessageUpdateDTO; ServiceImpl添加对应基础实现; mvn compile通过 |
+| Git SHA | 7b5ade14 |
