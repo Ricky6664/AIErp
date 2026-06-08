@@ -280,5 +280,25 @@ class ApprovalRecordServiceTest {
                     () -> service.recordAction(actionDTO));
             assertEquals(ErrorCode.DATA_NOT_FOUND.getCode(), ex.getCode());
         }
+
+        @Test
+        @DisplayName("comment超长(5000字符) → 操作成功")
+        void shouldHandleVeryLongComment() {
+            String longComment = "A".repeat(5000);
+            actionDTO.setComment(longComment);
+            when(instanceMapper.selectById(1L)).thenReturn(instance);
+            when(instanceMapper.updateById(any())).thenReturn(1);
+            doAnswer(inv -> {
+                ApprovalRecordEntity r = inv.getArgument(0);
+                r.setId(104L);
+                return 1;
+            }).when(recordMapper).insert(any(ApprovalRecordEntity.class));
+
+            Long id = service.recordAction(actionDTO);
+
+            assertNotNull(id);
+            verify(recordMapper).insert(argThat(r ->
+                    longComment.equals(r.getComment())));
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T03:15
-> **归档总数**：597 条
+> **最后更新**：2026-06-09T03:17
+> **归档总数**：598 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2452,4 +2452,16 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建ApprovalRecordCoreService(转办/加签/催办)+3个新DTO(RecordTransferDTO/RecordCountersignDTO/RecordUrgeDTO)+更新ApprovalRecordController(3个新端点);完整审批状态机实现;mvn compile通过 |
+| Git SHA | (见git log) |
+
+#### P1-002-001-003-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-003-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T03:17 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建ApprovalRecordCoreServiceTest(16个测试:转办/加签/催办)+增强ApprovalRecordServiceTest(超长comment边界测试)+测试报告;29个测试全部通过;BUILD SUCCESS |
 | Git SHA | (见git log) |
