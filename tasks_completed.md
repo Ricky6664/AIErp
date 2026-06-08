@@ -2165,3 +2165,12 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 验证招聘管理P04单一列表页: 代码审查覆盖7项验证清单(路由/数据加载/筛选/CRUD/回显/校验/异常处理), 前端TS编译通过+后端Maven编译通过, 发现3个阻塞问题(RecruitmentController缺失+前后端查询DTO字段不匹配+Service缺updateStatus方法)及2个中低优问题(状态切换仅2态+status选项未国际化), 输出验证报告hrm-Recruitment-frontend-test.md+问题清单hrm-Recruitment-issues.md |
 | Git commit | — |
+
+### P0-012-002-006-001-001 编写考勤管理P04单一列表页核心代码
+
+| 任务编号 | P0-012-002-006-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-08T21:15 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建考勤管理P04单一列表页: API层(hrm-attendance.ts含5个CRUD接口+完整类型定义)+页面组件(attendance/index.vue含统计卡片/搜索筛选/CRUD弹窗/VxeTable虚拟滚动/300ms防抖)+路由注册(/hrm/attendance), 遵循招聘管理P04页面模式, Vite build通过 |
