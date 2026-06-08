@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T02:35
-> **归档总数**：595 条
+> **最后更新**：2026-06-09T02:40
+> **归档总数**：596 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2379,3 +2379,17 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 静态代码审查+结构分析验证考勤P07表单页:7项核心用例(路由✅/数据加载✅/筛选✅/交互✅/回显✅/校验✅/异常✅);发现6个问题(2 CRITICAL:useI18n未导入编译阻塞+后端AttendanceController缺失;1 HIGH:stats仅统计当前页;1 MEDIUM:spread顺序脆弱;2 LOW:checkInTime无校验+v-permission缺失);输出验证报告+问题清单含修复方案 |
 | Git SHA | a224c48d |
+
+### P1-002 - 审批流程模块开发
+
+#### P1-002-001-001-001-001 编写接口定义Service接口
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-001-001-001 |
+| 任务名称 | 编写接口定义Service接口 |
+| 完成时间 | 2026-06-09T02:40 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建IApprovalDefinitionService接口(5方法: pageList/getById/create/update/delete)+ApprovalDefinitionEntity实体+4个DTO(NodeCreateDTO/DefinitionCreateDTO/DefinitionQueryDTO/DefinitionUpdateDTO)+3个VO(DefinitionListVO/DefinitionDetailVO/NodeVO);mvn compile通过 |
+| Git SHA | (见git log) |
