@@ -2880,3 +2880,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 创建KpiCard.vue组件(数值+标题+趋势箭头+同比环比+骨架屏加载+toLocaleString千位分隔符格式化), vite build编译通过, 无新增类型错误 |
 | Git SHA | (见git log) |
+
+#### P1-002-002-010-002-001 ECharts图表组件开发
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-002-010-002-001 |
+| 任务名称 | ECharts图表组件开发 |
+| 完成时间 | 2026-06-09T09:16 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建ChartPanel.vue组件(ECharts初始化+option数据绑定+窗口resize自适应+el-skeleton加载态+el-empty空数据提示+shallowRef优化+onBeforeUnmount清理dispose), vite build编译通过, 无新增类型错误 |
+| Git SHA | (见git log) |
