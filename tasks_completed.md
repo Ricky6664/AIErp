@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T05:08
-> **归档总数**：611 条
+> **最后更新**：2026-06-08T21:16
+> **归档总数**：612 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2700,3 +2700,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 验证审批实例列表页功能: 运行18个单元测试全部通过(SubmitTests×5/PageListTests×3/GetByIdTests×2/WithdrawTests×5/BoundaryTests×3), mvn compile通过, 验证清单8项中6项✅2项⏭️(修改/删除不适用于审批实例), 生成测试报告 |
 | Git SHA | f1a8fdb6 |
+
+#### P1-002-002-003-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-002-003-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-08T21:16 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 实现审批记录列表页后端核心: 新增RecordLogQueryDTO(8筛选字段)/RecordLogVO(16字段), IApprovalRecordService新增pageLogList方法, ApprovalRecordServiceImpl调用Mapper selectLogList/selectLogCount实现分页查询, ApprovalRecordController新增GET /api/approval/record端点 |
+| Git SHA | 5df1a07d |
