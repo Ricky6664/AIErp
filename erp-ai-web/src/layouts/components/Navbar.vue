@@ -39,12 +39,11 @@
             <div
               v-for="msg in messages"
               :key="msg.id"
-              class="navbar__message-item"
-              :class="{ 'is-unread': !msg.read }"
+              class="navbar__message-item is-unread"
               @click="handleMessageClick(msg)"
             >
               <div class="navbar__message-title">{{ msg.title }}</div>
-              <div class="navbar__message-time">{{ msg.time }}</div>
+              <div class="navbar__message-time">{{ msg.publishTime }}</div>
             </div>
           </template>
           <div v-else class="navbar__message-empty">暂无消息</div>
@@ -81,7 +80,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessageBox } from 'element-plus'
 import { Fold, Expand, Search, Bell, FullScreen } from '@element-plus/icons-vue'
@@ -90,6 +89,8 @@ import SearchDialog from './SearchDialog.vue'
 import { useLayoutStore } from '@/stores/modules/layout'
 import { useUserStore } from '@/stores/modules/user'
 import { usePermissionStore } from '@/stores/modules/permission'
+import { useAnnouncementStore } from '@/stores/modules/announcement'
+import type { AnnouncementListItem } from '@/api/types/announcement'
 
 defineOptions({ name: 'Navbar' })
 
@@ -97,26 +98,20 @@ const router = useRouter()
 const layoutStore = useLayoutStore()
 const userStore = useUserStore()
 const permissionStore = usePermissionStore()
+const announcementStore = useAnnouncementStore()
 
 const searchDialogRef = ref<InstanceType<typeof SearchDialog>>()
-const unreadCount = ref<number>(0)
+const unreadCount = computed(() => announcementStore.unreadCount)
 
-interface MessageItem {
-  id: number
-  title: string
-  time: string
-  read: boolean
+const messages = ref<AnnouncementListItem[]>([])
+
+async function handleMessagePopoverShow() {
+  const list = await announcementStore.fetchUnreadList()
+  messages.value = list
 }
 
-const messages = ref<MessageItem[]>([])
-
-function handleMessagePopoverShow() {
-  // 消息列表加载逻辑在后续消息模块接入API后完善
-}
-
-function handleMessageClick(msg: MessageItem) {
-  msg.read = true
-  unreadCount.value = messages.value.filter((m) => !m.read).length
+function handleMessageClick(_msg: AnnouncementListItem) {
+  router.push('/system/announcement')
 }
 
 async function handleUserCommand(command: string) {

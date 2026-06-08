@@ -3,7 +3,8 @@ import type {
   AnnouncementQuery,
   AnnouncementCreateDTO,
   AnnouncementUpdateDTO,
-  AnnouncementPageResult
+  AnnouncementPageResult,
+  AnnouncementListItem
 } from '@/api/types/announcement'
 
 /** 分页查询公告列表 */
@@ -11,6 +12,16 @@ export function getAnnouncementPageList(
   params: AnnouncementQuery
 ): Promise<AnnouncementPageResult> {
   return request.get('/api/system/announcement', { params }) as Promise<AnnouncementPageResult>
+}
+
+/** 获取未读公告列表 */
+export function getUnreadList(): Promise<AnnouncementListItem[]> {
+  return request.get('/api/system/announcement/unread') as Promise<AnnouncementListItem[]>
+}
+
+/** 标记公告已读 */
+export function markAsRead(id: number): Promise<void> {
+  return request.post(`/api/system/announcement/${id}/read`) as Promise<void>
 }
 
 /** 新增公告 */

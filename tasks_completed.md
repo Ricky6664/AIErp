@@ -2124,3 +2124,13 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 实现系统公告管理P04单一列表页: announcement/index.vue页面(标题/类型/时间/置顶/状态表格+搜索筛选+新增编辑Dialog+置顶切换+删除二次确认), announcement.ts API模块(getAnnouncementPageList/createAnnouncement/updateAnnouncement/deleteAnnouncement), announcement.ts类型定义, 路由注册/system/announcement, 前端pnpm build通过 |
 | Git commit | (见git log) |
+
+#### P0-011-002-011-002-002 实现公告通知弹窗
+
+| 任务编号 | P0-011-002-011-002-002 |
+| 任务名称 | 实现公告通知弹窗（登录后弹窗+未读公告+已读标记+详情跳转） |
+| 完成时间 | 2026-06-08T21:00 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 实现公告通知弹窗: AnnouncementPopup.vue(登录后自动弹窗未读公告/点击标记已读并跳转/sessionStorage防重复弹窗), announcement.ts新增getUnreadList/markAsRead API, announcement.ts Pinia全局store管理未读数badge, AppLayout.vue挂载公告弹窗, Navbar.vue集成badge实时同步, 前端pnpm build通过 |
+| Git commit | (见git log) |

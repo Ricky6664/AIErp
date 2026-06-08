@@ -35,6 +35,9 @@
         </router-view>
       </el-main>
     </el-container>
+
+    <!-- 公告通知弹窗 -->
+    <AnnouncementPopup />
   </el-container>
 </template>
 
@@ -43,6 +46,7 @@ import { computed, watch } from 'vue'
 import Sidebar from './components/Sidebar/index.vue'
 import Navbar from './components/Navbar.vue'
 import TabNav from './components/TabNav/index.vue'
+import AnnouncementPopup from '@/components/AnnouncementPopup.vue'
 import { useLayoutStore } from '@/stores/modules/layout'
 import { useTagsViewStore } from '@/stores/modules/tagsView'
 import { MAX_CACHED_VIEWS } from '@/stores/modules/tagsView'
