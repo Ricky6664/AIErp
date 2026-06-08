@@ -2536,4 +2536,4 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 编写ApprovalWorkflowRuntimeServiceTest(21个单元测试:启动3+推进5+完成1+驳回1+撤回4+状态查询2+边界4+并发1,全部PASS); 创建测试报告; mvn compile+test 102测试全通过 |
-| Git SHA | (待提交) |
+| Git SHA | 24ebfe86 |
