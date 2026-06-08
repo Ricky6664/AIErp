@@ -7,6 +7,7 @@ import com.erp.engine.audit.dto.AuditApproveDTO;
 import com.erp.engine.audit.dto.AuditSubmitDTO;
 import com.erp.engine.audit.entity.DocumentStatusEntity;
 import com.erp.engine.audit.entity.SysAuditConfigEntity;
+import com.erp.engine.audit.entity.SysAuditLogEntity;
 import com.erp.engine.audit.event.AuditApprovedEvent;
 import com.erp.engine.audit.mapper.AuditLogMapper;
 import com.erp.engine.audit.mapper.DocumentStatusMapper;
@@ -170,6 +171,29 @@ class AuditEngineServiceTest {
     }
 
     @Test
+    void submit_shouldRejectWhenDocNotFound() {
+        when(valueOperations.setIfAbsent(anyString(), eq("1"), any(Duration.class)))
+                .thenReturn(true);
+        when(documentStatusMapper.selectForUpdate(DOC_TYPE, DOC_ID)).thenReturn(null);
+
+        AuditSubmitDTO dto = new AuditSubmitDTO(DOC_TYPE, DOC_ID, "请审核");
+
+        assertThatThrownBy(() -> auditEngineService.submit(dto))
+                .isInstanceOf(BusinessException.class);
+    }
+
+    @Test
+    void submit_shouldRejectWhenLocked() {
+        when(valueOperations.setIfAbsent(anyString(), eq("1"), any(Duration.class)))
+                .thenReturn(false);
+
+        AuditSubmitDTO dto = new AuditSubmitDTO(DOC_TYPE, DOC_ID, "请审核");
+
+        assertThatThrownBy(() -> auditEngineService.submit(dto))
+                .isInstanceOf(BusinessException.class);
+    }
+
+    @Test
     void approve_shouldTransitionSubmittedToApproved() {
         when(valueOperations.setIfAbsent(anyString(), eq("1"), any(Duration.class)))
                 .thenReturn(true);
@@ -205,5 +229,96 @@ class AuditEngineServiceTest {
 
         assertThatThrownBy(() -> auditEngineService.approve(dto))
                 .isInstanceOf(BusinessException.class);
+    }
+
+    @Test
+    void approve_shouldRejectWhenDocNotFound() {
+        when(valueOperations.setIfAbsent(anyString(), eq("1"), any(Duration.class)))
+                .thenReturn(true);
+        when(documentStatusMapper.selectForUpdate(DOC_TYPE, DOC_ID)).thenReturn(null);
+
+        AuditApproveDTO dto = new AuditApproveDTO(DOC_TYPE, DOC_ID, "同意");
+
+        assertThatThrownBy(() -> auditEngineService.approve(dto))
+                .isInstanceOf(BusinessException.class);
+    }
+
+    @Test
+    void approve_shouldRejectWhenLocked() {
+        when(valueOperations.setIfAbsent(anyString(), eq("1"), any(Duration.class)))
+                .thenReturn(false);
+
+        AuditApproveDTO dto = new AuditApproveDTO(DOC_TYPE, DOC_ID, "同意");
+
+        assertThatThrownBy(() -> auditEngineService.approve(dto))
+                .isInstanceOf(BusinessException.class);
+    }
+
+    @Test
+    void submit_shouldRecordAuditLogWithCorrectFields() {
+        when(valueOperations.setIfAbsent(anyString(), eq("1"), any(Duration.class)))
+                .thenReturn(true);
+        DocumentStatusEntity entity = new DocumentStatusEntity();
+        entity.setDocType(DOC_TYPE);
+        entity.setDocId(DOC_ID);
+        entity.setStatus(0);
+        when(documentStatusMapper.selectForUpdate(DOC_TYPE, DOC_ID)).thenReturn(entity);
+
+        SysAuditConfigEntity config = new SysAuditConfigEntity();
+        config.setDocType(DOC_TYPE);
+        config.setApprovalEnabled(false);
+        config.setAutoConfirm(false);
+        when(auditConfigService.getConfig(DOC_TYPE)).thenReturn(config);
+
+        ArgumentCaptor<SysAuditLogEntity> logCaptor = ArgumentCaptor.forClass(SysAuditLogEntity.class);
+
+        try (MockedStatic<StpUtil> stpMock = mockStatic(StpUtil.class)) {
+            stpMock.when(StpUtil::getLoginIdAsLong).thenReturn(1L);
+
+            AuditSubmitDTO dto = new AuditSubmitDTO(DOC_TYPE, DOC_ID, "请审核");
+            auditEngineService.submit(dto);
+        }
+
+        verify(auditLogMapper).insert(logCaptor.capture());
+        SysAuditLogEntity captured = logCaptor.getValue();
+        assertThat(captured.getDocType()).isEqualTo(DOC_TYPE);
+        assertThat(captured.getDocId()).isEqualTo(DOC_ID);
+        assertThat(captured.getOperationType()).isEqualTo("SUBMIT");
+        assertThat(captured.getOperatorId()).isEqualTo(1L);
+        assertThat(captured.getFromStatus()).isEqualTo(0);
+        assertThat(captured.getToStatus()).isEqualTo(1);
+        assertThat(captured.getOpinion()).isEqualTo("请审核");
+        assertThat(captured.getCreatedAt()).isNotNull();
+    }
+
+    @Test
+    void approve_shouldRecordAuditLogWithCorrectFields() {
+        when(valueOperations.setIfAbsent(anyString(), eq("1"), any(Duration.class)))
+                .thenReturn(true);
+        DocumentStatusEntity entity = new DocumentStatusEntity();
+        entity.setDocType(DOC_TYPE);
+        entity.setDocId(DOC_ID);
+        entity.setStatus(1);
+        when(documentStatusMapper.selectForUpdate(DOC_TYPE, DOC_ID)).thenReturn(entity);
+
+        ArgumentCaptor<SysAuditLogEntity> logCaptor = ArgumentCaptor.forClass(SysAuditLogEntity.class);
+
+        try (MockedStatic<StpUtil> stpMock = mockStatic(StpUtil.class)) {
+            stpMock.when(StpUtil::getLoginIdAsLong).thenReturn(1L);
+
+            AuditApproveDTO dto = new AuditApproveDTO(DOC_TYPE, DOC_ID, "同意");
+            auditEngineService.approve(dto);
+        }
+
+        verify(auditLogMapper).insert(logCaptor.capture());
+        SysAuditLogEntity captured = logCaptor.getValue();
+        assertThat(captured.getDocType()).isEqualTo(DOC_TYPE);
+        assertThat(captured.getDocId()).isEqualTo(DOC_ID);
+        assertThat(captured.getOperationType()).isEqualTo("APPROVE");
+        assertThat(captured.getOperatorId()).isEqualTo(1L);
+        assertThat(captured.getFromStatus()).isEqualTo(1);
+        assertThat(captured.getToStatus()).isEqualTo(2);
+        assertThat(captured.getOpinion()).isEqualTo("同意");
+        assertThat(captured.getCreatedAt()).isNotNull();
     }
 }

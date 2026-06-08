@@ -1947,6 +1947,18 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 实现AuditEngineService(submit+approve)、AuditEngineController、DTOs、实体(SysAuditConfigEntity/SysAuditLogEntity/DocumentStatusEntity)、Mapper、AuditApprovedEvent、单元测试6个全通过 |
 | Git commit | (见git log) |
 
+#### P1-001-001-001-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-001-001-001-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-08T20:18 |
+| 状态 | ✅ |
+| 工人 | W5 |
+| 摘要 | 增强AuditEngineServiceTest(新增6个测试:docNotFound/locked/auditLog字段验证) + 新建AuditEngineControllerTest(6个测试) + 新建audit-test-data.sql(6条测试数据)，23个测试全通过 |
+| Git commit | (见git log) |
+
 #### P0-012-001-005-001-002 验证功能
 
 | 属性 | 值 |
