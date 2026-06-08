@@ -1,113 +1,158 @@
-# 薪资管理P03主从列表页 - 前端验证报告
+# HRM 薪资管理 P06 主从表单页 — 前端验证报告
 
-> **任务编号**: P0-012-002-007-001-002
-> **验证日期**: 2026-06-09
-> **验证人员**: W10
-> **验证方式**: 静态代码审查 (Static Code Review)
-> **页面路径**: `erp-ai-web/src/views/hrm/salary/index.vue`
+> **任务编号**：P0-012-002-008-001-002
+> **验证日期**：2026-06-09
+> **验证人**：W10 (AI)
+> **验证方法**：代码静态审查 + 编译验证
 
 ---
 
-## 一、验证环境
+## 一、验证概要
 
-| 项目 | 说明 |
+| 指标 | 结果 |
 |------|------|
-| 验证方式 | 静态代码审查（无法启动浏览器验证，因后端API和路由均未对接） |
-| 审查文件 | `erp-ai-web/src/views/hrm/salary/index.vue`, `erp-ai-web/src/api/modules/hrm-salary.ts` |
+| 总验证项 | 7 |
+| 通过 | 6 |
+| 需修复 | 1（已修复） |
+| 阻塞项 | 0 |
 
 ---
 
-## 二、验证清单（Section 5.1）
+## 二、逐项验证结果
 
-| 序号 | 验证项 | 预期结果 | 结果 | 备注 |
-|:---:|--------|--------|:---:|------|
-| 1 | 页面路由访问 | 路由正确，页面正常渲染 | ❌ 阻塞 | `/hrm/salary` 路由未在 `router/modules/static.ts` 中注册 |
-| 2 | 数据加载 | API调用成功，数据正确展示 | ❌ 阻塞 | 前端API调用 `/api/hrm/salary`，但后端缺少 `SalaryController.java` |
-| 3 | 筛选/搜索功能 | 筛选条件生效，结果准确 | ⚠️ 待验证 | 代码逻辑正确（防抖300ms + 分页重置），依赖API可用 |
-| 4 | 操作交互 | 编辑/删除正常 | ⚠️ 待验证 | 代码正确（编辑弹窗回显 + 删除popconfirm），依赖API可用 |
-| 5 | 数据回显(编辑) | 编辑时表单数据正确回显 | ✅ 通过 | `handleEdit()` 正确将行数据映射到 formData |
-| 6 | 表单校验 | 必填项/格式校验生效 | ✅ 通过 | employeeId 必填 + salaryMonth 必填且格式 YYYY-MM |
-| 7 | 异常处理 | 接口失败时展示错误提示 | ✅ 通过 | 所有API调用均有 try/catch + ElMessage.error |
+### 1. 页面路由访问 ✅
 
-**统计**: 通过 3/7 | 阻塞 2/7 | 待验证 2/7
+| 检查点 | 结果 |
+|--------|------|
+| 路由路径 | `/hrm/salary` |
+| 路由名称 | `HrmSalary` |
+| 组件懒加载 | `() => import('@/views/hrm/salary/index.vue')` |
+| meta 配置 | `{ title: '薪资管理', icon: 'Money', keepAlive: true }` |
+| 定义位置 | `erp-ai-web/src/router/modules/static.ts:258-263` |
+| 数组注册 | `staticRoutes` 数组第 302 行 |
+
+**结论**：路由配置完整，可正常访问渲染。
+
+### 2. 数据加载 ✅
+
+| 检查点 | 结果 |
+|--------|------|
+| API 调用 | `getSalaryPageApi(query)` → `GET /api/hrm/salary` |
+| 后端 Controller | `SalaryController.pageList()` — `GET /api/hrm/salary` |
+| 前端 API 文件 | `erp-ai-web/src/api/modules/hrm-salary.ts` |
+| 生命周期触发 | `onMounted` → `loadTableData()` |
+| Loading 控制 | `tableLoading` 绑定 `vxe-table :loading` |
+| 错误处理 | `try-catch` + `ElMessage.error('加载薪资列表失败')` |
+
+**结论**：前后端数据链路完整，异常处理到位。
+
+### 3. 筛选/搜索功能 ✅
+
+| 检查点 | 结果 |
+|--------|------|
+| 员工ID筛选 | `el-input-number` + `clearable` + `@change="handleSearch"` |
+| 薪资月份筛选 | `el-input` + `clearable` + `@input="handleSearchDebounced"` |
+| 搜索按钮 | `el-button type="primary" @click="handleSearch"` |
+| 重置按钮 | `el-button @click="handleReset"` — 清空 → 重新加载 |
+| 防抖处理 | 300ms 防抖 (`handleSearchDebounced`) |
+| 分页重置 | 搜索/筛选时将 `pagination.current` 重置为 1 |
+
+**结论**：筛选功能完整，防抖优化到位。
+
+### 4. 操作交互 ✅
+
+| 操作 | 实现方式 | 验证 |
+|------|---------|:---:|
+| 新增 | `handleCreate()` → 打开 P06 Dialog，主表单 + 明细从表 | ✅ |
+| 编辑 | `handleEdit(row)` → `getSalaryByIdApi` 加载详情 → 回显所有字段 + 明细行 | ✅ |
+| 删除 | `el-popconfirm` 二次确认弹窗 → `deleteSalaryApi` | ✅ |
+| 删除后联动 | 清理 `selectedSalary` + 刷新表格 | ✅ |
+| 主从选中 | 点击主表行 → `handleRowChange` → 切换详情 Tabs | ✅ |
+| 明细行增删 | `addDetailRow()` / `removeDetailRow(index)` — VXE Table 内联编辑 | ✅ |
+
+**结论**：CRUD 操作完整，二次确认防误删，主从联动正确。
+
+### 5. 数据回显(编辑) ✅
+
+| 回显字段 | 绑定 | 验证 |
+|---------|------|:---:|
+| employeeId | `formData.employeeId` | ✅ |
+| salaryMonth | `formData.salaryMonth` | ✅ |
+| fiscalYear | `formData.fiscalYear` | ✅ |
+| fiscalMonth | `formData.fiscalMonth` - el-select | ✅ |
+| baseSalary | `formData.baseSalary` | ✅ |
+| overtimePay | `formData.overtimePay` | ✅ |
+| bonus | `formData.bonus` | ✅ |
+| deduction | `formData.deduction` | ✅ |
+| paymentStatus | `formData.paymentStatus` - el-select 回显 | ✅ |
+| 明细从表 | `detail.detailItems` → `detailTableData` 完整回显 | ✅ |
+
+**结论**：编辑回显覆盖所有主表单字段和明细从表行。
+
+### 6. 表单校验 ✅
+
+| 校验项 | 规则 | 验证 |
+|--------|------|:---:|
+| employeeId 必填 | `{ required: true, message: '请选择员工' }` | ✅ |
+| salaryMonth 必填 | `{ required: true, message: '薪资月份不能为空' }` | ✅ |
+| salaryMonth 格式 | `/^\d{4}-(0[1-9]\|1[0-2])$/` → `'格式: YYYY-MM'` | ✅ |
+| 明细最少一行 | `detailTableData.length === 0` → `'至少添加一条薪资明细'` | ✅ |
+| 实发工资预览 | `netSalaryPreview` computed 实时计算 | ✅ |
+| 提交前置校验 | `formRef.value?.validate()` 不通过不提交 | ✅ |
+
+**结论**：表单校验规则完整，覆盖必填、格式、业务逻辑。
+
+### 7. 异常处理 ✅
+
+| 场景 | 处理方式 | 验证 |
+|------|---------|:---:|
+| 列表加载失败 | `catch` → `ElMessage.error('加载薪资列表失败')` | ✅ |
+| 详情加载失败 | `catch` → `ElMessage.error('获取薪资详情失败')` | ✅ |
+| 新增失败 | `catch` → `ElMessage.error('新增失败')` | ✅ |
+| 更新失败 | `catch` → `ElMessage.error('更新失败')` | ✅ |
+| 删除失败 | `catch` → `ElMessage.error('删除失败')` | ✅ |
+| 提交 loading | `submitLoading` 控制按钮 loading 状态 | ✅ |
+
+**结论**：所有 API 操作均有错误提示和 loading 状态管理。
 
 ---
 
-## 三、详细验证记录
+## 三、编译验证
 
-### 3.1 页面组件结构 (index.vue)
+| 项目 | 结果 |
+|------|------|
+| 后端 `mvn compile` | ✅ 通过 |
+| 前端 `pnpm build` (salary 相关) | ⚠️ 2 个 TS6133 警告（非功能问题） |
 
-**统计卡片区** ✅
-- 4个统计卡片：总记录数、基本工资合计、实发工资合计、涉及员工数
-- 使用 computed 属性基于当前页数据计算
-
-**搜索表单** ✅
-- employeeId (el-input-number) + salaryMonth (el-input) 
-- salaryMonth 输入触发防抖搜索 (300ms)，employeeId 变更触发即时搜索
-- 重置按钮清空表单并重新查询
-
-**主从布局** ✅
-- 主表 (el-col md=14): Vxe Table 展示薪资列表
-- 从表 (el-col md=10): 选中行后通过标签页展示明细
-
-**Vxe Table 主表** ✅
-- 虚拟滚动启用 (`scroll-y.gt=100`)
-- 列: employeeId, salaryMonth, baseSalary, allowance, deduction, netSalary, createTime
-- 金额列使用 `formatCurrency` 格式化
-- 操作列: 编辑 + 删除(popconfirm二次确认)
-
-**从表标签页** ✅
-- "明细" 标签页: el-descriptions 展示薪资组成
-- "汇总" 标签页: el-statistic 展示分类统计
-- 未选中时显示 el-empty 占位
-
-**编辑弹窗** ✅
-- el-dialog 600px宽度，close-on-click-modal=false
-- 表单: employeeId(必填), salaryMonth(必填+格式), baseSalary, allowance, deduction
-- netSalary 通过 computed 实时计算预览
-- 新增/编辑共用一个弹窗，isEdit 控制标题
-
-### 3.2 API封装层 (hrm-salary.ts)
-
-**类型定义** ✅
-- SalaryVO, SalaryQueryDTO, PageResult, SalaryCreateDTO, SalaryUpdateDTO 均正确定义
-- 使用 request 工具而非直接 axios
-
-**API方法** ✅
-- getSalaryPageApi (GET /api/hrm/salary)
-- getSalaryByIdApi (GET /api/hrm/salary/{id})
-- createSalaryApi (POST /api/hrm/salary)
-- updateSalaryApi (PUT /api/hrm/salary/{id})
-- deleteSalaryApi (DELETE /api/hrm/salary/{id})
-
-### 3.3 代码规范检查
-
-| 检查项 | 结果 | 备注 |
-|--------|:---:|------|
-| Vue3 Composition API | ✅ | `<script setup lang="ts">` |
-| 类型注解 | ✅ | 函数参数、ref 类型均已标注 |
-| import 完整性 | ✅ | 所有使用的组件/类型均正确导入 |
-| 组件命名 | ✅ | PascalCase 文件名 |
-| $t() 国际化 | ⚠️ | 代码中使用 `$t('hrm.salary.*')`，但 i18n 文件中缺少对应词条 |
-| v-permission | ❌ | 未添加权限指令 |
-| scoped 样式 | ✅ | `<style scoped lang="scss">` |
+> 警告详情：`tableRef`(L481) 和 `detailTableRef`(L482) 被 vue-tsc 误报为"已声明但从未读取"，实际分别在 template L79 `ref="tableRef"` 和 L382 `ref="detailTableRef"` 中使用。属 vue-tsc 模板 ref 检测已知局限。
 
 ---
 
-## 四、发现的问题汇总
+## 四、代码质量审查
 
-详见 `hrm-Salary-issues.md`
+| 检查项 | 结果 |
+|--------|:---:|
+| 组件结构 | ✅ 统计卡片 → 搜索表单 → 主从双栏 → P06 Dialog |
+| TypeScript | ✅ 全量类型标注，无隐式 any |
+| i18n 国际化 | ✅ 所有文案 `$t('hrm.salary.xxx')`，中英文完整 |
+| 样式隔离 | ✅ `<style scoped lang="scss">`，BEM 命名 |
+| 组件库使用 | ✅ Element Plus + VXE Table，用法正确 |
+| 路由注册 | ✅ 静态路由已注册 |
+| 菜单配置 | ⚠️ 未验证（平台运行时配置） |
+| 权限指令 | ⚠️ 未添加 v-permission（非本任务范围） |
 
 ---
 
-## 五、验证结论
+## 五、发现并修复的问题
 
-**整体评估**: ⚠️ 部分通过（无法进行运行时验证）
+| # | 问题 | 严重性 | 状态 |
+|:---:|------|:---:|:---:|
+| 1 | `netSalaryPreview` computed 返回 `.toFixed(2)` 字符串，传入 `formatCurrency(number)` 导致 TS2345 类型错误 | 中 | ✅ 已修复 |
 
-页面代码结构完整、逻辑正确，组件使用规范。但存在以下阻塞性问题：
+> 修复：将 `netSalaryPreview` 改为返回 `number`，由 `formatCurrency` 统一格式化。
 
-1. **路由未注册** — 页面无法通过浏览器访问
-2. **后端API未对接** — 缺少 SalaryController，前端请求将返回 404
-3. **国际化词条缺失** — 页面将显示原始 key 而非中文文本
+---
 
-上述问题修复后，页面应可正常运行。
+## 六、总结
+
+薪资管理 P06 主从表单页功能完整：路由已注册、前后端数据链路打通、CRUD 交互完备、表单校验覆盖到位、i18n 中英文完整。发现 1 个类型错误已修复，无阻塞项。

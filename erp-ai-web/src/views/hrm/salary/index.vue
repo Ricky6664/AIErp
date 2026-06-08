@@ -567,7 +567,7 @@ const netSalaryPreview = computed(() => {
     .filter((d) => d.itemType === '减项')
     .reduce((sum, d) => sum + (Number(d.amount) || 0), 0)
 
-  return (base + overtime + bonusVal + allowanceVal + detailAdd - deduct - detailDeduct).toFixed(2)
+  return base + overtime + bonusVal + allowanceVal + detailAdd - deduct - detailDeduct
 })
 
 // ========== 数据加载 ==========
