@@ -213,6 +213,32 @@ const common = {
       addTitle: '新增员工',
       editTitle: '编辑员工',
       recordCount: '共 {total} 条记录'
+    },
+    archive: {
+      totalArchives: '档案总数',
+      enabled: '已启用',
+      disabled: '已停用',
+      newThisMonth: '本月新增',
+      employeeName: '员工姓名',
+      employeeNamePlaceholder: '请输入员工姓名',
+      education: '学历',
+      major: '专业',
+      majorPlaceholder: '请输入专业',
+      school: '毕业院校',
+      schoolPlaceholder: '请输入毕业院校',
+      emergencyContact: '紧急联系人',
+      emergencyContactPlaceholder: '请输入紧急联系人',
+      archiveDate: '建档日期',
+      status: '状态',
+      statusEnabled: '启用',
+      statusDisabled: '停用',
+      add: '新增档案',
+      addTitle: '新增档案',
+      editTitle: '编辑档案',
+      enable: '启用',
+      disable: '停用',
+      deleteConfirm: '确认删除该档案？',
+      recordCount: '共 {total} 条记录'
     }
   }
 }

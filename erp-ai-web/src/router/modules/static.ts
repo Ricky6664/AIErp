@@ -222,6 +222,14 @@ export const HRM_WORKBENCH: RouteRecordRaw = {
   meta: { title: 'HRM工作台', icon: 'DataAnalysis', keepAlive: true }
 }
 
+// 员工档案列表页
+export const HRM_EMPLOYEEARCHIVE: RouteRecordRaw = {
+  path: '/hrm/employeearchive',
+  name: 'HrmEmployeearchive',
+  component: () => import('@/views/hrm/employeearchive/index.vue'),
+  meta: { title: '员工档案', icon: 'Document', keepAlive: true }
+}
+
 // 员工中心主从列表页
 export const HRM_EMPLOYEECENTER: RouteRecordRaw = {
   path: '/hrm/employeecenter',
@@ -255,6 +263,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   SSO_OAUTH2_CONFIG_PAGE,
   HRM_WORKBENCH,
   HRM_EMPLOYEECENTER,
+  HRM_EMPLOYEEARCHIVE,
   CHANGE_PASSWORD_ROUTE,
   REDIRECT_ROUTE,
   ERROR_404,
