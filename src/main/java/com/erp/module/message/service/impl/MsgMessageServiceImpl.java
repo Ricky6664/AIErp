@@ -9,6 +9,7 @@ import com.erp.common.exception.BusinessException;
 import com.erp.common.result.PageResult;
 import com.erp.module.message.dto.MsgMessageCreateDTO;
 import com.erp.module.message.dto.MsgMessageQueryDTO;
+import com.erp.module.message.dto.MsgMessageUpdateDTO;
 import com.erp.module.message.entity.MsgMessageEntity;
 import com.erp.module.message.mapper.MsgMessageMapper;
 import com.erp.module.message.service.IMsgMessageService;
@@ -72,5 +73,57 @@ public class MsgMessageServiceImpl
         MsgMessageListVO vo = new MsgMessageListVO();
         BeanUtils.copyProperties(entity, vo);
         return vo;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void update(Long id, MsgMessageUpdateDTO dto) {
+        MsgMessageEntity entity = getById(id);
+        if (entity == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
+        }
+        if (StringUtils.hasText(dto.getMessageTitle())) {
+            entity.setMessageTitle(dto.getMessageTitle());
+        }
+        if (dto.getMessageContent() != null) {
+            entity.setMessageContent(dto.getMessageContent());
+        }
+        if (dto.getMsgTypeId() != null) {
+            entity.setMsgTypeId(dto.getMsgTypeId());
+        }
+        updateById(entity);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Long id) {
+        MsgMessageEntity entity = getById(id);
+        if (entity == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
+        }
+        entity.setIsDeleted(true);
+        updateById(entity);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void read(Long id) {
+        MsgMessageEntity entity = getById(id);
+        if (entity == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
+        }
+        entity.setReadStatus(1);
+        updateById(entity);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void readAll() {
+        LambdaQueryWrapper<MsgMessageEntity> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(MsgMessageEntity::getReadStatus, 0);
+        list(wrapper).forEach(entity -> {
+            entity.setReadStatus(1);
+            updateById(entity);
+        });
     }
 }
