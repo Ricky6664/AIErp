@@ -1,6 +1,10 @@
 package com.erp.approval.controller;
 
 import com.erp.approval.dto.RecordActionDTO;
+import com.erp.approval.dto.RecordCountersignDTO;
+import com.erp.approval.dto.RecordTransferDTO;
+import com.erp.approval.dto.RecordUrgeDTO;
+import com.erp.approval.service.ApprovalRecordCoreService;
 import com.erp.approval.service.IApprovalRecordService;
 import com.erp.approval.vo.RecordVO;
 import com.erp.common.result.PageResult;
@@ -32,6 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ApprovalRecordController {
 
     private final IApprovalRecordService recordService;
+    private final ApprovalRecordCoreService recordCoreService;
 
     @Operation(summary = "查询审批实例的审批记录")
     @GetMapping("/record/instance/{instanceId}")
@@ -47,5 +52,26 @@ public class ApprovalRecordController {
     public RT<Long> recordAction(
             @Parameter(description = "审批操作参数") @Valid @RequestBody RecordActionDTO dto) {
         return RT.ok(recordService.recordAction(dto));
+    }
+
+    @Operation(summary = "审批转办")
+    @PostMapping("/record/transfer")
+    public RT<Long> transfer(
+            @Parameter(description = "转办参数") @Valid @RequestBody RecordTransferDTO dto) {
+        return RT.ok(recordCoreService.transferAction(dto));
+    }
+
+    @Operation(summary = "审批加签")
+    @PostMapping("/record/countersign")
+    public RT<Long> countersign(
+            @Parameter(description = "加签参数") @Valid @RequestBody RecordCountersignDTO dto) {
+        return RT.ok(recordCoreService.countersignAction(dto));
+    }
+
+    @Operation(summary = "审批催办")
+    @PostMapping("/record/urge")
+    public RT<Long> urge(
+            @Parameter(description = "催办参数") @Valid @RequestBody RecordUrgeDTO dto) {
+        return RT.ok(recordCoreService.urgeAction(dto));
     }
 }
