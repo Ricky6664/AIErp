@@ -14,6 +14,7 @@ import com.erp.module.message.entity.MsgMessageEntity;
 import com.erp.module.message.mapper.MsgMessageMapper;
 import com.erp.module.message.service.IMsgMessageService;
 import com.erp.module.message.vo.MsgMessageListVO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,9 +26,20 @@ import org.springframework.util.StringUtils;
  * @author AI
  */
 @Service
+@RequiredArgsConstructor
 public class MsgMessageServiceImpl
         extends ServiceImpl<MsgMessageMapper, MsgMessageEntity>
         implements IMsgMessageService {
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Long create(MsgMessageCreateDTO dto) {
+        validateCreate(dto);
+        MsgMessageEntity entity = convertToEntity(dto);
+        entity.setStatus(0);
+        save(entity);
+        return entity.getId();
+    }
 
     @Override
     public PageResult<MsgMessageListVO> pageList(MsgMessageQueryDTO query) {
@@ -47,32 +59,6 @@ public class MsgMessageServiceImpl
         IPage<MsgMessageEntity> page = page(new Page<>(pageNum, pageSize), wrapper);
 
         return PageResult.of(page).convert(this::toListVO);
-    }
-
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public Long create(MsgMessageCreateDTO dto) {
-        validateCreate(dto);
-        MsgMessageEntity entity = new MsgMessageEntity();
-        BeanUtils.copyProperties(dto, entity);
-        entity.setStatus(0);
-        save(entity);
-        return entity.getId();
-    }
-
-    private void validateCreate(MsgMessageCreateDTO dto) {
-        if (!StringUtils.hasText(dto.getMessageTitle())) {
-            throw new BusinessException(ErrorCode.PARAM_INVALID);
-        }
-        if (dto.getReceiverId() == null) {
-            throw new BusinessException(ErrorCode.PARAM_INVALID);
-        }
-    }
-
-    private MsgMessageListVO toListVO(MsgMessageEntity entity) {
-        MsgMessageListVO vo = new MsgMessageListVO();
-        BeanUtils.copyProperties(entity, vo);
-        return vo;
     }
 
     @Override
@@ -125,5 +111,26 @@ public class MsgMessageServiceImpl
             entity.setReadStatus(1);
             updateById(entity);
         });
+    }
+
+    private void validateCreate(MsgMessageCreateDTO dto) {
+        if (!StringUtils.hasText(dto.getMessageTitle())) {
+            throw new BusinessException(ErrorCode.PARAM_INVALID);
+        }
+        if (dto.getReceiverId() == null) {
+            throw new BusinessException(ErrorCode.PARAM_INVALID);
+        }
+    }
+
+    private MsgMessageEntity convertToEntity(MsgMessageCreateDTO dto) {
+        MsgMessageEntity entity = new MsgMessageEntity();
+        BeanUtils.copyProperties(dto, entity);
+        return entity;
+    }
+
+    private MsgMessageListVO toListVO(MsgMessageEntity entity) {
+        MsgMessageListVO vo = new MsgMessageListVO();
+        BeanUtils.copyProperties(entity, vo);
+        return vo;
     }
 }

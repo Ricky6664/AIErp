@@ -2953,3 +2953,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 增强IMsgMessageService(新增update/delete/read/readAll); 新增MsgMessageUpdateDTO; ServiceImpl添加对应基础实现; mvn compile通过 |
 | Git SHA | 7b5ade14 |
+
+#### P1-003-001-001-001-002 编写ServiceImpl实现类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-001-001-002 |
+| 任务名称 | 编写ServiceImpl实现类 |
+| 完成时间 | 2026-06-09T09:40 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 重写MsgMessageServiceImpl(添加@RequiredArgsConstructor+convertToEntity方法+重构create方法结构); 全部12个单元测试通过; mvn clean compile BUILD SUCCESS |
+| Git SHA | — |
