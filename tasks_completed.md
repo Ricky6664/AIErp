@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T06:35
-> **归档总数**：605 条
+> **最后更新**：2026-06-09T04:38
+> **归档总数**：606 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2615,6 +2615,17 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建ApprovalPresetVerificationTest(10个测试: batchInsertPreset插入/去重/幂等/参数传递 + CRUD集成 + enableFlag过滤);全部Approval模块112个测试0失败;mvn compile BUILD SUCCESS |
+| Git SHA | (见git log) |
+
+#### P1-002-001-010-001-001 编写日志查询SQL
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-010-001-001 |
+| 任务名称 | 编写日志查询SQL |
+| 完成时间 | 2026-06-09T04:38 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建ApprovalRecordMapper.xml(基础字段列表/日志查询字段列表三表JOIN/动态条件片段/selectLogList分页查询/selectLogCount计数/selectLogByInstanceId链路查询);扩展ApprovalRecordMapper接口(3个日志查询方法);mvn compile BUILD SUCCESS |
 | Git SHA | (见git log) |
 
 
