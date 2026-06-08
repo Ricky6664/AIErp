@@ -2,11 +2,17 @@ import request from '@/utils/request'
 
 export interface EmployeeArchiveVO {
   id: number
+  employeeId: number
   employeeName: string
   education: string
   major: string
   school: string
   emergencyContact: string
+  emergencyPhone: string
+  address: string
+  bankCardNumber: string
+  bankName: string
+  socialSecurityAccount: string
   archiveDate: string
   status: number
   createTime: string
@@ -29,11 +35,17 @@ export interface PageResult<T> {
 }
 
 export interface EmployeeArchiveCreateDTO {
+  employeeId?: number
   employeeName: string
   education?: string
   major?: string
   school?: string
   emergencyContact?: string
+  emergencyPhone?: string
+  address?: string
+  bankCardNumber?: string
+  bankName?: string
+  socialSecurityAccount?: string
   archiveDate?: string
   status?: number
 }

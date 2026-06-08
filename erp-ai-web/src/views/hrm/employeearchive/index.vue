@@ -161,16 +161,27 @@
       :close-on-click-modal="false"
       @closed="resetForm"
     >
-      <el-form ref="formRef" :model="formData" :rules="formRules" label-width="100px">
+      <el-form ref="formRef" :model="formData" :rules="formRules" label-width="110px">
+        <el-form-item :label="$t('hrm.archive.employeeName')" prop="employeeId">
+          <el-select
+            v-model="formData.employeeId"
+            :placeholder="$t('hrm.archive.employeeNamePlaceholder')"
+            filterable
+            remote
+            :remote-method="searchEmployees"
+            :loading="employeeLoading"
+            clearable
+            style="width: 100%"
+          >
+            <el-option
+              v-for="emp in employeeOptions"
+              :key="emp.id"
+              :label="emp.name"
+              :value="emp.id"
+            />
+          </el-select>
+        </el-form-item>
         <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.archive.employeeName')" prop="employeeName">
-              <el-input
-                v-model="formData.employeeName"
-                :placeholder="$t('hrm.archive.employeeNamePlaceholder')"
-              />
-            </el-form-item>
-          </el-col>
           <el-col :span="12">
             <el-form-item :label="$t('hrm.archive.education')">
               <el-select
@@ -188,8 +199,6 @@
               </el-select>
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row :gutter="16">
           <el-col :span="12">
             <el-form-item :label="$t('hrm.archive.major')">
               <el-input
@@ -198,6 +207,8 @@
               />
             </el-form-item>
           </el-col>
+        </el-row>
+        <el-row :gutter="16">
           <el-col :span="12">
             <el-form-item :label="$t('hrm.archive.school')">
               <el-input
@@ -206,13 +217,57 @@
               />
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-row :gutter="16">
           <el-col :span="12">
             <el-form-item :label="$t('hrm.archive.emergencyContact')">
               <el-input
                 v-model="formData.emergencyContact"
                 :placeholder="$t('hrm.archive.emergencyContactPlaceholder')"
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="16">
+          <el-col :span="12">
+            <el-form-item :label="$t('hrm.archive.emergencyPhone')" prop="emergencyPhone">
+              <el-input
+                v-model="formData.emergencyPhone"
+                :placeholder="$t('hrm.archive.emergencyPhonePlaceholder')"
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :label="$t('hrm.archive.address')">
+              <el-input
+                v-model="formData.address"
+                :placeholder="$t('hrm.archive.addressPlaceholder')"
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="16">
+          <el-col :span="12">
+            <el-form-item :label="$t('hrm.archive.bankCardNumber')">
+              <el-input
+                v-model="formData.bankCardNumber"
+                :placeholder="$t('hrm.archive.bankCardNumberPlaceholder')"
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :label="$t('hrm.archive.bankName')">
+              <el-input
+                v-model="formData.bankName"
+                :placeholder="$t('hrm.archive.bankNamePlaceholder')"
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="16">
+          <el-col :span="12">
+            <el-form-item :label="$t('hrm.archive.socialSecurityAccount')">
+              <el-input
+                v-model="formData.socialSecurityAccount"
+                :placeholder="$t('hrm.archive.socialSecurityAccountPlaceholder')"
               />
             </el-form-item>
           </el-col>
@@ -254,10 +309,13 @@ import {
   updateEmployeeArchiveApi,
   deleteEmployeeArchiveApi,
   updateEmployeeArchiveStatusApi,
+  getEmployeeArchiveByIdApi,
   type EmployeeArchiveVO,
   type EmployeeArchiveQueryDTO,
   type EmployeeArchiveCreateDTO
 } from '@/api/modules/hrm-archive'
+import { getEmployeePageApi, type EmployeeVO } from '@/api/modules/hrm-employee'
+import { useDebounceFn } from '@vueuse/core'
 
 const tableRef = ref()
 const formRef = ref<FormInstance>()
@@ -267,8 +325,8 @@ const dialogVisible = ref(false)
 const isEdit = ref(false)
 const editingId = ref<number | null>(null)
 const tableData = ref<EmployeeArchiveVO[]>([])
-
-let debounceTimer: ReturnType<typeof setTimeout> | null = null
+const employeeLoading = ref(false)
+const employeeOptions = ref<EmployeeVO[]>([])
 
 const searchForm = reactive<EmployeeArchiveQueryDTO>({
   pageNum: 1,
@@ -299,20 +357,24 @@ const stats = computed(() => {
 const educationOptions = ref(['高中', '大专', '本科', '硕士', '博士', '其他'])
 
 const formData = reactive<EmployeeArchiveCreateDTO & { id?: number }>({
+  employeeId: undefined,
   employeeName: '',
   education: '',
   major: '',
   school: '',
   emergencyContact: '',
+  emergencyPhone: '',
+  address: '',
+  bankCardNumber: '',
+  bankName: '',
+  socialSecurityAccount: '',
   archiveDate: '',
   status: 1
 })
 
 const formRules: FormRules = {
-  employeeName: [
-    { required: true, message: '员工姓名不能为空', trigger: 'blur' },
-    { max: 50, message: '姓名最长50个字符', trigger: 'blur' }
-  ]
+  employeeId: [{ required: true, message: '请选择员工', trigger: 'change' }],
+  emergencyPhone: [{ pattern: /^1[3-9]\d{9}$/, message: '请输入有效的手机号码', trigger: 'blur' }]
 }
 
 // ========== 数据加载 ==========
@@ -336,22 +398,36 @@ async function loadTableData(): Promise<void> {
 }
 
 // ========== 搜索 ==========
+const handleSearchDebounced = useDebounceFn(() => {
+  handleSearch()
+}, 300)
+
 function handleSearch(): void {
   pagination.current = 1
   loadTableData()
-}
-
-function handleSearchDebounced(): void {
-  if (debounceTimer) clearTimeout(debounceTimer)
-  debounceTimer = setTimeout(() => {
-    handleSearch()
-  }, 300)
 }
 
 function handleReset(): void {
   searchForm.employeeName = ''
   searchForm.education = ''
   handleSearch()
+}
+
+// ========== 员工搜索 ==========
+async function searchEmployees(query: string): Promise<void> {
+  if (!query) {
+    employeeOptions.value = []
+    return
+  }
+  employeeLoading.value = true
+  try {
+    const res = await getEmployeePageApi({ name: query, pageNum: 1, pageSize: 20 })
+    employeeOptions.value = res.records || []
+  } catch {
+    // 静默失败
+  } finally {
+    employeeLoading.value = false
+  }
 }
 
 // ========== CRUD操作 ==========
@@ -362,17 +438,33 @@ function handleCreate(): void {
   dialogVisible.value = true
 }
 
-function handleEdit(row: EmployeeArchiveVO): void {
+async function handleEdit(row: EmployeeArchiveVO): Promise<void> {
   isEdit.value = true
   editingId.value = row.id
-  formData.employeeName = row.employeeName
-  formData.education = row.education || ''
-  formData.major = row.major || ''
-  formData.school = row.school || ''
-  formData.emergencyContact = row.emergencyContact || ''
-  formData.archiveDate = row.archiveDate || ''
-  formData.status = row.status
   dialogVisible.value = true
+  try {
+    const detail = await getEmployeeArchiveByIdApi(row.id)
+    formData.employeeId = detail.employeeId
+    formData.employeeName = detail.employeeName
+    formData.education = detail.education || ''
+    formData.major = detail.major || ''
+    formData.school = detail.school || ''
+    formData.emergencyContact = detail.emergencyContact || ''
+    formData.emergencyPhone = detail.emergencyPhone || ''
+    formData.address = detail.address || ''
+    formData.bankCardNumber = detail.bankCardNumber || ''
+    formData.bankName = detail.bankName || ''
+    formData.socialSecurityAccount = detail.socialSecurityAccount || ''
+    formData.archiveDate = detail.archiveDate || ''
+    formData.status = detail.status
+    // 回填员工下拉选项
+    if (detail.employeeId && detail.employeeName) {
+      employeeOptions.value = [{ id: detail.employeeId, name: detail.employeeName } as EmployeeVO]
+    }
+  } catch {
+    ElMessage.error('获取档案详情失败')
+    dialogVisible.value = false
+  }
 }
 
 async function handleDelete(row: EmployeeArchiveVO): Promise<void> {
@@ -403,11 +495,14 @@ async function handleSubmit(): Promise<void> {
 
   submitLoading.value = true
   try {
+    // 从选中的员工获取姓名
+    const selectedEmp = employeeOptions.value.find((e) => e.id === formData.employeeId)
+    const submitData = { ...formData, employeeName: selectedEmp?.name || formData.employeeName }
     if (isEdit.value && editingId.value) {
-      await updateEmployeeArchiveApi({ id: editingId.value, ...formData })
+      await updateEmployeeArchiveApi({ id: editingId.value, ...submitData })
       ElMessage.success('更新成功')
     } else {
-      await createEmployeeArchiveApi(formData)
+      await createEmployeeArchiveApi(submitData)
       ElMessage.success('新增成功')
     }
     dialogVisible.value = false
@@ -420,13 +515,20 @@ async function handleSubmit(): Promise<void> {
 }
 
 function resetForm(): void {
+  formData.employeeId = undefined
   formData.employeeName = ''
   formData.education = ''
   formData.major = ''
   formData.school = ''
   formData.emergencyContact = ''
+  formData.emergencyPhone = ''
+  formData.address = ''
+  formData.bankCardNumber = ''
+  formData.bankName = ''
+  formData.socialSecurityAccount = ''
   formData.archiveDate = ''
   formData.status = 1
+  employeeOptions.value = []
   formRef.value?.resetFields()
 }
 
