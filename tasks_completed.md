@@ -2976,3 +2976,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 重写MsgMessageServiceTest(19个测试用例覆盖create/update/delete/read/readAll分页/事务回滚/并发冲突/校验失败); mvn test全部通过 |
+
+#### P1-003-001-002-001-001 编写接口定义Service接口
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-002-001-001 |
+| 任务名称 | 编写接口定义Service接口 |
+| 完成时间 | 2026-06-09T09:55 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建IMsgTemplateService接口(CRUD方法+@Transactional); 同步创建MsgTemplateEntity/MsgTemplateQueryDTO/MsgTemplateCreateDTO/MsgTemplateUpdateDTO/MsgTemplateListVO; mvn compile通过 |
+| Git SHA | — |
