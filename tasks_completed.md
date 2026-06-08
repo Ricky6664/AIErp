@@ -1972,3 +1972,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W7 |
 | 摘要 | 实现反审引擎(unconfirm): AuditEngineService新增unconfirm方法(postgres行级锁+redis分布式锁+下游单据检查+状态回退2→0), 新增DownstreamChecker接口/DownstreamCheckResult/DTO, AuditConfigService注入下游检查器, Controller新增unconfirm端点, 5个单元测试全通过 |
 | Git commit | (见git log) |
+
+### P0-011-002-011-001-003 验证公告管理
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-011-002-011-001-003 |
+| 任务名称 | 验证公告管理 |
+| 完成时间 | 2026-06-08T20:00 |
+| 状态 | ✅ |
+| 工人 | W5 |
+| 摘要 | 验证系统公告后端全链路: DDL(2表)+Entity(2)/Mapper(2)/DTO(3)/VO(1)/Service(接口+实现)/Controller(6端点), mvn compile通过, 7项验证清单(CRUD/置顶排序/未读列表/已读标记幂等/弹窗API/详情数据/权限控制)全部通过, 输出验证报告docs/test-reports/announcement-management-test.md |
+| Git commit | (见git log) |
