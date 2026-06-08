@@ -64,3 +64,34 @@ export interface DefinitionDetailVO extends DefinitionListVO {
   version: number
   nodes: NodeVO[]
 }
+
+/** 审批实例查询参数 */
+export interface InstanceQueryDTO {
+  businessType?: string
+  status?: string
+  applicantId?: number
+  pageNum?: number
+  pageSize?: number
+}
+
+/** 审批实例创建参数 */
+export interface InstanceCreateDTO {
+  definitionId: number
+  businessType: string
+  businessId: number
+}
+
+/** 审批实例列表项 */
+export interface InstanceVO {
+  id: number
+  definitionId: number
+  definitionName: string
+  businessType: string
+  businessId: number
+  applicantId: number
+  applicantName: string
+  currentNodeId: number
+  currentNodeName: string
+  status: string
+  createTime: string
+}

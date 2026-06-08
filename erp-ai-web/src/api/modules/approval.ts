@@ -5,7 +5,10 @@ import type {
   DefinitionCreateDTO,
   DefinitionUpdateDTO,
   DefinitionListVO,
-  DefinitionDetailVO
+  DefinitionDetailVO,
+  InstanceQueryDTO,
+  InstanceCreateDTO,
+  InstanceVO
 } from '@/api/types/approval'
 
 /** 分页查询审批定义列表 */
@@ -33,4 +36,24 @@ export function updateDefinition(data: DefinitionUpdateDTO): Promise<void> {
 /** 删除审批定义 */
 export function deleteDefinition(id: number): Promise<void> {
   return request.delete(`/api/approval/definition/${id}`)
+}
+
+/** 分页查询审批实例列表 */
+export function getInstancePage(params: InstanceQueryDTO): Promise<PageResult<InstanceVO>> {
+  return request.get('/api/approval/instance', { params })
+}
+
+/** 查询审批实例详情 */
+export function getInstanceDetail(id: number): Promise<InstanceVO> {
+  return request.get(`/api/approval/instance/${id}`)
+}
+
+/** 提交审批（创建审批实例） */
+export function submitInstance(data: InstanceCreateDTO): Promise<number> {
+  return request.post('/api/approval/instance', data)
+}
+
+/** 撤回审批 */
+export function withdrawInstance(id: number): Promise<void> {
+  return request.post(`/api/approval/instance/${id}/withdraw`)
 }
