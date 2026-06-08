@@ -301,4 +301,59 @@ class ApprovalRecordServiceTest {
                     longComment.equals(r.getComment())));
         }
     }
+
+    // ==================== 并发与乐观锁 ====================
+
+    @Nested
+    @DisplayName("并发与乐观锁测试")
+    class ConcurrencyTests {
+
+        @Test
+        @DisplayName("并发修改同一实例 → 乐观锁拦截，仅一个成功")
+        void shouldBlockConcurrentUpdate() {
+            when(instanceMapper.selectById(1L)).thenReturn(instance);
+            // 模拟第一次更新成功，第二次更新时版本已变更返回0
+            when(instanceMapper.updateById(any()))
+                    .thenReturn(1)  // 第一次成功
+                    .thenReturn(0); // 第二次乐观锁拦截
+            doAnswer(inv -> {
+                ApprovalRecordEntity r = inv.getArgument(0);
+                r.setId(200L);
+                return 1;
+            }).when(recordMapper).insert(any(ApprovalRecordEntity.class));
+
+            // 第一个请求成功
+            Long firstId = service.recordAction(actionDTO);
+            assertNotNull(firstId);
+
+            // 第二个并发请求 - 模拟版本冲突
+            RecordActionDTO concurrentDTO = new RecordActionDTO();
+            concurrentDTO.setInstanceId(1L);
+            concurrentDTO.setAction("APPROVE");
+            concurrentDTO.setComment("并发审批");
+            when(instanceMapper.selectById(1L)).thenReturn(instance);
+
+            // updateById返回0表示乐观锁拦截
+            BusinessException ex = assertThrows(BusinessException.class,
+                    () -> service.recordAction(concurrentDTO));
+            assertEquals(ErrorCode.DATA_STATUS_INVALID.getCode(), ex.getCode());
+        }
+
+        @Test
+        @DisplayName("乐观锁版本字段随更新递增")
+        void shouldIncrementVersionOnUpdate() {
+            when(instanceMapper.selectById(1L)).thenReturn(instance);
+            when(instanceMapper.updateById(any())).thenReturn(1);
+            doAnswer(inv -> {
+                ApprovalRecordEntity r = inv.getArgument(0);
+                r.setId(201L);
+                return 1;
+            }).when(recordMapper).insert(any(ApprovalRecordEntity.class));
+
+            service.recordAction(actionDTO);
+
+            verify(instanceMapper).updateById(argThat(e ->
+                    e.getVersion() != null));
+        }
+    }
 }
