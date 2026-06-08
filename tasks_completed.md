@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T07:00
-> **归档总数**：616 条
+> **最后更新**：2026-06-09T08:30
+> **归档总数**：617 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2807,4 +2807,28 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 为审批委托配置页添加前端分页/排序配置: ApprovalDelegateProperties新增Pagination(defaultPageSize/maxPageSize)和Sort(defaultField/defaultOrder)内部类, application.yml新增approval.delegate.pagination和approval.delegate.sort配置段; mvn compile通过 |
+| Git SHA | (见git log) |
+
+#### P1-002-002-007-001-002 验证编写配置项配置
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-002-007-001-002 |
+| 任务名称 | 验证编写配置项配置 |
+| 完成时间 | 2026-06-09T08:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证ApprovalDelegateProperties配置属性类: mvn compile通过, 12/12单测通过(含Bean注入验证/默认值绑定/嵌套对象非空/@ConfigurationProperties前缀验证/@Validated校验), application.yml配置段与Java属性完全对应, 代码一致性与ApprovalUrgeProperties/ApprovalDefinitionProperties对齐 |
+| Git SHA | (见git log) |
+
+#### P1-002-002-008-001-001 实现预置流程配置页面
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-002-008-001-001 |
+| 任务名称 | 实现预置流程配置页面 |
+| 完成时间 | 2026-06-09T08:30 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 实现预置流程配置页面: 审批定义管理Vue页面(搜索/列表/CRUD/启用切换)已存在, API层与类型定义完整, 路由已注册; vue-tsc类型检查通过 |
 | Git SHA | (见git log) |
