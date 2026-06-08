@@ -214,6 +214,14 @@ export const WAREHOUSE_LOCATION: RouteRecordRaw = {
   meta: { title: '库位管理', icon: 'Location', keepAlive: true }
 }
 
+// 员工中心主从列表页
+export const HRM_EMPLOYEECENTER: RouteRecordRaw = {
+  path: '/hrm/employeecenter',
+  name: 'HrmEmployeecenter',
+  component: () => import('@/views/hrm/employeecenter/index.vue'),
+  meta: { title: '员工中心', icon: 'User', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -237,6 +245,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,
+  HRM_EMPLOYEECENTER,
   CHANGE_PASSWORD_ROUTE,
   REDIRECT_ROUTE,
   ERROR_404,

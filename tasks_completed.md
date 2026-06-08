@@ -1971,6 +1971,18 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | erp-ai-web/src/api/modules/hrm-workbench.ts(HrmWorkbenchVO/TrendItem类型+getHrmWorkbenchApi) + erp-ai-web/src/views/hrm/hrmworkbench/index.vue(KPI卡片6个+ECharts折线图x2+饼图x2+Refresh+错误处理+响应式) + src/.../hrm/controller/HrmWorkbenchController.java(暴露/api/hrm/workbench聚合查询端点) |
 | Git commit | (见git log) |
 
+#### P0-012-002-002-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-012-002-002-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-08T20:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | erp-ai-web/src/api/modules/hrm-employee.ts(EmployeeVO/QueryDTO/CreateDTO类型+CRUD 5个API函数) + erp-ai-web/src/views/hrm/employeecenter/index.vue(P03主从列表页:统计卡片4个+搜索防抖300ms+VxeTable虚拟滚动+详情标签页4个+编辑弹窗+删除确认) + src/.../hrm/controller/EmployeeController.java(暴露/api/hrm/employee CRUD端点) + erp-ai-web/src/router/modules/static.ts(路由/hrm/employeecenter注册) + erp-ai-web/src/i18n/locales/zh-CN+en-US/common.ts(HRM员工国际化词条) |
+| Git commit | (见git log) |
+
 ### P1-001 - 通用单据审核引擎开发
 
 #### P1-001-001-002-001-001 编写核心代码

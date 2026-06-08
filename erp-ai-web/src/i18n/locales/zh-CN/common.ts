@@ -140,6 +140,48 @@ const common = {
       companyNameRequired: '公司名称不能为空',
       companyNameLength: '公司名称长度须在2-100个字符之间'
     }
+  },
+  // HRM员工中心
+  hrm: {
+    employee: {
+      total: '员工总数',
+      active: '在职员工',
+      newThisMonth: '本月新入职',
+      departments: '部门数量',
+      name: '姓名',
+      namePlaceholder: '请输入姓名',
+      department: '部门',
+      position: '岗位',
+      status: '员工状态',
+      statusActive: '在职',
+      statusLeave: '离职',
+      statusProbation: '试用期',
+      employeeNo: '工号',
+      employeeNoPlaceholder: '请输入工号',
+      gender: '性别',
+      genderMale: '男',
+      genderFemale: '女',
+      phone: '手机号',
+      phonePlaceholder: '请输入手机号',
+      email: '邮箱',
+      emailPlaceholder: '请输入邮箱',
+      idCard: '身份证号',
+      entryDate: '入职日期',
+      detailTitle: '详细信息',
+      selectHint: '请选择员工查看详情',
+      clickRowHint: '点击左侧表格行查看详情',
+      tabBasic: '基本信息',
+      tabArchive: '档案记录',
+      tabAttendance: '考勤记录',
+      tabSalary: '薪资记录',
+      archiveHint: '档案记录数据待对接',
+      attendanceHint: '考勤记录数据待对接',
+      salaryHint: '薪资记录数据待对接',
+      add: '新增员工',
+      addTitle: '新增员工',
+      editTitle: '编辑员工',
+      recordCount: '共 {total} 条记录'
+    }
   }
 }
 
