@@ -11,6 +11,8 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * 分页响应包装类(PageResult).
@@ -129,5 +131,18 @@ public class PageResult<T> implements Serializable {
      */
     public static <T> PageResult<T> empty() {
         return new PageResult<>(Collections.emptyList(), 0L, 1, 0, 0);
+    }
+
+    /**
+     * 类型转换.
+     */
+    public <R> PageResult<R> convert(Function<T, R> mapper) {
+        PageResult<R> result = new PageResult<>();
+        result.setList(this.list != null ? this.list.stream().map(mapper).collect(Collectors.toList()) : Collections.emptyList());
+        result.setTotal(this.total);
+        result.setPageNum(this.pageNum);
+        result.setPageSize(this.pageSize);
+        result.setPages(this.pages);
+        return result;
     }
 }

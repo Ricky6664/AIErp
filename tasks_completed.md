@@ -1896,3 +1896,17 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W5 |
 | 摘要 | 库位管理P04单列表页(统计卡片/搜索筛选防抖300ms/VxeTable虚拟滚动/新增编辑删除启用停用操作/el-tag状态标签)+API类型定义+API调用模块+路由注册/warehouse/location+vue-tsc零错误 |
 | Git commit | c249b3b3 |
+
+---
+
+## P1-001 通用单据审核引擎开发
+
+| 字段 | 值 |
+|------|-----|
+| 任务编号 | P1-001-001-001-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-08T19:41 |
+| 状态 | ✅ |
+| 工人 | W5 |
+| 摘要 | 实现AuditEngineService(submit+approve)、AuditEngineController、DTOs、实体(SysAuditConfigEntity/SysAuditLogEntity/DocumentStatusEntity)、Mapper、AuditApprovedEvent、单元测试6个全通过 |
+| Git commit | (见git log) |
