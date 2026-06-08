@@ -2009,6 +2009,18 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 实现反审引擎(unconfirm): AuditEngineService新增unconfirm方法(postgres行级锁+redis分布式锁+下游单据检查+状态回退2→0), 新增DownstreamChecker接口/DownstreamCheckResult/DTO, AuditConfigService注入下游检查器, Controller新增unconfirm端点, 5个单元测试全通过 |
 | Git commit | (见git log) |
 
+#### P1-001-001-002-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-001-001-002-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-08T20:30 |
+| 状态 | ✅ |
+| 工人 | W8 |
+| 摘要 | 验证反审接口11项测试: 正常反审/审计日志验证/下游拦截/多下游检查器/4种非已审核状态拒绝(草稿/已提交/已驳回/已作废)/不存在单据/锁冲突/并发锁验证, mvn test 29/29通过, 含testData SQL脚本 |
+| Git commit | (见git log) |
+
 ### P0-011-002-011-001-003 验证公告管理
 
 | 属性 | 值 |
