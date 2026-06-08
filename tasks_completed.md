@@ -3011,5 +3011,5 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 补充delete下游单据校验(BusinessException), MsgMessageServiceTest 20个测试全部通过(BUILD SUCCESS) |
-| Git SHA | (待commit) |
+| Git SHA | b6dfd6d3 |
 
