@@ -270,6 +270,14 @@ export const SYSTEM_ANNOUNCEMENT: RouteRecordRaw = {
   meta: { title: '公告管理', icon: 'Bell', keepAlive: true }
 }
 
+// 审批工作台
+export const APPROVAL_WORKBENCH: RouteRecordRaw = {
+  path: '/approval/workbench',
+  name: 'ApprovalWorkbench',
+  component: () => import('@/views/approval/workbench/index.vue'),
+  meta: { title: '审批工作台', icon: 'DataBoard', keepAlive: true }
+}
+
 // 审批定义管理页
 export const APPROVAL_DEFINITION: RouteRecordRaw = {
   path: '/approval/definition',
@@ -331,6 +339,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   WAREHOUSE_LOCATION,
   SYSTEM_CACHE,
   SYSTEM_ANNOUNCEMENT,
+  APPROVAL_WORKBENCH,
   APPROVAL_DEFINITION,
   APPROVAL_INSTANCE,
   APPROVAL_MY,

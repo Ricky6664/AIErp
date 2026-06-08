@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T06:35
-> **归档总数**：620 条
+> **最后更新**：2026-06-09T09:30
+> **归档总数**：621 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2890,5 +2890,16 @@ n#### P0-006-001-004-001-002 验证功能
 | 完成时间 | 2026-06-09T09:16 |
 | 状态 | ✅ |
 | 工人 | W10 |
-| 摘要 | 创建ChartPanel.vue组件(ECharts初始化+option数据绑定+窗口resize自适应+el-skeleton加载态+el-empty空数据提示+shallowRef优化+onBeforeUnmount清理dispose), vite build编译通过, 无新增类型错误 |
+| Git SHA | (见git log) |
+
+#### P1-002-002-010-003-001 工作台全流程联调
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-002-010-003-001 |
+| 任务名称 | 工作台全流程联调 |
+| 完成时间 | 2026-06-09T09:30 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建approval/workbench/index.vue(全局KPI卡片4个+个人统计3个+快速入口4个+状态分布饼图ChartPanel+定义维度柱状图ChartPanel+最近待审批列表), 注册/approval/workbench路由, vite build通过 |
 | Git SHA | (见git log) |
