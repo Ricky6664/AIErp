@@ -2796,3 +2796,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 验证ApprovalUrgeProperties配置属性类: mvn compile通过, 15/15单测通过(含注入验证/默认值绑定/校验规则/@ConfigurationProperties前缀验证), application.yml配置段与Java属性完全对应 |
 | Git SHA | (见git log) |
+
+#### P1-002-002-007-001-001 编写配置文件类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-002-007-001-001 |
+| 任务名称 | 编写配置文件类 |
+| 完成时间 | 2026-06-09T07:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 为审批委托配置页添加前端分页/排序配置: ApprovalDelegateProperties新增Pagination(defaultPageSize/maxPageSize)和Sort(defaultField/defaultOrder)内部类, application.yml新增approval.delegate.pagination和approval.delegate.sort配置段; mvn compile通过 |
+| Git SHA | (见git log) |
