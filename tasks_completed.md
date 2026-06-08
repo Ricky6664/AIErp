@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T04:00
-> **归档总数**：601 条
+> **最后更新**：2026-06-09T04:35
+> **归档总数**：602 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2513,3 +2513,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 编写ApprovalStatisticsServiceTest(8个单元测试:正常流程2+边界5+异常1,全部PASS); 创建测试报告; mvn compile+test通过 |
 | Git SHA | 8ab61544 |
+
+#### P1-002-001-006-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-006-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T04:35 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 实现审批流程运行时引擎: ApprovalWorkflowRuntimeService(状态机编排:启动/推进/完成/驳回/撤回+flowConfig JSON解析+@Transactional事务), ApprovalWorkflowController(/api/approval/runtime/*运行时API); mvn compile通过 |
+| Git SHA | |
