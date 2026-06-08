@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T01:18
-> **归档总数**：590 条
+> **最后更新**：2026-06-09T01:28
+> **归档总数**：591 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2127,6 +2127,18 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 验证审核引擎与审批流程集成: 更新ApprovalIntegrationTest(新增3节点配置解析+错误码验证+跨模块超时回滚测试+审计日志意见验证), 新增ApprovalCallbackTest(审批通过/驳回回调+幂等验证+审计日志精确验证), 新增approval-integration-test-data.sql(5条配置+5条单据状态), 全量81个测试0失败BUILD SUCCESS |
+| Git commit | (见git log) |
+
+#### P1-001-001-006-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-001-001-006-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T01:28 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 实现审核引擎与系统参数联动: 新增SysAuditConfigUpdateDTO+DocCreatedEvent+AuditParamConstants+AuditConfigController+AutoConfirmListener, 更新AuditConfigService(updateConfig互斥校验+Redis缓存失效+getConfig缓存穿透), 新增AuditConfigServiceTest(6个单元测试覆盖互斥校验/缓存/异常场景), 全量87个测试0失败BUILD SUCCESS |
 | Git commit | (见git log) |
 
 ### P0-011-002-011-001-003 验证公告管理
