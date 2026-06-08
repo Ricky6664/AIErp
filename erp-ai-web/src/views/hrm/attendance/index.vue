@@ -198,7 +198,7 @@
       </div>
     </el-card>
 
-    <!-- 编辑弹窗 -->
+    <!-- 编辑弹窗（P07单一表单页） -->
     <el-dialog
       v-model="dialogVisible"
       :title="isEdit ? $t('hrm.attendance.editTitle') : $t('hrm.attendance.addTitle')"
@@ -210,12 +210,22 @@
         <el-row :gutter="16">
           <el-col :span="12">
             <el-form-item :label="$t('hrm.attendance.employeeId')" prop="employeeId">
-              <el-input-number
+              <el-select
                 v-model="formData.employeeId"
-                :min="1"
                 :placeholder="$t('hrm.attendance.employeeIdPlaceholder')"
+                filterable
+                remote
+                :remote-method="searchEmployees"
+                :loading="employeeLoading"
                 style="width: 100%"
-              />
+              >
+                <el-option
+                  v-for="emp in employeeOptions"
+                  :key="emp.id"
+                  :label="emp.label"
+                  :value="emp.id"
+                />
+              </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -232,7 +242,7 @@
         </el-row>
         <el-row :gutter="16">
           <el-col :span="12">
-            <el-form-item :label="$t('hrm.attendance.checkInTime')">
+            <el-form-item :label="$t('hrm.attendance.checkInTime')" prop="checkInTime">
               <el-date-picker
                 v-model="formData.checkInTime"
                 type="datetime"
@@ -243,7 +253,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item :label="$t('hrm.attendance.checkOutTime')">
+            <el-form-item :label="$t('hrm.attendance.checkOutTime')" prop="checkOutTime">
               <el-date-picker
                 v-model="formData.checkOutTime"
                 type="datetime"
@@ -320,14 +330,19 @@ import {
   type AttendanceQueryDTO,
   type AttendanceCreateDTO
 } from '@/api/modules/hrm-attendance'
+import { getEmployeePageApi } from '@/api/modules/hrm-employee'
+
+const { t } = useI18n()
 
 const formRef = ref<FormInstance>()
 const tableLoading = ref(false)
 const submitLoading = ref(false)
+const employeeLoading = ref(false)
 const dialogVisible = ref(false)
 const isEdit = ref(false)
 const editingId = ref<number | null>(null)
 const tableData = ref<AttendanceVO[]>([])
+const employeeOptions = ref<{ id: number; label: string }[]>([])
 
 let debounceTimer: ReturnType<typeof setTimeout> | null = null
 
@@ -353,11 +368,11 @@ const stats = computed(() => ({
 }))
 
 const attendanceTypeOptions = ref([
-  { value: 'normal', label: '正常' },
-  { value: 'late', label: '迟到' },
-  { value: 'early', label: '早退' },
-  { value: 'absent', label: '缺勤' },
-  { value: 'overtime', label: '加班' }
+  { value: 'normal', label: t('hrm.attendance.typeNormal') },
+  { value: 'late', label: t('hrm.attendance.typeLate') },
+  { value: 'early', label: t('hrm.attendance.typeEarly') },
+  { value: 'absent', label: t('hrm.attendance.typeAbsent') },
+  { value: 'overtime', label: t('hrm.attendance.typeOvertime') }
 ])
 
 const formData = reactive<AttendanceCreateDTO & { id?: number }>({
@@ -370,9 +385,41 @@ const formData = reactive<AttendanceCreateDTO & { id?: number }>({
   overtimeHours: undefined
 })
 
+const validateCheckOutAfterCheckIn = (
+  _rule: unknown,
+  value: string,
+  callback: (e?: Error) => void
+) => {
+  if (value && formData.checkInTime) {
+    if (new Date(value) <= new Date(formData.checkInTime)) {
+      callback(new Error(t('hrm.attendance.checkOutAfterCheckIn')))
+      return
+    }
+  }
+  callback()
+}
+
 const formRules: FormRules = {
-  employeeId: [{ required: true, message: '员工ID不能为空', trigger: 'blur' }],
-  attendanceDate: [{ required: true, message: '考勤日期不能为空', trigger: 'change' }]
+  employeeId: [
+    { required: true, message: t('hrm.attendance.employeeIdPlaceholder'), trigger: 'change' }
+  ],
+  attendanceDate: [{ required: true, message: t('common.pleaseSelect'), trigger: 'change' }],
+  checkOutTime: [{ validator: validateCheckOutAfterCheckIn, trigger: 'change' }]
+}
+
+async function searchEmployees(query: string): Promise<void> {
+  employeeLoading.value = true
+  try {
+    const res = await getEmployeePageApi({ pageNum: 1, pageSize: 20, name: query || undefined })
+    employeeOptions.value = (res.records || []).map((emp) => ({
+      id: emp.id,
+      label: `${emp.name} (${emp.employeeNo})`
+    }))
+  } catch {
+    ElMessage.error(t('hrm.attendance.loadEmployeeFailed'))
+  } finally {
+    employeeLoading.value = false
+  }
 }
 
 async function loadTableData(): Promise<void> {
@@ -390,7 +437,7 @@ async function loadTableData(): Promise<void> {
     tableData.value = res.records || []
     pagination.total = res.total || 0
   } catch {
-    ElMessage.error('加载考勤列表失败')
+    ElMessage.error(t('hrm.attendance.loadFailed'))
   } finally {
     tableLoading.value = false
   }
@@ -419,10 +466,11 @@ function handleCreate(): void {
   isEdit.value = false
   editingId.value = null
   resetForm()
+  searchEmployees('')
   dialogVisible.value = true
 }
 
-function handleEdit(row: AttendanceVO): void {
+async function handleEdit(row: AttendanceVO): Promise<void> {
   isEdit.value = true
   editingId.value = row.id
   formData.employeeId = row.employeeId
@@ -432,16 +480,24 @@ function handleEdit(row: AttendanceVO): void {
   formData.workHours = row.workHours
   formData.attendanceType = row.attendanceType || 'normal'
   formData.overtimeHours = row.overtimeHours
+  // 预加载员工选项用于回显
+  await searchEmployees('')
+  if (row.employeeId && !employeeOptions.value.find((e) => e.id === row.employeeId)) {
+    employeeOptions.value.push({
+      id: row.employeeId,
+      label: row.employeeName || String(row.employeeId)
+    })
+  }
   dialogVisible.value = true
 }
 
 async function handleDelete(row: AttendanceVO): Promise<void> {
   try {
     await deleteAttendanceApi(row.id)
-    ElMessage.success('删除成功')
+    ElMessage.success(t('hrm.attendance.deleteSuccess'))
     loadTableData()
   } catch {
-    ElMessage.error('删除失败')
+    ElMessage.error(t('hrm.attendance.deleteFailed'))
   }
 }
 
@@ -453,15 +509,15 @@ async function handleSubmit(): Promise<void> {
   try {
     if (isEdit.value && editingId.value) {
       await updateAttendanceApi({ id: editingId.value, ...formData })
-      ElMessage.success('更新成功')
+      ElMessage.success(t('hrm.attendance.updateSuccess'))
     } else {
       await createAttendanceApi(formData)
-      ElMessage.success('新增成功')
+      ElMessage.success(t('hrm.attendance.addSuccess'))
     }
     dialogVisible.value = false
     loadTableData()
   } catch {
-    ElMessage.error(isEdit.value ? '更新失败' : '新增失败')
+    ElMessage.error(isEdit.value ? t('hrm.attendance.updateFailed') : t('hrm.attendance.addFailed'))
   } finally {
     submitLoading.value = false
   }
