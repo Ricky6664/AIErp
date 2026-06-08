@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-08T08:10
-> **归档总数**：581 条
+> **最后更新**：2026-06-08T19:55
+> **归档总数**：582 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -1727,7 +1727,7 @@
 | 完成时间 | 2026-06-08T19:45 |
 | 状态 | ✅ |
 | 摘要 | erp-ai-web/src/api/modules/cache.ts(CacheStatsVO/CacheKeyVO类型定义+5个API函数) + erp-ai-web/src/views/system/cache/index.vue(统计卡片4个+Key搜索+el-table列表+JSON格式化Value弹窗+单删二次确认+批量删除+30s自动刷新) + 路由注册erp-ai-web/src/router/modules/static.ts |
-| Git commit | (pending-commit) |
+| Git commit | 037e5639 |
 | 工人 | W7 |
 
 ### P0-012 - HRM人力资源管理模块开发
@@ -1933,4 +1933,16 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W5 |
 | 摘要 | 实现AuditEngineService(submit+approve)、AuditEngineController、DTOs、实体(SysAuditConfigEntity/SysAuditLogEntity/DocumentStatusEntity)、Mapper、AuditApprovedEvent、单元测试6个全通过 |
+| Git commit | (见git log) |
+
+#### P0-012-001-005-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-012-001-005-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-08T19:55 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证HrmWorkbenchAggregateService(编译通过/多租户隔离正确/缓存配置正确)，发现8个问题(缺Controller/缺异常降级/全量加载性能风险/趋势字段错误/缺@CacheEvict等)，编写测试报告和问题清单 |
 | Git commit | (见git log) |
