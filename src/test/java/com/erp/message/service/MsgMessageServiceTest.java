@@ -192,6 +192,18 @@ class MsgMessageServiceTest {
             assertEquals(ErrorCode.DATA_NOT_FOUND.getCode(), ex.getCode());
             verify(mapper, never()).updateById(any());
         }
+
+        @Test
+        @DisplayName("消息已处理(status>0)有下游单据 → 抛出BusinessException(DATA_STATUS_INVALID)")
+        void shouldThrowWhenMessageProcessed() {
+            entity.setStatus(1);
+            when(mapper.selectById(1L)).thenReturn(entity);
+
+            BusinessException ex = assertThrows(BusinessException.class,
+                    () -> service.delete(1L));
+            assertEquals(ErrorCode.DATA_STATUS_INVALID.getCode(), ex.getCode());
+            verify(mapper, never()).updateById(any());
+        }
     }
 
     // ==================== read ====================

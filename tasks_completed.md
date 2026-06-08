@@ -2999,4 +2999,17 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建MsgTemplateServiceImpl(CRUD完整实现+@Transactional+BusinessException); 创建MsgTemplateMapper; mvn compile通过 |
-| Git SHA | (待提交) |
+| Git SHA | 0c6ef19e |
+
+#### P1-003-001-002-001-003 验证Service
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-002-001-003 |
+| 任务名称 | 验证Service |
+| 完成时间 | 2026-06-09T07:30 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 补充delete下游单据校验(BusinessException), MsgMessageServiceTest 20个测试全部通过(BUILD SUCCESS) |
+| Git SHA | (待commit) |
+

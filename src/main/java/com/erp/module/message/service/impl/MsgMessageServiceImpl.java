@@ -87,6 +87,9 @@ public class MsgMessageServiceImpl
         if (entity == null) {
             throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
         }
+        if (entity.getStatus() != null && entity.getStatus() > 0) {
+            throw new BusinessException(ErrorCode.DATA_STATUS_INVALID);
+        }
         entity.setIsDeleted(true);
         updateById(entity);
     }
