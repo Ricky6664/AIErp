@@ -1,13 +1,27 @@
 import request from '@/utils/request'
 
+export interface SalaryDetailItem {
+  lineNo?: number
+  itemName: string
+  itemType: '加项' | '减项'
+  amount: number
+}
+
 export interface SalaryVO {
   id: number
   employeeId: number
+  employeeName?: string
+  fiscalYear?: number
+  fiscalMonth?: number
   baseSalary: number
+  overtimePay?: number
+  bonus?: number
   allowance: number
   deduction: number
   netSalary: number
   salaryMonth: string
+  paymentStatus?: string
+  detailItems?: SalaryDetailItem[]
   createTime?: string
 }
 
@@ -29,13 +43,26 @@ export interface PageResult<T> {
 export interface SalaryCreateDTO {
   employeeId: number
   baseSalary?: number
+  overtimePay?: number
+  bonus?: number
   allowance?: number
   deduction?: number
   salaryMonth: string
+  paymentStatus?: string
+  detailItems?: SalaryDetailItem[]
 }
 
-export interface SalaryUpdateDTO extends SalaryCreateDTO {
+export interface SalaryUpdateDTO {
   id: number
+  employeeId?: number
+  baseSalary?: number
+  overtimePay?: number
+  bonus?: number
+  allowance?: number
+  deduction?: number
+  salaryMonth?: string
+  paymentStatus?: string
+  detailItems?: SalaryDetailItem[]
 }
 
 export function getSalaryPageApi(query: SalaryQueryDTO): Promise<PageResult<SalaryVO>> {

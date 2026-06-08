@@ -254,6 +254,14 @@ export const HRM_ATTENDANCE: RouteRecordRaw = {
   meta: { title: '考勤管理', icon: 'Calendar', keepAlive: true }
 }
 
+// 薪资管理主从列表页
+export const HRM_SALARY: RouteRecordRaw = {
+  path: '/hrm/salary',
+  name: 'HrmSalary',
+  component: () => import('@/views/hrm/salary/index.vue'),
+  meta: { title: '薪资管理', icon: 'Money', keepAlive: true }
+}
+
 // 公告管理页
 export const SYSTEM_ANNOUNCEMENT: RouteRecordRaw = {
   path: '/system/announcement',
@@ -291,6 +299,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   HRM_EMPLOYEEARCHIVE,
   HRM_RECRUITMENT,
   HRM_ATTENDANCE,
+  HRM_SALARY,
   CHANGE_PASSWORD_ROUTE,
   REDIRECT_ROUTE,
   ERROR_404,

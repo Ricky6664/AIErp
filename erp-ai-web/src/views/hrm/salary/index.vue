@@ -195,6 +195,9 @@
           <el-tabs v-else v-model="activeTab" class="detail-tabs">
             <el-tab-pane :label="$t('hrm.salary.tabBreakdown')" name="breakdown">
               <el-descriptions :column="1" border size="small">
+                <el-descriptions-item :label="$t('hrm.salary.employeeId')">
+                  {{ selectedSalary.employeeId }}
+                </el-descriptions-item>
                 <el-descriptions-item :label="$t('hrm.salary.baseSalary')">
                   {{ formatCurrency(selectedSalary.baseSalary) }}
                 </el-descriptions-item>
@@ -243,81 +246,212 @@
       </el-col>
     </el-row>
 
-    <!-- 编辑弹窗 -->
+    <!-- P06 主从表单弹窗 -->
     <el-dialog
       v-model="dialogVisible"
       :title="isEdit ? $t('hrm.salary.editTitle') : $t('hrm.salary.addTitle')"
-      width="600px"
+      width="960px"
       :close-on-click-modal="false"
+      top="5vh"
       @closed="resetForm"
     >
-      <el-form ref="formRef" :model="formData" :rules="formRules" label-width="110px">
-        <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.salary.employeeId')" prop="employeeId">
-              <el-input-number
-                v-model="formData.employeeId"
-                :min="1"
-                :placeholder="$t('hrm.salary.employeeIdPlaceholder')"
-                style="width: 100%"
+      <div class="p06-form-wrap">
+        <!-- 主表单录入区 -->
+        <el-divider content-position="left">{{ $t('hrm.employee.baseInfo') }}</el-divider>
+        <el-form ref="formRef" :model="formData" :rules="formRules" label-width="100px">
+          <el-row :gutter="16">
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.salary.employee')" prop="employeeId">
+                <el-input-number
+                  v-model="formData.employeeId"
+                  :min="1"
+                  :placeholder="$t('hrm.salary.employeeIdPlaceholder')"
+                  style="width: 100%"
+                />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.salary.salaryMonth')" prop="salaryMonth">
+                <el-input
+                  v-model="formData.salaryMonth"
+                  :placeholder="$t('hrm.salary.salaryMonthFormat')"
+                />
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row :gutter="16">
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.salary.fiscalYear')">
+                <el-input-number
+                  v-model="formData.fiscalYear"
+                  :min="2020"
+                  :max="2099"
+                  :step="1"
+                  :placeholder="$t('hrm.salary.fiscalYearPlaceholder')"
+                  style="width: 100%"
+                />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.salary.fiscalMonth')">
+                <el-select v-model="formData.fiscalMonth" style="width: 100%" clearable>
+                  <el-option v-for="m in 12" :key="m" :label="String(m)" :value="m" />
+                </el-select>
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row :gutter="16">
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.salary.baseSalary')">
+                <el-input-number
+                  v-model="formData.baseSalary"
+                  :min="0"
+                  :precision="2"
+                  :step="100"
+                  style="width: 100%"
+                  :placeholder="$t('hrm.salary.baseSalaryPlaceholder')"
+                />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.salary.overtimePay')">
+                <el-input-number
+                  v-model="formData.overtimePay"
+                  :min="0"
+                  :precision="2"
+                  :step="100"
+                  style="width: 100%"
+                  :placeholder="$t('hrm.salary.overtimePayPlaceholder')"
+                />
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row :gutter="16">
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.salary.bonus')">
+                <el-input-number
+                  v-model="formData.bonus"
+                  :min="0"
+                  :precision="2"
+                  :step="100"
+                  style="width: 100%"
+                  :placeholder="$t('hrm.salary.bonusPlaceholder')"
+                />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.salary.deduction')">
+                <el-input-number
+                  v-model="formData.deduction"
+                  :min="0"
+                  :precision="2"
+                  :step="100"
+                  style="width: 100%"
+                  :placeholder="$t('hrm.salary.deductionPlaceholder')"
+                />
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row :gutter="16">
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.salary.paymentStatus')">
+                <el-select v-model="formData.paymentStatus" style="width: 100%" clearable>
+                  <el-option :label="$t('hrm.salary.statusPending')" value="待发放" />
+                  <el-option :label="$t('hrm.salary.statusPaid')" value="已发放" />
+                </el-select>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.salary.netSalaryPreview')">
+                <el-input :value="formatCurrency(netSalaryPreview)" disabled style="width: 100%" />
+              </el-form-item>
+            </el-col>
+          </el-row>
+        </el-form>
+
+        <!-- 明细从表区域 -->
+        <el-divider content-position="left">
+          {{ $t('hrm.salary.detailItems') }}
+          <el-button size="small" type="primary" link class="detail-add-btn" @click="addDetailRow">
+            + {{ $t('hrm.salary.addDetailRow') }}
+          </el-button>
+        </el-divider>
+
+        <vxe-table
+          ref="detailTableRef"
+          :data="detailTableData"
+          :scroll-y="{ enabled: true, gt: 5 }"
+          max-height="280"
+          border
+          stripe
+          style="width: 100%"
+        >
+          <vxe-column type="seq" :title="$t('common.sort')" width="60" align="center" />
+          <vxe-column
+            field="itemName"
+            :title="$t('hrm.salary.detailItemName')"
+            min-width="160"
+            :edit-render="{ autofocus: '.vxe-input--inner' }"
+          >
+            <template #edit="{ row }">
+              <vxe-input
+                v-model="row.itemName"
+                :placeholder="$t('hrm.salary.detailItemNamePlaceholder')"
               />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.salary.salaryMonth')" prop="salaryMonth">
-              <el-input
-                v-model="formData.salaryMonth"
-                :placeholder="$t('hrm.salary.salaryMonthFormat')"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.salary.baseSalary')">
-              <el-input-number
-                v-model="formData.baseSalary"
+            </template>
+          </vxe-column>
+          <vxe-column
+            field="itemType"
+            :title="$t('hrm.salary.detailItemType')"
+            width="120"
+            align="center"
+            :edit-render="{ autofocus: '.vxe-select--panel' }"
+          >
+            <template #default="{ row }">
+              <el-tag :type="row.itemType === '加项' ? 'success' : 'danger'" size="small">
+                {{
+                  row.itemType === '加项'
+                    ? $t('hrm.salary.detailItemTypeAdd')
+                    : $t('hrm.salary.detailItemTypeDeduct')
+                }}
+              </el-tag>
+            </template>
+            <template #edit="{ row }">
+              <vxe-select v-model="row.itemType">
+                <vxe-option :label="$t('hrm.salary.detailItemTypeAdd')" value="加项" />
+                <vxe-option :label="$t('hrm.salary.detailItemTypeDeduct')" value="减项" />
+              </vxe-select>
+            </template>
+          </vxe-column>
+          <vxe-column
+            field="amount"
+            :title="$t('hrm.salary.detailItemAmount')"
+            width="160"
+            align="right"
+            :edit-render="{ autofocus: '.vxe-input--inner' }"
+          >
+            <template #default="{ row }">
+              {{ formatCurrency(row.amount) }}
+            </template>
+            <template #edit="{ row }">
+              <vxe-input
+                v-model="row.amount"
+                type="number"
                 :min="0"
-                :precision="2"
-                :step="100"
-                style="width: 100%"
-                :placeholder="$t('hrm.salary.baseSalaryPlaceholder')"
+                :placeholder="$t('hrm.salary.detailItemAmountPlaceholder')"
               />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.salary.allowance')">
-              <el-input-number
-                v-model="formData.allowance"
-                :min="0"
-                :precision="2"
-                :step="100"
-                style="width: 100%"
-                :placeholder="$t('hrm.salary.allowancePlaceholder')"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.salary.deduction')">
-              <el-input-number
-                v-model="formData.deduction"
-                :min="0"
-                :precision="2"
-                :step="100"
-                style="width: 100%"
-                :placeholder="$t('hrm.salary.deductionPlaceholder')"
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.salary.netSalaryPreview')">
-              <el-input :value="formatCurrency(netSalaryPreview)" disabled style="width: 100%" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-      </el-form>
+            </template>
+          </vxe-column>
+          <vxe-column :title="$t('common.operate')" width="80" align="center">
+            <template #default="{ rowIndex }">
+              <el-button type="danger" link size="small" @click="removeDetailRow(rowIndex)">
+                {{ $t('common.delete') }}
+              </el-button>
+            </template>
+          </vxe-column>
+        </vxe-table>
+      </div>
+
       <template #footer>
         <el-button @click="dialogVisible = false">{{ $t('common.cancel') }}</el-button>
         <el-button type="primary" :loading="submitLoading" @click="handleSubmit">
@@ -334,15 +468,18 @@ import { ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
 import {
   getSalaryPageApi,
+  getSalaryByIdApi,
   createSalaryApi,
   updateSalaryApi,
   deleteSalaryApi,
   type SalaryVO,
   type SalaryQueryDTO,
-  type SalaryCreateDTO
+  type SalaryCreateDTO,
+  type SalaryDetailItem
 } from '@/api/modules/hrm-salary'
 
 const tableRef = ref()
+const detailTableRef = ref()
 const formRef = ref<FormInstance>()
 const tableLoading = ref(false)
 const submitLoading = ref(false)
@@ -352,6 +489,7 @@ const editingId = ref<number | null>(null)
 const selectedSalary = ref<SalaryVO | null>(null)
 const activeTab = ref('breakdown')
 const tableData = ref<SalaryVO[]>([])
+const detailTableData = ref<SalaryDetailItem[]>([])
 
 let debounceTimer: ReturnType<typeof setTimeout> | null = null
 
@@ -383,16 +521,32 @@ const stats = computed(() => {
   }
 })
 
-const formData = reactive<SalaryCreateDTO & { id?: number }>({
+const formData = reactive<{
+  employeeId: number
+  baseSalary: number
+  overtimePay: number
+  bonus: number
+  allowance: number
+  deduction: number
+  salaryMonth: string
+  fiscalYear?: number
+  fiscalMonth?: number
+  paymentStatus?: string
+}>({
   employeeId: 0,
   baseSalary: 0,
+  overtimePay: 0,
+  bonus: 0,
   allowance: 0,
   deduction: 0,
-  salaryMonth: ''
+  salaryMonth: '',
+  fiscalYear: undefined,
+  fiscalMonth: undefined,
+  paymentStatus: undefined
 })
 
 const formRules: FormRules = {
-  employeeId: [{ required: true, message: '员工ID不能为空', trigger: 'blur' }],
+  employeeId: [{ required: true, message: '请选择员工', trigger: 'blur' }],
   salaryMonth: [
     { required: true, message: '薪资月份不能为空', trigger: 'blur' },
     { pattern: /^\d{4}-(0[1-9]|1[0-2])$/, message: '格式: YYYY-MM', trigger: 'blur' }
@@ -401,9 +555,19 @@ const formRules: FormRules = {
 
 const netSalaryPreview = computed(() => {
   const base = formData.baseSalary || 0
-  const allow = formData.allowance || 0
+  const overtime = formData.overtimePay || 0
+  const bonusVal = formData.bonus || 0
+  const allowanceVal = formData.allowance || 0
   const deduct = formData.deduction || 0
-  return (base + allow - deduct).toFixed(2)
+
+  const detailAdd = detailTableData.value
+    .filter((d) => d.itemType === '加项')
+    .reduce((sum, d) => sum + (Number(d.amount) || 0), 0)
+  const detailDeduct = detailTableData.value
+    .filter((d) => d.itemType === '减项')
+    .reduce((sum, d) => sum + (Number(d.amount) || 0), 0)
+
+  return (base + overtime + bonusVal + allowanceVal + detailAdd - deduct - detailDeduct).toFixed(2)
 })
 
 // ========== 数据加载 ==========
@@ -453,6 +617,20 @@ function handleRowChange({ row }: { row: SalaryVO | null }): void {
   }
 }
 
+// ========== 明细行操作 ==========
+function addDetailRow(): void {
+  detailTableData.value.push({
+    lineNo: detailTableData.value.length + 1,
+    itemName: '',
+    itemType: '加项',
+    amount: 0
+  })
+}
+
+function removeDetailRow(index: number): void {
+  detailTableData.value.splice(index, 1)
+}
+
 // ========== CRUD操作 ==========
 function handleCreate(): void {
   isEdit.value = false
@@ -461,15 +639,32 @@ function handleCreate(): void {
   dialogVisible.value = true
 }
 
-function handleEdit(row: SalaryVO): void {
+async function handleEdit(row: SalaryVO): Promise<void> {
   isEdit.value = true
   editingId.value = row.id
-  formData.employeeId = row.employeeId
-  formData.baseSalary = row.baseSalary || 0
-  formData.allowance = row.allowance || 0
-  formData.deduction = row.deduction || 0
-  formData.salaryMonth = row.salaryMonth
-  dialogVisible.value = true
+  submitLoading.value = true
+  try {
+    const detail = await getSalaryByIdApi(row.id)
+    formData.employeeId = detail.employeeId
+    formData.baseSalary = detail.baseSalary || 0
+    formData.overtimePay = detail.overtimePay || 0
+    formData.bonus = detail.bonus || 0
+    formData.allowance = detail.allowance || 0
+    formData.deduction = detail.deduction || 0
+    formData.salaryMonth = detail.salaryMonth
+    formData.fiscalYear = detail.fiscalYear
+    formData.fiscalMonth = detail.fiscalMonth
+    formData.paymentStatus = detail.paymentStatus
+    detailTableData.value = (detail.detailItems || []).map((d, i) => ({
+      ...d,
+      lineNo: i + 1
+    }))
+    dialogVisible.value = true
+  } catch {
+    ElMessage.error('获取薪资详情失败')
+  } finally {
+    submitLoading.value = false
+  }
 }
 
 async function handleDelete(row: SalaryVO): Promise<void> {
@@ -486,16 +681,38 @@ async function handleDelete(row: SalaryVO): Promise<void> {
 }
 
 async function handleSubmit(): Promise<void> {
+  if (detailTableData.value.length === 0) {
+    ElMessage.warning('至少添加一条薪资明细')
+    return
+  }
+
   const valid = await formRef.value?.validate().catch(() => false)
   if (!valid) return
 
   submitLoading.value = true
   try {
+    const dto: SalaryCreateDTO = {
+      employeeId: formData.employeeId,
+      baseSalary: formData.baseSalary,
+      overtimePay: formData.overtimePay,
+      bonus: formData.bonus,
+      allowance: formData.allowance,
+      deduction: formData.deduction,
+      salaryMonth: formData.salaryMonth,
+      paymentStatus: formData.paymentStatus,
+      detailItems: detailTableData.value.map((d, i) => ({
+        lineNo: i + 1,
+        itemName: d.itemName,
+        itemType: d.itemType,
+        amount: Number(d.amount)
+      }))
+    }
+
     if (isEdit.value && editingId.value) {
-      await updateSalaryApi({ id: editingId.value, ...formData })
+      await updateSalaryApi({ id: editingId.value, ...dto })
       ElMessage.success('更新成功')
     } else {
-      await createSalaryApi(formData)
+      await createSalaryApi(dto)
       ElMessage.success('新增成功')
     }
     dialogVisible.value = false
@@ -510,9 +727,15 @@ async function handleSubmit(): Promise<void> {
 function resetForm(): void {
   formData.employeeId = 0
   formData.baseSalary = 0
+  formData.overtimePay = 0
+  formData.bonus = 0
   formData.allowance = 0
   formData.deduction = 0
   formData.salaryMonth = ''
+  formData.fiscalYear = undefined
+  formData.fiscalMonth = undefined
+  formData.paymentStatus = undefined
+  detailTableData.value = []
   formRef.value?.resetFields()
 }
 
@@ -629,6 +852,13 @@ onMounted(() => {
         color: var(--el-color-success);
       }
     }
+  }
+}
+
+.p06-form-wrap {
+  .detail-add-btn {
+    margin-left: 8px;
+    font-weight: 400;
   }
 }
 </style>
