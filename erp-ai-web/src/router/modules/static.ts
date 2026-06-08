@@ -286,6 +286,14 @@ export const APPROVAL_INSTANCE: RouteRecordRaw = {
   meta: { title: '审批实例', icon: 'List', keepAlive: true }
 }
 
+// 我的审批列表页
+export const APPROVAL_MY: RouteRecordRaw = {
+  path: '/approval/my',
+  name: 'ApprovalMy',
+  component: () => import('@/views/approval/my/index.vue'),
+  meta: { title: '我的审批', icon: 'Checked', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -309,6 +317,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   SYSTEM_ANNOUNCEMENT,
   APPROVAL_DEFINITION,
   APPROVAL_INSTANCE,
+  APPROVAL_MY,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,

@@ -8,7 +8,9 @@ import type {
   DefinitionDetailVO,
   InstanceQueryDTO,
   InstanceCreateDTO,
-  InstanceVO
+  InstanceVO,
+  MyApprovalQueryDTO,
+  MyApprovalVO
 } from '@/api/types/approval'
 
 /** 分页查询审批定义列表 */
@@ -56,4 +58,18 @@ export function submitInstance(data: InstanceCreateDTO): Promise<number> {
 /** 撤回审批 */
 export function withdrawInstance(id: number): Promise<void> {
   return request.post(`/api/approval/instance/${id}/withdraw`)
+}
+
+/** 查询我的审批列表（待审/已审/我的申请） */
+export function getMyApprovalPage(params: MyApprovalQueryDTO): Promise<PageResult<MyApprovalVO>> {
+  return request.get('/api/approval/my', { params })
+}
+
+/** 审批操作（通过/驳回） */
+export function recordAction(data: {
+  instanceId: number
+  action: string
+  comment?: string
+}): Promise<number> {
+  return request.post('/api/approval/record', data)
 }

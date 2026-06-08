@@ -95,3 +95,28 @@ export interface InstanceVO {
   status: string
   createTime: string
 }
+
+/** 我的审批查询参数 */
+export interface MyApprovalQueryDTO {
+  /** 标签: pending(待审) / reviewed(已审) / submitted(我的申请) */
+  tab?: string
+  pageNum?: number
+  pageSize?: number
+}
+
+/** 我的审批列表项 */
+export interface MyApprovalVO {
+  instanceId: number
+  definitionId: number
+  definitionName: string
+  businessType: string
+  businessId: number
+  applicantId: number
+  applicantName: string
+  currentNodeName: string
+  status: string
+  myAction: string
+  myComment: string
+  myOperateTime: string
+  createTime: string
+}
