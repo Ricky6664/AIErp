@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T06:46
-> **归档总数**：622 条
+> **最后更新**：2026-06-09T09:32
+> **归档总数**：623 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2927,5 +2927,17 @@ n#### P0-006-001-004-001-002 验证功能
 | 完成时间 | 2026-06-09T09:22 |
 | 状态 | ✅ |
 | 工人 | W10 |
-| 摘要 | 创建MsgMessageServiceImpl(extends ServiceImpl+create/pageList+@Transactional+BusinessException); 同步创建Entity/Mapper/DTO/VO/XML等7个支持文件; mvn compile BUILD SUCCESS |
-| Git SHA | (待提交) |
+| 摘要 | 创建MsgMessageServiceImpl(create/pageList方法+@Transactional); 同步创建Entity/Mapper/接口/DTO/VO/XML等7个支持文件; mvn compile BUILD SUCCESS |
+| Git SHA | 31b0ce68 |
+
+#### P1-003-001-000-001-003 验证Service
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-000-001-003 |
+| 任务名称 | 验证Service |
+| 完成时间 | 2026-06-09T09:32 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MsgMessageServiceTest(12个测试用例覆盖CRUD/事务回滚/并发冲突/校验失败场景); mvn test BUILD SUCCESS |
+| Git SHA | (pending) |
