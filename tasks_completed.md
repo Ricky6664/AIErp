@@ -2595,5 +2595,16 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 创建ApprovalDefinitionMapper.xml(基础字段列表/结果映射/按编码查询/查询所有启用/批量INSERT预置定义)并扩展ApprovalDefinitionMapper接口(3个自定义方法);mvn compile BUILD SUCCESS |
 | Git SHA | (见git log) |
 
+#### P1-002-001-009-001-002 实现预置流程加载逻辑
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-009-001-002 |
+| 任务名称 | 实现预置流程加载逻辑 |
+| 完成时间 | 2026-06-09T04:24 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建ApprovalDefinitionController(CRUD 5个端点);创建前端API模块approval.ts(5个API函数)与类型定义approval.ts;创建审批定义管理Vue页面(搜索/列表/新增/编辑/删除);注册路由;mvn compile BUILD SUCCESS |
+| Git SHA | (见git log) |
+
 
 
