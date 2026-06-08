@@ -2987,4 +2987,4 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建IMsgTemplateService接口(CRUD方法+@Transactional); 同步创建MsgTemplateEntity/MsgTemplateQueryDTO/MsgTemplateCreateDTO/MsgTemplateUpdateDTO/MsgTemplateListVO; mvn compile通过 |
-| Git SHA | — |
+| Git SHA | d0aace19 |
