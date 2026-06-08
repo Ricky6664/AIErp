@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T06:21
-> **归档总数**：604 条
+> **最后更新**：2026-06-09T06:35
+> **归档总数**：605 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2582,6 +2582,17 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建ApprovalDelegatePropertiesTest(12个单元测试覆盖:Bean注入/嵌套对象/默认值/综合绑定/@Min校验/@ConfigurationProperties前缀验证);mvn test全部通过,mvn compile BUILD SUCCESS |
+| Git SHA | (见git log) |
+
+#### P1-002-001-009-001-001 编写预置流程SQL INSERT
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-009-001-001 |
+| 任务名称 | 编写预置流程SQL INSERT |
+| 完成时间 | 2026-06-09T06:35 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建ApprovalDefinitionMapper.xml(基础字段列表/结果映射/按编码查询/查询所有启用/批量INSERT预置定义)并扩展ApprovalDefinitionMapper接口(3个自定义方法);mvn compile BUILD SUCCESS |
 | Git SHA | (见git log) |
 
 
