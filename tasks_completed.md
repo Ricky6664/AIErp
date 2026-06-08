@@ -1739,7 +1739,7 @@
 | 完成时间 | 2026-06-08T19:53 |
 | 状态 | ✅ |
 | 摘要 | IAnnouncementService(extends IServiceX, CRUD+getUnreadList+markAsRead) + AnnouncementServiceImpl(CRUD实现+未读查询+已读标记) + AnnouncementController(6 RESTful端点, CRUD需system:announcement:manage权限) + DTO(AnnouncementCreateDTO/UpdateDTO/QueryDTO) + AnnouncementVO + 公告已读记录表DDL+Entity+Mapper + mvn compile通过 |
-| Git commit | (pending-commit) |
+| Git commit | b80d48a3 |
 | 工人 | W5 |
 
 ### P0-012 - HRM人力资源管理模块开发
