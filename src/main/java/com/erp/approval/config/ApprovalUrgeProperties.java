@@ -1,5 +1,6 @@
 package com.erp.approval.config;
 
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -21,6 +22,10 @@ import org.springframework.validation.annotation.Validated;
  *   <li>approval.urge.auto.cron — 自动催办cron表达式，默认 0 0 9 * * ?(每天9点)</li>
  *   <li>approval.urge.limits.max-per-day — 每天最大催办次数，默认 3</li>
  *   <li>approval.urge.limits.cooldown-hours — 同一审批催办冷却时间(小时)，默认 24</li>
+ *   <li>approval.urge.pagination.default-page-size — 催办记录默认每页条数(5-100)，默认 10</li>
+ *   <li>approval.urge.pagination.max-page-size — 催办记录最大每页条数，默认 50</li>
+ *   <li>approval.urge.sort.default-field — 默认排序字段，默认 createTime</li>
+ *   <li>approval.urge.sort.default-order — 默认排序方向(asc/desc)，默认 desc</li>
  * </ul>
  * </p>
  *
@@ -40,6 +45,10 @@ public class ApprovalUrgeProperties {
     private Auto auto = new Auto();
 
     private Limits limits = new Limits();
+
+    private Pagination pagination = new Pagination();
+
+    private Sort sort = new Sort();
 
     @Data
     public static class Methods {
@@ -73,5 +82,23 @@ public class ApprovalUrgeProperties {
 
         @Min(value = 1, message = "approval.urge.limits.cooldown-hours 必须大于 0")
         private int cooldownHours = 24;
+    }
+
+    @Data
+    public static class Pagination {
+
+        @Min(value = 5, message = "approval.urge.pagination.default-page-size 最小为 5")
+        @Max(value = 100, message = "approval.urge.pagination.default-page-size 最大为 100")
+        private int defaultPageSize = 10;
+
+        private int maxPageSize = 50;
+    }
+
+    @Data
+    public static class Sort {
+
+        private String defaultField = "createTime";
+
+        private String defaultOrder = "desc";
     }
 }

@@ -2772,3 +2772,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 验证审批统计页: 后端8/8单测通过(正常流程+边界+异常), 前端vue-tsc类型检查通过, 前后端API路径与VO类型一致性交叉验证通过, 测试报告已生成 |
 | Git SHA | (见git log) |
+
+#### P1-002-002-006-001-001 编写配置文件类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-002-006-001-001 |
+| 任务名称 | 编写配置文件类 |
+| 完成时间 | 2026-06-09T06:55 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 为审批催办配置页添加前端分页/排序配置: ApprovalUrgeProperties新增Pagination(defaultPageSize/maxPageSize)和Sort(defaultField/defaultOrder)内部类, application.yml新增approval.urge.pagination和approval.urge.sort配置段; mvn compile通过, 15/15单测通过 |
+| Git SHA | (见git log) |

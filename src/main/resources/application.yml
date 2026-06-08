@@ -412,6 +412,16 @@ approval:
       max-per-day: 3
       # 同一审批催办冷却时间(小时)
       cooldown-hours: 24
+    pagination:
+      # 默认每页条数(5-100)
+      default-page-size: 10
+      # 最大每页条数
+      max-page-size: 50
+    sort:
+      # 默认排序字段
+      default-field: createTime
+      # 默认排序方向(asc/desc)
+      default-order: desc
 
   # ---- 审批委托配置 ----
   delegate:
