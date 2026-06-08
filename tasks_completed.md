@@ -1959,6 +1959,18 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 验证HrmWorkbenchAggregateService(编译通过/多租户隔离正确/缓存配置正确)，发现8个问题(缺Controller/缺异常降级/全量加载性能风险/趋势字段错误/缺@CacheEvict等)，编写测试报告和问题清单 |
 | Git commit | (见git log) |
 
+#### P0-012-002-001-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-012-002-001-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-08T20:15 |
+| 状态 | ✅ |
+| 工人 | W8 |
+| 摘要 | erp-ai-web/src/api/modules/hrm-workbench.ts(HrmWorkbenchVO/TrendItem类型+getHrmWorkbenchApi) + erp-ai-web/src/views/hrm/hrmworkbench/index.vue(KPI卡片6个+ECharts折线图x2+饼图x2+Refresh+错误处理+响应式) + src/.../hrm/controller/HrmWorkbenchController.java(暴露/api/hrm/workbench聚合查询端点) |
+| Git commit | (见git log) |
+
 ### P1-001 - 通用单据审核引擎开发
 
 #### P1-001-001-002-001-001 编写核心代码
