@@ -2465,3 +2465,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 创建ApprovalRecordCoreServiceTest(16个测试:转办/加签/催办)+增强ApprovalRecordServiceTest(超长comment边界测试)+测试报告;29个测试全部通过;BUILD SUCCESS |
 | Git SHA | (见git log) |
+
+#### P1-002-001-004-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-004-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T03:25 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MyApprovalQueryDTO/MyApprovalVO/IApprovalMyService/ApprovalMyServiceImpl/ApprovalMyController;实现我的审批查询接口(待审/已审/我的申请)三Tab分页查询;mvn compile通过 |
+| Git SHA | (见git log) |
