@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T03:36
-> **归档总数**：600 条
+> **最后更新**：2026-06-09T04:00
+> **归档总数**：601 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2501,3 +2501,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 实现审批统计接口: ApprovalStatisticsVO(统计数据结构), IApprovalStatisticsService(接口), ApprovalStatisticsServiceImpl(按状态/定义/个人维度统计), ApprovalStatisticsController(/api/approval/statistics); mvn compile通过 |
 | Git SHA | 59c9da03 |
+
+#### P1-002-001-005-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-001-005-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T04:00 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 编写ApprovalStatisticsServiceTest(8个单元测试:正常流程2+边界5+异常1,全部PASS); 创建测试报告; mvn compile+test通过 |
+| Git SHA | (待提交) |
