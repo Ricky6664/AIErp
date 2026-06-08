@@ -2,10 +2,12 @@ package com.erp.approval.controller;
 
 import com.erp.approval.dto.RecordActionDTO;
 import com.erp.approval.dto.RecordCountersignDTO;
+import com.erp.approval.dto.RecordLogQueryDTO;
 import com.erp.approval.dto.RecordTransferDTO;
 import com.erp.approval.dto.RecordUrgeDTO;
 import com.erp.approval.service.ApprovalRecordCoreService;
 import com.erp.approval.service.IApprovalRecordService;
+import com.erp.approval.vo.RecordLogVO;
 import com.erp.approval.vo.RecordVO;
 import com.erp.common.result.PageResult;
 import com.erp.common.result.RT;
@@ -45,6 +47,12 @@ public class ApprovalRecordController {
             @Parameter(description = "页码") @RequestParam(defaultValue = "1") Integer pageNum,
             @Parameter(description = "每页条数") @RequestParam(defaultValue = "10") Integer pageSize) {
         return RT.ok(recordService.pageListByInstance(instanceId, pageNum, pageSize));
+    }
+
+    @Operation(summary = "分页查询审批日志列表")
+    @GetMapping("/record")
+    public RT<PageResult<RecordLogVO>> pageLogList(@Valid RecordLogQueryDTO query) {
+        return RT.ok(recordService.pageLogList(query));
     }
 
     @Operation(summary = "审批操作（通过/驳回）")
