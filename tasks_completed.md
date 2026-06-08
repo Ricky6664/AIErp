@@ -2571,5 +2571,5 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建ApprovalDelegateProperties.java(@ConfigurationProperties绑定approval.delegate.*配置:enabled/maxDelegateDays/autoRevoke/notification.enabled/allowRedelegate)+application.yml新增approval.delegate配置段,mvn compile通过 |
-| Git SHA | (pending) |
+| Git SHA | 91ddca69 |
 
