@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-09T00:10
-> **归档总数**：585 条
+> **归档总数**：586 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2067,6 +2067,18 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W8 |
 | 摘要 | 实��作废引擎(voidDocument): AuditEngineService新增voidDocument方法(Redis分布式锁+PostgreSQL行级锁+状态校验Draft(0)/Submitted(1)/Approved(2)→Voided(4)+审计日志+发布VoidResourceReleaseEvent), 新增AuditVoidDTO/VoidResourceReleaseEvent, Controller新增POST /api/engine/audit/void端点, 9个单元测试全通过(37/37总测试通过) |
 | Git commit | (见git log) |
+| Git commit | (见git log) |
+
+#### P1-001-001-003-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-001-001-003-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T00:21 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证void作废接口: 新增VoidResourceReleaseEventTest(11个测试:5个事件结构验证+6个DTO参数校验覆盖null/空/空格+父类@NotBlank/@NotNull), AuditEngineControllerTest新增void端点2个测试, 创建void-test-data.sql(8条测试数据), 全量audit引擎51个测试0失败 |
 | Git commit | (见git log) |
 
 ### P0-011-002-011-001-003 验证公告管理
