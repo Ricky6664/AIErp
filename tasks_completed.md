@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T09:30
-> **归档总数**：621 条
+> **最后更新**：2026-06-09T06:46
+> **归档总数**：622 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2902,4 +2902,30 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建approval/workbench/index.vue(全局KPI卡片4个+个人统计3个+快速入口4个+状态分布饼图ChartPanel+定义维度柱状图ChartPanel+最近待审批列表), 注册/approval/workbench路由, vite build通过 |
-| Git SHA | (见git log) |
+| Git SHA | e8cab425 |
+
+### P1-003 - 消息管理模块开发
+
+#### P1-003-001-000-001-001 编写工作台聚合SQL
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-000-001-001 |
+| 任务名称 | 编写工作台聚合SQL |
+| 完成时间 | 2026-06-09T06:46 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MessageWorkbenchMapper.xml(覆盖9张消息表: KPI统计18个指标+消息趋势+待办分布/趋势+消息类型分布+推送渠道分布+预警趋势+单据沟通趋势共8个聚合查询); mvn compile BUILD SUCCESS |
+| Git SHA | e8cab425 |
+
+#### P1-003-001-000-001-002 编写ServiceImpl实现类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-000-001-002 |
+| 任务名称 | 编写ServiceImpl实现类 |
+| 完成时间 | 2026-06-09T09:22 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MsgMessageServiceImpl(extends ServiceImpl+create/pageList+@Transactional+BusinessException); 同步创建Entity/Mapper/DTO/VO/XML等7个支持文件; mvn compile BUILD SUCCESS |
+| Git SHA | (待提交) |
