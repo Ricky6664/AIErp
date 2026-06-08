@@ -51,7 +51,7 @@
 |---------|---------|:---:|:---:|:---:|
 | P1-001-001-001-001-001 | 编写核心代码 | L3 | ✅ | W5 |
 | P1-001-001-001-001-002 | 验证功能 | L3 | ⬜ | |
-| P1-001-001-002-001-001 | 编写核心代码 | L3 | 🔄 | W7 |
+| P1-001-001-002-001-001 | 编写核心代码 | L3 | ✅ | W7 |
 | P1-001-001-002-001-002 | 验证功能 | L3 | ⬜ | |
 | P1-001-001-003-001-001 | 编写核心代码 | L3 | ⬜ | |
 | P1-001-001-003-001-002 | 验证功能 | L3 | ⬜ | |
@@ -216,7 +216,7 @@
 | P0-011-002-010-002-001 | 实现缓存管理页面（Key搜索列表Value JSON高亮清除统计卡片） | L5 | ✅ | W7 |
 | P0-011-002-011-001-001 | 编写DDLEntityMapper | L0 | ✅ | W8 |
 | P0-011-002-011-001-002 | 编写ServiceController | L4 | ✅ | W5 |
-| P0-011-002-011-001-003 | 验证公告管理 | L3 | ⬜ | - |
+| P0-011-002-011-001-003 | 验证公告管理 | L3 | 🔄 | W5 |
 | P0-011-002-011-002-001 | 实现公告管理页 | L5 | ⬜ | - |
 | P0-011-002-011-002-002 | 实现公告通知弹窗（登录后弹窗未读公告已读标记详情跳转） | L5 | ⬜ | - |
 
@@ -288,7 +288,7 @@
 | 任务编号 | 工人 | 认领时间 |
 |---------|:---:|---------|
 | P0-012-002-001-001-001 | W8 | 2026-06-08T19:47 |
-| P1-001-001-002-001-001 | W7 | 2026-06-08T19:52 |
+| P0-011-002-011-001-003 | W5 | 2026-06-08T19:58 |
 
 > 用于：超时检测 — 超过 claim_timeout_minutes 视为工人崩溃，自动释放其资源。
 > 认领时追加，完成/阻塞/超时时删除该任务的行。
@@ -305,13 +305,7 @@
 |---------|---------|:---:|
 | erp-ui/src/views/hrm/hrmworkbench/index.vue | P0-012-002-001-001-001 | W8 |
 | erp-ui/src/api/hrm/hrmworkbench.ts | P0-012-002-001-001-001 | W8 |
-| src/main/java/com/erp/engine/audit/service/AuditEngineService.java | P1-001-001-002-001-001 | W7 |
-| src/main/java/com/erp/engine/audit/service/DownstreamChecker.java | P1-001-001-002-001-001 | W7 |
-| src/main/java/com/erp/engine/audit/service/DownstreamCheckResult.java | P1-001-001-002-001-001 | W7 |
-| src/main/java/com/erp/engine/audit/dto/AuditOperationDTO.java | P1-001-001-002-001-001 | W7 |
-| src/main/java/com/erp/engine/audit/service/AuditConfigService.java | P1-001-001-002-001-001 | W7 |
-| src/main/java/com/erp/engine/audit/controller/AuditEngineController.java | P1-001-001-002-001-001 | W7 |
-| src/test/java/com/erp/engine/audit/AuditEngineUnconfirmTest.java | P1-001-001-002-001-001 | W7 |
+| docs/test-reports/announcement-management-test.md | P0-011-002-011-001-003 | W5 |
 
 ---
 
@@ -324,7 +318,7 @@
 | 模块编号 | 工人 | 执行模式 |
 |---------|:---:|:-------:|
 | P0-012 | W8 | PARALLEL |
-| P1-001 | W7 | SERIAL |
+| P0-011 | W5 | PARALLEL |
 
 ---
 
@@ -335,8 +329,8 @@
 | 活跃模块数 | 9 |
 | 叶子任务总数 | 166 |
 | 执行中 | 2 |
-| 已完成 ✅ | 156 |
-| 待认领 | 10 |
+| 已完成 ✅ | 157 |
+| 待认领 | 9 |
 | 活跃认领数 | 2 |
-| 文件锁数量 | 9 |
+| 文件锁数量 | 3 |
 | 占用模块数 | 2 |

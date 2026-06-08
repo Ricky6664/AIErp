@@ -4,6 +4,7 @@ import cn.dev33.satoken.stp.StpUtil;
 import com.erp.common.enums.ErrorCode;
 import com.erp.common.exception.BusinessException;
 import com.erp.engine.audit.dto.AuditApproveDTO;
+import com.erp.engine.audit.dto.AuditOperationDTO;
 import com.erp.engine.audit.dto.AuditSubmitDTO;
 import com.erp.engine.audit.entity.DocumentStatusEntity;
 import com.erp.engine.audit.entity.SysAuditConfigEntity;
@@ -20,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * 审核引擎核心Service.
@@ -115,6 +117,54 @@ public class AuditEngineService {
 
             eventPublisher.publishEvent(new AuditApprovedEvent(
                     this, dto.getDocType(), dto.getDocId()));
+        } finally {
+            stringRedisTemplate.delete(lockKey);
+        }
+    }
+
+    /**
+     * 反审操作.
+     * 状态流转：Approved(2) -> Draft(0)
+     * 前提条件：不存在下游关联单据
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public void unconfirm(AuditOperationDTO dto) {
+        String lockKey = LOCK_PREFIX + dto.getDocType() + ":" + dto.getDocId();
+        Boolean locked = stringRedisTemplate.opsForValue()
+                .setIfAbsent(lockKey, "1", LOCK_TTL);
+        if (Boolean.FALSE.equals(locked)) {
+            throw new BusinessException(ErrorCode.OPERATION_TOO_FREQUENT, "单据正在处理中，请稍后重试");
+        }
+        try {
+            DocumentStatusEntity docStatus = documentStatusMapper
+                    .selectForUpdate(dto.getDocType(), dto.getDocId());
+            if (docStatus == null) {
+                throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "单据不存在");
+            }
+            if (docStatus.getStatus() != 2) {
+                throw new BusinessException(ErrorCode.DATA_STATUS_INVALID,
+                        "仅已审核状态单据可反审，当前状态：" + docStatus.getStatus());
+            }
+
+            List<DownstreamChecker> checkers = auditConfigService
+                    .getDownstreamCheckers(dto.getDocType());
+            for (DownstreamChecker checker : checkers) {
+                DownstreamCheckResult result = checker.check(dto.getDocId());
+                if (result.isHasDownstream()) {
+                    throw new BusinessException(ErrorCode.BUSINESS_ERROR, String.format(
+                            "该单据已有关联下游单据[%s]，无法反审",
+                            result.getDownstreamDocNo()));
+                }
+            }
+
+            int fromStatus = docStatus.getStatus();
+            documentStatusMapper.updateStatus(dto.getDocType(), dto.getDocId(), 0);
+
+            insertAuditLog(dto.getDocType(), dto.getDocId(), "UNAUDIT",
+                    fromStatus, 0, "反审操作");
+
+            log.info("反审成功: docType={}, docId={}, operator={}",
+                    dto.getDocType(), dto.getDocId(), StpUtil.getLoginIdAsLong());
         } finally {
             stringRedisTemplate.delete(lockKey);
         }

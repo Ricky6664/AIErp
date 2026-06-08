@@ -2,6 +2,7 @@ package com.erp.engine.audit.controller;
 
 import com.erp.common.result.RT;
 import com.erp.engine.audit.dto.AuditApproveDTO;
+import com.erp.engine.audit.dto.AuditOperationDTO;
 import com.erp.engine.audit.dto.AuditSubmitDTO;
 import com.erp.engine.audit.service.AuditEngineService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author AI
  */
-@Tag(name = "审核引擎", description = "通用审核提交与通过接口")
+@Tag(name = "审核引擎", description = "通用审核提交、通过与反审接口")
 @RestController
 @RequestMapping("/api/engine/audit")
 @RequiredArgsConstructor
@@ -37,6 +38,13 @@ public class AuditEngineController {
     @PostMapping("/approve")
     public RT<Void> approve(@Valid @RequestBody AuditApproveDTO dto) {
         auditEngineService.approve(dto);
+        return RT.ok();
+    }
+
+    @Operation(summary = "反审", description = "将已审核通过单据反审，状态从2回退至0")
+    @PostMapping("/unconfirm")
+    public RT<Void> unconfirm(@Valid @RequestBody AuditOperationDTO dto) {
+        auditEngineService.unconfirm(dto);
         return RT.ok();
     }
 }

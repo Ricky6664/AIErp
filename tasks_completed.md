@@ -1958,3 +1958,17 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 验证HrmWorkbenchAggregateService(编译通过/多租户隔离正确/缓存配置正确)，发现8个问题(缺Controller/缺异常降级/全量加载性能风险/趋势字段错误/缺@CacheEvict等)，编写测试报告和问题清单 |
 | Git commit | (见git log) |
+
+### P1-001 - 通用单据审核引擎开发
+
+#### P1-001-001-002-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-001-001-002-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-08T19:59 |
+| 状态 | ✅ |
+| 工人 | W7 |
+| 摘要 | 实现反审引擎(unconfirm): AuditEngineService新增unconfirm方法(postgres行级锁+redis分布式锁+下游单据检查+状态回退2→0), 新增DownstreamChecker接口/DownstreamCheckResult/DTO, AuditConfigService注入下游检查器, Controller新增unconfirm端点, 5个单元测试全通过 |
+| Git commit | (见git log) |

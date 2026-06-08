@@ -8,6 +8,9 @@ import com.erp.engine.audit.mapper.AuditConfigMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 审核配置服务.
  *
@@ -18,6 +21,7 @@ import org.springframework.stereotype.Service;
 public class AuditConfigService {
 
     private final AuditConfigMapper auditConfigMapper;
+    private final List<DownstreamChecker> downstreamCheckers;
 
     /**
      * 根据单据类型获取审核配置.
@@ -30,5 +34,18 @@ public class AuditConfigService {
             throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "审核配置不存在: " + docType);
         }
         return config;
+    }
+
+    /**
+     * 获取指定单据类型的下游检查器列表.
+     */
+    public List<DownstreamChecker> getDownstreamCheckers(String docType) {
+        List<DownstreamChecker> result = new ArrayList<>();
+        for (DownstreamChecker checker : downstreamCheckers) {
+            if (checker.supportedDocType().equals(docType)) {
+                result.add(checker);
+            }
+        }
+        return result;
     }
 }
