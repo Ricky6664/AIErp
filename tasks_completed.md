@@ -2699,4 +2699,4 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 验证审批实例列表页功能: 运行18个单元测试全部通过(SubmitTests×5/PageListTests×3/GetByIdTests×2/WithdrawTests×5/BoundaryTests×3), mvn compile通过, 验证清单8项中6项✅2项⏭️(修改/删除不适用于审批实例), 生成测试报告 |
-| Git SHA | {{sha}} |
+| Git SHA | f1a8fdb6 |
