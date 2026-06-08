@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T06:50
-> **归档总数**：615 条
+> **最后更新**：2026-06-09T07:00
+> **归档总数**：616 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2783,4 +2783,16 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 为审批催办配置页添加前端分页/排序配置: ApprovalUrgeProperties新增Pagination(defaultPageSize/maxPageSize)和Sort(defaultField/defaultOrder)内部类, application.yml新增approval.urge.pagination和approval.urge.sort配置段; mvn compile通过, 15/15单测通过 |
+| Git SHA | (见git log) |
+
+#### P1-002-002-006-001-002 验证编写配置项配置
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-002-006-001-002 |
+| 任务名称 | 验证编写配置项配置 |
+| 完成时间 | 2026-06-09T07:00 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证ApprovalUrgeProperties配置属性类: mvn compile通过, 15/15单测通过(含注入验证/默认值绑定/校验规则/@ConfigurationProperties前缀验证), application.yml配置段与Java属性完全对应 |
 | Git SHA | (见git log) |
