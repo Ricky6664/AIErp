@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T05:01
-> **归档总数**：610 条
+> **最后更新**：2026-06-09T05:08
+> **归档总数**：611 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2688,3 +2688,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 实现审批实例列表页: 新增InstanceQueryDTO/InstanceCreateDTO/InstanceVO类型定义, 新增getInstancePage/getInstanceDetail/submitInstance/withdrawInstance API封装, 创建审批实例列表Vue页面(搜索/表格/状态标签/分页/详情对话框/撤回操作), 注册/approval/instance路由, vue-tsc无类型错误 + mvn compile通过 |
 | Git SHA | 5b614542 |
+
+#### P1-002-002-002-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-002-002-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T05:08 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证审批实例列表页功能: 运行18个单元测试全部通过(SubmitTests×5/PageListTests×3/GetByIdTests×2/WithdrawTests×5/BoundaryTests×3), mvn compile通过, 验证清单8项中6项✅2项⏭️(修改/删除不适用于审批实例), 生成测试报告 |
+| Git SHA | {{sha}} |
