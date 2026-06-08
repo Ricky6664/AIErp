@@ -388,3 +388,27 @@ edit-table:
       select: select
       # 长文本类型字段使用文本域
       textarea: textarea
+
+# ---- 审批催办配置 ----
+approval:
+  urge:
+    methods:
+      # 是否启用站内信催办
+      station: true
+      # 是否启用邮件催办
+      email: true
+      # 是否启用短信催办
+      sms: false
+    frequency:
+      # 默认催办频率(daily=每天, weekly=每周)
+      default-frequency: daily
+    auto:
+      # 是否启用自动催办定时任务
+      enabled: false
+      # 自动催办cron表达式
+      cron: "0 0 9 * * ?"
+    limits:
+      # 每天最大催办次数
+      max-per-day: 3
+      # 同一审批催办冷却时间(小时)
+      cooldown-hours: 24
