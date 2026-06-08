@@ -214,6 +214,14 @@ export const WAREHOUSE_LOCATION: RouteRecordRaw = {
   meta: { title: '库位管理', icon: 'Location', keepAlive: true }
 }
 
+// HRM工作台
+export const HRM_WORKBENCH: RouteRecordRaw = {
+  path: '/hrm/workbench',
+  name: 'HrmWorkbench',
+  component: () => import('@/views/hrm/hrmworkbench/index.vue'),
+  meta: { title: 'HRM工作台', icon: 'DataAnalysis', keepAlive: true }
+}
+
 // 员工中心主从列表页
 export const HRM_EMPLOYEECENTER: RouteRecordRaw = {
   path: '/hrm/employeecenter',
@@ -245,6 +253,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,
+  HRM_WORKBENCH,
   HRM_EMPLOYEECENTER,
   CHANGE_PASSWORD_ROUTE,
   REDIRECT_ROUTE,

@@ -143,6 +143,27 @@ const common = {
   },
   // HRM员工中心
   hrm: {
+    workbench: {
+      title: 'HRM工作台',
+      desc: '人力资源管理工作台概览',
+      kpiTitle: '关键指标',
+      employeeCount: '在职/总员工',
+      newHires: '本月新入职',
+      openRecruitments: '开放招聘',
+      monthlySalary: '月度薪资总额',
+      departmentCount: '部门数量',
+      chartTitle: '数据图表',
+      employeeTrend: '员工趋势',
+      deptDist: '部门分布',
+      attendanceTrend: '考勤趋势',
+      recruitStatus: '招聘状态',
+      newEmployee: '新增员工',
+      attendanceRecord: '考勤记录',
+      deptDistribution: '部门分布',
+      recruitStatusDistribution: '招聘状态',
+      loadError: '加载工作台数据失败',
+      noData: '暂无数据'
+    },
     employee: {
       total: '员工总数',
       active: '在职员工',

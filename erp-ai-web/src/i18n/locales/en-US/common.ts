@@ -108,6 +108,27 @@ const common = {
     }
   },
   hrm: {
+    workbench: {
+      title: 'HRM Workbench',
+      desc: 'Human Resource Management Overview',
+      kpiTitle: 'Key Indicators',
+      employeeCount: 'Active/Total Employees',
+      newHires: 'New Hires This Month',
+      openRecruitments: 'Open Recruitments',
+      monthlySalary: 'Monthly Salary Total',
+      departmentCount: 'Departments',
+      chartTitle: 'Charts',
+      employeeTrend: 'Employee Trend',
+      deptDist: 'Department Distribution',
+      attendanceTrend: 'Attendance Trend',
+      recruitStatus: 'Recruitment Status',
+      newEmployee: 'New Employees',
+      attendanceRecord: 'Attendance Records',
+      deptDistribution: 'Department Distribution',
+      recruitStatusDistribution: 'Recruitment Status',
+      loadError: 'Failed to load workbench data',
+      noData: 'No Data'
+    },
     employee: {
       total: 'Total Employees',
       active: 'Active Employees',

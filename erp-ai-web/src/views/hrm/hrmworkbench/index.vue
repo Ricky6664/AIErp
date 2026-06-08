@@ -117,6 +117,7 @@
 import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import { ElMessage } from 'element-plus'
 import { RefreshRight } from '@element-plus/icons-vue'
+import { useI18n } from 'vue-i18n'
 import * as echarts from 'echarts/core'
 import { LineChart, PieChart } from 'echarts/charts'
 import { GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
@@ -124,6 +125,8 @@ import { CanvasRenderer } from 'echarts/renderers'
 import { getHrmWorkbenchApi, type HrmWorkbenchVO } from '@/api/modules/hrm-workbench'
 
 echarts.use([LineChart, PieChart, GridComponent, TooltipComponent, LegendComponent, CanvasRenderer])
+
+const { t } = useI18n()
 
 const loading = ref(false)
 const error = ref(false)
@@ -154,7 +157,7 @@ async function loadData(): Promise<void> {
     renderCharts()
   } catch {
     error.value = true
-    ElMessage.error('加载工作台数据失败')
+    ElMessage.error(t('hrm.workbench.loadError'))
   } finally {
     loading.value = false
   }
@@ -214,7 +217,7 @@ function renderEmployeeTrendChart(): void {
       employeeTrendInstance = v
     },
     trend,
-    '新增员工',
+    t('hrm.workbench.newEmployee'),
     '#409EFF'
   )
 }
@@ -229,7 +232,7 @@ function renderAttendanceTrendChart(): void {
       attendanceTrendInstance = v
     },
     trend,
-    '考勤记录',
+    t('hrm.workbench.attendanceRecord'),
     '#67C23A'
   )
 }
@@ -256,7 +259,7 @@ function renderPieChart(
         type: 'pie',
         radius: ['45%', '70%'],
         center: ['50%', '45%'],
-        data: pieData.length > 0 ? pieData : [{ name: '暂无数据', value: 0 }],
+        data: pieData.length > 0 ? pieData : [{ name: t('hrm.workbench.noData'), value: 0 }],
         emphasis: {
           itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)' }
         },
@@ -276,7 +279,7 @@ function renderDeptDistChart(): void {
       deptDistInstance = v
     },
     data.value.departmentDistribution || {},
-    '部门分布'
+    t('hrm.workbench.deptDistribution')
   )
 }
 
@@ -289,7 +292,7 @@ function renderRecruitStatusChart(): void {
       recruitStatusInstance = v
     },
     data.value.recruitmentStatusDistribution || {},
-    '招聘状态'
+    t('hrm.workbench.recruitStatusDistribution')
   )
 }
 
