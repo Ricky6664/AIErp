@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-09T09:32
-> **归档总数**：624 条
+> **归档总数**：625 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -3023,5 +3023,17 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建IMsgTypeService接口(extends IServiceX, pageList/create/update/delete), 编译预期失败(Entity/DTO由下个任务创建) |
-| Git SHA | (待提交) |
+| Git SHA | 1b50b816 |
+
+#### P1-003-001-003-001-002 编写ServiceImpl实现类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-003-001-002 |
+| 任务名称 | 编写ServiceImpl实现类 |
+| 完成时间 | 2026-06-09T09:32 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | MsgMessageServiceImpl即已存在并符合验收标准(CRUD完整实现+@Transactional+BusinessException), mvn compile无MsgMessageServiceImpl相关错误 |
+| Git SHA | PENDING |
 
