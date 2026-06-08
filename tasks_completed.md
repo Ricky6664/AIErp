@@ -2141,6 +2141,18 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 实现审核引擎与系统参数联动: 新增SysAuditConfigUpdateDTO+DocCreatedEvent+AuditParamConstants+AuditConfigController+AutoConfirmListener, 更新AuditConfigService(updateConfig互斥校验+Redis缓存失效+getConfig缓存穿透), 新增AuditConfigServiceTest(6个单元测试覆盖互斥校验/缓存/异常场景), 全量87个测试0失败BUILD SUCCESS |
 | Git commit | (见git log) |
 
+#### P1-001-001-006-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-001-001-006-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T01:38 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 审核引擎与系统参数联动验证: 增强AuditConfigServiceTest(新增8个测试:null互斥校验+缓存写入+下游检查器过滤), 新建AutoConfirmListenerTest(5个测试:自动确认+未启用+异常隔离), 新建config-test-data.sql(5条配置数据), 全量98个审核引擎测试0失败BUILD SUCCESS |
+| Git commit | (见git log) |
+
 ### P0-011-002-011-001-003 验证公告管理
 
 | 属性 | 值 |

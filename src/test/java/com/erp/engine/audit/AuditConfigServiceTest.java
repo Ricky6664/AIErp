@@ -7,6 +7,7 @@ import com.erp.engine.audit.entity.SysAuditConfigEntity;
 import com.erp.engine.audit.mapper.AuditConfigMapper;
 import com.erp.engine.audit.service.AuditConfigService;
 import com.erp.engine.audit.service.DownstreamChecker;
+import com.erp.engine.audit.service.DownstreamCheckResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -149,5 +151,124 @@ class AuditConfigServiceTest {
         BusinessException ex = assertThrows(BusinessException.class,
                 () -> auditConfigService.getConfig(DOC_TYPE));
         assertThat(ex.getCode()).isEqualTo(ErrorCode.DATA_NOT_FOUND.getCode());
+    }
+
+    @Test
+    void updateConfig_shouldSucceedWhenOnlyAutoConfirmTrue() {
+        SysAuditConfigEntity existing = new SysAuditConfigEntity();
+        existing.setId(1L);
+        existing.setDocType(DOC_TYPE);
+        existing.setAutoConfirm(false);
+        existing.setApprovalEnabled(false);
+        when(auditConfigMapper.selectOne(any())).thenReturn(existing);
+        when(auditConfigMapper.updateById(any())).thenReturn(1);
+
+        SysAuditConfigUpdateDTO dto = new SysAuditConfigUpdateDTO();
+        dto.setDocType(DOC_TYPE);
+        dto.setAutoConfirm(true);
+        dto.setApprovalEnabled(false);
+
+        assertDoesNotThrow(() -> auditConfigService.updateConfig(dto));
+        verify(stringRedisTemplate).delete(CACHE_KEY);
+    }
+
+    @Test
+    void updateConfig_shouldSucceedWhenOnlyApprovalEnabledTrue() {
+        SysAuditConfigEntity existing = new SysAuditConfigEntity();
+        existing.setId(1L);
+        existing.setDocType(DOC_TYPE);
+        existing.setAutoConfirm(false);
+        existing.setApprovalEnabled(false);
+        when(auditConfigMapper.selectOne(any())).thenReturn(existing);
+        when(auditConfigMapper.updateById(any())).thenReturn(1);
+
+        SysAuditConfigUpdateDTO dto = new SysAuditConfigUpdateDTO();
+        dto.setDocType(DOC_TYPE);
+        dto.setAutoConfirm(false);
+        dto.setApprovalEnabled(true);
+
+        assertDoesNotThrow(() -> auditConfigService.updateConfig(dto));
+        verify(stringRedisTemplate).delete(CACHE_KEY);
+    }
+
+    @Test
+    void updateConfig_shouldNotTriggerMutualExclusionWhenAutoConfirmNull() {
+        SysAuditConfigEntity existing = new SysAuditConfigEntity();
+        existing.setId(1L);
+        existing.setDocType(DOC_TYPE);
+        existing.setApprovalEnabled(true);
+        when(auditConfigMapper.selectOne(any())).thenReturn(existing);
+        when(auditConfigMapper.updateById(any())).thenReturn(1);
+
+        SysAuditConfigUpdateDTO dto = new SysAuditConfigUpdateDTO();
+        dto.setDocType(DOC_TYPE);
+        dto.setAutoConfirm(null);
+        dto.setApprovalEnabled(true);
+
+        assertDoesNotThrow(() -> auditConfigService.updateConfig(dto));
+    }
+
+    @Test
+    void updateConfig_shouldNotTriggerMutualExclusionWhenApprovalEnabledNull() {
+        SysAuditConfigEntity existing = new SysAuditConfigEntity();
+        existing.setId(1L);
+        existing.setDocType(DOC_TYPE);
+        existing.setAutoConfirm(true);
+        when(auditConfigMapper.selectOne(any())).thenReturn(existing);
+        when(auditConfigMapper.updateById(any())).thenReturn(1);
+
+        SysAuditConfigUpdateDTO dto = new SysAuditConfigUpdateDTO();
+        dto.setDocType(DOC_TYPE);
+        dto.setAutoConfirm(true);
+        dto.setApprovalEnabled(null);
+
+        assertDoesNotThrow(() -> auditConfigService.updateConfig(dto));
+    }
+
+    @Test
+    void getConfig_shouldWriteToCacheAfterDbFallback() throws Exception {
+        when(valueOperations.get(CACHE_KEY)).thenReturn(null);
+        SysAuditConfigEntity entity = new SysAuditConfigEntity();
+        entity.setId(1L);
+        entity.setDocType(DOC_TYPE);
+        entity.setAutoConfirm(true);
+        entity.setApprovalEnabled(false);
+        when(auditConfigMapper.selectOne(any())).thenReturn(entity);
+
+        auditConfigService.getConfig(DOC_TYPE);
+
+        verify(valueOperations).set(eq(CACHE_KEY), anyString(),
+                eq(2L), eq(TimeUnit.HOURS));
+    }
+
+    @Test
+    void getDownstreamCheckers_shouldFilterByDocType() {
+        DownstreamChecker saleChecker = new DownstreamChecker() {
+            @Override
+            public DownstreamCheckResult check(Long docId) {
+                return DownstreamCheckResult.none();
+            }
+            @Override
+            public String supportedDocType() {
+                return "sale_order";
+            }
+        };
+        DownstreamChecker purchaseChecker = new DownstreamChecker() {
+            @Override
+            public DownstreamCheckResult check(Long docId) {
+                return DownstreamCheckResult.exists("PO-001");
+            }
+            @Override
+            public String supportedDocType() {
+                return "purchase_order";
+            }
+        };
+        List<DownstreamChecker> realList = List.of(saleChecker, purchaseChecker);
+        when(downstreamCheckers.iterator()).thenReturn(realList.iterator());
+
+        List<DownstreamChecker> result = auditConfigService.getDownstreamCheckers("purchase_order");
+
+        assertThat(result).hasSize(1);
+        assertThat(result.get(0).supportedDocType()).isEqualTo("purchase_order");
     }
 }
