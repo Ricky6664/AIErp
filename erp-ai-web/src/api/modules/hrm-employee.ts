@@ -32,6 +32,14 @@ export interface PageResult<T> {
   pages: number
 }
 
+export interface EmployeeArchiveDTO {
+  education?: string
+  major?: string
+  school?: string
+  emergencyContact?: string
+  bankCardNo?: string
+}
+
 export interface EmployeeCreateDTO {
   employeeNo: string
   name: string
@@ -43,6 +51,7 @@ export interface EmployeeCreateDTO {
   positionId?: number
   entryDate?: string
   employeeStatus?: string
+  archives?: EmployeeArchiveDTO[]
 }
 
 export interface EmployeeUpdateDTO extends EmployeeCreateDTO {

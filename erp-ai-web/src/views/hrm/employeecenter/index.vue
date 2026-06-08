@@ -243,48 +243,176 @@
     <el-dialog
       v-model="dialogVisible"
       :title="isEdit ? $t('hrm.employee.editTitle') : $t('hrm.employee.addTitle')"
-      width="600px"
+      width="900px"
       :close-on-click-modal="false"
       @closed="resetForm"
     >
-      <el-form ref="formRef" :model="formData" :rules="formRules" label-width="100px">
-        <el-form-item :label="$t('hrm.employee.employeeNo')" prop="employeeNo">
-          <el-input
-            v-model="formData.employeeNo"
-            :placeholder="$t('hrm.employee.employeeNoPlaceholder')"
-          />
-        </el-form-item>
-        <el-form-item :label="$t('hrm.employee.name')" prop="name">
-          <el-input v-model="formData.name" :placeholder="$t('hrm.employee.namePlaceholder')" />
-        </el-form-item>
-        <el-form-item :label="$t('hrm.employee.gender')">
-          <el-select v-model="formData.gender" style="width: 100%">
-            <el-option :label="$t('hrm.employee.genderMale')" value="男" />
-            <el-option :label="$t('hrm.employee.genderFemale')" value="女" />
-          </el-select>
-        </el-form-item>
-        <el-form-item :label="$t('hrm.employee.phone')">
-          <el-input v-model="formData.phone" :placeholder="$t('hrm.employee.phonePlaceholder')" />
-        </el-form-item>
-        <el-form-item :label="$t('hrm.employee.email')">
-          <el-input v-model="formData.email" :placeholder="$t('hrm.employee.emailPlaceholder')" />
-        </el-form-item>
-        <el-form-item :label="$t('hrm.employee.entryDate')">
-          <el-date-picker
-            v-model="formData.entryDate"
-            type="date"
+      <div class="p06-form-wrap">
+        <el-divider content-position="left">{{ $t('hrm.employee.baseInfo') }}</el-divider>
+        <el-form ref="formRef" :model="formData" :rules="formRules" label-width="100px">
+          <el-row :gutter="16">
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.employee.employeeNo')" prop="employeeNo">
+                <el-input
+                  v-model="formData.employeeNo"
+                  :placeholder="$t('hrm.employee.employeeNoPlaceholder')"
+                  :disabled="isEdit"
+                />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.employee.name')" prop="name">
+                <el-input
+                  v-model="formData.name"
+                  :placeholder="$t('hrm.employee.namePlaceholder')"
+                />
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row :gutter="16">
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.employee.gender')">
+                <el-select v-model="formData.gender" style="width: 100%">
+                  <el-option :label="$t('hrm.employee.genderMale')" value="男" />
+                  <el-option :label="$t('hrm.employee.genderFemale')" value="女" />
+                </el-select>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.employee.idCard')" prop="idCard">
+                <el-input
+                  v-model="formData.idCard"
+                  :placeholder="$t('hrm.employee.idCardPlaceholder')"
+                  maxlength="18"
+                />
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row :gutter="16">
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.employee.phone')" prop="phone">
+                <el-input
+                  v-model="formData.phone"
+                  :placeholder="$t('hrm.employee.phonePlaceholder')"
+                  maxlength="11"
+                />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.employee.email')" prop="email">
+                <el-input
+                  v-model="formData.email"
+                  :placeholder="$t('hrm.employee.emailPlaceholder')"
+                />
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row :gutter="16">
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.employee.department')">
+                <el-select
+                  v-model="formData.departmentId"
+                  style="width: 100%"
+                  :placeholder="$t('common.pleaseSelect')"
+                  clearable
+                >
+                  <el-option
+                    v-for="dept in deptOptions"
+                    :key="dept.value"
+                    :label="dept.label"
+                    :value="dept.value"
+                  />
+                </el-select>
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.employee.position')">
+                <el-input
+                  v-model="formData.positionId"
+                  :placeholder="$t('hrm.employee.positionPlaceholder')"
+                />
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row :gutter="16">
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.employee.entryDate')">
+                <el-date-picker
+                  v-model="formData.entryDate"
+                  type="date"
+                  style="width: 100%"
+                  value-format="YYYY-MM-DD"
+                />
+              </el-form-item>
+            </el-col>
+            <el-col :span="12">
+              <el-form-item :label="$t('hrm.employee.status')">
+                <el-select v-model="formData.employeeStatus" style="width: 100%">
+                  <el-option :label="$t('hrm.employee.statusActive')" value="在职" />
+                  <el-option :label="$t('hrm.employee.statusLeave')" value="离职" />
+                  <el-option :label="$t('hrm.employee.statusProbation')" value="试用期" />
+                </el-select>
+              </el-form-item>
+            </el-col>
+          </el-row>
+        </el-form>
+
+        <el-divider content-position="left">{{ $t('hrm.employee.archiveInfo') }}</el-divider>
+        <div class="archive-table-wrap">
+          <div class="archive-table-header">
+            <span class="archive-table-title">{{ $t('hrm.employee.archiveList') }}</span>
+            <el-button type="primary" size="small" @click="addArchiveRow">
+              + {{ $t('hrm.employee.addArchive') }}
+            </el-button>
+          </div>
+          <vxe-table
+            :data="archiveList"
+            :edit-config="{ trigger: 'click', mode: 'cell' }"
+            border
+            size="small"
+            max-height="300"
             style="width: 100%"
-            value-format="YYYY-MM-DD"
-          />
-        </el-form-item>
-        <el-form-item :label="$t('hrm.employee.status')">
-          <el-select v-model="formData.employeeStatus" style="width: 100%">
-            <el-option :label="$t('hrm.employee.statusActive')" value="在职" />
-            <el-option :label="$t('hrm.employee.statusLeave')" value="离职" />
-            <el-option :label="$t('hrm.employee.statusProbation')" value="试用期" />
-          </el-select>
-        </el-form-item>
-      </el-form>
+          >
+            <vxe-column
+              field="education"
+              :title="$t('hrm.employee.archiveEducation')"
+              min-width="100"
+              :edit-render="{ name: 'input' }"
+            />
+            <vxe-column
+              field="major"
+              :title="$t('hrm.employee.archiveMajor')"
+              min-width="120"
+              :edit-render="{ name: 'input' }"
+            />
+            <vxe-column
+              field="school"
+              :title="$t('hrm.employee.archiveSchool')"
+              min-width="140"
+              :edit-render="{ name: 'input' }"
+            />
+            <vxe-column
+              field="emergencyContact"
+              :title="$t('hrm.employee.archiveEmergencyContact')"
+              min-width="110"
+              :edit-render="{ name: 'input' }"
+            />
+            <vxe-column
+              field="bankCardNo"
+              :title="$t('hrm.employee.archiveBankCardNo')"
+              min-width="140"
+              :edit-render="{ name: 'input' }"
+            />
+            <vxe-column :title="$t('common.operate')" width="80" align="center" fixed="right">
+              <template #default="{ rowIndex }">
+                <el-button type="danger" link size="small" @click="removeArchiveRow(rowIndex)">
+                  {{ $t('common.delete') }}
+                </el-button>
+              </template>
+            </vxe-column>
+          </vxe-table>
+        </div>
+      </div>
       <template #footer>
         <el-button @click="dialogVisible = false">{{ $t('common.cancel') }}</el-button>
         <el-button type="primary" :loading="submitLoading" @click="handleSubmit">
@@ -304,9 +432,11 @@ import {
   createEmployeeApi,
   updateEmployeeApi,
   deleteEmployeeApi,
+  getEmployeeByIdApi,
   type EmployeeVO,
   type EmployeeQueryDTO,
-  type EmployeeCreateDTO
+  type EmployeeCreateDTO,
+  type EmployeeArchiveDTO
 } from '@/api/modules/hrm-employee'
 
 const tableRef = ref()
@@ -345,14 +475,20 @@ const stats = reactive({
 
 const deptOptions = ref<{ label: string; value: number }[]>([])
 
+const archiveList = ref<EmployeeArchiveDTO[]>([])
+
 const formData = reactive<EmployeeCreateDTO>({
   employeeNo: '',
   name: '',
   gender: '男',
+  idCard: '',
   phone: '',
   email: '',
+  departmentId: undefined,
+  positionId: undefined,
   entryDate: '',
-  employeeStatus: '在职'
+  employeeStatus: '在职',
+  archives: []
 })
 
 const formRules: FormRules = {
@@ -363,7 +499,16 @@ const formRules: FormRules = {
   name: [
     { required: true, message: '姓名不能为空', trigger: 'blur' },
     { max: 50, message: '姓名最长50个字符', trigger: 'blur' }
-  ]
+  ],
+  idCard: [
+    {
+      pattern: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
+      message: '身份证号格式不正确',
+      trigger: 'blur'
+    }
+  ],
+  phone: [{ pattern: /^1\d{10}$/, message: '手机号格式不正确', trigger: 'blur' }],
+  email: [{ type: 'email', message: '邮箱格式不正确', trigger: 'blur' }]
 }
 
 // ========== 数据加载 ==========
@@ -440,14 +585,27 @@ function handleCreate(): void {
 function handleEdit(row: EmployeeVO): void {
   isEdit.value = true
   editingId.value = row.id
-  formData.employeeNo = row.employeeNo
-  formData.name = row.name
-  formData.gender = row.gender || '男'
-  formData.phone = row.phone || ''
-  formData.email = row.email || ''
-  formData.entryDate = row.entryDate || ''
-  formData.employeeStatus = row.employeeStatus || '在职'
-  dialogVisible.value = true
+  loadEmployeeDetail(row.id)
+}
+
+async function loadEmployeeDetail(id: number): Promise<void> {
+  try {
+    const detail = await getEmployeeByIdApi(id)
+    formData.employeeNo = detail.employeeNo
+    formData.name = detail.name
+    formData.gender = detail.gender || '男'
+    formData.idCard = detail.idCard || ''
+    formData.phone = detail.phone || ''
+    formData.email = detail.email || ''
+    formData.departmentId = detail.departmentId
+    formData.positionId = detail.positionId
+    formData.entryDate = detail.entryDate || ''
+    formData.employeeStatus = detail.employeeStatus || '在职'
+    archiveList.value = (detail as any).archives || []
+    dialogVisible.value = true
+  } catch {
+    ElMessage.error('加载员工详情失败')
+  }
 }
 
 async function handleDelete(row: EmployeeVO): Promise<void> {
@@ -474,11 +632,12 @@ async function handleSubmit(): Promise<void> {
 
   submitLoading.value = true
   try {
+    const submitData = { ...formData, archives: archiveList.value }
     if (isEdit.value && editingId.value) {
-      await updateEmployeeApi(editingId.value, { ...formData, id: editingId.value })
+      await updateEmployeeApi(editingId.value, { ...submitData, id: editingId.value })
       ElMessage.success('更新成功')
     } else {
-      await createEmployeeApi(formData)
+      await createEmployeeApi(submitData)
       ElMessage.success('新增成功')
     }
     dialogVisible.value = false
@@ -494,11 +653,30 @@ function resetForm(): void {
   formData.employeeNo = ''
   formData.name = ''
   formData.gender = '男'
+  formData.idCard = ''
   formData.phone = ''
   formData.email = ''
+  formData.departmentId = undefined
+  formData.positionId = undefined
   formData.entryDate = ''
   formData.employeeStatus = '在职'
+  archiveList.value = []
   formRef.value?.resetFields()
+}
+
+// ========== 从表操作 ==========
+function addArchiveRow(): void {
+  archiveList.value.push({
+    education: '',
+    major: '',
+    school: '',
+    emergencyContact: '',
+    bankCardNo: ''
+  })
+}
+
+function removeArchiveRow(index: number): void {
+  archiveList.value.splice(index, 1)
 }
 
 // ========== 工具函数 ==========
@@ -604,6 +782,26 @@ onMounted(() => {
         justify-content: center;
         align-items: center;
         min-height: 200px;
+      }
+    }
+  }
+}
+
+.p06-form-wrap {
+  .el-divider {
+    margin: 8px 0 16px;
+  }
+
+  .archive-table-wrap {
+    .archive-table-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+
+      .archive-table-title {
+        font-size: 13px;
+        color: var(--el-text-color-secondary);
       }
     }
   }
