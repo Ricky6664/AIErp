@@ -33,4 +33,7 @@ public class SysAuditConfigEntity extends BaseEntity {
 
     @Schema(description = "是否自动审核通过")
     private Boolean autoConfirm;
+
+    @Schema(description = "审批流程配置(JSON)")
+    private String approvalFlowConfig;
 }

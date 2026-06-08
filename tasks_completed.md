@@ -2105,6 +2105,18 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 验证撤销作废接口: AuditEngineCancelVoidTest(11个单元测试覆盖正常撤销恢复0/1/2三种状态+非已作废状态0/1/2/3拦截+单据不存在+锁冲突+无VOID日志异常), 新增CancelVoidResourceRestoreEventTest(11个测试覆盖事件结构验证+AuditOperationDTO参数校验), 新增cancel-void-test-data.sql(7条单据+完整VOID日志链), 全量22个测试0失败BUILD SUCCESS |
 | Git commit | (见git log) |
 
+#### P1-001-001-005-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-001-001-005-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T01:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 实现审核引擎与P1-002审批流程集成: 新增AuditApprovalIntegrationService(审批实例创建+JSON配置解析), ApprovalCallbackImpl(审批通过/驳回回调+幂等处理), ApprovalFlowConfig/ApprovalNode模型, SysAuditConfigEntity增加approvalFlowConfig字段, ApprovalIntegrationTest(11个单元测试全通过) |
+| Git commit | (见git log) |
+
 ### P0-011-002-011-001-003 验证公告管理
 
 | 属性 | 值 |
