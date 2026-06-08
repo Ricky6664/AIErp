@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-09T09:32
-> **归档总数**：623 条
+> **归档总数**：624 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2988,3 +2988,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 创建IMsgTemplateService接口(CRUD方法+@Transactional); 同步创建MsgTemplateEntity/MsgTemplateQueryDTO/MsgTemplateCreateDTO/MsgTemplateUpdateDTO/MsgTemplateListVO; mvn compile通过 |
 | Git SHA | d0aace19 |
+
+#### P1-003-001-002-001-002 编写ServiceImpl实现类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-002-001-002 |
+| 任务名称 | 编写ServiceImpl实现类 |
+| 完成时间 | 2026-06-09T10:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MsgTemplateServiceImpl(CRUD完整实现+@Transactional+BusinessException); 创建MsgTemplateMapper; mvn compile通过 |
+| Git SHA | (待提交) |
