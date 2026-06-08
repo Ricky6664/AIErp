@@ -6,10 +6,12 @@ import com.erp.common.exception.BusinessException;
 import com.erp.engine.audit.dto.AuditApproveDTO;
 import com.erp.engine.audit.dto.AuditOperationDTO;
 import com.erp.engine.audit.dto.AuditSubmitDTO;
+import com.erp.engine.audit.dto.AuditVoidDTO;
 import com.erp.engine.audit.entity.DocumentStatusEntity;
 import com.erp.engine.audit.entity.SysAuditConfigEntity;
 import com.erp.engine.audit.entity.SysAuditLogEntity;
 import com.erp.engine.audit.event.AuditApprovedEvent;
+import com.erp.engine.audit.event.VoidResourceReleaseEvent;
 import com.erp.engine.audit.mapper.AuditLogMapper;
 import com.erp.engine.audit.mapper.DocumentStatusMapper;
 import lombok.RequiredArgsConstructor;
@@ -117,6 +119,46 @@ public class AuditEngineService {
 
             eventPublisher.publishEvent(new AuditApprovedEvent(
                     this, dto.getDocType(), dto.getDocId()));
+        } finally {
+            stringRedisTemplate.delete(lockKey);
+        }
+    }
+
+    /**
+     * 作废单据.
+     * 状态流转：Draft(0)/Submitted(1)/Approved(2) -> Voided(4)
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public void voidDocument(AuditVoidDTO dto) {
+        String lockKey = LOCK_PREFIX + dto.getDocType() + ":" + dto.getDocId();
+        Boolean locked = stringRedisTemplate.opsForValue()
+                .setIfAbsent(lockKey, "1", LOCK_TTL);
+        if (Boolean.FALSE.equals(locked)) {
+            throw new BusinessException(ErrorCode.OPERATION_TOO_FREQUENT, "单据正在处理中，请稍后重试");
+        }
+        try {
+            DocumentStatusEntity docStatus = documentStatusMapper
+                    .selectForUpdate(dto.getDocType(), dto.getDocId());
+            if (docStatus == null) {
+                throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "单据不存在");
+            }
+
+            int currentStatus = docStatus.getStatus();
+            if (currentStatus != 0 && currentStatus != 1 && currentStatus != 2) {
+                throw new BusinessException(ErrorCode.DATA_STATUS_INVALID,
+                        "仅草稿/已提交/已审核状态可作废，当前状态：" + currentStatus);
+            }
+
+            documentStatusMapper.updateStatus(dto.getDocType(), dto.getDocId(), 4);
+
+            insertAuditLog(dto.getDocType(), dto.getDocId(), "VOID",
+                    currentStatus, 4, dto.getVoidReason());
+
+            eventPublisher.publishEvent(new VoidResourceReleaseEvent(
+                    this, dto.getDocType(), dto.getDocId(), currentStatus));
+
+            log.info("作废成功: docType={}, docId={}, fromStatus={}, operator={}",
+                    dto.getDocType(), dto.getDocId(), currentStatus, StpUtil.getLoginIdAsLong());
         } finally {
             stringRedisTemplate.delete(lockKey);
         }

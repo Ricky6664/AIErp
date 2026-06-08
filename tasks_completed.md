@@ -2019,6 +2019,18 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W8 |
 | 摘要 | 验证反审接口11项测试: 正常反审/审计日志验证/下游拦截/多下游检查器/4种非已审核状态拒绝(草稿/已提交/已驳回/已作废)/不存在单据/锁冲突/并发锁验证, mvn test 29/29通过, 含testData SQL脚本 |
+
+#### P1-001-001-003-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-001-001-003-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-08T22:48 |
+| 状态 | ✅ |
+| 工人 | W8 |
+| 摘要 | 实��作废引擎(voidDocument): AuditEngineService新增voidDocument方法(Redis分布式锁+PostgreSQL行级锁+状态校验Draft(0)/Submitted(1)/Approved(2)→Voided(4)+审计日志+发布VoidResourceReleaseEvent), 新增AuditVoidDTO/VoidResourceReleaseEvent, Controller新增POST /api/engine/audit/void端点, 9个单元测试全通过(37/37总测试通过) |
+| Git commit | (见git log) |
 | Git commit | (见git log) |
 
 ### P0-011-002-011-001-003 验证公告管理
