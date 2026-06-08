@@ -438,6 +438,8 @@ import {
   type EmployeeCreateDTO,
   type EmployeeArchiveDTO
 } from '@/api/modules/hrm-employee'
+import { getDeptTree } from '@/api/modules/system'
+import type { DeptTreeNode } from '@/api/modules/user'
 
 const tableRef = ref()
 const formRef = ref<FormInstance>()
@@ -700,8 +702,26 @@ function maskIdCard(idCard: string | undefined): string {
 }
 
 // ========== 生命周期 ==========
+async function loadDeptOptions(): Promise<void> {
+  try {
+    const tree = await getDeptTree()
+    const flatList: { label: string; value: number }[] = []
+    function flatten(nodes: DeptTreeNode[]): void {
+      for (const n of nodes) {
+        flatList.push({ label: n.name, value: n.id })
+        if (n.children?.length) flatten(n.children)
+      }
+    }
+    flatten(tree || [])
+    deptOptions.value = flatList
+  } catch {
+    // 静默失败，部门筛选不可用时不影响主流程
+  }
+}
+
 onMounted(() => {
   loadTableData()
+  loadDeptOptions()
 })
 </script>
 

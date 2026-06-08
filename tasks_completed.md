@@ -1995,6 +1995,30 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | erp-ai-web/src/api/modules/hrm-employee.ts(EmployeeVO/QueryDTO/CreateDTO类型+CRUD 5个API函数) + erp-ai-web/src/views/hrm/employeecenter/index.vue(P03主从列表页:统计卡片4个+搜索防抖300ms+VxeTable虚拟滚动+详情标签页4个+编辑弹窗+删除确认) + src/.../hrm/controller/EmployeeController.java(暴露/api/hrm/employee CRUD端点) + erp-ai-web/src/router/modules/static.ts(路由/hrm/employeecenter注册) + erp-ai-web/src/i18n/locales/zh-CN+en-US/common.ts(HRM员工国际化词条) |
 | Git commit | (见git log) |
 
+#### P0-012-002-003-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-012-002-003-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-08T22:54 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 升级编辑弹窗为P06大型主从表单(900px), 新增身份证号/部门/岗位字段, 添加员工档案Vxe Table从表(学历/专业/毕业院校/紧急联系人/银行卡号), 支持行内点击编辑+增删行, API层新增EmployeeArchiveDTO类型, 增强表单校验规则(身份证18位/手机号11位/邮箱格式) |
+| Git commit | 4308aabe |
+
+#### P0-012-002-003-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-012-002-003-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-08T23:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证P06主从表单页7项核心用例, 前端类型检查通过, 修复P06新增i18n key缺失(11个zh-CN/en-US), 修复部门下拉无数据源(接入deptTree API), 发现后端缺失archives支持(已记录), 更新测试报告2份 |
+| Git commit | (见git log) |
+
 ### P1-001 - 通用单据审核引擎开发
 
 #### P1-001-001-002-001-001 编写核心代码
