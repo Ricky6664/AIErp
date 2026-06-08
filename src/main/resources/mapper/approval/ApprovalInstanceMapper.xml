@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.approval.mapper.ApprovalInstanceMapper">
+
+    <!-- ==================== 基础字段列表 ==================== -->
+    <sql id="Base_Column_List">
+        id, tenant_id, create_time, update_time, creator_id, updater_id,
+        is_deleted, owner_dept_id, owner_id, version,
+        definition_id, business_type, business_id, applicant_id, current_node_id, status
+    </sql>
+
+    <!-- ==================== 审批统计总览 ==================== -->
+    <select id="selectStatistics" resultType="map">
+        SELECT
+            COUNT(*)                                                    AS total_instances,
+            SUM(CASE WHEN status = 'PENDING'   THEN 1 ELSE 0 END)      AS pending_count,
+            SUM(CASE WHEN status = 'APPROVED'  THEN 1 ELSE 0 END)      AS approved_count,
+            SUM(CASE WHEN status = 'REJECTED'  THEN 1 ELSE 0 END)      AS rejected_count,
+            SUM(CASE WHEN status = 'WITHDRAWN' THEN 1 ELSE 0 END)      AS withdrawn_count,
+            SUM(CASE WHEN status = 'PENDING'
+                      AND applicant_id != #{currentUserId}
+                     THEN 1 ELSE 0 END)                                 AS my_pending_count,
+            SUM(CASE WHEN applicant_id = #{currentUserId}
+                     THEN 1 ELSE 0 END)                                 AS my_submitted_count
+        FROM approval_instance
+        WHERE is_deleted = false
+    </select>
+
+    <!-- ==================== 状态分布统计 ==================== -->
+    <select id="selectStatusDistribution" resultType="map">
+        SELECT
+            status  AS name,
+            COUNT(*) AS value
+        FROM approval_instance
+        WHERE is_deleted = false
+        GROUP BY status
+        ORDER BY value DESC
+    </select>
+
+    <!-- ==================== 定义维度统计 ==================== -->
+    <select id="selectDefinitionCounts" resultType="map">
+        SELECT
+            i.definition_id AS definition_id,
+            d.definition_name AS definition_name,
+            COUNT(*) AS cnt
+        FROM approval_instance i
+        LEFT JOIN approval_definition d ON i.definition_id = d.id
+        WHERE i.is_deleted = false
+          AND i.definition_id IS NOT NULL
+        GROUP BY i.definition_id, d.definition_name
+        ORDER BY cnt DESC
+    </select>
+
+</mapper>

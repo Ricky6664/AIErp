@@ -1,11 +1,6 @@
 package com.erp.approval.service.impl;
 
 import cn.dev33.satoken.stp.StpUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.erp.approval.entity.ApprovalDefinitionEntity;
-import com.erp.approval.entity.ApprovalInstanceEntity;
-import com.erp.approval.entity.ApprovalRecordEntity;
-import com.erp.approval.mapper.ApprovalDefinitionMapper;
 import com.erp.approval.mapper.ApprovalInstanceMapper;
 import com.erp.approval.mapper.ApprovalRecordMapper;
 import com.erp.approval.service.IApprovalStatisticsService;
@@ -14,13 +9,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
- * 审批统计Service实现.
+ * 审批统计Service实现（SQL聚合，避免全量查表后在内存计算）.
  *
  * @author AI
  */
@@ -31,61 +25,55 @@ public class ApprovalStatisticsServiceImpl implements IApprovalStatisticsService
 
     private final ApprovalInstanceMapper instanceMapper;
     private final ApprovalRecordMapper recordMapper;
-    private final ApprovalDefinitionMapper definitionMapper;
 
     @Override
     public ApprovalStatisticsVO getStatistics() {
         Long currentUserId = StpUtil.getLoginIdAsLong();
 
-        List<ApprovalInstanceEntity> allInstances = instanceMapper.selectList(null);
-        List<ApprovalDefinitionEntity> allDefinitions = definitionMapper.selectList(null);
+        Map<String, Object> stats = instanceMapper.selectStatistics(currentUserId);
 
-        Map<String, Long> statusDistribution = allInstances.stream()
-                .collect(Collectors.groupingBy(e -> e.getStatus() != null ? e.getStatus() : "UNKNOWN",
-                        Collectors.counting()));
+        List<Map<String, Object>> statusRows = instanceMapper.selectStatusDistribution();
+        Map<String, Long> statusDistribution = new LinkedHashMap<>();
+        for (Map<String, Object> row : statusRows) {
+            String name = (String) row.get("name");
+            Object value = row.get("value");
+            statusDistribution.put(name != null ? name : "UNKNOWN",
+                    value instanceof Number ? ((Number) value).longValue() : 0L);
+        }
 
-        Map<Long, Long> definitionCounts = allInstances.stream()
-                .filter(e -> e.getDefinitionId() != null)
-                .collect(Collectors.groupingBy(ApprovalInstanceEntity::getDefinitionId,
-                        Collectors.counting()));
+        List<Map<String, Object>> defRows = instanceMapper.selectDefinitionCounts();
+        Map<Long, Long> definitionCounts = new LinkedHashMap<>();
+        for (Map<String, Object> row : defRows) {
+            Object defId = row.get("definition_id");
+            Object cnt = row.get("cnt");
+            if (defId instanceof Number) {
+                definitionCounts.put(((Number) defId).longValue(),
+                        cnt instanceof Number ? ((Number) cnt).longValue() : 0L);
+            }
+        }
 
-        long pendingCount = allInstances.stream()
-                .filter(e -> "PENDING".equals(e.getStatus()))
-                .count();
-        long approvedCount = allInstances.stream()
-                .filter(e -> "APPROVED".equals(e.getStatus()))
-                .count();
-        long rejectedCount = allInstances.stream()
-                .filter(e -> "REJECTED".equals(e.getStatus()))
-                .count();
-        long withdrawnCount = allInstances.stream()
-                .filter(e -> "WITHDRAWN".equals(e.getStatus()))
-                .count();
-
-        long myPendingCount = allInstances.stream()
-                .filter(e -> "PENDING".equals(e.getStatus()) && !currentUserId.equals(e.getApplicantId()))
-                .count();
-        long mySubmittedCount = allInstances.stream()
-                .filter(e -> currentUserId.equals(e.getApplicantId()))
-                .count();
-
-        LambdaQueryWrapper<ApprovalRecordEntity> recordWrapper = new LambdaQueryWrapper<>();
-        recordWrapper.eq(ApprovalRecordEntity::getApproverId, currentUserId);
-        long myReviewedCount = recordMapper.selectCount(recordWrapper);
+        long myReviewedCount = recordMapper.countByApproverId(currentUserId);
 
         ApprovalStatisticsVO vo = new ApprovalStatisticsVO();
-        vo.setTotalInstances((long) allInstances.size());
-        vo.setPendingCount(pendingCount);
-        vo.setApprovedCount(approvedCount);
-        vo.setRejectedCount(rejectedCount);
-        vo.setWithdrawnCount(withdrawnCount);
-        vo.setMyPendingCount(myPendingCount);
+        vo.setTotalInstances(toLong(stats.get("total_instances")));
+        vo.setPendingCount(toLong(stats.get("pending_count")));
+        vo.setApprovedCount(toLong(stats.get("approved_count")));
+        vo.setRejectedCount(toLong(stats.get("rejected_count")));
+        vo.setWithdrawnCount(toLong(stats.get("withdrawn_count")));
+        vo.setMyPendingCount(toLong(stats.get("my_pending_count")));
         vo.setMyReviewedCount(myReviewedCount);
-        vo.setMySubmittedCount(mySubmittedCount);
+        vo.setMySubmittedCount(toLong(stats.get("my_submitted_count")));
         vo.setStatusDistribution(statusDistribution);
         vo.setDefinitionCounts(definitionCounts);
 
-        log.info("审批统计查询完成: total={}, pending={}", allInstances.size(), pendingCount);
+        log.info("审批统计查询完成: total={}, pending={}", vo.getTotalInstances(), vo.getPendingCount());
         return vo;
+    }
+
+    private long toLong(Object val) {
+        if (val instanceof Number) {
+            return ((Number) val).longValue();
+        }
+        return 0L;
     }
 }

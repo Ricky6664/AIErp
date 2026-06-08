@@ -61,4 +61,12 @@ public interface ApprovalRecordMapper extends BaseMapperX<ApprovalRecordEntity> 
      * @return 日志列表（按时间升序）
      */
     List<Map<String, Object>> selectLogByInstanceId(@Param("instanceId") Long instanceId);
+
+    /**
+     * 按审批人统计已审核数量.
+     *
+     * @param approverId 审批人ID
+     * @return 已审核记录数
+     */
+    long countByApproverId(@Param("approverId") Long approverId);
 }

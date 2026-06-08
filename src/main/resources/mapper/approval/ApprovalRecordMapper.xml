@@ -95,4 +95,12 @@
         ORDER BY r.operate_time ASC, r.id ASC
     </select>
 
+    <!-- ==================== 按审批人统计已审数量 ==================== -->
+    <select id="countByApproverId" resultType="long">
+        SELECT COUNT(*)
+        FROM approval_record
+        WHERE approver_id = #{approverId}
+          AND is_deleted = false
+    </select>
+
 </mapper>
