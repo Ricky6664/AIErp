@@ -239,6 +239,32 @@ const common = {
       disable: '停用',
       deleteConfirm: '确认删除该档案？',
       recordCount: '共 {total} 条记录'
+    },
+    recruitment: {
+      totalRecruitments: '招聘总数',
+      recruiting: '招聘中',
+      completed: '已完成',
+      cancelled: '已取消',
+      positionName: '招聘岗位',
+      positionNamePlaceholder: '请输入招聘岗位',
+      departmentName: '所属部门',
+      departmentNamePlaceholder: '请输入所属部门',
+      recruitNum: '招聘人数',
+      recruitNumPlaceholder: '请输入招聘人数',
+      salaryRange: '薪资范围',
+      salaryRangePlaceholder: '请输入薪资范围，如10K-20K',
+      recruitStatus: '招聘状态',
+      statusRecruiting: '招聘中',
+      statusCompleted: '已完成',
+      statusCancelled: '已取消',
+      deadline: '截止日期',
+      add: '新增招聘',
+      addTitle: '新增招聘',
+      editTitle: '编辑招聘',
+      enable: '启用',
+      disable: '停用',
+      deleteConfirm: '确认删除该招聘信息？',
+      recordCount: '共 {total} 条记录'
     }
   }
 }

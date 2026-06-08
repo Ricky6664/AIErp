@@ -2134,3 +2134,24 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 实现公告通知弹窗: AnnouncementPopup.vue(登录后自动弹窗未读公告/点击标记已读并跳转/sessionStorage防重复弹窗), announcement.ts新增getUnreadList/markAsRead API, announcement.ts Pinia全局store管理未读数badge, AppLayout.vue挂载公告弹窗, Navbar.vue集成badge实时同步, 前端pnpm build通过 |
 | Git commit | (见git log) |
+
+
+### P0-012-002-004-001-002 验证员工档案P04单一列表页功能
+
+| 任务编号 | P0-012-002-004-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-08T23:31 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证员工档案P04单一列表页: 代码审查覆盖7项验证清单(路由/数据加载/筛选/CRUD/回显/校验/异常处理), 发现2个阻塞问题(后端API缺失+数据库表缺失)及4个中低优问题, 输出验证报告hrm-EmployeeArchive-frontend-test.md+问题清单hrm-EmployeeArchive-issues.md |
+| Git commit | f55357f2 |
+
+### P0-012-002-005-001-001 编写招聘管理P04单一列表页核心代码
+
+| 任务编号 | P0-012-002-005-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-08T23:45 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建招聘管理P04单一列表页: API层(hrm-recruitment.ts含6个接口+完整类型定义)+页面组件(recruitment/index.vue含统计卡片/搜索筛选/CRUD弹窗/VxeTable/防抖)+路由注册(/hrm/recruitment)+中英文i18n词条(22个), 遵循员工档案P04页面模式 |
+| Git commit | 
