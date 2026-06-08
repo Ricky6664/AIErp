@@ -8,6 +8,7 @@ import com.erp.common.exception.BusinessException;
 import com.erp.common.result.PageResult;
 import com.erp.module.message.dto.MsgMessageCreateDTO;
 import com.erp.module.message.dto.MsgMessageQueryDTO;
+import com.erp.module.message.dto.MsgMessageUpdateDTO;
 import com.erp.module.message.entity.MsgMessageEntity;
 import com.erp.module.message.mapper.MsgMessageMapper;
 import com.erp.module.message.service.impl.MsgMessageServiceImpl;
@@ -112,59 +113,25 @@ class MsgMessageServiceTest {
     // ==================== update ====================
 
     @Nested
-    @DisplayName("updateById - 修改消息")
+    @DisplayName("update - 修改消息")
     class UpdateTests {
 
         @Test
-        @DisplayName("实体存在 → 数据更新成功")
+        @DisplayName("实体存在 → 数据更新成功，version+1")
         void shouldUpdateWhenEntityExists() {
             when(mapper.selectById(1L)).thenReturn(entity);
-            when(mapper.updateById(any())).thenReturn(1);
+            when(mapper.updateById(any(MsgMessageEntity.class))).thenReturn(1);
 
-            MsgMessageEntity update = new MsgMessageEntity();
-            update.setId(1L);
-            update.setMessageTitle("更新后的消息");
-            update.setVersion(0);
+            MsgMessageUpdateDTO dto = new MsgMessageUpdateDTO();
+            dto.setMessageTitle("更新后的标题");
+            dto.setMessageContent("更新后的内容");
 
-            boolean result = service.updateById(update);
+            service.update(1L, dto);
 
-            assertTrue(result);
+            verify(mapper).selectById(1L);
             verify(mapper).updateById(argThat(e ->
-                    "更新后的消息".equals(e.getMessageTitle())));
-        }
-
-        @Test
-        @DisplayName("并发冲突 → 乐观锁异常传播（事务回滚）")
-        void shouldPropagateOptimisticLockFailure() {
-            when(mapper.selectById(1L)).thenReturn(entity);
-            when(mapper.updateById(any()))
-                    .thenThrow(new RuntimeException("Optimistic lock conflict"));
-
-            MsgMessageEntity update = new MsgMessageEntity();
-            update.setId(1L);
-            update.setMessageTitle("并发更新");
-            update.setVersion(0);
-
-            RuntimeException ex = assertThrows(RuntimeException.class,
-                    () -> service.updateById(update));
-            assertTrue(ex.getMessage().contains("Optimistic lock"));
-        }
-    }
-
-    // ==================== delete ====================
-
-    @Nested
-    @DisplayName("removeById - 删除消息")
-    class DeleteTests {
-
-        @Test
-        @DisplayName("实体存在 → 逻辑删除成功")
-        void shouldDeleteWhenEntityExists() {
-            doReturn(true).when(service).removeById(1L);
-
-            boolean result = service.removeById(1L);
-
-            assertTrue(result);
+                    "更新后的标题".equals(e.getMessageTitle())
+                            && "更新后的内容".equals(e.getMessageContent())));
         }
 
         @Test
@@ -172,11 +139,128 @@ class MsgMessageServiceTest {
         void shouldThrowWhenEntityNotFound() {
             when(mapper.selectById(999L)).thenReturn(null);
 
-            // removeById returns false when entity doesn't exist (MP behavior)
-            doReturn(false).when(service).removeById(999L);
+            MsgMessageUpdateDTO dto = new MsgMessageUpdateDTO();
+            dto.setMessageTitle("不存在");
 
-            boolean result = service.removeById(999L);
-            assertFalse(result);
+            BusinessException ex = assertThrows(BusinessException.class,
+                    () -> service.update(999L, dto));
+            assertEquals(ErrorCode.DATA_NOT_FOUND.getCode(), ex.getCode());
+            verify(mapper, never()).updateById(any());
+        }
+
+        @Test
+        @DisplayName("并发冲突(乐观锁失败) → 异常传播，事务回滚")
+        void shouldThrowOnOptimisticLockConflict() {
+            when(mapper.selectById(1L)).thenReturn(entity);
+            when(mapper.updateById(any(MsgMessageEntity.class)))
+                    .thenThrow(new RuntimeException("OptimisticLockingFailure"));
+
+            MsgMessageUpdateDTO dto = new MsgMessageUpdateDTO();
+            dto.setMessageTitle("并发更新");
+
+            RuntimeException ex = assertThrows(RuntimeException.class,
+                    () -> service.update(1L, dto));
+            assertTrue(ex.getMessage().contains("OptimisticLockingFailure"));
+        }
+    }
+
+    // ==================== delete ====================
+
+    @Nested
+    @DisplayName("delete - 删除消息")
+    class DeleteTests {
+
+        @Test
+        @DisplayName("实体存在 → 逻辑删除成功(isDeleted=true)")
+        void shouldDeleteWhenEntityExists() {
+            when(mapper.selectById(1L)).thenReturn(entity);
+            when(mapper.updateById(any(MsgMessageEntity.class))).thenReturn(1);
+
+            service.delete(1L);
+
+            verify(mapper).selectById(1L);
+            verify(mapper).updateById(argThat(MsgMessageEntity::getIsDeleted));
+        }
+
+        @Test
+        @DisplayName("实体不存在 → 抛出BusinessException(DATA_NOT_FOUND)")
+        void shouldThrowWhenEntityNotFound() {
+            when(mapper.selectById(999L)).thenReturn(null);
+
+            BusinessException ex = assertThrows(BusinessException.class,
+                    () -> service.delete(999L));
+            assertEquals(ErrorCode.DATA_NOT_FOUND.getCode(), ex.getCode());
+            verify(mapper, never()).updateById(any());
+        }
+    }
+
+    // ==================== read ====================
+
+    @Nested
+    @DisplayName("read - 标记已读")
+    class ReadTests {
+
+        @Test
+        @DisplayName("实体存在 → readStatus设为1")
+        void shouldMarkAsReadWhenEntityExists() {
+            when(mapper.selectById(1L)).thenReturn(entity);
+            when(mapper.updateById(any(MsgMessageEntity.class))).thenReturn(1);
+
+            service.read(1L);
+
+            verify(mapper).selectById(1L);
+            verify(mapper).updateById(argThat(e ->
+                    e.getReadStatus() != null && e.getReadStatus() == 1));
+        }
+
+        @Test
+        @DisplayName("实体不存在 → 抛出BusinessException(DATA_NOT_FOUND)")
+        void shouldThrowWhenEntityNotFound() {
+            when(mapper.selectById(999L)).thenReturn(null);
+
+            BusinessException ex = assertThrows(BusinessException.class,
+                    () -> service.read(999L));
+            assertEquals(ErrorCode.DATA_NOT_FOUND.getCode(), ex.getCode());
+            verify(mapper, never()).updateById(any());
+        }
+    }
+
+    // ==================== readAll ====================
+
+    @Nested
+    @DisplayName("readAll - 全部标记已读")
+    class ReadAllTests {
+
+        @Test
+        @DisplayName("存在未读消息 → 全部标记为已读")
+        void shouldMarkAllUnreadAsRead() {
+            MsgMessageEntity unreadEntity = new MsgMessageEntity();
+            unreadEntity.setId(2L);
+            unreadEntity.setMessageTitle("未读消息");
+            unreadEntity.setReadStatus(0);
+            unreadEntity.setVersion(0);
+
+            when(mapper.selectList(any(LambdaQueryWrapper.class)))
+                    .thenReturn(java.util.List.of(entity, unreadEntity));
+            when(mapper.updateById(any(MsgMessageEntity.class))).thenReturn(1);
+
+            service.readAll();
+
+            verify(mapper).selectList(any(LambdaQueryWrapper.class));
+            verify(mapper, times(2)).updateById(argThat(e ->
+                    e.getReadStatus() != null && e.getReadStatus() == 1));
+        }
+
+        @Test
+        @DisplayName("无未读消息 → 不执行更新")
+        void shouldNotUpdateWhenNoUnread() {
+            when(mapper.selectList(any(LambdaQueryWrapper.class)))
+                    .thenReturn(java.util.List.of());
+
+            service.readAll();
+
+            verify(mapper).selectList(any(LambdaQueryWrapper.class));
+            verify(mapper, never()).updateById(any());
         }
     }
 
@@ -235,6 +319,34 @@ class MsgMessageServiceTest {
         }
 
         @Test
+        @DisplayName("按msgTypeId查询 → 条件生效")
+        void shouldFilterByMsgTypeId() {
+            IPage<MsgMessageEntity> page = new Page<>(1, 10, 0);
+            when(mapper.selectPage(any(IPage.class), any(LambdaQueryWrapper.class)))
+                    .thenReturn(page);
+
+            MsgMessageQueryDTO query = new MsgMessageQueryDTO();
+            query.setMsgTypeId(10L);
+            service.pageList(query);
+
+            verify(mapper).selectPage(any(IPage.class), any(LambdaQueryWrapper.class));
+        }
+
+        @Test
+        @DisplayName("按receiverId查询 → 条件生效")
+        void shouldFilterByReceiverId() {
+            IPage<MsgMessageEntity> page = new Page<>(1, 10, 0);
+            when(mapper.selectPage(any(IPage.class), any(LambdaQueryWrapper.class)))
+                    .thenReturn(page);
+
+            MsgMessageQueryDTO query = new MsgMessageQueryDTO();
+            query.setReceiverId(100L);
+            service.pageList(query);
+
+            verify(mapper).selectPage(any(IPage.class), any(LambdaQueryWrapper.class));
+        }
+
+        @Test
         @DisplayName("pageNum/pageSize为空 → 使用默认值(1/10)")
         void shouldUseDefaultPagination() {
             IPage<MsgMessageEntity> page = new Page<>(1, 10, 1);
@@ -250,14 +362,14 @@ class MsgMessageServiceTest {
         }
     }
 
-    // ==================== 事务回滚验证 ====================
+    // ==================== 事务回滚 ====================
 
     @Nested
     @DisplayName("事务回滚 - 数据一致性")
     class TransactionRollbackTests {
 
         @Test
-        @DisplayName("save中间抛异常 → 数据不回写（事务边界验证）")
+        @DisplayName("save中间抛异常 → 异常传播，数据不回写")
         void shouldNotPersistWhenExceptionInSave() {
             doThrow(new RuntimeException("DB connection lost"))
                     .when(service).save(any(MsgMessageEntity.class));
