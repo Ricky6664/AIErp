@@ -134,3 +134,37 @@ export interface MyApprovalVO {
   myOperateTime: string
   createTime: string
 }
+
+/** 审批记录日志查询参数 */
+export interface RecordLogQueryDTO {
+  definitionId?: number
+  action?: string
+  status?: string
+  businessType?: string
+  applicantId?: number
+  approverId?: number
+  startTime?: string
+  endTime?: string
+  pageNum?: number
+  pageSize?: number
+}
+
+/** 审批记录日志VO */
+export interface RecordLogVO {
+  recordId: number
+  instanceId: number
+  nodeName: string
+  approverId: number
+  action: string
+  comment: string
+  operateTime: string
+  recordCreateTime: string
+  definitionId: number
+  businessType: string
+  businessId: number
+  applicantId: number
+  instanceStatus: string
+  currentNodeId: number
+  definitionName: string
+  definitionCode: string
+}

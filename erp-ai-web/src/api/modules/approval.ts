@@ -11,7 +11,9 @@ import type {
   InstanceVO,
   MyApprovalQueryDTO,
   MyApprovalVO,
-  ApprovalStatisticsVO
+  ApprovalStatisticsVO,
+  RecordLogQueryDTO,
+  RecordLogVO
 } from '@/api/types/approval'
 
 /** 分页查询审批定义列表 */
@@ -78,4 +80,9 @@ export function recordAction(data: {
 /** 获取审批统计数据 */
 export function getStatistics(): Promise<ApprovalStatisticsVO> {
   return request.get('/api/approval/statistics')
+}
+
+/** 分页查询审批记录日志 */
+export function getRecordLogPage(params: RecordLogQueryDTO): Promise<PageResult<RecordLogVO>> {
+  return request.get('/api/approval/record', { params })
 }
