@@ -2638,5 +2638,17 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 创建ApprovalInstanceMapper.xml(selectStatistics总览统计/selectStatusDistribution状态分布/selectDefinitionCounts定义维度统计);扩展ApprovalInstanceMapper接口(3个统计方法);ApprovalRecordMapper新增countByApproverId;ApprovalStatisticsServiceImpl改为SQL聚合(不再全量查表后内存计算);mvn compile BUILD SUCCESS |
 | Git SHA | (见git log) |
 
+#### P1-002-002-001-001-001 编写配置文件类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-002-001-001-001 |
+| 任务名称 | 编写配置文件类 |
+| 完成时间 | 2026-06-09T02:50 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建ApprovalDefinitionProperties.java(审批定义配置属性类:分页/排序/节点/缓存4组配置,bind approval.definition.*);application.yml新增approval.definition配置段(4组16个配置项);mvn compile BUILD SUCCESS |
+| Git SHA | (见git log) |
+
 
 
