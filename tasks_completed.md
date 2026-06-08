@@ -1756,6 +1756,18 @@
 | Git commit | (pending-commit) |
 | 工人 | W5 |
 
+#### P0-012-001-005-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-012-001-005-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-08T19:43 |
+| 状态 | ✅ |
+| 摘要 | 创建HrmWorkbenchAggregateServiceImpl(@Cacheable聚合查询/KPI卡片+图表趋势数据/多租户隔离/异常降级) + HrmWorkbenchAggregateVO(10个聚合指标) |
+| Git commit | (pending-commit) |
+| 工人 | W10 |
+
 ---
 
 #### P0-006-001-002-001-001 编写接口定义Service接口
