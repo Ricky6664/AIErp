@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T04:53
-> **归档总数**：608 条
+> **最后更新**：2026-06-09T05:10
+> **归档总数**：609 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2661,4 +2661,17 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 验证审批日志查询与统计接口: mvn compile通过, 139个测试全通过(修复ApprovalStatisticsServiceTest构造函数参数不匹配); 验证/api/approval/{definition,instance,record,my,statistics}共5个API端点; 日志查询SQL(selectLogList/LogCount/LogByInstanceId)三表JOIN含is_deleted过滤; 统计SQL(selectStatistics/selectStatusDistribution/selectDefinitionCounts)使用SQL聚合 |
+| Git SHA | (见git log) |
+
+
+#### P1-002-002-001-001-002 验证编写配置项配置
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-002-002-001-001-002 |
+| 任务名称 | 验证编写配置项配置 |
+| 完成时间 | 2026-06-09T05:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证ApprovalDefinitionProperties配置属性类: @ConfigurationProperties绑定approval.definition.*正确, 4组内部配置类(Pagination/Sort/Node/Cache)含@Validated校验注解, application.yml配置段字段与Properties完全匹配(8个叶子键值), mvn compile通过无ERROR |
 | Git SHA | (见git log) |
