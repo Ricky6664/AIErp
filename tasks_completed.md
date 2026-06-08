@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-09T09:50
-> **归档总数**：626 条
+> **归档总数**：627 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -3048,4 +3048,16 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 20个单元测试全部通过(CRUD+业务方法+事务回滚+异常处理+数据一致性), 删除孤立的IMsgTypeService修复编译, mvn compile BUILD SUCCESS |
 | Git SHA | e834cde1 |
+
+#### P1-003-001-004-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-004-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T07:50 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MsgTodoServiceImpl/AuditEngineService/TodoApprovedEvent/MsgTodoController等12个文件, mvn compile BUILD SUCCESS |
+| Git SHA | 
 
