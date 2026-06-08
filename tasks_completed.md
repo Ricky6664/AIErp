@@ -1718,6 +1718,18 @@
 | Git commit | (pending-commit) |
 | 工人 | W8 |
 
+#### P0-011-002-010-002-001 ✅
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P0-011-002-010-002-001 |
+| 任务名称 | 实现缓存管理页面（Key搜索+列表+Value JSON高亮+清除+统计卡片） |
+| 完成时间 | 2026-06-08T19:45 |
+| 状态 | ✅ |
+| 摘要 | erp-ai-web/src/api/modules/cache.ts(CacheStatsVO/CacheKeyVO类型定义+5个API函数) + erp-ai-web/src/views/system/cache/index.vue(统计卡片4个+Key搜索+el-table列表+JSON格式化Value弹窗+单删二次确认+批量删除+30s自动刷新) + 路由注册erp-ai-web/src/router/modules/static.ts |
+| Git commit | (pending-commit) |
+| 工人 | W7 |
+
 ### P0-012 - HRM人力资源管理模块开发
 
 #### P0-012-001-004-001-001 编写接口定义Service接口

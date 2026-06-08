@@ -198,6 +198,14 @@ export const WAREHOUSE_LIST: RouteRecordRaw = {
   meta: { title: '仓库定义', icon: 'Box', keepAlive: true }
 }
 
+// 缓存管理页
+export const SYSTEM_CACHE: RouteRecordRaw = {
+  path: '/system/cache',
+  name: 'SystemCache',
+  component: () => import('@/views/system/cache/index.vue'),
+  meta: { title: '缓存管理', icon: 'Monitor', keepAlive: true }
+}
+
 // 库位管理列表页
 export const WAREHOUSE_LOCATION: RouteRecordRaw = {
   path: '/warehouse/location',
@@ -225,6 +233,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   ORG_WORKBENCH,
   WAREHOUSE_LIST,
   WAREHOUSE_LOCATION,
+  SYSTEM_CACHE,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,
