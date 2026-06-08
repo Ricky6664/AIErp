@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author AI
  */
-@Tag(name = "审核引擎", description = "通用审核提交、通过、作废与反审接口")
+@Tag(name = "审核引擎", description = "通用审核提交、通过、作废、反审与撤销作废接口")
 @RestController
 @RequestMapping("/api/engine/audit")
 @RequiredArgsConstructor
@@ -53,6 +53,13 @@ public class AuditEngineController {
     @PostMapping("/unconfirm")
     public RT<Void> unconfirm(@Valid @RequestBody AuditOperationDTO dto) {
         auditEngineService.unconfirm(dto);
+        return RT.ok();
+    }
+
+    @Operation(summary = "撤销作废", description = "将已作废单据撤销作废，状态从4恢复至作废前原始状态")
+    @PostMapping("/cancel-void")
+    public RT<Void> cancelVoid(@Valid @RequestBody AuditOperationDTO dto) {
+        auditEngineService.cancelVoid(dto);
         return RT.ok();
     }
 }

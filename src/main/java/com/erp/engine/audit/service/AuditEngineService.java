@@ -11,6 +11,7 @@ import com.erp.engine.audit.entity.DocumentStatusEntity;
 import com.erp.engine.audit.entity.SysAuditConfigEntity;
 import com.erp.engine.audit.entity.SysAuditLogEntity;
 import com.erp.engine.audit.event.AuditApprovedEvent;
+import com.erp.engine.audit.event.CancelVoidResourceRestoreEvent;
 import com.erp.engine.audit.event.VoidResourceReleaseEvent;
 import com.erp.engine.audit.mapper.AuditLogMapper;
 import com.erp.engine.audit.mapper.DocumentStatusMapper;
@@ -207,6 +208,50 @@ public class AuditEngineService {
 
             log.info("反审成功: docType={}, docId={}, operator={}",
                     dto.getDocType(), dto.getDocId(), StpUtil.getLoginIdAsLong());
+        } finally {
+            stringRedisTemplate.delete(lockKey);
+        }
+    }
+
+    /**
+     * 撤销作废操作.
+     * 状态流转：Voided(4) -> 作废前原始状态（从sys_audit_log.from_status恢复）
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public void cancelVoid(AuditOperationDTO dto) {
+        String lockKey = LOCK_PREFIX + dto.getDocType() + ":" + dto.getDocId();
+        Boolean locked = stringRedisTemplate.opsForValue()
+                .setIfAbsent(lockKey, "1", LOCK_TTL);
+        if (Boolean.FALSE.equals(locked)) {
+            throw new BusinessException(ErrorCode.OPERATION_TOO_FREQUENT, "单据正在处理中，请稍后重试");
+        }
+        try {
+            DocumentStatusEntity docStatus = documentStatusMapper
+                    .selectForUpdate(dto.getDocType(), dto.getDocId());
+            if (docStatus == null) {
+                throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "单据不存在");
+            }
+            if (docStatus.getStatus() != 4) {
+                throw new BusinessException(ErrorCode.DATA_STATUS_INVALID,
+                        "仅已作废状态单据可撤销作废，当前状态：" + docStatus.getStatus());
+            }
+
+            Integer previousStatus = auditLogMapper
+                    .findPreviousStatusBeforeVoid(dto.getDocType(), dto.getDocId());
+            if (previousStatus == null) {
+                throw new BusinessException(ErrorCode.BUSINESS_ERROR, "无法获取作废前状态，数据异常");
+            }
+
+            documentStatusMapper.updateStatus(dto.getDocType(), dto.getDocId(), previousStatus);
+
+            insertAuditLog(dto.getDocType(), dto.getDocId(), "UNVOID",
+                    4, previousStatus, "撤销作废，恢复至状态：" + previousStatus);
+
+            eventPublisher.publishEvent(new CancelVoidResourceRestoreEvent(
+                    this, dto.getDocType(), dto.getDocId(), previousStatus));
+
+            log.info("撤销作废成功: docType={}, docId={}, restoredStatus={}, operator={}",
+                    dto.getDocType(), dto.getDocId(), previousStatus, StpUtil.getLoginIdAsLong());
         } finally {
             stringRedisTemplate.delete(lockKey);
         }

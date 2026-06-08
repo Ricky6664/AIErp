@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T00:45
-> **归档总数**：587 条
+> **最后更新**：2026-06-09T00:54
+> **归档总数**：588 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -2079,6 +2079,18 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 验证void作废接口: 新增VoidResourceReleaseEventTest(11个测试:5个事件结构验证+6个DTO参数校验覆盖null/空/空格+父类@NotBlank/@NotNull), AuditEngineControllerTest新增void端点2个测试, 创建void-test-data.sql(8条测试数据), 全量audit引擎51个测试0失败 |
+| Git commit | (见git log) |
+
+#### P1-001-001-004-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-001-001-004-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T00:54 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 实现撤销作废引擎(cancelVoid): AuditEngineService新增cancelVoid方法(Redis分布式锁+PostgreSQL行级锁+状态校验Voided(4)→恢复至作废前原始状态+查询sys_audit_log获取VOID操作的from_status+审计日志+发布CancelVoidResourceRestoreEvent), 新增CancelVoidResourceRestoreEvent, AuditLogMapper新增findPreviousStatusBeforeVoid查询, Controller新增POST /api/engine/audit/cancel-void端点, 12个单元测试全通过(全量audit引擎63个测试0失败) |
 | Git commit | (见git log) |
 
 ### P0-011-002-011-001-003 验证公告管理
