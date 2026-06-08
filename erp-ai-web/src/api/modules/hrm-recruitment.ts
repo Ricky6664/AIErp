@@ -6,6 +6,7 @@ export interface RecruitmentVO {
   departmentName: string
   recruitNum: number
   salaryRange: string
+  requirements: string
   recruitStatus: string
   deadline: string
   createdAt: string
@@ -32,6 +33,7 @@ export interface RecruitmentCreateDTO {
   departmentName?: string
   recruitNum?: number
   salaryRange?: string
+  requirements?: string
   recruitStatus?: string
   deadline?: string
 }

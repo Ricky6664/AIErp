@@ -268,6 +268,8 @@ const common = {
       statusCompleted: '已完成',
       statusCancelled: '已取消',
       deadline: '截止日期',
+      requirements: '岗位要求',
+      requirementsPlaceholder: '请输入岗位要求',
       add: '新增招聘',
       addTitle: '新增招聘',
       editTitle: '编辑招聘',

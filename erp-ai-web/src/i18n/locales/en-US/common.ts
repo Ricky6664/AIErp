@@ -233,6 +233,8 @@ const common = {
       statusCompleted: 'Completed',
       statusCancelled: 'Cancelled',
       deadline: 'Deadline',
+      requirements: 'Requirements',
+      requirementsPlaceholder: 'Enter job requirements',
       add: 'Add Recruitment',
       addTitle: 'Add Recruitment',
       editTitle: 'Edit Recruitment',

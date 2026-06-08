@@ -117,6 +117,19 @@
           align="center"
         />
         <vxe-column
+          field="requirements"
+          :title="$t('hrm.recruitment.requirements')"
+          min-width="180"
+        >
+          <template #default="{ row }">
+            {{
+              row.requirements?.length > 40
+                ? row.requirements.substring(0, 40) + '...'
+                : row.requirements || '-'
+            }}
+          </template>
+        </vxe-column>
+        <vxe-column
           field="recruitStatus"
           :title="$t('hrm.recruitment.recruitStatus')"
           width="110"
@@ -207,11 +220,21 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item :label="$t('hrm.recruitment.departmentName')">
-              <el-input
+            <el-form-item :label="$t('hrm.recruitment.departmentName')" prop="departmentName">
+              <el-select
                 v-model="formData.departmentName"
-                :placeholder="$t('hrm.recruitment.departmentNamePlaceholder')"
-              />
+                :placeholder="$t('common.pleaseSelect')"
+                clearable
+                filterable
+                style="width: 100%"
+              >
+                <el-option
+                  v-for="dept in deptOptions"
+                  :key="dept.value"
+                  :label="dept.label"
+                  :value="dept.value"
+                />
+              </el-select>
             </el-form-item>
           </el-col>
         </el-row>
@@ -236,6 +259,18 @@
           </el-col>
         </el-row>
         <el-row :gutter="16">
+          <el-col :span="24">
+            <el-form-item :label="$t('hrm.recruitment.requirements')">
+              <el-input
+                v-model="formData.requirements"
+                type="textarea"
+                :rows="3"
+                :placeholder="$t('hrm.recruitment.requirementsPlaceholder')"
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row :gutter="16">
           <el-col :span="12">
             <el-form-item :label="$t('hrm.recruitment.recruitStatus')">
               <el-select
@@ -253,12 +288,13 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item :label="$t('hrm.recruitment.deadline')">
+            <el-form-item :label="$t('hrm.recruitment.deadline')" prop="deadline">
               <el-date-picker
                 v-model="formData.deadline"
                 type="date"
                 style="width: 100%"
                 value-format="YYYY-MM-DD"
+                :disabled-date="disabledDate"
               />
             </el-form-item>
           </el-col>
@@ -280,6 +316,7 @@ import { ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
 import {
   getRecruitmentPageApi,
+  getRecruitmentByIdApi,
   createRecruitmentApi,
   updateRecruitmentApi,
   deleteRecruitmentApi,
@@ -288,6 +325,8 @@ import {
   type RecruitmentQueryDTO,
   type RecruitmentCreateDTO
 } from '@/api/modules/hrm-recruitment'
+import { getDeptTree } from '@/api/modules/system'
+import type { DeptTreeNode } from '@/api/modules/user'
 
 const formRef = ref<FormInstance>()
 const tableLoading = ref(false)
@@ -332,14 +371,39 @@ const formData = reactive<RecruitmentCreateDTO & { id?: number }>({
   departmentName: '',
   recruitNum: 0,
   salaryRange: '',
+  requirements: '',
   recruitStatus: 'recruiting',
   deadline: ''
 })
+
+const deptOptions = ref<{ label: string; value: string }[]>([])
 
 const formRules: FormRules = {
   positionName: [
     { required: true, message: '招聘岗位不能为空', trigger: 'blur' },
     { max: 100, message: '岗位名称最长100个字符', trigger: 'blur' }
+  ],
+  departmentName: [{ required: true, message: '所属部门不能为空', trigger: 'change' }],
+  recruitNum: [
+    { required: true, message: '招聘人数不能为空', trigger: 'blur' },
+    { type: 'number', min: 1, message: '招聘人数必须为正整数', trigger: 'blur' }
+  ],
+  deadline: [
+    {
+      validator: (_rule, value, callback) => {
+        if (value) {
+          const today = new Date()
+          today.setHours(0, 0, 0, 0)
+          const deadline = new Date(value)
+          if (deadline < today) {
+            callback(new Error('截止日期不得早于当前日期'))
+            return
+          }
+        }
+        callback()
+      },
+      trigger: 'change'
+    }
   ]
 }
 
@@ -389,15 +453,28 @@ function handleCreate(): void {
   dialogVisible.value = true
 }
 
-function handleEdit(row: RecruitmentVO): void {
+async function handleEdit(row: RecruitmentVO): Promise<void> {
   isEdit.value = true
   editingId.value = row.id
-  formData.positionName = row.positionName
-  formData.departmentName = row.departmentName || ''
-  formData.recruitNum = row.recruitNum || 0
-  formData.salaryRange = row.salaryRange || ''
-  formData.recruitStatus = row.recruitStatus || 'recruiting'
-  formData.deadline = row.deadline || ''
+  try {
+    const detail = await getRecruitmentByIdApi(row.id)
+    formData.positionName = detail.positionName
+    formData.departmentName = detail.departmentName || ''
+    formData.recruitNum = detail.recruitNum || 0
+    formData.salaryRange = detail.salaryRange || ''
+    formData.requirements = detail.requirements || ''
+    formData.recruitStatus = detail.recruitStatus || 'recruiting'
+    formData.deadline = detail.deadline || ''
+  } catch {
+    // Fallback to row data
+    formData.positionName = row.positionName
+    formData.departmentName = row.departmentName || ''
+    formData.recruitNum = row.recruitNum || 0
+    formData.salaryRange = row.salaryRange || ''
+    formData.requirements = row.requirements || ''
+    formData.recruitStatus = row.recruitStatus || 'recruiting'
+    formData.deadline = row.deadline || ''
+  }
   dialogVisible.value = true
 }
 
@@ -450,13 +527,38 @@ function resetForm(): void {
   formData.departmentName = ''
   formData.recruitNum = 0
   formData.salaryRange = ''
+  formData.requirements = ''
   formData.recruitStatus = 'recruiting'
   formData.deadline = ''
   formRef.value?.resetFields()
 }
 
+function disabledDate(time: Date): boolean {
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  return time < today
+}
+
+async function loadDeptOptions(): Promise<void> {
+  try {
+    const tree = await getDeptTree()
+    const flatList: { label: string; value: string }[] = []
+    function flatten(nodes: DeptTreeNode[]): void {
+      for (const n of nodes) {
+        flatList.push({ label: n.name, value: n.name })
+        if (n.children?.length) flatten(n.children)
+      }
+    }
+    flatten(tree || [])
+    deptOptions.value = flatList
+  } catch {
+    // 静默失败，部门数据不可用时不影响主流程
+  }
+}
+
 onMounted(() => {
   loadTableData()
+  loadDeptOptions()
 })
 </script>
 
