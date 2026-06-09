@@ -3808,5 +3808,5 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 实现SaleQuotationController五个接口方法:GET分页(PageResult<ListVO>)/GET详情(DetailVO)/POST新增(RT<Long>)/PUT修改(RT<Boolean>,DTO含id)/DELETE删除(RT<Boolean>),统一RT<T>响应包装,@Valid触发DTO校验,mvn compile通过 |
-| Git SHA | PENDING |
+| Git SHA | 68f95ad3 |
 
