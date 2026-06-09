@@ -66,6 +66,32 @@ public class BizDocRelationCoreService {
     }
 
     @Transactional(rollbackFor = Exception.class)
+    public Long updateRelation(Long relationId, BizDocRelationDTO dto) {
+        DocRelationEntity entity = docRelationMapper.selectById(relationId);
+        if (entity == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
+        }
+        validateBusinessRules(dto);
+
+        entity.setSourceDocType(dto.getSourceDocType());
+        entity.setSourceDocId(dto.getSourceDocId());
+        entity.setSourceDetailId(dto.getSourceDetailId());
+        entity.setTargetDocType(dto.getTargetDocType());
+        entity.setTargetDocId(dto.getTargetDocId());
+        entity.setTargetDetailId(dto.getTargetDetailId());
+        entity.setRelationType(dto.getRelationType());
+        entity.setRelationQty(dto.getRelationQty());
+
+        docRelationMapper.updateById(entity);
+
+        log.info("单据关联关系更新: id={}, sourceDocType={}, sourceDocId={}, targetDocType={}, targetDocId={}, relationType={}, 操作人={}",
+                relationId, entity.getSourceDocType(), entity.getSourceDocId(),
+                entity.getTargetDocType(), entity.getTargetDocId(),
+                entity.getRelationType(), StpUtil.getLoginIdAsLong());
+        return relationId;
+    }
+
+    @Transactional(rollbackFor = Exception.class)
     public void deleteRelation(Long relationId) {
         DocRelationEntity entity = docRelationMapper.selectById(relationId);
         if (entity == null) {

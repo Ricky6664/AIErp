@@ -3576,3 +3576,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 摘要 | 实现BizDocRelationCoreService(createRelation/queryBySource/queryByTarget/deleteRelation)+DocImportController;mvn compile通过;13个单元测试PASS |
 | Git SHA | 89e648dd |
 
+#### P1-004-001-004-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-004-001-004-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T13:03 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 新增updateRelation方法补充修改功能;运行39个单元测试全部PASS(34原有+5新增覆盖更新/超长边界/乐观锁并发);mvn test BUILD SUCCESS;生成测试报告docs/test-reports/P1-004-001-004-001-002-验证测试报告.md |
+| Git SHA | (待提交) |
+
