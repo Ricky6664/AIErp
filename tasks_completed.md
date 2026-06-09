@@ -3892,5 +3892,5 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 验证SaleQuotationMapper自定义查询方法(selectByCondition多表关联+countByStatus统计+selectStatistics聚合),方法签名与XML SQL完全匹配,mvn compile通过 |
-| Git SHA | (待提交) |
+| Git SHA | 5d487992 |
 
