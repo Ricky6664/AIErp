@@ -3405,3 +3405,14 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 验证AlertRuleProperties配置类与application.yml一致性:5个嵌套配置组(Methods/Evaluation/Threshold/Pagination/Sort)完全匹配 + mvn compile通过 |
 | Git SHA | 002f5c49 |
+#### P1-003-002-008-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-002-008-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T19:40 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 实现WarningDashboard.vue业务预警看板页:4个KPI卡片+近30天预警趋势折线图+预警分布饼图+预警明细表+60s自动刷新+ECharts resize自适应;创建warning.ts API接口封装;追加msg.ts预警类型定义;注册/msg/warning-dashboard路由;vite build通过 |
+| Git SHA | PENDING |

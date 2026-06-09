@@ -350,6 +350,14 @@ export const MSG_TODO: RouteRecordRaw = {
   meta: { title: '单据待办', icon: 'List', keepAlive: true }
 }
 
+// 业务预警看板页
+export const MSG_WARNING_DASHBOARD: RouteRecordRaw = {
+  path: '/msg/warning-dashboard',
+  name: 'MsgWarningDashboard',
+  component: () => import('@/views/msg/WarningDashboard.vue'),
+  meta: { title: '业务预警看板', icon: 'Warning', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -381,6 +389,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   MSG_TEMPLATE,
   MSG_TYPE,
   MSG_TODO,
+  MSG_WARNING_DASHBOARD,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,

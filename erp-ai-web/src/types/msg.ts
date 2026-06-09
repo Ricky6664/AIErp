@@ -119,3 +119,23 @@ export interface TodoCountVO {
   pending_handle: number
   pending_confirm: number
 }
+
+/** 预警看板聚合数据 */
+export interface WarningDashboardVO {
+  moduleCounts: Array<{ module: string; cnt: number }>
+  trendData: Array<{ date: string; cnt: number }>
+  distributionData: Array<{ name: string; value: number }>
+  warningList: WarningListItemVO[]
+}
+
+/** 预警明细列表项 */
+export interface WarningListItemVO {
+  id: number
+  title: string
+  content?: string
+  warningType: string
+  isHandled: boolean
+  handleTime?: string
+  handlerId?: number
+  createTime: string
+}
