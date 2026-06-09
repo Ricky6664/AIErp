@@ -318,6 +318,22 @@ export const APPROVAL_LOG: RouteRecordRaw = {
   meta: { title: '审批日志', icon: 'Tickets', keepAlive: true }
 }
 
+// 消息中心列表页
+export const MSG_MESSAGE_CENTER: RouteRecordRaw = {
+  path: '/msg/message',
+  name: 'MsgMessageCenter',
+  component: () => import('@/views/msg/MessageCenterList.vue'),
+  meta: { title: '消息中心', icon: 'Bell', keepAlive: true }
+}
+
+// 消息模板列表页
+export const MSG_TEMPLATE: RouteRecordRaw = {
+  path: '/msg/template',
+  name: 'MsgTemplate',
+  component: () => import('@/views/msg/MessageTemplateList.vue'),
+  meta: { title: '消息模板', icon: 'Document', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -345,6 +361,8 @@ export const staticRoutes: RouteRecordRaw[] = [
   APPROVAL_MY,
   APPROVAL_STATISTICS,
   APPROVAL_LOG,
+  MSG_MESSAGE_CENTER,
+  MSG_TEMPLATE,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,

@@ -24,3 +24,34 @@ export interface UnreadCountVO {
   warning: number
   todo: number
 }
+
+/** 消息模板列表项 */
+export interface TemplateListVO {
+  id: number
+  templateCode: string
+  templateName: string
+  channel: string
+  enableFlag: boolean
+  createTime: string
+}
+
+/** 消息模板查询参数 */
+export interface TemplateQueryDTO {
+  templateCode?: string
+  keyword?: string
+  channel?: string
+  enableFlag?: boolean
+  pageNum: number
+  pageSize: number
+}
+
+/** 消息模板表单数据 */
+export interface TemplateFormDTO {
+  id?: number
+  templateCode: string
+  templateName: string
+  templateContent: string
+  channel: string
+  channels: string[]
+  enableFlag: boolean
+}
