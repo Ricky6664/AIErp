@@ -3239,5 +3239,5 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建MessageCenterList.vue(左侧Tab含未读角标+右侧无限滚动+已读/未读样式+点击已读抽屉+全部标记已读+关键字搜索); 创建msg/message.ts API封装; 创建types/msg.ts类型定义; vite build成功 |
-| Git SHA | (待提交)
+| Git SHA | 9708cc9c
 
