@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/sale/order")
 @RequiredArgsConstructor
-@Tag(name = "SaleQuotation管理")
+@Tag(name = "SaleOrder管理", description = "SaleOrder相关接口")
 public class SaleOrderController {
 
     private final ISaleOrderService saleService;

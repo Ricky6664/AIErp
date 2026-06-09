@@ -3941,4 +3941,16 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建SaleOrderController(@RestController+@RequestMapping("/api/sale/order")),注入ISaleOrderService,声明GET/POST/PUT/DELETE及submitAudit端点,使用RT<T>+PageResult<T>统一响应格式 |
-| Git SHA | PENDING |
+| Git SHA | 50ff8cad |
+
+#### P1-005-001-002-004-002 实现接口方法
+
+| 字段 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-002-004-002 |
+| 任务名称 | 实现接口方法 |
+| 完成时间 | 2026-06-09T21:00 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | SaleOrderController已实现完整RESTful方法:GET分页查询(@Valid QueryDTO)、GET/{id}详情、POST新增(@Valid @RequestBody)、PUT修改(@Valid @RequestBody)、DELETE/{id}删除,统一RT<T>/PageResult<T>响应包装,@Tag修正为"SaleOrder管理",mvn compile通过 |
+| Git SHA | (待提交) |
