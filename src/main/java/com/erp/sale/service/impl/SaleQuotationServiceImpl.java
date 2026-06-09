@@ -15,6 +15,7 @@ import com.erp.sale.dto.SaleQuotationQueryDTO;
 import com.erp.sale.dto.SaleQuotationUpdateDTO;
 import com.erp.sale.entity.SaleQuotationEntity;
 import com.erp.sale.mapper.SaleQuotationMapper;
+import com.erp.sale.service.ISaleOrderService;
 import com.erp.sale.service.ISaleQuotationService;
 import com.erp.sale.vo.SaleQuotationDetailVO;
 import com.erp.sale.vo.SaleQuotationListVO;
@@ -35,7 +36,7 @@ import java.util.Set;
 @Service
 @RequiredArgsConstructor
 public class SaleQuotationServiceImpl extends ServiceImplX<SaleQuotationMapper, SaleQuotationEntity>
-        implements ISaleQuotationService {
+        implements ISaleQuotationService, ISaleOrderService {
 
     private final SaleQuotationMapper saleMapper;
     private final CodeGenerateService codeGenerateService;
