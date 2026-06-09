@@ -71,4 +71,56 @@
           AND t.is_deleted = false
     </select>
 
+    <!-- ==================== 按条件查询（不分页） ==================== -->
+    <select id="selectByCondition" resultType="com.erp.sale.vo.SaleQuotationListVO">
+        SELECT t.id, t.sale_no, t.sale_name, t.status,
+               d.dict_label AS status_name,
+               t.create_time,
+               u.nickname AS creator_name
+        FROM sale_quotation t
+        LEFT JOIN sys_dict_data d ON d.dict_value = t.status::varchar AND d.dict_type = 'audit_status'
+        LEFT JOIN sys_user u ON u.id = t.creator_id
+        <where>
+            t.is_deleted = false
+            <if test="query.saleNo != null and query.saleNo != ''">
+                AND t.sale_no LIKE CONCAT('%', #{query.saleNo}, '%')
+            </if>
+            <if test="query.saleName != null and query.saleName != ''">
+                AND t.sale_name LIKE CONCAT('%', #{query.saleName}, '%')
+            </if>
+            <if test="query.status != null">
+                AND t.status = #{query.status}
+            </if>
+            <if test="query.startDate != null">
+                AND t.create_time &gt;= #{query.startDate}
+            </if>
+            <if test="query.endDate != null">
+                AND t.create_time &lt;= #{query.endDate}
+            </if>
+        </where>
+        ORDER BY t.create_time DESC
+    </select>
+
+    <!-- ==================== 按状态统计数量 ==================== -->
+    <select id="countByStatus" resultType="java.lang.Long">
+        SELECT COUNT(*)
+        FROM sale_quotation
+        WHERE is_deleted = false
+        <if test="status != null">
+            AND status = #{status}
+        </if>
+    </select>
+
+    <!-- ==================== 按日期聚合统计 ==================== -->
+    <select id="selectStatistics" resultType="java.util.Map">
+        SELECT DATE(create_time) AS biz_date,
+               COUNT(*) AS total,
+               SUM(CASE WHEN status = 2 THEN 1 ELSE 0 END) AS approved_count
+        FROM sale_quotation
+        WHERE is_deleted = false
+          AND create_time BETWEEN #{startDate} AND #{endDate}
+        GROUP BY DATE(create_time)
+        ORDER BY biz_date
+    </select>
+
 </mapper>

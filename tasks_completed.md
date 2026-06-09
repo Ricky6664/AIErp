@@ -1,4 +1,4 @@
-# tasks_completed.md �� ���������鵵
+﻿# tasks_completed.md �� ���������鵵
 
 > **������**��2026-06-09T18:55
 > **归档数**：643 条
@@ -3747,4 +3747,17 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建SaleQuotationMapper.xml,定义BaseResultMap(14列完整映射)+Base_Column_List+selectPageList(LEFT JOIN sys_dict_data+saleNo/saleName/status/日期范围动态SQL)+selectDetailById(关联查询详情),mvn compile通过 |
-| Git SHA | 待提交 |
+| Git SHA | 2c767035 |
+
+
+#### P1-005-001-001-002-003 编写自定义查询方法
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-001-002-003 |
+| 任务名称 | 编写自定义查询方法 |
+| 完成时间 | 2026-06-09T21:15 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | SaleQuotationMapper新增selectByCondition(条件查询)+countByStatus(状态统计)+selectStatistics(日期聚合统计)三个方法,XML新增对应SQL(多表LEFT JOIN+动态条件+GROUP BY聚合),mvn compile通过 |
+| Git SHA | 
