@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T15:15
-> **归档总数**：641 条
+> **最后更新**：2026-06-09T18:55
+> **归档总数**：642 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -3370,4 +3370,16 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 创建useWebSocket.ts composable(ws/wss切换+30s心跳+5s重连)+GlobalNotification.vue(铃铛角标+WebSocket实时推送ElNotification+30s轮询兜底)+注册到AppLayout |
 | Git SHA | 482d9a22
+
+#### P1-003-002-006-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-002-006-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T18:55 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 运行MsgMessageServiceTest(21/21)+MessagePushPropertiesTest(23/23)全部通过；GlobalNotification.vue编译无错误；创建测试报告 |
+| Git SHA | (待提交)
 
