@@ -3574,5 +3574,5 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 实现BizDocRelationCoreService(createRelation/queryBySource/queryByTarget/deleteRelation)+DocImportController;mvn compile通过;13个单元测试PASS |
-| Git SHA | (待更新) |
+| Git SHA | 89e648dd |
 
