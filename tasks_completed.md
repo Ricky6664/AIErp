@@ -3786,3 +3786,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 摘要 | 在SaleQuotationServiceImpl中新增validateCreate/validateUpdate/validateStatusTransition/validateAmount四个校验方法;状态流转使用ALLOWED_TRANSITIONS状态机Map配置(0→1,1→2/4,2→0/4);金额校验逐行检查数量>0/单价≥0/税率0-100/折扣0-100;submitAudit改用validateStatusTransition替代硬编码if/else;mvn compile通过 |
 | Git SHA | a9246223 |
 
+#### P1-005-001-001-004-001 定义Controller类+@RequestMapping路径+注入Service
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-001-004-001 |
+| 任务名称 | 定义Controller类+@RequestMapping路径+注入Service |
+| 完成时间 | 2026-06-09T22:15 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建SaleQuotationController(@RestController+@RequestMapping("/api/sale/quotation")+@RequiredArgsConstructor),注入ISaleQuotationService,声明GET(分页列表/详情)/POST(新增/提交审核)/PUT(修改)/DELETE(删除)六个端点方法,返回RT<T>统一响应,mvn compile通过 |
+| Git SHA | 待填充 |
+
