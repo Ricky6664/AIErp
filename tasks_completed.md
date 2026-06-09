@@ -3672,4 +3672,4 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 实现单据追溯服务DocFlowTraceService(递归上下游查询+树形组装+循环引用防护)+DocFlowTraceController(trace/relation API)+TraceNodeVO+RelationListVO;mvn compile BUILD SUCCESS |
-| Git SHA | (待提交) |
+| Git SHA | b40300ef |
