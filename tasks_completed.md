@@ -3774,15 +3774,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 摘要 | 创建ISaleQuotationService继承IServiceX<SaleQuotationEntity>,声明pageList/getDetail/create/update/delete/submitAudit六个方法,返回值类型统一(Long/Boolean/Page/DetailVO),mvn compile通过 |
 | Git SHA | de17a430 |
 
-#### P1-005-001-001-003-002 实现ServiceImpl
+#### P1-005-001-001-003-003 业务校验逻辑
 
 | 属性 | 值 |
 |------|-----|
-| 任务编号 | P1-005-001-001-003-002 |
-| 任务名称 | 实现ServiceImpl |
-| 完成时间 | 2026-06-09T21:45 |
+| 任务编号 | P1-005-001-001-003-003 |
+| 任务名称 | 业务校验逻辑 |
+| 完成时间 | 2026-06-09T22:00 |
 | 状态 | ✅ |
 | 工人 | W10 |
-| 摘要 | 创建SaleQuotationServiceImpl继承ServiceImplX<SaleQuotationMapper,SaleQuotationEntity>,实现pageList/getDetail/create/update/delete/submitAudit六个方法,注入CodeGenerateService+AuditEngineService,业务校验含名称唯一性+明细非空+状态流转(仅草稿可编辑/删除/提交审核),mvn compile通过 |
-| Git SHA | 05015598 |
+| 摘要 | 在SaleQuotationServiceImpl中新增validateCreate/validateUpdate/validateStatusTransition/validateAmount四个校验方法;状态流转使用ALLOWED_TRANSITIONS状态机Map配置(0→1,1→2/4,2→0/4);金额校验逐行检查数量>0/单价≥0/税率0-100/折扣0-100;submitAudit改用validateStatusTransition替代硬编码if/else;mvn compile通过 |
+| Git SHA | a9246223 |
 
