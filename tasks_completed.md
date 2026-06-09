@@ -3623,4 +3623,5 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建BizDocFlowLogService(日志记录/下推日志查询/流转历史查询/操作统计)+DocFlowLogController(3个RESTful端点);mvn compile通过 |
+| Git SHA | e31d5f07 |
 
