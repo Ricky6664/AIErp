@@ -105,11 +105,11 @@
 | P0-001-003-003-001-003 | ҵ�������� | 2026-05-29T19:10 | ? | IServiceX.java 6��default��������(createBatch/updateBatch/pageList/getOneOrThrow/existsById/checkExists),mvn compileͨ�� | 1ccc659c |
 | P0-001-003-003-002-001 | ����Service�ӿ� | 2026-05-29T19:20 | ? | ����BaseCrudService.java������(4����+validateCreate/validateUpdateģ��+create/update/delete/getById/pageList 5��CRUD����+MapStructת������+@Transactionalд����),mvn compile BUILD SUCCESS | c3ff7cde |
 | P0-001-003-003-002-002 | ʵ��ServiceImpl | 2026-05-29T19:20 | ? | BaseCrudService.java��������ʵ��(extends ServiceImplX<BaseMapperX<E>,E>,validateCreate/validateUpdateģ�巽��,create/update/delete/getById/pageList 5��CRUD����,MapStructת�����󷽷�,@Transactionalд����),mvn compileͨ�� | c3ff7cde |
-| P0-001-003-003-002-003 | ҵ��У���߼� | 2026-05-29T18:32 | ? | BaseCrudService.java��֤ͨ��(5��CRUD����ǩ������+validateCreate/validateUpdateģ��+MapStructת������+@Transactionalд����+BusinessException���ڼ��),mvn compile BUILD SUCCESS | <pending> | adb00c90 |
+| P0-001-003-003-002-003 | ҵ��У���߼� | 2026-05-29T18:32 | ? | BaseCrudService.java��֤ͨ��(5��CRUD����ǩ������+validateCreate/validateUpdateģ��+MapStructת������+@Transactionalд����+BusinessException���ڼ��),mvn compile BUILD SUCCESS | 8620f9ac | adb00c90 |
 | P0-001-004-001-001-003 | ����У����������� | 2026-05-29T19:35 | ? | SaTokenConfig.java(SaServletFilter+SaInterceptor˫����,�ų�login/logout/knife4j·��,RT.failδ��¼��Ӧ),mvn compileͨ�� | 1df2a8a5 |
 | P0-001-004-002-002-002 | ʵ�ֺ��Ĵ����߼� | 2026-05-29T20:00 | ? | LogicEnum(AND/OR)+@RequirePermission(valueȨ��������,logic�߼������Ĭ��AND)+PermissionAspect(@Around����,StpUtil.checkPermissionAnd/OrУ��,ʧ��NotPermissionException��403),mvn compileͨ�� | 06c219e8 |
 | P0-001-004-001-001-001 | ����@Configuration������@Beanע�᷽ʽ | 2026-05-29T22:00 | ? | SaTokenConfig(@Configuration)+SaServletFilter(@Bean����/api/**�ų�login/logout/doc.html/v3)+δ��¼RT.fail(ErrorCode.UNAUTHORIZED)+SaInterceptor·������+isAnnotationע���Ȩ˫���� | 1df2a8a5 |
-| P0-001-004-001-001-002 | �������԰� | 2026-05-29T19:01 | ? | SaTokenConfig.java @Value��exclude-paths(@ConfigurationProperties���)+application.yml sa-token.exclude-paths������,mvn compile BUILD SUCCESS | <pending> |
+| P0-001-004-001-001-002 | �������԰� | 2026-05-29T19:01 | ? | SaTokenConfig.java @Value��exclude-paths(@ConfigurationProperties���)+application.yml sa-token.exclude-paths������,mvn compile BUILD SUCCESS | 8620f9ac |
 | P0-001-004-001-002-001 | ����ӿ�·���뷽��ǩ�� | 2026-05-29T19:10 | ? | StpInterfaceImpl(@Component implements StpInterface)+getPermissionList/getRoleList Redis����(satoken:permission/role:{loginId},5minTTL)+clearCache+spring-boot-starter-data-redis����,mvn compile BUILD SUCCESS | f4fcdc9f |
 | P0-001-004-001-002-002 | ʵ�ֽӿ��߼� | 2026-05-29T20:10 | ? | StpInterfaceImpl.java����ʵ�֣�getPermissionList/getRoleList Redis��������+DB����+clearCache�������,mvn compileͨ�� | d83c1532 |
 | P0-001-004-002-001-001 | ����ӿ�·���뷽��ǩ�� | 2026-05-29T22:30 | ? | ����SaInterceptorConfig.java(@Configuration+WebMvcConfigurer+SaInterceptor+pathPatterns+CORS localhost:5173 Authorization),mvn compileͨ�� | 7ceff390 |
@@ -129,8 +129,8 @@
 | P0-001-004-003-001-001 | ����@Configuration������@Beanע�᷽ʽ | 2026-05-29T23:30 | ? | pom.xml����sa-token-redis-jackson����(1.39.0)+application.yml����Redis Lettuce���ӳ�����(max-active=8/max-idle=8/min-idle=0)+application-dev.yml����poolֵ | 238676c5 |
 | P0-001-004-003-001-002 | �������԰� | 2026-05-29T23:45 | ? | ��֤pom.xml sa-token-redis-jackson����(1.39.0)+application.yml Redis Lettuce���ӳ�(max-active=8/max-idle=8/min-idle=0)+Jackson�������л�(yyyy-MM-dd HH:mm:ss)+Sa-Token Redis�洢�Զ���Ч,mvn compile BUILD SUCCESS | (��֤����) |
 | P0-001-004-003-001-003 | ����У����������� | 2026-05-29T23:55 | ? | ����JacksonConfig����FAIL_ON_SELF_REFERENCES����Sessionѭ������+SaTokenProperties���Ͱ�ȫ���ð���@Validated����У��+ע��JavaTimeModuleָ��LocalDateTime���л���ʽ,mvn compile BUILD SUCCESS | 87e7830d |
-| P0-001-004-003-002-001 | ʵ�������û���ѯ | 2026-05-29T20:50 | ? | ����SessionService(@Service)ʵ��listOnline/fForceLogout/renewSession/getCurrentUser 4������+LoginUserVO(5�ֶ�@Builder)+mvn compile BUILD SUCCESS | <pending> |
-| P0-001-004-003-002-002 | ʵ��ǿ�����߻Ự��ʱ���� | 2026-05-29T21:00 | ? | ��֤SessionService 4������(forceLogout��logoutByTokenValue/renewSession��renewTimeout/getCurrentUser��getSession/listOnline��searchSessionId)ȫ��ʵ���ұ���ͨ�� | <pending> |
+| P0-001-004-003-002-001 | ʵ�������û���ѯ | 2026-05-29T20:50 | ? | ����SessionService(@Service)ʵ��listOnline/fForceLogout/renewSession/getCurrentUser 4������+LoginUserVO(5�ֶ�@Builder)+mvn compile BUILD SUCCESS | 8620f9ac |
+| P0-001-004-003-002-002 | ʵ��ǿ�����߻Ự��ʱ���� | 2026-05-29T21:00 | ? | ��֤SessionService 4������(forceLogout��logoutByTokenValue/renewSession��renewTimeout/getCurrentUser��getSession/listOnline��searchSessionId)ȫ��ʵ���ұ���ͨ�� | 8620f9ac |
 | P0-001-004-003-002-003 | ��֤�Ự���� | 2026-05-29T21:10 | ? | ��֤SessionService 4������,���ֲ��޸�buildLoginUserVO token������Bug,mvn compile BUILD SUCCESS | (pending) |
 | P0-001-005-001-003-003 | ��֤������Լ�� | 2026-05-29T23:59 | ? | ��֤V1__create_sys_code_rule.sql DDL����:sys_code_rule(17�ֶ�)+sys_code_rule_segment(16�ֶ�)+uk_rule_module����Ψһ����(rule_code,tenant_id)+idx_segment_order(rule_id,segment_order)+uk_segment_rule_order(rule_id,segment_order,tenant_id)+ȫ�ֹ淶�ֶ�������֤+�״���ʾ3��ȫ��ͨ��,mvn compileͨ�� | (pending) |
 | P0-001-005-002-001-001 | ����Entity�� | 2026-05-29T21:16 | ? | ����BaseEntity����(11��ͨ���ֶ�+@TableLogic+@Version)+SysCodeRuleʵ��(7ҵ���ֶ�)+SysCodeRuleSegmentʵ��(6ҵ���ֶ�)+SysCodeRuleDTO(��CreateDTO/UpdateDTO/QueryDTO/SegmentDTO)+SysCodeRuleVO(��ListVO/DetailVO/SegmentVO),mvn compile BUILD SUCCESS (75 source files) | 60647c4b |
@@ -168,7 +168,7 @@
 
 | ������ | �������� | ���ʱ�� | ״̬ | ժҪ | Git SHA |
 |---------|---------|---------|:---:|------|---------|
-| P0-001-006-001-001-001 | ��дCREATE TABLE sys_data_view����� | 2026-05-30T01:00 | ? | ����V2__create_sys_data_view.sql:sys_data_view����(id/view_codeΨһ/view_name/source_table/source_type(1��2SQL)/source_sql/description+10��ͨ���ֶ�)+sys_data_view_field�ӱ�(view_id FK/field_code/field_name/field_type/field_order/is_searchable/is_sortable/is_visible/search_type/search_component+10��ͨ���ֶ�)+uk_view_code����Ψһ����(view_code,tenant_id)+idx_field_view_order����(view_id,field_order)+uk_field_view_code����Ψһ����(view_id,field_code,tenant_id)+COMMENT����+�ع��ű� | <pending> |
+| P0-001-006-001-001-001 | ��дCREATE TABLE sys_data_view����� | 2026-05-30T01:00 | ? | ����V2__create_sys_data_view.sql:sys_data_view����(id/view_codeΨһ/view_name/source_table/source_type(1��2SQL)/source_sql/description+10��ͨ���ֶ�)+sys_data_view_field�ӱ�(view_id FK/field_code/field_name/field_type/field_order/is_searchable/is_sortable/is_visible/search_type/search_component+10��ͨ���ֶ�)+uk_view_code����Ψһ����(view_code,tenant_id)+idx_field_view_order����(view_id,field_order)+uk_field_view_code����Ψһ����(view_id,field_code,tenant_id)+COMMENT����+�ع��ű� | 8620f9ac |
 | P0-001-006-001-001-002 | ��������������Լ�� | 2026-05-30T02:00 | ? | V2__create_sys_data_view.sql����idx_sys_data_view_tenant�⻧��ѯ����+idx_sys_data_view_field_tenant�⻧��ѯ����,����/Ψһ����/���Լ����֤���� | b8c42093 |
 | P0-001-006-001-002-001 | ��дCREATE TABLE DDL | 2026-05-30T03:00 | ? | ��֤sys_data_view_field�ӱ�DDL(V2__create_sys_data_view.sql)�ֶ�/Լ��/����/COMMENT�����Ϲ� | 4cfd2487 |
 | P0-001-006-001-002-002 | ����������Լ�� | 2026-05-30T03:30 | ? | V2__create_sys_data_view.sql sys_data_view_field�ӱ�PK+FK+uk_field_view_code+idx_field_view_order+idx_tenantȫ������Լ���Ѿ�λ,mvn compileͨ�� | 60589236 |
@@ -3710,4 +3710,4 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建SaleQuotationCreateDTO(@NotBlank/@NotNull校验)+UpdateDTO(继承CreateDTO,含id+version)+QueryDTO(继承PageQuery,含筛选字段)+DetailCreateDTO,mvn compile通过 |
-| Git SHA | <pending> |
+| Git SHA | 8620f9ac |
