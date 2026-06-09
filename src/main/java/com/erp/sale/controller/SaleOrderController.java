@@ -39,41 +39,41 @@ public class SaleOrderController {
 
     private final ISaleOrderService saleService;
 
-    @Operation(summary = "分页查询列表")
+    @Operation(summary = "分页查询列表", description = "支持多条件筛选+分页排序")
     @GetMapping
     public RT<PageResult<SaleQuotationListVO>> page(@Valid SaleQuotationQueryDTO query) {
         return RT.ok(PageResult.of(saleService.pageList(query)));
     }
 
-    @Operation(summary = "根据ID查询详情")
+    @Operation(summary = "根据ID查询详情", description = "包含主表信息和明细行列表")
     @GetMapping("/{id}")
     public RT<SaleQuotationDetailVO> getById(
             @Parameter(description = "销售订单ID") @PathVariable Long id) {
         return RT.ok(saleService.getDetail(id));
     }
 
-    @Operation(summary = "新增")
+    @Operation(summary = "新增", description = "创建销售订单，含明细行")
     @PostMapping
     public RT<Long> create(
             @Parameter(description = "销售订单创建参数") @Valid @RequestBody SaleQuotationCreateDTO dto) {
         return RT.ok(saleService.create(dto));
     }
 
-    @Operation(summary = "修改")
+    @Operation(summary = "修改", description = "更新销售订单，自动校验版本号")
     @PutMapping
     public RT<Boolean> update(
             @Parameter(description = "销售订单更新参数") @Valid @RequestBody SaleQuotationUpdateDTO dto) {
         return RT.ok(saleService.update(dto));
     }
 
-    @Operation(summary = "删除")
+    @Operation(summary = "删除", description = "根据ID逻辑删除销售订单")
     @DeleteMapping("/{id}")
     public RT<Boolean> delete(
             @Parameter(description = "销售订单ID") @PathVariable Long id) {
         return RT.ok(saleService.delete(id));
     }
 
-    @Operation(summary = "提交审核")
+    @Operation(summary = "提交审核", description = "将销售订单提交至审批流程")
     @PostMapping("/{id}/submit-audit")
     public RT<Boolean> submitAudit(
             @Parameter(description = "销售订单ID") @PathVariable Long id,
