@@ -3990,3 +3990,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | SaleAggregationMapper.xml:3个查询(selectUnshippedPage分页/selectUnshippedCount计数/selectUnshippedList导出)基于sale_order_detail LEFT JOIN sale_delivery_notice_detail聚合未发货数量,动态过滤(客户/商品/销售员/日期),#{}防注入,无SELECT *,mvn compile通过 |
 | Git SHA | d2814e6b |
+
+#### P1-005-001-004-001-002 验证SQL执行
+
+| 字段 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-004-001-002 |
+| 任务名称 | 验证SQL执行 |
+| 完成时间 | 2026-06-09T20:20 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 静态SQL验证通过:3个查询(selectUnshippedPage/selectUnshippedCount/selectUnshippedList)语法正确,#{}防注入,is_deleted检查完整,JOIN逻辑正确(INNER JOIN sale_order + LEFT JOIN sale_delivery_notice*),GROUP BY/HAVING正确,多租户由拦截器处理,无SELECT *,mvn compile通过,索引覆盖合理 |
+| Git SHA | (pending) |
