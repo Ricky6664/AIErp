@@ -3562,4 +3562,5 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建BizDocCopyServiceVerificationTest(10个单元测试覆盖复制/回滚/查询/边界/异常场景);创建测试报告;mvn test BUILD SUCCESS |
+| Git SHA | 3bac3cd3 |
 
