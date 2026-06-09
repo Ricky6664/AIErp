@@ -60,20 +60,17 @@ public class SaleQuotationController {
     }
 
     @Operation(summary = "修改报价单")
-    @PutMapping("/{id}")
+    @PutMapping
     public RT<Boolean> update(
-            @Parameter(description = "报价单ID") @PathVariable Long id,
             @Parameter(description = "报价单更新参数") @Valid @RequestBody SaleQuotationUpdateDTO dto) {
-        dto.setId(id);
         return RT.ok(saleService.update(dto));
     }
 
     @Operation(summary = "删除报价单")
     @DeleteMapping("/{id}")
-    public RT<Void> delete(
+    public RT<Boolean> delete(
             @Parameter(description = "报价单ID") @PathVariable Long id) {
-        saleService.delete(id);
-        return RT.ok();
+        return RT.ok(saleService.delete(id));
     }
 
     @Operation(summary = "提交审核")

@@ -3798,3 +3798,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 摘要 | 创建SaleQuotationController(@RestController+@RequestMapping("/api/sale/quotation")+@RequiredArgsConstructor),注入ISaleQuotationService,声明GET(分页列表/详情)/POST(新增/提交审核)/PUT(修改)/DELETE(删除)六个端点方法,返回RT<T>统一响应,mvn compile通过 |
 | Git SHA | b41e46f2 |
 
+#### P1-005-001-001-004-002 实现接口方法
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-001-004-002 |
+| 任务名称 | 实现接口方法 |
+| 完成时间 | 2026-06-09T22:45 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 实现SaleQuotationController五个接口方法:GET分页(PageResult<ListVO>)/GET详情(DetailVO)/POST新增(RT<Long>)/PUT修改(RT<Boolean>,DTO含id)/DELETE删除(RT<Boolean>),统一RT<T>响应包装,@Valid触发DTO校验,mvn compile通过 |
+| Git SHA | PENDING |
+
