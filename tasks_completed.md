@@ -3736,3 +3736,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 创建SaleQuotationMapper继承BaseMapperX,声明selectPageList(分页查询)+selectDetailById(详情查询)两个自定义方法,@Mapper+@Param注解完整,mvn compile通过 |
 | Git SHA | ce4ed167 |
+
+#### P1-005-001-001-002-002 编写XML映射
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-001-002-002 |
+| 任务名称 | 编写XML映射 |
+| 完成时间 | 2026-06-09T21:00 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建SaleQuotationMapper.xml,定义BaseResultMap(14列完整映射)+Base_Column_List+selectPageList(LEFT JOIN sys_dict_data+saleNo/saleName/status/日期范围动态SQL)+selectDetailById(关联查询详情),mvn compile通过 |
+| Git SHA | 待提交 |

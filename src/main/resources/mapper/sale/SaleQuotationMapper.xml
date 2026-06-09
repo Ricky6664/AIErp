@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.sale.mapper.SaleQuotationMapper">
+
+    <!-- ==================== 基础字段列表 ==================== -->
+    <sql id="Base_Column_List">
+        id, tenant_id, create_time, update_time, creator_id, updater_id,
+        is_deleted, owner_dept_id, owner_id, version,
+        sale_no, sale_name, status, remark
+    </sql>
+
+    <!-- ==================== SaleQuotation 基础映射 ==================== -->
+    <resultMap id="BaseResultMap" type="com.erp.sale.entity.SaleQuotationEntity">
+        <id column="id" property="id"/>
+        <result column="tenant_id" property="tenantId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="creator_id" property="creatorId"/>
+        <result column="updater_id" property="updaterId"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="owner_dept_id" property="ownerDeptId"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="version" property="version"/>
+        <result column="sale_no" property="saleNo"/>
+        <result column="sale_name" property="saleName"/>
+        <result column="status" property="status"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <!-- ==================== 分页列表查询 ==================== -->
+    <select id="selectPageList" resultType="com.erp.sale.vo.SaleQuotationListVO">
+        SELECT t.id, t.sale_no, t.sale_name, t.status,
+               d.dict_label AS status_name,
+               t.create_time,
+               u.nickname AS creator_name
+        FROM sale_quotation t
+        LEFT JOIN sys_dict_data d ON d.dict_value = t.status::varchar AND d.dict_type = 'audit_status'
+        LEFT JOIN sys_user u ON u.id = t.creator_id
+        <where>
+            t.is_deleted = false
+            <if test="query.saleNo != null and query.saleNo != ''">
+                AND t.sale_no LIKE CONCAT('%', #{query.saleNo}, '%')
+            </if>
+            <if test="query.saleName != null and query.saleName != ''">
+                AND t.sale_name LIKE CONCAT('%', #{query.saleName}, '%')
+            </if>
+            <if test="query.status != null">
+                AND t.status = #{query.status}
+            </if>
+            <if test="query.startDate != null">
+                AND t.create_time &gt;= #{query.startDate}
+            </if>
+            <if test="query.endDate != null">
+                AND t.create_time &lt;= #{query.endDate}
+            </if>
+        </where>
+        ORDER BY t.create_time DESC
+    </select>
+
+    <!-- ==================== 按ID查询详情 ==================== -->
+    <select id="selectDetailById" resultType="com.erp.sale.vo.SaleQuotationDetailVO">
+        SELECT t.id, t.sale_no, t.sale_name, t.status,
+               d.dict_label AS status_name,
+               t.create_time,
+               u.nickname AS creator_name,
+               t.remark, t.version
+        FROM sale_quotation t
+        LEFT JOIN sys_dict_data d ON d.dict_value = t.status::varchar AND d.dict_type = 'audit_status'
+        LEFT JOIN sys_user u ON u.id = t.creator_id
+        WHERE t.id = #{id}
+          AND t.is_deleted = false
+    </select>
+
+</mapper>
