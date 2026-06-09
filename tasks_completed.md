@@ -4001,4 +4001,4 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 静态SQL验证通过:3个查询(selectUnshippedPage/selectUnshippedCount/selectUnshippedList)语法正确,#{}防注入,is_deleted检查完整,JOIN逻辑正确(INNER JOIN sale_order + LEFT JOIN sale_delivery_notice*),GROUP BY/HAVING正确,多租户由拦截器处理,无SELECT *,mvn compile通过,索引覆盖合理 |
-| Git SHA | (pending) |
+| Git SHA | 049aeca0 |
