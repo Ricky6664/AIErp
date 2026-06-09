@@ -3870,3 +3870,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 摘要 | SaleQuotationMapper接口(@Mapper+extends BaseMapperX<SaleQuotationEntity>+selectPageList+selectDetailById+selectByCondition+countByStatus),代码已存在仅做验证,mvn compile通过 |
 | Git SHA | 4dc3029f |
 
+#### P1-005-001-002-002-002 编写XML映射
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-002-002-002 |
+| 任务名称 | 编写XML映射 |
+| 完成时间 | 2026-06-10T00:00 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | SaleQuotationMapper.xml(BasicResultMap+Base_Column_List+selectPageList+selectDetailById+selectByCondition+countByStatus+selectStatistics),namespace与Mapper接口一致,动态SQL使用OGNL+CONCAT防注入,mvn compile通过 |
+| Git SHA | 待填写 |
+
