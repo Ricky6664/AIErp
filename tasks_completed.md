@@ -3834,3 +3834,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 摘要 | SaleQuotationEntity继承BaseEntity,映射sale_quotation表(@TableName+@Data+@EqualsAndHashCode),定义saleNo/saleName/status/remark四个业务字段(@TableField),mvn compile通过 |
 | Git SHA | da63bf02 |
 
+#### P1-005-001-002-001-002 定义DTO类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-002-001-002 |
+| 任务名称 | 定义DTO类 |
+| 完成时间 | 2026-06-09T23:15 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | SaleQuotationCreateDTO(@NotBlank/@NotNull/@Size校验+@Schema文档注解)+SaleQuotationUpdateDTO(extends CreateDTO+id/@NotNull+version)+SaleQuotationQueryDTO(extends PageQuery+5个筛选字段),mvn compile通过 |
+| Git SHA | 72788cdb |
+
