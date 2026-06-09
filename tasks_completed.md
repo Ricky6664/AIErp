@@ -3263,5 +3263,5 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建MessageTemplateList.vue(P04标准列表页:搜索/表格/弹窗表单含变量提示和渠道多选); 创建api/msg/template.ts; 追加模板类型到types/msg.ts; 注册/msg/template路由; vite build + mvn compile成功 |
-| Git SHA | (待提交)
+| Git SHA | 143ba237
 
