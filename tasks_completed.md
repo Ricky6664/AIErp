@@ -1,7 +1,7 @@
 # tasks_completed.md �� ���������鵵
 
 > **������**��2026-06-09T18:55
-> **�鵵����**��642 ��
+> **归档数**：643 条
 > **�ĵ���λ**��ȫ����ʷ��ɼ�¼���������ݲ���
 
 ---
@@ -3711,3 +3711,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 创建SaleQuotationCreateDTO(@NotBlank/@NotNull校验)+UpdateDTO(继承CreateDTO,含id+version)+QueryDTO(继承PageQuery,含筛选字段)+DetailCreateDTO,mvn compile通过 |
 | Git SHA | 8620f9ac |
+
+#### P1-005-001-001-001-003 定义VO类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-001-001-003 |
+| 任务名称 | 定义VO类 |
+| 完成时间 | 2026-06-09T20:35 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建SaleQuotationListVO(列表VO)+SaleQuotationDetailVO(详情VO继承ListVO含明细行列表),@JsonFormat日期格式化+statusName字典翻译字段,mvn compile通过 |
+| Git SHA | c5379110 |
