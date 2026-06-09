@@ -1354,7 +1354,7 @@
 | 状态 | ✅ |
 | 摘要 | 创建仓库模块WorkbenchAggregateAggregateMapper(接口+XML)，实现KPI聚合统计(warehouseTotal/warehouseActive/locationTotal/locationActive)和趋势查询(按日分组)，存放于warehouse模块正确位置 |
 | 工人 | W5 |
-| Git SHA | (待提交) |
+| Git SHA | 2fe36492 |
 
 ### P0-011-001-005-001-002 ✅
 | 属性 | 值 |
