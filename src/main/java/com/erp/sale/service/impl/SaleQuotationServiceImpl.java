@@ -1,6 +1,7 @@
 package com.erp.sale.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.erp.common.enums.ErrorCode;
@@ -9,6 +10,7 @@ import com.erp.common.service.ServiceImplX;
 import com.erp.engine.audit.dto.AuditSubmitDTO;
 import com.erp.engine.audit.service.AuditEngineService;
 import com.erp.sale.dto.SaleQuotationCreateDTO;
+import com.erp.sale.dto.SaleQuotationDetailCreateDTO;
 import com.erp.sale.dto.SaleQuotationQueryDTO;
 import com.erp.sale.dto.SaleQuotationUpdateDTO;
 import com.erp.sale.entity.SaleQuotationEntity;
@@ -20,6 +22,10 @@ import com.erp.system.codegen.CodeGenerateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * 报价单Service实现.
@@ -36,6 +42,13 @@ public class SaleQuotationServiceImpl extends ServiceImplX<SaleQuotationMapper, 
     private final AuditEngineService auditEngineService;
 
     private static final String DOC_TYPE = "SALE_QUOTATION";
+
+    /** 状态流转配置：fromStatus → 允许的toStatus集合 */
+    private static final Map<Integer, Set<Integer>> ALLOWED_TRANSITIONS = Map.of(
+        0, Set.of(1),        // 草稿 → 待审核
+        1, Set.of(2, 4),     // 待审核 → 已审核/已作废
+        2, Set.of(0, 4)      // 已审核 → 反审(回草稿)/已作废
+    );
 
     @Override
     @Transactional(readOnly = true)
@@ -58,10 +71,7 @@ public class SaleQuotationServiceImpl extends ServiceImplX<SaleQuotationMapper, 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Long create(SaleQuotationCreateDTO dto) {
-        validateNameUniqueness(dto.getSaleName(), null);
-        if (dto.getDetails() == null || dto.getDetails().isEmpty()) {
-            throw new BusinessException(ErrorCode.PARAM_INVALID, "明细行不能为空");
-        }
+        validateCreate(dto);
         String code = codeGenerateService.generate("sale");
         SaleQuotationEntity entity = BeanUtil.copyProperties(dto, SaleQuotationEntity.class);
         entity.setSaleNo(code);
@@ -80,7 +90,7 @@ public class SaleQuotationServiceImpl extends ServiceImplX<SaleQuotationMapper, 
         if (existing.getStatus() != 0) {
             throw new BusinessException(ErrorCode.DATA_STATUS_INVALID, "仅草稿状态可修改");
         }
-        validateNameUniqueness(dto.getSaleName(), dto.getId());
+        validateUpdate(dto);
         BeanUtil.copyProperties(dto, existing);
         updateById(existing);
         return true;
@@ -107,9 +117,7 @@ public class SaleQuotationServiceImpl extends ServiceImplX<SaleQuotationMapper, 
         if (existing == null) {
             throw new BusinessException(ErrorCode.DATA_NOT_FOUND, "报价单不存在, id: " + id);
         }
-        if (existing.getStatus() != 0) {
-            throw new BusinessException(ErrorCode.DATA_STATUS_INVALID, "仅草稿状态可提交审核");
-        }
+        validateStatusTransition(existing.getStatus(), 1);
         AuditSubmitDTO submitDTO = new AuditSubmitDTO();
         submitDTO.setDocType(DOC_TYPE);
         submitDTO.setDocId(id);
@@ -118,6 +126,60 @@ public class SaleQuotationServiceImpl extends ServiceImplX<SaleQuotationMapper, 
         existing.setStatus(1);
         updateById(existing);
         return true;
+    }
+
+    /** 新增校验：先非空→再唯一性→再金额计算 */
+    private void validateCreate(SaleQuotationCreateDTO dto) {
+        if (CollUtil.isEmpty(dto.getDetails())) {
+            throw new BusinessException(ErrorCode.PARAM_INVALID, "明细行不能为空");
+        }
+        validateNameUniqueness(dto.getSaleName(), null);
+        validateAmount(dto);
+    }
+
+    /** 修改校验：先非空→再唯一性→再金额计算 */
+    private void validateUpdate(SaleQuotationUpdateDTO dto) {
+        if (CollUtil.isEmpty(dto.getDetails())) {
+            throw new BusinessException(ErrorCode.PARAM_INVALID, "明细行不能为空");
+        }
+        validateNameUniqueness(dto.getSaleName(), dto.getId());
+        validateAmount(dto);
+    }
+
+    /** 状态流转校验：基于状态机配置，禁止硬编码if/else */
+    private void validateStatusTransition(Integer fromStatus, Integer toStatus) {
+        Set<Integer> allowed = ALLOWED_TRANSITIONS.get(fromStatus);
+        if (allowed == null || !allowed.contains(toStatus)) {
+            throw new BusinessException(ErrorCode.DATA_STATUS_INVALID,
+                "状态流转不允许: " + fromStatus + " → " + toStatus);
+        }
+    }
+
+    /** 金额计算校验：逐行校验数量/单价/税率/折扣 */
+    private void validateAmount(SaleQuotationCreateDTO dto) {
+        for (int i = 0; i < dto.getDetails().size(); i++) {
+            SaleQuotationDetailCreateDTO detail = dto.getDetails().get(i);
+            if (detail.getQuantity() == null || detail.getQuantity().compareTo(BigDecimal.ZERO) <= 0) {
+                throw new BusinessException(ErrorCode.PARAM_INVALID,
+                    "第" + (i + 1) + "行数量必须大于0");
+            }
+            if (detail.getUnitPrice() == null || detail.getUnitPrice().compareTo(BigDecimal.ZERO) < 0) {
+                throw new BusinessException(ErrorCode.PARAM_INVALID,
+                    "第" + (i + 1) + "行单价不能为负");
+            }
+            if (detail.getTaxRate() != null
+                    && (detail.getTaxRate().compareTo(BigDecimal.ZERO) < 0
+                        || detail.getTaxRate().compareTo(new BigDecimal("100")) > 0)) {
+                throw new BusinessException(ErrorCode.PARAM_INVALID,
+                    "第" + (i + 1) + "行税率须在0-100之间");
+            }
+            if (detail.getDiscount() != null
+                    && (detail.getDiscount().compareTo(BigDecimal.ZERO) < 0
+                        || detail.getDiscount().compareTo(new BigDecimal("100")) > 0)) {
+                throw new BusinessException(ErrorCode.PARAM_INVALID,
+                    "第" + (i + 1) + "行折扣须在0-100之间");
+            }
+        }
     }
 
     private void validateNameUniqueness(String name, Long excludeId) {
