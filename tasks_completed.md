@@ -3772,5 +3772,5 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建ISaleQuotationService继承IServiceX<SaleQuotationEntity>,声明pageList/getDetail/create/update/delete/submitAudit六个方法,返回值类型统一(Long/Boolean/Page/DetailVO),mvn compile通过 |
-| Git SHA | 待提交 |
+| Git SHA | de17a430 |
 
