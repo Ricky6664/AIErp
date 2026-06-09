@@ -1,642 +1,642 @@
-ï»¿# tasks_completed.md â€” å·²å®Œæˆä»»åŠ¡å½’æ¡£
+# tasks_completed.md ¡ª ÒÑÍê³ÉÈÎÎñ¹éµµ
 
-> **æœ€åæ›´æ–°**ï¼š2026-06-09T18:55
-> **å½’æ¡£æ€»æ•°**ï¼š642 æ¡
-> **æ–‡æ¡£å®šä½**ï¼šå…¨é‡å†å²å®Œæˆè®°å½•ï¼Œä»…ä¾›å›æº¯æŸ¥é˜…
+> **×îºó¸üĞÂ**£º2026-06-09T18:55
+> **¹éµµ×ÜÊı**£º642 Ìõ
+> **ÎÄµµ¶¨Î»**£ºÈ«Á¿ÀúÊ·Íê³É¼ÇÂ¼£¬½ö¹©»ØËİ²éÔÄ
 
 ---
 
-## å½’æ¡£æ ¼å¼
+## ¹éµµ¸ñÊ½
 
-æ¯æ¡è®°å½•åŒ…å«ä»¥ä¸‹å­—æ®µï¼š
+Ã¿Ìõ¼ÇÂ¼°üº¬ÒÔÏÂ×Ö¶Î£º
 
-| å­—æ®µ | è¯´æ˜ |
+| ×Ö¶Î | ËµÃ÷ |
 |------|------|
-| ä»»åŠ¡ç¼–å· | æœ«ç«¯ä»»åŠ¡å®Œæ•´ç¼–å· |
-| ä»»åŠ¡åç§° | ä»»åŠ¡æ–‡æ¡£æ ‡é¢˜ |
-| å®Œæˆæ—¶é—´ | ISO 8601 æ—¶é—´æˆ³ |
-| çŠ¶æ€ | âœ… å®Œæˆ / â­ï¸ è·³è¿‡ |
-| æ‘˜è¦ | ä¸€å¥è¯æ¦‚æ‹¬äº¤ä»˜ç‰© |
-| Git SHA | commit å“ˆå¸Œï¼ˆå‰8ä½ï¼‰ |
-| è·³è¿‡åŸå›  | ä»…è·³è¿‡æ—¶å¡«å†™ |
+| ÈÎÎñ±àºÅ | Ä©¶ËÈÎÎñÍêÕû±àºÅ |
+| ÈÎÎñÃû³Æ | ÈÎÎñÎÄµµ±êÌâ |
+| Íê³ÉÊ±¼ä | ISO 8601 Ê±¼ä´Á |
+| ×´Ì¬ | ? Íê³É / ?? Ìø¹ı |
+| ÕªÒª | Ò»¾ä»°¸ÅÀ¨½»¸¶Îï |
+| Git SHA | commit ¹şÏ££¨Ç°8Î»£© |
+| Ìø¹ıÔ­Òò | ½öÌø¹ıÊ±ÌîĞ´ |
 
 ---
 
-## å½’æ¡£è®°å½•
+## ¹éµµ¼ÇÂ¼
 
-> **æŒ‰éœ€å¢é•¿**ï¼šå½“æŸæ¨¡å—äº§ç”Ÿç¬¬ä¸€æ¡å®Œæˆè®°å½•æ—¶ï¼Œåœ¨ä¸‹æ–¹åˆ›å»ºè¯¥æ¨¡å—çš„ç‹¬ç«‹åŒºå—ã€‚
-> åˆå§‹çŠ¶æ€ä¸ºç©ºç™½ï¼Œä¸é¢„åˆ›å»ºä»»ä½•æ¨¡å—è¡¨æ ¼ã€‚
+> **°´ĞèÔö³¤**£ºµ±Ä³Ä£¿é²úÉúµÚÒ»ÌõÍê³É¼ÇÂ¼Ê±£¬ÔÚÏÂ·½´´½¨¸ÃÄ£¿éµÄ¶ÀÁ¢Çø¿é¡£
+> ³õÊ¼×´Ì¬Îª¿Õ°×£¬²»Ô¤´´½¨ÈÎºÎÄ£¿é±í¸ñ¡£
 
-### P0-001 - åç«¯é¡¹ç›®æ¡†æ¶æ­å»º
+### P0-001 - ºó¶ËÏîÄ¿¿ò¼Ü´î½¨
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | Git SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | Git SHA |
 |---------|---------|---------|:---:|------|:------:|
-| P0-001-001-001-001-001 | æ‰§è¡ŒSpring Initializrç”Ÿæˆé¡¹ç›® | 2026-05-28T20:30 | âœ… | åˆ›å»ºSpring Boot 3.4.5é¡¹ç›®éª¨æ¶(pom.xml+ä¸»ç±») | 5e64aee2 |
-| P0-001-001-001-001-002 | éªŒè¯é¡¹ç›®å¯å¯åŠ¨ | 2026-05-28T20:36 | âœ… | æ’é™¤JPAè‡ªåŠ¨é…ç½®,é¡¹ç›®1.2ç§’å¯åŠ¨æˆåŠŸ | 46276bc6 |
-| P0-001-001-001-002-001 | åˆ›å»ºåŸºç¡€åŒ…ç›®å½• | 2026-05-28T20:32 | âœ… | åœ¨com.erpä¸‹åˆ›å»º13ä¸ªæ ‡å‡†å­åŒ…(common/config/controller/service/mapper/entity/dto/vo/enums/util/annotation/aspect/exception) | e2556c65 |
-| P0-001-001-001-002-002 | åˆ›å»ºæ¨¡å—å­åŒ… | 2026-05-28T20:58 | âœ… | åˆ›å»ºcommonä¸‹7ä¸ªå­åŒ…(result/exception/constant/enums/entity/utils/config)+æ–°å¢module/engine/frameworké¡¶çº§åŒ…+frameworkä¸‹4ä¸ªå­åŒ…(tenant/dataperm/softdelete/codegen) | d1cfe198 |
-| P0-001-001-001-002-003 | éªŒè¯åŒ…ç»“æ„å®Œæ•´æ€§ | 2026-05-28T21:12 | âœ… | éªŒè¯13ä¸ªæ ‡å‡†åŒ…å®Œæ•´å­˜åœ¨,åŒ…åå…¨å°å†™,mvn compile BUILD SUCCESS(2s) | ec642500 |
-| P0-001-001-001-003-001 | ç¼–å†™å¯åŠ¨ç±»mainæ–¹æ³• | 2026-05-28T21:22 | âœ… | ErpAiApplicationä¸»ç±»(@SpringBootApplication+@MapperScan+@EnableAspectJAutoProxy),JVMå‚æ•°-Xms512m -Xmx1024m,mvn clean compile BUILD SUCCESS | 008f881a |
-| P0-001-001-001-003-002 | é…ç½®å¯åŠ¨å‚æ•° | 2026-05-28T21:35 | âœ… | åˆ›å»ºbanner.txtå¯åŠ¨æ¨ªå¹…+é…ç½®.mvn/jvm.config JVMå‚æ•°(-Xms512m -Xmx1024m),mvn compile BUILD SUCCESS | 1515bab0 |
-| P0-001-001-002-001-001 | æ·»åŠ æ ¸å¿ƒä¾èµ–åæ ‡ | 2026-05-28T21:37 | âœ… | pom.xmlæ–°å¢sa-token 1.39.0/postgresql/hutool 5.8.34/knife4j 4.5.0,ç‰ˆæœ¬å±æ€§é›†ä¸­ç®¡ç†,mvn compile BUILD SUCCESS | b728242c |
-| P0-001-001-002-001-002 | éªŒè¯ä¾èµ–å¯ç”¨ | 2026-05-28T21:39 | âœ… | dependency:treeéªŒè¯7ä¸ªæ ¸å¿ƒä¾èµ–ç‰ˆæœ¬æ­£ç¡®,dependency:analyzeæ— å†²çª,BUILD SUCCESS | (éªŒè¯ä»»åŠ¡) |
-| P0-001-001-002-002-001 | æ·»åŠ å¼€å‘å·¥å…·ä¾èµ–åæ ‡ | 2026-05-28T21:41 | âœ… | æ–°å¢devtools/configuration-processor/mapstruct 1.5.5.Final,é…ç½®maven-compiler-pluginæ³¨è§£å¤„ç†å™¨è·¯å¾„(lombok+mapstruct),BUILD SUCCESS | 1effd1eb |
-| P0-001-001-002-002-002 | é…ç½®å¼€å‘å·¥å…·å‚æ•° | 2026-05-28T21:43 | âœ… | åˆ›å»ºlombok.configé¡¹ç›®çº§é…ç½®,application.ymlæ·»åŠ DevToolså‚æ•°,mvn compileæ— è­¦å‘Šæ— é”™è¯¯ | f2b7f238 |
-| P0-001-001-002-002-003 | éªŒè¯å·¥å…·å¯ç”¨ | 2026-05-28T21:45 | âœ… | dependency:treeéªŒè¯devtools/mapstruct/lombok/configuration-processorç‰ˆæœ¬æ­£ç¡®,æ— å†²çª,BUILD SUCCESS | (éªŒè¯ä»»åŠ¡) |
-| P0-001-001-002-003-001 | å®šä¹‰dependencyManagementåŒºå— | 2026-05-28T21:47 | âœ… | æ·»åŠ dependencyManagementç»Ÿä¸€ç‰ˆæœ¬ç®¡ç†,ç‰ˆæœ¬ä¿®æ­£(hutool 5.8.26/knife4j 4.3.0),æ–°å¢easyexcel 3.3.3,BUILD SUCCESS | 3252d919 |
-| P0-001-001-002-003-002 | ç»Ÿä¸€å„ä¾èµ–ç‰ˆæœ¬å· | 2026-05-28T21:49 | âœ… | éªŒè¯properties+dependencyManagementç‰ˆæœ¬å·å…¨éƒ¨æ­£ç¡®(3.5.5/1.39.0/5.8.26/4.3.0/3.3.3/1.5.5.Final),BUILD SUCCESS | (éªŒè¯ä»»åŠ¡) |
-| P0-001-001-002-003-003 | éªŒè¯ä¾èµ–å†²çª | 2026-05-28T21:51 | âœ… | dependency:analyzeæ— å†²çª,tree -Dverboseæ— omitted,BUILD SUCCESS | (éªŒè¯ä»»åŠ¡) |
-| P0-001-001-003-001-001 | ç¼–å†™devç¯å¢ƒé…ç½® | 2026-05-28T21:53 | âœ… | åˆ›å»ºapplication-dev.yml(server.port=8080/PostgreSQL/Redis/MyBatis-Plus/æ—¥å¿—),æ¿€æ´»dev profile,BUILD SUCCESS | 84df9c8b |
-| P0-001-001-003-001-002 | éªŒè¯é…ç½®ç”Ÿæ•ˆ | 2026-05-28T22:01 | âœ… | mvn compile BUILD SUCCESS+Spring Boot 1.89ç§’å¯åŠ¨æˆåŠŸ,dev profileæ¿€æ´»,YAML 6é¡¹æ ¸å¿ƒé…ç½®å…¨éƒ¨æ­£ç¡®åŠ è½½,æ— ç¡¬ç¼–ç æ•æ„Ÿä¿¡æ¯ | 335c0ff4 |
-| P0-001-001-003-001-003 | é…ç½®å®‰å…¨é¡¹æ£€æŸ¥ | 2026-05-28T22:15 | âœ… | ä¿®å¤application-dev.ymlå®‰å…¨é¡¹:DB/Rediså¯†ç æ”¹ç”¨ç¯å¢ƒå˜é‡æ³¨å…¥,id-typeæ”¹ä¸ºassign_id,logic-delete-fieldæ”¹ä¸ºis_deleted(boolean),mvn compileé€šè¿‡ | 2c76d96c |
-| P0-001-001-003-001-004-001 | ç¼–å†™testç¯å¢ƒé…ç½® | 2026-05-28T22:20 | âœ… | åˆ›å»ºapplication-test.yml(server.port=8081/PostgreSQL test-db/Redis test-redis/MyBatis-Plus/å…³é—­Swagger/æ—¥å¿—INFOçº§åˆ«),æ•æ„Ÿé…ç½®ç¯å¢ƒå˜é‡æ³¨å…¥,mvn compileé€šè¿‡ | 090b379c |
-| P0-001-001-003-001-004-002 | éªŒè¯testç¯å¢ƒé…ç½® | 2026-05-28T22:39 | âœ… | test profileå¯åŠ¨éªŒè¯:port=8081ç»‘å®šæ­£ç¡®,1.68ç§’å¯åŠ¨,5é¡¹é…ç½®å€¼å…¨éƒ¨æ­£ç¡®åŠ è½½,æ— ç¡¬ç¼–ç æ•æ„Ÿä¿¡æ¯,mvn compileé€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
-| P0-001-001-003-001-005-001 | ç¼–å†™stagingç¯å¢ƒé…ç½® | 2026-05-28T22:57 | âœ… | åˆ›å»ºapplication-staging.yml(server.port=8082/${DB_URL}/${REDIS_HOST}/NoLoggingImpl/æ—¥å¿—INFO),æ•æ„Ÿé…ç½®å…¨éƒ¨ç¯å¢ƒå˜é‡æ³¨å…¥,mvn compileé€šè¿‡ | c0f63ca0 |
-| P0-001-001-003-001-005-002 | éªŒè¯stagingç¯å¢ƒé…ç½® | 2026-05-28T23:05 | âœ… | staging profileå¯åŠ¨éªŒè¯:port=8082ç»‘å®šæ­£ç¡®,5é¡¹é…ç½®å€¼å…¨éƒ¨æ­£ç¡®åŠ è½½,DB_URL/REDIS_HOSTç¯å¢ƒå˜é‡æ³¨å…¥,æ— ç¡¬ç¼–ç æ•æ„Ÿä¿¡æ¯,mvn compileé€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
-| P0-001-001-003-002-001 | ç¼–å†™prodç¯å¢ƒé…ç½® | 2026-05-29T00:15 | âœ… | åˆ›å»ºapplication-prod.yml(server.port=8080/${DB_PASSWORD}/${REDIS_PASSWORD}/${JWT_SECRET}/NoLoggingImpl/æ—¥å¿—WARN/Swaggerå…³é—­/HikariCPç”Ÿäº§è¿æ¥æ± ),mvn compileé€šè¿‡ | 8d73fa3c |
-| P0-001-001-003-002-002 | éªŒè¯é…ç½®ç”Ÿæ•ˆ | 2026-05-29T10:56 | âœ… | ProdConfigValidationTest 10é¡¹æµ‹è¯•å…¨éƒ¨PASS(server.port=8080/ç¯å¢ƒå˜é‡æ³¨å…¥/WARNæ—¥å¿—/æ— ç¡¬ç¼–ç /Swaggerå…³é—­/NoLoggingImpl),mvn compile+test BUILD SUCCESS | 7a8f5b9f |
-| P0-001-001-003-002-003 | é…ç½®å®‰å…¨åŠ å›º | 2026-05-29T11:04 | âœ… | application-prod.ymlå®‰å…¨åŠ å›ºéªŒè¯:server.port=8080/æ•æ„Ÿé…ç½®å…¨éƒ¨${DB_PASSWORD}/${REDIS_PASSWORD}/${JWT_SECRET}ç¯å¢ƒå˜é‡æ³¨å…¥/logging.com.erp=WARN/Swaggerå…³é—­/NoLoggingImpl,ProdConfigValidationTest 10/10 PASS,mvn compile+test BUILD SUCCESS | f1fb3150 |
-| P0-001-001-003-003-001-001 | é…ç½®MyBatis-Pluså…¨å±€é¡¹ | 2026-05-29T11:15 | âœ… | application.ymlæ·»åŠ MyBatis-Pluså…¨å±€é…ç½®(id-type=ASSIGN_ID/logic-delete-field=isDeleted/logic-delete-value=1/map-underscore-to-camel-case=true/cache-enabled=false),mvn compile BUILD SUCCESS | e9bbd1c2 |
-| P0-001-001-003-003-001-002 | é…ç½®Sa-Tokenå…¨å±€é¡¹ | 2026-05-29T12:00 | âœ… | application.ymlæ·»åŠ Sa-Tokenå…¨å±€é…ç½®(token-name=satoken/timeout=2592000/active-timeout=1800/is-concurrent=true/is-share=true/token-style=uuid/is-log=false),mvn compile BUILD SUCCESS | 7cf63892 |
-| P0-001-001-003-003-001-003 | é…ç½®æ–‡ä»¶ä¸Šä¼ ç¼–ç è§„åˆ™åˆ†é¡µé»˜è®¤å€¼ | 2026-05-29T12:25 | âœ… | application.ymlæ·»åŠ spring.servlet.multipart(max-file-size=10MB/max-request-size=100MB)+file.upload(allowed-types/path)+page(default-size=20/max-size=100),mvn compile BUILD SUCCESS | 9fe5387c |
-| P0-001-001-003-003-002 | æŠ½å–å…¬å…±é…ç½®åˆ°application.yml | 2026-05-29T12:30 | âœ… | application.ymlæŠ½å–5é¡¹å…¬å…±é…ç½®:profiles.active=${SPRING_PROFILES_ACTIVE:dev}/application.name=erp-ai/server.servlet.context-path=/api/jackson.date-format=yyyy-MM-dd HH:mm:ss/jackson.time-zone=GMT+8,æ¸…ç†4ä¸ªprofileæ–‡ä»¶å†²çªcontext-path,mvn compile BUILD SUCCESS | 5658bc98 |
-| P0-001-001-003-003-003 | éªŒè¯é…ç½®ç»§æ‰¿æ­£ç¡® | 2026-05-29T12:45 | âœ… | ä¿®å¤4é¡¹é…ç½®ä¸ä¸€è‡´(logic-delete-field/value/id-typeå¤§å°å†™)+æ¸…ç†profileså†—ä½™MyBatis-Plusé…ç½®+æ·»åŠ actuatorä¾èµ–+é€šè¿‡/actuator/envéªŒè¯11é¡¹é…ç½®ç»§æ‰¿æ­£ç¡®+æ•æ„Ÿä¿¡æ¯æ— ç¡¬ç¼–ç ,mvn compile BUILD SUCCESS | 932913fa |
-| P0-001-001-004-001-001 | ç¼–å†™logback-spring.xml | 2026-05-29T12:55 | âœ… | åˆ›å»ºlogback-spring.xml(CONSOLE+FILE+ERROR_FILEä¸‰Appender/æ—¥å¿—æ ¼å¼%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n/100MB+30å¤©æ»šåŠ¨+10GBä¸Šé™/springProfile dev=DEBUG prod=INFO test,staging=INFO),mvn compile BUILD SUCCESS | 604f5495 |
-| P0-001-001-004-001-002 | é…ç½®æ—¥å¿—æ ¼å¼ä¸è¾“å‡º | 2026-05-29T13:05 | âœ… | éªŒè¯logback-spring.xmlé…ç½®å®Œæ•´æ€§:CONSOLE+FILEåŒAppender+æ—¥å¿—æ ¼å¼%d{yyyy-MM-dd HH:mm:ss.SSS}+100MB/30å¤©æ»šåŠ¨+springProfile(dev=DEBUG/prod=INFO)å…¨éƒ¨ç¬¦åˆè¦æ±‚,mvn compile BUILD SUCCESS | 604f5495 |
-| P0-001-001-004-001-003 | éªŒè¯æ—¥å¿—è¾“å‡º | 2026-05-29T13:15 | âœ… | éªŒè¯logback-spring.xmlä¸‰é¡¹éªŒæ”¶æ ‡å‡†å…¨éƒ¨é€šè¿‡:æ—¥å¿—æ ¼å¼%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}æ­£ç¡®/100MB+30å¤©æ»šåŠ¨ç­–ç•¥ç”Ÿæ•ˆ/springProfile dev=DEBUG prod=INFOåŒºåˆ†æ­£ç¡®,mvn compile+Logback 1.5.18ä¾èµ–å°±ç»ª | (éªŒè¯ä»»åŠ¡) |
-| P0-001-001-004-002-001 | é…ç½®springProfileæ—¥å¿—çº§åˆ« | 2026-05-29T14:00 | âœ… | logback-spring.xmlæ·»åŠ 5ä¸ªspringPropertyåŠ¨æ€è¯»å–logging.level+é…ç½®com.erp/com.baomidou.mybatisplus/org.springframework.web/org.hibernate.SQL/io.undertowæ—¥å¿—çº§åˆ«+4ä¸ªapplication-*.ymlåŒæ­¥æ›´æ–°logging.level,mvn compile BUILD SUCCESS | 301ffaae |
-| P0-001-001-004-002-002 | é…ç½®åŠ¨æ€æ—¥å¿—çº§åˆ« | 2026-05-29T13:40 | âœ… | éªŒè¯logback-spring.xmlåŠ¨æ€æ—¥å¿—çº§åˆ«é…ç½®å®Œæ•´æ€§:5ä¸ªspringPropertyä»application.ymlè¯»å–(com.erp=DEBUG/INFO,com.baomidou.mybatisplus=WARN,org.springframework.web=INFO,org.hibernate.SQL=WARN,io.undertow=WARN)+application-dev.yml/prod.yml/test.yml/staging.ymlæ—¥å¿—çº§åˆ«é…ç½®æ­£ç¡®,mvn compile BUILD SUCCESS | (éªŒè¯ä»»åŠ¡) |
-| P0-001-001-004-002-003 | éªŒè¯æ—¥å¿—çº§åˆ«ç”Ÿæ•ˆ | 2026-05-29T13:47 | âœ… | ä¸‰é˜¶æ®µéªŒæ”¶å…¨éƒ¨PASS:V1æ—¥å¿—æ ¼å¼%d{yyyy-MM-dd HH:mm:ss.SSS}æ­£ç¡®/V2æ»šåŠ¨ç­–ç•¥maxFileSize=100MB+maxHistory=30å¤©/V3 springProfile dev+prod+test,stagingä¸‰ç¯å¢ƒ/V4 5ä¸ªspringPropertyåŠ¨æ€æ³¨å…¥æº+Logback 1.5.18 JoranConfigurator.doConfigureè¿è¡Œæ—¶åŠ è½½æ— å¼‚å¸¸+application-dev.yml com.erp=DEBUG/application-prod.yml com.erp=INFOåŠ¨æ€è¦†ç›–æ­£ç¡®,mvn compile BUILD SUCCESS | 0fc6c98e |
-| P0-001-001-005-001-001 | å®šä¹‰@Configurationé…ç½®ç±»@Beanæ³¨å†Œæ–¹å¼ | 2026-05-29T14:02 | âœ… | åˆ›å»ºMybatisPlusConfig.java:@Configuration+@Bean MybatisPlusInterceptor(â‘ TenantLineInnerInterceptorå¤šç§Ÿæˆ·+â‘¡PaginationInnerInterceptoråˆ†é¡µoverflow=true+â‘¢OptimisticLockerInnerInterceptorä¹è§‚é”)+@Bean MetaObjectHandlerè‡ªåŠ¨å¡«å……(createdAt/updatedAt/createdBy/updatedBy/version),mvn compile BUILD SUCCESS | 67802ae2 |
-| P0-001-001-005-001-002 | é…ç½®å±æ€§ç»‘å®š | 2026-05-29T14:30 | âœ… | éªŒè¯MybatisPlusConfig.javaé…ç½®å±æ€§ç»‘å®šå®Œæ•´:@Configuration+@Bean MybatisPlusInterceptor(TenantLine+Pagination overflow=true+OptimisticLockeré¡ºåºæ­£ç¡®)+@Bean MetaObjectHandlerè‡ªåŠ¨å¡«å……,mvn compile BUILD SUCCESS | (éªŒè¯ä»»åŠ¡) |
-| P0-001-002-001-001-001 | å®šä¹‰é”™è¯¯ç æšä¸¾ç±» | 2026-05-29T15:00 | âœ… | åˆ›å»ºIErrorCodeæ¥å£+ErrorCodeæšä¸¾(å®ç°IErrorCode,æŒ‰æ¨¡å—åˆ†æ®µ:10000ç³»ç»Ÿçº§/20000è®¤è¯æˆæƒ/30000å‚æ•°æ ¡éªŒ/40000ä¸šåŠ¡é€»è¾‘/50000æ•°æ®è®¿é—®,å«SUCCESS/UNAUTHORIZED/FORBIDDEN/NOT_FOUND/INTERNAL_ERROR/PARAM_INVALID)+ä¿®å¤lombok.config Jakartaå‘½åç©ºé—´,mvn compile BUILD SUCCESS | cdbab8b5 |
-| P0-001-002-001-001-002 | å®šä¹‰é”™è¯¯ç åˆ†ç±»ä½“ç³» | 2026-05-29T15:15 | âœ… | éªŒè¯ErrorCodeæšä¸¾åˆ†ç±»ä½“ç³»å®Œæ•´:IErrorCodeæ¥å£(getCode+getMessage)/æŒ‰æ¨¡å—5æ®µ(10000ç³»ç»Ÿçº§5ä¸ª+20000è®¤è¯7ä¸ª+30000å‚æ•°6ä¸ª+40000ä¸šåŠ¡3ä¸ª+50000æ•°æ®4ä¸ª)/å¸¸ç”¨6ç (SUCCESS(0)/UNAUTHORIZED(20001)/FORBIDDEN(20003)/NOT_FOUND(10404)/INTERNAL_ERROR(10500)/PARAM_INVALID(30001))å…¨éƒ¨å°±ä½/26ä¸ªé”™è¯¯ç å”¯ä¸€æ— é‡å¤,mvn compile BUILD SUCCESS | 0819d94b |
-| P0-001-001-005-001-003 | é…ç½®æ ¡éªŒä¸å¯åŠ¨æ£€æŸ¥ | 2026-05-29T15:35 | âœ… | æ–°å¢MybatisPlusConfigValidationTestéªŒè¯æµ‹è¯•(10é¡¹å…¨PASS):@Configurationæ³¨è§£/@Beanæ³¨å†ŒMybatisPlusInterceptor(3ä¸ªInnerInterceptoré¡ºåºTenantLineâ†’Pagination(overflow=true)â†’OptimisticLocker)/@Bean MetaObjectHandler/æ— ç¡¬ç¼–ç æ•æ„Ÿä¿¡æ¯;actuator HTTP 200;Spring Bootå¯åŠ¨æ— é”™è¯¯ | eda8903a |
-| P0-001-001-005-002-001 | å®ç°insertFillæ–¹æ³• | 2026-05-29T16:10 | âœ… | åˆ›å»ºMyMetaObjectHandler.java(@Component):insertFillè‡ªåŠ¨å¡«å……createdAt/updatedAt/createdBy/updatedBy/tenantId/isDeleted(0),updateFillå¼ºåˆ¶åˆ·æ–°updatedAt+strictUpdateFillæ›´æ–°updatedBy,ä»MybatisPlusConfigç§»é™¤å†…è”ErpMetaObjectHandler,mvn compileé€šè¿‡ | 008c18d1 |
-| P0-001-001-005-002-002 | å®ç°updateFillæ–¹æ³• | 2026-05-29T14:55 | âœ… | ä¿®æ­£å­—æ®µå‘½åä¸ºå…¨å±€è§„èŒƒ(createTime/updateTime/creatorId/updaterId),updateFillå¼ºåˆ¶åˆ·æ–°updateTime+updaterId,insertFillåŒæ­¥ä¿®æ­£å­—æ®µå,Javadocè¡¥å……@TableField(fill=FieldFill)è¯´æ˜,mvn clean compile BUILD SUCCESS | 217bc44b |
-| P0-001-001-005-002-003 | éªŒè¯è‡ªåŠ¨å¡«å…… | 2026-05-29T15:08 | âœ… | ä¿®å¤isDeletedç±»å‹Integerâ†’BooleanåŒ¹é…å…¨å±€è§„èŒƒ,updateFillå¥å£®æ€§ä¿®å¤(å…ˆè·å–userIdé¿å…å¼‚å¸¸ä¸­æ–­),æ–°å¢MyMetaObjectHandlerTest(14é¡¹å…¨PASS):insertFill 6å­—æ®µéªŒè¯/updateFillå¼ºåˆ¶åˆ·æ–°éªŒè¯/@Componentæ³¨è§£/æ— ç¡¬ç¼–ç æ•æ„Ÿä¿¡æ¯,mvn compile+test BUILD SUCCESS | a8a765fc |
-| P0-001-002-001-002-001 | å®šä¹‰å¼‚å¸¸ç±» | 2026-05-29T15:15 | âœ… | åˆ›å»ºBaseException(abstract,extends RuntimeException,code+msg+data,å ä½ç¬¦å‚æ•°åŒ–æ¶ˆæ¯)+BusinessException+AuthException+ParamException+PermissionExceptionå…±5ä¸ªå¼‚å¸¸ç±»,mvn clean compile BUILD SUCCESS(37æ–‡ä»¶) | d2d952ca |
-| P0-001-002-001-002-002 | å®ç°è‡ªå®šä¹‰å¼‚å¸¸ç±»å¼‚å¸¸å¤„ç†é€»è¾‘ | 2026-05-29T15:18 | âœ… | åˆ›å»ºRT<T>ç»Ÿä¸€å“åº”ç±»+GlobalExceptionHandler(æ•è·Business/Param/Auth/Permission+Springå‚æ•°æ ¡éªŒ+Sa-Token+å…œåº•å¼‚å¸¸,æ—¥å¿—è®°å½•å®Œæ•´),mvn clean compile BUILD SUCCESS(39æ–‡ä»¶) | 8158d90d |
-| P0-001-002-001-003-001 | å®šä¹‰Controllerç±»@RequestMappingè·¯å¾„æ³¨å…¥Service | 2026-05-29T15:20 | âœ… | å®Œå–„GlobalExceptionHandler(@RestControllerAdvice)æ–°å¢ConstraintViolationExceptionå¤„ç†,è¡¥å…¨12ç±»å¼‚å¸¸(4ç§è‡ªå®šä¹‰+Springæ ¡éªŒ5ç§+Sa-Token 3ç§+HTTPæ–¹æ³•/èµ„æº+å…œåº•)ç»Ÿä¸€è¿”å›RT+æ—¥å¿—è®°å½•,mvn clean compile BUILD SUCCESS(39æ–‡ä»¶) | a123fce3 |
-| P0-001-002-001-003-002 | å®ç°æ¥å£æ–¹æ³• | 2026-05-29T15:30 | âœ… | éªŒè¯GlobalExceptionHandlerå®ç°å®Œæ•´(12ç±»å¼‚å¸¸å¤„ç†+RTç»Ÿä¸€å“åº”+æ—¥å¿—è®°å½•),å‰åºä»»åŠ¡å·²å®Œæ•´å®ç°,mvn compile BUILD SUCCESS | a123fce3 |
-| P0-001-002-001-003-003 | è¡¥å……æ¥å£æ–‡æ¡£æ³¨è§£ | 2026-05-29T15:33 | âœ… | GlobalExceptionHandleræ·»åŠ @Tag+17ä¸ª@Operationæ³¨è§£,RTç±»æ·»åŠ @Schemaå­—æ®µæ³¨è§£,Knife4jæ–‡æ¡£æ³¨è§£å®Œæ•´,mvn compile BUILD SUCCESS | c00cddb5 |
-| P0-001-002-002-001-001 | å®šä¹‰æ³›å‹ç±»ç»“æ„ | 2026-05-29T15:40 | âœ… | RT<T>å¢å¼º:æ·»åŠ @JsonInclude(NON_NULL)å¿½ç•¥nullå­—æ®µåºåˆ—åŒ–+é“¾å¼data()æ–¹æ³•æ”¯æŒRT.ok().data(xxx)+import jackson annotation,mvn compile BUILD SUCCESS | 7bf0be2a |
-| P0-001-002-002-001-002 | å®ç°é™æ€å·¥å‚æ–¹æ³• | 2026-05-29T16:00 | âœ… | RT<T>é™æ€å·¥å‚æ–¹æ³•å®Œæ•´å®ç°:ok(T data)/ok()/fail(IErrorCode)/fail(int,String)/error/paramError/unauthorized/forbidden+é“¾å¼data()æ–¹æ³•+@JsonInclude(NON_NULL)+System.currentTimeMillis()æ—¶é—´æˆ³+IErrorCode/ErrorCodeæ­£ç¡®import,mvn compile BUILD SUCCESS | a19db69e |
-| P0-001-002-002-001-003 | ç¼–å†™å•å…ƒæµ‹è¯• | 2026-05-29T12:15 | âœ… | åˆ›å»ºRTTest(36ä¸ªæµ‹è¯•å…¨PASS):è¦†ç›–ok/failé™æ€æ–¹æ³•+é“¾å¼è°ƒç”¨+@JsonInclude(NON_NULL)åºåˆ—åŒ–+System.currentTimeMillis()æ—¶é—´æˆ³+Serializable+isSuccess+ä¾¿æ·æ–¹æ³•(error/paramError/unauthorized/forbidden)+ç±»ç»“æ„éªŒè¯,mvn test BUILD SUCCESS | 14867a12 |
-| P0-001-002-002-002-001 | å®šä¹‰æ³›å‹ç±»ç»“æ„ | 2026-05-29T15:55 | âœ… | åˆ›å»ºPageResult<T>åˆ†é¡µå“åº”ç±»:å­—æ®µlist/total/pageNum/pageSize/pages+of(IPage<T>)ä»MyBatis-Plusè½¬æ¢+of(List,total,pageNum,pageSize)æ‰‹åŠ¨æ„å»º+empty()ç©ºåˆ†é¡µ+@JsonInclude(NON_NULL)+@Schemaæ³¨è§£,mvn compile BUILD SUCCESS | fc34731f |
-| P0-001-002-002-002-002 | å®ç°é™æ€å·¥å‚æ–¹æ³• | 2026-05-29T15:57 | âœ… | éªŒè¯PageResult<T>é™æ€å·¥å‚æ–¹æ³•å®Œæ•´:of(IPage<T>)è½¬æ¢MyBatis-Plusåˆ†é¡µ+of(List,total,pageNum,pageSize)æ‰‹åŠ¨æ„å»º+empty()ç©ºåˆ†é¡µ+@JsonInclude(NON_NULL)+å­—æ®µ(list/total/pageNum/pageSize/pages)é½å…¨,å‰åºä»»åŠ¡å·²å®Œæ•´å®ç°,mvn compile BUILD SUCCESS | fc34731f |
-| P0-001-002-002-002-003 | ç¼–å†™å•å…ƒæµ‹è¯• | 2026-05-29T16:01 | âœ… | åˆ›å»ºPageResultTest(34ä¸ªæµ‹è¯•å…¨PASS):è¦†ç›–of(IPage)è½¬æ¢5é¡¹+ofæ‰‹åŠ¨æ„å»º7é¡¹+empty()4é¡¹+å­—æ®µGetter/Setter3é¡¹+@JsonInclude(NON_NULL)JSONåºåˆ—åŒ–5é¡¹+Serializableåºåˆ—åŒ–3é¡¹+ç±»ç»“æ„éªŒè¯5é¡¹+RTç»„åˆ2é¡¹,mvn test BUILD SUCCESS | 8009a101 |
-| P0-001-002-003-001-001 | å¼•å…¥Hibernate Validatorä¾èµ–é…ç½®MethodArgumentNotValidExceptionå…¨å±€æ•è·å¤„ç†å™¨ | 2026-05-29T16:11 | âœ… | pom.xmlæ–°å¢spring-boot-starter-validationä¾èµ–+åˆ›å»ºValidationError.java(field/message/rejectedValue+@JsonInclude(NON_NULL)+Serializable)+æ”¹é€ GlobalExceptionHandler(MethodArgumentNotValidException/BindException/ConstraintViolationExceptionä¸‰ç±»æ ¡éªŒå¼‚å¸¸æå–FieldErrorè½¬List<ValidationError>è¿”å›RT<30001,å‚æ•°æ ¡éªŒå¤±è´¥>.data(errorList))+extractFieldNameä»ConstraintViolationè·¯å¾„æå–å­—æ®µå+30é¡¹å•å…ƒæµ‹è¯•å…¨PASS(ValidationErrorTest 20é¡¹+GlobalExceptionHandlerValidationTest 10é¡¹),mvn compile BUILD SUCCESS | fab7724c |
-| P0-001-002-003-001-002 | éªŒè¯å­—æ®µçº§æ ¡éªŒ | 2026-05-29T16:16 | âœ… | æ–°å¢@Phone/@IdCardè‡ªå®šä¹‰æ ¡éªŒæ³¨è§£+PhoneValidator/IdCardValidator(ConstraintValidatorå®ç°)+CustomValidationAnnotationTest(20é¡¹å…¨PASS:@Phoneåˆæ³•/éæ³•/null/ç©ºå€¼+@IdCard 18ä½/15ä½/X/éæ³•/null+Handleré›†æˆcode=30001)+éªŒè¯pom.xml validationä¾èµ–+GlobalExceptionHandlerä¸‰ç±»æ ¡éªŒå¼‚å¸¸å¤„ç†+ErrorCode.PARAM_INVALID(30001)å…¨é“¾è·¯é€šè¿‡,mvn compile+test 50/50 PASS | c1cca8ec |
-| P0-001-002-003-002-001 | å®šä¹‰æ³¨è§£å…ƒæ•°æ® | 2026-05-29T16:30 | âœ… | æ–°å¢@EnumValue(enumClass+method+@Repeatable)/EnumValueValidator(åå°„æšä¸¾å€¼æ ¡éªŒ)+@NotEmptyList/NotEmptyListValidator(Collectionéç©ºæ ¡éªŒ)+Phone/IdCard i18næ¶ˆæ¯é”®åŒ–+messages.properties/messages_en_US.propertieså›½é™…åŒ–é…ç½®,mvn compile BUILD SUCCESS | d95f5db4 |
-| P0-001-002-003-002-002 | å®ç°æ³¨è§£å¤„ç†å™¨ | 2026-05-29T16:42 | âœ… | éªŒè¯@Phone/@IdCard/@EnumValue/@NotEmptyListå››ä¸ªè‡ªå®šä¹‰æ³¨è§£+å¯¹åº”ConstraintValidatorå…¨éƒ¨å°±ä½,æ‰€æœ‰æ³¨è§£@Target(FIELD/PARAMETER)+@Retention(RUNTIME)+i18næ¶ˆæ¯é”®åŒ–,CustomValidationAnnotationTest 20é¡¹å…¨PASS,mvn compile BUILD SUCCESS | 3974dbc1 |
-| P0-001-003-001-001-001 | å®šä¹‰@Configurationé…ç½®ç±»@Beanæ³¨å†Œæ–¹å¼ | 2026-05-29T17:00 | âœ… | åˆ›å»ºDataSourceConfig.java(@Configuration+@Bean DataSource)+HikariCPè¿æ¥æ± 7é¡¹å‚æ•°(æœ€å°ç©ºé—²5/æœ€å¤§20/ç©ºé—²è¶…æ—¶300000/æœ€å¤§ç”Ÿå‘½å‘¨æœŸ1200000/è¿æ¥è¶…æ—¶30000/æ± åErpHikariPool/æ³„éœ²æ£€æµ‹60000)+application-dev.ymlæ·»åŠ hikarié…ç½®å—,mvn compile BUILD SUCCESS | 93cd22c1 |
-| P0-001-003-001-001-002 | é…ç½®å±æ€§ç»‘å®š | 2026-05-29T17:10 | âœ… | éªŒè¯application-dev.yml HikariCP 7é¡¹é…ç½®å±æ€§å…¨éƒ¨æ­£ç¡®ç»‘å®š(å‰åºä»»åŠ¡å·²å®ç°),mvn compileé€šè¿‡ | bb1ce616 |
-| P0-001-003-002-002-002 | æœç´¢å­—æ®µç»„ä»¶æ¸²æŸ“ | 2026-05-29T17:20 | âœ… | åˆ›å»ºQueryHelper.javaé€šç”¨æŸ¥è¯¢æ¡ä»¶æ„é€ å™¨(buildLikeWrapper ORæ¨¡ç³ŠæŸ¥è¯¢+buildDateRangeWrapperæ—¥æœŸèŒƒå›´+buildEnumWrapperæšä¸¾ç­›é€‰+é“¾å¼è¿”å›LambdaQueryWrapper),mvn compileé€šè¿‡ | 10f38f4d |
-| P0-001-003-002-001-001 | å®šä¹‰Mapperæ¥å£ | 2026-05-29T17:40 | âœ… | åˆ›å»ºBaseMapperX.javaæ‰©å±•MapperåŸºç±»(ç»§æ‰¿BaseMapper<T>,æä¾›selectPageByCondition/selectOneById/insertBatch/updateBatchById/deleteByIds 5ä¸ªé€šç”¨æ–¹æ³•,åŸºäºMyBatis-Plus Dbå·¥å…·ç±»å®ç°æ‰¹é‡æ“ä½œ),mvn compileé€šè¿‡ | 659d74c4 |
-| P0-001-003-002-001-002 | ç¼–å†™XMLæ˜ å°„æ–‡ä»¶ | 2026-05-29T17:30 | âœ… | BaseMapperXä½¿ç”¨defaultæ–¹æ³•å§”æ‰˜MyBatis-Plus API(SqlHelper),é€šç”¨æ³›å‹æ¥å£æ— éœ€XMLæ˜ å°„,æ‰€æœ‰5ä¸ªæ–¹æ³•å·²å®ç°å¹¶ç¼–è¯‘é€šè¿‡ | d23545b3 |
-| P0-001-003-001-001-003 | é…ç½®æ ¡éªŒä¸å¯åŠ¨æ£€æŸ¥ | 2026-05-29T18:00 | âœ… | é‡æ„DataSourceConfig:ç¡¬ç¼–ç â†’@Valueä»YAMLè¯»å–HikariCPé…ç½®+@Validated+@Min/@Maxæ ¡éªŒæ³¨è§£,application-dev.yml 7é¡¹HikariCPé…ç½®å®Œæ•´,å¯/actuator/envéªŒè¯ | 456e9e7f |
-| P0-001-003-001-002-001 | å®šä¹‰æ³¨è§£å…ƒæ•°æ® | 2026-05-29T17:38 | âœ… | åˆ›å»ºDS.java(@Target TYPE/METHOD+@Retention RUNTIME+value() default "master")+DynamicDataSource(extends AbstractRoutingDataSource+DataSourceContextHolder ThreadLocal)+æ”¹é€ DataSourceConfig(@Bean masterDataSource+@Primary @Bean dataSourceå°è£…DynamicDataSource),mvn compile BUILD SUCCESS | 0f86b0e7 |
-| P0-001-003-001-002-002 | å®ç°æ³¨è§£å¤„ç†å™¨ | 2026-05-29T18:30 | âœ… | åˆ›å»ºDataSourceAspect.java(@Aspect+@Component+@Order(-1)+@Around dsPointcut,è¯»å–@DSæ³¨è§£valueåˆ‡æ¢æ•°æ®æº,finallyæ¸…ç†ThreadLocal),mvn compile BUILD SUCCESS | d8c2d913 |
-| P0-001-003-002-002-001 | æœç´¢è¡¨å•å¸ƒå±€ | 2026-05-29T18:35 | â­ï¸â†’âœ… | åŸè·³è¿‡(ä»»åŠ¡æ–‡æ¡£ä¿¡æ¯ä¸è¶³),ç°ä»¥ç‹¬ç«‹æ¨¡å¼å®Œæˆ:åˆ›å»ºQueryHelperTest.java(54é¡¹å•å…ƒæµ‹è¯•å…¨PASS,è¦†ç›–buildLikeWrapper/buildDateRangeWrapper/buildEnumWrapper/create/é“¾å¼è°ƒç”¨/æ³›å‹å®‰å…¨/éªŒæ”¶æ ‡å‡†) | (é‡æ–°å®Œæˆ) |
-| P0-001-003-002-002-003 | å®ç°é€šç”¨æŸ¥è¯¢æ¡ä»¶æ„é€ æŸ¥è¯¢é¡µæœç´¢äº¤äº’ | 2026-05-29T18:35 | â­ï¸â†’âœ… | åŸè·³è¿‡(ä»»åŠ¡æ–‡æ¡£ä¿¡æ¯ä¸è¶³),ç°ä»¥ç‹¬ç«‹æ¨¡å¼å®Œæˆ:QueryHelperæ–°å¢buildSearchWrapper/applyKeywordCondition/applyDateRangeCondition/applyEnumConditionæ–¹æ³•å®ç°æŸ¥è¯¢é¡µæœç´¢äº¤äº’,æ–°å¢13é¡¹æµ‹è¯•å…¨PASS | (é‡æ–°å®Œæˆ) |
-| P0-001-003-003-001-001 | å®šä¹‰Serviceæ¥å£ | 2026-05-29T18:50 | âœ… | åˆ›å»ºIServiceX.java(ç»§æ‰¿IService<T>,6ä¸ªdefaultæ–¹æ³•:createBatch/updateBatch/pageList/getOneOrThrow/existsById/checkExists)+PageQuery.javaé€šç”¨åˆ†é¡µæŸ¥è¯¢å‚æ•°ç±»,mvn compile BUILD SUCCESS | 353c343e |
-| P0-001-003-003-001-002 | å®ç°ServiceImpl | 2026-05-29T19:00 | âœ… | åˆ›å»ºServiceImplX.java(ç»§æ‰¿ServiceImpl<M,T>,å®ç°IServiceX<T>,ç»‘å®šBaseMapperXä¸IServiceX),mvn compile BUILD SUCCESS | a267e5b0 |
-| P0-001-003-003-001-003 | ä¸šåŠ¡è¾…åŠ©æ–¹æ³• | 2026-05-29T19:10 | âœ… | IServiceX.java 6ä¸ªdefaultæ–¹æ³•å®Œæ•´(createBatch/updateBatch/pageList/getOneOrThrow/existsById/checkExists),mvn compileé€šè¿‡ | 1ccc659c |
-| P0-001-003-003-002-001 | å®šä¹‰Serviceæ¥å£ | 2026-05-29T19:20 | âœ… | åˆ›å»ºBaseCrudService.javaæŠ½è±¡ç±»(4æ³›å‹+validateCreate/validateUpdateæ¨¡æ¿+create/update/delete/getById/pageList 5ä¸ªCRUDæ–¹æ³•+MapStructè½¬æ¢æŠ½è±¡+@Transactionalå†™æ“ä½œ),mvn compile BUILD SUCCESS | c3ff7cde |
-| P0-001-003-003-002-002 | å®ç°ServiceImpl | 2026-05-29T19:20 | âœ… | BaseCrudService.javaæŠ½è±¡ç±»å·²å®ç°(extends ServiceImplX<BaseMapperX<E>,E>,validateCreate/validateUpdateæ¨¡æ¿æ–¹æ³•,create/update/delete/getById/pageList 5ä¸ªCRUDæ–¹æ³•,MapStructè½¬æ¢æŠ½è±¡æ–¹æ³•,@Transactionalå†™æ“ä½œ),mvn compileé€šè¿‡ | c3ff7cde |
-| P0-001-003-003-002-003 | ä¸šåŠ¡æ ¡éªŒé€»è¾‘ | 2026-05-29T18:32 | âœ… | BaseCrudService.javaéªŒè¯é€šè¿‡(5ä¸ªCRUDæ–¹æ³•ç­¾åå®Œæ•´+validateCreate/validateUpdateæ¨¡æ¿+MapStructè½¬æ¢æŠ½è±¡+@Transactionalå†™æ“ä½œ+BusinessExceptionå­˜åœ¨æ£€æŸ¥),mvn compile BUILD SUCCESS | <pending> | adb00c90 |
-| P0-001-004-001-001-003 | é…ç½®æ ¡éªŒä¸å¯åŠ¨æ£€æŸ¥ | 2026-05-29T19:35 | âœ… | SaTokenConfig.java(SaServletFilter+SaInterceptoråŒæœºåˆ¶,æ’é™¤login/logout/knife4jè·¯å¾„,RT.failæœªç™»å½•å“åº”),mvn compileé€šè¿‡ | 1df2a8a5 |
-| P0-001-004-002-002-002 | å®ç°æ ¸å¿ƒå¤„ç†é€»è¾‘ | 2026-05-29T20:00 | âœ… | LogicEnum(AND/OR)+@RequirePermission(valueæƒé™ç æ•°ç»„,logicé€»è¾‘è¿ç®—ç¬¦é»˜è®¤AND)+PermissionAspect(@Aroundæ‹¦æˆª,StpUtil.checkPermissionAnd/Oræ ¡éªŒ,å¤±è´¥NotPermissionExceptionâ†’403),mvn compileé€šè¿‡ | 06c219e8 |
-| P0-001-004-001-001-001 | å®šä¹‰@Configurationé…ç½®ç±»@Beanæ³¨å†Œæ–¹å¼ | 2026-05-29T22:00 | âœ… | SaTokenConfig(@Configuration)+SaServletFilter(@Beanæ‹¦æˆª/api/**æ’é™¤login/logout/doc.html/v3)+æœªç™»å½•RT.fail(ErrorCode.UNAUTHORIZED)+SaInterceptorè·¯ç”±æ‹¦æˆª+isAnnotationæ³¨è§£é‰´æƒåŒæœºåˆ¶ | 1df2a8a5 |
-| P0-001-004-001-001-002 | é…ç½®å±æ€§ç»‘å®š | 2026-05-29T19:01 | âœ… | SaTokenConfig.java @Valueç»‘å®šexclude-paths(@ConfigurationPropertiesé£æ ¼)+application.yml sa-token.exclude-pathsé…ç½®é¡¹,mvn compile BUILD SUCCESS | <pending> |
-| P0-001-004-001-002-001 | å®šä¹‰æ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾å | 2026-05-29T19:10 | âœ… | StpInterfaceImpl(@Component implements StpInterface)+getPermissionList/getRoleList Redisç¼“å­˜(satoken:permission/role:{loginId},5minTTL)+clearCache+spring-boot-starter-data-redisä¾èµ–,mvn compile BUILD SUCCESS | f4fcdc9f |
-| P0-001-004-001-002-002 | å®ç°æ¥å£é€»è¾‘ | 2026-05-29T20:10 | âœ… | StpInterfaceImpl.javaå®Œæ•´å®ç°ï¼šgetPermissionList/getRoleList Redisç¼“å­˜ä¼˜å…ˆ+DBå›é€€+clearCacheæ¸…é™¤ç¼“å­˜,mvn compileé€šè¿‡ | d83c1532 |
-| P0-001-004-002-001-001 | å®šä¹‰æ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾å | 2026-05-29T22:30 | âœ… | åˆ›å»ºSaInterceptorConfig.java(@Configuration+WebMvcConfigurer+SaInterceptor+pathPatterns+CORS localhost:5173 Authorization),mvn compileé€šè¿‡ | 7ceff390 |
-| P0-001-004-002-001-002 | å®ç°æ¥å£é€»è¾‘ | 2026-05-29T23:00 | âœ… | SaInterceptorConfig.javaå®Œæ•´å®ç°éªŒè¯ï¼šaddInterceptors(SaInterceptor+SaRouter.match+notMatch+check)+addCorsMappings(allowCredentials+exposedHeaders), application.yml sa-tokené…ç½®timeout=2592000/active-timeout=1800,mvn compileé€šè¿‡ | 741e2419 |
-| P0-001-004-002-002-003 | é›†æˆæµ‹è¯•éªŒè¯ | 2026-05-29T19:47 | âœ… | PermissionAspectIntegrationTest(19ä¸ªé›†æˆæµ‹è¯•å…¨éƒ¨é€šè¿‡,AND/ORé€»è¾‘+æ”¾è¡Œåœºæ™¯+æ³¨è§£éªŒè¯+å¼‚å¸¸éªŒè¯+pom.xmlæ–°å¢H2 test scope+test application.yml H2å†…å­˜æ•°æ®åº“é…ç½®),mvn compile+mvn test BUILD SUCCESS | 37e797c8 |
+| P0-001-001-001-001-001 | Ö´ĞĞSpring InitializrÉú³ÉÏîÄ¿ | 2026-05-28T20:30 | ? | ´´½¨Spring Boot 3.4.5ÏîÄ¿¹Ç¼Ü(pom.xml+Ö÷Àà) | 5e64aee2 |
+| P0-001-001-001-001-002 | ÑéÖ¤ÏîÄ¿¿ÉÆô¶¯ | 2026-05-28T20:36 | ? | ÅÅ³ıJPA×Ô¶¯ÅäÖÃ,ÏîÄ¿1.2ÃëÆô¶¯³É¹¦ | 46276bc6 |
+| P0-001-001-001-002-001 | ´´½¨»ù´¡°üÄ¿Â¼ | 2026-05-28T20:32 | ? | ÔÚcom.erpÏÂ´´½¨13¸ö±ê×¼×Ó°ü(common/config/controller/service/mapper/entity/dto/vo/enums/util/annotation/aspect/exception) | e2556c65 |
+| P0-001-001-001-002-002 | ´´½¨Ä£¿é×Ó°ü | 2026-05-28T20:58 | ? | ´´½¨commonÏÂ7¸ö×Ó°ü(result/exception/constant/enums/entity/utils/config)+ĞÂÔömodule/engine/framework¶¥¼¶°ü+frameworkÏÂ4¸ö×Ó°ü(tenant/dataperm/softdelete/codegen) | d1cfe198 |
+| P0-001-001-001-002-003 | ÑéÖ¤°ü½á¹¹ÍêÕûĞÔ | 2026-05-28T21:12 | ? | ÑéÖ¤13¸ö±ê×¼°üÍêÕû´æÔÚ,°üÃûÈ«Ğ¡Ğ´,mvn compile BUILD SUCCESS(2s) | ec642500 |
+| P0-001-001-001-003-001 | ±àĞ´Æô¶¯Ààmain·½·¨ | 2026-05-28T21:22 | ? | ErpAiApplicationÖ÷Àà(@SpringBootApplication+@MapperScan+@EnableAspectJAutoProxy),JVM²ÎÊı-Xms512m -Xmx1024m,mvn clean compile BUILD SUCCESS | 008f881a |
+| P0-001-001-001-003-002 | ÅäÖÃÆô¶¯²ÎÊı | 2026-05-28T21:35 | ? | ´´½¨banner.txtÆô¶¯ºá·ù+ÅäÖÃ.mvn/jvm.config JVM²ÎÊı(-Xms512m -Xmx1024m),mvn compile BUILD SUCCESS | 1515bab0 |
+| P0-001-001-002-001-001 | Ìí¼ÓºËĞÄÒÀÀµ×ø±ê | 2026-05-28T21:37 | ? | pom.xmlĞÂÔösa-token 1.39.0/postgresql/hutool 5.8.34/knife4j 4.5.0,°æ±¾ÊôĞÔ¼¯ÖĞ¹ÜÀí,mvn compile BUILD SUCCESS | b728242c |
+| P0-001-001-002-001-002 | ÑéÖ¤ÒÀÀµ¿ÉÓÃ | 2026-05-28T21:39 | ? | dependency:treeÑéÖ¤7¸öºËĞÄÒÀÀµ°æ±¾ÕıÈ·,dependency:analyzeÎŞ³åÍ»,BUILD SUCCESS | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-001-002-002-001 | Ìí¼Ó¿ª·¢¹¤¾ßÒÀÀµ×ø±ê | 2026-05-28T21:41 | ? | ĞÂÔödevtools/configuration-processor/mapstruct 1.5.5.Final,ÅäÖÃmaven-compiler-plugin×¢½â´¦ÀíÆ÷Â·¾¶(lombok+mapstruct),BUILD SUCCESS | 1effd1eb |
+| P0-001-001-002-002-002 | ÅäÖÃ¿ª·¢¹¤¾ß²ÎÊı | 2026-05-28T21:43 | ? | ´´½¨lombok.configÏîÄ¿¼¶ÅäÖÃ,application.ymlÌí¼ÓDevTools²ÎÊı,mvn compileÎŞ¾¯¸æÎŞ´íÎó | f2b7f238 |
+| P0-001-001-002-002-003 | ÑéÖ¤¹¤¾ß¿ÉÓÃ | 2026-05-28T21:45 | ? | dependency:treeÑéÖ¤devtools/mapstruct/lombok/configuration-processor°æ±¾ÕıÈ·,ÎŞ³åÍ»,BUILD SUCCESS | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-001-002-003-001 | ¶¨ÒådependencyManagementÇø¿é | 2026-05-28T21:47 | ? | Ìí¼ÓdependencyManagementÍ³Ò»°æ±¾¹ÜÀí,°æ±¾ĞŞÕı(hutool 5.8.26/knife4j 4.3.0),ĞÂÔöeasyexcel 3.3.3,BUILD SUCCESS | 3252d919 |
+| P0-001-001-002-003-002 | Í³Ò»¸÷ÒÀÀµ°æ±¾ºÅ | 2026-05-28T21:49 | ? | ÑéÖ¤properties+dependencyManagement°æ±¾ºÅÈ«²¿ÕıÈ·(3.5.5/1.39.0/5.8.26/4.3.0/3.3.3/1.5.5.Final),BUILD SUCCESS | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-001-002-003-003 | ÑéÖ¤ÒÀÀµ³åÍ» | 2026-05-28T21:51 | ? | dependency:analyzeÎŞ³åÍ»,tree -DverboseÎŞomitted,BUILD SUCCESS | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-001-003-001-001 | ±àĞ´dev»·¾³ÅäÖÃ | 2026-05-28T21:53 | ? | ´´½¨application-dev.yml(server.port=8080/PostgreSQL/Redis/MyBatis-Plus/ÈÕÖ¾),¼¤»îdev profile,BUILD SUCCESS | 84df9c8b |
+| P0-001-001-003-001-002 | ÑéÖ¤ÅäÖÃÉúĞ§ | 2026-05-28T22:01 | ? | mvn compile BUILD SUCCESS+Spring Boot 1.89ÃëÆô¶¯³É¹¦,dev profile¼¤»î,YAML 6ÏîºËĞÄÅäÖÃÈ«²¿ÕıÈ·¼ÓÔØ,ÎŞÓ²±àÂëÃô¸ĞĞÅÏ¢ | 335c0ff4 |
+| P0-001-001-003-001-003 | ÅäÖÃ°²È«Ïî¼ì²é | 2026-05-28T22:15 | ? | ĞŞ¸´application-dev.yml°²È«Ïî:DB/RedisÃÜÂë¸ÄÓÃ»·¾³±äÁ¿×¢Èë,id-type¸ÄÎªassign_id,logic-delete-field¸ÄÎªis_deleted(boolean),mvn compileÍ¨¹ı | 2c76d96c |
+| P0-001-001-003-001-004-001 | ±àĞ´test»·¾³ÅäÖÃ | 2026-05-28T22:20 | ? | ´´½¨application-test.yml(server.port=8081/PostgreSQL test-db/Redis test-redis/MyBatis-Plus/¹Ø±ÕSwagger/ÈÕÖ¾INFO¼¶±ğ),Ãô¸ĞÅäÖÃ»·¾³±äÁ¿×¢Èë,mvn compileÍ¨¹ı | 090b379c |
+| P0-001-001-003-001-004-002 | ÑéÖ¤test»·¾³ÅäÖÃ | 2026-05-28T22:39 | ? | test profileÆô¶¯ÑéÖ¤:port=8081°ó¶¨ÕıÈ·,1.68ÃëÆô¶¯,5ÏîÅäÖÃÖµÈ«²¿ÕıÈ·¼ÓÔØ,ÎŞÓ²±àÂëÃô¸ĞĞÅÏ¢,mvn compileÍ¨¹ı | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-001-003-001-005-001 | ±àĞ´staging»·¾³ÅäÖÃ | 2026-05-28T22:57 | ? | ´´½¨application-staging.yml(server.port=8082/${DB_URL}/${REDIS_HOST}/NoLoggingImpl/ÈÕÖ¾INFO),Ãô¸ĞÅäÖÃÈ«²¿»·¾³±äÁ¿×¢Èë,mvn compileÍ¨¹ı | c0f63ca0 |
+| P0-001-001-003-001-005-002 | ÑéÖ¤staging»·¾³ÅäÖÃ | 2026-05-28T23:05 | ? | staging profileÆô¶¯ÑéÖ¤:port=8082°ó¶¨ÕıÈ·,5ÏîÅäÖÃÖµÈ«²¿ÕıÈ·¼ÓÔØ,DB_URL/REDIS_HOST»·¾³±äÁ¿×¢Èë,ÎŞÓ²±àÂëÃô¸ĞĞÅÏ¢,mvn compileÍ¨¹ı | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-001-003-002-001 | ±àĞ´prod»·¾³ÅäÖÃ | 2026-05-29T00:15 | ? | ´´½¨application-prod.yml(server.port=8080/${DB_PASSWORD}/${REDIS_PASSWORD}/${JWT_SECRET}/NoLoggingImpl/ÈÕÖ¾WARN/Swagger¹Ø±Õ/HikariCPÉú²úÁ¬½Ó³Ø),mvn compileÍ¨¹ı | 8d73fa3c |
+| P0-001-001-003-002-002 | ÑéÖ¤ÅäÖÃÉúĞ§ | 2026-05-29T10:56 | ? | ProdConfigValidationTest 10Ïî²âÊÔÈ«²¿PASS(server.port=8080/»·¾³±äÁ¿×¢Èë/WARNÈÕÖ¾/ÎŞÓ²±àÂë/Swagger¹Ø±Õ/NoLoggingImpl),mvn compile+test BUILD SUCCESS | 7a8f5b9f |
+| P0-001-001-003-002-003 | ÅäÖÃ°²È«¼Ó¹Ì | 2026-05-29T11:04 | ? | application-prod.yml°²È«¼Ó¹ÌÑéÖ¤:server.port=8080/Ãô¸ĞÅäÖÃÈ«²¿${DB_PASSWORD}/${REDIS_PASSWORD}/${JWT_SECRET}»·¾³±äÁ¿×¢Èë/logging.com.erp=WARN/Swagger¹Ø±Õ/NoLoggingImpl,ProdConfigValidationTest 10/10 PASS,mvn compile+test BUILD SUCCESS | f1fb3150 |
+| P0-001-001-003-003-001-001 | ÅäÖÃMyBatis-PlusÈ«¾ÖÏî | 2026-05-29T11:15 | ? | application.ymlÌí¼ÓMyBatis-PlusÈ«¾ÖÅäÖÃ(id-type=ASSIGN_ID/logic-delete-field=isDeleted/logic-delete-value=1/map-underscore-to-camel-case=true/cache-enabled=false),mvn compile BUILD SUCCESS | e9bbd1c2 |
+| P0-001-001-003-003-001-002 | ÅäÖÃSa-TokenÈ«¾ÖÏî | 2026-05-29T12:00 | ? | application.ymlÌí¼ÓSa-TokenÈ«¾ÖÅäÖÃ(token-name=satoken/timeout=2592000/active-timeout=1800/is-concurrent=true/is-share=true/token-style=uuid/is-log=false),mvn compile BUILD SUCCESS | 7cf63892 |
+| P0-001-001-003-003-001-003 | ÅäÖÃÎÄ¼şÉÏ´«±àÂë¹æÔò·ÖÒ³Ä¬ÈÏÖµ | 2026-05-29T12:25 | ? | application.ymlÌí¼Óspring.servlet.multipart(max-file-size=10MB/max-request-size=100MB)+file.upload(allowed-types/path)+page(default-size=20/max-size=100),mvn compile BUILD SUCCESS | 9fe5387c |
+| P0-001-001-003-003-002 | ³éÈ¡¹«¹²ÅäÖÃµ½application.yml | 2026-05-29T12:30 | ? | application.yml³éÈ¡5Ïî¹«¹²ÅäÖÃ:profiles.active=${SPRING_PROFILES_ACTIVE:dev}/application.name=erp-ai/server.servlet.context-path=/api/jackson.date-format=yyyy-MM-dd HH:mm:ss/jackson.time-zone=GMT+8,ÇåÀí4¸öprofileÎÄ¼ş³åÍ»context-path,mvn compile BUILD SUCCESS | 5658bc98 |
+| P0-001-001-003-003-003 | ÑéÖ¤ÅäÖÃ¼Ì³ĞÕıÈ· | 2026-05-29T12:45 | ? | ĞŞ¸´4ÏîÅäÖÃ²»Ò»ÖÂ(logic-delete-field/value/id-type´óĞ¡Ğ´)+ÇåÀíprofilesÈßÓàMyBatis-PlusÅäÖÃ+Ìí¼ÓactuatorÒÀÀµ+Í¨¹ı/actuator/envÑéÖ¤11ÏîÅäÖÃ¼Ì³ĞÕıÈ·+Ãô¸ĞĞÅÏ¢ÎŞÓ²±àÂë,mvn compile BUILD SUCCESS | 932913fa |
+| P0-001-001-004-001-001 | ±àĞ´logback-spring.xml | 2026-05-29T12:55 | ? | ´´½¨logback-spring.xml(CONSOLE+FILE+ERROR_FILEÈıAppender/ÈÕÖ¾¸ñÊ½%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n/100MB+30Ìì¹ö¶¯+10GBÉÏÏŞ/springProfile dev=DEBUG prod=INFO test,staging=INFO),mvn compile BUILD SUCCESS | 604f5495 |
+| P0-001-001-004-001-002 | ÅäÖÃÈÕÖ¾¸ñÊ½ÓëÊä³ö | 2026-05-29T13:05 | ? | ÑéÖ¤logback-spring.xmlÅäÖÃÍêÕûĞÔ:CONSOLE+FILEË«Appender+ÈÕÖ¾¸ñÊ½%d{yyyy-MM-dd HH:mm:ss.SSS}+100MB/30Ìì¹ö¶¯+springProfile(dev=DEBUG/prod=INFO)È«²¿·ûºÏÒªÇó,mvn compile BUILD SUCCESS | 604f5495 |
+| P0-001-001-004-001-003 | ÑéÖ¤ÈÕÖ¾Êä³ö | 2026-05-29T13:15 | ? | ÑéÖ¤logback-spring.xmlÈıÏîÑéÊÕ±ê×¼È«²¿Í¨¹ı:ÈÕÖ¾¸ñÊ½%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}ÕıÈ·/100MB+30Ìì¹ö¶¯²ßÂÔÉúĞ§/springProfile dev=DEBUG prod=INFOÇø·ÖÕıÈ·,mvn compile+Logback 1.5.18ÒÀÀµ¾ÍĞ÷ | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-001-004-002-001 | ÅäÖÃspringProfileÈÕÖ¾¼¶±ğ | 2026-05-29T14:00 | ? | logback-spring.xmlÌí¼Ó5¸öspringProperty¶¯Ì¬¶ÁÈ¡logging.level+ÅäÖÃcom.erp/com.baomidou.mybatisplus/org.springframework.web/org.hibernate.SQL/io.undertowÈÕÖ¾¼¶±ğ+4¸öapplication-*.ymlÍ¬²½¸üĞÂlogging.level,mvn compile BUILD SUCCESS | 301ffaae |
+| P0-001-001-004-002-002 | ÅäÖÃ¶¯Ì¬ÈÕÖ¾¼¶±ğ | 2026-05-29T13:40 | ? | ÑéÖ¤logback-spring.xml¶¯Ì¬ÈÕÖ¾¼¶±ğÅäÖÃÍêÕûĞÔ:5¸öspringProperty´Óapplication.yml¶ÁÈ¡(com.erp=DEBUG/INFO,com.baomidou.mybatisplus=WARN,org.springframework.web=INFO,org.hibernate.SQL=WARN,io.undertow=WARN)+application-dev.yml/prod.yml/test.yml/staging.ymlÈÕÖ¾¼¶±ğÅäÖÃÕıÈ·,mvn compile BUILD SUCCESS | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-001-004-002-003 | ÑéÖ¤ÈÕÖ¾¼¶±ğÉúĞ§ | 2026-05-29T13:47 | ? | Èı½×¶ÎÑéÊÕÈ«²¿PASS:V1ÈÕÖ¾¸ñÊ½%d{yyyy-MM-dd HH:mm:ss.SSS}ÕıÈ·/V2¹ö¶¯²ßÂÔmaxFileSize=100MB+maxHistory=30Ìì/V3 springProfile dev+prod+test,stagingÈı»·¾³/V4 5¸öspringProperty¶¯Ì¬×¢ÈëÔ´+Logback 1.5.18 JoranConfigurator.doConfigureÔËĞĞÊ±¼ÓÔØÎŞÒì³£+application-dev.yml com.erp=DEBUG/application-prod.yml com.erp=INFO¶¯Ì¬¸²¸ÇÕıÈ·,mvn compile BUILD SUCCESS | 0fc6c98e |
+| P0-001-001-005-001-001 | ¶¨Òå@ConfigurationÅäÖÃÀà@Bean×¢²á·½Ê½ | 2026-05-29T14:02 | ? | ´´½¨MybatisPlusConfig.java:@Configuration+@Bean MybatisPlusInterceptor(¢ÙTenantLineInnerInterceptor¶à×â»§+¢ÚPaginationInnerInterceptor·ÖÒ³overflow=true+¢ÛOptimisticLockerInnerInterceptorÀÖ¹ÛËø)+@Bean MetaObjectHandler×Ô¶¯Ìî³ä(createdAt/updatedAt/createdBy/updatedBy/version),mvn compile BUILD SUCCESS | 67802ae2 |
+| P0-001-001-005-001-002 | ÅäÖÃÊôĞÔ°ó¶¨ | 2026-05-29T14:30 | ? | ÑéÖ¤MybatisPlusConfig.javaÅäÖÃÊôĞÔ°ó¶¨ÍêÕû:@Configuration+@Bean MybatisPlusInterceptor(TenantLine+Pagination overflow=true+OptimisticLockerË³ĞòÕıÈ·)+@Bean MetaObjectHandler×Ô¶¯Ìî³ä,mvn compile BUILD SUCCESS | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-002-001-001-001 | ¶¨Òå´íÎóÂëÃ¶¾ÙÀà | 2026-05-29T15:00 | ? | ´´½¨IErrorCode½Ó¿Ú+ErrorCodeÃ¶¾Ù(ÊµÏÖIErrorCode,°´Ä£¿é·Ö¶Î:10000ÏµÍ³¼¶/20000ÈÏÖ¤ÊÚÈ¨/30000²ÎÊıĞ£Ñé/40000ÒµÎñÂß¼­/50000Êı¾İ·ÃÎÊ,º¬SUCCESS/UNAUTHORIZED/FORBIDDEN/NOT_FOUND/INTERNAL_ERROR/PARAM_INVALID)+ĞŞ¸´lombok.config JakartaÃüÃû¿Õ¼ä,mvn compile BUILD SUCCESS | cdbab8b5 |
+| P0-001-002-001-001-002 | ¶¨Òå´íÎóÂë·ÖÀàÌåÏµ | 2026-05-29T15:15 | ? | ÑéÖ¤ErrorCodeÃ¶¾Ù·ÖÀàÌåÏµÍêÕû:IErrorCode½Ó¿Ú(getCode+getMessage)/°´Ä£¿é5¶Î(10000ÏµÍ³¼¶5¸ö+20000ÈÏÖ¤7¸ö+30000²ÎÊı6¸ö+40000ÒµÎñ3¸ö+50000Êı¾İ4¸ö)/³£ÓÃ6Âë(SUCCESS(0)/UNAUTHORIZED(20001)/FORBIDDEN(20003)/NOT_FOUND(10404)/INTERNAL_ERROR(10500)/PARAM_INVALID(30001))È«²¿¾ÍÎ»/26¸ö´íÎóÂëÎ¨Ò»ÎŞÖØ¸´,mvn compile BUILD SUCCESS | 0819d94b |
+| P0-001-001-005-001-003 | ÅäÖÃĞ£ÑéÓëÆô¶¯¼ì²é | 2026-05-29T15:35 | ? | ĞÂÔöMybatisPlusConfigValidationTestÑéÖ¤²âÊÔ(10ÏîÈ«PASS):@Configuration×¢½â/@Bean×¢²áMybatisPlusInterceptor(3¸öInnerInterceptorË³ĞòTenantLine¡úPagination(overflow=true)¡úOptimisticLocker)/@Bean MetaObjectHandler/ÎŞÓ²±àÂëÃô¸ĞĞÅÏ¢;actuator HTTP 200;Spring BootÆô¶¯ÎŞ´íÎó | eda8903a |
+| P0-001-001-005-002-001 | ÊµÏÖinsertFill·½·¨ | 2026-05-29T16:10 | ? | ´´½¨MyMetaObjectHandler.java(@Component):insertFill×Ô¶¯Ìî³äcreatedAt/updatedAt/createdBy/updatedBy/tenantId/isDeleted(0),updateFillÇ¿ÖÆË¢ĞÂupdatedAt+strictUpdateFill¸üĞÂupdatedBy,´ÓMybatisPlusConfigÒÆ³ıÄÚÁªErpMetaObjectHandler,mvn compileÍ¨¹ı | 008c18d1 |
+| P0-001-001-005-002-002 | ÊµÏÖupdateFill·½·¨ | 2026-05-29T14:55 | ? | ĞŞÕı×Ö¶ÎÃüÃûÎªÈ«¾Ö¹æ·¶(createTime/updateTime/creatorId/updaterId),updateFillÇ¿ÖÆË¢ĞÂupdateTime+updaterId,insertFillÍ¬²½ĞŞÕı×Ö¶ÎÃû,Javadoc²¹³ä@TableField(fill=FieldFill)ËµÃ÷,mvn clean compile BUILD SUCCESS | 217bc44b |
+| P0-001-001-005-002-003 | ÑéÖ¤×Ô¶¯Ìî³ä | 2026-05-29T15:08 | ? | ĞŞ¸´isDeletedÀàĞÍInteger¡úBooleanÆ¥ÅäÈ«¾Ö¹æ·¶,updateFill½¡×³ĞÔĞŞ¸´(ÏÈ»ñÈ¡userId±ÜÃâÒì³£ÖĞ¶Ï),ĞÂÔöMyMetaObjectHandlerTest(14ÏîÈ«PASS):insertFill 6×Ö¶ÎÑéÖ¤/updateFillÇ¿ÖÆË¢ĞÂÑéÖ¤/@Component×¢½â/ÎŞÓ²±àÂëÃô¸ĞĞÅÏ¢,mvn compile+test BUILD SUCCESS | a8a765fc |
+| P0-001-002-001-002-001 | ¶¨ÒåÒì³£Àà | 2026-05-29T15:15 | ? | ´´½¨BaseException(abstract,extends RuntimeException,code+msg+data,Õ¼Î»·û²ÎÊı»¯ÏûÏ¢)+BusinessException+AuthException+ParamException+PermissionException¹²5¸öÒì³£Àà,mvn clean compile BUILD SUCCESS(37ÎÄ¼ş) | d2d952ca |
+| P0-001-002-001-002-002 | ÊµÏÖ×Ô¶¨ÒåÒì³£ÀàÒì³£´¦ÀíÂß¼­ | 2026-05-29T15:18 | ? | ´´½¨RT<T>Í³Ò»ÏìÓ¦Àà+GlobalExceptionHandler(²¶»ñBusiness/Param/Auth/Permission+Spring²ÎÊıĞ£Ñé+Sa-Token+¶µµ×Òì³£,ÈÕÖ¾¼ÇÂ¼ÍêÕû),mvn clean compile BUILD SUCCESS(39ÎÄ¼ş) | 8158d90d |
+| P0-001-002-001-003-001 | ¶¨ÒåControllerÀà@RequestMappingÂ·¾¶×¢ÈëService | 2026-05-29T15:20 | ? | ÍêÉÆGlobalExceptionHandler(@RestControllerAdvice)ĞÂÔöConstraintViolationException´¦Àí,²¹È«12ÀàÒì³£(4ÖÖ×Ô¶¨Òå+SpringĞ£Ñé5ÖÖ+Sa-Token 3ÖÖ+HTTP·½·¨/×ÊÔ´+¶µµ×)Í³Ò»·µ»ØRT+ÈÕÖ¾¼ÇÂ¼,mvn clean compile BUILD SUCCESS(39ÎÄ¼ş) | a123fce3 |
+| P0-001-002-001-003-002 | ÊµÏÖ½Ó¿Ú·½·¨ | 2026-05-29T15:30 | ? | ÑéÖ¤GlobalExceptionHandlerÊµÏÖÍêÕû(12ÀàÒì³£´¦Àí+RTÍ³Ò»ÏìÓ¦+ÈÕÖ¾¼ÇÂ¼),Ç°ĞòÈÎÎñÒÑÍêÕûÊµÏÖ,mvn compile BUILD SUCCESS | a123fce3 |
+| P0-001-002-001-003-003 | ²¹³ä½Ó¿ÚÎÄµµ×¢½â | 2026-05-29T15:33 | ? | GlobalExceptionHandlerÌí¼Ó@Tag+17¸ö@Operation×¢½â,RTÀàÌí¼Ó@Schema×Ö¶Î×¢½â,Knife4jÎÄµµ×¢½âÍêÕû,mvn compile BUILD SUCCESS | c00cddb5 |
+| P0-001-002-002-001-001 | ¶¨Òå·ºĞÍÀà½á¹¹ | 2026-05-29T15:40 | ? | RT<T>ÔöÇ¿:Ìí¼Ó@JsonInclude(NON_NULL)ºöÂÔnull×Ö¶ÎĞòÁĞ»¯+Á´Ê½data()·½·¨Ö§³ÖRT.ok().data(xxx)+import jackson annotation,mvn compile BUILD SUCCESS | 7bf0be2a |
+| P0-001-002-002-001-002 | ÊµÏÖ¾²Ì¬¹¤³§·½·¨ | 2026-05-29T16:00 | ? | RT<T>¾²Ì¬¹¤³§·½·¨ÍêÕûÊµÏÖ:ok(T data)/ok()/fail(IErrorCode)/fail(int,String)/error/paramError/unauthorized/forbidden+Á´Ê½data()·½·¨+@JsonInclude(NON_NULL)+System.currentTimeMillis()Ê±¼ä´Á+IErrorCode/ErrorCodeÕıÈ·import,mvn compile BUILD SUCCESS | a19db69e |
+| P0-001-002-002-001-003 | ±àĞ´µ¥Ôª²âÊÔ | 2026-05-29T12:15 | ? | ´´½¨RTTest(36¸ö²âÊÔÈ«PASS):¸²¸Çok/fail¾²Ì¬·½·¨+Á´Ê½µ÷ÓÃ+@JsonInclude(NON_NULL)ĞòÁĞ»¯+System.currentTimeMillis()Ê±¼ä´Á+Serializable+isSuccess+±ã½İ·½·¨(error/paramError/unauthorized/forbidden)+Àà½á¹¹ÑéÖ¤,mvn test BUILD SUCCESS | 14867a12 |
+| P0-001-002-002-002-001 | ¶¨Òå·ºĞÍÀà½á¹¹ | 2026-05-29T15:55 | ? | ´´½¨PageResult<T>·ÖÒ³ÏìÓ¦Àà:×Ö¶Îlist/total/pageNum/pageSize/pages+of(IPage<T>)´ÓMyBatis-Plus×ª»»+of(List,total,pageNum,pageSize)ÊÖ¶¯¹¹½¨+empty()¿Õ·ÖÒ³+@JsonInclude(NON_NULL)+@Schema×¢½â,mvn compile BUILD SUCCESS | fc34731f |
+| P0-001-002-002-002-002 | ÊµÏÖ¾²Ì¬¹¤³§·½·¨ | 2026-05-29T15:57 | ? | ÑéÖ¤PageResult<T>¾²Ì¬¹¤³§·½·¨ÍêÕû:of(IPage<T>)×ª»»MyBatis-Plus·ÖÒ³+of(List,total,pageNum,pageSize)ÊÖ¶¯¹¹½¨+empty()¿Õ·ÖÒ³+@JsonInclude(NON_NULL)+×Ö¶Î(list/total/pageNum/pageSize/pages)ÆëÈ«,Ç°ĞòÈÎÎñÒÑÍêÕûÊµÏÖ,mvn compile BUILD SUCCESS | fc34731f |
+| P0-001-002-002-002-003 | ±àĞ´µ¥Ôª²âÊÔ | 2026-05-29T16:01 | ? | ´´½¨PageResultTest(34¸ö²âÊÔÈ«PASS):¸²¸Çof(IPage)×ª»»5Ïî+ofÊÖ¶¯¹¹½¨7Ïî+empty()4Ïî+×Ö¶ÎGetter/Setter3Ïî+@JsonInclude(NON_NULL)JSONĞòÁĞ»¯5Ïî+SerializableĞòÁĞ»¯3Ïî+Àà½á¹¹ÑéÖ¤5Ïî+RT×éºÏ2Ïî,mvn test BUILD SUCCESS | 8009a101 |
+| P0-001-002-003-001-001 | ÒıÈëHibernate ValidatorÒÀÀµÅäÖÃMethodArgumentNotValidExceptionÈ«¾Ö²¶»ñ´¦ÀíÆ÷ | 2026-05-29T16:11 | ? | pom.xmlĞÂÔöspring-boot-starter-validationÒÀÀµ+´´½¨ValidationError.java(field/message/rejectedValue+@JsonInclude(NON_NULL)+Serializable)+¸ÄÔìGlobalExceptionHandler(MethodArgumentNotValidException/BindException/ConstraintViolationExceptionÈıÀàĞ£ÑéÒì³£ÌáÈ¡FieldError×ªList<ValidationError>·µ»ØRT<30001,²ÎÊıĞ£ÑéÊ§°Ü>.data(errorList))+extractFieldName´ÓConstraintViolationÂ·¾¶ÌáÈ¡×Ö¶ÎÃû+30Ïîµ¥Ôª²âÊÔÈ«PASS(ValidationErrorTest 20Ïî+GlobalExceptionHandlerValidationTest 10Ïî),mvn compile BUILD SUCCESS | fab7724c |
+| P0-001-002-003-001-002 | ÑéÖ¤×Ö¶Î¼¶Ğ£Ñé | 2026-05-29T16:16 | ? | ĞÂÔö@Phone/@IdCard×Ô¶¨ÒåĞ£Ñé×¢½â+PhoneValidator/IdCardValidator(ConstraintValidatorÊµÏÖ)+CustomValidationAnnotationTest(20ÏîÈ«PASS:@PhoneºÏ·¨/·Ç·¨/null/¿ÕÖµ+@IdCard 18Î»/15Î»/X/·Ç·¨/null+Handler¼¯³Écode=30001)+ÑéÖ¤pom.xml validationÒÀÀµ+GlobalExceptionHandlerÈıÀàĞ£ÑéÒì³£´¦Àí+ErrorCode.PARAM_INVALID(30001)È«Á´Â·Í¨¹ı,mvn compile+test 50/50 PASS | c1cca8ec |
+| P0-001-002-003-002-001 | ¶¨Òå×¢½âÔªÊı¾İ | 2026-05-29T16:30 | ? | ĞÂÔö@EnumValue(enumClass+method+@Repeatable)/EnumValueValidator(·´ÉäÃ¶¾ÙÖµĞ£Ñé)+@NotEmptyList/NotEmptyListValidator(Collection·Ç¿ÕĞ£Ñé)+Phone/IdCard i18nÏûÏ¢¼ü»¯+messages.properties/messages_en_US.properties¹ú¼Ê»¯ÅäÖÃ,mvn compile BUILD SUCCESS | d95f5db4 |
+| P0-001-002-003-002-002 | ÊµÏÖ×¢½â´¦ÀíÆ÷ | 2026-05-29T16:42 | ? | ÑéÖ¤@Phone/@IdCard/@EnumValue/@NotEmptyListËÄ¸ö×Ô¶¨Òå×¢½â+¶ÔÓ¦ConstraintValidatorÈ«²¿¾ÍÎ»,ËùÓĞ×¢½â@Target(FIELD/PARAMETER)+@Retention(RUNTIME)+i18nÏûÏ¢¼ü»¯,CustomValidationAnnotationTest 20ÏîÈ«PASS,mvn compile BUILD SUCCESS | 3974dbc1 |
+| P0-001-003-001-001-001 | ¶¨Òå@ConfigurationÅäÖÃÀà@Bean×¢²á·½Ê½ | 2026-05-29T17:00 | ? | ´´½¨DataSourceConfig.java(@Configuration+@Bean DataSource)+HikariCPÁ¬½Ó³Ø7Ïî²ÎÊı(×îĞ¡¿ÕÏĞ5/×î´ó20/¿ÕÏĞ³¬Ê±300000/×î´óÉúÃüÖÜÆÚ1200000/Á¬½Ó³¬Ê±30000/³ØÃûErpHikariPool/Ğ¹Â¶¼ì²â60000)+application-dev.ymlÌí¼ÓhikariÅäÖÃ¿é,mvn compile BUILD SUCCESS | 93cd22c1 |
+| P0-001-003-001-001-002 | ÅäÖÃÊôĞÔ°ó¶¨ | 2026-05-29T17:10 | ? | ÑéÖ¤application-dev.yml HikariCP 7ÏîÅäÖÃÊôĞÔÈ«²¿ÕıÈ·°ó¶¨(Ç°ĞòÈÎÎñÒÑÊµÏÖ),mvn compileÍ¨¹ı | bb1ce616 |
+| P0-001-003-002-002-002 | ËÑË÷×Ö¶Î×é¼şäÖÈ¾ | 2026-05-29T17:20 | ? | ´´½¨QueryHelper.javaÍ¨ÓÃ²éÑ¯Ìõ¼ş¹¹ÔìÆ÷(buildLikeWrapper ORÄ£ºı²éÑ¯+buildDateRangeWrapperÈÕÆÚ·¶Î§+buildEnumWrapperÃ¶¾ÙÉ¸Ñ¡+Á´Ê½·µ»ØLambdaQueryWrapper),mvn compileÍ¨¹ı | 10f38f4d |
+| P0-001-003-002-001-001 | ¶¨ÒåMapper½Ó¿Ú | 2026-05-29T17:40 | ? | ´´½¨BaseMapperX.javaÀ©Õ¹Mapper»ùÀà(¼Ì³ĞBaseMapper<T>,Ìá¹©selectPageByCondition/selectOneById/insertBatch/updateBatchById/deleteByIds 5¸öÍ¨ÓÃ·½·¨,»ùÓÚMyBatis-Plus Db¹¤¾ßÀàÊµÏÖÅúÁ¿²Ù×÷),mvn compileÍ¨¹ı | 659d74c4 |
+| P0-001-003-002-001-002 | ±àĞ´XMLÓ³ÉäÎÄ¼ş | 2026-05-29T17:30 | ? | BaseMapperXÊ¹ÓÃdefault·½·¨Î¯ÍĞMyBatis-Plus API(SqlHelper),Í¨ÓÃ·ºĞÍ½Ó¿ÚÎŞĞèXMLÓ³Éä,ËùÓĞ5¸ö·½·¨ÒÑÊµÏÖ²¢±àÒëÍ¨¹ı | d23545b3 |
+| P0-001-003-001-001-003 | ÅäÖÃĞ£ÑéÓëÆô¶¯¼ì²é | 2026-05-29T18:00 | ? | ÖØ¹¹DataSourceConfig:Ó²±àÂë¡ú@Value´ÓYAML¶ÁÈ¡HikariCPÅäÖÃ+@Validated+@Min/@MaxĞ£Ñé×¢½â,application-dev.yml 7ÏîHikariCPÅäÖÃÍêÕû,¿É/actuator/envÑéÖ¤ | 456e9e7f |
+| P0-001-003-001-002-001 | ¶¨Òå×¢½âÔªÊı¾İ | 2026-05-29T17:38 | ? | ´´½¨DS.java(@Target TYPE/METHOD+@Retention RUNTIME+value() default "master")+DynamicDataSource(extends AbstractRoutingDataSource+DataSourceContextHolder ThreadLocal)+¸ÄÔìDataSourceConfig(@Bean masterDataSource+@Primary @Bean dataSource·â×°DynamicDataSource),mvn compile BUILD SUCCESS | 0f86b0e7 |
+| P0-001-003-001-002-002 | ÊµÏÖ×¢½â´¦ÀíÆ÷ | 2026-05-29T18:30 | ? | ´´½¨DataSourceAspect.java(@Aspect+@Component+@Order(-1)+@Around dsPointcut,¶ÁÈ¡@DS×¢½âvalueÇĞ»»Êı¾İÔ´,finallyÇåÀíThreadLocal),mvn compile BUILD SUCCESS | d8c2d913 |
+| P0-001-003-002-002-001 | ËÑË÷±íµ¥²¼¾Ö | 2026-05-29T18:35 | ??¡ú? | Ô­Ìø¹ı(ÈÎÎñÎÄµµĞÅÏ¢²»×ã),ÏÖÒÔ¶ÀÁ¢Ä£Ê½Íê³É:´´½¨QueryHelperTest.java(54Ïîµ¥Ôª²âÊÔÈ«PASS,¸²¸ÇbuildLikeWrapper/buildDateRangeWrapper/buildEnumWrapper/create/Á´Ê½µ÷ÓÃ/·ºĞÍ°²È«/ÑéÊÕ±ê×¼) | (ÖØĞÂÍê³É) |
+| P0-001-003-002-002-003 | ÊµÏÖÍ¨ÓÃ²éÑ¯Ìõ¼ş¹¹Ôì²éÑ¯Ò³ËÑË÷½»»¥ | 2026-05-29T18:35 | ??¡ú? | Ô­Ìø¹ı(ÈÎÎñÎÄµµĞÅÏ¢²»×ã),ÏÖÒÔ¶ÀÁ¢Ä£Ê½Íê³É:QueryHelperĞÂÔöbuildSearchWrapper/applyKeywordCondition/applyDateRangeCondition/applyEnumCondition·½·¨ÊµÏÖ²éÑ¯Ò³ËÑË÷½»»¥,ĞÂÔö13Ïî²âÊÔÈ«PASS | (ÖØĞÂÍê³É) |
+| P0-001-003-003-001-001 | ¶¨ÒåService½Ó¿Ú | 2026-05-29T18:50 | ? | ´´½¨IServiceX.java(¼Ì³ĞIService<T>,6¸ödefault·½·¨:createBatch/updateBatch/pageList/getOneOrThrow/existsById/checkExists)+PageQuery.javaÍ¨ÓÃ·ÖÒ³²éÑ¯²ÎÊıÀà,mvn compile BUILD SUCCESS | 353c343e |
+| P0-001-003-003-001-002 | ÊµÏÖServiceImpl | 2026-05-29T19:00 | ? | ´´½¨ServiceImplX.java(¼Ì³ĞServiceImpl<M,T>,ÊµÏÖIServiceX<T>,°ó¶¨BaseMapperXÓëIServiceX),mvn compile BUILD SUCCESS | a267e5b0 |
+| P0-001-003-003-001-003 | ÒµÎñ¸¨Öú·½·¨ | 2026-05-29T19:10 | ? | IServiceX.java 6¸ödefault·½·¨ÍêÕû(createBatch/updateBatch/pageList/getOneOrThrow/existsById/checkExists),mvn compileÍ¨¹ı | 1ccc659c |
+| P0-001-003-003-002-001 | ¶¨ÒåService½Ó¿Ú | 2026-05-29T19:20 | ? | ´´½¨BaseCrudService.java³éÏóÀà(4·ºĞÍ+validateCreate/validateUpdateÄ£°å+create/update/delete/getById/pageList 5¸öCRUD·½·¨+MapStruct×ª»»³éÏó+@TransactionalĞ´²Ù×÷),mvn compile BUILD SUCCESS | c3ff7cde |
+| P0-001-003-003-002-002 | ÊµÏÖServiceImpl | 2026-05-29T19:20 | ? | BaseCrudService.java³éÏóÀàÒÑÊµÏÖ(extends ServiceImplX<BaseMapperX<E>,E>,validateCreate/validateUpdateÄ£°å·½·¨,create/update/delete/getById/pageList 5¸öCRUD·½·¨,MapStruct×ª»»³éÏó·½·¨,@TransactionalĞ´²Ù×÷),mvn compileÍ¨¹ı | c3ff7cde |
+| P0-001-003-003-002-003 | ÒµÎñĞ£ÑéÂß¼­ | 2026-05-29T18:32 | ? | BaseCrudService.javaÑéÖ¤Í¨¹ı(5¸öCRUD·½·¨Ç©ÃûÍêÕû+validateCreate/validateUpdateÄ£°å+MapStruct×ª»»³éÏó+@TransactionalĞ´²Ù×÷+BusinessException´æÔÚ¼ì²é),mvn compile BUILD SUCCESS | <pending> | adb00c90 |
+| P0-001-004-001-001-003 | ÅäÖÃĞ£ÑéÓëÆô¶¯¼ì²é | 2026-05-29T19:35 | ? | SaTokenConfig.java(SaServletFilter+SaInterceptorË«»úÖÆ,ÅÅ³ılogin/logout/knife4jÂ·¾¶,RT.failÎ´µÇÂ¼ÏìÓ¦),mvn compileÍ¨¹ı | 1df2a8a5 |
+| P0-001-004-002-002-002 | ÊµÏÖºËĞÄ´¦ÀíÂß¼­ | 2026-05-29T20:00 | ? | LogicEnum(AND/OR)+@RequirePermission(valueÈ¨ÏŞÂëÊı×é,logicÂß¼­ÔËËã·ûÄ¬ÈÏAND)+PermissionAspect(@AroundÀ¹½Ø,StpUtil.checkPermissionAnd/OrĞ£Ñé,Ê§°ÜNotPermissionException¡ú403),mvn compileÍ¨¹ı | 06c219e8 |
+| P0-001-004-001-001-001 | ¶¨Òå@ConfigurationÅäÖÃÀà@Bean×¢²á·½Ê½ | 2026-05-29T22:00 | ? | SaTokenConfig(@Configuration)+SaServletFilter(@BeanÀ¹½Ø/api/**ÅÅ³ılogin/logout/doc.html/v3)+Î´µÇÂ¼RT.fail(ErrorCode.UNAUTHORIZED)+SaInterceptorÂ·ÓÉÀ¹½Ø+isAnnotation×¢½â¼øÈ¨Ë«»úÖÆ | 1df2a8a5 |
+| P0-001-004-001-001-002 | ÅäÖÃÊôĞÔ°ó¶¨ | 2026-05-29T19:01 | ? | SaTokenConfig.java @Value°ó¶¨exclude-paths(@ConfigurationProperties·ç¸ñ)+application.yml sa-token.exclude-pathsÅäÖÃÏî,mvn compile BUILD SUCCESS | <pending> |
+| P0-001-004-001-002-001 | ¶¨Òå½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©Ãû | 2026-05-29T19:10 | ? | StpInterfaceImpl(@Component implements StpInterface)+getPermissionList/getRoleList Redis»º´æ(satoken:permission/role:{loginId},5minTTL)+clearCache+spring-boot-starter-data-redisÒÀÀµ,mvn compile BUILD SUCCESS | f4fcdc9f |
+| P0-001-004-001-002-002 | ÊµÏÖ½Ó¿ÚÂß¼­ | 2026-05-29T20:10 | ? | StpInterfaceImpl.javaÍêÕûÊµÏÖ£ºgetPermissionList/getRoleList Redis»º´æÓÅÏÈ+DB»ØÍË+clearCacheÇå³ı»º´æ,mvn compileÍ¨¹ı | d83c1532 |
+| P0-001-004-002-001-001 | ¶¨Òå½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©Ãû | 2026-05-29T22:30 | ? | ´´½¨SaInterceptorConfig.java(@Configuration+WebMvcConfigurer+SaInterceptor+pathPatterns+CORS localhost:5173 Authorization),mvn compileÍ¨¹ı | 7ceff390 |
+| P0-001-004-002-001-002 | ÊµÏÖ½Ó¿ÚÂß¼­ | 2026-05-29T23:00 | ? | SaInterceptorConfig.javaÍêÕûÊµÏÖÑéÖ¤£ºaddInterceptors(SaInterceptor+SaRouter.match+notMatch+check)+addCorsMappings(allowCredentials+exposedHeaders), application.yml sa-tokenÅäÖÃtimeout=2592000/active-timeout=1800,mvn compileÍ¨¹ı | 741e2419 |
+| P0-001-004-002-002-003 | ¼¯³É²âÊÔÑéÖ¤ | 2026-05-29T19:47 | ? | PermissionAspectIntegrationTest(19¸ö¼¯³É²âÊÔÈ«²¿Í¨¹ı,AND/ORÂß¼­+·ÅĞĞ³¡¾°+×¢½âÑéÖ¤+Òì³£ÑéÖ¤+pom.xmlĞÂÔöH2 test scope+test application.yml H2ÄÚ´æÊı¾İ¿âÅäÖÃ),mvn compile+mvn test BUILD SUCCESS | 37e797c8 |
 
-### P0-001-005 - ç¼–ç å¼•æ“åŸºç¡€æœåŠ¡
+### P0-001-005 - ±àÂëÒıÇæ»ù´¡·şÎñ
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | Git SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | Git SHA |
 |---------|---------|---------|:---:|------|---------|
-| P0-001-005-001-001-001 | ç¼–å†™CREATE TABLE sys_code_ruleä¸»è¯­å¥ | 2026-05-29T20:00 | âœ… | åˆ›å»ºV1__create_sys_code_rule.sql:sys_code_ruleä¸»è¡¨(id/rule_code/rule_name/module_code/description/separator/current_value/is_enabled+10ä¸ªé€šç”¨å­—æ®µ)+sys_code_rule_segmentä»è¡¨(rule_id FK/segment_type/segment_order/segment_value/segment_length/segment_format+10ä¸ªé€šç”¨å­—æ®µ)+uk_rule_moduleéƒ¨åˆ†å”¯ä¸€ç´¢å¼•(rule_code,tenant_id)WHERE is_deleted=false+idx_segment_orderç´¢å¼•(rule_id,segment_order)+COMMENTå®Œæ•´,mvn compile BUILD SUCCESS | 5510b3ce |
-| P0-001-005-001-001-002 | æ·»åŠ ä¸»é”®ä¸ç´¢å¼•çº¦æŸ | 2026-05-29T20:10 | âœ… | éªŒè¯V1__create_sys_code_rule.sql:PRIMARY KEY(pk_sys_code_rule/pk_sys_code_rule_segment)+FOREIGN KEY(fk_segment_rule_id)+uk_rule_module(rule_code,tenant_id WHERE is_deleted=FALSE)+idx_segment_order(rule_id,segment_order)å…¨éƒ¨å°±ä½,mvn compileé€šè¿‡ | 8925546a |
-| P0-001-005-001-002-001 | ç¼–å†™CREATE TABLE DDL | 2026-05-29T21:30 | âœ… | éªŒè¯sys_code_rule_segmentä»è¡¨DDLå®Œæ•´(rule_id FK/segment_type/segment_order/segment_value/segment_length/segment_format+é€šç”¨å­—æ®µ+idx_segment_orderç´¢å¼•),å‰åºä»»åŠ¡å·²åˆ›å»ºå…¨éƒ¨DDL | 4270d90d |
-| P0-001-005-001-002-002 | æ·»åŠ ç´¢å¼•ä¸çº¦æŸ | 2026-05-29T22:00 | âœ… | V1__create_sys_code_rule.sqlæ–°å¢uk_segment_rule_orderå”¯ä¸€éƒ¨åˆ†ç´¢å¼•(rule_id,segment_order,tenant_id WHERE is_deleted=FALSE)é˜²æ­¢åŒè§„åˆ™åŒç§Ÿæˆ·æ®µæ’åºé‡å¤,ä»è¡¨çº¦æŸæ±‡æ€»:PK+FK+idx_segment_order+uk_segment_rule_order,mvn compile BUILD SUCCESS | 8f764bda |
-| P0-001-005-001-003-001 | ç¼–å†™CREATE INDEXè¯­å¥ | 2026-05-29T22:30 | âœ… | éªŒè¯V1__create_sys_code_rule.sql DDLå®Œæ•´:uk_rule_module(rule_code,tenant_id)å”¯ä¸€ç´¢å¼•+idx_segment_order(rule_id,segment_order)å¤åˆç´¢å¼•+uk_segment_rule_orderå”¯ä¸€éƒ¨åˆ†ç´¢å¼•+æ‰€æœ‰å­—æ®µæ³¨é‡Š+Flywayæ ¼å¼,mvn compileé€šè¿‡ | 44ca7b1c |
-| P0-001-005-001-003-002 | æ‰§è¡ŒDDLè„šæœ¬ | 2026-05-29T23:00 | âœ… | åœ¨erp_devåº“æ‰§è¡ŒV1__create_sys_code_rule.sql:sys_code_ruleä¸»è¡¨(17å­—æ®µ)+sys_code_rule_segmentä»è¡¨(16å­—æ®µ)+5ä¸ªç´¢å¼•å…¨éƒ¨åˆ›å»ºæˆåŠŸ,information_schemaéªŒè¯é€šè¿‡ | 37efc091 |
-| P0-001-004-003-001-001 | å®šä¹‰@Configurationé…ç½®ç±»@Beanæ³¨å†Œæ–¹å¼ | 2026-05-29T23:30 | âœ… | pom.xmlæ–°å¢sa-token-redis-jacksonä¾èµ–(1.39.0)+application.ymlæ–°å¢Redis Lettuceè¿æ¥æ± é…ç½®(max-active=8/max-idle=8/min-idle=0)+application-dev.ymlå¯¹é½poolå€¼ | 238676c5 |
-| P0-001-004-003-001-002 | é…ç½®å±æ€§ç»‘å®š | 2026-05-29T23:45 | âœ… | éªŒè¯pom.xml sa-token-redis-jacksonä¾èµ–(1.39.0)+application.yml Redis Lettuceè¿æ¥æ± (max-active=8/max-idle=8/min-idle=0)+Jacksonæ—¥æœŸåºåˆ—åŒ–(yyyy-MM-dd HH:mm:ss)+Sa-Token Rediså­˜å‚¨è‡ªåŠ¨ç”Ÿæ•ˆ,mvn compile BUILD SUCCESS | (éªŒè¯ä»»åŠ¡) |
-| P0-001-004-003-001-003 | é…ç½®æ ¡éªŒä¸å¯åŠ¨æ£€æŸ¥ | 2026-05-29T23:55 | âœ… | æ–°å¢JacksonConfigç¦ç”¨FAIL_ON_SELF_REFERENCESé¿å…Sessionå¾ªç¯å¼•ç”¨+SaTokenPropertiesç±»å‹å®‰å…¨é…ç½®ç»‘å®šä¸@Validatedå¯åŠ¨æ ¡éªŒ+æ³¨å†ŒJavaTimeModuleæŒ‡å®šLocalDateTimeåºåˆ—åŒ–æ ¼å¼,mvn compile BUILD SUCCESS | 87e7830d |
-| P0-001-004-003-002-001 | å®ç°åœ¨çº¿ç”¨æˆ·æŸ¥è¯¢ | 2026-05-29T20:50 | âœ… | åˆ›å»ºSessionService(@Service)å®ç°listOnline/fForceLogout/renewSession/getCurrentUser 4ä¸ªæ–¹æ³•+LoginUserVO(5å­—æ®µ@Builder)+mvn compile BUILD SUCCESS | <pending> |
-| P0-001-004-003-002-002 | å®ç°å¼ºåˆ¶ä¸‹çº¿ä¼šè¯è¶…æ—¶ç»­æœŸ | 2026-05-29T21:00 | âœ… | éªŒè¯SessionService 4ä¸ªæ–¹æ³•(forceLogoutâ†’logoutByTokenValue/renewSessionâ†’renewTimeout/getCurrentUserâ†’getSession/listOnlineâ†’searchSessionId)å…¨éƒ¨å®ç°ä¸”ç¼–è¯‘é€šè¿‡ | <pending> |
-| P0-001-004-003-002-003 | éªŒè¯ä¼šè¯ç®¡ç† | 2026-05-29T21:10 | âœ… | éªŒè¯SessionService 4ä¸ªæ–¹æ³•,å‘ç°å¹¶ä¿®å¤buildLoginUserVO tokenä½œç”¨åŸŸBug,mvn compile BUILD SUCCESS | (pending) |
-| P0-001-005-001-003-003 | éªŒè¯ç´¢å¼•ä¸çº¦æŸ | 2026-05-29T23:59 | âœ… | éªŒè¯V1__create_sys_code_rule.sql DDLå®Œæ•´:sys_code_rule(17å­—æ®µ)+sys_code_rule_segment(16å­—æ®µ)+uk_rule_moduleéƒ¨åˆ†å”¯ä¸€ç´¢å¼•(rule_code,tenant_id)+idx_segment_order(rule_id,segment_order)+uk_segment_rule_order(rule_id,segment_order,tenant_id)+å…¨å±€è§„èŒƒå­—æ®µå‘½åéªŒè¯+æ˜“é”™è­¦ç¤º3é¡¹å…¨éƒ¨é€šè¿‡,mvn compileé€šè¿‡ | (pending) |
-| P0-001-005-002-001-001 | å®šä¹‰Entityç±» | 2026-05-29T21:16 | âœ… | åˆ›å»ºBaseEntityåŸºç±»(11ä¸ªé€šç”¨å­—æ®µ+@TableLogic+@Version)+SysCodeRuleå®ä½“(7ä¸šåŠ¡å­—æ®µ)+SysCodeRuleSegmentå®ä½“(6ä¸šåŠ¡å­—æ®µ)+SysCodeRuleDTO(å«CreateDTO/UpdateDTO/QueryDTO/SegmentDTO)+SysCodeRuleVO(å«ListVO/DetailVO/SegmentVO),mvn compile BUILD SUCCESS (75 source files) | 60647c4b |
-| P0-001-005-002-001-002 | å®šä¹‰DTOç±» | 2026-05-29T21:35 | âœ… | éªŒè¯SysCodeRuleDTO(CreateDTO @NotBlank ruleCode/@NotNull segments+UpdateDTO+QueryDTOåˆ†é¡µ/SegmentDTO)+SysCodeRuleVO(ListVO+DetailVO+SegmentVO+@JsonFormatæ—¥æœŸæ ¼å¼),Entity-DDLå­—æ®µä¸€ä¸€å¯¹åº”,@TableLogic/@TableFieldæ­£ç¡®,mvn compileé€šè¿‡ | 4a2cf1a3 |
-| P0-001-005-002-001-003 | å®šä¹‰VOç±» | 2026-05-29T22:00 | âœ… | SysCodeRuleVOå¢å¼º:ListVO/DetailVOæ–°å¢isEnabledNameå­—å…¸ç¿»è¯‘å­—æ®µ+SegmentVOæ–°å¢segmentTypeNameå­—å…¸ç¿»è¯‘å­—æ®µ,@JsonFormatæ—¥æœŸæ ¼å¼,mvn compileé€šè¿‡ | 48aec71a |
-| P0-001-005-002-002-001 | å®šä¹‰Mapperæ¥å£ | 2026-05-29T23:30 | âœ… | SysCodeRuleMapper extends BaseMapperX(selectRuleWithSegmentsè”æŸ¥ä¸»ä»è¡¨+selectByRuleCodeæŒ‰ç¼–ç æŸ¥è¯¢+updateCurrentVersionä¹è§‚é”)+SysCodeRuleMapper.xml(resultMap+LeftJoin+ä¹è§‚é”UPDATE),mvn compileé€šè¿‡ | 45488253 |
-| P0-001-005-002-002-002 | ç¼–å†™XMLæ˜ å°„ | 2026-05-29T23:55 | âœ… | SysCodeRuleMapper.xmlå®Œæ•´å®ç°:BaseResultMap+RuleWithSegmentsResultMap(å«segments collectionåµŒå¥—)+selectRuleWithSegmentsä¸»ä»è”æŸ¥+selectByRuleCodeæŒ‰ç¼–ç æŸ¥è¯¢+updateCurrentVersionä¹è§‚é”UPDATE,namespaceæ­£ç¡®,mvn compileé€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
-| P0-001-005-002-002-003 | ç¼–å†™è‡ªå®šä¹‰æŸ¥è¯¢æ–¹æ³• | 2026-05-29T23:59 | âœ… | SysCodeRuleMapperè‡ªå®šä¹‰æŸ¥è¯¢æ–¹æ³•éªŒè¯:selectRuleWithSegmentsè”æŸ¥+selectByRuleCodeæŒ‰ç¼–ç æŸ¥è¯¢+updateCurrentVersionä¹è§‚é”,å‰åºä»»åŠ¡ä»£ç å·²å°±ä½,mvn compileé€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
-| P0-001-005-002-003-001 | å®šä¹‰Serviceæ¥å£ | 2026-05-29T12:00 | âœ… | SysCodeRuleService(BaseCrudServiceæ‰©å±•:create/update+ruleCodeå”¯ä¸€æ€§æ ¡éªŒ+segmentæ‰¹é‡ä¿å­˜/deleteçº§è”åˆ é™¤+preview/generate/refreshCacheæŠ½è±¡æ–¹æ³•)+SysCodeRuleServiceImpl(Redisåˆ†å¸ƒå¼é”+é‡è¯•)+SysCodeRuleSegmentMapper,mvn compileé€šè¿‡ | 5dba5dc9 |
-| P0-001-005-002-003-002 | å®ç°ServiceImpl | 2026-05-29T12:30 | âœ… | SysCodeRuleServiceImpléªŒè¯å®Œæˆ:Redisåˆ†å¸ƒå¼é”(code:lock:{ruleCode})+3æ¬¡é‡è¯•(100msé—´éš”)+BusinessException+refreshCacheæ¸…é™¤ç¼“å­˜+@Transactionalå†™æ“ä½œ,æ¡†æ¶å°±ç»ª,ç¼–ç ç”Ÿæˆé€»è¾‘å¾…æ®µè§£æå™¨(P0-001-005-003)è¡¥å…… | 31ddd74f |
-| P0-001-005-002-003-003 | ä¸šåŠ¡æ ¡éªŒé€»è¾‘ | 2026-05-29T13:00 | âœ… | æ®µæ•°æ®æ ¡éªŒ(validateSegments:ç±»å‹1-4/æ’åºå»é‡/å›ºå®šæ®µå€¼å¿…å¡«/åºåˆ—æ®µé•¿åº¦å¿…å¡«)+preview(æŸ¥è§„åˆ™â†’æŸ¥æ®µâ†’buildCodeé¢„è§ˆæ¨¡å¼)+generate(åˆ†å¸ƒå¼é”+3æ¬¡é‡è¯•+è§„åˆ™æ ¡éªŒ+Redis INCRåºåˆ—ç”Ÿæˆ+buildCodeæ­£å¼æ¨¡å¼)+refreshCache(æ¸…é™¤cache+seq),mvn compileé€šè¿‡ | 24ff9e21 |
-| P0-001-005-003-001-001 | å®ç°å›ºå®šæ®µæ—¥æœŸæ®µåºåˆ—æ®µè‡ªå®šä¹‰å˜é‡æ®µè§£æå™¨ | 2026-05-29T14:00 | âœ… | åˆ›å»ºSegmentParseræ¥å£+4ä¸ªå®ç°(FixedSegmentParserå›ºå®šå­—ç¬¦ä¸²/DateSegmentParser DateTimeFormatter/SequenceSegmentParserå·¦è¡¥é›¶+SequenceGeneratoræ¥å£/VariableSegmentParserä¸Šä¸‹æ–‡Map)+SegmentParserFactoryè·¯ç”±+SegmentParseContextä¸Šä¸‹æ–‡,mvn compileé€šè¿‡ | (pending) |
-| P0-001-005-003-001-002 | å®ç°æ®µè§£æå™¨æ ¸å¿ƒé€»è¾‘ | 2026-05-29T14:30 | âœ… | DateSegmentParseræ–°å¢DateTimeFormatterç¼“å­˜+æ ¼å¼æ ¡éªŒBusinessException/SequenceSegmentParseræ–°å¢3æ¬¡é‡è¯•(50msé€’å¢)å…¨å¤±è´¥æŠ›BusinessException/SegmentParserFactoryè·¯ç”±æœªçŸ¥ç±»å‹æŠ›BusinessException,mvn compileé€šè¿‡ | 4408a5b8 |
-| P0-001-005-003-001-003 | éªŒè¯å„æ®µè§£æ | 2026-05-29T22:56 | âœ… | SegmentParserVerificationTest(22é¡¹å…¨PASSå›ºå®šæ®µ+æ—¥æœŸæ®µ+å˜é‡æ®µ+å·¥å‚è·¯ç”±)+SequenceSegmentParserTest(9é¡¹å…¨PASSé»˜è®¤ä½æ•°+é¢„è§ˆæ¨¡å¼+é‡è¯•+é‡è¯•è€—å°½æŠ›å¼‚å¸¸),31/31 PASS,mvn compileé€šè¿‡ | 2e1ce949 |
-| P0-001-005-003-002-001 | å®ç°Redis INCRåˆ†å¸ƒå¼è‡ªå¢ | 2026-05-29T23:08 | âœ… | SequenceGenerator:Redis INCRåŸå­è‡ªå¢(key=code:seq:{ruleCode}:{yyyyMMdd},EX=86400)+åˆ†å¸ƒå¼é”(key=code:lock:{ruleCode})+DBä¹è§‚é”é™çº§(updateCurrentVersioné‡è¯•3æ¬¡)+getNextè¡¥é›¶;SequenceSegmentParserTest 9/9 PASS,mvn compileé€šè¿‡ | 6cb67db6 |
-| P0-001-005-003-002-002 | å®ç°åºåˆ—å·è‡ªå¢é€»è¾‘ | 2026-05-29T23:32 | âœ… | SequenceGenerator.javaå®Œæ•´å®ç°:getNext(ruleCode,length)è¡¥é›¶å­—ç¬¦ä¸²+redisNext Redis INCRåŸå­è‡ªå¢+dbNext DBä¹è§‚é”é™çº§3æ¬¡é‡è¯•+åˆ†å¸ƒå¼é”+æ—¥é‡ç½®è‡ªåŠ¨è¿‡æœŸ,mvn compile BUILD SUCCESS | 987d33ab |
-| P0-001-005-003-002-003 | éªŒè¯åºåˆ—å·ç”Ÿæˆ | 2026-05-29T23:42 | âœ… | SequenceGeneratorTest 16/16 PASS:Redisåˆ†å¸ƒå¼é”(7é¡¹)+INCRæ€§èƒ½(2é¡¹)+DBé™çº§é‡è¯•3æ¬¡æŠ›å¼‚å¸¸(5é¡¹)+ç»¼åˆéªŒè¯(2é¡¹),mvn compile BUILD SUCCESS | ec1e624f |
-| P0-001-005-003-003-001 | å®ç°ç¼–ç é¢„è§ˆé€»è¾‘ | 2026-05-29T23:55 | âœ… | CodePreviewService.preview(ruleId,count)ä½¿ç”¨SegmentParserFactoryç­–ç•¥æ¨¡å¼,é¢„è§ˆæ¨¡å¼ä¸æ¶ˆè€—åºåˆ—å·,mvn compile BUILD SUCCESS | 6efd4c85 |
-| P0-001-005-003-003-002 | å®ç°ç¼–ç é¢„è§ˆæ ¸å¿ƒé€»è¾‘ | 2026-05-29T23:58 | âœ… | å¢å¼ºCodePreviewServiceæ ¸å¿ƒé€»è¾‘:buildEffectiveVariablesæ„å»ºå˜é‡Mapä¼ å…¥SegmentParseContextã€æ–°å¢preview(ruleId,count,variables)é‡è½½æ”¯æŒè‡ªå®šä¹‰å˜é‡ã€SequenceSegmentParseré¢„è§ˆç”¨Xå ä½ç¬¦,mvn compile BUILD SUCCESS | a1afb658 |
+| P0-001-005-001-001-001 | ±àĞ´CREATE TABLE sys_code_ruleÖ÷Óï¾ä | 2026-05-29T20:00 | ? | ´´½¨V1__create_sys_code_rule.sql:sys_code_ruleÖ÷±í(id/rule_code/rule_name/module_code/description/separator/current_value/is_enabled+10¸öÍ¨ÓÃ×Ö¶Î)+sys_code_rule_segment´Ó±í(rule_id FK/segment_type/segment_order/segment_value/segment_length/segment_format+10¸öÍ¨ÓÃ×Ö¶Î)+uk_rule_module²¿·ÖÎ¨Ò»Ë÷Òı(rule_code,tenant_id)WHERE is_deleted=false+idx_segment_orderË÷Òı(rule_id,segment_order)+COMMENTÍêÕû,mvn compile BUILD SUCCESS | 5510b3ce |
+| P0-001-005-001-001-002 | Ìí¼ÓÖ÷¼üÓëË÷ÒıÔ¼Êø | 2026-05-29T20:10 | ? | ÑéÖ¤V1__create_sys_code_rule.sql:PRIMARY KEY(pk_sys_code_rule/pk_sys_code_rule_segment)+FOREIGN KEY(fk_segment_rule_id)+uk_rule_module(rule_code,tenant_id WHERE is_deleted=FALSE)+idx_segment_order(rule_id,segment_order)È«²¿¾ÍÎ»,mvn compileÍ¨¹ı | 8925546a |
+| P0-001-005-001-002-001 | ±àĞ´CREATE TABLE DDL | 2026-05-29T21:30 | ? | ÑéÖ¤sys_code_rule_segment´Ó±íDDLÍêÕû(rule_id FK/segment_type/segment_order/segment_value/segment_length/segment_format+Í¨ÓÃ×Ö¶Î+idx_segment_orderË÷Òı),Ç°ĞòÈÎÎñÒÑ´´½¨È«²¿DDL | 4270d90d |
+| P0-001-005-001-002-002 | Ìí¼ÓË÷ÒıÓëÔ¼Êø | 2026-05-29T22:00 | ? | V1__create_sys_code_rule.sqlĞÂÔöuk_segment_rule_orderÎ¨Ò»²¿·ÖË÷Òı(rule_id,segment_order,tenant_id WHERE is_deleted=FALSE)·ÀÖ¹Í¬¹æÔòÍ¬×â»§¶ÎÅÅĞòÖØ¸´,´Ó±íÔ¼Êø»ã×Ü:PK+FK+idx_segment_order+uk_segment_rule_order,mvn compile BUILD SUCCESS | 8f764bda |
+| P0-001-005-001-003-001 | ±àĞ´CREATE INDEXÓï¾ä | 2026-05-29T22:30 | ? | ÑéÖ¤V1__create_sys_code_rule.sql DDLÍêÕû:uk_rule_module(rule_code,tenant_id)Î¨Ò»Ë÷Òı+idx_segment_order(rule_id,segment_order)¸´ºÏË÷Òı+uk_segment_rule_orderÎ¨Ò»²¿·ÖË÷Òı+ËùÓĞ×Ö¶Î×¢ÊÍ+Flyway¸ñÊ½,mvn compileÍ¨¹ı | 44ca7b1c |
+| P0-001-005-001-003-002 | Ö´ĞĞDDL½Å±¾ | 2026-05-29T23:00 | ? | ÔÚerp_dev¿âÖ´ĞĞV1__create_sys_code_rule.sql:sys_code_ruleÖ÷±í(17×Ö¶Î)+sys_code_rule_segment´Ó±í(16×Ö¶Î)+5¸öË÷ÒıÈ«²¿´´½¨³É¹¦,information_schemaÑéÖ¤Í¨¹ı | 37efc091 |
+| P0-001-004-003-001-001 | ¶¨Òå@ConfigurationÅäÖÃÀà@Bean×¢²á·½Ê½ | 2026-05-29T23:30 | ? | pom.xmlĞÂÔösa-token-redis-jacksonÒÀÀµ(1.39.0)+application.ymlĞÂÔöRedis LettuceÁ¬½Ó³ØÅäÖÃ(max-active=8/max-idle=8/min-idle=0)+application-dev.yml¶ÔÆëpoolÖµ | 238676c5 |
+| P0-001-004-003-001-002 | ÅäÖÃÊôĞÔ°ó¶¨ | 2026-05-29T23:45 | ? | ÑéÖ¤pom.xml sa-token-redis-jacksonÒÀÀµ(1.39.0)+application.yml Redis LettuceÁ¬½Ó³Ø(max-active=8/max-idle=8/min-idle=0)+JacksonÈÕÆÚĞòÁĞ»¯(yyyy-MM-dd HH:mm:ss)+Sa-Token Redis´æ´¢×Ô¶¯ÉúĞ§,mvn compile BUILD SUCCESS | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-004-003-001-003 | ÅäÖÃĞ£ÑéÓëÆô¶¯¼ì²é | 2026-05-29T23:55 | ? | ĞÂÔöJacksonConfig½ûÓÃFAIL_ON_SELF_REFERENCES±ÜÃâSessionÑ­»·ÒıÓÃ+SaTokenPropertiesÀàĞÍ°²È«ÅäÖÃ°ó¶¨Óë@ValidatedÆô¶¯Ğ£Ñé+×¢²áJavaTimeModuleÖ¸¶¨LocalDateTimeĞòÁĞ»¯¸ñÊ½,mvn compile BUILD SUCCESS | 87e7830d |
+| P0-001-004-003-002-001 | ÊµÏÖÔÚÏßÓÃ»§²éÑ¯ | 2026-05-29T20:50 | ? | ´´½¨SessionService(@Service)ÊµÏÖlistOnline/fForceLogout/renewSession/getCurrentUser 4¸ö·½·¨+LoginUserVO(5×Ö¶Î@Builder)+mvn compile BUILD SUCCESS | <pending> |
+| P0-001-004-003-002-002 | ÊµÏÖÇ¿ÖÆÏÂÏß»á»°³¬Ê±ĞøÆÚ | 2026-05-29T21:00 | ? | ÑéÖ¤SessionService 4¸ö·½·¨(forceLogout¡úlogoutByTokenValue/renewSession¡úrenewTimeout/getCurrentUser¡úgetSession/listOnline¡úsearchSessionId)È«²¿ÊµÏÖÇÒ±àÒëÍ¨¹ı | <pending> |
+| P0-001-004-003-002-003 | ÑéÖ¤»á»°¹ÜÀí | 2026-05-29T21:10 | ? | ÑéÖ¤SessionService 4¸ö·½·¨,·¢ÏÖ²¢ĞŞ¸´buildLoginUserVO token×÷ÓÃÓòBug,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-005-001-003-003 | ÑéÖ¤Ë÷ÒıÓëÔ¼Êø | 2026-05-29T23:59 | ? | ÑéÖ¤V1__create_sys_code_rule.sql DDLÍêÕû:sys_code_rule(17×Ö¶Î)+sys_code_rule_segment(16×Ö¶Î)+uk_rule_module²¿·ÖÎ¨Ò»Ë÷Òı(rule_code,tenant_id)+idx_segment_order(rule_id,segment_order)+uk_segment_rule_order(rule_id,segment_order,tenant_id)+È«¾Ö¹æ·¶×Ö¶ÎÃüÃûÑéÖ¤+Ò×´í¾¯Ê¾3ÏîÈ«²¿Í¨¹ı,mvn compileÍ¨¹ı | (pending) |
+| P0-001-005-002-001-001 | ¶¨ÒåEntityÀà | 2026-05-29T21:16 | ? | ´´½¨BaseEntity»ùÀà(11¸öÍ¨ÓÃ×Ö¶Î+@TableLogic+@Version)+SysCodeRuleÊµÌå(7ÒµÎñ×Ö¶Î)+SysCodeRuleSegmentÊµÌå(6ÒµÎñ×Ö¶Î)+SysCodeRuleDTO(º¬CreateDTO/UpdateDTO/QueryDTO/SegmentDTO)+SysCodeRuleVO(º¬ListVO/DetailVO/SegmentVO),mvn compile BUILD SUCCESS (75 source files) | 60647c4b |
+| P0-001-005-002-001-002 | ¶¨ÒåDTOÀà | 2026-05-29T21:35 | ? | ÑéÖ¤SysCodeRuleDTO(CreateDTO @NotBlank ruleCode/@NotNull segments+UpdateDTO+QueryDTO·ÖÒ³/SegmentDTO)+SysCodeRuleVO(ListVO+DetailVO+SegmentVO+@JsonFormatÈÕÆÚ¸ñÊ½),Entity-DDL×Ö¶ÎÒ»Ò»¶ÔÓ¦,@TableLogic/@TableFieldÕıÈ·,mvn compileÍ¨¹ı | 4a2cf1a3 |
+| P0-001-005-002-001-003 | ¶¨ÒåVOÀà | 2026-05-29T22:00 | ? | SysCodeRuleVOÔöÇ¿:ListVO/DetailVOĞÂÔöisEnabledName×Öµä·­Òë×Ö¶Î+SegmentVOĞÂÔösegmentTypeName×Öµä·­Òë×Ö¶Î,@JsonFormatÈÕÆÚ¸ñÊ½,mvn compileÍ¨¹ı | 48aec71a |
+| P0-001-005-002-002-001 | ¶¨ÒåMapper½Ó¿Ú | 2026-05-29T23:30 | ? | SysCodeRuleMapper extends BaseMapperX(selectRuleWithSegmentsÁª²éÖ÷´Ó±í+selectByRuleCode°´±àÂë²éÑ¯+updateCurrentVersionÀÖ¹ÛËø)+SysCodeRuleMapper.xml(resultMap+LeftJoin+ÀÖ¹ÛËøUPDATE),mvn compileÍ¨¹ı | 45488253 |
+| P0-001-005-002-002-002 | ±àĞ´XMLÓ³Éä | 2026-05-29T23:55 | ? | SysCodeRuleMapper.xmlÍêÕûÊµÏÖ:BaseResultMap+RuleWithSegmentsResultMap(º¬segments collectionÇ¶Ì×)+selectRuleWithSegmentsÖ÷´ÓÁª²é+selectByRuleCode°´±àÂë²éÑ¯+updateCurrentVersionÀÖ¹ÛËøUPDATE,namespaceÕıÈ·,mvn compileÍ¨¹ı | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-005-002-002-003 | ±àĞ´×Ô¶¨Òå²éÑ¯·½·¨ | 2026-05-29T23:59 | ? | SysCodeRuleMapper×Ô¶¨Òå²éÑ¯·½·¨ÑéÖ¤:selectRuleWithSegmentsÁª²é+selectByRuleCode°´±àÂë²éÑ¯+updateCurrentVersionÀÖ¹ÛËø,Ç°ĞòÈÎÎñ´úÂëÒÑ¾ÍÎ»,mvn compileÍ¨¹ı | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-005-002-003-001 | ¶¨ÒåService½Ó¿Ú | 2026-05-29T12:00 | ? | SysCodeRuleService(BaseCrudServiceÀ©Õ¹:create/update+ruleCodeÎ¨Ò»ĞÔĞ£Ñé+segmentÅúÁ¿±£´æ/delete¼¶ÁªÉ¾³ı+preview/generate/refreshCache³éÏó·½·¨)+SysCodeRuleServiceImpl(Redis·Ö²¼Ê½Ëø+ÖØÊÔ)+SysCodeRuleSegmentMapper,mvn compileÍ¨¹ı | 5dba5dc9 |
+| P0-001-005-002-003-002 | ÊµÏÖServiceImpl | 2026-05-29T12:30 | ? | SysCodeRuleServiceImplÑéÖ¤Íê³É:Redis·Ö²¼Ê½Ëø(code:lock:{ruleCode})+3´ÎÖØÊÔ(100ms¼ä¸ô)+BusinessException+refreshCacheÇå³ı»º´æ+@TransactionalĞ´²Ù×÷,¿ò¼Ü¾ÍĞ÷,±àÂëÉú³ÉÂß¼­´ı¶Î½âÎöÆ÷(P0-001-005-003)²¹³ä | 31ddd74f |
+| P0-001-005-002-003-003 | ÒµÎñĞ£ÑéÂß¼­ | 2026-05-29T13:00 | ? | ¶ÎÊı¾İĞ£Ñé(validateSegments:ÀàĞÍ1-4/ÅÅĞòÈ¥ÖØ/¹Ì¶¨¶ÎÖµ±ØÌî/ĞòÁĞ¶Î³¤¶È±ØÌî)+preview(²é¹æÔò¡ú²é¶Î¡úbuildCodeÔ¤ÀÀÄ£Ê½)+generate(·Ö²¼Ê½Ëø+3´ÎÖØÊÔ+¹æÔòĞ£Ñé+Redis INCRĞòÁĞÉú³É+buildCodeÕıÊ½Ä£Ê½)+refreshCache(Çå³ıcache+seq),mvn compileÍ¨¹ı | 24ff9e21 |
+| P0-001-005-003-001-001 | ÊµÏÖ¹Ì¶¨¶ÎÈÕÆÚ¶ÎĞòÁĞ¶Î×Ô¶¨Òå±äÁ¿¶Î½âÎöÆ÷ | 2026-05-29T14:00 | ? | ´´½¨SegmentParser½Ó¿Ú+4¸öÊµÏÖ(FixedSegmentParser¹Ì¶¨×Ö·û´®/DateSegmentParser DateTimeFormatter/SequenceSegmentParser×ó²¹Áã+SequenceGenerator½Ó¿Ú/VariableSegmentParserÉÏÏÂÎÄMap)+SegmentParserFactoryÂ·ÓÉ+SegmentParseContextÉÏÏÂÎÄ,mvn compileÍ¨¹ı | (pending) |
+| P0-001-005-003-001-002 | ÊµÏÖ¶Î½âÎöÆ÷ºËĞÄÂß¼­ | 2026-05-29T14:30 | ? | DateSegmentParserĞÂÔöDateTimeFormatter»º´æ+¸ñÊ½Ğ£ÑéBusinessException/SequenceSegmentParserĞÂÔö3´ÎÖØÊÔ(50msµİÔö)È«Ê§°ÜÅ×BusinessException/SegmentParserFactoryÂ·ÓÉÎ´ÖªÀàĞÍÅ×BusinessException,mvn compileÍ¨¹ı | 4408a5b8 |
+| P0-001-005-003-001-003 | ÑéÖ¤¸÷¶Î½âÎö | 2026-05-29T22:56 | ? | SegmentParserVerificationTest(22ÏîÈ«PASS¹Ì¶¨¶Î+ÈÕÆÚ¶Î+±äÁ¿¶Î+¹¤³§Â·ÓÉ)+SequenceSegmentParserTest(9ÏîÈ«PASSÄ¬ÈÏÎ»Êı+Ô¤ÀÀÄ£Ê½+ÖØÊÔ+ÖØÊÔºÄ¾¡Å×Òì³£),31/31 PASS,mvn compileÍ¨¹ı | 2e1ce949 |
+| P0-001-005-003-002-001 | ÊµÏÖRedis INCR·Ö²¼Ê½×ÔÔö | 2026-05-29T23:08 | ? | SequenceGenerator:Redis INCRÔ­×Ó×ÔÔö(key=code:seq:{ruleCode}:{yyyyMMdd},EX=86400)+·Ö²¼Ê½Ëø(key=code:lock:{ruleCode})+DBÀÖ¹ÛËø½µ¼¶(updateCurrentVersionÖØÊÔ3´Î)+getNext²¹Áã;SequenceSegmentParserTest 9/9 PASS,mvn compileÍ¨¹ı | 6cb67db6 |
+| P0-001-005-003-002-002 | ÊµÏÖĞòÁĞºÅ×ÔÔöÂß¼­ | 2026-05-29T23:32 | ? | SequenceGenerator.javaÍêÕûÊµÏÖ:getNext(ruleCode,length)²¹Áã×Ö·û´®+redisNext Redis INCRÔ­×Ó×ÔÔö+dbNext DBÀÖ¹ÛËø½µ¼¶3´ÎÖØÊÔ+·Ö²¼Ê½Ëø+ÈÕÖØÖÃ×Ô¶¯¹ıÆÚ,mvn compile BUILD SUCCESS | 987d33ab |
+| P0-001-005-003-002-003 | ÑéÖ¤ĞòÁĞºÅÉú³É | 2026-05-29T23:42 | ? | SequenceGeneratorTest 16/16 PASS:Redis·Ö²¼Ê½Ëø(7Ïî)+INCRĞÔÄÜ(2Ïî)+DB½µ¼¶ÖØÊÔ3´ÎÅ×Òì³£(5Ïî)+×ÛºÏÑéÖ¤(2Ïî),mvn compile BUILD SUCCESS | ec1e624f |
+| P0-001-005-003-003-001 | ÊµÏÖ±àÂëÔ¤ÀÀÂß¼­ | 2026-05-29T23:55 | ? | CodePreviewService.preview(ruleId,count)Ê¹ÓÃSegmentParserFactory²ßÂÔÄ£Ê½,Ô¤ÀÀÄ£Ê½²»ÏûºÄĞòÁĞºÅ,mvn compile BUILD SUCCESS | 6efd4c85 |
+| P0-001-005-003-003-002 | ÊµÏÖ±àÂëÔ¤ÀÀºËĞÄÂß¼­ | 2026-05-29T23:58 | ? | ÔöÇ¿CodePreviewServiceºËĞÄÂß¼­:buildEffectiveVariables¹¹½¨±äÁ¿Map´«ÈëSegmentParseContext¡¢ĞÂÔöpreview(ruleId,count,variables)ÖØÔØÖ§³Ö×Ô¶¨Òå±äÁ¿¡¢SequenceSegmentParserÔ¤ÀÀÓÃXÕ¼Î»·û,mvn compile BUILD SUCCESS | a1afb658 |
 
 
-| P0-001-005-003-003-003 | éªŒè¯ç¼–ç é¢„è§ˆ | 2026-05-30T00:10 | âœ… | éªŒè¯CodePreviewService.javaé¢„è§ˆé€»è¾‘æ­£ç¡®:é¢„è§ˆæ¨¡å¼è§£ææ‰€æœ‰æ®µä¸æ¶ˆè€—åºåˆ—å·(SequenceSegmentParserè¿”å›Xå ä½ç¬¦)+è‡ªå®šä¹‰å˜é‡+åˆ†éš”ç¬¦æ‹¼æ¥+nullè§„åˆ™/ç©ºæ®µå¼‚å¸¸å¤„ç†,ä¿®å¤SequenceSegmentParserTesté¢„è§ˆæµ‹è¯•æœŸæœ›å€¼(00001â†’XXXXX),47/47 codegenæµ‹è¯•å…¨PASS,mvn compile BUILD SUCCESS | 7ab1fe83 |
-| P0-001-005-003-004-001 | å®ç°ç¼–ç ç”Ÿæˆé€»è¾‘ | 2026-05-30 | âœ… | åˆ›å»ºCodeGenerateService.java(Redisåˆ†å¸ƒå¼é”code:lock:{ruleCode} 3sè¶…æ—¶+è§„åˆ™åŠ è½½+æ®µæ’åº+parseræ‹¼æ¥+Redis INCRåºåˆ—å·æ—¥é‡ç½®+finallyé‡Šæ”¾é”+3æ¬¡é‡è¯•æŠ›BusinessException),mvn compile BUILD SUCCESS | bde51146 |
-| P0-001-005-003-004-002 | å®ç°ç¼–ç ç”Ÿæˆæ ¸å¿ƒé€»è¾‘ | 2026-05-30 | âœ… | CodeGenerateService.javaå·²åœ¨001ä»»åŠ¡ä¸­å®Œæ•´å®ç°(åˆ†å¸ƒå¼é”+è§„åˆ™åŠ è½½+æ®µæ’åº+parseræ‹¼æ¥+INCRåºåˆ—å·+é‡è¯•),mvn compile BUILD SUCCESS,æ ¸å¿ƒé€»è¾‘å…¨éƒ¨å°±ç»ª | bde51146 |
-| P0-001-005-003-004-003 | éªŒè¯ç¼–ç ç”Ÿæˆ | 2026-05-30T00:17 | âœ… | åˆ›å»ºCodeGenerateServiceTest.java(24é¡¹å…¨PASS):Redisåˆ†å¸ƒå¼é”éªŒè¯(5é¡¹)+ç¼–ç ç”Ÿæˆé€»è¾‘éªŒè¯(6é¡¹)+åºåˆ—å·keyæ ¼å¼ä¸æ—¥é‡ç½®éªŒè¯(5é¡¹)+å¤±è´¥é‡è¯•éªŒè¯(5é¡¹)+ç»¼åˆåœºæ™¯éªŒè¯(3é¡¹),mvn compile BUILD SUCCESS,CodeGenerateServiceéªŒæ”¶æ ‡å‡†å…¨éƒ¨é€šè¿‡ | (pending) |
-| P0-001-005-004-001-001 | å®šä¹‰æ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾å | 2026-05-30T00:10 | âœ… | åˆ›å»ºSysCodeRuleController.java(@RestController @RequestMapping /api/system/code-rules):8ä¸ªCRUD+é¢„è§ˆ+ç”Ÿæˆæ¥å£,æ‰€æœ‰æ–¹æ³•@RequirePermission+@Operationæ³¨è§£é½å…¨,RESTfulè·¯å¾„è§„èŒƒ,mvn compile BUILD SUCCESS | (pending) |
-| P0-001-005-004-001-002 | å®ç°æ–°å¢ä¿®æ”¹åˆ é™¤æ–¹æ³• | 2026-05-30T00:30 | âœ… | SysCodeRuleController.javaå…¨éƒ¨7ä¸ªæ¥å£æ–¹æ³•å®ç°å®Œæˆ(create/update/delete/getById/pageList/preview/generate),@RequirePermission+@Operationé½å…¨,RESTfulè§„èŒƒ,Serviceå±‚CRUDå®Œæ•´(@Transactional+æ®µå¤„ç†+å”¯ä¸€æ€§æ ¡éªŒ),mvn compile BUILD SUCCESS | (pending) |
-| P0-001-005-004-001-003 | å®ç°æŸ¥è¯¢æ–¹æ³• | 2026-05-30 | âœ… | éªŒè¯SysCodeRuleControlleræŸ¥è¯¢æ–¹æ³•å®Œæ•´(getById/pageList/preview/generate),@RequirePermission+@Operationé½å…¨,RESTfulè·¯å¾„è§„èŒƒ,mvn compileé€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
-| P0-001-005-004-002-001 | å®šä¹‰æ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾å | 2026-05-30T12:00 | âœ… | SysCodeRuleController.javaé¢„è§ˆ/ç”Ÿæˆæ¥å£è·¯ç”±(previvew/generate)å·²å°±ä½,@RequirePermission+@Operationé½å…¨,RESTfulè·¯å¾„è§„èŒƒ,mvn compileé€šè¿‡ | (pending) |
-| P0-001-005-004-002-002 | å®ç°æ¥å£é€»è¾‘ | 2026-05-30T12:30 | âœ… | SysCodeRuleController.javaå…¨éƒ¨7ä¸ªæ¥å£(CRUD+é¢„è§ˆ+ç”Ÿæˆ)å®Œæ•´å®ç°,æ‰€æœ‰æ–¹æ³•@RequirePermission+@Operationé½å…¨,RESTfulè§„èŒƒ,mvn compileé€šè¿‡ | (pending) |
-| P0-001-005-004-003-001 | å®šä¹‰æ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾å | 2026-05-30T13:00 | âœ… | SysCodeRuleController.javaç”Ÿæˆæ¥å£è·¯ç”±(generate+preview)å·²å°±ä½,@RequirePermission+@Operationé½å…¨,RESTfulè·¯å¾„è§„èŒƒ,mvn compileé€šè¿‡ | (pending) |
-| P0-001-005-004-003-002 | å®ç°æ¥å£é€»è¾‘ | 2026-05-30T13:30 | âœ… | SysCodeRuleController.javaå…¨éƒ¨7ä¸ªæ¥å£(create/update/delete/getById/pageList/preview/generate)å®Œæ•´å®ç°é€»è¾‘,æ‰€æœ‰æ–¹æ³•@RequirePermission+@Operationé½å…¨,RESTfulè·¯å¾„/api/system/code-rules,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-005-003-003-003 | ÑéÖ¤±àÂëÔ¤ÀÀ | 2026-05-30T00:10 | ? | ÑéÖ¤CodePreviewService.javaÔ¤ÀÀÂß¼­ÕıÈ·:Ô¤ÀÀÄ£Ê½½âÎöËùÓĞ¶Î²»ÏûºÄĞòÁĞºÅ(SequenceSegmentParser·µ»ØXÕ¼Î»·û)+×Ô¶¨Òå±äÁ¿+·Ö¸ô·ûÆ´½Ó+null¹æÔò/¿Õ¶ÎÒì³£´¦Àí,ĞŞ¸´SequenceSegmentParserTestÔ¤ÀÀ²âÊÔÆÚÍûÖµ(00001¡úXXXXX),47/47 codegen²âÊÔÈ«PASS,mvn compile BUILD SUCCESS | 7ab1fe83 |
+| P0-001-005-003-004-001 | ÊµÏÖ±àÂëÉú³ÉÂß¼­ | 2026-05-30 | ? | ´´½¨CodeGenerateService.java(Redis·Ö²¼Ê½Ëøcode:lock:{ruleCode} 3s³¬Ê±+¹æÔò¼ÓÔØ+¶ÎÅÅĞò+parserÆ´½Ó+Redis INCRĞòÁĞºÅÈÕÖØÖÃ+finallyÊÍ·ÅËø+3´ÎÖØÊÔÅ×BusinessException),mvn compile BUILD SUCCESS | bde51146 |
+| P0-001-005-003-004-002 | ÊµÏÖ±àÂëÉú³ÉºËĞÄÂß¼­ | 2026-05-30 | ? | CodeGenerateService.javaÒÑÔÚ001ÈÎÎñÖĞÍêÕûÊµÏÖ(·Ö²¼Ê½Ëø+¹æÔò¼ÓÔØ+¶ÎÅÅĞò+parserÆ´½Ó+INCRĞòÁĞºÅ+ÖØÊÔ),mvn compile BUILD SUCCESS,ºËĞÄÂß¼­È«²¿¾ÍĞ÷ | bde51146 |
+| P0-001-005-003-004-003 | ÑéÖ¤±àÂëÉú³É | 2026-05-30T00:17 | ? | ´´½¨CodeGenerateServiceTest.java(24ÏîÈ«PASS):Redis·Ö²¼Ê½ËøÑéÖ¤(5Ïî)+±àÂëÉú³ÉÂß¼­ÑéÖ¤(6Ïî)+ĞòÁĞºÅkey¸ñÊ½ÓëÈÕÖØÖÃÑéÖ¤(5Ïî)+Ê§°ÜÖØÊÔÑéÖ¤(5Ïî)+×ÛºÏ³¡¾°ÑéÖ¤(3Ïî),mvn compile BUILD SUCCESS,CodeGenerateServiceÑéÊÕ±ê×¼È«²¿Í¨¹ı | (pending) |
+| P0-001-005-004-001-001 | ¶¨Òå½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©Ãû | 2026-05-30T00:10 | ? | ´´½¨SysCodeRuleController.java(@RestController @RequestMapping /api/system/code-rules):8¸öCRUD+Ô¤ÀÀ+Éú³É½Ó¿Ú,ËùÓĞ·½·¨@RequirePermission+@Operation×¢½âÆëÈ«,RESTfulÂ·¾¶¹æ·¶,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-005-004-001-002 | ÊµÏÖĞÂÔöĞŞ¸ÄÉ¾³ı·½·¨ | 2026-05-30T00:30 | ? | SysCodeRuleController.javaÈ«²¿7¸ö½Ó¿Ú·½·¨ÊµÏÖÍê³É(create/update/delete/getById/pageList/preview/generate),@RequirePermission+@OperationÆëÈ«,RESTful¹æ·¶,Service²ãCRUDÍêÕû(@Transactional+¶Î´¦Àí+Î¨Ò»ĞÔĞ£Ñé),mvn compile BUILD SUCCESS | (pending) |
+| P0-001-005-004-001-003 | ÊµÏÖ²éÑ¯·½·¨ | 2026-05-30 | ? | ÑéÖ¤SysCodeRuleController²éÑ¯·½·¨ÍêÕû(getById/pageList/preview/generate),@RequirePermission+@OperationÆëÈ«,RESTfulÂ·¾¶¹æ·¶,mvn compileÍ¨¹ı | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-005-004-002-001 | ¶¨Òå½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©Ãû | 2026-05-30T12:00 | ? | SysCodeRuleController.javaÔ¤ÀÀ/Éú³É½Ó¿ÚÂ·ÓÉ(previvew/generate)ÒÑ¾ÍÎ»,@RequirePermission+@OperationÆëÈ«,RESTfulÂ·¾¶¹æ·¶,mvn compileÍ¨¹ı | (pending) |
+| P0-001-005-004-002-002 | ÊµÏÖ½Ó¿ÚÂß¼­ | 2026-05-30T12:30 | ? | SysCodeRuleController.javaÈ«²¿7¸ö½Ó¿Ú(CRUD+Ô¤ÀÀ+Éú³É)ÍêÕûÊµÏÖ,ËùÓĞ·½·¨@RequirePermission+@OperationÆëÈ«,RESTful¹æ·¶,mvn compileÍ¨¹ı | (pending) |
+| P0-001-005-004-003-001 | ¶¨Òå½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©Ãû | 2026-05-30T13:00 | ? | SysCodeRuleController.javaÉú³É½Ó¿ÚÂ·ÓÉ(generate+preview)ÒÑ¾ÍÎ»,@RequirePermission+@OperationÆëÈ«,RESTfulÂ·¾¶¹æ·¶,mvn compileÍ¨¹ı | (pending) |
+| P0-001-005-004-003-002 | ÊµÏÖ½Ó¿ÚÂß¼­ | 2026-05-30T13:30 | ? | SysCodeRuleController.javaÈ«²¿7¸ö½Ó¿Ú(create/update/delete/getById/pageList/preview/generate)ÍêÕûÊµÏÖÂß¼­,ËùÓĞ·½·¨@RequirePermission+@OperationÆëÈ«,RESTfulÂ·¾¶/api/system/code-rules,mvn compile BUILD SUCCESS | (pending) |
 
-### P0-001-006 - æ•°æ®è§†å›¾å¼•æ“åŸºç¡€æœåŠ¡
+### P0-001-006 - Êı¾İÊÓÍ¼ÒıÇæ»ù´¡·şÎñ
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | Git SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | Git SHA |
 |---------|---------|---------|:---:|------|---------|
-| P0-001-006-001-001-001 | ç¼–å†™CREATE TABLE sys_data_viewä¸»è¯­å¥ | 2026-05-30T01:00 | âœ… | åˆ›å»ºV2__create_sys_data_view.sql:sys_data_viewä¸»è¡¨(id/view_codeå”¯ä¸€/view_name/source_table/source_type(1è¡¨2SQL)/source_sql/description+10ä¸ªé€šç”¨å­—æ®µ)+sys_data_view_fieldä»è¡¨(view_id FK/field_code/field_name/field_type/field_order/is_searchable/is_sortable/is_visible/search_type/search_component+10ä¸ªé€šç”¨å­—æ®µ)+uk_view_codeéƒ¨åˆ†å”¯ä¸€ç´¢å¼•(view_code,tenant_id)+idx_field_view_orderç´¢å¼•(view_id,field_order)+uk_field_view_codeéƒ¨åˆ†å”¯ä¸€ç´¢å¼•(view_id,field_code,tenant_id)+COMMENTå®Œæ•´+å›æ»šè„šæœ¬ | <pending> |
-| P0-001-006-001-001-002 | æ·»åŠ ä¸»é”®ä¸ç´¢å¼•çº¦æŸ | 2026-05-30T02:00 | âœ… | V2__create_sys_data_view.sqlè¡¥å……idx_sys_data_view_tenantç§Ÿæˆ·æŸ¥è¯¢ç´¢å¼•+idx_sys_data_view_field_tenantç§Ÿæˆ·æŸ¥è¯¢ç´¢å¼•,ä¸»é”®/å”¯ä¸€ç´¢å¼•/å¤–é”®çº¦æŸéªŒè¯å®Œæ•´ | b8c42093 |
-| P0-001-006-001-002-001 | ç¼–å†™CREATE TABLE DDL | 2026-05-30T03:00 | âœ… | éªŒè¯sys_data_view_fieldä»è¡¨DDL(V2__create_sys_data_view.sql)å­—æ®µ/çº¦æŸ/ç´¢å¼•/COMMENTå®Œæ•´åˆè§„ | 4cfd2487 |
-| P0-001-006-001-002-002 | æ·»åŠ ç´¢å¼•ä¸çº¦æŸ | 2026-05-30T03:30 | âœ… | V2__create_sys_data_view.sql sys_data_view_fieldä»è¡¨PK+FK+uk_field_view_code+idx_field_view_order+idx_tenantå…¨éƒ¨ç´¢å¼•çº¦æŸå·²å°±ä½,mvn compileé€šè¿‡ | 60589236 |
+| P0-001-006-001-001-001 | ±àĞ´CREATE TABLE sys_data_viewÖ÷Óï¾ä | 2026-05-30T01:00 | ? | ´´½¨V2__create_sys_data_view.sql:sys_data_viewÖ÷±í(id/view_codeÎ¨Ò»/view_name/source_table/source_type(1±í2SQL)/source_sql/description+10¸öÍ¨ÓÃ×Ö¶Î)+sys_data_view_field´Ó±í(view_id FK/field_code/field_name/field_type/field_order/is_searchable/is_sortable/is_visible/search_type/search_component+10¸öÍ¨ÓÃ×Ö¶Î)+uk_view_code²¿·ÖÎ¨Ò»Ë÷Òı(view_code,tenant_id)+idx_field_view_orderË÷Òı(view_id,field_order)+uk_field_view_code²¿·ÖÎ¨Ò»Ë÷Òı(view_id,field_code,tenant_id)+COMMENTÍêÕû+»Ø¹ö½Å±¾ | <pending> |
+| P0-001-006-001-001-002 | Ìí¼ÓÖ÷¼üÓëË÷ÒıÔ¼Êø | 2026-05-30T02:00 | ? | V2__create_sys_data_view.sql²¹³äidx_sys_data_view_tenant×â»§²éÑ¯Ë÷Òı+idx_sys_data_view_field_tenant×â»§²éÑ¯Ë÷Òı,Ö÷¼ü/Î¨Ò»Ë÷Òı/Íâ¼üÔ¼ÊøÑéÖ¤ÍêÕû | b8c42093 |
+| P0-001-006-001-002-001 | ±àĞ´CREATE TABLE DDL | 2026-05-30T03:00 | ? | ÑéÖ¤sys_data_view_field´Ó±íDDL(V2__create_sys_data_view.sql)×Ö¶Î/Ô¼Êø/Ë÷Òı/COMMENTÍêÕûºÏ¹æ | 4cfd2487 |
+| P0-001-006-001-002-002 | Ìí¼ÓË÷ÒıÓëÔ¼Êø | 2026-05-30T03:30 | ? | V2__create_sys_data_view.sql sys_data_view_field´Ó±íPK+FK+uk_field_view_code+idx_field_view_order+idx_tenantÈ«²¿Ë÷ÒıÔ¼ÊøÒÑ¾ÍÎ»,mvn compileÍ¨¹ı | 60589236 |
 
-| P0-001-006-001-003-001 | ç¼–å†™CREATE INDEXè¯­å¥ | 2026-05-30T04:00 | âœ… | V2__create_sys_data_view.sqlæ–°å¢4ä¸ªæ€§èƒ½ä¼˜åŒ–ç´¢å¼•(idx_sdv_source_table/idx_sdv_created_at/idx_sdvf_field_code/idx_sdvf_is_searchable),å…¨éƒ¨å«is_deleted=falseéƒ¨åˆ†ç´¢å¼•è¿‡æ»¤ | 224a0ed1 |
-| P0-001-006-001-003-002 | æ‰§è¡ŒDDLè„šæœ¬ | 2026-05-30T01:00 | âœ… | V2__create_sys_data_view.sql DDLå®Œæ•´(ä¸»è¡¨9å­—æ®µ+ä»è¡¨11å­—æ®µ+å…¬å…±å­—æ®µ+3ç±»ç´¢å¼•+COMMENT+å›æ»šæ³¨é‡Š),ç¬¦åˆå…¨å±€æ•°æ®åº“è§„èŒƒ,mvn compileé€šè¿‡ | 0c0084b2 |
-| P0-001-006-001-003-003 | éªŒè¯ç´¢å¼•ä¸çº¦æŸ | 2026-05-30T04:30 | âœ… | é™æ€éªŒè¯V2__create_sys_data_view.sql 12é¡¹ç´¢å¼•çº¦æŸå…¨éƒ¨åˆè§„:sys_data_view 5é¡¹(pk+uk_view_codeå«tenant_id+3ä¸ªéƒ¨åˆ†ç´¢å¼•)+sys_data_view_field 7é¡¹(pk+fk+uk_field_view_codeå«tenant_id+4ä¸ªéƒ¨åˆ†ç´¢å¼•),mvn compileé€šè¿‡ | (pending) |
-| P0-001-006-002-001-001 | å®šä¹‰Entityç±» | 2026-05-30 | âœ… | åˆ›å»ºSysDataView.java(@TableName sys_data_view,6å­—æ®µ+BaseEntityç»§æ‰¿)+SysDataViewField.java(@TableName sys_data_view_field,10å­—æ®µ+BaseEntityç»§æ‰¿),@tableId ASSIGN_ID+@TableLogic+@Versioné½å…¨,mvn compileé€šè¿‡ | 272f5901 |
-| P0-001-006-002-001-002 | å®šä¹‰DTOç±» | 2026-05-30T05:00 | âœ… | åˆ›å»ºSysDataViewDTO.java(CreateDTO @NotBlank viewCode/viewName/sourceTable+UpdateDTO+QueryDTOåˆ†é¡µ)+SysDataViewFieldDTO.java(CreateDTO @NotNull viewId+@NotBlank fieldCode/fieldName+UpdateDTO+QueryDTOåˆ†é¡µ),éµå¾ªSysCodeRuleDTOåµŒå¥—é™æ€ç±»æ¨¡å¼,mvn compileé€šè¿‡ | a5c43472 |
-| P0-001-006-002-001-003 | å®šä¹‰VOç±» | 2026-05-30T06:00 | âœ… | åˆ›å»ºSysDataViewVO.java(ListVO+DetailVOå«fieldsåˆ—è¡¨+sourceTypeNameå­—å…¸ç¿»è¯‘+@JsonFormatæ—¥æœŸ)+SysDataViewFieldVO.java(ListVO+DetailVO+fieldTypeNameå­—å…¸ç¿»è¯‘+@JsonFormatæ—¥æœŸ),éµå¾ªSysCodeRuleVOåµŒå¥—é™æ€ç±»æ¨¡å¼,mvn compileé€šè¿‡ | c40b404c |
-| P0-001-006-002-002-001 | å®šä¹‰Mapperæ¥å£ | 2026-05-30T06:30 | âœ… | åˆ›å»ºSysDataViewMapper.java(selectViewWithFieldsè”æŸ¥+selectByViewCodeæŒ‰ç¼–ç æŸ¥è¯¢)+SysDataViewFieldMapper.java(selectVisibleFieldsæŸ¥è¯¢å¯è§å­—æ®µ)+SysDataViewMapper.xml(3ä¸ªresultMap+2æ¡è‡ªå®šä¹‰SQL+è”æŸ¥æ˜ å°„),mvn compileé€šè¿‡ | 69481f83 |
-| P0-001-006-002-002-002 | ç¼–å†™XMLæ˜ å°„ | 2026-05-30T01:39 | âœ… | SysDataViewMapper.xmlå·²ç”±å‰ç½®ä»»åŠ¡åˆ›å»ºå¹¶ç¼–è¯‘é€šè¿‡:3ä¸ªresultMap(Base+FieldBase+ViewWithFieldså«collection)+2ä¸ªSQLç‰‡æ®µ+selectViewWithFieldsè”æŸ¥LEFT JOIN+selectByViewCodeæŒ‰ç¼–ç æŸ¥è¯¢,mvn compileé€šè¿‡ | 9de3abca |
-| P0-001-006-002-002-003 | ç¼–å†™è‡ªå®šä¹‰æŸ¥è¯¢æ–¹æ³• | 2026-05-30T08:00 | âœ… | æ–°å¢SysDataViewFieldMapper.xml(selectVisibleFieldsè¿ç§»åˆ°XML)+æ›´æ–°SysDataViewFieldMapper.javaç§»é™¤@Selectæ³¨è§£,ä¸‰ä¸ªè‡ªå®šä¹‰æŸ¥è¯¢å…¨éƒ¨åœ¨XMLä¸­å®šä¹‰,mvn compileé€šè¿‡ | 0f12361e |
-| P0-001-006-002-003-001 | å®šä¹‰Serviceæ¥å£ | 2026-05-30T02:00 | âœ… | åˆ›å»ºSysDataViewService.java(abstract class extends BaseCrudService:create/update viewCodeå”¯ä¸€æ€§æ ¡éªŒ+source_sqlç™½åå•æ ¡éªŒç¦æ­¢DROP/DELETE/UPDATE/INSERTç­‰12å…³é”®å­—+deleteçº§è”åˆ é™¤fields+escapeFieldNameåŒå¼•å·è½¬ä¹‰é˜²æ³¨å…¥+getViewMeta/executeViewæŠ½è±¡æ–¹æ³•)+SysDataViewServiceImpl.java(@Service:getViewMetaæŸ¥è¯¢è§†å›¾åŠå¯è§å­—æ®µå…ƒæ•°æ®+executeViewåŠ¨æ€SQLæ„å»ºæ‰§è¡Œåˆ†é¡µpageSizeâ‰¤100+é»˜è®¤æ’åºcreate_time DESC+is_deletedè½¯åˆ é™¤è¿‡æ»¤),mvn compileé€šè¿‡ | dc88b0a9 |
-| P0-001-006-002-001-001 | å®šä¹‰Entityç±» | 2026-05-30T05:00 | âœ… | åˆ›å»ºSysDataView.java(6ä¸šåŠ¡å­—æ®µ+BaseEntityç»§æ‰¿)+SysDataViewField.java(10ä¸šåŠ¡å­—æ®µ+BaseEntityç»§æ‰¿),@TableName+@TableLogic+@TableId ASSIGN_ID,å­—æ®µä¸DDLä¸€ä¸€å¯¹åº”,mvn compileé€šè¿‡ | 272f5901 |
+| P0-001-006-001-003-001 | ±àĞ´CREATE INDEXÓï¾ä | 2026-05-30T04:00 | ? | V2__create_sys_data_view.sqlĞÂÔö4¸öĞÔÄÜÓÅ»¯Ë÷Òı(idx_sdv_source_table/idx_sdv_created_at/idx_sdvf_field_code/idx_sdvf_is_searchable),È«²¿º¬is_deleted=false²¿·ÖË÷Òı¹ıÂË | 224a0ed1 |
+| P0-001-006-001-003-002 | Ö´ĞĞDDL½Å±¾ | 2026-05-30T01:00 | ? | V2__create_sys_data_view.sql DDLÍêÕû(Ö÷±í9×Ö¶Î+´Ó±í11×Ö¶Î+¹«¹²×Ö¶Î+3ÀàË÷Òı+COMMENT+»Ø¹ö×¢ÊÍ),·ûºÏÈ«¾ÖÊı¾İ¿â¹æ·¶,mvn compileÍ¨¹ı | 0c0084b2 |
+| P0-001-006-001-003-003 | ÑéÖ¤Ë÷ÒıÓëÔ¼Êø | 2026-05-30T04:30 | ? | ¾²Ì¬ÑéÖ¤V2__create_sys_data_view.sql 12ÏîË÷ÒıÔ¼ÊøÈ«²¿ºÏ¹æ:sys_data_view 5Ïî(pk+uk_view_codeº¬tenant_id+3¸ö²¿·ÖË÷Òı)+sys_data_view_field 7Ïî(pk+fk+uk_field_view_codeº¬tenant_id+4¸ö²¿·ÖË÷Òı),mvn compileÍ¨¹ı | (pending) |
+| P0-001-006-002-001-001 | ¶¨ÒåEntityÀà | 2026-05-30 | ? | ´´½¨SysDataView.java(@TableName sys_data_view,6×Ö¶Î+BaseEntity¼Ì³Ğ)+SysDataViewField.java(@TableName sys_data_view_field,10×Ö¶Î+BaseEntity¼Ì³Ğ),@tableId ASSIGN_ID+@TableLogic+@VersionÆëÈ«,mvn compileÍ¨¹ı | 272f5901 |
+| P0-001-006-002-001-002 | ¶¨ÒåDTOÀà | 2026-05-30T05:00 | ? | ´´½¨SysDataViewDTO.java(CreateDTO @NotBlank viewCode/viewName/sourceTable+UpdateDTO+QueryDTO·ÖÒ³)+SysDataViewFieldDTO.java(CreateDTO @NotNull viewId+@NotBlank fieldCode/fieldName+UpdateDTO+QueryDTO·ÖÒ³),×ñÑ­SysCodeRuleDTOÇ¶Ì×¾²Ì¬ÀàÄ£Ê½,mvn compileÍ¨¹ı | a5c43472 |
+| P0-001-006-002-001-003 | ¶¨ÒåVOÀà | 2026-05-30T06:00 | ? | ´´½¨SysDataViewVO.java(ListVO+DetailVOº¬fieldsÁĞ±í+sourceTypeName×Öµä·­Òë+@JsonFormatÈÕÆÚ)+SysDataViewFieldVO.java(ListVO+DetailVO+fieldTypeName×Öµä·­Òë+@JsonFormatÈÕÆÚ),×ñÑ­SysCodeRuleVOÇ¶Ì×¾²Ì¬ÀàÄ£Ê½,mvn compileÍ¨¹ı | c40b404c |
+| P0-001-006-002-002-001 | ¶¨ÒåMapper½Ó¿Ú | 2026-05-30T06:30 | ? | ´´½¨SysDataViewMapper.java(selectViewWithFieldsÁª²é+selectByViewCode°´±àÂë²éÑ¯)+SysDataViewFieldMapper.java(selectVisibleFields²éÑ¯¿É¼û×Ö¶Î)+SysDataViewMapper.xml(3¸öresultMap+2Ìõ×Ô¶¨ÒåSQL+Áª²éÓ³Éä),mvn compileÍ¨¹ı | 69481f83 |
+| P0-001-006-002-002-002 | ±àĞ´XMLÓ³Éä | 2026-05-30T01:39 | ? | SysDataViewMapper.xmlÒÑÓÉÇ°ÖÃÈÎÎñ´´½¨²¢±àÒëÍ¨¹ı:3¸öresultMap(Base+FieldBase+ViewWithFieldsº¬collection)+2¸öSQLÆ¬¶Î+selectViewWithFieldsÁª²éLEFT JOIN+selectByViewCode°´±àÂë²éÑ¯,mvn compileÍ¨¹ı | 9de3abca |
+| P0-001-006-002-002-003 | ±àĞ´×Ô¶¨Òå²éÑ¯·½·¨ | 2026-05-30T08:00 | ? | ĞÂÔöSysDataViewFieldMapper.xml(selectVisibleFieldsÇ¨ÒÆµ½XML)+¸üĞÂSysDataViewFieldMapper.javaÒÆ³ı@Select×¢½â,Èı¸ö×Ô¶¨Òå²éÑ¯È«²¿ÔÚXMLÖĞ¶¨Òå,mvn compileÍ¨¹ı | 0f12361e |
+| P0-001-006-002-003-001 | ¶¨ÒåService½Ó¿Ú | 2026-05-30T02:00 | ? | ´´½¨SysDataViewService.java(abstract class extends BaseCrudService:create/update viewCodeÎ¨Ò»ĞÔĞ£Ñé+source_sql°×Ãûµ¥Ğ£Ñé½ûÖ¹DROP/DELETE/UPDATE/INSERTµÈ12¹Ø¼ü×Ö+delete¼¶ÁªÉ¾³ıfields+escapeFieldNameË«ÒıºÅ×ªÒå·À×¢Èë+getViewMeta/executeView³éÏó·½·¨)+SysDataViewServiceImpl.java(@Service:getViewMeta²éÑ¯ÊÓÍ¼¼°¿É¼û×Ö¶ÎÔªÊı¾İ+executeView¶¯Ì¬SQL¹¹½¨Ö´ĞĞ·ÖÒ³pageSize¡Ü100+Ä¬ÈÏÅÅĞòcreate_time DESC+is_deletedÈíÉ¾³ı¹ıÂË),mvn compileÍ¨¹ı | dc88b0a9 |
+| P0-001-006-002-001-001 | ¶¨ÒåEntityÀà | 2026-05-30T05:00 | ? | ´´½¨SysDataView.java(6ÒµÎñ×Ö¶Î+BaseEntity¼Ì³Ğ)+SysDataViewField.java(10ÒµÎñ×Ö¶Î+BaseEntity¼Ì³Ğ),@TableName+@TableLogic+@TableId ASSIGN_ID,×Ö¶ÎÓëDDLÒ»Ò»¶ÔÓ¦,mvn compileÍ¨¹ı | 272f5901 |
 
-### å†™å…¥æ ¼å¼ï¼ˆå·¥äººå¿…é¡»ä¸¥æ ¼éµå®ˆï¼‰
-**æ¯æ¡ä»»åŠ¡å®Œæˆè®°å½•**ï¼ˆä¸€è¡Œä¸€æ¡ï¼‰ï¼š
-
-```
-| P0-001-001-001-001-001 | æ‰§è¡ŒSpring Initializrç”Ÿæˆé¡¹ç›® | 2026-05-28T14:30:00 | âœ… | åˆ›å»ºSpring Booté¡¹ç›®éª¨æ¶ | a1b2c3d4 |
-```
-
-**æ¨¡å—å®Œæˆæ ‡è®°**ï¼ˆå½“æŸæ¨¡å—çš„æ‰€æœ‰å¶å­ä»»åŠ¡å…¨éƒ¨ âœ… åï¼Œåœ¨è¯¥æ¨¡å—è®°å½•å—çš„æœ«å°¾è¿½åŠ ï¼‰ï¼š
+### Ğ´Èë¸ñÊ½£¨¹¤ÈË±ØĞëÑÏ¸ñ×ñÊØ£©
+**Ã¿ÌõÈÎÎñÍê³É¼ÇÂ¼**£¨Ò»ĞĞÒ»Ìõ£©£º
 
 ```
-### æ¨¡å—å®Œæˆ: P0-001 âœ…
+| P0-001-001-001-001-001 | Ö´ĞĞSpring InitializrÉú³ÉÏîÄ¿ | 2026-05-28T14:30:00 | ? | ´´½¨Spring BootÏîÄ¿¹Ç¼Ü | a1b2c3d4 |
 ```
 
-> **é‡è¦**ï¼šæ¨¡å—å®Œæˆæ ‡è®°æ˜¯è°ƒåº¦å™¨åˆ¤æ–­æ¨¡å—æ˜¯å¦å®Œæˆçš„å”¯ä¸€ä¾æ®ã€‚
-> æ²¡æœ‰è¿™è¡Œæ ‡è®°ï¼Œè°ƒåº¦å™¨ä¼šè®¤ä¸ºè¯¥æ¨¡å—ä»æœªå®Œæˆï¼Œä¸ä¼šå¯åŠ¨ä¾èµ–å®ƒçš„ä¸‹æ¸¸æ¨¡å—ã€‚
-> æ ¼å¼å¿…é¡»ç²¾ç¡®åŒ¹é… `æ¨¡å—å®Œæˆ: P?-??? âœ…`ï¼Œå¦åˆ™è°ƒåº¦å™¨æ— æ³•è¯†åˆ«ã€‚
+**Ä£¿éÍê³É±ê¼Ç**£¨µ±Ä³Ä£¿éµÄËùÓĞÒ¶×ÓÈÎÎñÈ«²¿ ? ºó£¬ÔÚ¸ÃÄ£¿é¼ÇÂ¼¿éµÄÄ©Î²×·¼Ó£©£º
 
-| P0-001-006-002-003-002 | å®ç°ServiceImpl | 2026-05-30T00:05 | âœ… | SysDataViewServiceImpl.javaå®ç°(getViewMetaè§†å›¾å…ƒæ•°æ®+executeViewåŠ¨æ€SQLæŸ¥è¯¢+validateSourceSqlç™½åå•+deleteFieldsByViewIdçº§è”åˆ é™¤+escapeFieldNameè½¬ä¹‰),mvn compileé€šè¿‡ | dc88b0a9 |
-| P0-001-006-002-003-003 | ä¸šåŠ¡æ ¡éªŒé€»è¾‘ | 2026-05-30T10:10 | âœ… | éªŒè¯SysDataViewService/SysDataViewServiceImplä¸šåŠ¡æ ¡éªŒé€»è¾‘:SQLç™½åå•12å…³é”®å­—+å­—æ®µåŒå¼•å·è½¬ä¹‰+åˆ†é¡µâ‰¤100+é»˜è®¤create_time DESC+viewCodeå”¯ä¸€æ€§+SELECT/FROMå¿…å«+çº§è”åˆ é™¤+getViewMeta/executeView,å…¨7é¡¹éªŒæ”¶é€šè¿‡,mvn compileé€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
-| P0-001-006-003-001-001 | å®ç°SQLåŠ¨æ€æ„å»º | 2026-05-30T10:30 | âœ… | DataViewSqlBuilder.java(@Component):buildSelectSql(viewId,queryParams)ä¸»æ–¹æ³•+SQLç™½åå•æ ¡éªŒ+åŠ¨æ€WHERE(=,LIKE,BETWEEN)+PostgreSQLåŒå¼•å·è½¬ä¹‰+is_deleted=FALSE+pageSizeâ‰¤100,mvn compileé€šè¿‡ | 6e6bf46e |
-| P0-001-006-003-001-002 | å®ç°SQLæ„å»ºæ ¸å¿ƒé€»è¾‘ | 2026-05-30T11:00 | âœ… | DataViewSqlBuilder.javaæ ¸å¿ƒé€»è¾‘å®Œæ•´(validateSqlWhitelist+validateSourceSql+escapeFieldName+resolveSortField+buildBetweenCondition),å…¨3é¡¹éªŒæ”¶é€šè¿‡,mvn compileé€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
-| P0-001-006-003-001-003 | éªŒè¯SQLæ„å»º | 2026-05-30T11:35 | âœ… | DataViewSqlBuilderVerificationTest.java(34ç”¨ä¾‹):SQLç™½åå•11é¡¹+å­—æ®µè½¬ä¹‰5é¡¹+åˆ†é¡µæ’åº7é¡¹+æœç´¢ç±»å‹4é¡¹+æ˜“é”™è­¦ç¤º2é¡¹+è¾¹ç•Œ2é¡¹+å¼‚å¸¸3é¡¹,å‘ç°å¹¶ä¿®å¤CREATEå…³é”®å­—è¯è¾¹ç•Œè¯¯åˆ¤bug,mvn testé€šè¿‡ | 82ff6ca5 |
-| P0-001-006-003-002-001 | æœç´¢è¡¨å•å¸ƒå±€ | 2026-05-30T12:08 | âœ… | DataViewQueryParser.java(@Component):parseConditions/parseOneä¸»æ–¹æ³•+8ç§æ“ä½œç¬¦(eq/ne/gt/gte/lt/lte/like/between/in)+LIKEè½¬ä¹‰%/_+betweenç±»å‹æ ¡éªŒ+inâ‰¤100é™åˆ¶+å­—æ®µåŒå¼•å·è½¬ä¹‰,34æµ‹è¯•é€šè¿‡ | 8f731bd3 |
-| P0-001-006-003-002-002 | æœç´¢å­—æ®µç»„ä»¶æ¸²æŸ“ | 2026-05-30T14:45 | â­ï¸ | ä»»åŠ¡é‡å¤-DataViewQueryParser.javaå·²åœ¨P0-001-006-003-002-001ä¸­åˆ›å»ºå¹¶æäº¤(8f731bd3) | (ä»»åŠ¡é‡å¤-å‰ç½®ä»»åŠ¡å·²å®Œæˆ) |
-| P0-001-007-001-001-001 | ç¼–å†™CREATE TABLE DDL | 2026-05-30T15:00 | âœ… | V3__create_sys_param.sql(sys_paramè¡¨:9ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+å”¯ä¸€ç´¢å¼•uk_category_key+idx_category+idx_sys_param_tenant) | 20333511 |
-| P0-001-006-003-003-002 | å®ç°åˆ†é¡µæ’åºæ ¸å¿ƒé€»è¾‘ | 2026-05-30T16:00 | âœ… | DataViewPagingExecutor.java(@Component):execute(viewCode,PageQuery)ä¸»æ–¹æ³•+MyBatis-Plus Pageå°è£…+pageSizeâ‰¤100é™åˆ¶+å§”æ‰˜DataViewSqlBuilderæ’åºç™½åå•æ ¡éªŒ+é»˜è®¤create_time DESC,mvn compileé€šè¿‡ | (å¾…æäº¤) | 3b84b1f1 |
-| P0-001-006-003-003-001 | å®ç°åˆ†é¡µæ’åºæ‰§è¡Œ | 2026-05-30T17:30 | âœ… | DataViewPagingExecutor.javaå¢å¼º:execute()æ–¹æ³•ä¼ é€’sortField/sortOrderåˆ°SqlBuilder;PageQuery.javaæ–°å¢sortField/sortOrderå­—æ®µ;æ’åºç™½åå•æ ¡éªŒç”±SqlBuilder.resolveSortField()å®Œæˆ;é»˜è®¤create_time DESC;mvn compileé€šè¿‡ | (å¾…æäº¤) |
-| P0-001-006-004-002-002 | å®ç°æŸ¥è¯¢é€»è¾‘ | 2026-05-30T03:32 | âœ… | SysDataViewController.java(@RestController /api/system/data-views)å®Œæ•´CRUD+POST/{viewCode}/execute+GET/{viewCode}/meta+æ‰€æœ‰æ–¹æ³•@RequirePermission+executeæ–¹æ³•@OperLog+@Operationé½å…¨;OperLog.javaæ³¨è§£å®šä¹‰;mvn compile BUILD SUCCESS | (å¾…æäº¤) |
-| P0-001-006-004-001-001 | å®šä¹‰æ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾å | 2026-05-30T04:00 | âœ… | SysDataViewController.javaå·²ç”±P0-001-006-004-002-002åˆ›å»º,æœ¬ä»»åŠ¡éªŒè¯:CRUDæ¥å£è·¯ç”±(/api/system/data-views)+7ä¸ªæ–¹æ³•å…¨éƒ¨@RequirePermission+@Operationé½å…¨+@OperLog,æ»¡è¶³éªŒæ”¶æ ‡å‡†,mvn compileé€šè¿‡ | 6b6ffdca |
-| P0-001-006-004-002-001 | å®šä¹‰æ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾å | 2026-05-30T05:00 | âœ… | SysDataViewController.java execute+getMetaæ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾åå·²å°±ä½,POST /{viewCode}/execute(@OperLog)+GET /{viewCode}/meta,@RequirePermission+@Operationé½å…¨,RESTfulè§„èŒƒ,mvn compileé€šè¿‡ | 9aba4bdb |
-| P0-001-006-003-003-003 | éªŒè¯åˆ†é¡µæ’åº | 2026-05-30T05:50 | âœ… | DataViewPagingExecutor.javaæ’åºå­—æ®µç™½åå•æ ¡éªŒ(resolveSortField/sortOrder)+DataViewPagingExecutorVerificationTest.java(24ç”¨ä¾‹):SQLç™½åå•2é¡¹+å­—æ®µè½¬ä¹‰1é¡¹+åˆ†é¡µæ’åº6é¡¹+æ’åºå­—æ®µç™½åå•4é¡¹+æ’åºæ–¹å‘3é¡¹+å¼‚å¸¸3é¡¹+è¾¹ç•Œ4é¡¹,mvn test 92é€šè¿‡ | (å¾…æäº¤) |
-| P0-001-007-001-001-002 | æ·»åŠ ç´¢å¼•ä¸çº¦æŸ | 2026-05-30T18:30 | âœ… | V3__create_sys_param.sqlæ–°å¢COMMENT ON CONSTRAINT/INDEX 4æ¡+ç´¢å¼•æ¸…å•ä¸çº¦æŸè¯´æ˜æ³¨é‡Šå—,éªŒè¯:uk_category_keyå«tenant_id+éƒ¨åˆ†ç´¢å¼•æ’é™¤è½¯åˆ é™¤+mvn compileé€šè¿‡ | 81f08a73 |
-| P0-001-006-004-001-002 | å®ç°æ–°å¢ä¿®æ”¹åˆ é™¤æ–¹æ³• | 2026-05-30T19:00 | âœ… | SysDataViewController.java CREATE/UPDATE/DELETEæ–¹æ³•å·²å°±ä½(å·²ç”±P0-001-006-004-002-002å®ç°),@RequirePermission+@Operationé½å…¨,æ¥å£è·¯å¾„/api/system/data-viewsç¬¦åˆRESTfulè§„èŒƒ,mvn compileé€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
-| P0-001-006-004-001-003 | å®ç°æŸ¥è¯¢æ–¹æ³• | 2026-05-30T20:00 | âœ… | SysDataViewController.javaæŸ¥è¯¢æ–¹æ³•å…¨éƒ¨å°±ä½:POST/{viewCode}/execute(@OperLog)+GET/{viewCode}/meta+getById+pageList,SysDataViewServiceImpl.executeView+getViewMetaå®Œæ•´å®ç°,@RequirePermission+@Operationé½å…¨,mvn compileé€šè¿‡ | 3589b755 |
-| P0-001-007-001-002-002 | æ‰§è¡ŒDDLè„šæœ¬ | 2026-05-30T21:00 | âœ… | éªŒè¯V3__create_sys_param.sqlå®Œæ•´:CREATE TABLE sys_param(9ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ)+å”¯ä¸€ç´¢å¼•uk_category_key(å«tenant_idéƒ¨åˆ†ç´¢å¼•)+idx_category+idx_sys_param_tenant+å…¨å¥—COMMENT+å›æ»šè„šæœ¬,mvn compile BUILD SUCCESS | 1d61228f |
-| P0-001-007-001-002-003 | éªŒè¯ç´¢å¼•ä¸çº¦æŸ | 2026-05-30T21:30 | âœ… | åœ¨erp_devåº“æ‰§è¡ŒV3__create_sys_param.sql:sys_paramè¡¨17å­—æ®µ+3ç´¢å¼•(pk_sys_param/uk_category_key/idx_category/idx_sys_param_tenant)+1ä¸»é”®çº¦æŸå…¨éƒ¨åˆ›å»ºæˆåŠŸ,information_schemaéªŒè¯é€šè¿‡,å­—æ®µç±»å‹ä¸è§„èŒƒä¸€è‡´ | 4e879d1e |
-| P0-001-007-002-001-002 | å®ç°ServiceImpl | 2026-05-30T22:00 | âœ… | SysParamService.java(@Service):getValue(æ³›å‹ç±»å‹è½¬æ¢)+getStr+setParam(UPSERT)+deleteParam(ç³»ç»Ÿå‚æ•°ä¿æŠ¤)+listByCategory,æ‰€æœ‰è¯»æ–¹æ³•@Cacheable(sys:param)+å†™æ–¹æ³•@Caching(@CacheEvictæ¸…é™¤å•é”®å’Œåˆ—è¡¨ç¼“å­˜),@Transactionalå†™æ“ä½œ+JdbcTemplate+tenantIdéš”ç¦»+convertValueæ”¯æŒ5ç§ç±»å‹(STRING/NUMBER/BOOLEAN/JSON/DATE),@EnableCachingæ·»åŠ åˆ°ErpAiApplication,mvn compileé€šè¿‡ | 483c810e |
-| P0-001-007-002-001-003 | ä¸šåŠ¡æ ¡éªŒé€»è¾‘ | 2026-05-30T22:40 | âœ… | SysParamService.javaæ–°å¢ä¸šåŠ¡æ ¡éªŒ:validateParamKey(category/keyä¸èƒ½ä¸ºç©º)+getValueå¢åŠ typeéç©ºæ ¡éªŒ+setParamå¢åŠ valueéç©ºæ ¡éªŒ+listByCategoryå¢åŠ categoryéç©ºæ ¡éªŒ+deleteParamç³»ç»Ÿå‚æ•°ä¿æŠ¤(å·²æœ‰),æ‰€æœ‰publicæ–¹æ³•å…¥å£å‚æ•°æ ¡éªŒè¦†ç›–,@Transactionalåœ¨publicæ–¹æ³•,mvn compileé€šè¿‡ | 5ee6f0d9 |
-| P0-001-007-002-001-001 | å®šä¹‰Serviceæ¥å£ | 2026-05-30T23:00 | âœ… | SysParamService.java(@Service)æ¥å£å®šä¹‰:getValueæ³›å‹æ–¹æ³•+getStr+setParam+deleteParam+listByCategory,æ‰€æœ‰è¯»æ–¹æ³•@Cacheable(sys:paramç¼“å­˜æ°¸ä¸è¿‡æœŸ),å†™æ–¹æ³•@Caching(@CacheEvictå•é”®+åˆ—è¡¨ç¼“å­˜),convertValueæ”¯æŒ5ç§ç±»å‹è½¬æ¢(STRING/NUMBER/BOOLEAN/JSON/DATE),validateParamKeyå‚æ•°æ ¡éªŒ,mvn compileé€šè¿‡ | 0c57c72f |
-| P0-001-007-001-002-001 | ç¼–å†™CREATE INDEXè¯­å¥ | 2026-05-30T23:45 | âœ… | éªŒè¯V3__create_sys_param.sqlå·²ç”±å‰ç½®ä»»åŠ¡åˆ›å»ºå®Œæ•´:CREATE TABLE+3ä¸ªç´¢å¼•(uk_category_key/idx_category/idx_sys_param_tenant)+å…¨éƒ¨COMMENT+å›æ»šè„šæœ¬,mvn compile BUILD SUCCESS | (å¾…æäº¤) |
-| P0-001-007-002-003-001 | å®šä¹‰æ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾å | 2026-05-30 | âœ… | åˆ›å»ºParamCacheRefresher.java(@EventListenerç›‘å¬ParamChangedEvent+Redisç¼“å­˜æ¸…é™¤+POST /api/system/params/refreshæ‰‹åŠ¨åˆ·æ–°)+ParamChangedEvent.java(è‡ªå®šä¹‰äº‹ä»¶),æ”¯æŒå¤šå®ä¾‹éƒ¨ç½²ç¼“å­˜åŒæ­¥,mvn clean compile BUILD SUCCESS | b2e4335e |
-| P0-001-007-002-003-002 | å®ç°æ¥å£é€»è¾‘ | 2026-05-30T06:00 | âœ… | ParamCacheRefresher.javaå®Œæ•´å®ç°:@EventListeneræ–¹æ³•+evictCacheç§æœ‰æ–¹æ³•+POST /refreshæ‰‹åŠ¨åˆ·æ–°ç«¯ç‚¹+StringRedisTemplateé”®æ‰«ææ¸…é™¤,ç¼–è¯‘é€šè¿‡ | b2e4335e |
-| P0-001-007-003-001-001 | å®šä¹‰æ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾å | 2026-05-30T07:30 | âœ… | SysParamController.java(@RestController /api/system/params):5ä¸ªCRUDç«¯ç‚¹(listByCategory/getByCategoryAndKey/create/update/delete),å…¨éƒ¨@RequirePermission+@Operationé½å…¨,RESTfulè·¯å¾„è§„èŒƒ,is_system=1åˆ é™¤ä¿æŠ¤ç”±Serviceå±‚å®ç°,/refreshç«¯ç‚¹ç”±ParamCacheRefresherå¤„ç† | 8966b471 |
-| P0-001-007-002-002-002 | å®ç°é«˜çº§è½¬æ¢æ–¹æ³• | 2026-05-30T18:30 | âœ… | ParamTypeConverter.javaå·²å®Œæˆ(commit 173e887b):convert()æ–¹æ³•æ”¯æŒSTRING/NUMBER/BOOLEAN/JSON/DATE 5ç§ç±»å‹,DATEåŒæ ¼å¼å…¼å®¹,convertNumberæ”¯æŒInteger/Long/Double/Float/BigDecimal,convertBooleanæ”¯æŒtrue/1/yes,å¤±è´¥æŠ›ParamException(30002),mvn compileé€šè¿‡ | 173e887b |
-| P0-001-007-003-001-002 | å®ç°æŸ¥è¯¢é€»è¾‘ | 2026-05-30T08:00 | âœ… | SysParamController.javaæ–°å¢POST /refreshç«¯ç‚¹(StringRedisTemplateé”®æ‰«ææ¸…é™¤sys:param:*ç¼“å­˜)+@RequirePermission(system:param:manage),ParamCacheRefresheré‡æ„ä¸º@Component(ä¿ç•™@EventListenerç§»é™¤@RestController),å…¨éƒ¨6ç«¯ç‚¹@RequirePermission+@Operationé½å…¨,mvn compileé€šè¿‡ | 59ff6485 |
-| P0-001-007-003-002-001 | å®šä¹‰æ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾å | 2026-05-30T08:30 | âœ… | SysParamController.javaæ–°å¢PUT /batchæ‰¹é‡æ›´æ–°ç«¯ç‚¹(@RequirePermission(system:param:update)+@Operation),æ¥å—List<Map<String,String>>å‚æ•°,RESTfulè·¯å¾„/api/system/params/batch,mvn compile BUILD SUCCESS | fa9d0b16 |
-| P0-001-007-003-002-002 | å®ç°æ¥å£é€»è¾‘ | 2026-05-30T09:00 | âœ… | SysParamController.java batchUpdateæ–¹æ³•ä»stubå®ç°ä¸ºå®Œæ•´ä¸šåŠ¡é€»è¾‘:å‚æ•°ç©ºåˆ—è¡¨æ ¡éªŒ(BusinessException PARAM_MISSING)+å¾ªç¯è°ƒç”¨sysParamService.setParamæ‰¹é‡æ›´æ–°+æ—¥å¿—è®°å½•,mvn compile BUILD SUCCESS | 377206c8 |
-| P0-001-008-001-001-001 | å®ç°æ–‡ä»¶ä¸Šä¼ æ ¸å¿ƒé€»è¾‘ | 2026-05-30T10:00 | âœ… | FileUploadService.java(@Service):upload(MultipartFile)å®ç°MIMEé­”æ•°æ£€æµ‹(JPEG/PNG/PDF/XLS/OOXML)+æ‰©å±•åé»‘åå•(exe/bat/sh/cmd)+UUIDæ–‡ä»¶å+æ—¥æœŸåˆ†ç›®å½•(yyyy/MM/dd)å­˜å‚¨,FileVO+FileUploadPropertiesæ”¯æŒç±»,mvn compileé€šè¿‡ | a99f46bd |
-| P0-001-008-001-001-002 | å®ç°æ–‡ä»¶ä¸Šä¼ æ ¸å¿ƒé€»è¾‘ | 2026-05-30T11:00 | âœ… | FileUploadServiceå¢å¼º:æ˜¾å¼æ–‡ä»¶å¤§å°æ ¡éªŒ(å•æ–‡ä»¶10MB PARAM_RANGE_ERROR)+SysFile Entity(@TableName sys_file)+SysFileMapper(BaseMapperX)+ä¸Šä¼ å®Œæˆåè‡ªåŠ¨è®°å½•sys_fileå…ƒæ•°æ®(æ–‡ä»¶å/è·¯å¾„/MIME/å¤§å°/CONFIRMEDçŠ¶æ€/ä¸Šä¼ äººStpUtilè·å–),mvn compileé€šè¿‡ | 24a8ec13 |
-| P0-001-008-001-001-003 | éªŒè¯æ–‡ä»¶ä¸Šä¼  | 2026-05-30T15:00 | âœ… | FileUploadServiceVerificationTest(17é¡¹å…¨PASS):æ‰©å±•åé»‘åå•(exe/bat/sh/cmd)5é¡¹+MIMEé­”æ•°ç™½åå•(JPEG/PNG/PDF)4é¡¹+æ–‡ä»¶å¤§å°æ ¡éªŒ(ç©º/null/è¶…å¤§/è¾¹ç•Œ)4é¡¹+æˆåŠŸä¸Šä¼ æµç¨‹(UUIDæ ¼å¼/æ—¥æœŸç›®å½•/FileVOå®Œæ•´å­—æ®µ/sys_fileå…ƒæ•°æ®)4é¡¹;ä¿®å¤BusinessException argsè¢«æ¡†æ¶é™é»˜ä¸¢å¼ƒé—®é¢˜,mvn compile+test 171/171 PASS | (pending) |
-| P0-001-008-001-002-001 | å®ç°æ–‡ä»¶ä¸‹è½½é€»è¾‘ | 2026-05-30T07:05 | âœ… | FileDownloadService.java(@Service):download(fileId,response)æŸ¥sys_fileå…ƒæ•°æ®+æ ¡éªŒæ–‡ä»¶å­˜åœ¨å¯è¯»+Content-Type(MIME)/Content-Disposition(attachment)/Content-Lengthå“åº”å¤´+StreamingResponseBodyæµå¼è¾“å‡º(8KBç¼“å†²é˜²OOM)+Rangeæ–­ç‚¹ç»­ä¼ (206 Partial Content/RandomAccessFile seek)+ä¸‹è½½è®¡æ•°è‡ªå¢,mvn compile BUILD SUCCESS | (pending) |
-| P0-001-008-001-002-002 | å®ç°æ–‡ä»¶ä¸‹è½½æ ¸å¿ƒé€»è¾‘ | 2026-05-30T07:08 | âœ… | FileDownloadService.handleFullDownloadé‡æ„ä¸ºBufferedInputStreamç›´æ¥æµå¼è¾“å‡º(ç§»é™¤å†—ä½™StreamingResponseBodyåŒæ­¥åŒ…è£…),handleRangeDownloadä¿ç•™RandomAccessFileæ–­ç‚¹ç»­ä¼ ,mvn compile BUILD SUCCESS | (pending) |
-| P0-001-008-001-002-003 | éªŒè¯æ–‡ä»¶ä¸‹è½½ | 2026-05-30T07:15 | âœ… | FileDownloadServiceVerificationTest(16é¡¹å…¨PASS):å‚æ•°æ ¡éªŒ(éæ³•fileId)+æ–‡ä»¶ä¸å­˜åœ¨(DB/ç£ç›˜)+å…¨é‡ä¸‹è½½(Content-Type/Content-Disposition/Content-Length/å†…å®¹ä¸€è‡´æ€§/è®¡æ•°é€’å¢/null MIME/ä¸­æ–‡æ–‡ä»¶å)+Rangeæ–­ç‚¹ç»­ä¼ (206/Content-Range/éƒ¨åˆ†å†…å®¹/416 unsatisfiable/start-only),mvn test 16/16 PASS | 81d2e1d8 |
-| P0-001-008-001-003-001 | å®ç°æ–‡ä»¶é¢„è§ˆé€»è¾‘ | 2026-05-30T08:57 | âœ… | FilePreviewService.java(@Service):preview(fileId,response)æŸ¥sys_fileå…ƒæ•°æ®+å›¾ç‰‡(image/*)ç›´æ¥æµå¼è¾“å‡º+PDF/æ–‡æœ¬(text/*)ç›´æ¥å†…è”æµå¼+Office(msword/excel/powerpoint/officedocument)è¿”å›JSONä¸‹è½½æç¤º+ä¸æ”¯æŒæ ¼å¼è¿”å›JSONä¸‹è½½é“¾æ¥+Content-Disposition:inline(æµè§ˆå™¨å†…è”å±•ç¤º)+streamFile(8KBç¼“å†²é˜²OOM),mvn compile BUILD SUCCESS | 679a805d |
-| P0-001-008-001-003-002 | å®ç°æ–‡ä»¶é¢„è§ˆæ ¸å¿ƒé€»è¾‘ | 2026-05-30T09:30 | âœ… | FilePreviewService.javaæ ¸å¿ƒé€»è¾‘å¢å¼º:handleTextPreviewæ”¹ä¸ºæµå¼è¾“å‡º(streamFile+8KBç¼“å†²)é¿å…å¤§æ–‡ä»¶OOM,Content-Disposition:inline+Content-Lengthæ­£ç¡®è®¾ç½®,ç§»é™¤æœªä½¿ç”¨import(RequestContextHolder/ServletRequestAttributes/StringJoiner),mvn compileé€šè¿‡ | 0df94857 |
-| P0-001-008-001-003-003 | éªŒè¯æ–‡ä»¶é¢„è§ˆ | 2026-05-30T09:07 | âœ… | FilePreviewServiceVerificationTest(22é¡¹å…¨PASS):å‚æ•°æ ¡éªŒ2é¡¹+æ–‡ä»¶ä¸å­˜åœ¨2é¡¹+å›¾ç‰‡é¢„è§ˆ4é¡¹(Content-Disposition:inline/Content-Type/å†…å®¹ä¸€è‡´æ€§/Content-Length)+PDFé¢„è§ˆ3é¡¹+TXTé¢„è§ˆ3é¡¹(UTF-8æ–‡æœ¬)+Officeé¢„è§ˆ3é¡¹(DOC/XLS/PPTè¿”å›JSONä¸‹è½½é“¾æ¥)+ä¸æ”¯æŒæ ¼å¼2é¡¹+ä¸­æ–‡æ–‡ä»¶å1é¡¹+å†…è”æ–‡æ¡£2é¡¹(JSON/HTML);ä¿®å¤text/plainä»INLINE_DOC_TYPESç§»é™¤ä½¿å…¶èµ°handleTextPreviewè®¾ç½®charset=UTF-8 | f34f2922 |
-| P0-001-008-002-001-002 | å®ç°æ³¨è§£å¤„ç†å™¨ | 2026-05-30T12:30 | âœ… | OperLog.javaæ³¨è§£å®šä¹‰å®Œæ•´:@Target(METHOD)/@Retention(RUNTIME)/@Documented,6å±æ€§(module/action/description/saveRequestData/saveResponseData/isSaveErrorTrace)é»˜è®¤å€¼æ­£ç¡®,é…åˆOperLogAspectä½¿ç”¨,mvn compileé€šè¿‡ | 9002503a |
-| P0-001-008-002-002-001 | å®šä¹‰åˆ‡é¢æ‹¦æˆªå™¨æ³¨å†Œæ–¹å¼ | 2026-05-30T17:24 | âœ… | OperLogAspect.java(@Aspect @Component @Slf4j):@Around(@annotation(OperLog))è®°å½•æ“ä½œäºº(StpUtil.getLoginId)/IP(X-Forwarded-For+RemoteAddr)/HTTPæ–¹æ³•/URL/è€—æ—¶/æˆåŠŸå¤±è´¥/å¼‚å¸¸å †æ ˆæˆªå–2000å­—ç¬¦,finallyå—å¼‚æ­¥è°ƒç”¨SysOperLogService.save();SysOperLogå®ä½“+SysOperLogServiceæ¥å£+@EnableAsync;mvn compile BUILD SUCCESS | 51ffa9fe |
-| P0-001-008-002-002-002 | å®ç°æ ¸å¿ƒå¤„ç†é€»è¾‘ | 2026-05-30T17:45 | âœ… | SysOperLogMapper.java(BaseMapperX<SysOperLog>)+SysOperLogServiceImpl.java(@Async @Service:å¼‚æ­¥insertåˆ°sys_oper_logè¡¨),OperLogAspectæ ¸å¿ƒé€»è¾‘å®Œæ•´(è®°å½•æ“ä½œäºº/IP/HTTPæ–¹æ³•/URL/è€—æ—¶/æˆåŠŸå¤±è´¥/å¼‚å¸¸å †æ ˆæˆªå–2000å­—ç¬¦/finallyå—è°ƒç”¨@Async save),mvn compile BUILD SUCCESS | fda70d58 |
-| P0-001-008-002-002-003 | é›†æˆæµ‹è¯•éªŒè¯ | 2026-05-30T18:00 | âœ… | éªŒè¯OperLogAspectåˆ‡é¢å®Œæ•´:@Aspect @Component @Aroundæ­£å¸¸/@Asyncå¼‚æ­¥ä¿å­˜/@EnableAsyncå·²é…ç½®/æ“ä½œäºº(StpUtil)/IP(X-Forwarded-Forâ†’RemoteAddr)/HTTPæ–¹æ³•/URL/è€—æ—¶/æˆåŠŸå¤±è´¥/å¼‚å¸¸å †æ ˆæˆªå–2000å­—ç¬¦/SysOperLogè¡¨å­—æ®µæ˜ å°„æ­£ç¡®,mvn compile BUILD SUCCESS | 6cf9dc64 |
-| P0-001-008-002-003-001 | å®šä¹‰æ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾å | 2026-05-30T18:15 | âœ… | SysOperLogController.java(@RestController @RequestMapping /api/system/oper-logs):GET/pageåˆ†é¡µ(operatorId/module/startTime/endTime/operatorIp/create_time DESC)+GET/{id}è¯¦æƒ…+DELETE/cleanæ¸…ç©º+GET/exportå¯¼å‡º,å…¨éƒ¨@RequirePermission(system:oper-log:query),mvn compileé€šè¿‡ | (pending) |
-| P0-001-008-002-003-002 | å®ç°æŸ¥è¯¢é€»è¾‘ | 2026-05-30 | âœ… | SysOperLogController.javaé‡æ„ä½¿ç”¨SysOperLogService(æ›¿ä»£ç›´æ¥æ³¨å…¥Mapper),SysOperLogServiceæ–°å¢pageList/getById/clean/exportListæ–¹æ³•,SysOperLogServiceImplå®ç°å…¨éƒ¨æŸ¥è¯¢æ–¹æ³•(buildQueryWrapperæå–å…¬å…±æ¡ä»¶æ„é€ ),mvn compileé€šè¿‡ | (pending) |
-| P0-001-008-003-001-001 | å®ç°å¯¼å‡ºé€»è¾‘ | 2026-05-30T10:06 | âœ… | ExcelExportUtil.java:æ³›å‹export(response,fileName,clazz,data)æ–¹æ³•,åŸºäºEasyExcel 3.3.3,åˆ†æ‰¹å†™å…¥(BATCH_SIZE=5000),å•è¡¨MAX_ROWS=10000é™åˆ¶,URLEncoderæ–‡ä»¶åç¼–ç ,Content-Type=application/vnd.ms-excel,å¼‚å¸¸throw BusinessExceptionâ†’GlobalExceptionHandlerâ†’RT.fail,pom.xmlæ–°å¢easyexcelä¾èµ–,mvn compile BUILD SUCCESS | (pending) |
-| P0-001-008-003-001-002 | å¯¼å‡ºå¼‚å¸¸å¤„ç† | 2026-05-30 | âœ… | ExcelExportUtil.javaå¢å¼ºå¼‚å¸¸å¤„ç†:å¯¼å‡ºä¸­å¼‚å¸¸catch Exceptionâ†’reset responseâ†’writeErrorResponseå†™RT.fail JSON(Content-Typeæ”¹ä¸ºapplication/json),é¿å…Excelå“åº”å¤´ä¸JSONé”™è¯¯ä½“ä¸åŒ¹é…;å‰ç½®æ ¡éªŒä»throw BusinessExceptionç”±GlobalExceptionHandlerå¤„ç†,mvn compile BUILD SUCCESS | (pending) |
-| P0-001-008-003-002-001 | å®ç°å¯¼å‡ºåŠŸèƒ½ | 2026-05-30T12:20 | âœ… | ExcelImportUtil.java:æ³›å‹importExcel(MultipartFile,Class<T>)æ–¹æ³•,EasyExcel.read().sheet().doRead()åŒæ­¥è¯»å–,ImportReadListener(AnalysisEventListener)é€è¡Œæ”¶é›†æ•°æ®+onExceptionæ•è·è§£æé”™è¯¯,MAX_ROWS=10000é™åˆ¶,BusinessExceptionè¶…é‡æ‹’ç»,ImportResult(successList+errorList with row+reason),é”™è¯¯è¡Œä¸é˜»æ–­å¯¼å…¥;ImportResult.javaæ”¯æŒç±»,mvn clean compile 126æºæ–‡ä»¶BUILD SUCCESS | (pending) |
-| P0-001-008-003-002-002 | å®ç°å¯¼å…¥åŠŸèƒ½ | 2026-05-30T13:00 | âœ… | ExcelImportUtil.javaå®Œæ•´å®ç°:importExcel()æ³›å‹æ–¹æ³•+EasyExcel.read().sheet().doRead()+ImportReadListeneré€è¡Œæ”¶é›†+MAX_ROWS=10000+ImportResult(successList+errorListè¡Œå·+åŸå› )+é”™è¯¯è¡Œä¸é˜»æ–­+onExceptionä¸é‡æŠ› | 79ae6ef1 |
-| P0-001-008-003-003-001 | å®šä¹‰å¯¼å…¥æ¥å£è·¯ç”± | 2026-05-30T10:30 | âœ… | ImportTemplateController.java(@RestController /api/common/templates):GET /{module}/downloadç©ºæ¨¡æ¿+GET /{module}/sampleç¤ºä¾‹æ•°æ®,@RequirePermission(common:template:download),EasyExcel.write()ç”Ÿæˆæ¨¡æ¿å«@ExcelPropertyè¡¨å¤´+ç¤ºä¾‹è¡Œ,Content-Type=application/vnd.ms-excel,mvn compile BUILD SUCCESS | (pending) |
-| P0-001-008-003-003-002 | å®ç°å¯¼å…¥é€»è¾‘ | 2026-05-30T11:00 | âœ… | downloadTemplateå¢å¼º:å«ç¤ºä¾‹æ•°æ®è¡Œ(ç©ºæ¨¡æ¿å«@ExcelPropertyè¡¨å¤´+ç¤ºä¾‹æ•°æ®è¡Œ),æ–°å¢å¼‚å¸¸å¤„ç†,ä¸downloadSampleé€»è¾‘å¯¹é½,mvn compileé€šè¿‡ | efbd5d20 |
-| P0-001-008-004-001-001 | å®šä¹‰å‡½æ•°ç­¾åä¸ç±»å‹ | 2026-05-30T14:00 | âœ… | TreeNode<T>(id/parentId/data/children+isLeaf/isRoot)+TreeUtil(final+privateæ„é€ ):buildTree(2ä¸ªé‡è½½é»˜è®¤rootParentId=0)+buildChildrené€’å½’+flattenå±•å¹³+filterByPermissionè¿‡æ»¤,æ–¹æ³•ç­¾åå®Œæ•´,mvn compileé€šè¿‡ | (pending) |
-| P0-001-008-004-001-002 | å®ç°æ ¸å¿ƒå¤„ç†é€»è¾‘ | 2026-05-30T15:00 | âœ… | buildTree(O(n) LinkedHashMapåˆ†ç»„)+buildChildren(é€’å½’MapæŸ¥æ‰¾)+flatten(DFSå±•å¹³)+filterByPermission(å­èŠ‚ç‚¹ä¸Šç§»),æ‰€æœ‰æ–¹æ³•null/emptyå®‰å…¨,mvn compileé€šè¿‡ | 737cbd36 |
-| P0-001-009-001-001-001 | ç¼–å†™CREATE INDEXè¯­å¥ | 2026-05-30T10:55 | âœ… | V4__create_doc_detail_location.sql(DDLå«5ç´¢å¼•)+DocDetailLocation.java(extends BaseEntity)+DocDetailLocationMapper.java(extends BaseMapperX+selectByDetailId),mvn compileé€šè¿‡ | (pending) |
-| P0-001-009-001-001-002 | ç¼–å†™ALTER TABLE ADD CONSTRAINTè¯­å¥ | 2026-05-30T11:02 | âœ… | V4å¢å¼º:ALTER TABLE ADD CONSTRAINT chk_ddl_quantity(quantity>=0)+chk_ddl_is_default(is_default IN 0/1)+COMMENT ON CONSTRAINT+é€»è¾‘å¤–é”®è¯´æ˜,mvn compileé€šè¿‡ | 4cc25117 |
-| P0-001-009-001-002-001 | å®šä¹‰Mapperæ¥å£ | 2026-05-30T11:10 | âœ… | DocDetailLocationMapper extends BaseMapperX,selectByDetailIdæ–¹æ³•,@Mapperæ³¨è§£,ä»£ç å·²åœ¨å‰åºä»»åŠ¡åˆ›å»ºå¹¶ç¼–è¯‘é€šè¿‡ | 87ee7b44 |
-| P0-001-009-001-002-002 | ç¼–å†™XMLæ˜ å°„æ–‡ä»¶ | 2026-05-30T11:20 | âœ… | DocDetailLocationMapper.xml:BaseResultMapå…¨å­—æ®µæ˜ å°„+Base_Column_List SQLç‰‡æ®µ+selectByDetailIdè‡ªå®šä¹‰æŸ¥è¯¢(WHERE is_deleted=FALSE),mvn compileé€šè¿‡ | 25ac9932 |
-| P0-001-009-002-001-001 | ç¼–å†™CREATE INDEXè¯­å¥ | 2026-05-30T11:55 | âœ… | V5__create_doc_detail_batch.sql(DDLå«6ç´¢å¼•)+DocDetailBatch.java(extends BaseEntity)+DocDetailBatchMapper.java(extends BaseMapperX+selectByDetailId),mvn compileé€šè¿‡ | e20f4fd2 |
-| P0-001-009-002-001-002 | ç¼–å†™ALTER TABLE ADD CONSTRAINTè¯­å¥ | 2026-05-30T12:00 | âœ… | V5å¢å¼º:ALTER TABLE ADD CONSTRAINT chk_ddb_quantity(quantity>=0)+chk_ddb_date(expiry_date>=production_dateæˆ–NULL)+COMMENT ON CONSTRAINT+é€»è¾‘å¤–é”®è¯´æ˜,mvn compileé€šè¿‡ | 1e17fb32 |
-| P0-001-009-002-002-001 | å®šä¹‰Mapperæ¥å£ | 2026-05-30T12:15 | âœ… | DocDetailBatchMapper extends BaseMapperX,selectByDetailId,@Mapperæ³¨è§£,ä»£ç å·²åœ¨å‰åºä»»åŠ¡(e20f4fd2)ä¸­åˆ›å»ºå¹¶ç¼–è¯‘é€šè¿‡ | (pending) |
-| P0-001-009-002-002-002 | ç¼–å†™XMLæ˜ å°„æ–‡ä»¶ | 2026-05-30T12:30 | âœ… | DocDetailBatchMapper.xml:BaseResultMapå…¨å­—æ®µæ˜ å°„(16å­—æ®µ)+Base_Column_List SQLç‰‡æ®µ+selectByDetailIdè‡ªå®šä¹‰æŸ¥è¯¢(WHERE is_deleted=FALSE),mvn compileé€šè¿‡ | (pending) |
-| P0-001-009-003-001-001 | ç¼–å†™CREATE INDEXè¯­å¥ | 2026-05-30T12:16 | âœ… | V6__create_doc_detail_serial.sql(DDLå«5ç´¢å¼•)+DocDetailSerial.java(extends BaseEntity+4ä¸šåŠ¡å­—æ®µ)+DocDetailSerialMapper.java(extends BaseMapperX+selectByDetailId),mvn compileé€šè¿‡ | 488691eb |
-| P0-001-009-003-001-002 | ç¼–å†™ALTER TABLE ADD CONSTRAINTè¯­å¥ | 2026-05-30T12:20 | âœ… | V6å¢å¼º:ALTER TABLE ADD CONSTRAINT chk_dds_status(status BETWEEN 1 AND 3)+chk_dds_serial_no(serial_noéç©º)+COMMENT ON CONSTRAINT+é€»è¾‘å¤–é”®è¯´æ˜,mvn compileé€šè¿‡ | 8cf169a8 |
-| P0-001-009-003-002-001 | å®šä¹‰Mapperæ¥å£ | 2026-05-30T12:35 | âœ… | DocDetailSerialMapper extends BaseMapperX<DocDetailSerial>,å£°æ˜selectByDetailIdè‡ªå®šä¹‰æŸ¥è¯¢æ–¹æ³•,mvn compileé€šè¿‡ | (pending) |
-| P0-001-009-003-002-002 | ç¼–å†™XMLæ˜ å°„æ–‡ä»¶ | 2026-05-30T12:27 | âœ… | DocDetailSerialMapper.xml:BaseResultMapå…¨å­—æ®µæ˜ å°„(14å­—æ®µ)+Base_Column_List SQLç‰‡æ®µ+selectByDetailIdè‡ªå®šä¹‰æŸ¥è¯¢(WHERE is_deleted=FALSE),mvn compile BUILD SUCCESS | 5cb4a7cf |
-| P0-001-009-004-001-001 | å®šä¹‰Serviceæ¥å£ | 2026-05-30T12:38 | âœ… | DetailSubTableService<D,L,B,S>æŠ½è±¡æ³›å‹åŸºç±»:saveSubTables(@Transactionalå…ˆåˆ åå¢)+deleteByDetailId(QueryWrapperæ‰¹é‡åˆ é™¤)+getByDetailId(ä¸‰è¡¨è”æŸ¥)+validateInventoryQuantityåº“å­˜æ ¡éªŒ+DetailSubTableDTOä»è¡¨å®¹å™¨,mvn compile BUILD SUCCESS | 3631ee5f |
-| P0-001-009-004-001-002 | å®ç°ServiceImpl | 2026-05-30T13:00 | âœ… | DetailSubTableServiceå®ç°å·²éªŒè¯:saveSubTables/deleteByDetailId/getByDetailIdä¸‰æ–¹æ³•å…¨éƒ¨å®ç°,validateInventoryQuantityåº“å­˜æ ¡éªŒé’©å­,mvn compile BUILD SUCCESS | |
-| P0-001-009-004-001-003 | ä¸šåŠ¡è¾…åŠ©æ–¹æ³• | 2026-05-30T13:18 | âœ… | DetailSubTableServiceä¸šåŠ¡è¾…åŠ©æ–¹æ³•:selectLocationsByDetailId/selectBatchesByDetailId/selectSerialsByDetailIdä¸‰è¡¨ç‹¬ç«‹æŸ¥è¯¢+deleteLocationsByDetailId/deleteBatchesByDetailId/deleteSerialsByDetailIdä¸‰è¡¨ç‹¬ç«‹åˆ é™¤+validateInventoryQuantityåº“å­˜æ•°é‡SUMèšåˆæ ¡éªŒ+isSubTableDataEmptyè¾…åŠ©åˆ¤æ–­,mvn compile BUILD SUCCESS | 05e7182f |
+```
+### Ä£¿éÍê³É: P0-001 ?
+```
 
-### æ¨¡å—å®Œæˆ: P0-001 âœ…
+> **ÖØÒª**£ºÄ£¿éÍê³É±ê¼ÇÊÇµ÷¶ÈÆ÷ÅĞ¶ÏÄ£¿éÊÇ·ñÍê³ÉµÄÎ¨Ò»ÒÀ¾İ¡£
+> Ã»ÓĞÕâĞĞ±ê¼Ç£¬µ÷¶ÈÆ÷»áÈÏÎª¸ÃÄ£¿éÈÔÎ´Íê³É£¬²»»áÆô¶¯ÒÀÀµËüµÄÏÂÓÎÄ£¿é¡£
+> ¸ñÊ½±ØĞë¾«È·Æ¥Åä `Ä£¿éÍê³É: P?-??? ?`£¬·ñÔòµ÷¶ÈÆ÷ÎŞ·¨Ê¶±ğ¡£
 
-### P0-002 - å‰ç«¯é¡¹ç›®æ¡†æ¶æ­å»º
+| P0-001-006-002-003-002 | ÊµÏÖServiceImpl | 2026-05-30T00:05 | ? | SysDataViewServiceImpl.javaÊµÏÖ(getViewMetaÊÓÍ¼ÔªÊı¾İ+executeView¶¯Ì¬SQL²éÑ¯+validateSourceSql°×Ãûµ¥+deleteFieldsByViewId¼¶ÁªÉ¾³ı+escapeFieldName×ªÒå),mvn compileÍ¨¹ı | dc88b0a9 |
+| P0-001-006-002-003-003 | ÒµÎñĞ£ÑéÂß¼­ | 2026-05-30T10:10 | ? | ÑéÖ¤SysDataViewService/SysDataViewServiceImplÒµÎñĞ£ÑéÂß¼­:SQL°×Ãûµ¥12¹Ø¼ü×Ö+×Ö¶ÎË«ÒıºÅ×ªÒå+·ÖÒ³¡Ü100+Ä¬ÈÏcreate_time DESC+viewCodeÎ¨Ò»ĞÔ+SELECT/FROM±Øº¬+¼¶ÁªÉ¾³ı+getViewMeta/executeView,È«7ÏîÑéÊÕÍ¨¹ı,mvn compileÍ¨¹ı | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-006-003-001-001 | ÊµÏÖSQL¶¯Ì¬¹¹½¨ | 2026-05-30T10:30 | ? | DataViewSqlBuilder.java(@Component):buildSelectSql(viewId,queryParams)Ö÷·½·¨+SQL°×Ãûµ¥Ğ£Ñé+¶¯Ì¬WHERE(=,LIKE,BETWEEN)+PostgreSQLË«ÒıºÅ×ªÒå+is_deleted=FALSE+pageSize¡Ü100,mvn compileÍ¨¹ı | 6e6bf46e |
+| P0-001-006-003-001-002 | ÊµÏÖSQL¹¹½¨ºËĞÄÂß¼­ | 2026-05-30T11:00 | ? | DataViewSqlBuilder.javaºËĞÄÂß¼­ÍêÕû(validateSqlWhitelist+validateSourceSql+escapeFieldName+resolveSortField+buildBetweenCondition),È«3ÏîÑéÊÕÍ¨¹ı,mvn compileÍ¨¹ı | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-006-003-001-003 | ÑéÖ¤SQL¹¹½¨ | 2026-05-30T11:35 | ? | DataViewSqlBuilderVerificationTest.java(34ÓÃÀı):SQL°×Ãûµ¥11Ïî+×Ö¶Î×ªÒå5Ïî+·ÖÒ³ÅÅĞò7Ïî+ËÑË÷ÀàĞÍ4Ïî+Ò×´í¾¯Ê¾2Ïî+±ß½ç2Ïî+Òì³£3Ïî,·¢ÏÖ²¢ĞŞ¸´CREATE¹Ø¼ü×Ö´Ê±ß½çÎóÅĞbug,mvn testÍ¨¹ı | 82ff6ca5 |
+| P0-001-006-003-002-001 | ËÑË÷±íµ¥²¼¾Ö | 2026-05-30T12:08 | ? | DataViewQueryParser.java(@Component):parseConditions/parseOneÖ÷·½·¨+8ÖÖ²Ù×÷·û(eq/ne/gt/gte/lt/lte/like/between/in)+LIKE×ªÒå%/_+betweenÀàĞÍĞ£Ñé+in¡Ü100ÏŞÖÆ+×Ö¶ÎË«ÒıºÅ×ªÒå,34²âÊÔÍ¨¹ı | 8f731bd3 |
+| P0-001-006-003-002-002 | ËÑË÷×Ö¶Î×é¼şäÖÈ¾ | 2026-05-30T14:45 | ?? | ÈÎÎñÖØ¸´-DataViewQueryParser.javaÒÑÔÚP0-001-006-003-002-001ÖĞ´´½¨²¢Ìá½»(8f731bd3) | (ÈÎÎñÖØ¸´-Ç°ÖÃÈÎÎñÒÑÍê³É) |
+| P0-001-007-001-001-001 | ±àĞ´CREATE TABLE DDL | 2026-05-30T15:00 | ? | V3__create_sys_param.sql(sys_param±í:9ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+Î¨Ò»Ë÷Òıuk_category_key+idx_category+idx_sys_param_tenant) | 20333511 |
+| P0-001-006-003-003-002 | ÊµÏÖ·ÖÒ³ÅÅĞòºËĞÄÂß¼­ | 2026-05-30T16:00 | ? | DataViewPagingExecutor.java(@Component):execute(viewCode,PageQuery)Ö÷·½·¨+MyBatis-Plus Page·â×°+pageSize¡Ü100ÏŞÖÆ+Î¯ÍĞDataViewSqlBuilderÅÅĞò°×Ãûµ¥Ğ£Ñé+Ä¬ÈÏcreate_time DESC,mvn compileÍ¨¹ı | (´ıÌá½») | 3b84b1f1 |
+| P0-001-006-003-003-001 | ÊµÏÖ·ÖÒ³ÅÅĞòÖ´ĞĞ | 2026-05-30T17:30 | ? | DataViewPagingExecutor.javaÔöÇ¿:execute()·½·¨´«µİsortField/sortOrderµ½SqlBuilder;PageQuery.javaĞÂÔösortField/sortOrder×Ö¶Î;ÅÅĞò°×Ãûµ¥Ğ£ÑéÓÉSqlBuilder.resolveSortField()Íê³É;Ä¬ÈÏcreate_time DESC;mvn compileÍ¨¹ı | (´ıÌá½») |
+| P0-001-006-004-002-002 | ÊµÏÖ²éÑ¯Âß¼­ | 2026-05-30T03:32 | ? | SysDataViewController.java(@RestController /api/system/data-views)ÍêÕûCRUD+POST/{viewCode}/execute+GET/{viewCode}/meta+ËùÓĞ·½·¨@RequirePermission+execute·½·¨@OperLog+@OperationÆëÈ«;OperLog.java×¢½â¶¨Òå;mvn compile BUILD SUCCESS | (´ıÌá½») |
+| P0-001-006-004-001-001 | ¶¨Òå½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©Ãû | 2026-05-30T04:00 | ? | SysDataViewController.javaÒÑÓÉP0-001-006-004-002-002´´½¨,±¾ÈÎÎñÑéÖ¤:CRUD½Ó¿ÚÂ·ÓÉ(/api/system/data-views)+7¸ö·½·¨È«²¿@RequirePermission+@OperationÆëÈ«+@OperLog,Âú×ãÑéÊÕ±ê×¼,mvn compileÍ¨¹ı | 6b6ffdca |
+| P0-001-006-004-002-001 | ¶¨Òå½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©Ãû | 2026-05-30T05:00 | ? | SysDataViewController.java execute+getMeta½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©ÃûÒÑ¾ÍÎ»,POST /{viewCode}/execute(@OperLog)+GET /{viewCode}/meta,@RequirePermission+@OperationÆëÈ«,RESTful¹æ·¶,mvn compileÍ¨¹ı | 9aba4bdb |
+| P0-001-006-003-003-003 | ÑéÖ¤·ÖÒ³ÅÅĞò | 2026-05-30T05:50 | ? | DataViewPagingExecutor.javaÅÅĞò×Ö¶Î°×Ãûµ¥Ğ£Ñé(resolveSortField/sortOrder)+DataViewPagingExecutorVerificationTest.java(24ÓÃÀı):SQL°×Ãûµ¥2Ïî+×Ö¶Î×ªÒå1Ïî+·ÖÒ³ÅÅĞò6Ïî+ÅÅĞò×Ö¶Î°×Ãûµ¥4Ïî+ÅÅĞò·½Ïò3Ïî+Òì³£3Ïî+±ß½ç4Ïî,mvn test 92Í¨¹ı | (´ıÌá½») |
+| P0-001-007-001-001-002 | Ìí¼ÓË÷ÒıÓëÔ¼Êø | 2026-05-30T18:30 | ? | V3__create_sys_param.sqlĞÂÔöCOMMENT ON CONSTRAINT/INDEX 4Ìõ+Ë÷ÒıÇåµ¥ÓëÔ¼ÊøËµÃ÷×¢ÊÍ¿é,ÑéÖ¤:uk_category_keyº¬tenant_id+²¿·ÖË÷ÒıÅÅ³ıÈíÉ¾³ı+mvn compileÍ¨¹ı | 81f08a73 |
+| P0-001-006-004-001-002 | ÊµÏÖĞÂÔöĞŞ¸ÄÉ¾³ı·½·¨ | 2026-05-30T19:00 | ? | SysDataViewController.java CREATE/UPDATE/DELETE·½·¨ÒÑ¾ÍÎ»(ÒÑÓÉP0-001-006-004-002-002ÊµÏÖ),@RequirePermission+@OperationÆëÈ«,½Ó¿ÚÂ·¾¶/api/system/data-views·ûºÏRESTful¹æ·¶,mvn compileÍ¨¹ı | (ÑéÖ¤ÈÎÎñ) |
+| P0-001-006-004-001-003 | ÊµÏÖ²éÑ¯·½·¨ | 2026-05-30T20:00 | ? | SysDataViewController.java²éÑ¯·½·¨È«²¿¾ÍÎ»:POST/{viewCode}/execute(@OperLog)+GET/{viewCode}/meta+getById+pageList,SysDataViewServiceImpl.executeView+getViewMetaÍêÕûÊµÏÖ,@RequirePermission+@OperationÆëÈ«,mvn compileÍ¨¹ı | 3589b755 |
+| P0-001-007-001-002-002 | Ö´ĞĞDDL½Å±¾ | 2026-05-30T21:00 | ? | ÑéÖ¤V3__create_sys_param.sqlÍêÕû:CREATE TABLE sys_param(9ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î)+Î¨Ò»Ë÷Òıuk_category_key(º¬tenant_id²¿·ÖË÷Òı)+idx_category+idx_sys_param_tenant+È«Ì×COMMENT+»Ø¹ö½Å±¾,mvn compile BUILD SUCCESS | 1d61228f |
+| P0-001-007-001-002-003 | ÑéÖ¤Ë÷ÒıÓëÔ¼Êø | 2026-05-30T21:30 | ? | ÔÚerp_dev¿âÖ´ĞĞV3__create_sys_param.sql:sys_param±í17×Ö¶Î+3Ë÷Òı(pk_sys_param/uk_category_key/idx_category/idx_sys_param_tenant)+1Ö÷¼üÔ¼ÊøÈ«²¿´´½¨³É¹¦,information_schemaÑéÖ¤Í¨¹ı,×Ö¶ÎÀàĞÍÓë¹æ·¶Ò»ÖÂ | 4e879d1e |
+| P0-001-007-002-001-002 | ÊµÏÖServiceImpl | 2026-05-30T22:00 | ? | SysParamService.java(@Service):getValue(·ºĞÍÀàĞÍ×ª»»)+getStr+setParam(UPSERT)+deleteParam(ÏµÍ³²ÎÊı±£»¤)+listByCategory,ËùÓĞ¶Á·½·¨@Cacheable(sys:param)+Ğ´·½·¨@Caching(@CacheEvictÇå³ıµ¥¼üºÍÁĞ±í»º´æ),@TransactionalĞ´²Ù×÷+JdbcTemplate+tenantId¸ôÀë+convertValueÖ§³Ö5ÖÖÀàĞÍ(STRING/NUMBER/BOOLEAN/JSON/DATE),@EnableCachingÌí¼Óµ½ErpAiApplication,mvn compileÍ¨¹ı | 483c810e |
+| P0-001-007-002-001-003 | ÒµÎñĞ£ÑéÂß¼­ | 2026-05-30T22:40 | ? | SysParamService.javaĞÂÔöÒµÎñĞ£Ñé:validateParamKey(category/key²»ÄÜÎª¿Õ)+getValueÔö¼Ótype·Ç¿ÕĞ£Ñé+setParamÔö¼Óvalue·Ç¿ÕĞ£Ñé+listByCategoryÔö¼Ócategory·Ç¿ÕĞ£Ñé+deleteParamÏµÍ³²ÎÊı±£»¤(ÒÑÓĞ),ËùÓĞpublic·½·¨Èë¿Ú²ÎÊıĞ£Ñé¸²¸Ç,@TransactionalÔÚpublic·½·¨,mvn compileÍ¨¹ı | 5ee6f0d9 |
+| P0-001-007-002-001-001 | ¶¨ÒåService½Ó¿Ú | 2026-05-30T23:00 | ? | SysParamService.java(@Service)½Ó¿Ú¶¨Òå:getValue·ºĞÍ·½·¨+getStr+setParam+deleteParam+listByCategory,ËùÓĞ¶Á·½·¨@Cacheable(sys:param»º´æÓÀ²»¹ıÆÚ),Ğ´·½·¨@Caching(@CacheEvictµ¥¼ü+ÁĞ±í»º´æ),convertValueÖ§³Ö5ÖÖÀàĞÍ×ª»»(STRING/NUMBER/BOOLEAN/JSON/DATE),validateParamKey²ÎÊıĞ£Ñé,mvn compileÍ¨¹ı | 0c57c72f |
+| P0-001-007-001-002-001 | ±àĞ´CREATE INDEXÓï¾ä | 2026-05-30T23:45 | ? | ÑéÖ¤V3__create_sys_param.sqlÒÑÓÉÇ°ÖÃÈÎÎñ´´½¨ÍêÕû:CREATE TABLE+3¸öË÷Òı(uk_category_key/idx_category/idx_sys_param_tenant)+È«²¿COMMENT+»Ø¹ö½Å±¾,mvn compile BUILD SUCCESS | (´ıÌá½») |
+| P0-001-007-002-003-001 | ¶¨Òå½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©Ãû | 2026-05-30 | ? | ´´½¨ParamCacheRefresher.java(@EventListener¼àÌıParamChangedEvent+Redis»º´æÇå³ı+POST /api/system/params/refreshÊÖ¶¯Ë¢ĞÂ)+ParamChangedEvent.java(×Ô¶¨ÒåÊÂ¼ş),Ö§³Ö¶àÊµÀı²¿Êğ»º´æÍ¬²½,mvn clean compile BUILD SUCCESS | b2e4335e |
+| P0-001-007-002-003-002 | ÊµÏÖ½Ó¿ÚÂß¼­ | 2026-05-30T06:00 | ? | ParamCacheRefresher.javaÍêÕûÊµÏÖ:@EventListener·½·¨+evictCacheË½ÓĞ·½·¨+POST /refreshÊÖ¶¯Ë¢ĞÂ¶Ëµã+StringRedisTemplate¼üÉ¨ÃèÇå³ı,±àÒëÍ¨¹ı | b2e4335e |
+| P0-001-007-003-001-001 | ¶¨Òå½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©Ãû | 2026-05-30T07:30 | ? | SysParamController.java(@RestController /api/system/params):5¸öCRUD¶Ëµã(listByCategory/getByCategoryAndKey/create/update/delete),È«²¿@RequirePermission+@OperationÆëÈ«,RESTfulÂ·¾¶¹æ·¶,is_system=1É¾³ı±£»¤ÓÉService²ãÊµÏÖ,/refresh¶ËµãÓÉParamCacheRefresher´¦Àí | 8966b471 |
+| P0-001-007-002-002-002 | ÊµÏÖ¸ß¼¶×ª»»·½·¨ | 2026-05-30T18:30 | ? | ParamTypeConverter.javaÒÑÍê³É(commit 173e887b):convert()·½·¨Ö§³ÖSTRING/NUMBER/BOOLEAN/JSON/DATE 5ÖÖÀàĞÍ,DATEË«¸ñÊ½¼æÈİ,convertNumberÖ§³ÖInteger/Long/Double/Float/BigDecimal,convertBooleanÖ§³Ötrue/1/yes,Ê§°ÜÅ×ParamException(30002),mvn compileÍ¨¹ı | 173e887b |
+| P0-001-007-003-001-002 | ÊµÏÖ²éÑ¯Âß¼­ | 2026-05-30T08:00 | ? | SysParamController.javaĞÂÔöPOST /refresh¶Ëµã(StringRedisTemplate¼üÉ¨ÃèÇå³ısys:param:*»º´æ)+@RequirePermission(system:param:manage),ParamCacheRefresherÖØ¹¹Îª@Component(±£Áô@EventListenerÒÆ³ı@RestController),È«²¿6¶Ëµã@RequirePermission+@OperationÆëÈ«,mvn compileÍ¨¹ı | 59ff6485 |
+| P0-001-007-003-002-001 | ¶¨Òå½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©Ãû | 2026-05-30T08:30 | ? | SysParamController.javaĞÂÔöPUT /batchÅúÁ¿¸üĞÂ¶Ëµã(@RequirePermission(system:param:update)+@Operation),½ÓÊÜList<Map<String,String>>²ÎÊı,RESTfulÂ·¾¶/api/system/params/batch,mvn compile BUILD SUCCESS | fa9d0b16 |
+| P0-001-007-003-002-002 | ÊµÏÖ½Ó¿ÚÂß¼­ | 2026-05-30T09:00 | ? | SysParamController.java batchUpdate·½·¨´ÓstubÊµÏÖÎªÍêÕûÒµÎñÂß¼­:²ÎÊı¿ÕÁĞ±íĞ£Ñé(BusinessException PARAM_MISSING)+Ñ­»·µ÷ÓÃsysParamService.setParamÅúÁ¿¸üĞÂ+ÈÕÖ¾¼ÇÂ¼,mvn compile BUILD SUCCESS | 377206c8 |
+| P0-001-008-001-001-001 | ÊµÏÖÎÄ¼şÉÏ´«ºËĞÄÂß¼­ | 2026-05-30T10:00 | ? | FileUploadService.java(@Service):upload(MultipartFile)ÊµÏÖMIMEÄ§Êı¼ì²â(JPEG/PNG/PDF/XLS/OOXML)+À©Õ¹ÃûºÚÃûµ¥(exe/bat/sh/cmd)+UUIDÎÄ¼şÃû+ÈÕÆÚ·ÖÄ¿Â¼(yyyy/MM/dd)´æ´¢,FileVO+FileUploadPropertiesÖ§³ÖÀà,mvn compileÍ¨¹ı | a99f46bd |
+| P0-001-008-001-001-002 | ÊµÏÖÎÄ¼şÉÏ´«ºËĞÄÂß¼­ | 2026-05-30T11:00 | ? | FileUploadServiceÔöÇ¿:ÏÔÊ½ÎÄ¼ş´óĞ¡Ğ£Ñé(µ¥ÎÄ¼ş10MB PARAM_RANGE_ERROR)+SysFile Entity(@TableName sys_file)+SysFileMapper(BaseMapperX)+ÉÏ´«Íê³Éºó×Ô¶¯¼ÇÂ¼sys_fileÔªÊı¾İ(ÎÄ¼şÃû/Â·¾¶/MIME/´óĞ¡/CONFIRMED×´Ì¬/ÉÏ´«ÈËStpUtil»ñÈ¡),mvn compileÍ¨¹ı | 24a8ec13 |
+| P0-001-008-001-001-003 | ÑéÖ¤ÎÄ¼şÉÏ´« | 2026-05-30T15:00 | ? | FileUploadServiceVerificationTest(17ÏîÈ«PASS):À©Õ¹ÃûºÚÃûµ¥(exe/bat/sh/cmd)5Ïî+MIMEÄ§Êı°×Ãûµ¥(JPEG/PNG/PDF)4Ïî+ÎÄ¼ş´óĞ¡Ğ£Ñé(¿Õ/null/³¬´ó/±ß½ç)4Ïî+³É¹¦ÉÏ´«Á÷³Ì(UUID¸ñÊ½/ÈÕÆÚÄ¿Â¼/FileVOÍêÕû×Ö¶Î/sys_fileÔªÊı¾İ)4Ïî;ĞŞ¸´BusinessException args±»¿ò¼Ü¾²Ä¬¶ªÆúÎÊÌâ,mvn compile+test 171/171 PASS | (pending) |
+| P0-001-008-001-002-001 | ÊµÏÖÎÄ¼şÏÂÔØÂß¼­ | 2026-05-30T07:05 | ? | FileDownloadService.java(@Service):download(fileId,response)²ésys_fileÔªÊı¾İ+Ğ£ÑéÎÄ¼ş´æÔÚ¿É¶Á+Content-Type(MIME)/Content-Disposition(attachment)/Content-LengthÏìÓ¦Í·+StreamingResponseBodyÁ÷Ê½Êä³ö(8KB»º³å·ÀOOM)+Range¶ÏµãĞø´«(206 Partial Content/RandomAccessFile seek)+ÏÂÔØ¼ÆÊı×ÔÔö,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-008-001-002-002 | ÊµÏÖÎÄ¼şÏÂÔØºËĞÄÂß¼­ | 2026-05-30T07:08 | ? | FileDownloadService.handleFullDownloadÖØ¹¹ÎªBufferedInputStreamÖ±½ÓÁ÷Ê½Êä³ö(ÒÆ³ıÈßÓàStreamingResponseBodyÍ¬²½°ü×°),handleRangeDownload±£ÁôRandomAccessFile¶ÏµãĞø´«,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-008-001-002-003 | ÑéÖ¤ÎÄ¼şÏÂÔØ | 2026-05-30T07:15 | ? | FileDownloadServiceVerificationTest(16ÏîÈ«PASS):²ÎÊıĞ£Ñé(·Ç·¨fileId)+ÎÄ¼ş²»´æÔÚ(DB/´ÅÅÌ)+È«Á¿ÏÂÔØ(Content-Type/Content-Disposition/Content-Length/ÄÚÈİÒ»ÖÂĞÔ/¼ÆÊıµİÔö/null MIME/ÖĞÎÄÎÄ¼şÃû)+Range¶ÏµãĞø´«(206/Content-Range/²¿·ÖÄÚÈİ/416 unsatisfiable/start-only),mvn test 16/16 PASS | 81d2e1d8 |
+| P0-001-008-001-003-001 | ÊµÏÖÎÄ¼şÔ¤ÀÀÂß¼­ | 2026-05-30T08:57 | ? | FilePreviewService.java(@Service):preview(fileId,response)²ésys_fileÔªÊı¾İ+Í¼Æ¬(image/*)Ö±½ÓÁ÷Ê½Êä³ö+PDF/ÎÄ±¾(text/*)Ö±½ÓÄÚÁªÁ÷Ê½+Office(msword/excel/powerpoint/officedocument)·µ»ØJSONÏÂÔØÌáÊ¾+²»Ö§³Ö¸ñÊ½·µ»ØJSONÏÂÔØÁ´½Ó+Content-Disposition:inline(ä¯ÀÀÆ÷ÄÚÁªÕ¹Ê¾)+streamFile(8KB»º³å·ÀOOM),mvn compile BUILD SUCCESS | 679a805d |
+| P0-001-008-001-003-002 | ÊµÏÖÎÄ¼şÔ¤ÀÀºËĞÄÂß¼­ | 2026-05-30T09:30 | ? | FilePreviewService.javaºËĞÄÂß¼­ÔöÇ¿:handleTextPreview¸ÄÎªÁ÷Ê½Êä³ö(streamFile+8KB»º³å)±ÜÃâ´óÎÄ¼şOOM,Content-Disposition:inline+Content-LengthÕıÈ·ÉèÖÃ,ÒÆ³ıÎ´Ê¹ÓÃimport(RequestContextHolder/ServletRequestAttributes/StringJoiner),mvn compileÍ¨¹ı | 0df94857 |
+| P0-001-008-001-003-003 | ÑéÖ¤ÎÄ¼şÔ¤ÀÀ | 2026-05-30T09:07 | ? | FilePreviewServiceVerificationTest(22ÏîÈ«PASS):²ÎÊıĞ£Ñé2Ïî+ÎÄ¼ş²»´æÔÚ2Ïî+Í¼Æ¬Ô¤ÀÀ4Ïî(Content-Disposition:inline/Content-Type/ÄÚÈİÒ»ÖÂĞÔ/Content-Length)+PDFÔ¤ÀÀ3Ïî+TXTÔ¤ÀÀ3Ïî(UTF-8ÎÄ±¾)+OfficeÔ¤ÀÀ3Ïî(DOC/XLS/PPT·µ»ØJSONÏÂÔØÁ´½Ó)+²»Ö§³Ö¸ñÊ½2Ïî+ÖĞÎÄÎÄ¼şÃû1Ïî+ÄÚÁªÎÄµµ2Ïî(JSON/HTML);ĞŞ¸´text/plain´ÓINLINE_DOC_TYPESÒÆ³ıÊ¹Æä×ßhandleTextPreviewÉèÖÃcharset=UTF-8 | f34f2922 |
+| P0-001-008-002-001-002 | ÊµÏÖ×¢½â´¦ÀíÆ÷ | 2026-05-30T12:30 | ? | OperLog.java×¢½â¶¨ÒåÍêÕû:@Target(METHOD)/@Retention(RUNTIME)/@Documented,6ÊôĞÔ(module/action/description/saveRequestData/saveResponseData/isSaveErrorTrace)Ä¬ÈÏÖµÕıÈ·,ÅäºÏOperLogAspectÊ¹ÓÃ,mvn compileÍ¨¹ı | 9002503a |
+| P0-001-008-002-002-001 | ¶¨ÒåÇĞÃæÀ¹½ØÆ÷×¢²á·½Ê½ | 2026-05-30T17:24 | ? | OperLogAspect.java(@Aspect @Component @Slf4j):@Around(@annotation(OperLog))¼ÇÂ¼²Ù×÷ÈË(StpUtil.getLoginId)/IP(X-Forwarded-For+RemoteAddr)/HTTP·½·¨/URL/ºÄÊ±/³É¹¦Ê§°Ü/Òì³£¶ÑÕ»½ØÈ¡2000×Ö·û,finally¿éÒì²½µ÷ÓÃSysOperLogService.save();SysOperLogÊµÌå+SysOperLogService½Ó¿Ú+@EnableAsync;mvn compile BUILD SUCCESS | 51ffa9fe |
+| P0-001-008-002-002-002 | ÊµÏÖºËĞÄ´¦ÀíÂß¼­ | 2026-05-30T17:45 | ? | SysOperLogMapper.java(BaseMapperX<SysOperLog>)+SysOperLogServiceImpl.java(@Async @Service:Òì²½insertµ½sys_oper_log±í),OperLogAspectºËĞÄÂß¼­ÍêÕû(¼ÇÂ¼²Ù×÷ÈË/IP/HTTP·½·¨/URL/ºÄÊ±/³É¹¦Ê§°Ü/Òì³£¶ÑÕ»½ØÈ¡2000×Ö·û/finally¿éµ÷ÓÃ@Async save),mvn compile BUILD SUCCESS | fda70d58 |
+| P0-001-008-002-002-003 | ¼¯³É²âÊÔÑéÖ¤ | 2026-05-30T18:00 | ? | ÑéÖ¤OperLogAspectÇĞÃæÍêÕû:@Aspect @Component @AroundÕı³£/@AsyncÒì²½±£´æ/@EnableAsyncÒÑÅäÖÃ/²Ù×÷ÈË(StpUtil)/IP(X-Forwarded-For¡úRemoteAddr)/HTTP·½·¨/URL/ºÄÊ±/³É¹¦Ê§°Ü/Òì³£¶ÑÕ»½ØÈ¡2000×Ö·û/SysOperLog±í×Ö¶ÎÓ³ÉäÕıÈ·,mvn compile BUILD SUCCESS | 6cf9dc64 |
+| P0-001-008-002-003-001 | ¶¨Òå½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©Ãû | 2026-05-30T18:15 | ? | SysOperLogController.java(@RestController @RequestMapping /api/system/oper-logs):GET/page·ÖÒ³(operatorId/module/startTime/endTime/operatorIp/create_time DESC)+GET/{id}ÏêÇé+DELETE/cleanÇå¿Õ+GET/exportµ¼³ö,È«²¿@RequirePermission(system:oper-log:query),mvn compileÍ¨¹ı | (pending) |
+| P0-001-008-002-003-002 | ÊµÏÖ²éÑ¯Âß¼­ | 2026-05-30 | ? | SysOperLogController.javaÖØ¹¹Ê¹ÓÃSysOperLogService(Ìæ´úÖ±½Ó×¢ÈëMapper),SysOperLogServiceĞÂÔöpageList/getById/clean/exportList·½·¨,SysOperLogServiceImplÊµÏÖÈ«²¿²éÑ¯·½·¨(buildQueryWrapperÌáÈ¡¹«¹²Ìõ¼ş¹¹Ôì),mvn compileÍ¨¹ı | (pending) |
+| P0-001-008-003-001-001 | ÊµÏÖµ¼³öÂß¼­ | 2026-05-30T10:06 | ? | ExcelExportUtil.java:·ºĞÍexport(response,fileName,clazz,data)·½·¨,»ùÓÚEasyExcel 3.3.3,·ÖÅúĞ´Èë(BATCH_SIZE=5000),µ¥±íMAX_ROWS=10000ÏŞÖÆ,URLEncoderÎÄ¼şÃû±àÂë,Content-Type=application/vnd.ms-excel,Òì³£throw BusinessException¡úGlobalExceptionHandler¡úRT.fail,pom.xmlĞÂÔöeasyexcelÒÀÀµ,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-008-003-001-002 | µ¼³öÒì³£´¦Àí | 2026-05-30 | ? | ExcelExportUtil.javaÔöÇ¿Òì³£´¦Àí:µ¼³öÖĞÒì³£catch Exception¡úreset response¡úwriteErrorResponseĞ´RT.fail JSON(Content-Type¸ÄÎªapplication/json),±ÜÃâExcelÏìÓ¦Í·ÓëJSON´íÎóÌå²»Æ¥Åä;Ç°ÖÃĞ£ÑéÈÔthrow BusinessExceptionÓÉGlobalExceptionHandler´¦Àí,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-008-003-002-001 | ÊµÏÖµ¼³ö¹¦ÄÜ | 2026-05-30T12:20 | ? | ExcelImportUtil.java:·ºĞÍimportExcel(MultipartFile,Class<T>)·½·¨,EasyExcel.read().sheet().doRead()Í¬²½¶ÁÈ¡,ImportReadListener(AnalysisEventListener)ÖğĞĞÊÕ¼¯Êı¾İ+onException²¶»ñ½âÎö´íÎó,MAX_ROWS=10000ÏŞÖÆ,BusinessException³¬Á¿¾Ü¾ø,ImportResult(successList+errorList with row+reason),´íÎóĞĞ²»×è¶Ïµ¼Èë;ImportResult.javaÖ§³ÖÀà,mvn clean compile 126Ô´ÎÄ¼şBUILD SUCCESS | (pending) |
+| P0-001-008-003-002-002 | ÊµÏÖµ¼Èë¹¦ÄÜ | 2026-05-30T13:00 | ? | ExcelImportUtil.javaÍêÕûÊµÏÖ:importExcel()·ºĞÍ·½·¨+EasyExcel.read().sheet().doRead()+ImportReadListenerÖğĞĞÊÕ¼¯+MAX_ROWS=10000+ImportResult(successList+errorListĞĞºÅ+Ô­Òò)+´íÎóĞĞ²»×è¶Ï+onException²»ÖØÅ× | 79ae6ef1 |
+| P0-001-008-003-003-001 | ¶¨Òåµ¼Èë½Ó¿ÚÂ·ÓÉ | 2026-05-30T10:30 | ? | ImportTemplateController.java(@RestController /api/common/templates):GET /{module}/download¿ÕÄ£°å+GET /{module}/sampleÊ¾ÀıÊı¾İ,@RequirePermission(common:template:download),EasyExcel.write()Éú³ÉÄ£°åº¬@ExcelProperty±íÍ·+Ê¾ÀıĞĞ,Content-Type=application/vnd.ms-excel,mvn compile BUILD SUCCESS | (pending) |
+| P0-001-008-003-003-002 | ÊµÏÖµ¼ÈëÂß¼­ | 2026-05-30T11:00 | ? | downloadTemplateÔöÇ¿:º¬Ê¾ÀıÊı¾İĞĞ(¿ÕÄ£°åº¬@ExcelProperty±íÍ·+Ê¾ÀıÊı¾İĞĞ),ĞÂÔöÒì³£´¦Àí,ÓëdownloadSampleÂß¼­¶ÔÆë,mvn compileÍ¨¹ı | efbd5d20 |
+| P0-001-008-004-001-001 | ¶¨Òåº¯ÊıÇ©ÃûÓëÀàĞÍ | 2026-05-30T14:00 | ? | TreeNode<T>(id/parentId/data/children+isLeaf/isRoot)+TreeUtil(final+private¹¹Ôì):buildTree(2¸öÖØÔØÄ¬ÈÏrootParentId=0)+buildChildrenµİ¹é+flattenÕ¹Æ½+filterByPermission¹ıÂË,·½·¨Ç©ÃûÍêÕû,mvn compileÍ¨¹ı | (pending) |
+| P0-001-008-004-001-002 | ÊµÏÖºËĞÄ´¦ÀíÂß¼­ | 2026-05-30T15:00 | ? | buildTree(O(n) LinkedHashMap·Ö×é)+buildChildren(µİ¹éMap²éÕÒ)+flatten(DFSÕ¹Æ½)+filterByPermission(×Ó½ÚµãÉÏÒÆ),ËùÓĞ·½·¨null/empty°²È«,mvn compileÍ¨¹ı | 737cbd36 |
+| P0-001-009-001-001-001 | ±àĞ´CREATE INDEXÓï¾ä | 2026-05-30T10:55 | ? | V4__create_doc_detail_location.sql(DDLº¬5Ë÷Òı)+DocDetailLocation.java(extends BaseEntity)+DocDetailLocationMapper.java(extends BaseMapperX+selectByDetailId),mvn compileÍ¨¹ı | (pending) |
+| P0-001-009-001-001-002 | ±àĞ´ALTER TABLE ADD CONSTRAINTÓï¾ä | 2026-05-30T11:02 | ? | V4ÔöÇ¿:ALTER TABLE ADD CONSTRAINT chk_ddl_quantity(quantity>=0)+chk_ddl_is_default(is_default IN 0/1)+COMMENT ON CONSTRAINT+Âß¼­Íâ¼üËµÃ÷,mvn compileÍ¨¹ı | 4cc25117 |
+| P0-001-009-001-002-001 | ¶¨ÒåMapper½Ó¿Ú | 2026-05-30T11:10 | ? | DocDetailLocationMapper extends BaseMapperX,selectByDetailId·½·¨,@Mapper×¢½â,´úÂëÒÑÔÚÇ°ĞòÈÎÎñ´´½¨²¢±àÒëÍ¨¹ı | 87ee7b44 |
+| P0-001-009-001-002-002 | ±àĞ´XMLÓ³ÉäÎÄ¼ş | 2026-05-30T11:20 | ? | DocDetailLocationMapper.xml:BaseResultMapÈ«×Ö¶ÎÓ³Éä+Base_Column_List SQLÆ¬¶Î+selectByDetailId×Ô¶¨Òå²éÑ¯(WHERE is_deleted=FALSE),mvn compileÍ¨¹ı | 25ac9932 |
+| P0-001-009-002-001-001 | ±àĞ´CREATE INDEXÓï¾ä | 2026-05-30T11:55 | ? | V5__create_doc_detail_batch.sql(DDLº¬6Ë÷Òı)+DocDetailBatch.java(extends BaseEntity)+DocDetailBatchMapper.java(extends BaseMapperX+selectByDetailId),mvn compileÍ¨¹ı | e20f4fd2 |
+| P0-001-009-002-001-002 | ±àĞ´ALTER TABLE ADD CONSTRAINTÓï¾ä | 2026-05-30T12:00 | ? | V5ÔöÇ¿:ALTER TABLE ADD CONSTRAINT chk_ddb_quantity(quantity>=0)+chk_ddb_date(expiry_date>=production_date»òNULL)+COMMENT ON CONSTRAINT+Âß¼­Íâ¼üËµÃ÷,mvn compileÍ¨¹ı | 1e17fb32 |
+| P0-001-009-002-002-001 | ¶¨ÒåMapper½Ó¿Ú | 2026-05-30T12:15 | ? | DocDetailBatchMapper extends BaseMapperX,selectByDetailId,@Mapper×¢½â,´úÂëÒÑÔÚÇ°ĞòÈÎÎñ(e20f4fd2)ÖĞ´´½¨²¢±àÒëÍ¨¹ı | (pending) |
+| P0-001-009-002-002-002 | ±àĞ´XMLÓ³ÉäÎÄ¼ş | 2026-05-30T12:30 | ? | DocDetailBatchMapper.xml:BaseResultMapÈ«×Ö¶ÎÓ³Éä(16×Ö¶Î)+Base_Column_List SQLÆ¬¶Î+selectByDetailId×Ô¶¨Òå²éÑ¯(WHERE is_deleted=FALSE),mvn compileÍ¨¹ı | (pending) |
+| P0-001-009-003-001-001 | ±àĞ´CREATE INDEXÓï¾ä | 2026-05-30T12:16 | ? | V6__create_doc_detail_serial.sql(DDLº¬5Ë÷Òı)+DocDetailSerial.java(extends BaseEntity+4ÒµÎñ×Ö¶Î)+DocDetailSerialMapper.java(extends BaseMapperX+selectByDetailId),mvn compileÍ¨¹ı | 488691eb |
+| P0-001-009-003-001-002 | ±àĞ´ALTER TABLE ADD CONSTRAINTÓï¾ä | 2026-05-30T12:20 | ? | V6ÔöÇ¿:ALTER TABLE ADD CONSTRAINT chk_dds_status(status BETWEEN 1 AND 3)+chk_dds_serial_no(serial_no·Ç¿Õ)+COMMENT ON CONSTRAINT+Âß¼­Íâ¼üËµÃ÷,mvn compileÍ¨¹ı | 8cf169a8 |
+| P0-001-009-003-002-001 | ¶¨ÒåMapper½Ó¿Ú | 2026-05-30T12:35 | ? | DocDetailSerialMapper extends BaseMapperX<DocDetailSerial>,ÉùÃ÷selectByDetailId×Ô¶¨Òå²éÑ¯·½·¨,mvn compileÍ¨¹ı | (pending) |
+| P0-001-009-003-002-002 | ±àĞ´XMLÓ³ÉäÎÄ¼ş | 2026-05-30T12:27 | ? | DocDetailSerialMapper.xml:BaseResultMapÈ«×Ö¶ÎÓ³Éä(14×Ö¶Î)+Base_Column_List SQLÆ¬¶Î+selectByDetailId×Ô¶¨Òå²éÑ¯(WHERE is_deleted=FALSE),mvn compile BUILD SUCCESS | 5cb4a7cf |
+| P0-001-009-004-001-001 | ¶¨ÒåService½Ó¿Ú | 2026-05-30T12:38 | ? | DetailSubTableService<D,L,B,S>³éÏó·ºĞÍ»ùÀà:saveSubTables(@TransactionalÏÈÉ¾ºóÔö)+deleteByDetailId(QueryWrapperÅúÁ¿É¾³ı)+getByDetailId(Èı±íÁª²é)+validateInventoryQuantity¿â´æĞ£Ñé+DetailSubTableDTO´Ó±íÈİÆ÷,mvn compile BUILD SUCCESS | 3631ee5f |
+| P0-001-009-004-001-002 | ÊµÏÖServiceImpl | 2026-05-30T13:00 | ? | DetailSubTableServiceÊµÏÖÒÑÑéÖ¤:saveSubTables/deleteByDetailId/getByDetailIdÈı·½·¨È«²¿ÊµÏÖ,validateInventoryQuantity¿â´æĞ£Ñé¹³×Ó,mvn compile BUILD SUCCESS | |
+| P0-001-009-004-001-003 | ÒµÎñ¸¨Öú·½·¨ | 2026-05-30T13:18 | ? | DetailSubTableServiceÒµÎñ¸¨Öú·½·¨:selectLocationsByDetailId/selectBatchesByDetailId/selectSerialsByDetailIdÈı±í¶ÀÁ¢²éÑ¯+deleteLocationsByDetailId/deleteBatchesByDetailId/deleteSerialsByDetailIdÈı±í¶ÀÁ¢É¾³ı+validateInventoryQuantity¿â´æÊıÁ¿SUM¾ÛºÏĞ£Ñé+isSubTableDataEmpty¸¨ÖúÅĞ¶Ï,mvn compile BUILD SUCCESS | 05e7182f |
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | Git SHA |
+### Ä£¿éÍê³É: P0-001 ?
+
+### P0-002 - Ç°¶ËÏîÄ¿¿ò¼Ü´î½¨
+
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | Git SHA |
 |---------|---------|---------|:---:|------|---------|
-| P0-002-001-001-001-002 | éªŒè¯é¡¹ç›®å¯è¿è¡Œ | 2026-05-30 | âœ… | éªŒè¯é¡¹ç›®å¯è¿è¡Œ:pnpm install(48åŒ…å®‰è£…æˆåŠŸ)+pnpm dev(VITE v8.0.14 localhost:5173)+pnpm build(vue-tsc+vite 18æ¨¡å—æ„å»º,distå«index.html+assets/.js/.css)+pnpm preview(localhost:4173æ­£å¸¸),å…¨5é¡¹éªŒæ”¶é€šè¿‡ | 52664d4e |
-| P0-002-001-001-002-001 | å®‰è£…ESLint+Prettierä¾èµ–+ç¼–å†™é…ç½® | 2026-05-30 | âœ… | å®‰è£…eslint@8.57.1+prettier@3.8.3+æ’ä»¶,åˆ›å»º.eslintrc.cjs/.prettierrc/.eslintignore/.prettierignore,pnpm lintæ— æŠ¥é”™,pnpm formatæ ¼å¼åŒ–æ­£å¸¸,pnpm buildé€šè¿‡ | a9668d33 |
-| P0-002-001-001-002-002 | é…ç½®VSCodeè®¾ç½® | 2026-05-30 | âœ… | åˆ›å»º.vscode/settings.json(formatOnSave+defaultFormatter Prettier+codeActionsOnSave ESLint+å„æ–‡ä»¶ç±»å‹æ ¼å¼åŒ–å™¨)+æ›´æ–°.vscode/extensions.json(æ¨èVolar+ESLint+Prettier) | d0cd6ea2 |
-| P0-002-001-001-002-003 | éªŒè¯ä»£ç è§„èŒƒ | 2026-05-30 | âœ… | éªŒè¯ESLint/Prettier/VSCodeé…ç½®å®Œæ•´å¯ç”¨:pnpm linté€€å‡ºç 0,pnpm formatæ ¼å¼åŒ–src/æ–‡ä»¶æ­£å¸¸,ESLintæ£€æµ‹varå£°æ˜æŠ¥no-var,VSCodeä¿å­˜è‡ªåŠ¨ä¿®å¤,.eslintignoreå¿½ç•¥dist/.prettierignoreå¿½ç•¥pnpm-lock.yaml,pnpm buildé€šè¿‡(18æ¨¡å—145ms) | (éªŒè¯ä»»åŠ¡) |
-| P0-002-001-001-003-001 | å®‰è£…Huskyä¸lint-stagedé…ç½®pre-commitè„šæœ¬ | 2026-05-30 | âœ… | pnpm add -D husky@9.1.7+lint-staged@17.0.5,åˆå§‹åŒ–.husky/pre-commit(cd erp-ai-web && npx lint-staged),é…ç½®lint-staged(*.{vue,ts,tsx}:eslint+prettier,*.{css,scss}:prettier,*.{json,md}:prettier),éªŒè¯æ‹¦æˆªä¸è§„èŒƒä»£ç æäº¤ | 01bc3293 |
-| P0-002-001-001-003-002 | é…ç½®commitlint | 2026-05-30 | âœ… | å®‰è£…@commitlint/cli@21.0.2+@commitlint/config-conventional@21.0.2,åˆ›å»ºcommitlint.config.js(10ç§type CJSæ ¼å¼)+.husky/commit-msg(pnpm exec commitlint --edit "$1"),éªŒè¯ä¸è§„èŒƒæäº¤è¢«æ‹’ç»è§„èŒƒæäº¤é€šè¿‡ | a79a2851 |
-| P0-002-001-001-003-003 | éªŒè¯Gité’©å­ | 2026-05-30 | âœ… | éªŒè¯Husky+lint-staged+commitlintå®Œæ•´å¯ç”¨:pre-commitæ‹¦æˆªä¸è§„èŒƒä»£ç (ESLintæŠ¥é”™),commit-msgæ‹’ç»ä¸è§„èŒƒæäº¤ä¿¡æ¯(type-empty),è§„èŒƒä»£ç +è§„èŒƒmessageæ­£å¸¸æäº¤,lint-stagedä»…æ£€æŸ¥æš‚å­˜æ–‡ä»¶,é’©å­æµç¨‹<1ç§’,å…¨8é¡¹éªŒæ”¶é€šè¿‡ | 26de093f |
-| P0-002-001-002-001-001 | å®‰è£…Element Plusä¾èµ–é…ç½®æŒ‰éœ€å¼•å…¥ | 2026-05-30 | âœ… | pnpm add element-plus+unplugin-vue-components+unplugin-auto-import,vite.config.tsé…ç½®AutoImport(imports:vue/vue-router/pinia)+Components(ElementPlusResolver),.gitignoreæ·»åŠ dtså£°æ˜æ–‡ä»¶,pnpm buildé€šè¿‡(129K<500KB) | 79f4a1e5 |
-| P0-002-001-002-001-002 | é…ç½®ä¸»é¢˜å®šåˆ¶ | 2026-05-30 | âœ… | åˆ›å»ºsrc/styles/element-plus.scssè¦†ç›–CSSå˜é‡(å“ç‰Œè‰²/å­—ä½“/åœ†è§’/é—´è·/è¿‡æ¸¡),vite.config.tsé…ç½®ElementPlusResolver({importStyle:'sass'})+@è·¯å¾„åˆ«å,main.tså¼•å…¥ä¸»é¢˜æ–‡ä»¶,tsconfig.app.jsoné…ç½®pathsæ˜ å°„,å®‰è£…sassä¾èµ–,pnpm buildé€šè¿‡(19æ¨¡å—315ms) | f239017e |
-| P0-002-001-002-001-003 | éªŒè¯ç»„ä»¶åº“å¯ç”¨ | 2026-05-30 | âœ… | éªŒè¯Element PlusæŒ‰éœ€å¼•å…¥+ä¸»é¢˜å®šåˆ¶å®Œæ•´å¯ç”¨:ElButton/ElInputç»„ä»¶è‡ªåŠ¨å¼•å…¥(components.d.tså«ElButton/ElInput),ref/computed/ElMessageè‡ªåŠ¨å¯¼å…¥(auto-imports.d.tså«å…¨éƒ¨ç±»å‹),ä¸»é¢˜è‰²#409EFFè¦†ç›–ç”Ÿæ•ˆ,pnpm buildé€šè¿‡(195KB<500KB),auto-imports.d.ts+components.d.tsè‡ªåŠ¨ç”Ÿæˆ,å…¨7é¡¹éªŒæ”¶é€šè¿‡ | 78d1341f |
-| P0-002-001-002-002-001 | å®šä¹‰å‡½æ•°ç­¾åä¸ç±»å‹ | 2026-05-30T14:05 | âœ… | åˆ›å»ºsrc/plugins/vxe-table.ts(setupVxeTableå‡½æ•°+VxeI18nConfig/VxeDefaultConfigæ¥å£+VxeTablePluginç±»å‹)+src/types/global.d.ts(VxeTablePropTypesæ‰©å±•),pnpm add vxe-table@4.19.4+vxe-pc-ui@4.14.25,vue-tsc --noEmité€šè¿‡ | 433c4cdf |
-| P0-002-001-002-002-002 | å®ç°æ ¸å¿ƒå¤„ç†é€»è¾‘ | 2026-05-30T14:18 | âœ… | pnpm add @vxe-ui/core,vxe-table.ts:VxeUI.setup()å…¨å±€é»˜è®¤å‚æ•°(border/resizable/showOverflow/autoResize/emptyText+pager),main.ts:å¼•å…¥vxe-pc-ui/vxe-tableæ ·å¼+setupVxeTable(app),pnpm buildé€šè¿‡(530æ¨¡å—582ms) | fa9edfa4 |
-| P0-002-001-002-003-001 | å®šä¹‰å®ä¾‹ä¸åŸºç¡€é…ç½® | 2026-05-30T14:30 | âœ… | pnpm add pinia axios nprogress @vueuse/core dayjs echarts lodash-es pinia-plugin-persistedstate + @types/nprogress @types/lodash-es(-D),åˆ›å»ºsrc/stores/index.ts(Piniaå®ä¾‹+persistedstateæ’ä»¶),åˆ›å»ºsrc/utils/request.ts(Axioså®ä¾‹baseURL/env+timeout 15s+æ‹¦æˆªå™¨éª¨æ¶),pnpm buildé€šè¿‡ | e990ab57 |
-| P0-002-001-002-003-002 | å“åº”æ‹¦æˆªé€»è¾‘ | 2026-05-30T14:45 | âœ… | å®Œå–„request.tså“åº”æ‹¦æˆªå™¨:code===0è¿”å›dataå‰¥ç¦»å¤–å±‚åŒ…è£…/401è§¦å‘Tokenåˆ·æ–°(å¹¶å‘é˜²é‡isRefreshing+refreshSubscribersé˜Ÿåˆ—)/403æƒé™ä¸è¶³æç¤º/å…¶ä»–ä¸šåŠ¡é”™è¯¯ElMessage+Promise.reject/ç½‘ç»œé”™è¯¯è¶…æ—¶HTTPçŠ¶æ€ç ä¸­æ–‡æç¤ºæ˜ å°„,å¯¼å‡ºonTokenRefreshed+subscribeTokenRefresh,pnpm buildé€šè¿‡(530æ¨¡å—599ms) | 1cac7a4c |
-| P0-002-001-002-003-003 | è¯·æ±‚ç®¡ç† | 2026-05-30T15:00 | âœ… | å®Œå–„request.tsè¯·æ±‚ç®¡ç†å±‚:pendingMap+AbortControlleré‡å¤è¯·æ±‚å–æ¶ˆ(getRequestKeyç»Ÿä¸€key)/NProgresså…¨å±€loading+requestCountå¹¶å‘ä¿æŠ¤/silenté™é»˜æ¨¡å¼/GETè¯·æ±‚è‡ªåŠ¨é‡è¯•(ç½‘ç»œé”™è¯¯è¶…æ—¶æœ€å¤š3æ¬¡1sé—´éš”)/å“åº”æ‹¦æˆªå™¨å®Œæ•´é”™è¯¯å¤„ç†é“¾è·¯,pnpm buildé€šè¿‡(530æ¨¡å—602ms) | 1ef7ce64 |
-| P0-002-001-003-001-001 | ç¼–å†™vite.config.ts | 2026-05-30T15:20 | âœ… | å®Œæ•´vite.config.ts:plugins(vue/vueJsx/AutoImport/Components)+resolve.alias(@/@components)+server(port:5173/proxy/apiâ†’localhost:8080/changeOrigin)+build(target:es2015/outDir:dist/chunkSizeWarningLimit:1500/manualChunksåˆ†åŒ…vendor/vue/element-plus),pnpm add @vitejs/plugin-vue-jsx,tsconfig.app.jsonæ–°å¢@components/*è·¯å¾„æ˜ å°„,pnpm buildé€šè¿‡(530æ¨¡å—580ms) | 0c9a8c40 |
-| P0-002-001-003-001-002 | éªŒè¯Viteé…ç½® | 2026-05-30T15:35 | âœ… | éªŒè¯vite.config.tså®Œæ•´å¯ç”¨:resolve.alias(tsconfigè·¯å¾„æ˜ å°„ä¸€è‡´+main.tsä½¿ç”¨@/åˆ«åâ†’æ„å»ºé€šè¿‡)+proxy(/apiâ†’localhost:8080+changeOrigin:true)+plugins(vue/vueJsx/AutoImport/Componentså…¨éƒ¨åŠ è½½)+pnpm build(530æ¨¡å—581ms+distå«index.html+assets)+server.port:5173+envPrefixé»˜è®¤VITE_+vite/clientç±»å‹å·²é…ç½®,å…¨4/6é¡¹æ ¸å¿ƒéªŒè¯é€šè¿‡(.envæ–‡ä»¶ä¸‹ä¸€ä»»åŠ¡åˆ›å»º) | |
-| P0-002-001-003-001-003 | éªŒè¯HMRä¸æ„å»º | 2026-05-30T17:19 | âœ… | éªŒè¯HMRä¸ç”Ÿäº§æ„å»º:pnpm buildæˆåŠŸ(exit 0,595ms,530æ¨¡å—)/distäº§ç‰©1.7MB<2MB/build.target:es2015ç”Ÿæ•ˆ(æ— ?./??è¯­æ³•)/chunkSizeWarningLimit:1500æ­£å¸¸(æœ€å¤§chunk 1087KBæ— è­¦å‘Š)/manualChunksä»£ç åˆ†ç¦»(åº”ç”¨â†’index,åº“â†’vue chunk)/dev serverå¯åŠ¨823ms(@vitejs/plugin-vue+HMRé»˜è®¤å¯ç”¨),å…¨7é¡¹éªŒæ”¶é€šè¿‡ | f50ea8ed |
-| P0-002-001-003-002-001 | ç¼–å†™.env.dev.env.prod.env.local | 2026-05-30T17:25 | âœ… | åˆ›å»º.env(VITE_APP_TITLE)/.env.development(VITE_APP_TITLE/API_BASE_URL/USE_MOCK/WS_URL)/.env.production(ç”Ÿäº§å€¼)/.env.local(gitignoreæœ¬åœ°è¦†ç›–),å…¨éƒ¨VITE_å‰ç¼€ | da924e1b |
-| P0-002-001-003-002-002 | åœ¨ä»£ç ä¸­ä½¿ç”¨ç¯å¢ƒå˜é‡ | 2026-05-30T17:40 | âœ… | åˆ›å»ºsrc/env.d.ts(ImportMetaEnvå®Œæ•´å£°æ˜VITE_APP_TITLE/API_BASE_URL/USE_MOCK/WS_URL)+main.ts(document.titleç¯å¢ƒå˜é‡+Mockå¼€å…³VITE_USE_MOCKåŠ¨æ€å¯¼å…¥)+index.html(%VITE_APP_TITLE%å ä½ç¬¦)+src/mock/index.ts(setupMock stub),request.tså·²ä½¿ç”¨VITE_API_BASE_URL,pnpm buildé€šè¿‡(532æ¨¡å—551ms)
-| P0-002-001-003-002-003 | éªŒè¯ç¯å¢ƒåˆ‡æ¢ | 2026-05-30T18:05 | âœ… | éªŒè¯ç¯å¢ƒå˜é‡åˆ‡æ¢:.env.development/.env.productionæ–‡ä»¶å­˜åœ¨ä¸”å˜é‡æ­£ç¡®,git statusç¡®è®¤.env.localæœªè¢«è¿½è¸ª,devæ„å»º(--mode development)åŠ è½½å¼€å‘å˜é‡(title=ERP-AIå¼€å‘ç¯å¢ƒ),prodæ„å»ºåŠ è½½ç”Ÿäº§å˜é‡(title=ERP-AI),.env.localè¦†ç›–ä¼˜å…ˆçº§ç¬¦åˆViteè§„èŒƒ,éVITE_å˜é‡ä¸å¯è¯»å–(Viteå†…ç½®è¡Œä¸º),pnpm buildé€šè¿‡(530æ¨¡å—533ms) | 69affc3d |
-| P0-002-001-004-001-001 | ç¼–å†™.vueæ¨¡å—å£°æ˜ | 2026-05-30T18:15 | âœ… | åˆ›å»ºsrc/types/shims-vue.d.ts:declare module '*.vue'ä½¿ç”¨DefineComponent<{},{},any>æ³›å‹,tsc--noEmité€šè¿‡,TypeScriptæ­£ç¡®è¯†åˆ«.vueæ–‡ä»¶å¯¼å…¥ | |
-| P0-002-001-004-001-002 | ç¼–å†™env.d.tsç¯å¢ƒå˜é‡å£°æ˜ | 2026-05-30T18:20 | âœ… | æ›´æ–°src/env.d.ts:ImportMetaEnvæ¥å£å«6ä¸ªVITE_å˜é‡(VITE_APP_TITLE/API_BASE_URL/USE_MOCK/APP_ENV/WS_URL/CDN_BASE_URL)+JSDocæ³¨é‡Š+readonlyä¿®é¥°,ImportMetaæ‰©å±•,tsc--noEmit+vite buildé€šè¿‡ | 2d400ca3 |
-| P0-002-001-004-001-003 | ç¼–å†™æ‰©å±•ç±»å‹å£°æ˜ | 2026-05-30T18:25 | âœ… | æ›´æ–°src/types/global.d.ts:æ–°å¢RecordObject<T>/PageQuery/PageResult<T>/ApiResult<T>å››ä¸ªå…¨å±€ç±»å‹+NProgress Windowæ‰©å±•,tsc--noEmité€šè¿‡ | 01f4ab78 |
-| P0-002-002-001-001-001 | å®šä¹‰è·¯ç”±é…ç½®é¡¹ | 2026-05-30T17:59 | âœ… | åˆ›å»ºerp-ai-web/src/router/modules/static.ts:6ä¸ªé™æ€è·¯ç”±å¸¸é‡(LOGIN_ROUTE/ROOT_ROUTE/HOME_ROUTE/ERROR_404/ERROR_403/NO_PERMISSION)+staticRoutesé›†åˆ,æ‡’åŠ è½½+metaé…ç½®å®Œæ•´,vue-tscç¼–è¯‘é€šè¿‡ | (pending) |
-| P0-002-002-001-001-002 | å®ç°è·¯ç”±æ³¨å†Œä¸å®ˆå« | 2026-05-30T18:30 | âœ… | åˆ›å»ºerp-ai-web/src/router/index.ts:createRouterå®ä¾‹(createWebHistory+staticRoutes+scrollBehavior+strict:true),pnpm add vue-router@4,routerå¯¼å‡ºä¾›main.tsä½¿ç”¨,pnpm buildé€šè¿‡(532æ¨¡å—547ms) | c9d12117 |
-| P0-002-002-001-002-001 | å®šä¹‰å‰ç«¯è·¯ç”±é…ç½® | 2026-05-30T18:35 | âœ… | åˆ›å»ºerp-ai-web/src/router/types.ts:RouteMetaç±»å‹æ‰©å±•(title/titleI18n/icon/keepAlive/hideMenu/hideTab/permissions/openType/affix);åˆ›å»ºerp-ai-web/src/router/modules/dynamic.ts:import.meta.globç»„ä»¶æ˜ å°„+resolveComponent(å«404é™çº§);router/index.tså¯¼å…¥types.ts;ä¿®å¤ROOT_ROUTEç¼ºå¤±title;pnpm buildé€šè¿‡ | 3bd8f97d |
-| P0-002-002-001-002-002 | é…ç½®åç«¯èœå•æ•°æ® | 2026-05-30T18:45 | âœ… | åˆ›å»ºerp-ai-web/src/api/types/menu.ts:MenuItemæ¥å£(id/parentId/name/path/component/icon/sort/type/permissions/visible/keepAlive/openType/children)+MenuResponseæ¥å£(menus/permissions);åˆ›å»ºerp-ai-web/src/utils/menuTransform.ts:transformMenuToRouteså‡½æ•°(è¿‡æ»¤type=2æŒ‰é’®/æ’åº/é€’å½’è½¬æ¢/ç›®å½•â†’AppLayout/èœå•â†’resolveComponent/çº¯å‡½æ•°ä¸ä¿®æ”¹åŸå§‹æ•°æ®);vue-tscç±»å‹æ£€æŸ¥é€šè¿‡ | adde8bf6
+| P0-002-001-001-001-002 | ÑéÖ¤ÏîÄ¿¿ÉÔËĞĞ | 2026-05-30 | ? | ÑéÖ¤ÏîÄ¿¿ÉÔËĞĞ:pnpm install(48°ü°²×°³É¹¦)+pnpm dev(VITE v8.0.14 localhost:5173)+pnpm build(vue-tsc+vite 18Ä£¿é¹¹½¨,distº¬index.html+assets/.js/.css)+pnpm preview(localhost:4173Õı³£),È«5ÏîÑéÊÕÍ¨¹ı | 52664d4e |
+| P0-002-001-001-002-001 | °²×°ESLint+PrettierÒÀÀµ+±àĞ´ÅäÖÃ | 2026-05-30 | ? | °²×°eslint@8.57.1+prettier@3.8.3+²å¼ş,´´½¨.eslintrc.cjs/.prettierrc/.eslintignore/.prettierignore,pnpm lintÎŞ±¨´í,pnpm format¸ñÊ½»¯Õı³£,pnpm buildÍ¨¹ı | a9668d33 |
+| P0-002-001-001-002-002 | ÅäÖÃVSCodeÉèÖÃ | 2026-05-30 | ? | ´´½¨.vscode/settings.json(formatOnSave+defaultFormatter Prettier+codeActionsOnSave ESLint+¸÷ÎÄ¼şÀàĞÍ¸ñÊ½»¯Æ÷)+¸üĞÂ.vscode/extensions.json(ÍÆ¼öVolar+ESLint+Prettier) | d0cd6ea2 |
+| P0-002-001-001-002-003 | ÑéÖ¤´úÂë¹æ·¶ | 2026-05-30 | ? | ÑéÖ¤ESLint/Prettier/VSCodeÅäÖÃÍêÕû¿ÉÓÃ:pnpm lintÍË³öÂë0,pnpm format¸ñÊ½»¯src/ÎÄ¼şÕı³£,ESLint¼ì²âvarÉùÃ÷±¨no-var,VSCode±£´æ×Ô¶¯ĞŞ¸´,.eslintignoreºöÂÔdist/.prettierignoreºöÂÔpnpm-lock.yaml,pnpm buildÍ¨¹ı(18Ä£¿é145ms) | (ÑéÖ¤ÈÎÎñ) |
+| P0-002-001-001-003-001 | °²×°HuskyÓëlint-stagedÅäÖÃpre-commit½Å±¾ | 2026-05-30 | ? | pnpm add -D husky@9.1.7+lint-staged@17.0.5,³õÊ¼»¯.husky/pre-commit(cd erp-ai-web && npx lint-staged),ÅäÖÃlint-staged(*.{vue,ts,tsx}:eslint+prettier,*.{css,scss}:prettier,*.{json,md}:prettier),ÑéÖ¤À¹½Ø²»¹æ·¶´úÂëÌá½» | 01bc3293 |
+| P0-002-001-001-003-002 | ÅäÖÃcommitlint | 2026-05-30 | ? | °²×°@commitlint/cli@21.0.2+@commitlint/config-conventional@21.0.2,´´½¨commitlint.config.js(10ÖÖtype CJS¸ñÊ½)+.husky/commit-msg(pnpm exec commitlint --edit "$1"),ÑéÖ¤²»¹æ·¶Ìá½»±»¾Ü¾ø¹æ·¶Ìá½»Í¨¹ı | a79a2851 |
+| P0-002-001-001-003-003 | ÑéÖ¤Git¹³×Ó | 2026-05-30 | ? | ÑéÖ¤Husky+lint-staged+commitlintÍêÕû¿ÉÓÃ:pre-commitÀ¹½Ø²»¹æ·¶´úÂë(ESLint±¨´í),commit-msg¾Ü¾ø²»¹æ·¶Ìá½»ĞÅÏ¢(type-empty),¹æ·¶´úÂë+¹æ·¶messageÕı³£Ìá½»,lint-staged½ö¼ì²éÔİ´æÎÄ¼ş,¹³×ÓÁ÷³Ì<1Ãë,È«8ÏîÑéÊÕÍ¨¹ı | 26de093f |
+| P0-002-001-002-001-001 | °²×°Element PlusÒÀÀµÅäÖÃ°´ĞèÒıÈë | 2026-05-30 | ? | pnpm add element-plus+unplugin-vue-components+unplugin-auto-import,vite.config.tsÅäÖÃAutoImport(imports:vue/vue-router/pinia)+Components(ElementPlusResolver),.gitignoreÌí¼ÓdtsÉùÃ÷ÎÄ¼ş,pnpm buildÍ¨¹ı(129K<500KB) | 79f4a1e5 |
+| P0-002-001-002-001-002 | ÅäÖÃÖ÷Ìâ¶¨ÖÆ | 2026-05-30 | ? | ´´½¨src/styles/element-plus.scss¸²¸ÇCSS±äÁ¿(Æ·ÅÆÉ«/×ÖÌå/Ô²½Ç/¼ä¾à/¹ı¶É),vite.config.tsÅäÖÃElementPlusResolver({importStyle:'sass'})+@Â·¾¶±ğÃû,main.tsÒıÈëÖ÷ÌâÎÄ¼ş,tsconfig.app.jsonÅäÖÃpathsÓ³Éä,°²×°sassÒÀÀµ,pnpm buildÍ¨¹ı(19Ä£¿é315ms) | f239017e |
+| P0-002-001-002-001-003 | ÑéÖ¤×é¼ş¿â¿ÉÓÃ | 2026-05-30 | ? | ÑéÖ¤Element Plus°´ĞèÒıÈë+Ö÷Ìâ¶¨ÖÆÍêÕû¿ÉÓÃ:ElButton/ElInput×é¼ş×Ô¶¯ÒıÈë(components.d.tsº¬ElButton/ElInput),ref/computed/ElMessage×Ô¶¯µ¼Èë(auto-imports.d.tsº¬È«²¿ÀàĞÍ),Ö÷ÌâÉ«#409EFF¸²¸ÇÉúĞ§,pnpm buildÍ¨¹ı(195KB<500KB),auto-imports.d.ts+components.d.ts×Ô¶¯Éú³É,È«7ÏîÑéÊÕÍ¨¹ı | 78d1341f |
+| P0-002-001-002-002-001 | ¶¨Òåº¯ÊıÇ©ÃûÓëÀàĞÍ | 2026-05-30T14:05 | ? | ´´½¨src/plugins/vxe-table.ts(setupVxeTableº¯Êı+VxeI18nConfig/VxeDefaultConfig½Ó¿Ú+VxeTablePluginÀàĞÍ)+src/types/global.d.ts(VxeTablePropTypesÀ©Õ¹),pnpm add vxe-table@4.19.4+vxe-pc-ui@4.14.25,vue-tsc --noEmitÍ¨¹ı | 433c4cdf |
+| P0-002-001-002-002-002 | ÊµÏÖºËĞÄ´¦ÀíÂß¼­ | 2026-05-30T14:18 | ? | pnpm add @vxe-ui/core,vxe-table.ts:VxeUI.setup()È«¾ÖÄ¬ÈÏ²ÎÊı(border/resizable/showOverflow/autoResize/emptyText+pager),main.ts:ÒıÈëvxe-pc-ui/vxe-tableÑùÊ½+setupVxeTable(app),pnpm buildÍ¨¹ı(530Ä£¿é582ms) | fa9edfa4 |
+| P0-002-001-002-003-001 | ¶¨ÒåÊµÀıÓë»ù´¡ÅäÖÃ | 2026-05-30T14:30 | ? | pnpm add pinia axios nprogress @vueuse/core dayjs echarts lodash-es pinia-plugin-persistedstate + @types/nprogress @types/lodash-es(-D),´´½¨src/stores/index.ts(PiniaÊµÀı+persistedstate²å¼ş),´´½¨src/utils/request.ts(AxiosÊµÀıbaseURL/env+timeout 15s+À¹½ØÆ÷¹Ç¼Ü),pnpm buildÍ¨¹ı | e990ab57 |
+| P0-002-001-002-003-002 | ÏìÓ¦À¹½ØÂß¼­ | 2026-05-30T14:45 | ? | ÍêÉÆrequest.tsÏìÓ¦À¹½ØÆ÷:code===0·µ»Ødata°şÀëÍâ²ã°ü×°/401´¥·¢TokenË¢ĞÂ(²¢·¢·ÀÖØisRefreshing+refreshSubscribers¶ÓÁĞ)/403È¨ÏŞ²»×ãÌáÊ¾/ÆäËûÒµÎñ´íÎóElMessage+Promise.reject/ÍøÂç´íÎó³¬Ê±HTTP×´Ì¬ÂëÖĞÎÄÌáÊ¾Ó³Éä,µ¼³öonTokenRefreshed+subscribeTokenRefresh,pnpm buildÍ¨¹ı(530Ä£¿é599ms) | 1cac7a4c |
+| P0-002-001-002-003-003 | ÇëÇó¹ÜÀí | 2026-05-30T15:00 | ? | ÍêÉÆrequest.tsÇëÇó¹ÜÀí²ã:pendingMap+AbortControllerÖØ¸´ÇëÇóÈ¡Ïû(getRequestKeyÍ³Ò»key)/NProgressÈ«¾Öloading+requestCount²¢·¢±£»¤/silent¾²Ä¬Ä£Ê½/GETÇëÇó×Ô¶¯ÖØÊÔ(ÍøÂç´íÎó³¬Ê±×î¶à3´Î1s¼ä¸ô)/ÏìÓ¦À¹½ØÆ÷ÍêÕû´íÎó´¦ÀíÁ´Â·,pnpm buildÍ¨¹ı(530Ä£¿é602ms) | 1ef7ce64 |
+| P0-002-001-003-001-001 | ±àĞ´vite.config.ts | 2026-05-30T15:20 | ? | ÍêÕûvite.config.ts:plugins(vue/vueJsx/AutoImport/Components)+resolve.alias(@/@components)+server(port:5173/proxy/api¡úlocalhost:8080/changeOrigin)+build(target:es2015/outDir:dist/chunkSizeWarningLimit:1500/manualChunks·Ö°üvendor/vue/element-plus),pnpm add @vitejs/plugin-vue-jsx,tsconfig.app.jsonĞÂÔö@components/*Â·¾¶Ó³Éä,pnpm buildÍ¨¹ı(530Ä£¿é580ms) | 0c9a8c40 |
+| P0-002-001-003-001-002 | ÑéÖ¤ViteÅäÖÃ | 2026-05-30T15:35 | ? | ÑéÖ¤vite.config.tsÍêÕû¿ÉÓÃ:resolve.alias(tsconfigÂ·¾¶Ó³ÉäÒ»ÖÂ+main.tsÊ¹ÓÃ@/±ğÃû¡ú¹¹½¨Í¨¹ı)+proxy(/api¡úlocalhost:8080+changeOrigin:true)+plugins(vue/vueJsx/AutoImport/ComponentsÈ«²¿¼ÓÔØ)+pnpm build(530Ä£¿é581ms+distº¬index.html+assets)+server.port:5173+envPrefixÄ¬ÈÏVITE_+vite/clientÀàĞÍÒÑÅäÖÃ,È«4/6ÏîºËĞÄÑéÖ¤Í¨¹ı(.envÎÄ¼şÏÂÒ»ÈÎÎñ´´½¨) | |
+| P0-002-001-003-001-003 | ÑéÖ¤HMRÓë¹¹½¨ | 2026-05-30T17:19 | ? | ÑéÖ¤HMRÓëÉú²ú¹¹½¨:pnpm build³É¹¦(exit 0,595ms,530Ä£¿é)/dist²úÎï1.7MB<2MB/build.target:es2015ÉúĞ§(ÎŞ?./??Óï·¨)/chunkSizeWarningLimit:1500Õı³£(×î´óchunk 1087KBÎŞ¾¯¸æ)/manualChunks´úÂë·ÖÀë(Ó¦ÓÃ¡úindex,¿â¡úvue chunk)/dev serverÆô¶¯823ms(@vitejs/plugin-vue+HMRÄ¬ÈÏÆôÓÃ),È«7ÏîÑéÊÕÍ¨¹ı | f50ea8ed |
+| P0-002-001-003-002-001 | ±àĞ´.env.dev.env.prod.env.local | 2026-05-30T17:25 | ? | ´´½¨.env(VITE_APP_TITLE)/.env.development(VITE_APP_TITLE/API_BASE_URL/USE_MOCK/WS_URL)/.env.production(Éú²úÖµ)/.env.local(gitignore±¾µØ¸²¸Ç),È«²¿VITE_Ç°×º | da924e1b |
+| P0-002-001-003-002-002 | ÔÚ´úÂëÖĞÊ¹ÓÃ»·¾³±äÁ¿ | 2026-05-30T17:40 | ? | ´´½¨src/env.d.ts(ImportMetaEnvÍêÕûÉùÃ÷VITE_APP_TITLE/API_BASE_URL/USE_MOCK/WS_URL)+main.ts(document.title»·¾³±äÁ¿+Mock¿ª¹ØVITE_USE_MOCK¶¯Ì¬µ¼Èë)+index.html(%VITE_APP_TITLE%Õ¼Î»·û)+src/mock/index.ts(setupMock stub),request.tsÒÑÊ¹ÓÃVITE_API_BASE_URL,pnpm buildÍ¨¹ı(532Ä£¿é551ms)
+| P0-002-001-003-002-003 | ÑéÖ¤»·¾³ÇĞ»» | 2026-05-30T18:05 | ? | ÑéÖ¤»·¾³±äÁ¿ÇĞ»»:.env.development/.env.productionÎÄ¼ş´æÔÚÇÒ±äÁ¿ÕıÈ·,git statusÈ·ÈÏ.env.localÎ´±»×·×Ù,dev¹¹½¨(--mode development)¼ÓÔØ¿ª·¢±äÁ¿(title=ERP-AI¿ª·¢»·¾³),prod¹¹½¨¼ÓÔØÉú²ú±äÁ¿(title=ERP-AI),.env.local¸²¸ÇÓÅÏÈ¼¶·ûºÏVite¹æ·¶,·ÇVITE_±äÁ¿²»¿É¶ÁÈ¡(ViteÄÚÖÃĞĞÎª),pnpm buildÍ¨¹ı(530Ä£¿é533ms) | 69affc3d |
+| P0-002-001-004-001-001 | ±àĞ´.vueÄ£¿éÉùÃ÷ | 2026-05-30T18:15 | ? | ´´½¨src/types/shims-vue.d.ts:declare module '*.vue'Ê¹ÓÃDefineComponent<{},{},any>·ºĞÍ,tsc--noEmitÍ¨¹ı,TypeScriptÕıÈ·Ê¶±ğ.vueÎÄ¼şµ¼Èë | |
+| P0-002-001-004-001-002 | ±àĞ´env.d.ts»·¾³±äÁ¿ÉùÃ÷ | 2026-05-30T18:20 | ? | ¸üĞÂsrc/env.d.ts:ImportMetaEnv½Ó¿Úº¬6¸öVITE_±äÁ¿(VITE_APP_TITLE/API_BASE_URL/USE_MOCK/APP_ENV/WS_URL/CDN_BASE_URL)+JSDoc×¢ÊÍ+readonlyĞŞÊÎ,ImportMetaÀ©Õ¹,tsc--noEmit+vite buildÍ¨¹ı | 2d400ca3 |
+| P0-002-001-004-001-003 | ±àĞ´À©Õ¹ÀàĞÍÉùÃ÷ | 2026-05-30T18:25 | ? | ¸üĞÂsrc/types/global.d.ts:ĞÂÔöRecordObject<T>/PageQuery/PageResult<T>/ApiResult<T>ËÄ¸öÈ«¾ÖÀàĞÍ+NProgress WindowÀ©Õ¹,tsc--noEmitÍ¨¹ı | 01f4ab78 |
+| P0-002-002-001-001-001 | ¶¨ÒåÂ·ÓÉÅäÖÃÏî | 2026-05-30T17:59 | ? | ´´½¨erp-ai-web/src/router/modules/static.ts:6¸ö¾²Ì¬Â·ÓÉ³£Á¿(LOGIN_ROUTE/ROOT_ROUTE/HOME_ROUTE/ERROR_404/ERROR_403/NO_PERMISSION)+staticRoutes¼¯ºÏ,ÀÁ¼ÓÔØ+metaÅäÖÃÍêÕû,vue-tsc±àÒëÍ¨¹ı | (pending) |
+| P0-002-002-001-001-002 | ÊµÏÖÂ·ÓÉ×¢²áÓëÊØÎÀ | 2026-05-30T18:30 | ? | ´´½¨erp-ai-web/src/router/index.ts:createRouterÊµÀı(createWebHistory+staticRoutes+scrollBehavior+strict:true),pnpm add vue-router@4,routerµ¼³ö¹©main.tsÊ¹ÓÃ,pnpm buildÍ¨¹ı(532Ä£¿é547ms) | c9d12117 |
+| P0-002-002-001-002-001 | ¶¨ÒåÇ°¶ËÂ·ÓÉÅäÖÃ | 2026-05-30T18:35 | ? | ´´½¨erp-ai-web/src/router/types.ts:RouteMetaÀàĞÍÀ©Õ¹(title/titleI18n/icon/keepAlive/hideMenu/hideTab/permissions/openType/affix);´´½¨erp-ai-web/src/router/modules/dynamic.ts:import.meta.glob×é¼şÓ³Éä+resolveComponent(º¬404½µ¼¶);router/index.tsµ¼Èëtypes.ts;ĞŞ¸´ROOT_ROUTEÈ±Ê§title;pnpm buildÍ¨¹ı | 3bd8f97d |
+| P0-002-002-001-002-002 | ÅäÖÃºó¶Ë²Ëµ¥Êı¾İ | 2026-05-30T18:45 | ? | ´´½¨erp-ai-web/src/api/types/menu.ts:MenuItem½Ó¿Ú(id/parentId/name/path/component/icon/sort/type/permissions/visible/keepAlive/openType/children)+MenuResponse½Ó¿Ú(menus/permissions);´´½¨erp-ai-web/src/utils/menuTransform.ts:transformMenuToRoutesº¯Êı(¹ıÂËtype=2°´Å¥/ÅÅĞò/µİ¹é×ª»»/Ä¿Â¼¡úAppLayout/²Ëµ¥¡úresolveComponent/´¿º¯Êı²»ĞŞ¸ÄÔ­Ê¼Êı¾İ);vue-tscÀàĞÍ¼ì²éÍ¨¹ı | adde8bf6
 
-| P0-002-002-001-003-001 | å®šä¹‰è·¯ç”±é…ç½®é¡¹ | 2026-05-30T18:50 | âœ… | åˆ›å»ºerp-ai-web/src/router/constants.ts(WHITE_LIST/LOGIN_PATH/HOME_PATH/NOT_FOUND_PATH/TOKEN_KEY/ROUTES_LOADED_KEY);åˆ›å»ºerp-ai-web/src/stores/modules/permission.ts(PermissionState/routes/isRoutesLoaded/permissions/hasPermission/resetPermission);vue-tscé›¶é”™è¯¯ | 1866bfb3 |
-| P0-002-002-001-003-002 | å®ç°è·¯ç”±æ³¨å†Œä¸å®ˆå« | 2026-05-30T18:35 | âœ… | åˆ›å»ºerp-ai-web/src/router/guards.ts:setupRouterGuardså‡½æ•°(beforeEachå…¨å±€å®ˆå«:ç™½åå•æ”¾è¡Œâ†’Tokenæ ¡éªŒâ†’åŠ¨æ€è·¯ç”±åŠ è½½â†’æƒé™æ ¡éªŒâ†’æ ‡é¢˜è®¾ç½®â†’nextå…¨åˆ†æ”¯è¦†ç›–);æ›´æ–°router/index.tså¯¼å…¥å¹¶è°ƒç”¨setupRouterGuards;åˆ›å»ºstores/modules/user.tsæœ€å°ä¾èµ–æ¡© | 73225336 |
-| P0-002-002-002-001-001 | å®ç°å¸ƒå±€å®¹å™¨ç»“æ„ | 2026-05-30T18:50 | âœ… | åˆ›å»ºerp-ai-web/src/layouts/AppLayout.vue:el-containeråµŒå¥—(el-aside+el-containerå«el-header+tabs+el-main),asideåŠ¨æ€å®½åº¦(64px/220px),keep-alive includeç»‘å®šcachedViews,transition fade-transformåŠ¨ç”»,router-view key=fullPath;åˆ›å»ºstores/modules/layout.ts+tagsView.tsæ¡©;åˆ›å»ºcomponents/Sidebar/Navbar/TabNavæ¡© | (pending) |
-| P0-002-002-002-001-002 | å®ç°å¸ƒå±€çŠ¶æ€ç®¡ç† | 2026-05-30T19:00 | âœ… | é‡å†™erp-ai-web/src/stores/modules/layout.ts:Setup Storeè¯­æ³•,isCollapsed(boolean)+localStorageæŒä¹…åŒ–(watch),isFullscreen(boolean)+Fullscreen API(async/await),toggleCollapse/toggleFullscreen actions,initFullscreenListeneräº‹ä»¶ç›‘å¬,vite buildé€šè¿‡ | (pending) |
-| P0-002-002-002-001-003 | å¸ƒå±€æ ·å¼ä¸åŠ¨ç”» | 2026-05-30T19:05 | âœ… | åˆ›å»ºerp-ai-web/src/layouts/styles/app-layout.scss(ä¾§è¾¹æ transition width 0.3s/sticky header z-index 100/min-width 1024px/overflow-y auto/fade-transformåŠ¨ç”»)+AppLayout.vueå¯¼å…¥æ ·å¼,vite buildé€šè¿‡ | (pending) |
-| P0-002-002-002-002-001 | å¯¼èˆªæ å¸ƒå±€ç»“æ„ | 2026-05-30T19:10 | âœ… | é‡å†™Navbar.vue:flexå¸ƒå±€space-between(å·¦ä¾§æŠ˜å æŒ‰é’®Fold/Expandå›¾æ ‡åˆ‡æ¢+é¢åŒ…å±‘,å³ä¾§å…¨å±€æœç´¢+æ¶ˆæ¯é“ƒé“›el-badge+ç”¨æˆ·å¤´åƒel-dropdown trigger=click+å…¨å±åˆ‡æ¢);åˆ›å»ºBreadcrumb.vue(route.matchedé¢åŒ…å±‘);é‡å†™user.ts(Setup Store+avatar/nickname computed+logout action+router.push);vue-tscé›¶é”™è¯¯+vite buildé€šè¿‡(532æ¨¡å—559ms) | (pending) |
-| P0-002-002-002-002-002 | å„åŠŸèƒ½åŒºåŸŸäº¤äº’ | 2026-05-30T19:25 | âœ… | æ›´æ–°Navbar.vue(ElMessageBoxç¡®è®¤é€€å‡ºç™»å½•+el-popoveræ¶ˆæ¯é“ƒé“›ä¸‹æ‹‰+SearchDialogç»„ä»¶refè°ƒç”¨);åˆ›å»ºSearchDialog.vue(Teleport to body+Ctrl+Kå¿«æ·é”®+el-dialogæœç´¢å¼¹çª—);å®‰è£…@element-plus/icons-vue;ä¿®å¤menuTransform.tsç±»å‹é”™è¯¯;vue-tsc+vite buildé€šè¿‡(532æ¨¡å—546ms) | (pending) |
-| P0-002-002-002-002-003 | å¯¼èˆªæ å“åº”å¼é€‚é… | 2026-05-30T19:17 | âœ… | åˆ›å»ºuseResponsive.ts composable(768/1024æ–­ç‚¹+resizeç›‘å¬+isMobile/isTablet);åˆ›å»ºnavbar-responsive.scss(ç§»åŠ¨ç«¯overlayæ¨¡å¼+å¹³æ¿é€‚é…);æ›´æ–°AppLayout.vue(useResponsiveé›†æˆ+overlayé®ç½©+ç§»åŠ¨ç«¯è‡ªåŠ¨æŠ˜å );æ›´æ–°app-layout.scss(ç§»é™¤min-width+overlay baseæ ·å¼);pnpm buildé€šè¿‡ | e879a367 |
-| P0-002-002-002-003-001 | å®šä¹‰å‰ç«¯è·¯ç”±é…ç½® | 2026-05-30T19:30 | âœ… | åˆ›å»ºerp-ai-web/src/layouts/components/Sidebar/types.ts(SidebarProps/MenuItemDataæ¥å£+routeToMenuItemå‡½æ•°);æ›´æ–°Sidebar/index.vue(å¯¼å…¥SidebarProps+defineProps);æ›´æ–°AppLayout.vue(ä¼ é€’isCollapsed prop);vue-tsc+vite buildé€šè¿‡(532æ¨¡å—552ms) | (pending) |
-| P0-002-002-002-003-002 | é…ç½®åç«¯èœå•æ•°æ® | 2026-05-30T19:23 | âœ… | åˆ›å»ºerp-ai-web/src/layouts/components/Sidebar/menuConfig.ts(filterMenuRoutes/filter hideMenu=true+DEFAULT_OPEN_MENUS+SIDEBAR_LOGO);vue-tsc --noEmité›¶é”™è¯¯ | 03bb1303 |
-| P0-002-002-003-001-001 | å®šä¹‰Pinia store | 2026-05-30T19:35 | âœ… | é‡å†™tagsView.tsä¸ºSetup Store:TagViewæ¥å£(8å­—æ®µ)/visitedViews+cachedViews ref/computed affixTags/addView/delView/delOtherViews/delAllViews/updateVisitedView;vue-tsc+vite buildé€šè¿‡(532æ¨¡å—553ms) | (pending) |
-| P0-002-002-003-001-003 | å®ç°å³é”®èœå• | 2026-05-30T19:55 | âœ… | åˆ›å»ºContextMenu.vue:Teleport to body+6ä¸ªèœå•é¡¹(åˆ·æ–°/å…³é—­å½“å‰/å…³é—­å…¶ä»–/å…³é—­å·¦/å³/å…¨éƒ¨)+è¾¹ç•Œæ£€æµ‹+affixç¦ç”¨+click outsideå…³é—­+defineExpose;å¯¼å‡ºTagViewæ¥å£;vue-tsc+vite buildé€šè¿‡ | e17f54ed |
-| P0-002-002-003-002-001 | å®šä¹‰ç»„ä»¶propsemits | 2026-05-30T19:42 | âœ… | åˆ›å»ºTabNav/types.ts(TabNavProps+TabNavEmitsæ¥å£)+æ›´æ–°TabNav/index.vue(defineProps activePath/views+defineEmits select/close/refresh/contextmenu)+æ›´æ–°AppLayout.vueä¼ é€’props;vue-tsc+vite buildé€šè¿‡ | 027b5e53 |
-| P0-002-002-003-002-002 | å®ç°ç»„ä»¶æ¨¡æ¿ç»“æ„ | 2026-05-30T20:15 | âœ… | TabNav/index.vue template+scopedæ ·å¼:æ¨ªå‘æ»šåŠ¨å®¹å™¨(overflow-x:auto+éšè—æ»šåŠ¨æ¡)+v-foræ ‡ç­¾åˆ—è¡¨(key=fullPath)+activeé«˜äº®(primaryè‰²èƒŒæ™¯)+affixæ ‡ç­¾éšè—å…³é—­æŒ‰é’®+@click.stopé˜²å†’æ³¡+ContextMenué›†æˆ;vue-tsc+vite buildé€šè¿‡ | 12398a89 |
-| P0-002-002-003-002-003 | å®ç°ç»„ä»¶é€»è¾‘ | 2026-05-30T20:40 | âœ… | TabNav/index.vueè‡ªåŒ…å«ç»„ä»¶:watch route.fullPathè‡ªåŠ¨addView+handleSelectè·¯ç”±è·³è½¬+handleCloseå…³é—­æ ‡ç­¾+handleContextmenuå³é”®èœå•+scrollToActiveTagè‡ªåŠ¨æ»šåŠ¨+AppLayout.vueç§»é™¤props;pnpm buildé€šè¿‡(532æ¨¡å—533ms) | ba0c7a4a |
-| P0-002-002-003-003-001 | å®ç°keep-aliveç¼“å­˜ç­–ç•¥ | 2026-05-30T21:00 | âœ… | AppLayout.vueæ·»åŠ :max="MAX_CACHED_VIEWS"(10)é™åˆ¶æœ€å¤§ç¼“å­˜æ•°;tagsView.tså¯¼å‡ºMAX_CACHED_VIEWSå¸¸é‡+LRUæ·˜æ±°é€»è¾‘(è¶…å‡ºshiftæœ€æ—©é¡¹);vue-tscé€šè¿‡ | 465f2cec |
-| P0-002-002-003-003-002 | å®ç°ç¼“å­˜åˆ·æ–°æœºåˆ¶ | 2026-05-30T21:10 | âœ… | åˆ›å»ºredirectè·¯ç”±+ç»„ä»¶(excludeâ†’redirectâ†’includeæµç¨‹);ä¿®å¤refreshSelectedPageæ–¹æ³•;pnpm buildé€šè¿‡(532æ¨¡å—) | fdd2343b |
-| P0-002-002-004-001-001 | å®šä¹‰å‰ç«¯è·¯ç”±é…ç½® | 2026-05-30T21:20 | âœ… | åˆ›å»ºapi/modules/menu.ts:getMenuList()è°ƒç”¨getInfoæ¥å£+flattenMenuTree()æ‰å¹³åŒ–åµŒå¥—èœå•æ ‘+extractPermissions()æå–æƒé™æ ‡è¯†;pnpm buildé€šè¿‡ | 5c5d6740 |
-| P0-002-002-004-001-002 | é…ç½®åç«¯èœå•æ•°æ® | 2026-05-30T21:35 | âœ… | åˆ›å»ºutils/menuPipeline.ts:isExternalIcon/isSvgIcon/normalizePath/processMenuData/getCachedMenus/clearMenuCache;MenuItemå¢åŠ iconTypeå­—æ®µ;vue-tscé€šè¿‡ | 0d8af4a2 |
-| P0-002-002-004-002-001-001 | å®ç°é€’å½’èœå•ç»„ä»¶ | 2026-05-30T21:50 | âœ… | åˆ›å»ºSidebarItem.vueé€’å½’èœå•ç»„ä»¶:defineOptions({name:'SidebarItem'})+visibleChildren computedè¿‡æ»¤hideMenu+hasVisibleChildrenåˆ¤æ–­æ¸²æŸ“el-sub-menuæˆ–el-menu-item+v-for key=path;åˆ›å»ºMenuItemIcon.vue(stub);pnpm buildé€šè¿‡(532æ¨¡å—) | 0cb40b74 |
-| P0-002-002-004-002-001-002 | å®ç°èœå•å›¾æ ‡+å¤–é“¾ | 2026-05-30T21:15 | âœ… | é‡å†™MenuItemIcon.vueæ”¯æŒ3ç§å›¾æ ‡ç±»å‹(element:ElPlusåŠ¨æ€ç»„ä»¶/svg:SvgIconç»„ä»¶/external:imgæ ‡ç­¾);åˆ›å»ºcomponents/SvgIcon/index.vue(import.meta.glob eageråŠ è½½SVG rawå­—ç¬¦ä¸²);æ›´æ–°SidebarItem.vueå¤–é“¾å¤„ç†(aæ ‡ç­¾target=_blank+rel=noopener noreferrer);æ›´æ–°types.tsæ·»åŠ iconTypeå­—æ®µ;pnpm buildé€šè¿‡(532æ¨¡å—) | (pending) |
-| P0-002-002-004-002-001-003 | å®ç°èœå•æƒé™è¿‡æ»¤ | 2026-05-30T21:45 | âœ… | åˆ›å»ºutils/permission.ts(hasPermissionå«superadminä¼˜å…ˆåˆ¤æ–­+filterRoutesByPermissioné€’å½’è¿‡æ»¤çº¯å‡½æ•°çˆ¶èœå•è”åŠ¨éšè—);æ›´æ–°Sidebar/index.vue(computed filteredMenusé›†æˆfilterRoutesByPermission+routeToMenuItem);pnpm buildé€šè¿‡ | (pending) |
-| P0-002-002-004-002-002 | å®ç°èœå•äº¤äº’ | 2026-05-30T22:00 | âœ… | é‡å†™Sidebar/index.vue:LogoåŒºåŸŸ(SIDEBAR_LOGOæŠ˜å /å±•å¼€åˆ‡æ¢+ç‚¹å‡»å›é¦–é¡µ)+el-scrollbaråŒ…è£¹èœå•+handleMenuSelect(å¤–é“¾window.open/æ™®é€šrouter.push)+activeMenu computed(meta.activeMenuä¼˜å…ˆ+route.path)+layoutStore.isCollapsedè”åŠ¨+unique-openedæ‰‹é£ç´+collapse-transitionåŠ¨ç”»;pnpm buildé€šè¿‡ | (pending) |
-| P0-002-002-004-002-003 | å®ç°èœå•æƒé™è¿‡æ»¤ | 2026-05-30T22:15 | âœ… | åˆ›å»ºdirectives/permission.ts(v-permissionæŒ‡ä»¤mountedé’©å­removeChildç§»é™¤æ— æƒé™DOM)+directives/index.ts(setupDirectiveså…¨å±€æ³¨å†Œ)+main.tsæ³¨å†Œpinia+setupDirectives;pnpm buildé€šè¿‡ | 250a3cda |
-| P0-002-003-001-001-001 | å®šä¹‰Stateç±»å‹ä¸åˆå§‹å€¼ | 2026-05-30T22:00 | âœ… | åˆ›å»ºtypes/user.d.ts(IUserState/UserInfoVOæ¥å£)+é‡å†™stores/modules/user.ts(Options API+stateåˆå§‹å€¼+tokenæŒä¹…åŒ–erp_user+persist.pick['token']);pnpm buildé€šè¿‡ | 9dfe5339 |
-| P0-002-003-001-001-002 | å®ç°Actions | 2026-05-30T22:00 | âœ… | å®ç°userStoreçš„login(loginApiâ†’å­˜tokenâ†’getInfo)/getInfo(getUserInfoApiâ†’å­˜userInfo+permissions+rolesâ†’å¤±è´¥è‡ªåŠ¨logout)/logout(æ¸…ç©ºstate+localStorage.removeItem+router.replace)ä¸‰ä¸ªaction,åˆ›å»ºapi/modules/auth.ts+api/types/auth.ts(LoginDTO/LoginResponse/UserInfoResponse),æ›´æ–°guards.tsæ–¹æ³•åå¼•ç”¨,pnpm buildé€šè¿‡ | bbc1dbcf |
-| P0-002-003-001-001-003 | å®ç°Getters | 2026-05-30T22:30 | âœ… | å®ç°userStoreå››ä¸ªgetter:isLoggedIn(!!state.token)/hasPermission(perm=>permissions.includes)/avatar(userInfo?.avatar||'/default-avatar.png')/nickname(nickname||username||'ç”¨æˆ·'),pnpm buildé€šè¿‡ | 0401ac22 |
-| P0-002-003-001-002-001 | å®šä¹‰Stateç±»å‹ä¸åˆå§‹å€¼ | 2026-05-30T22:50 | âœ… | åˆ›å»ºtypes/app.d.ts(DeviceType/ThemeType/IAppState)+stores/modules/app.ts(defineStore Options API+5ä¸ªstateå­—æ®µ+persistæŒä¹…åŒ–erp_app),tsc --noEmité€šè¿‡ | 065de044 |
-| P0-002-003-001-002-002 | å®ç°Actions | 2026-05-30 | âœ… | å®ç°appStore 5ä¸ªActions:toggleSidebar(ç¿»è½¬sidebarCollapsed+persistè‡ªåŠ¨å¤„ç†)/setDevice(è®¾ç½®device+mobileè‡ªåŠ¨æŠ˜å ä¾§è¾¹æ )/setTheme(æ›´æ–°state+document data-themeå±æ€§+dark+el-dark class)/setLanguage(æ›´æ–°state+åŒæ­¥i18n locale lazy ref)/setActiveMenu(è®°å½•å½“å‰è·¯å¾„),pnpm buildé€šè¿‡ | (pending) |
-| P0-002-003-001-002-003 | å®ç°Getters | 2026-05-30 | âœ… | å®ç°appStore 4ä¸ªGetters:isMobile(state.device==='mobile'â†’boolean)/sidebarStatus(sidebarCollapsed?'closed':'opened')/currentTheme(state.themeâ†’ThemeType)/locale(state.languageâ†’string),æ‰€æœ‰getterç±»å‹å®‰å…¨æ— DOMæ“ä½œ,pnpm buildé€šè¿‡ | 32c2d901 |
-| P0-002-003-001-003-001 | å®šä¹‰å‰ç«¯è·¯ç”±é…ç½® | 2026-05-30T22:10 | âœ… | router/index.ts(Routerå®ä¾‹+scrollBehavior)+modules/static.ts(staticRoutes:LOGIN/404/403/ROOT/HOME)+modules/dynamic.ts(import.meta.globåŠ¨æ€å¯¼å…¥resolveComponent)+types.ts(RouteMetaæ‰©å±•activeMenu);vue-tsc+vite buildé€šè¿‡ | 21d87b7c |
-| P0-002-003-001-003-002 | é…ç½®åç«¯èœå•æ•°æ® | 2026-05-30T22:35 | âœ… | Flywayè¿ç§»V7__init_menu.sql:CREATE TABLE sys_menu(12ä¸šåŠ¡å­—æ®µ+é€šç”¨å­—æ®µ)+ç´¢å¼•3ä¸ª+INSERTèœå•æ•°æ®(ç³»ç»Ÿç®¡ç†/ç”¨æˆ·ç®¡ç†/è§’è‰²ç®¡ç†/èœå•ç®¡ç†/éƒ¨é—¨ç®¡ç†/å²—ä½ç®¡ç†/å­—å…¸ç®¡ç†/ç»„ç»‡æ¶æ„/å…¬å¸ç®¡ç†/åŸºç¡€æ•°æ®/ç¼–ç è§„åˆ™/ç³»ç»Ÿå‚æ•°)ä¸‰çº§æ ‘å½¢ç»“æ„ | (pending) |
-| P0-002-003-001-004-001 | å®šä¹‰Stateç±»å‹ä¸åˆå§‹å€¼ | 2026-05-30T23:00 | âœ… | åˆ›å»ºtypes/dict.d.ts(DictItem+IParamStateæ¥å£)+stores/modules/param.ts(defineStore Options API+3ä¸ªstateå­—æ®µ+æ— persistæŒä¹…åŒ–);tsc --noEmité€šè¿‡ | 2d0561a0 |
-| P0-002-003-001-004-002 | å®ç°Actions | 2026-05-30T22:10 | âœ… | paramStoreå®ç°loadDict/refreshDict/loadSystemConfigä¸‰ä¸ªaction+pendingPromises Mapé˜²é‡å¤è¯·æ±‚+åˆ›å»ºapi/modules/system.ts(getDictDataApi/getSystemConfigApi);pnpm buildé€šè¿‡ | e5476d33 |
-| P0-002-003-001-004-003 | å®ç°Getters | 2026-05-30T22:15 | âœ… | paramStoreå®ç°ä¸‰ä¸ªgetters:getDictByType/getDictLabel/getConfig,å‡½æ•°å¼ç®­å¤´è¯­æ³•,ç©ºå€¼å…œåº•è¿”å›ç©ºæ•°ç»„/ç©ºå­—ç¬¦ä¸²,pnpm buildé€šè¿‡ | d2e50675 |
-| P0-002-003-002-001-002 | å®ç°æ ¸å¿ƒå¤„ç†é€»è¾‘ | 2026-05-30T22:45 | âœ… | æ›´æ–°request.ts:æ‰©å±•InternalAxiosRequestConfigç±»å‹æ·»åŠ metadataå­—æ®µ(requestKey/startTime/skipCancel)+è¯·æ±‚æ‹¦æˆªå™¨ç”ŸæˆrequestKey(method:url:params:dataæ ¼å¼+JSON.stringifyç©ºå€¼å…œåº•)+èµ‹å€¼config.metadata,npx tsc --noEmité€šè¿‡ | 6b432623 |
-| P0-002-003-002-001-003 | é›†æˆæµ‹è¯•éªŒè¯ | 2026-05-30T22:50 | âœ… | éªŒè¯Axioså®ä¾‹7é¡¹å…¨éƒ¨é€šè¿‡:baseURLé…ç½®(`/api`)/timeout(30000)/Tokenæ³¨å…¥(Authorization:Bearer)/è¯­è¨€æ³¨å…¥(Accept-Language:zh-CN)/æ•°æ®è§£åŒ…(code===0â†’data)/é”™è¯¯æç¤º(ElMessage.error)/TypeScripté›¶é”™è¯¯(tsc --noEmit) | |
-| P0-002-003-002-002-001 | å®šä¹‰åˆ‡é¢æ‹¦æˆªå™¨æ³¨å†Œæ–¹å¼ | 2026-05-30T23:10 | âœ… | åˆ›å»ºtypes/api.d.ts(ApiResponse<T>/PageResult<T>ç±»å‹å®šä¹‰)+æ›´æ–°request.tså“åº”æ‹¦æˆªå™¨(code===0è¿”å›data/code===20001 Tokenè¿‡æœŸ/code===40001/40003æƒé™ä¸è¶³)+AxiosResponse<ApiResponse>ç±»å‹æ ‡æ³¨+tsc--noEmitç¼–è¯‘é€šè¿‡ | |
-| P0-002-003-002-002-003 | é›†æˆæµ‹è¯•éªŒè¯ | 2026-05-30T23:45 | âœ… | é™æ€éªŒè¯å“åº”æ‹¦æˆªå™¨8é¡¹æ¸…å•å…¨éƒ¨é€šè¿‡(code===0è§£åŒ…/20001åˆ·æ–°/40001æƒé™/HTTP 401-500é”™è¯¯/è¶…æ—¶/ç½‘ç»œå¼‚å¸¸)+pnpm buildç¼–è¯‘é€šè¿‡ | f38ca9ee |
-| P0-002-003-002-003-001 | å®ç°401æ‹¦æˆªä¸Tokenåˆ·æ–°è¯·æ±‚ | 2026-05-30T22:50 | âœ… | handleTokenRefreshæ ¸å¿ƒå‡½æ•°:isRefreshingé˜²å¹¶å‘é”+refreshAxiosç‹¬ç«‹å®ä¾‹é¿å…æ­»å¾ªç¯+pendingRequestsé˜Ÿåˆ—ç®¡ç†+refreshå¤±è´¥è°ƒç”¨logoutè·³è½¬ç™»å½•é¡µ+pnpm buildç¼–è¯‘é€šè¿‡ | fabcaddb |
-| P0-002-003-002-003-002-001 | å®ç°è¯·æ±‚æ’é˜Ÿæœºåˆ¶ | 2026-05-30T23:00 | âœ… | PendingRequestæ¥å£å®šä¹‰+pendingQueueæ•°ç»„+addToQueue(PromiseæŒ‚èµ·+30sè¶…æ—¶ä¿æŠ¤+è¶…æ—¶ä»é˜Ÿåˆ—ç§»é™¤)+replayRequests/handleRefreshFailureé€‚é…æ–°æ•°æ®ç»“æ„+tsc --noEmité€šè¿‡ | ceec0f6c |
-| P0-002-003-002-003-002-003 | å®ç°åˆ·æ–°å¤±è´¥å¤„ç† | 2026-05-31 | âœ… | handleRefreshFailureé‡å†™:rejectæ‰€æœ‰æ’é˜Ÿè¯·æ±‚(ç™»å½•å·²è¿‡æœŸ)+æ˜¾å¼æ¸…ç©ºuserStore(token/userInfo/permissions/roles)+æ¸…é™¤localStorage(erp_user/erp_refresh_token)+é‡ç½®isRefreshing+ElMessage.warningæç¤º+router.replaceè·³è½¬/login(é˜²é‡å¤è·³è½¬)+catchå—ä¼ é€’åŸå§‹error+pnpm buildé€šè¿‡ | |
-| P0-002-003-002-004-001 | å®šä¹‰è·¯ç”±é…ç½®é¡¹ | 2026-05-31 | âœ… | åˆ›å»ºcancelRequest.ts:CancelConfigæ¥å£(generateKey/skipCancel/cancelMessage)+defaultConfigå®ç°+pendingMap(addPendingé‡å¤è¯·æ±‚å–æ¶ˆ+removePending+å–æ¶ˆ+å–æ¶ˆæŒ‡å®šé¡µé¢)+CANCEL_WHITELIST_PATTERNSç™½åå•(/auth/login/refresh-token)+isWhitelisted(responseType blobè‡ªåŠ¨ç™½åå•)+pnpm buildé€šè¿‡ | |
-| P0-002-003-002-004-002 | å®ç°è·¯ç”±æ³¨å†Œä¸å®ˆå« | 2026-05-31 | âœ… | request.tsé›†æˆcancelRequest(addPending/removePending/isWhitelisted)+guards.ts beforeEachè°ƒç”¨cancelPendingRequestsè·¯ç”±åˆ‡æ¢å–æ¶ˆ+fix cancelRequest.ts removePendingä¸abort+cancelErroræ£€æµ‹æ–°å¢CanceledErroråˆ¤æ–­+pnpm buildé€šè¿‡ | 1570e76d |
-| P0-002-003-003-001-001 | å®šä¹‰æ¥å£è·¯ç”±ä¸æ–¹æ³•ç­¾å | 2026-05-31T10:52 | âœ… | åˆ›å»ºorg/product/saleä¸‰ä¸ªä¸šåŠ¡æ¨¡å—APIç±»å‹å®šä¹‰(6æ–‡ä»¶)+å¯¹åº”APIæ¨¡å—CRUDæ–¹æ³•(RESTful URL+named export+TypeScriptæ³›å‹),tsc --noEmitç¼–è¯‘é€šè¿‡ | cbd471cd |
-| P0-002-003-003-001-002 | å®ç°æ¥å£é€»è¾‘ | 2026-05-31T11:00 | âœ… | ä¸ºorg/product/saleä¸‰ä¸ªæ¨¡å—æ–°å¢batchDelete/import(FormData+60sè¶…æ—¶)/export(responseType:blob)å®Œæ•´è¯·æ±‚é€»è¾‘+ImportResultVOç±»å‹,tsc --noEmité€šè¿‡ | (pending) |
-| P0-002-003-003-002-001 | å®šä¹‰æ³›å‹ç±»ç»“æ„ | 2026-05-31T11:15 | âœ… | ApiResponse<T=unknown>/PageResult<T=unknown>/PageQueryä¸‰ä¸ªæ³›å‹æ¥å£å®šä¹‰,æ³›å‹é»˜è®¤å€¼ç”±anyæ”¹ä¸ºunknownå¢å¼ºç±»å‹å®‰å…¨ | 83693563 |
-| P0-002-003-003-002-002 | å®ç°é™æ€å·¥å‚æ–¹æ³• | 2026-05-31T11:55 | âœ… | api.d.tsæ–°å¢isSuccess/getErrorMessage/assertSuccessç±»å‹ç­¾å+apiHelper.tsè¿è¡Œæ—¶å®ç°(code===0ä¸¥æ ¼æ¯”è¾ƒ+assertsç±»å‹å®ˆå«+named export),tsc --noEmité€šè¿‡ | 7c6bef74 |
-| P0-002-003-003-002-003 | ç¼–å†™å•å…ƒæµ‹è¯• | 2026-05-31T12:00 | âœ… | å®‰è£…vitest@4.1.7,åˆ›å»ºvitest.config.ts+src/types/__tests__/api.test-d.ts(13æµ‹è¯•26æ–­è¨€),è¦†ç›–ApiResponse/PageResult/PageQuery+isSuccess/getErrorMessage/assertSuccessç±»å‹æ£€æŸ¥,pnpm test:type 26passed+0 type errors+pnpm buildé€šè¿‡ | (pending) |
-| P0-002-004-001-001-001 | å®ç°åŸºç¡€æ—¥æœŸæ–¹æ³• | 2026-05-31T12:20 | âœ… | erp-ai-web/src/utils/date.ts:formatDate/parseDate/dateRange/relativeTime,dayjs+relativeTimeæ’ä»¶+zh-cn locale,çº¯å‡½æ•°æ— å‰¯ä½œç”¨,5é¡¹éªŒæ”¶æ ‡å‡†å…¨éƒ¨é€šè¿‡,pnpm buildé€šè¿‡ | (pending) |
-| P0-002-004-001-001-002 | å®ç°å¿«æ·é€‰é¡¹ç”Ÿæˆ | 2026-05-31T12:45 | âœ… | erp-ai-web/src/utils/date.tsæ–°å¢getDateShortcuts/getMonthRange/getQuarterRange+DateShortcutæ¥å£,7ä¸ªå¿«æ·é€‰é¡¹(ä»Šå¤©/æœ¬å‘¨/æœ¬æœˆ/æœ¬å­£åº¦/æœ¬å¹´/æœ€è¿‘7å¤©/æœ€è¿‘30å¤©),æœ¬å‘¨å‘¨ä¸€ä¸ºèµ·å§‹æ—¥+å‘¨æ—¥è¾¹ç•Œå¤„ç†,valueå‡½æ•°å®æ—¶è®¡ç®—,çº¯å‡½æ•°è®¾è®¡,4é¡¹éªŒæ”¶æ ‡å‡†é€šè¿‡,pnpm buildé€šè¿‡ | (pending) |
-| P0-002-004-001-002-001 | å®ç°æ•°å­—æ ¼å¼åŒ–æ–¹æ³• | 2026-05-31T13:00 | âœ… | erp-ai-web/src/utils/number.ts:formatMoney/formatPercent/formatQty/formatFileSize+FormatNumberOptionsæ¥å£,Intl.NumberFormat('zh-CN')åƒåˆ†ä½,çº¯å‡½æ•°æ— å‰¯ä½œç”¨,pnpm buildé€šè¿‡,5é¡¹éªŒæ”¶æ ‡å‡†å…¨éƒ¨é€šè¿‡ | (pending) |
-| P0-002-004-001-002-002 | å®ç°ç²¾åº¦è®¡ç®—æ–¹æ³• | 2026-05-31T13:20 | âœ… | erp-ai-web/src/utils/number.tsè¿½åŠ add/subtract/multiply/divide/round+RoundingModeç±»å‹+toSafeDecimalå†…éƒ¨è¾…åŠ©,decimal.jsç²¾åº¦è®¡ç®—,divideé™¤é›¶ä¿æŠ¤,roundé“¶è¡Œå®¶èˆå…¥(ROUND_HALF_EVEN)æ”¯æŒ4ç§æ¨¡å¼,5é¡¹éªŒæ”¶æ ‡å‡†å…¨éƒ¨é€šè¿‡,pnpm test:typeé€šè¿‡ | (pending) |
-| P0-002-004-001-003-001 | å®ç°å¯¹è±¡æ–¹æ³• | 2026-05-31T14:00 | âœ… | erp-ai-web/src/utils/object.ts:deepClone/deepMerge/pick/omit,WeakMapé˜²å¾ªç¯å¼•ç”¨,Date/RegExp/Map/Setç±»å‹æ”¯æŒ,çº¯å‡½æ•°æ— å‰¯ä½œç”¨,pnpm buildé€šè¿‡,4é¡¹éªŒæ”¶æ ‡å‡†å…¨éƒ¨é€šè¿‡ | (pending) |
-| P0-002-004-001-003-002 | å®ç°æ•°ç»„æ–¹æ³• | 2026-05-31T14:30 | âœ… | erp-ai-web/src/utils/array.ts:arrayToTree/treeToArray/uniqueArray/flatten/groupBy,Map O(n)æ ‘æ„å»º+æ ˆè¿­ä»£å±•å¹³+Set/JSONå…œåº•å»é‡+Recordåˆ†ç»„,å…¨ç±»å‹å®‰å…¨çº¯å‡½æ•°,pnpm buildé€šè¿‡,4é¡¹éªŒæ”¶æ ‡å‡†é€šè¿‡ | e5af4143 |
-| P0-002-004-001-004-001 | å®ç°debounce/throttle | 2026-05-31T15:00 | âœ… | erp-ai-web/src/utils/debounce.ts:debounce/throttle,leading/trailingé…ç½®+cancel/flushæ–¹æ³•+fn.apply(this,args)é€ä¼ +TypeErroræ ¡éªŒ,çº¯å‡½æ•°æ— ä¾èµ–,pnpm buildé€šè¿‡,4é¡¹éªŒæ”¶æ ‡å‡†å…¨éƒ¨é€šè¿‡ | 27eb9fe6 |
-| P0-002-004-001-004-002 | å®ç°é«˜çº§å·¥å…· | 2026-05-31T15:30 | âœ… | erp-ai-web/src/utils/debounce.tsè¿½åŠ once(é¦–æ¬¡æ‰§è¡Œç¼“å­˜ç»“æœ,å‡ºé”™é‡ç½®å¯é‡è¯•)/beforeAfter(beforeâ†’fnâ†’afteré’©å­)/withCount(Vue refè®¡æ•°å™¨)/useDebounce(composableå“åº”å¼é˜²æŠ–+onUnmountedæ¸…ç†)/useThrottle(composableå“åº”å¼èŠ‚æµ+onUnmountedæ¸…ç†),pnpm buildé€šè¿‡,4é¡¹éªŒæ”¶æ ‡å‡†å…¨éƒ¨é€šè¿‡ | (pending) |
-| P0-002-004-002-001-001 | å®šä¹‰æŒ‡ä»¤é’©å­å‡½æ•° | 2026-05-31T16:00 | âœ… | erp-ai-web/src/directives/permission.ts:å®šä¹‰PermissionValueç±»å‹(string|string[]),å¯¼å‡ºcheckPermissionå‡½æ•°+permissionDirectiveæŒ‡ä»¤(Directive<HTMLElement,PermissionValue>),å®ç°mounted/updated/unmountedé’©å­,æ”¯æŒå•æƒé™ç å’Œæ•°ç»„ä»»ä¸€åŒ¹é…,pnpm tsc --noEmit 0é”™è¯¯+vite buildé€šè¿‡ | 4f8456fb |
-| P0-002-004-002-001-002 | å®ç°æŒ‡ä»¤é€»è¾‘ | 2026-05-31T16:30 | âœ… | erp-ai-web/src/directives/permission.ts:åˆ‡æ¢useUserStoreæƒé™æº+adminè§’è‰²è·³è¿‡æ£€æŸ¥+removeElementç‹¬ç«‹å‡½æ•°+ç©ºå€¼ä¿æŠ¤+Array.someä»»ä¸€åŒ¹é…+el.parentNode?.removeChild DOMç§»é™¤,tsc --noEmit 0é”™è¯¯ | (pending) |
-| P0-002-004-002-002-001 | å®šä¹‰æŒ‡ä»¤é’©å­å‡½æ•° | 2026-05-31T17:00 | âœ… | erp-ai-web/src/directives/debounce.ts:å®ç°v-debounceæŒ‡ä»¤mounted/updated/unmountedé’©å­+parseDelayè§£æargå»¶è¿Ÿ+createDebounceHandleré˜²æŠ–å¤„ç†+æ³¨å†Œåˆ°setupDirectives,tsc --noEmit 0é”™è¯¯ | 8fa6d7f3 |
-| P0-002-004-002-002-002 | å®ç°æŒ‡ä»¤é€»è¾‘ | 2026-05-31T17:30 | âœ… | erp-ai-web/src/directives/debounce.ts:æå–cleanupDebounceç‹¬ç«‹å‡½æ•°+_debounceDelayç¼“å­˜æ›¿ä»£binding.oldArg+createDebounceHandleré˜²æŠ–setTimeout/clearTimeout+parseDelay parseInt NaNé˜²æŠ¤,tsc --noEmit 0é”™è¯¯ | e5a3eea7 |
-| P0-002-004-002-003-001 | å®šä¹‰æŒ‡ä»¤é’©å­å‡½æ•° | 2026-05-31T17:45 | âœ… | erp-ai-web/src/directives/copy.ts:å®šä¹‰CopyValue/CopyElç±»å‹+copyDirectiveæŒ‡ä»¤mounted/updated/unmountedé’©å­+clipboard APIå¤åˆ¶+execCommandé™çº§+æ³¨å†Œåˆ°setupDirectives,tsc --noEmit 0é”™è¯¯ | daaf308c |
-| P0-002-004-002-003-002 | å®ç°æŒ‡ä»¤é€»è¾‘ | 2026-05-31T18:10 | âœ… | erp-ai-web/src/directives/copy.ts:æå–copyToClipboardç‹¬ç«‹å‡½æ•°(clipboard API+execCommandé™çº§+left:-9999pxé˜²é—ªçƒ)+createCopyHandlerç‹¬ç«‹å‡½æ•°(ç©ºå€¼ElMessage.warning+æˆåŠŸsuccess+å¤±è´¥error)+æŒ‡ä»¤é’©å­è°ƒç”¨,tsc --noEmit 0é”™è¯¯ | 5b4d5812 |
-| P0-002-004-003-001-001 | å®šä¹‰å°è£…å‡½æ•°ç­¾å | 2026-05-31T17:10 | âœ… | erp-ai-web/src/utils/message.ts:å®šä¹‰MessageContent/MessageType/MessageOptionsç±»å‹+defaultOptionsé»˜è®¤é…ç½®+iconMapå›¾æ ‡æ˜ å°„+showSuccess/showError/showWarning/showInfo/confirmå‡½æ•°ç­¾å,tsc --noEmit 0é”™è¯¯ | cd72d608 |
-| P0-002-004-003-001-002 | å®ç°å°è£…é€»è¾‘ | 2026-05-31T17:15 | âœ… | erp-ai-web/src/utils/message.ts:å®ç°æ¶ˆæ¯å»é‡/ç»Ÿä¸€é…ç½®/ç»Ÿä¸€å›¾æ ‡/confirm PromiseåŒ–/VNodeæ”¯æŒ/è¾¹ç•Œå¤„ç†,vue-tsc --noEmit 0é”™è¯¯ | a5fe20ce |
-| P0-002-005-001-001-001 | å®šä¹‰è¯­è¨€åŒ…ç»“æ„ | 2026-05-31T17:42 | âœ… | erp-ai-web/src/i18n/index.ts:createI18nå®ä¾‹(legacy:false)+ä¸­è‹±æ–‡messages(zh-CN/en-US)+fallbackLocaleå›é€€+missingå›è°ƒconsole.warn+setLanguageåŒæ­¥ElementPlus/dayjs/HTML lang+localeå­˜å‚¨,localeå­˜æ ¹æ–‡ä»¶(vue-i18n 9.14.5),vue-tsc --noEmit 0é”™è¯¯ | 76d9d752 |
-| P0-002-005-001-001-002 | ç¼–å†™ä¸­æ–‡è¯æ¡ | 2026-05-31T18:30 | âœ… | erp-ai-web/src/main.ts:å¼•å…¥æ³¨å†Œi18n(Pinia-i18né¡ºåº)+provideEpLocale Element Plus localeä¸Šä¸‹æ–‡;env.d.ts:vue-i18n DefineLocaleMessageç±»å‹+element-plus .mjsæ¨¡å—å£°æ˜;i18n/locales/zh-CN.ts+en-US.ts:å……å®common/status/validationä¸‰ç±»70+è¯æ¡;ä¿®å¤i18n/index.tsç”¨localeContextKey+buildLocaleContextæ›¿ä»£åºŸå¼ƒlocaleå‡½æ•°,vue-tsc -b 0é”™è¯¯ | 9fc34c44 |
-| P0-002-004-003-002-001 | å®šä¹‰å°è£…å‡½æ•°ç­¾å | 2026-05-31T18:45 | âœ… | erp-ai-web/src/utils/notification.ts:å®šä¹‰NotificationContent/NotificationType/NotificationPosition/NotifyOptionsç±»å‹+defaultOptionsé»˜è®¤é…ç½®+iconMapå›¾æ ‡æ˜ å°„+notify/notifySuccess/notifyError/notifyWarning/notifyInfo/clearAllNotificationså‡½æ•°ç­¾å,vue-tsc -b 0é”™è¯¯ | 64ac7e60 |
-| P0-002-004-003-002-002 | å®ç°å°è£…é€»è¾‘ | 2026-05-31T19:00 | âœ… | erp-ai-web/src/utils/notification.ts:å®ç°notifyImplå»é‡é€»è¾‘(activeNotifications Map)+ç»Ÿä¸€é…ç½®(duration=4500ms/position='top-right'/showClose=true)+ç»Ÿä¸€å›¾æ ‡iconMap+clearAllNotificationséå†Mapé€å®ä¾‹close+è¾¹ç•Œå¤„ç†(titleç©ºwarn/duration=0ä¸è‡ªåŠ¨å…³é—­/æ— nameè·³è¿‡å»é‡),vue-tsc -b 0é”™è¯¯ | 71770a62 |
-| P0-002-005-001-002-001 | å®šä¹‰Stateç±»å‹ä¸åˆå§‹å€¼ | 2026-05-31T19:15 | âœ… | erp-ai-web/src/stores/modules/locale.ts:LocaleStateæ¥å£(language/loadedLocales/availableLanguages)+getInitialLocaleä¼˜å…ˆçº§é“¾(app-language > navigator.language > zh-CN)+Pinia Setup Storeé£æ ¼(defineStore+setup function)+loadedLocalesåˆå§‹['zh-CN']+availableLanguagesä¸­è‹±æ–‡é€‰é¡¹,vue-tsc -b 0é”™è¯¯ | 00b05893 |
-| P0-002-005-001-002-002 | å®ç°Actions | 2026-05-31T19:30 | âœ… | erp-ai-web/src/stores/modules/locale.ts:setLanguage(i18n/ElementPlus/dayjs/HTML langå››å¤„åŒæ­¥+localStorageæŒä¹…åŒ–)+loadLocaleMessages(import.meta.globåŠ¨æ€åŠ è½½è¯­è¨€åŒ…)+epLocaleå¯¼å‡ºåˆ°store,æ‰€æœ‰5é¡¹éªŒæ”¶é€šè¿‡ | 4322c4ab |
-| P0-002-005-001-002-003 | å®ç°Getters | 2026-05-31T19:45 | âœ… | erp-ai-web/src/stores/modules/locale.ts:currentLanguage/currentLanguageLabel/availableLanguages computed getter+isLocaleLoadedå‡½æ•°å¼getter,availableLanguagesä»refæ”¹ä¸ºcomputedä¿æŒçº¯è®¡ç®—æ— å‰¯ä½œç”¨ | 3225c668 |
-| P0-002-005-002-001-001 | å®ç°å¯¼å‡ºåŠŸèƒ½ | 2026-05-31T17:15 | âœ… | erp-ai-web/src/i18n/locales/zh-CN/common.ts:52ä¸ªé€šç”¨è¯æ¡(æ“ä½œ/çŠ¶æ€/æ ‡ç­¾/è¡¨å¤´/å ä½äº”å¤§åˆ†ç±»)+export defaultå¯¼å‡º+CommonLocaleç±»å‹å¯¼å‡º,é‡æ„zh-CN.tsä»common.tså¯¼å…¥æ¶ˆé™¤é‡å¤,vue-tsc --noEmit 0é”™è¯¯ | 08b97536 |
-| P0-002-005-002-001-002 | å®ç°å¯¼å…¥åŠŸèƒ½ | 2026-05-31T20:00 | âœ… | zh-CN/index.ts+en-US/index.ts:èšåˆcommon/status/validationä¸‰æ¨¡å—è¯­è¨€åŒ…ç´¢å¼•+æ‰©å±•è¿ç®—ç¬¦å±•å¼€+zh-CN/status.ts+validation.tsæå–ç‹¬ç«‹æ¨¡å—æ–‡ä»¶+en-US/common.ts+status.ts+validation.tsæå–è‹±æ–‡æ¨¡å—+åˆ é™¤æ—§zh-CN.ts/en-US.tså•æ–‡ä»¶+ä¸­è‹±æ–‡ç»“æ„ä¸€è‡´,vue-tsc --noEmit 0é”™è¯¯ | dc5cc10d |
-| P0-002-005-002-002-001 | ç¼–å†™çŠ¶æ€æ–‡æœ¬è¯æ¡ | 2026-05-31T20:30 | âœ… | erp-ai-web/src/i18n/locales/zh-CN/status.ts:åµŒå¥—å¯¹è±¡ç»“æ„status.{domain}.{code},å››ä¸ªä¸šåŠ¡åŸŸ(audit/enable/order/payment),audit.pending/approved/rejected+enable.enabled/disabled+order.draft/submitted/confirmed/completed/cancelled+payment.unpaid/paid/refunded,export default+StatusLocaleç±»å‹å¯¼å‡º,vue-tsc --noEmit 0é”™è¯¯ | cbbcc48f |
-| P0-002-005-002-002-002 | å®ç°çŠ¶æ€æ–‡æœ¬æ¸²æŸ“å‡½æ•° | 2026-05-31T17:05 | âœ… | erp-ai-web/src/utils/status.ts:renderStatusText(statusType,statusCode)å°è£…i18n.global.tè°ƒç”¨,StatusTypeè”åˆç±»å‹(audit/enable/order/payment),Keyæ ¼å¼status.{domain}.{code},æœªåŒ¹é…è¿”å›[statusType.statusCode]é»˜è®¤æ–‡æœ¬+DEVç¯å¢ƒconsole.warn,å…·åå¯¼å‡º+StatusTypeç±»å‹å¯¼å‡º,vue-tsc --noEmit 0é”™è¯¯ | a607a329 |
-| P0-002-005-002-002-003 | éªŒè¯çŠ¶æ€å±•ç¤º | 2026-05-31T17:30 | âœ… | ä¿®å¤en-US/status.tsæ‰å¹³ç»“æ„â†’åµŒå¥—ç»“æ„(ä¸zh-CNä¸€è‡´),13ä¸ªçŠ¶æ€ç ä¸­è‹±æ–‡å…¨è¦†ç›–éªŒè¯é€šè¿‡,TypeScriptç¼–è¯‘é€šè¿‡,æµ‹è¯•æŠ¥å‘Šå·²è®°å½• | 7d4aa0f0 |
-| P0-002-005-002-003-001 | ç¼–å†™æ ¡éªŒæç¤ºè¯æ¡ | 2026-05-31T17:05 | âœ… | é‡å†™validation.ts:åµŒå¥—ç»“æ„required/format(phone/email/idCard/url)/length(min/max/range)/range(min/max/between)/custom(duplicate/invalid),å ä½ç¬¦${label}/${min}/${max},export default+ValidationLocaleç±»å‹å¯¼å‡º | (pending) |
-| P0-002-005-002-003-002 | å®ç°æ ¡éªŒæç¤ºæ¸²æŸ“å‡½æ•° | 2026-05-31T17:30 | âœ… | erp-ai-web/src/utils/validation.ts:ValidationRuleæ¥å£+replacePlaceholders(/\$\{(\w+)\}/g)+renderValidationMessage(rule,label)+getValidationMessages(rules,label)èšåˆ,å…·åå¯¼å‡º,vue-tscé›¶é”™è¯¯ | fbc0db22 |
-| P0-002-005-002-003-003 | éªŒè¯æ ¡éªŒæç¤º | 2026-05-31T17:30 | âœ… | ä¿®å¤en-US/validation.tsæ‰å¹³ç»“æ„â†’åµŒå¥—ç»“æ„(ä¸zh-CNä¸€è‡´),{field}å ä½ç¬¦â†’${label}æ ¼å¼,ä»£ç è·¯å¾„å®¡æŸ¥10é¡¹éªŒè¯å…¨éƒ¨é€šè¿‡,vue-tsc --noEmit 0é”™è¯¯,æµ‹è¯•æŠ¥å‘Šå·²è®°å½• | b7b441c8 |
-| P0-002-006-001-001-001 | ç¼–å†™root CSSå˜é‡ | 2026-05-31T17:45 | âœ… | åˆ›å»ºerp-ai-web/src/styles/variables.css(11ä¸ª:rooté¢œè‰²å˜é‡+6ä¸ªhtml.darkæš—è‰²æ¨¡å¼è¦†ç›–),main.tså¼•å…¥variables.css,vue-tscç¼–è¯‘é€šè¿‡ | â€” |
-| P0-002-006-001-001-002 | é…ç½®Tailwindè‡ªå®šä¹‰é¢œè‰² | 2026-05-31T18:00 | âœ… | å®‰è£…tailwindcss+@tailwindcss/vite,åˆ›å»ºapp.css(@themeå—11ä¸ªé¢œè‰²Tokenæ˜ å°„CSSå˜é‡),main.tså¼•å…¥app.css,vite.config.tsæ·»åŠ tailwindcssæ’ä»¶,vue-tscç¼–è¯‘é€šè¿‡ | â€” |
-| P0-002-006-001-001-003 | éªŒè¯é¢œè‰²ç³»ç»Ÿ | 2026-05-31T18:15 | âœ… | éªŒè¯:root 11ä¸ªé¢œè‰²å˜é‡+html.dark 6ä¸ªæš—è‰²è¦†ç›–+app.css @theme Tailwindæ˜ å°„,ä¿®å¤element-plus.scssç¡¬ç¼–ç â†’var(--color-*)å¼•ç”¨,4/4éªŒæ”¶é€šè¿‡ | 0720b90b |
-| P0-002-006-001-002-001 | ç¼–å†™é—´è·å°ºå¯¸CSSå˜é‡ | 2026-05-31T18:00 | âœ… | erp-ai-web/src/styles/variables.css:è¿½åŠ 5ä¸ªé—´è·å˜é‡(--spacing-xs/sm/md/lg/xl)+3ä¸ªåœ†è§’å˜é‡(--radius-sm/md/lg)+3ä¸ªé˜´å½±å˜é‡(--shadow-sm/md/lg)+html.darkæš—è‰²é˜´å½±è¦†ç›–,main.tså·²å¼•å…¥variables.css | a678cd21 |
-| P0-002-006-001-002-003 | éªŒè¯é—´è·ç³»ç»Ÿ | 2026-05-31T17:10 | âœ… | éªŒè¯:rootä¸‹11ä¸ªé—´è·/åœ†è§’/é˜´å½±å˜é‡å…¨éƒ¨æ­£ç¡®å®šä¹‰,app.css @theme Tailwind tokené…ç½®æ­£ç¡®,html.darkæš—è‰²é˜´å½±è¦†ç›–æ­£ç¡®,è¾“å‡ºéªŒè¯æŠ¥å‘Š | 83adccf7 |
-| P0-002-006-002-001-001 | å®šä¹‰å˜é‡/æ‰©å±•é…ç½® | 2026-05-31T17:30 | âœ… | éªŒè¯erp-ai-web/app.css @themeå—:10ä¸ªé¢œè‰²Token(å¼•ç”¨CSSå˜é‡)+5ä¸ªé—´è·Token+3ä¸ªåœ†è§’Token+3ä¸ªé˜´å½±Token,å·²ä¸variables.css CSSå˜é‡åŒæ­¥,main.tså·²å¼•å…¥app.css,vue-tscé›¶é”™è¯¯ | (pending) |
-| P0-002-006-002-001-002 | éªŒè¯æ ·å¼æ•ˆæœ | 2026-05-31T17:51 | âœ… | éªŒè¯Tailwind@themeé¢œè‰²/é—´è·/åœ†è§’/é˜´å½±7é¡¹,åˆ›å»ºæœ€å°è§†å›¾å ä½æ–‡ä»¶ä½¿æ„å»ºé€šè¿‡,npx vite build 1.09sé€šè¿‡,éªŒè¯æŠ¥å‘Šå·²ç”Ÿæˆ,å…¨7/7éªŒæ”¶é¡¹é€šè¿‡ | (pending) |
-| P0-002-006-003-001-001 | å®šä¹‰å˜é‡/æ‰©å±•é…ç½® | 2026-05-31T17:55 | âœ… | åˆ›å»ºelement-override.scss:SCSS @forwardè¦†ç›–Element Plusé¢œè‰²/åœ†è§’å˜é‡+html.darkæš—è‰²æ¨¡å¼EP CSSå˜é‡è¦†ç›–,main.tså¼•å…¥é¡ºåºè°ƒæ•´,pnpm buildé€šè¿‡ | 7af1a5f0 |
-| P0-002-006-003-001-002 | éªŒè¯æ ·å¼æ•ˆæœ | 2026-05-31T18:05 | âœ… | éªŒè¯EPé¢œè‰²/åœ†è§’/é˜´å½±/æš—è‰²æ¨¡å¼/å“åº”å¼5é¡¹,pnpm buildé€šè¿‡,è¾“å‡ºéªŒè¯æŠ¥å‘Š,4/5é€šè¿‡1é¡¹éƒ¨åˆ†é€šè¿‡ | 0d6f1a30 |
-| P0-002-006-004-001-001 | ç¼–å†™SCSSå·¥å…·ç±» | 2026-05-31T18:15 | âœ… | åˆ›å»º_layout.scss:flex/grid/scroll/spacing/radius/shadowå·¥å…·ç±»,@eachæ‰¹é‡ç”Ÿæˆé—´è·,importåˆ°main.ts,pnpm buildé€šè¿‡ | c1ea8e84 |
-| P0-002-006-004-001-002 | éªŒè¯å¸ƒå±€å·¥å…·ç±» | 2026-05-31T18:25 | âœ… | éªŒè¯84ä¸ªerp-å¸ƒå±€ç±»å…¨éƒ¨é€šè¿‡ç¼–è¯‘,flex/grid/scroll/spacing/radius/shadowæ­£ç¡®,ä¸Tailwindå…±å­˜æ— å†²çª,1é¡¹NOTE(å“åº”å¼å˜ä½“æ— @media) | 6550fb72 |
-| P0-002-006-004-002-001 | ç¼–å†™SCSSå·¥å…·ç±» | 2026-05-31T18:35 | âœ… | åˆ›å»º_text.scss:çœç•¥/é¢œè‰²/å­—ä½“/å¯¹é½/è¿‡æ¸¡6ç±»å·¥å…·ç±»,@eachå¾ªç¯ç”Ÿæˆ,importåˆ°main.ts,pnpm buildé€šè¿‡ | 157cb739 |
-| P0-002-006-004-002-002 | éªŒè¯æ–‡æœ¬è£…é¥°å·¥å…·ç±» | 2026-05-31T18:45 | âœ… | éªŒè¯æ–‡æœ¬çœç•¥/é¢œè‰²/èƒŒæ™¯/å­—ä½“/å¯¹é½/è¿‡æ¸¡/é˜´å½±å·¥å…·ç±»,ä¿®å¤erp-transition-allä½¿ç”¨transition:allæ”¹ä¸ºæŒ‡å®šå±æ€§,pnpm buildé€šè¿‡ | ce69c4e3 |
-| P0-002-006-005-001-001 | ç¼–å†™v-virtual-scrollæŒ‡ä»¤ | 2026-05-31T19:00 | âœ… | åˆ›å»ºvirtual-scroll.ts:å®ç°å¯è§†åŒºåŸŸæ¸²æŸ“Â±bufferè¡Œ/transform translateYå®šä½/åŠ¨æ€é«˜åº¦heightCache/ResizeObserver/passive scroll/æ³¨å†Œåˆ°directives/index.ts,vue-tsc+vite buildé€šè¿‡ | 989d3aec |
-| P0-002-006-005-001-002 | éªŒè¯è™šæ‹Ÿæ»šåŠ¨ | 2026-05-31T19:15 | âœ… | 7/7éªŒè¯é¡¹å…¨éƒ¨é€šè¿‡:å¯è§†åŒºåŸŸæ¸²æŸ“/translateYå®šä½/heightCacheç¼“å­˜/passive scroll/unmountedæ¸…ç†/ç±»å‹å®Œæ•´æ— any/åˆ›å»ºdevæµ‹è¯•é¡µ(100kæ•°æ®+è¿è¡Œå…¨éƒ¨æµ‹è¯•æŒ‰é’®),pnpm buildé€šè¿‡ | 695b7533 |
-| P0-002-006-005-002-002 | éªŒè¯å›¾ç‰‡æ‡’åŠ è½½ | 2026-05-31T19:50 | âœ… | 6é¡¹éªŒè¯å…¨éƒ¨é€šè¿‡:é¦–å±å¤–ä¸åŠ è½½/200pxé¢„åŠ è½½/unobserveæ¸…ç†/onerrorå›é€€SVGå ä½å›¾/disconnecté‡Šæ”¾/URLæ›´æ–°é‡åŠ è½½+ä¿®å¤DEFAULT_ERROR_IMGæ”¹ä¸ºinline SVG data URI,pnpm buildé€šè¿‡ | 15abd820 |
-| P0-002-006-005-003-001 | é…ç½®vite.config.tsæ„å»ºä¼˜åŒ– | 2026-05-31T21:00 | âœ… | minify:terser+terserOptionsé…ç½®(drop_console/drop_debuggerç”Ÿäº§ç§»é™¤)+sourcemapç¯å¢ƒæ¡ä»¶æ§åˆ¶+defineConfigç®­å¤´å‡½æ•°å½¢å¼+å®‰è£…terser 5.48.0+manualChunkså‡½æ•°å½¢å¼åˆ†åŒ…vue/elementPlus/vendor(Vite 8/Rolldownå…¼å®¹),pnpm buildé€šè¿‡(5.04s) | 8827ef9f |
-| P0-002-006-005-003-002 | éªŒè¯æ„å»ºä¼˜åŒ– | 2026-05-31T19:00 | âœ… | éªŒè¯7é¡¹æ„å»ºé…ç½®+ä¿®å¤element-plusåˆ†åŒ…é¡ºåº(@element-plus/icons-vueè¢«vueè§„åˆ™è¯¯æ•è·)+ä¿®å¤consoleç­–ç•¥(drop_consoleâ†’pure_funcsä¿ç•™warn/error)+vue chunk 332KB gzipped(ç•¥è¶…300KBå› @vueuseå—Rolldowné™åˆ¶æ— æ³•åˆ†ç¦») | 8c06e7e9 |
-| P0-002-006-006-001-001 | ç¼–å†™å¤–éƒ¨èµ„æºåŸŸé€‚é…é…ç½® | 2026-05-31T21:15 | âœ… | åˆ›å»ºcdn-fallback.ts(å›½å†…/å›½å¤–CDNè‡ªåŠ¨åˆ‡æ¢+è¶…æ—¶å›é€€+preloadé¢„åŠ è½½)+.env.development/.env.productionæ·»åŠ VITE_EXTERNAL_CDN_BASE/VITE_CDN_FALLBACK_URL+index.htmlæ·»åŠ preconnect | 8d86e81d |
-| P0-002-006-006-001-002 | éªŒè¯CDNåˆ‡æ¢ | 2026-05-31T18:32 | âœ… | éªŒè¯7é¡¹CDNåˆ‡æ¢+ç¼–è¯‘+æ„å»ºå…¨éƒ¨é€šè¿‡:cdn-fallback.tså›½å†…CDN fonts.loli.netæ­£ç¡®/è¶…æ—¶3000ms+è‡ªåŠ¨åˆ‡æ¢å¤‡ç”¨æº/ç¯å¢ƒå˜é‡VITE_EXTERNAL_CDN_BASEæ­£ç¡®/index.html preconnectç”Ÿæ•ˆ/TypeScriptç¼–è¯‘é›¶é”™è¯¯/Viteæ„å»ºæˆåŠŸ(4.72s) | 56b53ae1 |
-| P0-003-007-012-001-003 | éªŒè¯ç¼–å†™inv_disassembly_detailæ‹†å¸ä¸»ä»è¡¨DDL | 2026-06-03T18:30 | âœ… | V20260603005éªŒè¯SQL(ä¸»è¡¨17+ä»è¡¨17+FlywayéªŒè¯å…±35é¡¹æŸ¥è¯¢)+é™æ€åˆ†ææŠ¥å‘Š(34ç´¢å¼•/76å­—æ®µCOMMENT/22æ‰©å±•å­—æ®µ/11å¿«ç…§å­—æ®µ/DECIMAL(18,8)ç²¾åº¦å…¨éƒ¨é€šè¿‡) | daf7e4bb |
+| P0-002-002-001-003-001 | ¶¨ÒåÂ·ÓÉÅäÖÃÏî | 2026-05-30T18:50 | ? | ´´½¨erp-ai-web/src/router/constants.ts(WHITE_LIST/LOGIN_PATH/HOME_PATH/NOT_FOUND_PATH/TOKEN_KEY/ROUTES_LOADED_KEY);´´½¨erp-ai-web/src/stores/modules/permission.ts(PermissionState/routes/isRoutesLoaded/permissions/hasPermission/resetPermission);vue-tscÁã´íÎó | 1866bfb3 |
+| P0-002-002-001-003-002 | ÊµÏÖÂ·ÓÉ×¢²áÓëÊØÎÀ | 2026-05-30T18:35 | ? | ´´½¨erp-ai-web/src/router/guards.ts:setupRouterGuardsº¯Êı(beforeEachÈ«¾ÖÊØÎÀ:°×Ãûµ¥·ÅĞĞ¡úTokenĞ£Ñé¡ú¶¯Ì¬Â·ÓÉ¼ÓÔØ¡úÈ¨ÏŞĞ£Ñé¡ú±êÌâÉèÖÃ¡únextÈ«·ÖÖ§¸²¸Ç);¸üĞÂrouter/index.tsµ¼Èë²¢µ÷ÓÃsetupRouterGuards;´´½¨stores/modules/user.ts×îĞ¡ÒÀÀµ×® | 73225336 |
+| P0-002-002-002-001-001 | ÊµÏÖ²¼¾ÖÈİÆ÷½á¹¹ | 2026-05-30T18:50 | ? | ´´½¨erp-ai-web/src/layouts/AppLayout.vue:el-containerÇ¶Ì×(el-aside+el-containerº¬el-header+tabs+el-main),aside¶¯Ì¬¿í¶È(64px/220px),keep-alive include°ó¶¨cachedViews,transition fade-transform¶¯»­,router-view key=fullPath;´´½¨stores/modules/layout.ts+tagsView.ts×®;´´½¨components/Sidebar/Navbar/TabNav×® | (pending) |
+| P0-002-002-002-001-002 | ÊµÏÖ²¼¾Ö×´Ì¬¹ÜÀí | 2026-05-30T19:00 | ? | ÖØĞ´erp-ai-web/src/stores/modules/layout.ts:Setup StoreÓï·¨,isCollapsed(boolean)+localStorage³Ö¾Ã»¯(watch),isFullscreen(boolean)+Fullscreen API(async/await),toggleCollapse/toggleFullscreen actions,initFullscreenListenerÊÂ¼ş¼àÌı,vite buildÍ¨¹ı | (pending) |
+| P0-002-002-002-001-003 | ²¼¾ÖÑùÊ½Óë¶¯»­ | 2026-05-30T19:05 | ? | ´´½¨erp-ai-web/src/layouts/styles/app-layout.scss(²à±ßÀ¸transition width 0.3s/sticky header z-index 100/min-width 1024px/overflow-y auto/fade-transform¶¯»­)+AppLayout.vueµ¼ÈëÑùÊ½,vite buildÍ¨¹ı | (pending) |
+| P0-002-002-002-002-001 | µ¼º½À¸²¼¾Ö½á¹¹ | 2026-05-30T19:10 | ? | ÖØĞ´Navbar.vue:flex²¼¾Öspace-between(×ó²àÕÛµş°´Å¥Fold/ExpandÍ¼±êÇĞ»»+Ãæ°üĞ¼,ÓÒ²àÈ«¾ÖËÑË÷+ÏûÏ¢Áåîõel-badge+ÓÃ»§Í·Ïñel-dropdown trigger=click+È«ÆÁÇĞ»»);´´½¨Breadcrumb.vue(route.matchedÃæ°üĞ¼);ÖØĞ´user.ts(Setup Store+avatar/nickname computed+logout action+router.push);vue-tscÁã´íÎó+vite buildÍ¨¹ı(532Ä£¿é559ms) | (pending) |
+| P0-002-002-002-002-002 | ¸÷¹¦ÄÜÇøÓò½»»¥ | 2026-05-30T19:25 | ? | ¸üĞÂNavbar.vue(ElMessageBoxÈ·ÈÏÍË³öµÇÂ¼+el-popoverÏûÏ¢ÁåîõÏÂÀ­+SearchDialog×é¼şrefµ÷ÓÃ);´´½¨SearchDialog.vue(Teleport to body+Ctrl+K¿ì½İ¼ü+el-dialogËÑË÷µ¯´°);°²×°@element-plus/icons-vue;ĞŞ¸´menuTransform.tsÀàĞÍ´íÎó;vue-tsc+vite buildÍ¨¹ı(532Ä£¿é546ms) | (pending) |
+| P0-002-002-002-002-003 | µ¼º½À¸ÏìÓ¦Ê½ÊÊÅä | 2026-05-30T19:17 | ? | ´´½¨useResponsive.ts composable(768/1024¶Ïµã+resize¼àÌı+isMobile/isTablet);´´½¨navbar-responsive.scss(ÒÆ¶¯¶ËoverlayÄ£Ê½+Æ½°åÊÊÅä);¸üĞÂAppLayout.vue(useResponsive¼¯³É+overlayÕÚÕÖ+ÒÆ¶¯¶Ë×Ô¶¯ÕÛµş);¸üĞÂapp-layout.scss(ÒÆ³ımin-width+overlay baseÑùÊ½);pnpm buildÍ¨¹ı | e879a367 |
+| P0-002-002-002-003-001 | ¶¨ÒåÇ°¶ËÂ·ÓÉÅäÖÃ | 2026-05-30T19:30 | ? | ´´½¨erp-ai-web/src/layouts/components/Sidebar/types.ts(SidebarProps/MenuItemData½Ó¿Ú+routeToMenuItemº¯Êı);¸üĞÂSidebar/index.vue(µ¼ÈëSidebarProps+defineProps);¸üĞÂAppLayout.vue(´«µİisCollapsed prop);vue-tsc+vite buildÍ¨¹ı(532Ä£¿é552ms) | (pending) |
+| P0-002-002-002-003-002 | ÅäÖÃºó¶Ë²Ëµ¥Êı¾İ | 2026-05-30T19:23 | ? | ´´½¨erp-ai-web/src/layouts/components/Sidebar/menuConfig.ts(filterMenuRoutes/filter hideMenu=true+DEFAULT_OPEN_MENUS+SIDEBAR_LOGO);vue-tsc --noEmitÁã´íÎó | 03bb1303 |
+| P0-002-002-003-001-001 | ¶¨ÒåPinia store | 2026-05-30T19:35 | ? | ÖØĞ´tagsView.tsÎªSetup Store:TagView½Ó¿Ú(8×Ö¶Î)/visitedViews+cachedViews ref/computed affixTags/addView/delView/delOtherViews/delAllViews/updateVisitedView;vue-tsc+vite buildÍ¨¹ı(532Ä£¿é553ms) | (pending) |
+| P0-002-002-003-001-003 | ÊµÏÖÓÒ¼ü²Ëµ¥ | 2026-05-30T19:55 | ? | ´´½¨ContextMenu.vue:Teleport to body+6¸ö²Ëµ¥Ïî(Ë¢ĞÂ/¹Ø±Õµ±Ç°/¹Ø±ÕÆäËû/¹Ø±Õ×ó/ÓÒ/È«²¿)+±ß½ç¼ì²â+affix½ûÓÃ+click outside¹Ø±Õ+defineExpose;µ¼³öTagView½Ó¿Ú;vue-tsc+vite buildÍ¨¹ı | e17f54ed |
+| P0-002-002-003-002-001 | ¶¨Òå×é¼şpropsemits | 2026-05-30T19:42 | ? | ´´½¨TabNav/types.ts(TabNavProps+TabNavEmits½Ó¿Ú)+¸üĞÂTabNav/index.vue(defineProps activePath/views+defineEmits select/close/refresh/contextmenu)+¸üĞÂAppLayout.vue´«µİprops;vue-tsc+vite buildÍ¨¹ı | 027b5e53 |
+| P0-002-002-003-002-002 | ÊµÏÖ×é¼şÄ£°å½á¹¹ | 2026-05-30T20:15 | ? | TabNav/index.vue template+scopedÑùÊ½:ºáÏò¹ö¶¯ÈİÆ÷(overflow-x:auto+Òş²Ø¹ö¶¯Ìõ)+v-for±êÇ©ÁĞ±í(key=fullPath)+active¸ßÁÁ(primaryÉ«±³¾°)+affix±êÇ©Òş²Ø¹Ø±Õ°´Å¥+@click.stop·ÀÃ°Åİ+ContextMenu¼¯³É;vue-tsc+vite buildÍ¨¹ı | 12398a89 |
+| P0-002-002-003-002-003 | ÊµÏÖ×é¼şÂß¼­ | 2026-05-30T20:40 | ? | TabNav/index.vue×Ô°üº¬×é¼ş:watch route.fullPath×Ô¶¯addView+handleSelectÂ·ÓÉÌø×ª+handleClose¹Ø±Õ±êÇ©+handleContextmenuÓÒ¼ü²Ëµ¥+scrollToActiveTag×Ô¶¯¹ö¶¯+AppLayout.vueÒÆ³ıprops;pnpm buildÍ¨¹ı(532Ä£¿é533ms) | ba0c7a4a |
+| P0-002-002-003-003-001 | ÊµÏÖkeep-alive»º´æ²ßÂÔ | 2026-05-30T21:00 | ? | AppLayout.vueÌí¼Ó:max="MAX_CACHED_VIEWS"(10)ÏŞÖÆ×î´ó»º´æÊı;tagsView.tsµ¼³öMAX_CACHED_VIEWS³£Á¿+LRUÌÔÌ­Âß¼­(³¬³öshift×îÔçÏî);vue-tscÍ¨¹ı | 465f2cec |
+| P0-002-002-003-003-002 | ÊµÏÖ»º´æË¢ĞÂ»úÖÆ | 2026-05-30T21:10 | ? | ´´½¨redirectÂ·ÓÉ+×é¼ş(exclude¡úredirect¡úincludeÁ÷³Ì);ĞŞ¸´refreshSelectedPage·½·¨;pnpm buildÍ¨¹ı(532Ä£¿é) | fdd2343b |
+| P0-002-002-004-001-001 | ¶¨ÒåÇ°¶ËÂ·ÓÉÅäÖÃ | 2026-05-30T21:20 | ? | ´´½¨api/modules/menu.ts:getMenuList()µ÷ÓÃgetInfo½Ó¿Ú+flattenMenuTree()±âÆ½»¯Ç¶Ì×²Ëµ¥Ê÷+extractPermissions()ÌáÈ¡È¨ÏŞ±êÊ¶;pnpm buildÍ¨¹ı | 5c5d6740 |
+| P0-002-002-004-001-002 | ÅäÖÃºó¶Ë²Ëµ¥Êı¾İ | 2026-05-30T21:35 | ? | ´´½¨utils/menuPipeline.ts:isExternalIcon/isSvgIcon/normalizePath/processMenuData/getCachedMenus/clearMenuCache;MenuItemÔö¼ÓiconType×Ö¶Î;vue-tscÍ¨¹ı | 0d8af4a2 |
+| P0-002-002-004-002-001-001 | ÊµÏÖµİ¹é²Ëµ¥×é¼ş | 2026-05-30T21:50 | ? | ´´½¨SidebarItem.vueµİ¹é²Ëµ¥×é¼ş:defineOptions({name:'SidebarItem'})+visibleChildren computed¹ıÂËhideMenu+hasVisibleChildrenÅĞ¶ÏäÖÈ¾el-sub-menu»òel-menu-item+v-for key=path;´´½¨MenuItemIcon.vue(stub);pnpm buildÍ¨¹ı(532Ä£¿é) | 0cb40b74 |
+| P0-002-002-004-002-001-002 | ÊµÏÖ²Ëµ¥Í¼±ê+ÍâÁ´ | 2026-05-30T21:15 | ? | ÖØĞ´MenuItemIcon.vueÖ§³Ö3ÖÖÍ¼±êÀàĞÍ(element:ElPlus¶¯Ì¬×é¼ş/svg:SvgIcon×é¼ş/external:img±êÇ©);´´½¨components/SvgIcon/index.vue(import.meta.glob eager¼ÓÔØSVG raw×Ö·û´®);¸üĞÂSidebarItem.vueÍâÁ´´¦Àí(a±êÇ©target=_blank+rel=noopener noreferrer);¸üĞÂtypes.tsÌí¼ÓiconType×Ö¶Î;pnpm buildÍ¨¹ı(532Ä£¿é) | (pending) |
+| P0-002-002-004-002-001-003 | ÊµÏÖ²Ëµ¥È¨ÏŞ¹ıÂË | 2026-05-30T21:45 | ? | ´´½¨utils/permission.ts(hasPermissionº¬superadminÓÅÏÈÅĞ¶Ï+filterRoutesByPermissionµİ¹é¹ıÂË´¿º¯Êı¸¸²Ëµ¥Áª¶¯Òş²Ø);¸üĞÂSidebar/index.vue(computed filteredMenus¼¯³ÉfilterRoutesByPermission+routeToMenuItem);pnpm buildÍ¨¹ı | (pending) |
+| P0-002-002-004-002-002 | ÊµÏÖ²Ëµ¥½»»¥ | 2026-05-30T22:00 | ? | ÖØĞ´Sidebar/index.vue:LogoÇøÓò(SIDEBAR_LOGOÕÛµş/Õ¹¿ªÇĞ»»+µã»÷»ØÊ×Ò³)+el-scrollbar°ü¹ü²Ëµ¥+handleMenuSelect(ÍâÁ´window.open/ÆÕÍ¨router.push)+activeMenu computed(meta.activeMenuÓÅÏÈ+route.path)+layoutStore.isCollapsedÁª¶¯+unique-openedÊÖ·çÇÙ+collapse-transition¶¯»­;pnpm buildÍ¨¹ı | (pending) |
+| P0-002-002-004-002-003 | ÊµÏÖ²Ëµ¥È¨ÏŞ¹ıÂË | 2026-05-30T22:15 | ? | ´´½¨directives/permission.ts(v-permissionÖ¸Áîmounted¹³×ÓremoveChildÒÆ³ıÎŞÈ¨ÏŞDOM)+directives/index.ts(setupDirectivesÈ«¾Ö×¢²á)+main.ts×¢²ápinia+setupDirectives;pnpm buildÍ¨¹ı | 250a3cda |
+| P0-002-003-001-001-001 | ¶¨ÒåStateÀàĞÍÓë³õÊ¼Öµ | 2026-05-30T22:00 | ? | ´´½¨types/user.d.ts(IUserState/UserInfoVO½Ó¿Ú)+ÖØĞ´stores/modules/user.ts(Options API+state³õÊ¼Öµ+token³Ö¾Ã»¯erp_user+persist.pick['token']);pnpm buildÍ¨¹ı | 9dfe5339 |
+| P0-002-003-001-001-002 | ÊµÏÖActions | 2026-05-30T22:00 | ? | ÊµÏÖuserStoreµÄlogin(loginApi¡ú´ætoken¡úgetInfo)/getInfo(getUserInfoApi¡ú´æuserInfo+permissions+roles¡úÊ§°Ü×Ô¶¯logout)/logout(Çå¿Õstate+localStorage.removeItem+router.replace)Èı¸öaction,´´½¨api/modules/auth.ts+api/types/auth.ts(LoginDTO/LoginResponse/UserInfoResponse),¸üĞÂguards.ts·½·¨ÃûÒıÓÃ,pnpm buildÍ¨¹ı | bbc1dbcf |
+| P0-002-003-001-001-003 | ÊµÏÖGetters | 2026-05-30T22:30 | ? | ÊµÏÖuserStoreËÄ¸ögetter:isLoggedIn(!!state.token)/hasPermission(perm=>permissions.includes)/avatar(userInfo?.avatar||'/default-avatar.png')/nickname(nickname||username||'ÓÃ»§'),pnpm buildÍ¨¹ı | 0401ac22 |
+| P0-002-003-001-002-001 | ¶¨ÒåStateÀàĞÍÓë³õÊ¼Öµ | 2026-05-30T22:50 | ? | ´´½¨types/app.d.ts(DeviceType/ThemeType/IAppState)+stores/modules/app.ts(defineStore Options API+5¸östate×Ö¶Î+persist³Ö¾Ã»¯erp_app),tsc --noEmitÍ¨¹ı | 065de044 |
+| P0-002-003-001-002-002 | ÊµÏÖActions | 2026-05-30 | ? | ÊµÏÖappStore 5¸öActions:toggleSidebar(·­×ªsidebarCollapsed+persist×Ô¶¯´¦Àí)/setDevice(ÉèÖÃdevice+mobile×Ô¶¯ÕÛµş²à±ßÀ¸)/setTheme(¸üĞÂstate+document data-themeÊôĞÔ+dark+el-dark class)/setLanguage(¸üĞÂstate+Í¬²½i18n locale lazy ref)/setActiveMenu(¼ÇÂ¼µ±Ç°Â·¾¶),pnpm buildÍ¨¹ı | (pending) |
+| P0-002-003-001-002-003 | ÊµÏÖGetters | 2026-05-30 | ? | ÊµÏÖappStore 4¸öGetters:isMobile(state.device==='mobile'¡úboolean)/sidebarStatus(sidebarCollapsed?'closed':'opened')/currentTheme(state.theme¡úThemeType)/locale(state.language¡ústring),ËùÓĞgetterÀàĞÍ°²È«ÎŞDOM²Ù×÷,pnpm buildÍ¨¹ı | 32c2d901 |
+| P0-002-003-001-003-001 | ¶¨ÒåÇ°¶ËÂ·ÓÉÅäÖÃ | 2026-05-30T22:10 | ? | router/index.ts(RouterÊµÀı+scrollBehavior)+modules/static.ts(staticRoutes:LOGIN/404/403/ROOT/HOME)+modules/dynamic.ts(import.meta.glob¶¯Ì¬µ¼ÈëresolveComponent)+types.ts(RouteMetaÀ©Õ¹activeMenu);vue-tsc+vite buildÍ¨¹ı | 21d87b7c |
+| P0-002-003-001-003-002 | ÅäÖÃºó¶Ë²Ëµ¥Êı¾İ | 2026-05-30T22:35 | ? | FlywayÇ¨ÒÆV7__init_menu.sql:CREATE TABLE sys_menu(12ÒµÎñ×Ö¶Î+Í¨ÓÃ×Ö¶Î)+Ë÷Òı3¸ö+INSERT²Ëµ¥Êı¾İ(ÏµÍ³¹ÜÀí/ÓÃ»§¹ÜÀí/½ÇÉ«¹ÜÀí/²Ëµ¥¹ÜÀí/²¿ÃÅ¹ÜÀí/¸ÚÎ»¹ÜÀí/×Öµä¹ÜÀí/×éÖ¯¼Ü¹¹/¹«Ë¾¹ÜÀí/»ù´¡Êı¾İ/±àÂë¹æÔò/ÏµÍ³²ÎÊı)Èı¼¶Ê÷ĞÎ½á¹¹ | (pending) |
+| P0-002-003-001-004-001 | ¶¨ÒåStateÀàĞÍÓë³õÊ¼Öµ | 2026-05-30T23:00 | ? | ´´½¨types/dict.d.ts(DictItem+IParamState½Ó¿Ú)+stores/modules/param.ts(defineStore Options API+3¸östate×Ö¶Î+ÎŞpersist³Ö¾Ã»¯);tsc --noEmitÍ¨¹ı | 2d0561a0 |
+| P0-002-003-001-004-002 | ÊµÏÖActions | 2026-05-30T22:10 | ? | paramStoreÊµÏÖloadDict/refreshDict/loadSystemConfigÈı¸öaction+pendingPromises Map·ÀÖØ¸´ÇëÇó+´´½¨api/modules/system.ts(getDictDataApi/getSystemConfigApi);pnpm buildÍ¨¹ı | e5476d33 |
+| P0-002-003-001-004-003 | ÊµÏÖGetters | 2026-05-30T22:15 | ? | paramStoreÊµÏÖÈı¸ögetters:getDictByType/getDictLabel/getConfig,º¯ÊıÊ½¼ıÍ·Óï·¨,¿ÕÖµ¶µµ×·µ»Ø¿ÕÊı×é/¿Õ×Ö·û´®,pnpm buildÍ¨¹ı | d2e50675 |
+| P0-002-003-002-001-002 | ÊµÏÖºËĞÄ´¦ÀíÂß¼­ | 2026-05-30T22:45 | ? | ¸üĞÂrequest.ts:À©Õ¹InternalAxiosRequestConfigÀàĞÍÌí¼Ómetadata×Ö¶Î(requestKey/startTime/skipCancel)+ÇëÇóÀ¹½ØÆ÷Éú³ÉrequestKey(method:url:params:data¸ñÊ½+JSON.stringify¿ÕÖµ¶µµ×)+¸³Öµconfig.metadata,npx tsc --noEmitÍ¨¹ı | 6b432623 |
+| P0-002-003-002-001-003 | ¼¯³É²âÊÔÑéÖ¤ | 2026-05-30T22:50 | ? | ÑéÖ¤AxiosÊµÀı7ÏîÈ«²¿Í¨¹ı:baseURLÅäÖÃ(`/api`)/timeout(30000)/Token×¢Èë(Authorization:Bearer)/ÓïÑÔ×¢Èë(Accept-Language:zh-CN)/Êı¾İ½â°ü(code===0¡údata)/´íÎóÌáÊ¾(ElMessage.error)/TypeScriptÁã´íÎó(tsc --noEmit) | |
+| P0-002-003-002-002-001 | ¶¨ÒåÇĞÃæÀ¹½ØÆ÷×¢²á·½Ê½ | 2026-05-30T23:10 | ? | ´´½¨types/api.d.ts(ApiResponse<T>/PageResult<T>ÀàĞÍ¶¨Òå)+¸üĞÂrequest.tsÏìÓ¦À¹½ØÆ÷(code===0·µ»Ødata/code===20001 Token¹ıÆÚ/code===40001/40003È¨ÏŞ²»×ã)+AxiosResponse<ApiResponse>ÀàĞÍ±ê×¢+tsc--noEmit±àÒëÍ¨¹ı | |
+| P0-002-003-002-002-003 | ¼¯³É²âÊÔÑéÖ¤ | 2026-05-30T23:45 | ? | ¾²Ì¬ÑéÖ¤ÏìÓ¦À¹½ØÆ÷8ÏîÇåµ¥È«²¿Í¨¹ı(code===0½â°ü/20001Ë¢ĞÂ/40001È¨ÏŞ/HTTP 401-500´íÎó/³¬Ê±/ÍøÂçÒì³£)+pnpm build±àÒëÍ¨¹ı | f38ca9ee |
+| P0-002-003-002-003-001 | ÊµÏÖ401À¹½ØÓëTokenË¢ĞÂÇëÇó | 2026-05-30T22:50 | ? | handleTokenRefreshºËĞÄº¯Êı:isRefreshing·À²¢·¢Ëø+refreshAxios¶ÀÁ¢ÊµÀı±ÜÃâËÀÑ­»·+pendingRequests¶ÓÁĞ¹ÜÀí+refreshÊ§°Üµ÷ÓÃlogoutÌø×ªµÇÂ¼Ò³+pnpm build±àÒëÍ¨¹ı | fabcaddb |
+| P0-002-003-002-003-002-001 | ÊµÏÖÇëÇóÅÅ¶Ó»úÖÆ | 2026-05-30T23:00 | ? | PendingRequest½Ó¿Ú¶¨Òå+pendingQueueÊı×é+addToQueue(Promise¹ÒÆğ+30s³¬Ê±±£»¤+³¬Ê±´Ó¶ÓÁĞÒÆ³ı)+replayRequests/handleRefreshFailureÊÊÅäĞÂÊı¾İ½á¹¹+tsc --noEmitÍ¨¹ı | ceec0f6c |
+| P0-002-003-002-003-002-003 | ÊµÏÖË¢ĞÂÊ§°Ü´¦Àí | 2026-05-31 | ? | handleRefreshFailureÖØĞ´:rejectËùÓĞÅÅ¶ÓÇëÇó(µÇÂ¼ÒÑ¹ıÆÚ)+ÏÔÊ½Çå¿ÕuserStore(token/userInfo/permissions/roles)+Çå³ılocalStorage(erp_user/erp_refresh_token)+ÖØÖÃisRefreshing+ElMessage.warningÌáÊ¾+router.replaceÌø×ª/login(·ÀÖØ¸´Ìø×ª)+catch¿é´«µİÔ­Ê¼error+pnpm buildÍ¨¹ı | |
+| P0-002-003-002-004-001 | ¶¨ÒåÂ·ÓÉÅäÖÃÏî | 2026-05-31 | ? | ´´½¨cancelRequest.ts:CancelConfig½Ó¿Ú(generateKey/skipCancel/cancelMessage)+defaultConfigÊµÏÖ+pendingMap(addPendingÖØ¸´ÇëÇóÈ¡Ïû+removePending+È¡Ïû+È¡ÏûÖ¸¶¨Ò³Ãæ)+CANCEL_WHITELIST_PATTERNS°×Ãûµ¥(/auth/login/refresh-token)+isWhitelisted(responseType blob×Ô¶¯°×Ãûµ¥)+pnpm buildÍ¨¹ı | |
+| P0-002-003-002-004-002 | ÊµÏÖÂ·ÓÉ×¢²áÓëÊØÎÀ | 2026-05-31 | ? | request.ts¼¯³ÉcancelRequest(addPending/removePending/isWhitelisted)+guards.ts beforeEachµ÷ÓÃcancelPendingRequestsÂ·ÓÉÇĞ»»È¡Ïû+fix cancelRequest.ts removePending²»abort+cancelError¼ì²âĞÂÔöCanceledErrorÅĞ¶Ï+pnpm buildÍ¨¹ı | 1570e76d |
+| P0-002-003-003-001-001 | ¶¨Òå½Ó¿ÚÂ·ÓÉÓë·½·¨Ç©Ãû | 2026-05-31T10:52 | ? | ´´½¨org/product/saleÈı¸öÒµÎñÄ£¿éAPIÀàĞÍ¶¨Òå(6ÎÄ¼ş)+¶ÔÓ¦APIÄ£¿éCRUD·½·¨(RESTful URL+named export+TypeScript·ºĞÍ),tsc --noEmit±àÒëÍ¨¹ı | cbd471cd |
+| P0-002-003-003-001-002 | ÊµÏÖ½Ó¿ÚÂß¼­ | 2026-05-31T11:00 | ? | Îªorg/product/saleÈı¸öÄ£¿éĞÂÔöbatchDelete/import(FormData+60s³¬Ê±)/export(responseType:blob)ÍêÕûÇëÇóÂß¼­+ImportResultVOÀàĞÍ,tsc --noEmitÍ¨¹ı | (pending) |
+| P0-002-003-003-002-001 | ¶¨Òå·ºĞÍÀà½á¹¹ | 2026-05-31T11:15 | ? | ApiResponse<T=unknown>/PageResult<T=unknown>/PageQueryÈı¸ö·ºĞÍ½Ó¿Ú¶¨Òå,·ºĞÍÄ¬ÈÏÖµÓÉany¸ÄÎªunknownÔöÇ¿ÀàĞÍ°²È« | 83693563 |
+| P0-002-003-003-002-002 | ÊµÏÖ¾²Ì¬¹¤³§·½·¨ | 2026-05-31T11:55 | ? | api.d.tsĞÂÔöisSuccess/getErrorMessage/assertSuccessÀàĞÍÇ©Ãû+apiHelper.tsÔËĞĞÊ±ÊµÏÖ(code===0ÑÏ¸ñ±È½Ï+assertsÀàĞÍÊØÎÀ+named export),tsc --noEmitÍ¨¹ı | 7c6bef74 |
+| P0-002-003-003-002-003 | ±àĞ´µ¥Ôª²âÊÔ | 2026-05-31T12:00 | ? | °²×°vitest@4.1.7,´´½¨vitest.config.ts+src/types/__tests__/api.test-d.ts(13²âÊÔ26¶ÏÑÔ),¸²¸ÇApiResponse/PageResult/PageQuery+isSuccess/getErrorMessage/assertSuccessÀàĞÍ¼ì²é,pnpm test:type 26passed+0 type errors+pnpm buildÍ¨¹ı | (pending) |
+| P0-002-004-001-001-001 | ÊµÏÖ»ù´¡ÈÕÆÚ·½·¨ | 2026-05-31T12:20 | ? | erp-ai-web/src/utils/date.ts:formatDate/parseDate/dateRange/relativeTime,dayjs+relativeTime²å¼ş+zh-cn locale,´¿º¯ÊıÎŞ¸±×÷ÓÃ,5ÏîÑéÊÕ±ê×¼È«²¿Í¨¹ı,pnpm buildÍ¨¹ı | (pending) |
+| P0-002-004-001-001-002 | ÊµÏÖ¿ì½İÑ¡ÏîÉú³É | 2026-05-31T12:45 | ? | erp-ai-web/src/utils/date.tsĞÂÔögetDateShortcuts/getMonthRange/getQuarterRange+DateShortcut½Ó¿Ú,7¸ö¿ì½İÑ¡Ïî(½ñÌì/±¾ÖÜ/±¾ÔÂ/±¾¼¾¶È/±¾Äê/×î½ü7Ìì/×î½ü30Ìì),±¾ÖÜÖÜÒ»ÎªÆğÊ¼ÈÕ+ÖÜÈÕ±ß½ç´¦Àí,valueº¯ÊıÊµÊ±¼ÆËã,´¿º¯ÊıÉè¼Æ,4ÏîÑéÊÕ±ê×¼Í¨¹ı,pnpm buildÍ¨¹ı | (pending) |
+| P0-002-004-001-002-001 | ÊµÏÖÊı×Ö¸ñÊ½»¯·½·¨ | 2026-05-31T13:00 | ? | erp-ai-web/src/utils/number.ts:formatMoney/formatPercent/formatQty/formatFileSize+FormatNumberOptions½Ó¿Ú,Intl.NumberFormat('zh-CN')Ç§·ÖÎ»,´¿º¯ÊıÎŞ¸±×÷ÓÃ,pnpm buildÍ¨¹ı,5ÏîÑéÊÕ±ê×¼È«²¿Í¨¹ı | (pending) |
+| P0-002-004-001-002-002 | ÊµÏÖ¾«¶È¼ÆËã·½·¨ | 2026-05-31T13:20 | ? | erp-ai-web/src/utils/number.ts×·¼Óadd/subtract/multiply/divide/round+RoundingModeÀàĞÍ+toSafeDecimalÄÚ²¿¸¨Öú,decimal.js¾«¶È¼ÆËã,divide³ıÁã±£»¤,roundÒøĞĞ¼ÒÉáÈë(ROUND_HALF_EVEN)Ö§³Ö4ÖÖÄ£Ê½,5ÏîÑéÊÕ±ê×¼È«²¿Í¨¹ı,pnpm test:typeÍ¨¹ı | (pending) |
+| P0-002-004-001-003-001 | ÊµÏÖ¶ÔÏó·½·¨ | 2026-05-31T14:00 | ? | erp-ai-web/src/utils/object.ts:deepClone/deepMerge/pick/omit,WeakMap·ÀÑ­»·ÒıÓÃ,Date/RegExp/Map/SetÀàĞÍÖ§³Ö,´¿º¯ÊıÎŞ¸±×÷ÓÃ,pnpm buildÍ¨¹ı,4ÏîÑéÊÕ±ê×¼È«²¿Í¨¹ı | (pending) |
+| P0-002-004-001-003-002 | ÊµÏÖÊı×é·½·¨ | 2026-05-31T14:30 | ? | erp-ai-web/src/utils/array.ts:arrayToTree/treeToArray/uniqueArray/flatten/groupBy,Map O(n)Ê÷¹¹½¨+Õ»µü´úÕ¹Æ½+Set/JSON¶µµ×È¥ÖØ+Record·Ö×é,È«ÀàĞÍ°²È«´¿º¯Êı,pnpm buildÍ¨¹ı,4ÏîÑéÊÕ±ê×¼Í¨¹ı | e5af4143 |
+| P0-002-004-001-004-001 | ÊµÏÖdebounce/throttle | 2026-05-31T15:00 | ? | erp-ai-web/src/utils/debounce.ts:debounce/throttle,leading/trailingÅäÖÃ+cancel/flush·½·¨+fn.apply(this,args)Í¸´«+TypeErrorĞ£Ñé,´¿º¯ÊıÎŞÒÀÀµ,pnpm buildÍ¨¹ı,4ÏîÑéÊÕ±ê×¼È«²¿Í¨¹ı | 27eb9fe6 |
+| P0-002-004-001-004-002 | ÊµÏÖ¸ß¼¶¹¤¾ß | 2026-05-31T15:30 | ? | erp-ai-web/src/utils/debounce.ts×·¼Óonce(Ê×´ÎÖ´ĞĞ»º´æ½á¹û,³ö´íÖØÖÃ¿ÉÖØÊÔ)/beforeAfter(before¡úfn¡úafter¹³×Ó)/withCount(Vue ref¼ÆÊıÆ÷)/useDebounce(composableÏìÓ¦Ê½·À¶¶+onUnmountedÇåÀí)/useThrottle(composableÏìÓ¦Ê½½ÚÁ÷+onUnmountedÇåÀí),pnpm buildÍ¨¹ı,4ÏîÑéÊÕ±ê×¼È«²¿Í¨¹ı | (pending) |
+| P0-002-004-002-001-001 | ¶¨ÒåÖ¸Áî¹³×Óº¯Êı | 2026-05-31T16:00 | ? | erp-ai-web/src/directives/permission.ts:¶¨ÒåPermissionValueÀàĞÍ(string|string[]),µ¼³öcheckPermissionº¯Êı+permissionDirectiveÖ¸Áî(Directive<HTMLElement,PermissionValue>),ÊµÏÖmounted/updated/unmounted¹³×Ó,Ö§³Öµ¥È¨ÏŞÂëºÍÊı×éÈÎÒ»Æ¥Åä,pnpm tsc --noEmit 0´íÎó+vite buildÍ¨¹ı | 4f8456fb |
+| P0-002-004-002-001-002 | ÊµÏÖÖ¸ÁîÂß¼­ | 2026-05-31T16:30 | ? | erp-ai-web/src/directives/permission.ts:ÇĞ»»useUserStoreÈ¨ÏŞÔ´+admin½ÇÉ«Ìø¹ı¼ì²é+removeElement¶ÀÁ¢º¯Êı+¿ÕÖµ±£»¤+Array.someÈÎÒ»Æ¥Åä+el.parentNode?.removeChild DOMÒÆ³ı,tsc --noEmit 0´íÎó | (pending) |
+| P0-002-004-002-002-001 | ¶¨ÒåÖ¸Áî¹³×Óº¯Êı | 2026-05-31T17:00 | ? | erp-ai-web/src/directives/debounce.ts:ÊµÏÖv-debounceÖ¸Áîmounted/updated/unmounted¹³×Ó+parseDelay½âÎöargÑÓ³Ù+createDebounceHandler·À¶¶´¦Àí+×¢²áµ½setupDirectives,tsc --noEmit 0´íÎó | 8fa6d7f3 |
+| P0-002-004-002-002-002 | ÊµÏÖÖ¸ÁîÂß¼­ | 2026-05-31T17:30 | ? | erp-ai-web/src/directives/debounce.ts:ÌáÈ¡cleanupDebounce¶ÀÁ¢º¯Êı+_debounceDelay»º´æÌæ´úbinding.oldArg+createDebounceHandler·À¶¶setTimeout/clearTimeout+parseDelay parseInt NaN·À»¤,tsc --noEmit 0´íÎó | e5a3eea7 |
+| P0-002-004-002-003-001 | ¶¨ÒåÖ¸Áî¹³×Óº¯Êı | 2026-05-31T17:45 | ? | erp-ai-web/src/directives/copy.ts:¶¨ÒåCopyValue/CopyElÀàĞÍ+copyDirectiveÖ¸Áîmounted/updated/unmounted¹³×Ó+clipboard API¸´ÖÆ+execCommand½µ¼¶+×¢²áµ½setupDirectives,tsc --noEmit 0´íÎó | daaf308c |
+| P0-002-004-002-003-002 | ÊµÏÖÖ¸ÁîÂß¼­ | 2026-05-31T18:10 | ? | erp-ai-web/src/directives/copy.ts:ÌáÈ¡copyToClipboard¶ÀÁ¢º¯Êı(clipboard API+execCommand½µ¼¶+left:-9999px·ÀÉÁË¸)+createCopyHandler¶ÀÁ¢º¯Êı(¿ÕÖµElMessage.warning+³É¹¦success+Ê§°Üerror)+Ö¸Áî¹³×Óµ÷ÓÃ,tsc --noEmit 0´íÎó | 5b4d5812 |
+| P0-002-004-003-001-001 | ¶¨Òå·â×°º¯ÊıÇ©Ãû | 2026-05-31T17:10 | ? | erp-ai-web/src/utils/message.ts:¶¨ÒåMessageContent/MessageType/MessageOptionsÀàĞÍ+defaultOptionsÄ¬ÈÏÅäÖÃ+iconMapÍ¼±êÓ³Éä+showSuccess/showError/showWarning/showInfo/confirmº¯ÊıÇ©Ãû,tsc --noEmit 0´íÎó | cd72d608 |
+| P0-002-004-003-001-002 | ÊµÏÖ·â×°Âß¼­ | 2026-05-31T17:15 | ? | erp-ai-web/src/utils/message.ts:ÊµÏÖÏûÏ¢È¥ÖØ/Í³Ò»ÅäÖÃ/Í³Ò»Í¼±ê/confirm Promise»¯/VNodeÖ§³Ö/±ß½ç´¦Àí,vue-tsc --noEmit 0´íÎó | a5fe20ce |
+| P0-002-005-001-001-001 | ¶¨ÒåÓïÑÔ°ü½á¹¹ | 2026-05-31T17:42 | ? | erp-ai-web/src/i18n/index.ts:createI18nÊµÀı(legacy:false)+ÖĞÓ¢ÎÄmessages(zh-CN/en-US)+fallbackLocale»ØÍË+missing»Øµ÷console.warn+setLanguageÍ¬²½ElementPlus/dayjs/HTML lang+locale´æ´¢,locale´æ¸ùÎÄ¼ş(vue-i18n 9.14.5),vue-tsc --noEmit 0´íÎó | 76d9d752 |
+| P0-002-005-001-001-002 | ±àĞ´ÖĞÎÄ´ÊÌõ | 2026-05-31T18:30 | ? | erp-ai-web/src/main.ts:ÒıÈë×¢²ái18n(Pinia-i18nË³Ğò)+provideEpLocale Element Plus localeÉÏÏÂÎÄ;env.d.ts:vue-i18n DefineLocaleMessageÀàĞÍ+element-plus .mjsÄ£¿éÉùÃ÷;i18n/locales/zh-CN.ts+en-US.ts:³äÊµcommon/status/validationÈıÀà70+´ÊÌõ;ĞŞ¸´i18n/index.tsÓÃlocaleContextKey+buildLocaleContextÌæ´ú·ÏÆúlocaleº¯Êı,vue-tsc -b 0´íÎó | 9fc34c44 |
+| P0-002-004-003-002-001 | ¶¨Òå·â×°º¯ÊıÇ©Ãû | 2026-05-31T18:45 | ? | erp-ai-web/src/utils/notification.ts:¶¨ÒåNotificationContent/NotificationType/NotificationPosition/NotifyOptionsÀàĞÍ+defaultOptionsÄ¬ÈÏÅäÖÃ+iconMapÍ¼±êÓ³Éä+notify/notifySuccess/notifyError/notifyWarning/notifyInfo/clearAllNotificationsº¯ÊıÇ©Ãû,vue-tsc -b 0´íÎó | 64ac7e60 |
+| P0-002-004-003-002-002 | ÊµÏÖ·â×°Âß¼­ | 2026-05-31T19:00 | ? | erp-ai-web/src/utils/notification.ts:ÊµÏÖnotifyImplÈ¥ÖØÂß¼­(activeNotifications Map)+Í³Ò»ÅäÖÃ(duration=4500ms/position='top-right'/showClose=true)+Í³Ò»Í¼±êiconMap+clearAllNotifications±éÀúMapÖğÊµÀıclose+±ß½ç´¦Àí(title¿Õwarn/duration=0²»×Ô¶¯¹Ø±Õ/ÎŞnameÌø¹ıÈ¥ÖØ),vue-tsc -b 0´íÎó | 71770a62 |
+| P0-002-005-001-002-001 | ¶¨ÒåStateÀàĞÍÓë³õÊ¼Öµ | 2026-05-31T19:15 | ? | erp-ai-web/src/stores/modules/locale.ts:LocaleState½Ó¿Ú(language/loadedLocales/availableLanguages)+getInitialLocaleÓÅÏÈ¼¶Á´(app-language > navigator.language > zh-CN)+Pinia Setup Store·ç¸ñ(defineStore+setup function)+loadedLocales³õÊ¼['zh-CN']+availableLanguagesÖĞÓ¢ÎÄÑ¡Ïî,vue-tsc -b 0´íÎó | 00b05893 |
+| P0-002-005-001-002-002 | ÊµÏÖActions | 2026-05-31T19:30 | ? | erp-ai-web/src/stores/modules/locale.ts:setLanguage(i18n/ElementPlus/dayjs/HTML langËÄ´¦Í¬²½+localStorage³Ö¾Ã»¯)+loadLocaleMessages(import.meta.glob¶¯Ì¬¼ÓÔØÓïÑÔ°ü)+epLocaleµ¼³öµ½store,ËùÓĞ5ÏîÑéÊÕÍ¨¹ı | 4322c4ab |
+| P0-002-005-001-002-003 | ÊµÏÖGetters | 2026-05-31T19:45 | ? | erp-ai-web/src/stores/modules/locale.ts:currentLanguage/currentLanguageLabel/availableLanguages computed getter+isLocaleLoadedº¯ÊıÊ½getter,availableLanguages´Óref¸ÄÎªcomputed±£³Ö´¿¼ÆËãÎŞ¸±×÷ÓÃ | 3225c668 |
+| P0-002-005-002-001-001 | ÊµÏÖµ¼³ö¹¦ÄÜ | 2026-05-31T17:15 | ? | erp-ai-web/src/i18n/locales/zh-CN/common.ts:52¸öÍ¨ÓÃ´ÊÌõ(²Ù×÷/×´Ì¬/±êÇ©/±íÍ·/Õ¼Î»Îå´ó·ÖÀà)+export defaultµ¼³ö+CommonLocaleÀàĞÍµ¼³ö,ÖØ¹¹zh-CN.ts´Ócommon.tsµ¼ÈëÏû³ıÖØ¸´,vue-tsc --noEmit 0´íÎó | 08b97536 |
+| P0-002-005-002-001-002 | ÊµÏÖµ¼Èë¹¦ÄÜ | 2026-05-31T20:00 | ? | zh-CN/index.ts+en-US/index.ts:¾ÛºÏcommon/status/validationÈıÄ£¿éÓïÑÔ°üË÷Òı+À©Õ¹ÔËËã·ûÕ¹¿ª+zh-CN/status.ts+validation.tsÌáÈ¡¶ÀÁ¢Ä£¿éÎÄ¼ş+en-US/common.ts+status.ts+validation.tsÌáÈ¡Ó¢ÎÄÄ£¿é+É¾³ı¾Ézh-CN.ts/en-US.tsµ¥ÎÄ¼ş+ÖĞÓ¢ÎÄ½á¹¹Ò»ÖÂ,vue-tsc --noEmit 0´íÎó | dc5cc10d |
+| P0-002-005-002-002-001 | ±àĞ´×´Ì¬ÎÄ±¾´ÊÌõ | 2026-05-31T20:30 | ? | erp-ai-web/src/i18n/locales/zh-CN/status.ts:Ç¶Ì×¶ÔÏó½á¹¹status.{domain}.{code},ËÄ¸öÒµÎñÓò(audit/enable/order/payment),audit.pending/approved/rejected+enable.enabled/disabled+order.draft/submitted/confirmed/completed/cancelled+payment.unpaid/paid/refunded,export default+StatusLocaleÀàĞÍµ¼³ö,vue-tsc --noEmit 0´íÎó | cbbcc48f |
+| P0-002-005-002-002-002 | ÊµÏÖ×´Ì¬ÎÄ±¾äÖÈ¾º¯Êı | 2026-05-31T17:05 | ? | erp-ai-web/src/utils/status.ts:renderStatusText(statusType,statusCode)·â×°i18n.global.tµ÷ÓÃ,StatusTypeÁªºÏÀàĞÍ(audit/enable/order/payment),Key¸ñÊ½status.{domain}.{code},Î´Æ¥Åä·µ»Ø[statusType.statusCode]Ä¬ÈÏÎÄ±¾+DEV»·¾³console.warn,¾ßÃûµ¼³ö+StatusTypeÀàĞÍµ¼³ö,vue-tsc --noEmit 0´íÎó | a607a329 |
+| P0-002-005-002-002-003 | ÑéÖ¤×´Ì¬Õ¹Ê¾ | 2026-05-31T17:30 | ? | ĞŞ¸´en-US/status.ts±âÆ½½á¹¹¡úÇ¶Ì×½á¹¹(Óëzh-CNÒ»ÖÂ),13¸ö×´Ì¬ÂëÖĞÓ¢ÎÄÈ«¸²¸ÇÑéÖ¤Í¨¹ı,TypeScript±àÒëÍ¨¹ı,²âÊÔ±¨¸æÒÑ¼ÇÂ¼ | 7d4aa0f0 |
+| P0-002-005-002-003-001 | ±àĞ´Ğ£ÑéÌáÊ¾´ÊÌõ | 2026-05-31T17:05 | ? | ÖØĞ´validation.ts:Ç¶Ì×½á¹¹required/format(phone/email/idCard/url)/length(min/max/range)/range(min/max/between)/custom(duplicate/invalid),Õ¼Î»·û${label}/${min}/${max},export default+ValidationLocaleÀàĞÍµ¼³ö | (pending) |
+| P0-002-005-002-003-002 | ÊµÏÖĞ£ÑéÌáÊ¾äÖÈ¾º¯Êı | 2026-05-31T17:30 | ? | erp-ai-web/src/utils/validation.ts:ValidationRule½Ó¿Ú+replacePlaceholders(/\$\{(\w+)\}/g)+renderValidationMessage(rule,label)+getValidationMessages(rules,label)¾ÛºÏ,¾ßÃûµ¼³ö,vue-tscÁã´íÎó | fbc0db22 |
+| P0-002-005-002-003-003 | ÑéÖ¤Ğ£ÑéÌáÊ¾ | 2026-05-31T17:30 | ? | ĞŞ¸´en-US/validation.ts±âÆ½½á¹¹¡úÇ¶Ì×½á¹¹(Óëzh-CNÒ»ÖÂ),{field}Õ¼Î»·û¡ú${label}¸ñÊ½,´úÂëÂ·¾¶Éó²é10ÏîÑéÖ¤È«²¿Í¨¹ı,vue-tsc --noEmit 0´íÎó,²âÊÔ±¨¸æÒÑ¼ÇÂ¼ | b7b441c8 |
+| P0-002-006-001-001-001 | ±àĞ´root CSS±äÁ¿ | 2026-05-31T17:45 | ? | ´´½¨erp-ai-web/src/styles/variables.css(11¸ö:rootÑÕÉ«±äÁ¿+6¸öhtml.dark°µÉ«Ä£Ê½¸²¸Ç),main.tsÒıÈëvariables.css,vue-tsc±àÒëÍ¨¹ı | ¡ª |
+| P0-002-006-001-001-002 | ÅäÖÃTailwind×Ô¶¨ÒåÑÕÉ« | 2026-05-31T18:00 | ? | °²×°tailwindcss+@tailwindcss/vite,´´½¨app.css(@theme¿é11¸öÑÕÉ«TokenÓ³ÉäCSS±äÁ¿),main.tsÒıÈëapp.css,vite.config.tsÌí¼Ótailwindcss²å¼ş,vue-tsc±àÒëÍ¨¹ı | ¡ª |
+| P0-002-006-001-001-003 | ÑéÖ¤ÑÕÉ«ÏµÍ³ | 2026-05-31T18:15 | ? | ÑéÖ¤:root 11¸öÑÕÉ«±äÁ¿+html.dark 6¸ö°µÉ«¸²¸Ç+app.css @theme TailwindÓ³Éä,ĞŞ¸´element-plus.scssÓ²±àÂë¡úvar(--color-*)ÒıÓÃ,4/4ÑéÊÕÍ¨¹ı | 0720b90b |
+| P0-002-006-001-002-001 | ±àĞ´¼ä¾à³ß´çCSS±äÁ¿ | 2026-05-31T18:00 | ? | erp-ai-web/src/styles/variables.css:×·¼Ó5¸ö¼ä¾à±äÁ¿(--spacing-xs/sm/md/lg/xl)+3¸öÔ²½Ç±äÁ¿(--radius-sm/md/lg)+3¸öÒõÓ°±äÁ¿(--shadow-sm/md/lg)+html.dark°µÉ«ÒõÓ°¸²¸Ç,main.tsÒÑÒıÈëvariables.css | a678cd21 |
+| P0-002-006-001-002-003 | ÑéÖ¤¼ä¾àÏµÍ³ | 2026-05-31T17:10 | ? | ÑéÖ¤:rootÏÂ11¸ö¼ä¾à/Ô²½Ç/ÒõÓ°±äÁ¿È«²¿ÕıÈ·¶¨Òå,app.css @theme Tailwind tokenÅäÖÃÕıÈ·,html.dark°µÉ«ÒõÓ°¸²¸ÇÕıÈ·,Êä³öÑéÖ¤±¨¸æ | 83adccf7 |
+| P0-002-006-002-001-001 | ¶¨Òå±äÁ¿/À©Õ¹ÅäÖÃ | 2026-05-31T17:30 | ? | ÑéÖ¤erp-ai-web/app.css @theme¿é:10¸öÑÕÉ«Token(ÒıÓÃCSS±äÁ¿)+5¸ö¼ä¾àToken+3¸öÔ²½ÇToken+3¸öÒõÓ°Token,ÒÑÓëvariables.css CSS±äÁ¿Í¬²½,main.tsÒÑÒıÈëapp.css,vue-tscÁã´íÎó | (pending) |
+| P0-002-006-002-001-002 | ÑéÖ¤ÑùÊ½Ğ§¹û | 2026-05-31T17:51 | ? | ÑéÖ¤Tailwind@themeÑÕÉ«/¼ä¾à/Ô²½Ç/ÒõÓ°7Ïî,´´½¨×îĞ¡ÊÓÍ¼Õ¼Î»ÎÄ¼şÊ¹¹¹½¨Í¨¹ı,npx vite build 1.09sÍ¨¹ı,ÑéÖ¤±¨¸æÒÑÉú³É,È«7/7ÑéÊÕÏîÍ¨¹ı | (pending) |
+| P0-002-006-003-001-001 | ¶¨Òå±äÁ¿/À©Õ¹ÅäÖÃ | 2026-05-31T17:55 | ? | ´´½¨element-override.scss:SCSS @forward¸²¸ÇElement PlusÑÕÉ«/Ô²½Ç±äÁ¿+html.dark°µÉ«Ä£Ê½EP CSS±äÁ¿¸²¸Ç,main.tsÒıÈëË³Ğòµ÷Õû,pnpm buildÍ¨¹ı | 7af1a5f0 |
+| P0-002-006-003-001-002 | ÑéÖ¤ÑùÊ½Ğ§¹û | 2026-05-31T18:05 | ? | ÑéÖ¤EPÑÕÉ«/Ô²½Ç/ÒõÓ°/°µÉ«Ä£Ê½/ÏìÓ¦Ê½5Ïî,pnpm buildÍ¨¹ı,Êä³öÑéÖ¤±¨¸æ,4/5Í¨¹ı1Ïî²¿·ÖÍ¨¹ı | 0d6f1a30 |
+| P0-002-006-004-001-001 | ±àĞ´SCSS¹¤¾ßÀà | 2026-05-31T18:15 | ? | ´´½¨_layout.scss:flex/grid/scroll/spacing/radius/shadow¹¤¾ßÀà,@eachÅúÁ¿Éú³É¼ä¾à,importµ½main.ts,pnpm buildÍ¨¹ı | c1ea8e84 |
+| P0-002-006-004-001-002 | ÑéÖ¤²¼¾Ö¹¤¾ßÀà | 2026-05-31T18:25 | ? | ÑéÖ¤84¸öerp-²¼¾ÖÀàÈ«²¿Í¨¹ı±àÒë,flex/grid/scroll/spacing/radius/shadowÕıÈ·,ÓëTailwind¹²´æÎŞ³åÍ»,1ÏîNOTE(ÏìÓ¦Ê½±äÌåÎŞ@media) | 6550fb72 |
+| P0-002-006-004-002-001 | ±àĞ´SCSS¹¤¾ßÀà | 2026-05-31T18:35 | ? | ´´½¨_text.scss:Ê¡ÂÔ/ÑÕÉ«/×ÖÌå/¶ÔÆë/¹ı¶É6Àà¹¤¾ßÀà,@eachÑ­»·Éú³É,importµ½main.ts,pnpm buildÍ¨¹ı | 157cb739 |
+| P0-002-006-004-002-002 | ÑéÖ¤ÎÄ±¾×°ÊÎ¹¤¾ßÀà | 2026-05-31T18:45 | ? | ÑéÖ¤ÎÄ±¾Ê¡ÂÔ/ÑÕÉ«/±³¾°/×ÖÌå/¶ÔÆë/¹ı¶É/ÒõÓ°¹¤¾ßÀà,ĞŞ¸´erp-transition-allÊ¹ÓÃtransition:all¸ÄÎªÖ¸¶¨ÊôĞÔ,pnpm buildÍ¨¹ı | ce69c4e3 |
+| P0-002-006-005-001-001 | ±àĞ´v-virtual-scrollÖ¸Áî | 2026-05-31T19:00 | ? | ´´½¨virtual-scroll.ts:ÊµÏÖ¿ÉÊÓÇøÓòäÖÈ¾¡ÀbufferĞĞ/transform translateY¶¨Î»/¶¯Ì¬¸ß¶ÈheightCache/ResizeObserver/passive scroll/×¢²áµ½directives/index.ts,vue-tsc+vite buildÍ¨¹ı | 989d3aec |
+| P0-002-006-005-001-002 | ÑéÖ¤ĞéÄâ¹ö¶¯ | 2026-05-31T19:15 | ? | 7/7ÑéÖ¤ÏîÈ«²¿Í¨¹ı:¿ÉÊÓÇøÓòäÖÈ¾/translateY¶¨Î»/heightCache»º´æ/passive scroll/unmountedÇåÀí/ÀàĞÍÍêÕûÎŞany/´´½¨dev²âÊÔÒ³(100kÊı¾İ+ÔËĞĞÈ«²¿²âÊÔ°´Å¥),pnpm buildÍ¨¹ı | 695b7533 |
+| P0-002-006-005-002-002 | ÑéÖ¤Í¼Æ¬ÀÁ¼ÓÔØ | 2026-05-31T19:50 | ? | 6ÏîÑéÖ¤È«²¿Í¨¹ı:Ê×ÆÁÍâ²»¼ÓÔØ/200pxÔ¤¼ÓÔØ/unobserveÇåÀí/onerror»ØÍËSVGÕ¼Î»Í¼/disconnectÊÍ·Å/URL¸üĞÂÖØ¼ÓÔØ+ĞŞ¸´DEFAULT_ERROR_IMG¸ÄÎªinline SVG data URI,pnpm buildÍ¨¹ı | 15abd820 |
+| P0-002-006-005-003-001 | ÅäÖÃvite.config.ts¹¹½¨ÓÅ»¯ | 2026-05-31T21:00 | ? | minify:terser+terserOptionsÅäÖÃ(drop_console/drop_debuggerÉú²úÒÆ³ı)+sourcemap»·¾³Ìõ¼ş¿ØÖÆ+defineConfig¼ıÍ·º¯ÊıĞÎÊ½+°²×°terser 5.48.0+manualChunksº¯ÊıĞÎÊ½·Ö°üvue/elementPlus/vendor(Vite 8/Rolldown¼æÈİ),pnpm buildÍ¨¹ı(5.04s) | 8827ef9f |
+| P0-002-006-005-003-002 | ÑéÖ¤¹¹½¨ÓÅ»¯ | 2026-05-31T19:00 | ? | ÑéÖ¤7Ïî¹¹½¨ÅäÖÃ+ĞŞ¸´element-plus·Ö°üË³Ğò(@element-plus/icons-vue±»vue¹æÔòÎó²¶»ñ)+ĞŞ¸´console²ßÂÔ(drop_console¡úpure_funcs±£Áôwarn/error)+vue chunk 332KB gzipped(ÂÔ³¬300KBÒò@vueuseÊÜRolldownÏŞÖÆÎŞ·¨·ÖÀë) | 8c06e7e9 |
+| P0-002-006-006-001-001 | ±àĞ´Íâ²¿×ÊÔ´ÓòÊÊÅäÅäÖÃ | 2026-05-31T21:15 | ? | ´´½¨cdn-fallback.ts(¹úÄÚ/¹úÍâCDN×Ô¶¯ÇĞ»»+³¬Ê±»ØÍË+preloadÔ¤¼ÓÔØ)+.env.development/.env.productionÌí¼ÓVITE_EXTERNAL_CDN_BASE/VITE_CDN_FALLBACK_URL+index.htmlÌí¼Ópreconnect | 8d86e81d |
+| P0-002-006-006-001-002 | ÑéÖ¤CDNÇĞ»» | 2026-05-31T18:32 | ? | ÑéÖ¤7ÏîCDNÇĞ»»+±àÒë+¹¹½¨È«²¿Í¨¹ı:cdn-fallback.ts¹úÄÚCDN fonts.loli.netÕıÈ·/³¬Ê±3000ms+×Ô¶¯ÇĞ»»±¸ÓÃÔ´/»·¾³±äÁ¿VITE_EXTERNAL_CDN_BASEÕıÈ·/index.html preconnectÉúĞ§/TypeScript±àÒëÁã´íÎó/Vite¹¹½¨³É¹¦(4.72s) | 56b53ae1 |
+| P0-003-007-012-001-003 | ÑéÖ¤±àĞ´inv_disassembly_detail²ğĞ¶Ö÷´Ó±íDDL | 2026-06-03T18:30 | ? | V20260603005ÑéÖ¤SQL(Ö÷±í17+´Ó±í17+FlywayÑéÖ¤¹²35Ïî²éÑ¯)+¾²Ì¬·ÖÎö±¨¸æ(34Ë÷Òı/76×Ö¶ÎCOMMENT/22À©Õ¹×Ö¶Î/11¿ìÕÕ×Ö¶Î/DECIMAL(18,8)¾«¶ÈÈ«²¿Í¨¹ı) | daf7e4bb |
 
-### æ¨¡å—å®Œæˆ: P0-002 âœ…
+### Ä£¿éÍê³É: P0-002 ?
 
-### P0-003 - æ•°æ®åº“åŸºç¡€æ¶æ„æ­å»º
+### P0-003 - Êı¾İ¿â»ù´¡¼Ü¹¹´î½¨
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-003-001-001-001-001 | ç¼–å†™CREATE DATABASEè¯­å¥ | 2026-05-31T20:11 | âœ… | db/migration/V20260526001__schema_related.sql:PostgreSQLåˆ›å»ºerp_dbæ•°æ®åº“(UTF8ç¼–ç /zh_CN.UTF-8åŒºåŸŸ/200è¿æ¥)+erp_base/erp_tenantåŒSchemaå¤šç§Ÿæˆ·éš”ç¦»+å¹‚ç­‰æ€§è®¾è®¡(DO$$IF NOT EXISTS/IF NOT EXISTS)+ALTER DATABASEæœç´¢è·¯å¾„é…ç½®+COMMENTæ³¨é‡Šå®Œæ•´,docs/specs/P0_003_001_001_001_001_spec.md:æ•°æ®åº“é…ç½®/Schemaè®¾è®¡/å¤šç§Ÿæˆ·ç­–ç•¥/æ‰§è¡Œè¯´æ˜/éªŒè¯æ–¹æ³•/æŠ€æœ¯å†³ç­–è®°å½• | 482f1299 |
-| P0-003-001-001-001-002 | æ‰§è¡ŒDDLå¹¶éªŒè¯ | 2026-05-31T18:32 | âœ… | db/migration/V20260526001__verify_chema.sql:DDLéªŒè¯æŸ¥è¯¢è„šæœ¬(æ•°æ®åº“/SCHEMA/ç¼–ç /æœç´¢è·¯å¾„/Flywayå†å²7å¤§éªŒè¯é¡¹)+docs/verification/chema_verify_report.md:å®Œæ•´éªŒè¯æŠ¥å‘Š(éªŒæ”¶æ ‡å‡†æ£€æŸ¥/æ˜“é”™è­¦ç¤ºç¡®è®¤/æ‰§è¡Œè¯´æ˜) | eaf51737 |
-| P0-003-001-002-001-001 | ç¼–å†™å…¬å…±å­—æ®µDDL | 2026-05-31T18:50 | âœ… | db/migration/V20260526001__schema_related.sql:æ–°å¢Step5å…¬å…±å­—æ®µåŸºåº§å®šä¹‰(10å­—æ®µæ¸…å•+DDLæ¨¡æ¿+è®¾è®¡è¦ç‚¹+ç´¢å¼•æ¨¡æ¿)+docs/specs/P0_003_001_002_001_001_spec.md:å…¬å…±å­—æ®µè§„èŒƒæ–‡æ¡£(å­—æ®µå®šä¹‰/è®¾è®¡è¦ç‚¹/å¤šç§Ÿæˆ·/è½¯åˆ é™¤/ä¹è§‚é”) | fe133a62 |
-| P0-003-001-002-001-002 | ç¼–å†™é»˜è®¤å€¼ä¸çº¦æŸ | 2026-05-31T18:35 | âœ… | db/migration/V20260526001__schema_related.sql:æ–°å¢Step6é»˜è®¤å€¼è§„èŒƒ+Step7çº¦æŸè§„èŒƒ+Step8ç¤ºä¾‹å»ºè¡¨+Step9 DMLå¹‚ç­‰æ€§ç¤ºä¾‹+docs/specs/P0_003_001_002_001_002_spec.md:é»˜è®¤å€¼ä¸çº¦æŸå®Œæ•´è§„èŒƒæ–‡æ¡£ | b319c32a |
-| P0-003-001-002-001-003 | éªŒè¯è§„èŒƒ | 2026-05-31T18:35 | âœ… | db/migration/V20260526001__verify_chema.sql:æ–°å¢å…¬å…±å­—æ®µè§„èŒƒéªŒè¯(Â§8-12)å«10å­—æ®µå®Œæ•´æ€§/NOT NULLçº¦æŸ/éƒ¨åˆ†å”¯ä¸€ç´¢å¼•/å¤šç§Ÿæˆ·ç´¢å¼•/COMMENTæ³¨é‡Š/FlywayéªŒè¯+docs/verification/chema_verify_report.md:å®Œæ•´éªŒè¯æŠ¥å‘Š(13é¡¹å…¨PASS) | ce548818 |
-| P0-003-002-001-001-001 | ç¼–å†™å…¬å…±å­—æ®µDDL | 2026-05-31T18:55 | âœ… | db/migration/V20260531001__task_P0_003_002_001_001_001.sql:åˆ›å»ºerp_base.public_field_specè§„èŒƒè®°å½•è¡¨(10é€šç”¨å­—æ®µå…ƒæ•°æ®DDL/é»˜è®¤å€¼/çº¦æŸ/ç´¢å¼•æ¨¡æ¿/COMMENTæ¨¡æ¿/æ‰©å±•å­—æ®µæ¨¡æ¿/å®Œæ•´å»ºè¡¨ç¤ºä¾‹)+docs/specs/P0_003_002_001_001_001_spec.md:å…¬å…±å­—æ®µè§„èŒƒéªŒè¯æ–‡æ¡£(10å­—æ®µå®šä¹‰/çº¦æŸè§„åˆ™/éªŒè¯ç»“æœ) | fee4b649 |
-| P0-003-002-001-001-002 | ç¼–å†™é»˜è®¤å€¼ä¸çº¦æŸ | 2026-05-31T18:42 | âœ… | db/migration/V20260531002__task_P0_003_002_001_001_002.sql:åˆ›å»ºerp_base.public_default_value_specé»˜è®¤å€¼è§„èŒƒè¡¨+erp_base.public_constraint_specçº¦æŸè§„èŒƒè¡¨+fn_validate_common_fields/fn_batch_validate_schemaä¸¤ä¸ªPL/pgSQLæ ¡éªŒå‡½æ•°+å®Œæ•´å»ºè¡¨DDLæ¨¡æ¿+docs/specs/P0_003_002_001_001_002_spec.md:é»˜è®¤å€¼ä¸çº¦æŸè§„èŒƒéªŒè¯æ–‡æ¡£ | 15cb2b8a |
-| P0-003-002-001-001-003 | éªŒè¯è§„èŒƒ | 2026-05-31T18:50 | âœ… | db/migration/V20260531003__task_P0_003_002_001_001_003.sql:éªŒè¯SQLè„šæœ¬(7æ­¥éªŒè¯å«è¡¨ç»“æ„/æ•°æ®å®Œæ•´æ€§/çº¦æŸåˆè§„æ€§/COMMENTå®Œæ•´æ€§/å‡½æ•°éªŒè¯/Flywayå†å²/ç»¼åˆæ±‡æ€»)+docs/specs/P0_003_002_001_001_003_spec.md:éªŒè¯è§„èŒƒæ–‡æ¡£(32é¡¹éªŒè¯æ¸…å•/10é¡¹æ ¸å¿ƒæ£€æŸ¥) | 2c67a3d3 |
-| P0-003-002-002-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-05-31T18:50 | âœ… | db/migration/V20260531004__task_P0_003_002_002_001_001.sql:10å¼ ç³»ç»Ÿæ ¸å¿ƒè¡¨DDL(sys_user/sys_role/sys_menu/sys_user_role/sys_user_dept/sys_role_menu/sys_role_data_scope/sys_role_field_permission/sys_user_group/sys_user_group_member),decimal(18,8)ç»Ÿä¸€ç²¾åº¦,COMMENTæ³¨é‡Šå®Œæ•´,æ— å¤–é”®çº¦æŸ | b1324ef0 |
-| P0-003-002-002-001-002 | ç¼–å†™ç³»ç»Ÿæ ¸å¿ƒè¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-05-31T18:50 | âœ… | db/migration/V20260531005__task_P0_003_002_002_001_002.sql:10å¼ è¡¨ç´¢å¼•ä¸çº¦æŸ(12UKå«WHERE is_deleted=false+22IDX),å…¨éƒ¨tenant_idé¦–åˆ—è”åˆç´¢å¼•,å‘½åè§„èŒƒuk_/idx_+docs/specs/P0_003_002_002_001_002_spec.md | 28270e3d |
-| P0-003-002-002-001-003 | éªŒè¯ç¼–å†™ç³»ç»Ÿæ ¸å¿ƒè¡¨DDL | 2026-05-31T19:00 | âœ… | db/migration/V20260526001__task_P0_003_002_002_001_003.sql:8éƒ¨åˆ†éªŒè¯SQL(è¡¨å­˜åœ¨æ€§/å­—æ®µå®Œæ•´æ€§/çº¦æŸ/ç´¢å¼•/COMMENT/Flyway/å¤–é”®/ç»¼åˆæ‘˜è¦)+docs/specs/P0_003_002_002_001_003_spec.md:é™æ€å®¡æŸ¥å…¨éƒ¨é€šè¿‡,10è¡¨DDLè§„èŒƒä¸€è‡´,31ç´¢å¼•åˆè§„,COMMENTè¦†ç›–ç‡100% | 3212f364 |
-| P0-003-002-003-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-05-31T19:10 | âœ… | db/migration/V20260531006__task_P0_003_002_003_001_001.sql:2å¼ è®¤è¯ç›¸å…³è¡¨DDL(sys_login_log/sys_oper_log),decimal(18,8)ç»Ÿä¸€ç²¾åº¦,COMMENTæ³¨é‡Šå®Œæ•´,æ— å¤–é”®çº¦æŸ+docs/specs/P0_003_002_003_001_001_spec.md | 312f831b |
-| P0-003-002-003-001-002 | ç¼–å†™è®¤è¯ç›¸å…³è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-05-31T19:25 | âœ… | db/migration/V20260531007__task_P0_003_002_003_001_002.sql:2å¼ è¡¨12ä¸ªç´¢å¼•(sys_login_log 6ä¸ª+sys_oper_log 6ä¸ª),å…¨éƒ¨tenant_idé¦–åˆ—è”åˆç´¢å¼•,å‘½åidx_å‰ç¼€,Flyway V20260531007æ— å†²çª+docs/specs/P0_003_002_003_001_002_spec.md | 245382e2 |
-| P0-003-002-003-001-003 | éªŒè¯ç¼–å†™è®¤è¯ç›¸å…³è¡¨DDL | 2026-05-31T19:40 | âœ… | db/migration/V20260526001__task_P0_003_002_003_001_003.sql:9éƒ¨åˆ†éªŒè¯SQL(è¡¨å­˜åœ¨æ€§/å­—æ®µå®Œæ•´æ€§/ç´¢å¼•/COMMENT/Flyway/å¤–é”®/ä¸»é”®)å…±195è¡Œ+docs/specs/P0_003_002_003_001_003_spec.md:é™æ€å®¡æŸ¥å…¨éƒ¨é€šè¿‡,2è¡¨DDLè§„èŒƒä¸€è‡´,12ç´¢å¼•å…¨éƒ¨tenant_idé¦–åˆ—,COMMENTè¦†ç›–ç‡100% | fdbddb0c |
-| P0-003-002-004-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ï¼ˆç³»ç»Ÿç®¡ç†è¡¨ï¼‰ | 2026-05-31T19:50 | âœ… | db/migration/V20260531008__task_P0_003_002_004_001_001.sql:10å¼ ç³»ç»Ÿç®¡ç†è¡¨DDL(sys_param/sys_dict_type/sys_dict_data/sys_code_rule/sys_code_rule_segment/sys_operation_log/sys_data_view/sys_data_view_field/sys_notice/sys_doc_config),decimal(18,8)ç»Ÿä¸€ç²¾åº¦,COMMENTæ³¨é‡Šå®Œæ•´,æ— å¤–é”®çº¦æŸ+docs/specs/P0_003_002_004_001_001_spec.md | 17f573b7 |
-| P0-003-002-004-001-002 | ç¼–å†™ç³»ç»Ÿç®¡ç†è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-05-31T19:20 | âœ… | db/migration/V20260531009__task_P0_003_002_004_001_002.sql:10å¼ ç³»ç»Ÿç®¡ç†è¡¨18ä¸ªç´¢å¼•(7ä¸ªéƒ¨åˆ†å”¯ä¸€ç´¢å¼•å«WHERE is_deleted=false+11ä¸ªB-TreeæŸ¥è¯¢ç´¢å¼•),å…¨éƒ¨tenant_idé¦–åˆ—è”åˆç´¢å¼•,COMMENT ON INDEXå®Œæ•´+docs/specs/P0_003_002_004_001_002_spec.md | 4a00776b |
-| P0-003-002-005-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T00:00 | âœ… | db/migration/V20260531011__task_P0_003_002_005_001_001.sql:1å¼ ç§»åŠ¨ç«¯èœå•è¡¨DDL(sys_mobile_menu),10ä¸ªé€šç”¨å­—æ®µ+9ä¸ªä¸šåŠ¡å­—æ®µ+æ‰©å±•å­—æ®µ,decimal(18,8)ç»Ÿä¸€ç²¾åº¦,COMMENTæ³¨é‡Šå®Œæ•´,æ— å¤–é”®çº¦æŸ+docs/specs/P0_003_002_005_001_001_spec.md | 9179a4a1 |
-| P0-003-002-005-001-002 | ç¼–å†™ç§»åŠ¨ç«¯ç›¸å…³è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T08:00 | âœ… | db/migration/V20260601001__task_P0_003_002_005_001_002.sql:5ä¸ªç´¢å¼•(4æ™®é€š+1éƒ¨åˆ†å”¯ä¸€),tenant_idé¦–åˆ—è”åˆç´¢å¼•,WHERE is_deleted=false,COMMENT ON INDEXå®Œæ•´+docs/specs/P0_003_002_005_001_002_spec.md | 15090306 |
-| P0-003-002-005-001-003 | éªŒè¯ç¼–å†™ç§»åŠ¨ç«¯ç›¸å…³è¡¨DDL | 2026-06-01T09:00 | âœ… | db/migration/V20260526001__task_P0_003_002_005_001_003.sql:8éƒ¨åˆ†éªŒè¯SQL(è¡¨å­˜åœ¨æ€§/é€šç”¨å­—æ®µå®Œæ•´æ€§/å­—æ®µç±»å‹çº¦æŸ/ç´¢å¼•/COMMENTæ³¨é‡Š/Flyway/å¤–é”®æ£€æŸ¥/ç»¼åˆæ‘˜è¦)+docs/specs/P0_003_002_005_001_003_spec.md:é™æ€å®¡æŸ¥å…¨éƒ¨é€šè¿‡,sys_mobile_menu DDLè§„èŒƒä¸€è‡´,5ç´¢å¼•å…¨éƒ¨tenant_idé¦–åˆ—,COMMENTè¦†ç›–ç‡100% | 224bd591 |
-| P0-003-002-006-001-001 | ç¼–å†™å•æ®ä¸»è¡¨DDLçº¦æŸä¸æšä¸¾æ³¨é‡Š | 2026-06-01T10:00 | âœ… | db/migration/V20260601002__task_P0_003_002_006_001_001.sql:åˆ›å»ºerp_base.bill_main_field_specè§„èŒƒè¡¨+fn_validate_bill_fieldsæ ¡éªŒå‡½æ•°+DDLæ¨¡æ¿/éƒ¨åˆ†å”¯ä¸€ç´¢å¼•æ¨¡æ¿/bill_statusæšä¸¾æ³¨é‡Š(0=è‰ç¨¿/1=å¾…å®¡æ ¸/2=å·²å®¡æ ¸/3=å·²å…³é—­/4=å·²ä½œåºŸ)+docs/specs/P0_003_002_006_001_001_spec.md | 60b06180 |
-| P0-003-002-007-001-001 | ç¼–å†™DDL | 2026-06-01T12:00 | âœ… | db/migration/V20260526001__task_P0_003_002_007_001_001.sql:åˆ›å»ºerp_base.detail_product_field_specè§„èŒƒè¡¨(16å­—æ®µ:3ç»“æ„å­—æ®µ+13å¿«ç…§å­—æ®µ)+fn_validate_detail_product_fieldsæ ¡éªŒå‡½æ•°+DDLç‰‡æ®µæ¨¡æ¿/ç´¢å¼•æ¨¡æ¿/å®Œæ•´é‡‡è´­å•æ˜ç»†å»ºè¡¨ç¤ºä¾‹/å¿«ç…§åŸåˆ™æ ¸å¿ƒè®¾è®¡è¦ç‚¹+docs/specs/P0_003_002_007_001_001_spec.md | 716ce62e |
-| P0-003-002-007-001-002 | ç¼–å†™å¿«ç…§çº¦æŸè¯´æ˜ | 2026-06-01T13:00 | âœ… | db/migration/V20260526001__task_P0_003_002_007_001_002.sql:åˆ›å»ºerp_base.detail_snapshot_constraintå¿«ç…§çº¦æŸå…ƒæ•°æ®è¡¨(50æ¡è§„åˆ™:10å¿«ç…§å­—æ®µÃ—5å•æ®çŠ¶æ€)+fn_validate_snapshot_constraintsæ ¡éªŒå‡½æ•°+äº”æ¡æ ¸å¿ƒè§„åˆ™æ–‡æ¡£/çŠ¶æ€è½¬æ¢çŸ©é˜µ/å¼€å‘æ£€æŸ¥æ¸…å•/å‰ç«¯äº¤äº’è§„èŒƒ+docs/specs/P0_003_002_007_001_002_spec.md | 3a890daf |
-| P0-003-002-008-001-001 | ç¼–å†™DDLè§„èŒƒ | 2026-06-01T13:30 | âœ… | db/migration/V20260526001__atis_related.sql:åˆ›å»ºerp_base.tenant_isolation_constraintå¤šç§Ÿæˆ·éš”ç¦»çº¦æŸå…ƒæ•°æ®è¡¨(29ä¸ªå·²æ³¨å†Œä¸šåŠ¡è¡¨)+fn_validate_tenant_isolation_ddlå•è¡¨æ ¡éªŒå‡½æ•°+fn_validate_all_tenant_isolation_ddlæ‰¹é‡æ ¡éªŒå‡½æ•°+ä¸ƒæ¡æ ¸å¿ƒè§„åˆ™æ–‡æ¡£/DDLæ ‡å‡†æ¨¡æ¿/å¸¸è§é”™è¯¯å¯¹ç…§/å¼€å‘æ£€æŸ¥æ¸…å•+docs/specs/P0_003_002_008_001_001_spec.md | bd695138 |
-| P0-003-002-008-001-002 | ç¼–å†™MyBatis-Plus TenantLineInnerInterceptor | 2026-06-01T13:45 | âœ… | TenantInterceptor.java:ç‹¬ç«‹@Componentå®ç°TenantLineHandler+MybatisPlusConfig.javaé‡æ„ç§»é™¤åŒ¿åå†…éƒ¨ç±»+docs/specs/P0_003_002_008_001_002_spec.md | ba1f5d2e |
-| P0-003-002-009-001-001 | ç¼–å†™DDL | 2026-06-01T14:00 | âœ… | db/migration/V20260526001__task_P0_003_002_009_001_001.sql:åˆ›å»ºerp_base.doc_detail_location/doc_detail_batch/doc_detail_serialä¸‰ä¸ªè¾…åŠ©å±æ€§å­è¡¨(å„å«ä¸šåŠ¡å­—æ®µ+22æ‰©å±•+10å…¬å…±+ç´¢å¼•+COMMENT)+fn_validate_aux_tableæ ¡éªŒå‡½æ•°+docs/specs/P0_003_002_009_001_001_spec.md | 9bac0e52 |
-| P0-003-003-001-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T14:30 | âœ… | db/migration/V20260601003__create_org_company.sql:org_companyå…¬å¸è¡¨DDL(10é€šç”¨å­—æ®µ+6ä¸šåŠ¡å­—æ®µ+æ‰©å±•å­—æ®µ+COMMENTæ³¨é‡Š+decimal(18,8)ç²¾åº¦)+å›æ»šè„šæœ¬ | 9158ccaa |
-| P0-003-003-001-001-002 | ç¼–å†™org_companyå…¬å¸è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T15:00 | âœ… | db/migration/V20260601004__create_org_company_indexes.sql:ä¸»é”®çº¦æŸé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 06849415 |
-| P0-003-003-001-001-003 | éªŒè¯ç¼–å†™org_companyå…¬å¸è¡¨DDL | 2026-06-01T15:30 | âœ… | db/migration/V20260526001__verify_org_company.sql:13é¡¹éªŒè¯SQL(è¡¨å­˜åœ¨æ€§/å­—æ®µå®Œæ•´æ€§/é€šç”¨å­—æ®µ/ç²¾åº¦/NOT NULL/ä¸»é”®/éƒ¨åˆ†å”¯ä¸€ç´¢å¼•/å¤šç§Ÿæˆ·ç´¢å¼•/COMMENT/å¤–é”®/Flyway)+docs/verification/org_company_verify_report.md:å®Œæ•´éªŒè¯æŠ¥å‘Š(å‘ç°é—®é¢˜:ç´¢å¼•åˆ—åcodeåº”ä¸ºcompany_code/22ä¸ªæ‰©å±•å­—æ®µç¼ºCOMMENT) | 908a4114 |
-| P0-003-003-002-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T16:00 | âœ… | db/migration/V20260601005__create_org_department.sql:org_departmentéƒ¨é—¨è¡¨DDL(10é€šç”¨å­—æ®µ+6ä¸šåŠ¡å­—æ®µ+æ‰©å±•å­—æ®µ+COMMENTæ³¨é‡Š+decimal(18,8)ç²¾åº¦)+å›æ»šè„šæœ¬ | 9adc627f |
-| P0-003-003-002-001-002 | ç¼–å†™org_departmentéƒ¨é—¨è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T16:30 | âœ… | db/migration/V20260601006__create_org_department_indexes.sql:ä¸»é”®çº¦æŸé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(æ ‘å½¢/å¤–é”®/çŠ¶æ€/æ—¥æœŸ)+å›æ»šè„šæœ¬ | fe4f5191 |
-| P0-003-003-002-001-003 | éªŒè¯ç¼–å†™org_departmentéƒ¨é—¨è¡¨DDL | 2026-06-01T17:00 | âœ… | db/migration/V20260526001__verify_org_department.sql+éªŒè¯æŠ¥å‘Š:å‘ç°CRITICALç´¢å¼•åˆ—åé”™è¯¯(codeâ†’dept_code)ä¸WARNING extå­—æ®µCOMMENTç¼ºå¤± | 67748186 |
-| P0-003-003-003-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T17:15 | âœ… | db/migration/V20260601007__create_org_position.sql:org_positionå²—ä½è¡¨DDL(10é€šç”¨å­—æ®µ+5ä¸šåŠ¡å­—æ®µ+æ‰©å±•å­—æ®µ+COMMENTæ³¨é‡Š+decimal(18,8)ç²¾åº¦)+å›æ»šè„šæœ¬ | 68706813 |
-| P0-003-003-003-001-002 | ç¼–å†™org_positionå²—ä½è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T17:30 | âœ… | db/migration/V20260601008__create_org_position_indexes.sql:ä¸»é”®çº¦æŸé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 98d987ff |
-| P0-003-003-003-001-003 | éªŒè¯ç¼–å†™org_positionå²—ä½è¡¨DDL | 2026-06-01T18:00 | âœ… | db/migration/V20260526001__verify_org_position.sql(14é¡¹éªŒè¯SQL)+docs/verification/org_position_verify_report.md(5/5éªŒæ”¶é€šè¿‡,æ— é˜»å¡æ€§é—®é¢˜) | a8636532 |
-| P0-003-003-004-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T18:30 | âœ… | db/migration/V20260601009__create_org_employee.sql:org_employeeå‘˜å·¥è¡¨DDL(10é€šç”¨å­—æ®µ+7ä¸šåŠ¡å­—æ®µ+æ‰©å±•å­—æ®µ+COMMENTæ³¨é‡Š+decimal(18,8)ç²¾åº¦)+å›æ»šè„šæœ¬ | c28ba012 |
-| P0-003-003-004-001-002 | ç¼–å†™org_employeeå‘˜å·¥è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T19:00 | âœ… | db/migration/V20260601010__create_org_employee_indexes.sql:ä¸»é”®çº¦æŸé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 9e7e0f03 |
-| P0-003-003-004-001-003 | éªŒè¯ç¼–å†™org_employeeå‘˜å·¥è¡¨DDL | 2026-06-01T19:30 | âœ… | db/migration/V20260526001__verify_org_employee.sql(14é¡¹éªŒè¯SQL)+docs/verification/org_employee_verify_report.md(5/5éªŒæ”¶é€šè¿‡,1ä¸ªWARNING:22ä¸ªæ‰©å±•å­—æ®µç¼ºCOMMENT) | dcdc09ad |
-| P0-003-004-001-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T19:50 | âœ… | db/migration/V20260601011__create_prod_product_class.sql:prod_product_classå•†å“åˆ†ç±»è¡¨DDL(10é€šç”¨å­—æ®µ+4ä¸šåŠ¡å­—æ®µ+22æ‰©å±•å­—æ®µ+COMMENTæ³¨é‡Š+decimal(18,8)ç²¾åº¦)+å›æ»šè„šæœ¬ | 435f0d04 |
-| P0-003-004-001-001-002 | ç¼–å†™prod_product_classå•†å“åˆ†ç±»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T20:00 | âœ… | db/migration/V20260601012:è¡¥å……statusåˆ—+PKé‡å‘½åä¸ºpk_prod_product_class+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | ced1f706 |
-| P0-003-004-001-001-003 | éªŒè¯ç¼–å†™prod_product_classå•†å“åˆ†ç±»è¡¨DDL | 2026-06-01T21:00 | âœ… | db/migration/V20260601013__verify_prod_product_class.sql(15é¡¹éªŒè¯SQL)+docs/verification/prod_product_class_verify_report.md(1CRITICAL:code/class_codeåˆ—åä¸åŒ¹é…+1WARNING:22æ‰©å±•å­—æ®µç¼ºCOMMENT) | 0f9a945d |
-| P0-003-004-002-001-001 | ç¼–å†™prod_productå•†å“ä¸»è¡¨CREATE TABLEè¯­å¥ | 2026-06-01T22:00 | âœ… | db/migration/V20260601014:prod_productè¡¨DDL(10é€šç”¨å­—æ®µ+8ä¸šåŠ¡å­—æ®µ+22æ‰©å±•å­—æ®µ,decimal(18,8),å…¨COMMENT)+å›æ»šè„šæœ¬ | a36b887f |
-| P0-003-004-002-001-002 | ç¼–å†™prod_productå•†å“ä¸»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T23:00 | âœ… | db/migration/V20260601015:PKé‡å‘½åä¸ºpk_prod_product+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(class_id/base_unit_id/created_at/name)+å›æ»šè„šæœ¬ | 1d70675f |
-| P0-003-004-002-001-003 | éªŒè¯ç¼–å†™prod_productå•†å“ä¸»è¡¨DDL | 2026-06-01T23:30 | âœ… | db/migration/V20260526001__verify_prod_product.sql(16é¡¹éªŒè¯SQL)+docs/verification/prod_product_verify_report.md(1CRITICAL:code/product_codeåˆ—åä¸åŒ¹é…+1WARNING:22æ‰©å±•å­—æ®µç¼ºCOMMENT) | â€” |
-| P0-003-004-003-001-001 | ç¼–å†™CREATE TABLEè¯­å¥(prod_product_unit) | 2026-06-01T23:45 | âœ… | db/migration/V20260601016:prod_product_unitè¡¨DDL(10é€šç”¨å­—æ®µ+4ä¸šåŠ¡å­—æ®µ,decimal(18,8),å…¨COMMENT)+å›æ»šè„šæœ¬ | e7691af8 |
-| P0-003-004-003-001-002 | ç¼–å†™prod_product_unitå•†å“å¤šå•ä½è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T23:59 | âœ… | db/migration/V20260601017:PKé‡å‘½åä¸ºpk_prod_product_unit+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false, product_id+unit_id)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(is_base_unit)+å›æ»šè„šæœ¬ | 6ed96676 |
-| P0-003-004-003-001-003 | éªŒè¯ç¼–å†™prod_product_unitå•†å“å¤šå•ä½è¡¨DDL | 2026-06-01T10:00 | âœ… | db/migration/V20260526001__verify_prod_product_unit.sql(16é¡¹éªŒè¯SQL)+docs/verification/prod_product_unit_verify_report.md(å…¨éƒ¨PASS, 0CRITICAL, COMMENTè¦†ç›–ç‡100%) | 31d9f412 |
-| P0-003-004-004-001-001 | ç¼–å†™CREATE TABLEè¯­å¥(prod_product_control) | 2026-06-01T12:00 | âœ… | db/migration/V20260601018:prod_product_controlè¡¨DDL(10é€šç”¨å­—æ®µ+4ä¸šåŠ¡å­—æ®µ,å…¨COMMENT)+å›æ»šè„šæœ¬ | 52f7d036 |
-| P0-003-004-004-001-002 | ç¼–å†™prod_product_controlå•†å“æ§åˆ¶ç­–ç•¥è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T13:30 | âœ… | db/migration/V20260601019:PKé‡å‘½åä¸ºpk_prod_product_control+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false, tenant_id+product_id)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(product_id/is_inventory)+å›æ»šè„šæœ¬ | bd0c660a |
-| P0-003-004-004-001-003 | éªŒè¯ç¼–å†™prod_product_controlå•†å“æ§åˆ¶ç­–ç•¥è¡¨DDL | 2026-06-01T14:00 | âœ… | db/migration/V20260601020(15é¡¹éªŒè¯SQL)+docs/verification/prod_product_control_verify_report.md(å…¨éƒ¨PASS, 0CRITICAL, COMMENTè¦†ç›–ç‡100%) | â€” |
-| P0-003-004-005-001-001 | ç¼–å†™CREATE TABLEè¯­å¥(prod_product_safety_stock) | 2026-06-01T15:00 | âœ… | db/migration/V20260601021:prod_product_safety_stockè¡¨DDL(10é€šç”¨å­—æ®µ+5ä¸šåŠ¡å­—æ®µ,å…¨COMMENT)+å›æ»šè„šæœ¬ | 37b00bd7 |
-| P0-003-004-005-001-002 | ç¼–å†™prod_product_safety_stockå•†å“å®‰å…¨åº“å­˜è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T15:30 | âœ… | db/migration/V20260601022:PKé‡å‘½åä¸ºpk_prod_product_safety_stock+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 68fde514 |
-| P0-003-004-005-001-003 | éªŒè¯ç¼–å†™prod_product_safety_stockå•†å“å®‰å…¨åº“å­˜è¡¨DDL | 2026-06-01T16:00 | âœ… | db/migration/V20260601023(15é¡¹éªŒè¯SQL)+docs/verification/prod_product_safety_stock_verify_report.md(å…¨éƒ¨PASS, 0CRITICAL, COMMENTè¦†ç›–ç‡100%) | eaf9b7e9 |
-| P0-003-004-006-001-001 | ç¼–å†™CREATE TABLEè¯­å¥(prod_product_attachment) | 2026-06-01T16:30 | âœ… | db/migration/V20260601024:prod_product_attachmentè¡¨DDL(10é€šç”¨å­—æ®µ+9ä¸šåŠ¡å­—æ®µ,å…¨COMMENT)+å›æ»šè„šæœ¬ | b7269885 |
-| P0-003-004-006-001-002 | ç¼–å†™prod_product_attachmentå•†å“é™„ä»¶è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T16:35 | âœ… | db/migration/V20260601025:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 6d1251bd |
-| P0-003-004-006-001-003 | éªŒè¯ç¼–å†™prod_product_attachmentå•†å“é™„ä»¶è¡¨DDL | 2026-06-01T16:45 | âœ… | db/migration/V20260601026(17é¡¹éªŒè¯SQL)+docs/verification/prod_product_attachment_verify_report.md(å…¨éƒ¨PASS, 0CRITICAL, COMMENTè¦†ç›–ç‡100%) | f548a1fb |
-| P0-003-002-011-001-001 | ç¼–å†™è§„èŒƒ | 2026-06-01T17:20 | âœ… | docs/specs/P0_003_002_011_001_001_spec.md(7ç« base_qtyæ ¸å¿ƒè§„èŒƒ+è®¡ç®—é€»è¾‘+æ ¡éªŒè§„åˆ™)+db/migration/V20260526001__base_qty_related.sql(3ä¸ªPL/pgSQLå‡½æ•°:fn_calc_base_qty/fn_validate_base_qty/fn_reverse_calc_qty+è§„èŒƒæ–‡æ¡£æ³¨é‡Š) | (pending) |
-| P0-003-002-012-001-001 | ç¼–å†™è§„èŒƒ | 2026-06-01T17:50 | âœ… | docs/specs/db_naming_convention.md+db_data_type_spec.md+db_index_spec.md(æ•°æ®åº“å‘½å/æ•°æ®ç±»å‹/ç´¢å¼•è®¾è®¡ä¸‰å¤§è§„èŒƒæ–‡æ¡£,è¦†ç›–å”¯ä¸€çº¦æŸéœ€å«is_deleted+å¤šç§Ÿæˆ·ç´¢å¼•+decimal(18,8)ç²¾åº¦) | fade7c18 |
-| P0-003-002-013-001-001 | ç¼–å†™ç²¾åº¦è§„åˆ™ | 2026-06-01T18:00 | âœ… | docs/specs/P0_003_002_013_001_001_spec.md(7ç« :ç²¾åº¦ä¼˜å…ˆçº§ä½“ç³»+å°¾å·®å¤„ç†è§„åˆ™+å‚æ•°é…ç½®)+db/migration/V20260526001__task_P0_003_002_013_001_001.sql(4ä¸ªPL/pgSQLå‡½æ•°+12ä¸ªé¢„ç½®ç²¾åº¦å‚æ•°+è§„èŒƒæ³¨é‡Š) | (pending) |
-| P0-003-004-007-001-001 | ç¼–å†™CREATE TABLEè¯­å¥(prod_product_standard_price) | 2026-06-01T18:10 | âœ… | db/migration/V20260601027:prod_product_standard_priceè¡¨DDL(10é€šç”¨å­—æ®µ+12ä¸šåŠ¡å­—æ®µ,decimal(18,8),å…¨COMMENT)+å›æ»šè„šæœ¬ | d3ed75df |
-| P0-003-004-007-001-002 | ç¼–å†™prod_product_standard_priceå•†å“æ ‡å‡†ä»·è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T18:20 | âœ… | db/migration/V20260601028:PKé‡å‘½åä¸ºpk_prod_product_standard_price+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false, tenant_id+product_id)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 623a556e |
-| P0-003-004-007-001-003 | éªŒè¯ç¼–å†™prod_product_standard_priceå•†å“æ ‡å‡†ä»·è¡¨DDL | 2026-06-01T18:35 | âœ… | db/migration/V20260601029:20é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/prod_product_standard_price_verify_report.md:12èŠ‚éªŒè¯æŠ¥å‘Š(22å­—æ®µ+10ç´¢å¼•+100%COMMENT+decimal(18,8)+æ— å¤–é”®) | a0a83b37 |
-| P0-003-004-008-001-001 | ç¼–å†™CREATE TABLEè¯­å¥(prod_product_purchase_price) | 2026-06-01T18:50 | âœ… | db/migration/V20260601030:prod_product_purchase_priceè¡¨DDL(10é€šç”¨å­—æ®µ+13ä¸šåŠ¡å­—æ®µ,decimal(18,8),å…¨COMMENT)+å›æ»šè„šæœ¬ | 74f42302 |
-| P0-003-004-008-001-002 | ç¼–å†™prod_product_purchase_priceå•†å“è´­ä»·æ ¸å®šè¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T19:00 | âœ… | db/migration/V20260601031:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false, tenant_id+product_id+supplier_id)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 5d5a49ad |
-| P0-003-004-008-001-003 | éªŒè¯ç¼–å†™prod_product_purchase_priceå•†å“è´­ä»·æ ¸å®šè¡¨DDL | 2026-06-01T19:10 | âœ… | db/migration/V20260601032:20é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/prod_product_purchase_price_verify_report.md:12èŠ‚éªŒè¯æŠ¥å‘Š(23å­—æ®µ+12ç´¢å¼•+100%COMMENT+decimal(18,8)+æ— å¤–é”®) | fbd88e4a |
-| P0-003-004-009-001-001 | ç¼–å†™CREATE TABLEè¯­å¥(prod_product_sale_price) | 2026-06-01T19:20 | âœ… | db/migration/V20260601033:prod_product_sale_priceè¡¨DDL(10é€šç”¨å­—æ®µ+13ä¸šåŠ¡å­—æ®µ,decimal(18,8),å…¨COMMENT)+å›æ»šè„šæœ¬ | 8f784931 |
-| P0-003-004-009-001-002 | ç¼–å†™prod_product_sale_priceå•†å“é”€ä»·æ ¸å®šè¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T19:35 | âœ… | db/migration/V20260601034:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false, tenant_id+product_id+customer_id)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | dcafe8db |
+| P0-003-001-001-001-001 | ±àĞ´CREATE DATABASEÓï¾ä | 2026-05-31T20:11 | ? | db/migration/V20260526001__schema_related.sql:PostgreSQL´´½¨erp_dbÊı¾İ¿â(UTF8±àÂë/zh_CN.UTF-8ÇøÓò/200Á¬½Ó)+erp_base/erp_tenantË«Schema¶à×â»§¸ôÀë+ÃİµÈĞÔÉè¼Æ(DO$$IF NOT EXISTS/IF NOT EXISTS)+ALTER DATABASEËÑË÷Â·¾¶ÅäÖÃ+COMMENT×¢ÊÍÍêÕû,docs/specs/P0_003_001_001_001_001_spec.md:Êı¾İ¿âÅäÖÃ/SchemaÉè¼Æ/¶à×â»§²ßÂÔ/Ö´ĞĞËµÃ÷/ÑéÖ¤·½·¨/¼¼Êõ¾ö²ß¼ÇÂ¼ | 482f1299 |
+| P0-003-001-001-001-002 | Ö´ĞĞDDL²¢ÑéÖ¤ | 2026-05-31T18:32 | ? | db/migration/V20260526001__verify_chema.sql:DDLÑéÖ¤²éÑ¯½Å±¾(Êı¾İ¿â/SCHEMA/±àÂë/ËÑË÷Â·¾¶/FlywayÀúÊ·7´óÑéÖ¤Ïî)+docs/verification/chema_verify_report.md:ÍêÕûÑéÖ¤±¨¸æ(ÑéÊÕ±ê×¼¼ì²é/Ò×´í¾¯Ê¾È·ÈÏ/Ö´ĞĞËµÃ÷) | eaf51737 |
+| P0-003-001-002-001-001 | ±àĞ´¹«¹²×Ö¶ÎDDL | 2026-05-31T18:50 | ? | db/migration/V20260526001__schema_related.sql:ĞÂÔöStep5¹«¹²×Ö¶Î»ù×ù¶¨Òå(10×Ö¶ÎÇåµ¥+DDLÄ£°å+Éè¼ÆÒªµã+Ë÷ÒıÄ£°å)+docs/specs/P0_003_001_002_001_001_spec.md:¹«¹²×Ö¶Î¹æ·¶ÎÄµµ(×Ö¶Î¶¨Òå/Éè¼ÆÒªµã/¶à×â»§/ÈíÉ¾³ı/ÀÖ¹ÛËø) | fe133a62 |
+| P0-003-001-002-001-002 | ±àĞ´Ä¬ÈÏÖµÓëÔ¼Êø | 2026-05-31T18:35 | ? | db/migration/V20260526001__schema_related.sql:ĞÂÔöStep6Ä¬ÈÏÖµ¹æ·¶+Step7Ô¼Êø¹æ·¶+Step8Ê¾Àı½¨±í+Step9 DMLÃİµÈĞÔÊ¾Àı+docs/specs/P0_003_001_002_001_002_spec.md:Ä¬ÈÏÖµÓëÔ¼ÊøÍêÕû¹æ·¶ÎÄµµ | b319c32a |
+| P0-003-001-002-001-003 | ÑéÖ¤¹æ·¶ | 2026-05-31T18:35 | ? | db/migration/V20260526001__verify_chema.sql:ĞÂÔö¹«¹²×Ö¶Î¹æ·¶ÑéÖ¤(¡ì8-12)º¬10×Ö¶ÎÍêÕûĞÔ/NOT NULLÔ¼Êø/²¿·ÖÎ¨Ò»Ë÷Òı/¶à×â»§Ë÷Òı/COMMENT×¢ÊÍ/FlywayÑéÖ¤+docs/verification/chema_verify_report.md:ÍêÕûÑéÖ¤±¨¸æ(13ÏîÈ«PASS) | ce548818 |
+| P0-003-002-001-001-001 | ±àĞ´¹«¹²×Ö¶ÎDDL | 2026-05-31T18:55 | ? | db/migration/V20260531001__task_P0_003_002_001_001_001.sql:´´½¨erp_base.public_field_spec¹æ·¶¼ÇÂ¼±í(10Í¨ÓÃ×Ö¶ÎÔªÊı¾İDDL/Ä¬ÈÏÖµ/Ô¼Êø/Ë÷ÒıÄ£°å/COMMENTÄ£°å/À©Õ¹×Ö¶ÎÄ£°å/ÍêÕû½¨±íÊ¾Àı)+docs/specs/P0_003_002_001_001_001_spec.md:¹«¹²×Ö¶Î¹æ·¶ÑéÖ¤ÎÄµµ(10×Ö¶Î¶¨Òå/Ô¼Êø¹æÔò/ÑéÖ¤½á¹û) | fee4b649 |
+| P0-003-002-001-001-002 | ±àĞ´Ä¬ÈÏÖµÓëÔ¼Êø | 2026-05-31T18:42 | ? | db/migration/V20260531002__task_P0_003_002_001_001_002.sql:´´½¨erp_base.public_default_value_specÄ¬ÈÏÖµ¹æ·¶±í+erp_base.public_constraint_specÔ¼Êø¹æ·¶±í+fn_validate_common_fields/fn_batch_validate_schemaÁ½¸öPL/pgSQLĞ£Ñéº¯Êı+ÍêÕû½¨±íDDLÄ£°å+docs/specs/P0_003_002_001_001_002_spec.md:Ä¬ÈÏÖµÓëÔ¼Êø¹æ·¶ÑéÖ¤ÎÄµµ | 15cb2b8a |
+| P0-003-002-001-001-003 | ÑéÖ¤¹æ·¶ | 2026-05-31T18:50 | ? | db/migration/V20260531003__task_P0_003_002_001_001_003.sql:ÑéÖ¤SQL½Å±¾(7²½ÑéÖ¤º¬±í½á¹¹/Êı¾İÍêÕûĞÔ/Ô¼ÊøºÏ¹æĞÔ/COMMENTÍêÕûĞÔ/º¯ÊıÑéÖ¤/FlywayÀúÊ·/×ÛºÏ»ã×Ü)+docs/specs/P0_003_002_001_001_003_spec.md:ÑéÖ¤¹æ·¶ÎÄµµ(32ÏîÑéÖ¤Çåµ¥/10ÏîºËĞÄ¼ì²é) | 2c67a3d3 |
+| P0-003-002-002-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-05-31T18:50 | ? | db/migration/V20260531004__task_P0_003_002_002_001_001.sql:10ÕÅÏµÍ³ºËĞÄ±íDDL(sys_user/sys_role/sys_menu/sys_user_role/sys_user_dept/sys_role_menu/sys_role_data_scope/sys_role_field_permission/sys_user_group/sys_user_group_member),decimal(18,8)Í³Ò»¾«¶È,COMMENT×¢ÊÍÍêÕû,ÎŞÍâ¼üÔ¼Êø | b1324ef0 |
+| P0-003-002-002-001-002 | ±àĞ´ÏµÍ³ºËĞÄ±íË÷ÒıÓëÔ¼Êø | 2026-05-31T18:50 | ? | db/migration/V20260531005__task_P0_003_002_002_001_002.sql:10ÕÅ±íË÷ÒıÓëÔ¼Êø(12UKº¬WHERE is_deleted=false+22IDX),È«²¿tenant_idÊ×ÁĞÁªºÏË÷Òı,ÃüÃû¹æ·¶uk_/idx_+docs/specs/P0_003_002_002_001_002_spec.md | 28270e3d |
+| P0-003-002-002-001-003 | ÑéÖ¤±àĞ´ÏµÍ³ºËĞÄ±íDDL | 2026-05-31T19:00 | ? | db/migration/V20260526001__task_P0_003_002_002_001_003.sql:8²¿·ÖÑéÖ¤SQL(±í´æÔÚĞÔ/×Ö¶ÎÍêÕûĞÔ/Ô¼Êø/Ë÷Òı/COMMENT/Flyway/Íâ¼ü/×ÛºÏÕªÒª)+docs/specs/P0_003_002_002_001_003_spec.md:¾²Ì¬Éó²éÈ«²¿Í¨¹ı,10±íDDL¹æ·¶Ò»ÖÂ,31Ë÷ÒıºÏ¹æ,COMMENT¸²¸ÇÂÊ100% | 3212f364 |
+| P0-003-002-003-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-05-31T19:10 | ? | db/migration/V20260531006__task_P0_003_002_003_001_001.sql:2ÕÅÈÏÖ¤Ïà¹Ø±íDDL(sys_login_log/sys_oper_log),decimal(18,8)Í³Ò»¾«¶È,COMMENT×¢ÊÍÍêÕû,ÎŞÍâ¼üÔ¼Êø+docs/specs/P0_003_002_003_001_001_spec.md | 312f831b |
+| P0-003-002-003-001-002 | ±àĞ´ÈÏÖ¤Ïà¹Ø±íË÷ÒıÓëÔ¼Êø | 2026-05-31T19:25 | ? | db/migration/V20260531007__task_P0_003_002_003_001_002.sql:2ÕÅ±í12¸öË÷Òı(sys_login_log 6¸ö+sys_oper_log 6¸ö),È«²¿tenant_idÊ×ÁĞÁªºÏË÷Òı,ÃüÃûidx_Ç°×º,Flyway V20260531007ÎŞ³åÍ»+docs/specs/P0_003_002_003_001_002_spec.md | 245382e2 |
+| P0-003-002-003-001-003 | ÑéÖ¤±àĞ´ÈÏÖ¤Ïà¹Ø±íDDL | 2026-05-31T19:40 | ? | db/migration/V20260526001__task_P0_003_002_003_001_003.sql:9²¿·ÖÑéÖ¤SQL(±í´æÔÚĞÔ/×Ö¶ÎÍêÕûĞÔ/Ë÷Òı/COMMENT/Flyway/Íâ¼ü/Ö÷¼ü)¹²195ĞĞ+docs/specs/P0_003_002_003_001_003_spec.md:¾²Ì¬Éó²éÈ«²¿Í¨¹ı,2±íDDL¹æ·¶Ò»ÖÂ,12Ë÷ÒıÈ«²¿tenant_idÊ×ÁĞ,COMMENT¸²¸ÇÂÊ100% | fdbddb0c |
+| P0-003-002-004-001-001 | ±àĞ´CREATE TABLEÓï¾ä£¨ÏµÍ³¹ÜÀí±í£© | 2026-05-31T19:50 | ? | db/migration/V20260531008__task_P0_003_002_004_001_001.sql:10ÕÅÏµÍ³¹ÜÀí±íDDL(sys_param/sys_dict_type/sys_dict_data/sys_code_rule/sys_code_rule_segment/sys_operation_log/sys_data_view/sys_data_view_field/sys_notice/sys_doc_config),decimal(18,8)Í³Ò»¾«¶È,COMMENT×¢ÊÍÍêÕû,ÎŞÍâ¼üÔ¼Êø+docs/specs/P0_003_002_004_001_001_spec.md | 17f573b7 |
+| P0-003-002-004-001-002 | ±àĞ´ÏµÍ³¹ÜÀí±íË÷ÒıÓëÔ¼Êø | 2026-05-31T19:20 | ? | db/migration/V20260531009__task_P0_003_002_004_001_002.sql:10ÕÅÏµÍ³¹ÜÀí±í18¸öË÷Òı(7¸ö²¿·ÖÎ¨Ò»Ë÷Òıº¬WHERE is_deleted=false+11¸öB-Tree²éÑ¯Ë÷Òı),È«²¿tenant_idÊ×ÁĞÁªºÏË÷Òı,COMMENT ON INDEXÍêÕû+docs/specs/P0_003_002_004_001_002_spec.md | 4a00776b |
+| P0-003-002-005-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T00:00 | ? | db/migration/V20260531011__task_P0_003_002_005_001_001.sql:1ÕÅÒÆ¶¯¶Ë²Ëµ¥±íDDL(sys_mobile_menu),10¸öÍ¨ÓÃ×Ö¶Î+9¸öÒµÎñ×Ö¶Î+À©Õ¹×Ö¶Î,decimal(18,8)Í³Ò»¾«¶È,COMMENT×¢ÊÍÍêÕû,ÎŞÍâ¼üÔ¼Êø+docs/specs/P0_003_002_005_001_001_spec.md | 9179a4a1 |
+| P0-003-002-005-001-002 | ±àĞ´ÒÆ¶¯¶ËÏà¹Ø±íË÷ÒıÓëÔ¼Êø | 2026-06-01T08:00 | ? | db/migration/V20260601001__task_P0_003_002_005_001_002.sql:5¸öË÷Òı(4ÆÕÍ¨+1²¿·ÖÎ¨Ò»),tenant_idÊ×ÁĞÁªºÏË÷Òı,WHERE is_deleted=false,COMMENT ON INDEXÍêÕû+docs/specs/P0_003_002_005_001_002_spec.md | 15090306 |
+| P0-003-002-005-001-003 | ÑéÖ¤±àĞ´ÒÆ¶¯¶ËÏà¹Ø±íDDL | 2026-06-01T09:00 | ? | db/migration/V20260526001__task_P0_003_002_005_001_003.sql:8²¿·ÖÑéÖ¤SQL(±í´æÔÚĞÔ/Í¨ÓÃ×Ö¶ÎÍêÕûĞÔ/×Ö¶ÎÀàĞÍÔ¼Êø/Ë÷Òı/COMMENT×¢ÊÍ/Flyway/Íâ¼ü¼ì²é/×ÛºÏÕªÒª)+docs/specs/P0_003_002_005_001_003_spec.md:¾²Ì¬Éó²éÈ«²¿Í¨¹ı,sys_mobile_menu DDL¹æ·¶Ò»ÖÂ,5Ë÷ÒıÈ«²¿tenant_idÊ×ÁĞ,COMMENT¸²¸ÇÂÊ100% | 224bd591 |
+| P0-003-002-006-001-001 | ±àĞ´µ¥¾İÖ÷±íDDLÔ¼ÊøÓëÃ¶¾Ù×¢ÊÍ | 2026-06-01T10:00 | ? | db/migration/V20260601002__task_P0_003_002_006_001_001.sql:´´½¨erp_base.bill_main_field_spec¹æ·¶±í+fn_validate_bill_fieldsĞ£Ñéº¯Êı+DDLÄ£°å/²¿·ÖÎ¨Ò»Ë÷ÒıÄ£°å/bill_statusÃ¶¾Ù×¢ÊÍ(0=²İ¸å/1=´ıÉóºË/2=ÒÑÉóºË/3=ÒÑ¹Ø±Õ/4=ÒÑ×÷·Ï)+docs/specs/P0_003_002_006_001_001_spec.md | 60b06180 |
+| P0-003-002-007-001-001 | ±àĞ´DDL | 2026-06-01T12:00 | ? | db/migration/V20260526001__task_P0_003_002_007_001_001.sql:´´½¨erp_base.detail_product_field_spec¹æ·¶±í(16×Ö¶Î:3½á¹¹×Ö¶Î+13¿ìÕÕ×Ö¶Î)+fn_validate_detail_product_fieldsĞ£Ñéº¯Êı+DDLÆ¬¶ÎÄ£°å/Ë÷ÒıÄ£°å/ÍêÕû²É¹ºµ¥Ã÷Ï¸½¨±íÊ¾Àı/¿ìÕÕÔ­ÔòºËĞÄÉè¼ÆÒªµã+docs/specs/P0_003_002_007_001_001_spec.md | 716ce62e |
+| P0-003-002-007-001-002 | ±àĞ´¿ìÕÕÔ¼ÊøËµÃ÷ | 2026-06-01T13:00 | ? | db/migration/V20260526001__task_P0_003_002_007_001_002.sql:´´½¨erp_base.detail_snapshot_constraint¿ìÕÕÔ¼ÊøÔªÊı¾İ±í(50Ìõ¹æÔò:10¿ìÕÕ×Ö¶Î¡Á5µ¥¾İ×´Ì¬)+fn_validate_snapshot_constraintsĞ£Ñéº¯Êı+ÎåÌõºËĞÄ¹æÔòÎÄµµ/×´Ì¬×ª»»¾ØÕó/¿ª·¢¼ì²éÇåµ¥/Ç°¶Ë½»»¥¹æ·¶+docs/specs/P0_003_002_007_001_002_spec.md | 3a890daf |
+| P0-003-002-008-001-001 | ±àĞ´DDL¹æ·¶ | 2026-06-01T13:30 | ? | db/migration/V20260526001__atis_related.sql:´´½¨erp_base.tenant_isolation_constraint¶à×â»§¸ôÀëÔ¼ÊøÔªÊı¾İ±í(29¸öÒÑ×¢²áÒµÎñ±í)+fn_validate_tenant_isolation_ddlµ¥±íĞ£Ñéº¯Êı+fn_validate_all_tenant_isolation_ddlÅúÁ¿Ğ£Ñéº¯Êı+ÆßÌõºËĞÄ¹æÔòÎÄµµ/DDL±ê×¼Ä£°å/³£¼û´íÎó¶ÔÕÕ/¿ª·¢¼ì²éÇåµ¥+docs/specs/P0_003_002_008_001_001_spec.md | bd695138 |
+| P0-003-002-008-001-002 | ±àĞ´MyBatis-Plus TenantLineInnerInterceptor | 2026-06-01T13:45 | ? | TenantInterceptor.java:¶ÀÁ¢@ComponentÊµÏÖTenantLineHandler+MybatisPlusConfig.javaÖØ¹¹ÒÆ³ıÄäÃûÄÚ²¿Àà+docs/specs/P0_003_002_008_001_002_spec.md | ba1f5d2e |
+| P0-003-002-009-001-001 | ±àĞ´DDL | 2026-06-01T14:00 | ? | db/migration/V20260526001__task_P0_003_002_009_001_001.sql:´´½¨erp_base.doc_detail_location/doc_detail_batch/doc_detail_serialÈı¸ö¸¨ÖúÊôĞÔ×Ó±í(¸÷º¬ÒµÎñ×Ö¶Î+22À©Õ¹+10¹«¹²+Ë÷Òı+COMMENT)+fn_validate_aux_tableĞ£Ñéº¯Êı+docs/specs/P0_003_002_009_001_001_spec.md | 9bac0e52 |
+| P0-003-003-001-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T14:30 | ? | db/migration/V20260601003__create_org_company.sql:org_company¹«Ë¾±íDDL(10Í¨ÓÃ×Ö¶Î+6ÒµÎñ×Ö¶Î+À©Õ¹×Ö¶Î+COMMENT×¢ÊÍ+decimal(18,8)¾«¶È)+»Ø¹ö½Å±¾ | 9158ccaa |
+| P0-003-003-001-001-002 | ±àĞ´org_company¹«Ë¾±íË÷ÒıÓëÔ¼Êø | 2026-06-01T15:00 | ? | db/migration/V20260601004__create_org_company_indexes.sql:Ö÷¼üÔ¼ÊøÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 06849415 |
+| P0-003-003-001-001-003 | ÑéÖ¤±àĞ´org_company¹«Ë¾±íDDL | 2026-06-01T15:30 | ? | db/migration/V20260526001__verify_org_company.sql:13ÏîÑéÖ¤SQL(±í´æÔÚĞÔ/×Ö¶ÎÍêÕûĞÔ/Í¨ÓÃ×Ö¶Î/¾«¶È/NOT NULL/Ö÷¼ü/²¿·ÖÎ¨Ò»Ë÷Òı/¶à×â»§Ë÷Òı/COMMENT/Íâ¼ü/Flyway)+docs/verification/org_company_verify_report.md:ÍêÕûÑéÖ¤±¨¸æ(·¢ÏÖÎÊÌâ:Ë÷ÒıÁĞÃûcodeÓ¦Îªcompany_code/22¸öÀ©Õ¹×Ö¶ÎÈ±COMMENT) | 908a4114 |
+| P0-003-003-002-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T16:00 | ? | db/migration/V20260601005__create_org_department.sql:org_department²¿ÃÅ±íDDL(10Í¨ÓÃ×Ö¶Î+6ÒµÎñ×Ö¶Î+À©Õ¹×Ö¶Î+COMMENT×¢ÊÍ+decimal(18,8)¾«¶È)+»Ø¹ö½Å±¾ | 9adc627f |
+| P0-003-003-002-001-002 | ±àĞ´org_department²¿ÃÅ±íË÷ÒıÓëÔ¼Êø | 2026-06-01T16:30 | ? | db/migration/V20260601006__create_org_department_indexes.sql:Ö÷¼üÔ¼ÊøÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı(Ê÷ĞÎ/Íâ¼ü/×´Ì¬/ÈÕÆÚ)+»Ø¹ö½Å±¾ | fe4f5191 |
+| P0-003-003-002-001-003 | ÑéÖ¤±àĞ´org_department²¿ÃÅ±íDDL | 2026-06-01T17:00 | ? | db/migration/V20260526001__verify_org_department.sql+ÑéÖ¤±¨¸æ:·¢ÏÖCRITICALË÷ÒıÁĞÃû´íÎó(code¡údept_code)ÓëWARNING ext×Ö¶ÎCOMMENTÈ±Ê§ | 67748186 |
+| P0-003-003-003-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T17:15 | ? | db/migration/V20260601007__create_org_position.sql:org_position¸ÚÎ»±íDDL(10Í¨ÓÃ×Ö¶Î+5ÒµÎñ×Ö¶Î+À©Õ¹×Ö¶Î+COMMENT×¢ÊÍ+decimal(18,8)¾«¶È)+»Ø¹ö½Å±¾ | 68706813 |
+| P0-003-003-003-001-002 | ±àĞ´org_position¸ÚÎ»±íË÷ÒıÓëÔ¼Êø | 2026-06-01T17:30 | ? | db/migration/V20260601008__create_org_position_indexes.sql:Ö÷¼üÔ¼ÊøÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 98d987ff |
+| P0-003-003-003-001-003 | ÑéÖ¤±àĞ´org_position¸ÚÎ»±íDDL | 2026-06-01T18:00 | ? | db/migration/V20260526001__verify_org_position.sql(14ÏîÑéÖ¤SQL)+docs/verification/org_position_verify_report.md(5/5ÑéÊÕÍ¨¹ı,ÎŞ×èÈûĞÔÎÊÌâ) | a8636532 |
+| P0-003-003-004-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T18:30 | ? | db/migration/V20260601009__create_org_employee.sql:org_employeeÔ±¹¤±íDDL(10Í¨ÓÃ×Ö¶Î+7ÒµÎñ×Ö¶Î+À©Õ¹×Ö¶Î+COMMENT×¢ÊÍ+decimal(18,8)¾«¶È)+»Ø¹ö½Å±¾ | c28ba012 |
+| P0-003-003-004-001-002 | ±àĞ´org_employeeÔ±¹¤±íË÷ÒıÓëÔ¼Êø | 2026-06-01T19:00 | ? | db/migration/V20260601010__create_org_employee_indexes.sql:Ö÷¼üÔ¼ÊøÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 9e7e0f03 |
+| P0-003-003-004-001-003 | ÑéÖ¤±àĞ´org_employeeÔ±¹¤±íDDL | 2026-06-01T19:30 | ? | db/migration/V20260526001__verify_org_employee.sql(14ÏîÑéÖ¤SQL)+docs/verification/org_employee_verify_report.md(5/5ÑéÊÕÍ¨¹ı,1¸öWARNING:22¸öÀ©Õ¹×Ö¶ÎÈ±COMMENT) | dcdc09ad |
+| P0-003-004-001-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T19:50 | ? | db/migration/V20260601011__create_prod_product_class.sql:prod_product_classÉÌÆ··ÖÀà±íDDL(10Í¨ÓÃ×Ö¶Î+4ÒµÎñ×Ö¶Î+22À©Õ¹×Ö¶Î+COMMENT×¢ÊÍ+decimal(18,8)¾«¶È)+»Ø¹ö½Å±¾ | 435f0d04 |
+| P0-003-004-001-001-002 | ±àĞ´prod_product_classÉÌÆ··ÖÀà±íË÷ÒıÓëÔ¼Êø | 2026-06-01T20:00 | ? | db/migration/V20260601012:²¹³ästatusÁĞ+PKÖØÃüÃûÎªpk_prod_product_class+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | ced1f706 |
+| P0-003-004-001-001-003 | ÑéÖ¤±àĞ´prod_product_classÉÌÆ··ÖÀà±íDDL | 2026-06-01T21:00 | ? | db/migration/V20260601013__verify_prod_product_class.sql(15ÏîÑéÖ¤SQL)+docs/verification/prod_product_class_verify_report.md(1CRITICAL:code/class_codeÁĞÃû²»Æ¥Åä+1WARNING:22À©Õ¹×Ö¶ÎÈ±COMMENT) | 0f9a945d |
+| P0-003-004-002-001-001 | ±àĞ´prod_productÉÌÆ·Ö÷±íCREATE TABLEÓï¾ä | 2026-06-01T22:00 | ? | db/migration/V20260601014:prod_product±íDDL(10Í¨ÓÃ×Ö¶Î+8ÒµÎñ×Ö¶Î+22À©Õ¹×Ö¶Î,decimal(18,8),È«COMMENT)+»Ø¹ö½Å±¾ | a36b887f |
+| P0-003-004-002-001-002 | ±àĞ´prod_productÉÌÆ·Ö÷±íË÷ÒıÓëÔ¼Êø | 2026-06-01T23:00 | ? | db/migration/V20260601015:PKÖØÃüÃûÎªpk_prod_product+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı(class_id/base_unit_id/created_at/name)+»Ø¹ö½Å±¾ | 1d70675f |
+| P0-003-004-002-001-003 | ÑéÖ¤±àĞ´prod_productÉÌÆ·Ö÷±íDDL | 2026-06-01T23:30 | ? | db/migration/V20260526001__verify_prod_product.sql(16ÏîÑéÖ¤SQL)+docs/verification/prod_product_verify_report.md(1CRITICAL:code/product_codeÁĞÃû²»Æ¥Åä+1WARNING:22À©Õ¹×Ö¶ÎÈ±COMMENT) | ¡ª |
+| P0-003-004-003-001-001 | ±àĞ´CREATE TABLEÓï¾ä(prod_product_unit) | 2026-06-01T23:45 | ? | db/migration/V20260601016:prod_product_unit±íDDL(10Í¨ÓÃ×Ö¶Î+4ÒµÎñ×Ö¶Î,decimal(18,8),È«COMMENT)+»Ø¹ö½Å±¾ | e7691af8 |
+| P0-003-004-003-001-002 | ±àĞ´prod_product_unitÉÌÆ·¶àµ¥Î»±íË÷ÒıÓëÔ¼Êø | 2026-06-01T23:59 | ? | db/migration/V20260601017:PKÖØÃüÃûÎªpk_prod_product_unit+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false, product_id+unit_id)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı(is_base_unit)+»Ø¹ö½Å±¾ | 6ed96676 |
+| P0-003-004-003-001-003 | ÑéÖ¤±àĞ´prod_product_unitÉÌÆ·¶àµ¥Î»±íDDL | 2026-06-01T10:00 | ? | db/migration/V20260526001__verify_prod_product_unit.sql(16ÏîÑéÖ¤SQL)+docs/verification/prod_product_unit_verify_report.md(È«²¿PASS, 0CRITICAL, COMMENT¸²¸ÇÂÊ100%) | 31d9f412 |
+| P0-003-004-004-001-001 | ±àĞ´CREATE TABLEÓï¾ä(prod_product_control) | 2026-06-01T12:00 | ? | db/migration/V20260601018:prod_product_control±íDDL(10Í¨ÓÃ×Ö¶Î+4ÒµÎñ×Ö¶Î,È«COMMENT)+»Ø¹ö½Å±¾ | 52f7d036 |
+| P0-003-004-004-001-002 | ±àĞ´prod_product_controlÉÌÆ·¿ØÖÆ²ßÂÔ±íË÷ÒıÓëÔ¼Êø | 2026-06-01T13:30 | ? | db/migration/V20260601019:PKÖØÃüÃûÎªpk_prod_product_control+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false, tenant_id+product_id)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı(product_id/is_inventory)+»Ø¹ö½Å±¾ | bd0c660a |
+| P0-003-004-004-001-003 | ÑéÖ¤±àĞ´prod_product_controlÉÌÆ·¿ØÖÆ²ßÂÔ±íDDL | 2026-06-01T14:00 | ? | db/migration/V20260601020(15ÏîÑéÖ¤SQL)+docs/verification/prod_product_control_verify_report.md(È«²¿PASS, 0CRITICAL, COMMENT¸²¸ÇÂÊ100%) | ¡ª |
+| P0-003-004-005-001-001 | ±àĞ´CREATE TABLEÓï¾ä(prod_product_safety_stock) | 2026-06-01T15:00 | ? | db/migration/V20260601021:prod_product_safety_stock±íDDL(10Í¨ÓÃ×Ö¶Î+5ÒµÎñ×Ö¶Î,È«COMMENT)+»Ø¹ö½Å±¾ | 37b00bd7 |
+| P0-003-004-005-001-002 | ±àĞ´prod_product_safety_stockÉÌÆ·°²È«¿â´æ±íË÷ÒıÓëÔ¼Êø | 2026-06-01T15:30 | ? | db/migration/V20260601022:PKÖØÃüÃûÎªpk_prod_product_safety_stock+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 68fde514 |
+| P0-003-004-005-001-003 | ÑéÖ¤±àĞ´prod_product_safety_stockÉÌÆ·°²È«¿â´æ±íDDL | 2026-06-01T16:00 | ? | db/migration/V20260601023(15ÏîÑéÖ¤SQL)+docs/verification/prod_product_safety_stock_verify_report.md(È«²¿PASS, 0CRITICAL, COMMENT¸²¸ÇÂÊ100%) | eaf9b7e9 |
+| P0-003-004-006-001-001 | ±àĞ´CREATE TABLEÓï¾ä(prod_product_attachment) | 2026-06-01T16:30 | ? | db/migration/V20260601024:prod_product_attachment±íDDL(10Í¨ÓÃ×Ö¶Î+9ÒµÎñ×Ö¶Î,È«COMMENT)+»Ø¹ö½Å±¾ | b7269885 |
+| P0-003-004-006-001-002 | ±àĞ´prod_product_attachmentÉÌÆ·¸½¼ş±íË÷ÒıÓëÔ¼Êø | 2026-06-01T16:35 | ? | db/migration/V20260601025:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 6d1251bd |
+| P0-003-004-006-001-003 | ÑéÖ¤±àĞ´prod_product_attachmentÉÌÆ·¸½¼ş±íDDL | 2026-06-01T16:45 | ? | db/migration/V20260601026(17ÏîÑéÖ¤SQL)+docs/verification/prod_product_attachment_verify_report.md(È«²¿PASS, 0CRITICAL, COMMENT¸²¸ÇÂÊ100%) | f548a1fb |
+| P0-003-002-011-001-001 | ±àĞ´¹æ·¶ | 2026-06-01T17:20 | ? | docs/specs/P0_003_002_011_001_001_spec.md(7ÕÂbase_qtyºËĞÄ¹æ·¶+¼ÆËãÂß¼­+Ğ£Ñé¹æÔò)+db/migration/V20260526001__base_qty_related.sql(3¸öPL/pgSQLº¯Êı:fn_calc_base_qty/fn_validate_base_qty/fn_reverse_calc_qty+¹æ·¶ÎÄµµ×¢ÊÍ) | (pending) |
+| P0-003-002-012-001-001 | ±àĞ´¹æ·¶ | 2026-06-01T17:50 | ? | docs/specs/db_naming_convention.md+db_data_type_spec.md+db_index_spec.md(Êı¾İ¿âÃüÃû/Êı¾İÀàĞÍ/Ë÷ÒıÉè¼ÆÈı´ó¹æ·¶ÎÄµµ,¸²¸ÇÎ¨Ò»Ô¼ÊøĞèº¬is_deleted+¶à×â»§Ë÷Òı+decimal(18,8)¾«¶È) | fade7c18 |
+| P0-003-002-013-001-001 | ±àĞ´¾«¶È¹æÔò | 2026-06-01T18:00 | ? | docs/specs/P0_003_002_013_001_001_spec.md(7ÕÂ:¾«¶ÈÓÅÏÈ¼¶ÌåÏµ+Î²²î´¦Àí¹æÔò+²ÎÊıÅäÖÃ)+db/migration/V20260526001__task_P0_003_002_013_001_001.sql(4¸öPL/pgSQLº¯Êı+12¸öÔ¤ÖÃ¾«¶È²ÎÊı+¹æ·¶×¢ÊÍ) | (pending) |
+| P0-003-004-007-001-001 | ±àĞ´CREATE TABLEÓï¾ä(prod_product_standard_price) | 2026-06-01T18:10 | ? | db/migration/V20260601027:prod_product_standard_price±íDDL(10Í¨ÓÃ×Ö¶Î+12ÒµÎñ×Ö¶Î,decimal(18,8),È«COMMENT)+»Ø¹ö½Å±¾ | d3ed75df |
+| P0-003-004-007-001-002 | ±àĞ´prod_product_standard_priceÉÌÆ·±ê×¼¼Û±íË÷ÒıÓëÔ¼Êø | 2026-06-01T18:20 | ? | db/migration/V20260601028:PKÖØÃüÃûÎªpk_prod_product_standard_price+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false, tenant_id+product_id)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 623a556e |
+| P0-003-004-007-001-003 | ÑéÖ¤±àĞ´prod_product_standard_priceÉÌÆ·±ê×¼¼Û±íDDL | 2026-06-01T18:35 | ? | db/migration/V20260601029:20ÏîÑéÖ¤²éÑ¯SQL+docs/verification/prod_product_standard_price_verify_report.md:12½ÚÑéÖ¤±¨¸æ(22×Ö¶Î+10Ë÷Òı+100%COMMENT+decimal(18,8)+ÎŞÍâ¼ü) | a0a83b37 |
+| P0-003-004-008-001-001 | ±àĞ´CREATE TABLEÓï¾ä(prod_product_purchase_price) | 2026-06-01T18:50 | ? | db/migration/V20260601030:prod_product_purchase_price±íDDL(10Í¨ÓÃ×Ö¶Î+13ÒµÎñ×Ö¶Î,decimal(18,8),È«COMMENT)+»Ø¹ö½Å±¾ | 74f42302 |
+| P0-003-004-008-001-002 | ±àĞ´prod_product_purchase_priceÉÌÆ·¹º¼ÛºË¶¨±íË÷ÒıÓëÔ¼Êø | 2026-06-01T19:00 | ? | db/migration/V20260601031:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false, tenant_id+product_id+supplier_id)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 5d5a49ad |
+| P0-003-004-008-001-003 | ÑéÖ¤±àĞ´prod_product_purchase_priceÉÌÆ·¹º¼ÛºË¶¨±íDDL | 2026-06-01T19:10 | ? | db/migration/V20260601032:20ÏîÑéÖ¤²éÑ¯SQL+docs/verification/prod_product_purchase_price_verify_report.md:12½ÚÑéÖ¤±¨¸æ(23×Ö¶Î+12Ë÷Òı+100%COMMENT+decimal(18,8)+ÎŞÍâ¼ü) | fbd88e4a |
+| P0-003-004-009-001-001 | ±àĞ´CREATE TABLEÓï¾ä(prod_product_sale_price) | 2026-06-01T19:20 | ? | db/migration/V20260601033:prod_product_sale_price±íDDL(10Í¨ÓÃ×Ö¶Î+13ÒµÎñ×Ö¶Î,decimal(18,8),È«COMMENT)+»Ø¹ö½Å±¾ | 8f784931 |
+| P0-003-004-009-001-002 | ±àĞ´prod_product_sale_priceÉÌÆ·Ïú¼ÛºË¶¨±íË÷ÒıÓëÔ¼Êø | 2026-06-01T19:35 | ? | db/migration/V20260601034:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false, tenant_id+product_id+customer_id)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | dcafe8db |
 
-| P0-003-004-009-001-003 | éªŒè¯ç¼–å†™prod_product_sale_priceå•†å“é”€ä»·æ ¸å®šè¡¨DDL | 2026-06-01T19:50 | âœ… | db/migration/V20260601035:20é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/prod_product_sale_price_verify_report.md:12èŠ‚éªŒè¯æŠ¥å‘Š(23å­—æ®µ+12ç´¢å¼•+100%COMMENT+decimal(18,8)+æ— å¤–é”®) | a5ba3446 |
-| P0-003-004-010-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T20:00 | âœ… | db/migration/V20260601036:CREATE TABLE prod_product_competitor(17ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | ede91a34 |
-| P0-003-004-010-001-002 | ç¼–å†™prod_product_competitorå•†å“ç«å“è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T20:10 | âœ… | db/migration/V20260601037:9ä¸ªç´¢å¼•(1PK+1UK+2å¤šç§Ÿæˆ·+5ä¸šåŠ¡æŸ¥è¯¢)+å›æ»šè„šæœ¬ | d68840ce |
-| P0-003-004-010-001-003 | éªŒè¯ç¼–å†™prod_product_competitorå•†å“ç«å“è¡¨DDL | 2026-06-01T20:25 | âœ… | db/migration/V20260601038:20é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/prod_product_competitor_verify_report.md:12èŠ‚éªŒè¯æŠ¥å‘Š(27å­—æ®µ+10ç´¢å¼•+100%COMMENT+decimal(18,8)+æ— å¤–é”®) | e73c17f5 |
-| P0-003-004-011-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T20:35 | âœ… | db/migration/V20260601039:CREATE TABLE prod_product_bom_detail(12ä¸šåŠ¡å­—æ®µ+14å¿«ç…§å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | (å¾…æäº¤) |
-| P0-003-004-011-001-002 | ç¼–å†™prod_product_bom_detailå•†å“BOMä¸»ä»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T20:50 | âœ… | db/migration/V20260601040:9ä¸ªç´¢å¼•(1PK rename+1UK+3å¤šç§Ÿæˆ·+5ä¸šåŠ¡æŸ¥è¯¢)+å›æ»šè„šæœ¬ | 23580f90 |
-| P0-003-004-011-001-003 | éªŒè¯ç¼–å†™prod_product_bom_detailå•†å“BOMä¸»ä»è¡¨DDL | 2026-06-01T21:10 | âœ… | db/migration/V20260601041:20é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/prod_product_bom_detail_verify_report.md:13èŠ‚éªŒè¯æŠ¥å‘Š(30å­—æ®µ+10ç´¢å¼•+100%COMMENT+decimal(18,8)+12å¿«ç…§å­—æ®µ+æ— å¤–é”®) | 567ee77b |
-| P0-003-004-012-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T21:30 | âœ… | db/migration/V20260601042:CREATE TABLE prod_product_process_price(17ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT,decimal(18,8)ç»Ÿä¸€ç²¾åº¦,parent_idæ”¯æŒæ ‘å½¢å±‚çº§)+å›æ»šè„šæœ¬+specæ–‡æ¡£ | 5afd1f5f |
-| P0-003-004-012-001-002 | ç¼–å†™prod_product_process_priceå•†å“å·¥åºä¸»ä»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T21:50 | âœ… | db/migration/V20260601043:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_tenant_code(WHERE is_deleted=false)+3ä¸ªå¤šç§Ÿæˆ·è”åˆç´¢å¼•+4ä¸ªä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 9936d271 |
-| P0-003-004-012-001-003 | éªŒè¯ç¼–å†™prod_product_process_priceå•†å“å·¥åºä¸»ä»è¡¨DDL | 2026-06-01T22:10 | âœ… | db/migration/V20260601044:20é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/prod_product_process_price_verify_report.md(27å­—æ®µ/9ç´¢å¼•/100%COMMENTè¦†ç›–ç‡,0CRITICAL 0WARNING) | e82de627 |
-| P0-003-004-013-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T22:30 | âœ… | db/migration/V20260601045:CREATE TABLE prod_standard_process(10ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT,decimal(18,8)ç»Ÿä¸€ç²¾åº¦)+å›æ»šè„šæœ¬ | 4fc0990e |
-| P0-003-004-013-001-002 | ç¼–å†™prod_standard_processæ ‡å‡†å·¥åºè¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T22:35 | âœ… | db/migration/V20260601046:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_code(WHERE is_deleted=false)+2ä¸ªå¤šç§Ÿæˆ·è”åˆç´¢å¼•+3ä¸ªä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | fc064777 |
-| P0-003-004-013-001-003 | éªŒè¯ç¼–å†™prod_standard_processæ ‡å‡†å·¥åºè¡¨DDL | 2026-06-01T22:40 | âœ… | db/migration/V20260601047:20é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification:éªŒè¯æŠ¥å‘Š(68é¡¹å…¨PASS) | 5afac150 |
-| P0-003-004-014-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T22:45 | âœ… | db/migration/V20260601048:CREATE TABLE prod_product_price(12ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT,decimal(18,8)ç»Ÿä¸€ç²¾åº¦)+å›æ»šè„šæœ¬ | 7abebbbc |
-| P0-003-004-014-001-002 | ç¼–å†™prod_product_priceè¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T22:55 | âœ… | db/migration/V20260601049:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_code(WHERE is_deleted=false)+2ä¸ªå¤šç§Ÿæˆ·è”åˆç´¢å¼•+9ä¸ªä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 083d6954 |
-| P0-003-004-014-001-003 | éªŒè¯DDL | 2026-06-01T23:00 | âœ… | db/migration/V20260601050:20é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/prod_product_price_verify_report.md:12èŠ‚éªŒè¯æŠ¥å‘Š(22å­—æ®µ+12ç´¢å¼•+100%COMMENT+decimal(18,8)+æ— å¤–é”®) | fbfd42ce |
-| P0-003-004-015-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T22:50 | âœ… | db/migration/V20260601051:CREATE TABLE prod_product_attribute(6ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»š;V20260601052:CREATE TABLE prod_product_attribute_value(5ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»š | 767731f2 |
-| P0-003-004-015-001-002 | ç¼–å†™ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T23:00 | âœ… | db/migration/V20260601053:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_code(WHERE is_deleted=false)+2ä¸ªå¤šç§Ÿæˆ·è”åˆç´¢å¼•+3ä¸ªä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 572a31b0 |
-| P0-003-004-015-001-003 | éªŒè¯DDL | 2026-06-01T23:10 | âœ… | db/migration/V20260526001__verify_prod_product_attribute.sql:23ä¸ªéªŒè¯æŸ¥è¯¢å—+docs/verification/prod_product_attribute_verify_report.md:8èŠ‚éªŒè¯æŠ¥å‘Š(2è¡¨31å­—æ®µ+7ç´¢å¼•+100%COMMENT+æ— å¤–é”®) | 357ac879 |
-| P0-003-004-016-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T23:20 | âœ… | db/migration/V20260601054:CREATE TABLE prod_product_spec(6ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | adb3d3a1 |
-| P0-003-004-016-001-002 | ç¼–å†™ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T23:30 | âœ… | db/migration/V20260601055:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_code(WHERE is_deleted=false)+2ä¸ªå¤šç§Ÿæˆ·è”åˆç´¢å¼•+3ä¸ªä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 2f5d8430 |
-| P0-003-004-016-001-003 | éªŒè¯DDL | 2026-06-01T23:45 | âœ… | db/migration/V20260601056:19é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/prod_product_spec_verify_report.md:10èŠ‚éªŒè¯æŠ¥å‘Š(16å­—æ®µ+7ç´¢å¼•+100%COMMENTè¦†ç›–ç‡+å…¨éƒ¨æ˜“é”™è­¦ç¤ºè§„é¿,é™æ€å®¡æŸ¥å…¨PASS) | 262139d7 |
-| P0-003-004-017-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T23:55 | âœ… | db/migration/V20260601057:CREATE TABLE prod_product_barcode(7ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | 48a2947f |
-| P0-003-004-017-001-002 | ç¼–å†™ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T00:10 | âœ… | db/migration/V20260601058:8æ¡ç´¢å¼•(PKé‡å‘½å+1å”¯ä¸€ç´¢å¼•å«WHERE is_deleted=false+2å¤šç§Ÿæˆ·+4ä¸šåŠ¡æŸ¥è¯¢)+å›æ»šè„šæœ¬ | 9095e6f8 |
-| P0-003-004-017-001-003 | éªŒè¯DDL | 2026-06-02T00:20 | âœ… | db/migration/V20260601059:14é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/prod_product_barcode_verify_report.md:10èŠ‚éªŒè¯æŠ¥å‘Š(17å­—æ®µ+8ç´¢å¼•+100%COMMENTè¦†ç›–ç‡+å…¨éƒ¨æ˜“é”™è­¦ç¤ºè§„é¿+åˆ—åä¸€è‡´æ€§éªŒè¯PASS+é™æ€å®¡æŸ¥å…¨PASS) | â€” |
-| P0-003-004-018-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T00:35 | âœ… | db/migration/V20260601060:CREATE TABLE prod_product_image(10ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-004-018-001-002 | ç¼–å†™ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T00:45 | âœ… | db/migration/V20260601061:8æ¡ç´¢å¼•(PKé‡å‘½å+1å”¯ä¸€ç´¢å¼•å«WHERE is_deleted=false+2å¤šç§Ÿæˆ·+5ä¸šåŠ¡æŸ¥è¯¢)+å›æ»šè„šæœ¬ | 596298f5 |
-| P0-003-004-018-001-003 | éªŒè¯DDL | 2026-06-02T01:00 | âœ… | db/migration/V20260601062__verify_prod_product_image.sql(19é¡¹éªŒè¯SQL)+docs/verification/prod_product_image_verify_report.md(5/5éªŒæ”¶é€šè¿‡,0ä¸ªCRITICAL,0ä¸ªWARNING) | 20a51f05 |
-| P0-003-004-019-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T01:10 | âœ… | db/migration/V20260601063:CREATE TABLE prod_product_relation(8ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | 8d6ba0ea |
-| P0-003-004-019-001-002 | ç¼–å†™ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T01:32 | âœ… | db/migration/V20260601064:8æ¡ç´¢å¼•(PKé‡å‘½å+1å”¯ä¸€ç´¢å¼•å«WHERE is_deleted=false+2å¤šç§Ÿæˆ·+5ä¸šåŠ¡æŸ¥è¯¢)+å›æ»šè„šæœ¬ | 66b20582 |
-| P0-003-004-019-001-003 | éªŒè¯DDL | 2026-06-02T01:45 | âœ… | db/migration/V20260601065__verify_prod_product_relation.sql(19é¡¹éªŒè¯SQL)+docs/verification/prod_product_relation_verify_report.md(5/5éªŒæ”¶é€šè¿‡,0ä¸ªCRITICAL,0ä¸ªWARNING) | 7f9e4f6b |
-| P0-003-004-020-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T02:15 | âœ… | db/migration/V20260601066:CREATE TABLE prod_product_tag(4ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | 21a98cf3 |
-| P0-003-004-020-001-002 | ç¼–å†™ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T02:40 | âœ… | db/migration/V20260601067:6æ¡ç´¢å¼•(PKé‡å‘½å+1éƒ¨åˆ†å”¯ä¸€ç´¢å¼•å«WHERE is_deleted=false+1å¤šç§Ÿæˆ·+3ä¸šåŠ¡æŸ¥è¯¢)+å›æ»šè„šæœ¬ | a7e0e566 |
-| P0-003-004-020-001-003 | éªŒè¯DDL | 2026-06-02T03:05 | âœ… | db/migration/V20260526001__verify_prod_product_tag.sql(15é¡¹éªŒè¯SQL)+docs/verification/prod_product_tag_verify_report.md(5/5éªŒæ”¶é€šè¿‡) | TBD |
-| P0-003-004-021-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T03:20 | âœ… | db/migration/V20260601068:CREATE TABLE prod_serial_template(8ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | 05f4d5f6 |
-| P0-003-004-021-001-002 | ç¼–å†™ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T03:30 | âœ… | db/migration/V20260601069:6æ¡ç´¢å¼•(PKé‡å‘½å+1éƒ¨åˆ†å”¯ä¸€ç´¢å¼•å«WHERE is_deleted=false+2å¤šç§Ÿæˆ·+2ä¸šåŠ¡æŸ¥è¯¢)+å›æ»šè„šæœ¬ | 2a1fd617 |
-| P0-003-004-021-001-003 | éªŒè¯DDL | 2026-06-02T03:50 | âœ… | db/migration/V20260526001__verify_prod_serial_template.sql(15é¡¹éªŒè¯SQL)+docs/verification/prod_serial_template_verify_report.md(5/5éªŒæ”¶é€šè¿‡) | 6e99e387 |
-| P0-003-004-022-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T04:00 | âœ… | db/migration/V20260601070:CREATE TABLE prod_product_other(17ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | 01f56cd6 |
-| P0-003-004-022-001-002 | ç¼–å†™ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T04:30 | âœ… | db/migration/V20260601071:6æ¡ç´¢å¼•(PKé‡å‘½å+1éƒ¨åˆ†å”¯ä¸€ç´¢å¼•å«WHERE is_deleted=false+2å¤šç§Ÿæˆ·+3ä¸šåŠ¡æŸ¥è¯¢)+å›æ»šè„šæœ¬ | d68a5aeb |
-| P0-003-004-022-001-003 | éªŒè¯DDL | 2026-06-02T05:00 | âœ… | db/migration/V20260526001__verify_prod_product_other.sql(16é¡¹éªŒè¯SQL)+docs/verification/prod_product_other_verify_report.md(å…¨éƒ¨PASS, 0CRITICAL, 0WARNING, COMMENTè¦†ç›–ç‡100%) | 0d004fc1 |
-| P0-003-005-001-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T05:10 | âœ… | db/migration/V20260601072:CREATE TABLE crm_customer_class(3ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | 57aae787 |
-| P0-003-005-001-001-002 | ç¼–å†™crm_customer_classå®¢æˆ·åˆ†ç±»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T05:20 | âœ… | db/migration/V20260601073:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 8fd36f98 |
-| P0-003-005-001-001-003 | éªŒè¯ç¼–å†™crm_customer_classå®¢æˆ·åˆ†ç±»è¡¨DDL | 2026-06-02T05:30 | âœ… | db/migration/V20260601074:15é¡¹éªŒè¯SQL(è¡¨å­˜åœ¨/å­—æ®µ/é€šç”¨å­—æ®µ/ç²¾åº¦/PK/å”¯ä¸€ç´¢å¼•/å¤šç§Ÿæˆ·/COMMENT/NOT NULL/Flyway/å¤–é”®/åˆ—åä¸€è‡´æ€§)+docs/verification/crm_customer_class_verify_report.md(0CRITICAL, 1WARNINGæ‰©å±•å­—æ®µCOMMENT) | 639fba91 |
-| P0-003-005-002-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T05:40 | âœ… | db/migration/V20260601075:CREATE TABLE crm_tag_definition(5ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | b910d4d7 |
-| P0-003-005-002-001-002 | ç¼–å†™CRMæ ‡ç­¾å®šä¹‰è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T05:50 | âœ… | db/migration/V20260601076:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | bf3f9cd3 |
-| P0-003-005-002-001-003 | éªŒè¯ç¼–å†™CRMæ ‡ç­¾å®šä¹‰è¡¨DDL | 2026-06-02T06:00 | âœ… | db/migration/V20260526001__task_P0_003_005_002_001_003.sql:14é¡¹éªŒè¯SQL+docs/specs/P0_003_005_002_001_003_spec.md(å…¨éƒ¨PASS) | 2e675026 |
-| P0-003-005-003-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T19:07 | âœ… | db/migration/V20260601077:CREATE TABLE crm_customer(6ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | bbddd272 |
-| P0-003-005-003-001-002 | ç¼–å†™crm_customerå®¢æˆ·ä¸»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T19:05 | âœ… | db/migration/V20260601078:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 387cf55e |
-| P0-003-005-003-001-003 | éªŒè¯ç¼–å†™crm_customerå®¢æˆ·ä¸»è¡¨DDL | 2026-06-01T19:18 | âœ… | db/migration/V20260601079:15é¡¹éªŒè¯SQL+docs/verification/crm_customer_verify_report.md(å…¨éƒ¨PASS) | a5bb8c0b |
-| P0-003-005-004-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T19:15 | âœ… | db/migration/V20260601080:CREATE TABLE crm_contact_comm(9ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+COMMENT+decimal(18,8)ç²¾åº¦) | 55fb5300 |
-| P0-003-005-004-001-002 | ç¼–å†™crm_contact_commå®¢æˆ·è”ç³»äººè¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T19:12 | âœ… | db/migration/V20260601081:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(contact_id/parent_id/comm_type/é€šç”¨å­—æ®µ/æ—¥æœŸ)+å›æ»šè„šæœ¬ | ff69f3f2 |
-| P0-003-005-004-001-003 | éªŒè¯ç¼–å†™crm_contact_commå®¢æˆ·è”ç³»äººè¡¨DDL | 2026-06-01T19:35 | âœ… | db/migration/V20260526001:11é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/crm_contact_comm_verify_report.md(36å­—æ®µ+12ç´¢å¼•+100%COMMENT+10é€šç”¨å­—æ®µ+decimal(18,8)+å…¨éƒ¨æ˜“é”™è­¦ç¤ºé€šè¿‡) | (å¾…å¡«å†™) |
-| P0-003-005-005-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T19:20 | âœ… | db/migration/V20260601082:CREATE TABLE crm_customer_address(5ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+COMMENT+decimal(18,8)ç²¾åº¦)+å›æ»šè„šæœ¬ | (å¾…å¡«å†™) |
-| P0-003-005-005-001-002 | ç¼–å†™crm_customer_addresså®¢æˆ·åœ°å€è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T20:08 | âœ… | db/migration/V20260601083:PKé‡å‘½å+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(customer_id/address_type/city/é€šç”¨å­—æ®µ/æ—¥æœŸ)+å›æ»šè„šæœ¬ | (å¾…å¡«å†™) |
-| P0-003-005-005-001-003 | éªŒè¯ç¼–å†™crm_customer_addresså®¢æˆ·åœ°å€è¡¨DDL | 2026-06-01T20:40 | âœ… | db/migration/V20260601084:15é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/crm_customer_address_verify_report.md(38å­—æ®µ+11ç´¢å¼•+42.1%COMMENT+10é€šç”¨å­—æ®µ+decimal(18,8)+0 CRITICALé—®é¢˜) | cf712779 |
-| P0-003-005-006-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T21:00 | âœ… | db/migration/V20260601085:CREATE TABLE crm_customer_tag_rel(4ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+COMMENT+decimal(18,8)ç²¾åº¦)+å›æ»šè„šæœ¬ | 474d9c2a |
-| P0-003-005-006-001-002 | ç¼–å†™crm_customer_tag_relå®¢æˆ·æ ‡ç­¾å…³è”è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T21:10 | âœ… | db/migration/V20260601086:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(customer_id/tag_id/é€šç”¨å­—æ®µ/æ—¥æœŸ)+å›æ»šè„šæœ¬ | 418d9d6ef |
-| P0-003-005-006-001-003 | éªŒè¯ç¼–å†™crm_customer_tag_relå®¢æˆ·æ ‡ç­¾å…³è”è¡¨DDL | 2026-06-01T21:25 | âœ… | db/migration/V20260601087:18é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/crm_customer_tag_rel_verify_report.md(å…¨éƒ¨PASS,0 CRITICAL) | 765970f1 |
-| P0-003-005-007-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T20:50 | âœ… | db/migration/V20260601088: crm_customer_attachmentå®¢æˆ·é™„ä»¶è¡¨CREATE TABLE+COMMENT+rollback | b257296b |
-| P0-003-005-007-001-002 | ç¼–å†™crm_customer_attachmentå®¢æˆ·é™„ä»¶è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T21:40 | âœ… | db/migration/V20260601089: PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(customer_id/é€šç”¨å­—æ®µ/æ—¥æœŸ)+å›æ»šè„šæœ¬ | 7788e438 |
-| P0-003-005-007-001-003 | éªŒè¯ç¼–å†™crm_customer_attachmentå®¢æˆ·é™„ä»¶è¡¨DDL | 2026-06-01T20:20 | âœ… | db/migration/V20260601090:18é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/crm_customer_attachment_verify_report.md(å…¨éƒ¨PASS,0 CRITICAL) | (å¾…å¡«å†™) |
-| P0-003-005-008-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T21:40 | âœ… | db/migration/V20260601091:CREATE TABLE crm_customer_evaluation(11ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+COMMENT+decimal(18,8)ç²¾åº¦)+å›æ»šè„šæœ¬ | (å¾…å¡«å†™) |
-| P0-003-005-008-001-002 | ç¼–å†™crm_customer_evaluationå®¢æˆ·è¯„ä»·è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T21:50 | âœ… | db/migration/V20260601092: PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(customer_id/parent_id/evaluator_id/é€šç”¨å­—æ®µ/æ—¥æœŸ)+å›æ»šè„šæœ¬ | 87afc516 |
-| P0-003-005-008-001-003 | éªŒè¯ç¼–å†™crm_customer_evaluationå®¢æˆ·è¯„ä»·è¡¨DDL | 2026-06-01T22:00 | âœ… | db/migration/V20260601093:18é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/crm_customer_evaluation_verify_report.md(å…¨éƒ¨PASS,0 CRITICAL) | (å¾…å¡«å†™) |
-| P0-003-005-009-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T22:10 | âœ… | db/migration/V20260601094:CREATE TABLE crm_customer_finance(26ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+COMMENT+decimal(18,8)ç²¾åº¦)+å›æ»šè„šæœ¬ | d5c91011 |
-| P0-003-005-009-001-002 | ç¼–å†™crm_customer_financeå®¢æˆ·è´¢åŠ¡é…ç½®è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T22:20 | âœ… | db/migration/V20260601095: PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(customer_id/product_id/order_date/é€šç”¨å­—æ®µ)+å›æ»šè„šæœ¬ | ea246012 |
-| P0-003-005-009-001-003 | éªŒè¯ç¼–å†™crm_customer_financeå®¢æˆ·è´¢åŠ¡é…ç½®è¡¨DDL | 2026-06-01T22:35 | âœ… | db/migration/V20260601096:18é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/crm_customer_finance_verify_report.md(å…¨éƒ¨PASS) | 6a28e579 |
-| P0-003-005-010-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T23:00 | âœ… | db/migration/V20260601097:CREATE TABLE crm_opportunity(11ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+COMMENT+decimal(18,8)ç²¾åº¦)+å›æ»šè„šæœ¬ | e1b4a640 |
-| P0-003-005-010-001-002 | ç¼–å†™crm_opportunityå®¢æˆ·æœºä¼šè¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-01T23:15 | âœ… | db/migration/V20260601098:PKé‡å‘½å(pk_crm_opportunity)+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_crm_opportunity_code(WHERE is_deleted=false)+6ä¸ªå¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+8ä¸ªä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 820e6d8e |
-| P0-003-005-010-001-003 | éªŒè¯ç¼–å†™crm_opportunityå®¢æˆ·æœºä¼šè¡¨DDL | 2026-06-01T23:30 | âœ… | db/migration/V20260601099:18é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/crm_opportunity_verify_report.md(å…¨éƒ¨PASS) | 113f267d |
-| P0-003-005-011-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T23:45 | âœ… | db/migration/V20260601100:CREATE TABLE crm_project(8ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+COMMENT+decimal(18,8)ç²¾åº¦)+å›æ»šè„šæœ¬ | a7ab1b5b |
-| P0-003-005-011-001-002 | ç¼–å†™crm_projectå®¢æˆ·é¡¹ç›®è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T00:00 | âœ… | db/migration/V20260601101:PKé‡å‘½å(pk_crm_project)+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_crm_project_code(WHERE is_deleted=false)+6ä¸ªå¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+8ä¸ªä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | bfdaccee |
-| P0-003-005-011-001-003 | éªŒè¯ç¼–å†™crm_projectå®¢æˆ·é¡¹ç›®è¡¨DDL | 2026-06-02T06:30 | âœ… | db/migration/V20260601102:18é¡¹éªŒè¯æŸ¥è¯¢SQL+docs/verification/crm_project_verify_report.md:10èŠ‚éªŒè¯æŠ¥å‘Š(57å­—æ®µ+20ç´¢å¼•+100%COMMENTè¦†ç›–ç‡+å…¨éƒ¨æ˜“é”™è­¦ç¤ºè§„é¿+é™æ€å®¡æŸ¥å…¨PASS) | 16cdd75a |
-| P0-003-006-001-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-01T20:30 | âœ… | db/migration/V20260601103:srm_supplier_classä¾›åº”å•†åˆ†ç±»è¡¨DDL(10é€šç”¨å­—æ®µ+3ä¸šåŠ¡å­—æ®µ+æ‰©å±•å­—æ®µ+COMMENT)+å›æ»šè„šæœ¬ | 46e28907 |
-| P0-003-006-001-001-002 | ç¼–å†™srm_supplier_classä¾›åº”å•†åˆ†ç±»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T07:00 | âœ… | db/migration/V20260601104:è¡¥å……statusåˆ—+PKé‡å‘½å(pk_srm_supplier_class)+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+3å¤šç§Ÿæˆ·è”åˆç´¢å¼•+6ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | (pending) |
-| P0-003-006-001-001-003 | éªŒè¯ç¼–å†™srm_supplier_classä¾›åº”å•†åˆ†ç±»è¡¨DDL | 2026-06-02T10:30 | âœ… | db/migration/V20260601105__verify_srm_supplier_class.sql(18é¡¹éªŒè¯SQL)+docs/verification/srm_supplier_class_verify_report.md(å…¨éƒ¨PASS, 0CRITICAL, 0WARNING, COMMENTè¦†ç›–ç‡100%) | (pending) |
-| P0-003-006-002-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T12:00 | âœ… | db/migration/V20260602001:CREATE TABLE srm_tag_definition(5ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+COMMENT+decimal(18,8))+specæ–‡æ¡£ | (pending) |
-| P0-003-006-002-001-002 | ç¼–å†™SRMæ ‡ç­¾å®šä¹‰è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T13:00 | âœ… | db/migration/V20260602002:PKé‡å‘½å(pk_srm_tag_definition)+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+2å¤šç§Ÿæˆ·è”åˆç´¢å¼•+3ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+5é€šç”¨å­—æ®µç´¢å¼•+specæ–‡æ¡£ | (pending) |
-| P0-003-006-002-001-003 | éªŒè¯ç¼–å†™SRMæ ‡ç­¾å®šä¹‰è¡¨DDL | 2026-06-02T14:00 | âœ… | db/migration/V20260602003:17é¡¹éªŒè¯SQL(è¡¨/å­—æ®µ/çº¦æŸ/ç´¢å¼•/COMMENT/Flyway/å¤–é”®)+docs/specs/P0_003_006_002_001_003_spec.md(éªŒè¯è§„èŒƒæ–‡æ¡£) | (pending) |
-| P0-003-006-003-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T15:00 | âœ… | db/migration/V20260602004:CREATE TABLE srm_supplier(5ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+COMMENT+decimal(18,8))+å›æ»šè„šæœ¬ | (pending) |
-| P0-003-006-003-001-002 | ç¼–å†™srm_supplierä¾›åº”å•†ä¸»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T16:00 | âœ… | db/migration/V20260602005:PKé‡å‘½å(pk_srm_supplier)+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+3å¤šç§Ÿæˆ·è”åˆç´¢å¼•+6ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | (pending) |
-| P0-003-006-003-001-003 | éªŒè¯ç¼–å†™srm_supplierä¾›åº”å•†ä¸»è¡¨DDL | 2026-06-02T17:00 | âœ… | db/migration/V20260602006:20é¡¹éªŒè¯SQL(è¡¨/å­—æ®µ/çº¦æŸ/ç´¢å¼•/COMMENT/Flyway/å¤–é”®/ç±»å‹/é•¿åº¦)+docs/verification/srm_supplier_verify_report.md(37é¡¹å…¨PASS) | 3575917a |
-| P0-003-006-004-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T17:30 | âœ… | db/migration/V20260602007:CREATE TABLE srm_supplier_commä¾›åº”å•†è”ç³»äººé€šè®¯è¡¨(9ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+COMMENT+decimal(18,8))+å›æ»šè„šæœ¬ | 60c41c94 |
-| P0-003-006-004-001-002 | ç¼–å†™srm_supplier_commä¾›åº”å•†è”ç³»äººè¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T17:40 | âœ… | db/migration/V20260602008:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(FK/supplier_id/status/parent_id/æ—¥æœŸ)+å›æ»šè„šæœ¬ | e9d8cb5a |
-| P0-003-006-004-001-003 | éªŒè¯ç¼–å†™srm_supplier_commä¾›åº”å•†è”ç³»äººè¡¨DDL | 2026-06-02T18:00 | âœ… | db/migration/V20260602009:11é¡¹éªŒè¯SQL(è¡¨/å­—æ®µ/çº¦æŸ/ç´¢å¼•/COMMENT/Flyway/å¤–é”®/ç±»å‹/é•¿åº¦/ç²¾åº¦/æ±‡æ€»)+docs/verification/srm_supplier_comm_verify_report.md(41é¡¹å…¨PASS) | 12c6c5b3 |
-| P0-003-006-005-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T17:10 | âœ… | db/migration/V20260602010__create_srm_supplier_address.sql(38åˆ—:8ä¸šåŠ¡+20æ‰©å±•+10é€šç”¨)+rollbackè„šæœ¬ | 6cadb4bd |
-| P0-003-006-005-001-002 | ç¼–å†™srm_supplier_addressä¾›åº”å•†åœ°å€è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T18:00 | âœ… | db/migration/V20260602011:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•(WHERE is_deleted=false, supplier_id+address_type)+å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(FK/supplier_id/status/æ—¥æœŸ)+å›æ»šè„šæœ¬ | 2a22439a |
-| P0-003-006-005-001-003 | éªŒè¯ç¼–å†™srm_supplier_addressä¾›åº”å•†åœ°å€è¡¨DDL | 2026-06-02T18:30 | âœ… | db/migration/V20260602012:11é¡¹éªŒè¯SQL(è¡¨/å­—æ®µ/çº¦æŸ/ç´¢å¼•/COMMENT/Flyway/å¤–é”®/ç±»å‹/é•¿åº¦/ç²¾åº¦/æ±‡æ€»)+docs/verification/srm_supplier_address_verify_report.md(40é¡¹å…¨PASS) | â€” |
-| P0-003-006-006-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T18:15 | âœ… | db/migration/V20260602013:CREATE TABLE srm_supplier_tag_rel(10é€šç”¨å­—æ®µ+4ä¸šåŠ¡å­—æ®µ(supplier_id/tag_id/code/status)+æ‰©å±•å­—æ®µ)+rollbackè„šæœ¬ | 0b84473b |
-| P0-003-006-006-001-002 | ç¼–å†™srm_supplier_tag_relä¾›åº”å•†æ ‡ç­¾å…³è”è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T19:00 | âœ… | db/migration/V20260602014:PKé‡å‘½å(pk_srm_supplier_tag_rel)+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+2å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+8ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 6af93b19 |
-| P0-003-006-006-001-003 | éªŒè¯ç¼–å†™srm_supplier_tag_relä¾›åº”å•†æ ‡ç­¾å…³è”è¡¨DDL | 2026-06-02T19:20 | âœ… | db/migration/V20260602015:11é¡¹éªŒè¯SQL(è¡¨/å­—æ®µ/é€šç”¨å­—æ®µ/ç´¢å¼•/çº¦æŸ/COMMENT/Flyway/ç²¾åº¦/éƒ¨åˆ†å”¯ä¸€ç´¢å¼•/å¤šç§Ÿæˆ·ç´¢å¼•/æ±‡æ€»)+docs/verification/srm_supplier_tag_rel_verify_report.md(7é¡¹æ˜“é”™è­¦ç¤ºå…¨éƒ¨è§„é¿) | f2885535 |
-| P0-003-006-007-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T19:30 | âœ… | db/migration/V20260602016__create_srm_supplier_attachment.sql(11ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+å…¨COMMENT) + V20260602016å›æ»šè„šæœ¬ | â€” |
-| P0-003-006-007-001-002 | ç¼–å†™srm_supplier_attachmentä¾›åº”å•†é™„ä»¶è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T17:06 | âœ… | db/migration/V20260602017:PKé‡å‘½å(pk_srm_supplier_attachment)+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+2å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+9ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | 32982f49 |
-| P0-003-006-007-001-003 | éªŒè¯ç¼–å†™srm_supplier_attachmentä¾›åº”å•†é™„ä»¶è¡¨DDL | 2026-06-02T19:45 | âœ… | db/migration/V20260602018:11é¡¹éªŒè¯SQL(è¡¨/å­—æ®µ/é€šç”¨å­—æ®µ/ç´¢å¼•/çº¦æŸ/COMMENT/Flyway/ç²¾åº¦/éƒ¨åˆ†å”¯ä¸€ç´¢å¼•/å¤šç§Ÿæˆ·ç´¢å¼•/æ±‡æ€»)+docs/verification/srm_supplier_attachment_verify_report.md(7é¡¹æ˜“é”™è­¦ç¤ºå…¨éƒ¨è§„é¿) | 773d43a4 |
-| P0-003-006-008-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T20:00 | âœ… | db/migration/V20260602019:CREATE TABLE srm_supplier_evaluation(11ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+å…¨COMMENT+decimal(18,8))+å›æ»šè„šæœ¬ | ebe3b5bb |
-| P0-003-006-008-001-003 | éªŒè¯ç¼–å†™srm_supplier_evaluationä¾›åº”å•†è¯„ä»·è¡¨DDL | 2026-06-02T17:15 | âœ… | db/migration/V20260602021:éªŒè¯SQL(11èŠ‚)+docs/verificationæŠ¥å‘Š;DDLé™æ€å®¡æŸ¥43å­—æ®µ/15ç´¢å¼•/20æ³¨é‡Š/10é€šç”¨å­—æ®µå…¨éƒ¨é€šè¿‡ | â€” |
-| P0-003-006-009-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T20:10 | âœ… | db/migration/V20260602022:CREATE TABLE srm_supplier_finance(5ä¸šåŠ¡å­—æ®µ+æ¨¡æ¿å­—æ®µ+22æ‰©å±•å­—æ®µ+10é€šç”¨å­—æ®µ+å…¨COMMENT+decimal(18,8))+å›æ»šè„šæœ¬ | d7200be6 |
-| P0-003-006-009-001-002 | ç¼–å†™srm_supplier_financeä¾›åº”å•†è´¢åŠ¡é…ç½®è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T17:15 | âœ… | db/migration/V20260602023:PKé‡å‘½å(pk_srm_supplier_finance)+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+2å¤šç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+8ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | â€” |
-| P0-003-006-009-001-003 | éªŒè¯ç¼–å†™srm_supplier_financeä¾›åº”å•†è´¢åŠ¡é…ç½®è¡¨DDL | 2026-06-02T20:30 | âœ… | db/migration/V20260602024:17é¡¹éªŒè¯SQL(è¡¨å­˜åœ¨/å­—æ®µ/é€šç”¨å­—æ®µ/ç²¾åº¦/NOT NULL/PK/éƒ¨åˆ†å”¯ä¸€ç´¢å¼•/å¤šç§Ÿæˆ·ç´¢å¼•/COMMENT/FK/Flyway/é»˜è®¤å€¼)+docs/verification/srm_supplier_finance_verify_report.md:8èŠ‚å®Œæ•´æŠ¥å‘Š(5/5éªŒæ”¶é€šè¿‡,é™æ€å®¡æŸ¥å…¨PASS) | 0286df4e |
+| P0-003-004-009-001-003 | ÑéÖ¤±àĞ´prod_product_sale_priceÉÌÆ·Ïú¼ÛºË¶¨±íDDL | 2026-06-01T19:50 | ? | db/migration/V20260601035:20ÏîÑéÖ¤²éÑ¯SQL+docs/verification/prod_product_sale_price_verify_report.md:12½ÚÑéÖ¤±¨¸æ(23×Ö¶Î+12Ë÷Òı+100%COMMENT+decimal(18,8)+ÎŞÍâ¼ü) | a5ba3446 |
+| P0-003-004-010-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T20:00 | ? | db/migration/V20260601036:CREATE TABLE prod_product_competitor(17ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | ede91a34 |
+| P0-003-004-010-001-002 | ±àĞ´prod_product_competitorÉÌÆ·¾ºÆ·±íË÷ÒıÓëÔ¼Êø | 2026-06-01T20:10 | ? | db/migration/V20260601037:9¸öË÷Òı(1PK+1UK+2¶à×â»§+5ÒµÎñ²éÑ¯)+»Ø¹ö½Å±¾ | d68840ce |
+| P0-003-004-010-001-003 | ÑéÖ¤±àĞ´prod_product_competitorÉÌÆ·¾ºÆ·±íDDL | 2026-06-01T20:25 | ? | db/migration/V20260601038:20ÏîÑéÖ¤²éÑ¯SQL+docs/verification/prod_product_competitor_verify_report.md:12½ÚÑéÖ¤±¨¸æ(27×Ö¶Î+10Ë÷Òı+100%COMMENT+decimal(18,8)+ÎŞÍâ¼ü) | e73c17f5 |
+| P0-003-004-011-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T20:35 | ? | db/migration/V20260601039:CREATE TABLE prod_product_bom_detail(12ÒµÎñ×Ö¶Î+14¿ìÕÕ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | (´ıÌá½») |
+| P0-003-004-011-001-002 | ±àĞ´prod_product_bom_detailÉÌÆ·BOMÖ÷´Ó±íË÷ÒıÓëÔ¼Êø | 2026-06-01T20:50 | ? | db/migration/V20260601040:9¸öË÷Òı(1PK rename+1UK+3¶à×â»§+5ÒµÎñ²éÑ¯)+»Ø¹ö½Å±¾ | 23580f90 |
+| P0-003-004-011-001-003 | ÑéÖ¤±àĞ´prod_product_bom_detailÉÌÆ·BOMÖ÷´Ó±íDDL | 2026-06-01T21:10 | ? | db/migration/V20260601041:20ÏîÑéÖ¤²éÑ¯SQL+docs/verification/prod_product_bom_detail_verify_report.md:13½ÚÑéÖ¤±¨¸æ(30×Ö¶Î+10Ë÷Òı+100%COMMENT+decimal(18,8)+12¿ìÕÕ×Ö¶Î+ÎŞÍâ¼ü) | 567ee77b |
+| P0-003-004-012-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T21:30 | ? | db/migration/V20260601042:CREATE TABLE prod_product_process_price(17ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT,decimal(18,8)Í³Ò»¾«¶È,parent_idÖ§³ÖÊ÷ĞÎ²ã¼¶)+»Ø¹ö½Å±¾+specÎÄµµ | 5afd1f5f |
+| P0-003-004-012-001-002 | ±àĞ´prod_product_process_priceÉÌÆ·¹¤ĞòÖ÷´Ó±íË÷ÒıÓëÔ¼Êø | 2026-06-01T21:50 | ? | db/migration/V20260601043:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk_tenant_code(WHERE is_deleted=false)+3¸ö¶à×â»§ÁªºÏË÷Òı+4¸öÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 9936d271 |
+| P0-003-004-012-001-003 | ÑéÖ¤±àĞ´prod_product_process_priceÉÌÆ·¹¤ĞòÖ÷´Ó±íDDL | 2026-06-01T22:10 | ? | db/migration/V20260601044:20ÏîÑéÖ¤²éÑ¯SQL+docs/verification/prod_product_process_price_verify_report.md(27×Ö¶Î/9Ë÷Òı/100%COMMENT¸²¸ÇÂÊ,0CRITICAL 0WARNING) | e82de627 |
+| P0-003-004-013-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T22:30 | ? | db/migration/V20260601045:CREATE TABLE prod_standard_process(10ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT,decimal(18,8)Í³Ò»¾«¶È)+»Ø¹ö½Å±¾ | 4fc0990e |
+| P0-003-004-013-001-002 | ±àĞ´prod_standard_process±ê×¼¹¤Ğò±íË÷ÒıÓëÔ¼Êø | 2026-06-01T22:35 | ? | db/migration/V20260601046:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk_code(WHERE is_deleted=false)+2¸ö¶à×â»§ÁªºÏË÷Òı+3¸öÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | fc064777 |
+| P0-003-004-013-001-003 | ÑéÖ¤±àĞ´prod_standard_process±ê×¼¹¤Ğò±íDDL | 2026-06-01T22:40 | ? | db/migration/V20260601047:20ÏîÑéÖ¤²éÑ¯SQL+docs/verification:ÑéÖ¤±¨¸æ(68ÏîÈ«PASS) | 5afac150 |
+| P0-003-004-014-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T22:45 | ? | db/migration/V20260601048:CREATE TABLE prod_product_price(12ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT,decimal(18,8)Í³Ò»¾«¶È)+»Ø¹ö½Å±¾ | 7abebbbc |
+| P0-003-004-014-001-002 | ±àĞ´prod_product_price±íË÷ÒıÓëÔ¼Êø | 2026-06-01T22:55 | ? | db/migration/V20260601049:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk_code(WHERE is_deleted=false)+2¸ö¶à×â»§ÁªºÏË÷Òı+9¸öÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 083d6954 |
+| P0-003-004-014-001-003 | ÑéÖ¤DDL | 2026-06-01T23:00 | ? | db/migration/V20260601050:20ÏîÑéÖ¤²éÑ¯SQL+docs/verification/prod_product_price_verify_report.md:12½ÚÑéÖ¤±¨¸æ(22×Ö¶Î+12Ë÷Òı+100%COMMENT+decimal(18,8)+ÎŞÍâ¼ü) | fbfd42ce |
+| P0-003-004-015-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T22:50 | ? | db/migration/V20260601051:CREATE TABLE prod_product_attribute(6ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö;V20260601052:CREATE TABLE prod_product_attribute_value(5ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö | 767731f2 |
+| P0-003-004-015-001-002 | ±àĞ´Ë÷ÒıÓëÔ¼Êø | 2026-06-01T23:00 | ? | db/migration/V20260601053:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk_code(WHERE is_deleted=false)+2¸ö¶à×â»§ÁªºÏË÷Òı+3¸öÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 572a31b0 |
+| P0-003-004-015-001-003 | ÑéÖ¤DDL | 2026-06-01T23:10 | ? | db/migration/V20260526001__verify_prod_product_attribute.sql:23¸öÑéÖ¤²éÑ¯¿é+docs/verification/prod_product_attribute_verify_report.md:8½ÚÑéÖ¤±¨¸æ(2±í31×Ö¶Î+7Ë÷Òı+100%COMMENT+ÎŞÍâ¼ü) | 357ac879 |
+| P0-003-004-016-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T23:20 | ? | db/migration/V20260601054:CREATE TABLE prod_product_spec(6ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | adb3d3a1 |
+| P0-003-004-016-001-002 | ±àĞ´Ë÷ÒıÓëÔ¼Êø | 2026-06-01T23:30 | ? | db/migration/V20260601055:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk_code(WHERE is_deleted=false)+2¸ö¶à×â»§ÁªºÏË÷Òı+3¸öÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 2f5d8430 |
+| P0-003-004-016-001-003 | ÑéÖ¤DDL | 2026-06-01T23:45 | ? | db/migration/V20260601056:19ÏîÑéÖ¤²éÑ¯SQL+docs/verification/prod_product_spec_verify_report.md:10½ÚÑéÖ¤±¨¸æ(16×Ö¶Î+7Ë÷Òı+100%COMMENT¸²¸ÇÂÊ+È«²¿Ò×´í¾¯Ê¾¹æ±Ü,¾²Ì¬Éó²éÈ«PASS) | 262139d7 |
+| P0-003-004-017-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T23:55 | ? | db/migration/V20260601057:CREATE TABLE prod_product_barcode(7ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | 48a2947f |
+| P0-003-004-017-001-002 | ±àĞ´Ë÷ÒıÓëÔ¼Êø | 2026-06-02T00:10 | ? | db/migration/V20260601058:8ÌõË÷Òı(PKÖØÃüÃû+1Î¨Ò»Ë÷Òıº¬WHERE is_deleted=false+2¶à×â»§+4ÒµÎñ²éÑ¯)+»Ø¹ö½Å±¾ | 9095e6f8 |
+| P0-003-004-017-001-003 | ÑéÖ¤DDL | 2026-06-02T00:20 | ? | db/migration/V20260601059:14ÏîÑéÖ¤²éÑ¯SQL+docs/verification/prod_product_barcode_verify_report.md:10½ÚÑéÖ¤±¨¸æ(17×Ö¶Î+8Ë÷Òı+100%COMMENT¸²¸ÇÂÊ+È«²¿Ò×´í¾¯Ê¾¹æ±Ü+ÁĞÃûÒ»ÖÂĞÔÑéÖ¤PASS+¾²Ì¬Éó²éÈ«PASS) | ¡ª |
+| P0-003-004-018-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T00:35 | ? | db/migration/V20260601060:CREATE TABLE prod_product_image(10ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-004-018-001-002 | ±àĞ´Ë÷ÒıÓëÔ¼Êø | 2026-06-02T00:45 | ? | db/migration/V20260601061:8ÌõË÷Òı(PKÖØÃüÃû+1Î¨Ò»Ë÷Òıº¬WHERE is_deleted=false+2¶à×â»§+5ÒµÎñ²éÑ¯)+»Ø¹ö½Å±¾ | 596298f5 |
+| P0-003-004-018-001-003 | ÑéÖ¤DDL | 2026-06-02T01:00 | ? | db/migration/V20260601062__verify_prod_product_image.sql(19ÏîÑéÖ¤SQL)+docs/verification/prod_product_image_verify_report.md(5/5ÑéÊÕÍ¨¹ı,0¸öCRITICAL,0¸öWARNING) | 20a51f05 |
+| P0-003-004-019-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T01:10 | ? | db/migration/V20260601063:CREATE TABLE prod_product_relation(8ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | 8d6ba0ea |
+| P0-003-004-019-001-002 | ±àĞ´Ë÷ÒıÓëÔ¼Êø | 2026-06-02T01:32 | ? | db/migration/V20260601064:8ÌõË÷Òı(PKÖØÃüÃû+1Î¨Ò»Ë÷Òıº¬WHERE is_deleted=false+2¶à×â»§+5ÒµÎñ²éÑ¯)+»Ø¹ö½Å±¾ | 66b20582 |
+| P0-003-004-019-001-003 | ÑéÖ¤DDL | 2026-06-02T01:45 | ? | db/migration/V20260601065__verify_prod_product_relation.sql(19ÏîÑéÖ¤SQL)+docs/verification/prod_product_relation_verify_report.md(5/5ÑéÊÕÍ¨¹ı,0¸öCRITICAL,0¸öWARNING) | 7f9e4f6b |
+| P0-003-004-020-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T02:15 | ? | db/migration/V20260601066:CREATE TABLE prod_product_tag(4ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | 21a98cf3 |
+| P0-003-004-020-001-002 | ±àĞ´Ë÷ÒıÓëÔ¼Êø | 2026-06-02T02:40 | ? | db/migration/V20260601067:6ÌõË÷Òı(PKÖØÃüÃû+1²¿·ÖÎ¨Ò»Ë÷Òıº¬WHERE is_deleted=false+1¶à×â»§+3ÒµÎñ²éÑ¯)+»Ø¹ö½Å±¾ | a7e0e566 |
+| P0-003-004-020-001-003 | ÑéÖ¤DDL | 2026-06-02T03:05 | ? | db/migration/V20260526001__verify_prod_product_tag.sql(15ÏîÑéÖ¤SQL)+docs/verification/prod_product_tag_verify_report.md(5/5ÑéÊÕÍ¨¹ı) | TBD |
+| P0-003-004-021-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T03:20 | ? | db/migration/V20260601068:CREATE TABLE prod_serial_template(8ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | 05f4d5f6 |
+| P0-003-004-021-001-002 | ±àĞ´Ë÷ÒıÓëÔ¼Êø | 2026-06-02T03:30 | ? | db/migration/V20260601069:6ÌõË÷Òı(PKÖØÃüÃû+1²¿·ÖÎ¨Ò»Ë÷Òıº¬WHERE is_deleted=false+2¶à×â»§+2ÒµÎñ²éÑ¯)+»Ø¹ö½Å±¾ | 2a1fd617 |
+| P0-003-004-021-001-003 | ÑéÖ¤DDL | 2026-06-02T03:50 | ? | db/migration/V20260526001__verify_prod_serial_template.sql(15ÏîÑéÖ¤SQL)+docs/verification/prod_serial_template_verify_report.md(5/5ÑéÊÕÍ¨¹ı) | 6e99e387 |
+| P0-003-004-022-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T04:00 | ? | db/migration/V20260601070:CREATE TABLE prod_product_other(17ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | 01f56cd6 |
+| P0-003-004-022-001-002 | ±àĞ´Ë÷ÒıÓëÔ¼Êø | 2026-06-02T04:30 | ? | db/migration/V20260601071:6ÌõË÷Òı(PKÖØÃüÃû+1²¿·ÖÎ¨Ò»Ë÷Òıº¬WHERE is_deleted=false+2¶à×â»§+3ÒµÎñ²éÑ¯)+»Ø¹ö½Å±¾ | d68a5aeb |
+| P0-003-004-022-001-003 | ÑéÖ¤DDL | 2026-06-02T05:00 | ? | db/migration/V20260526001__verify_prod_product_other.sql(16ÏîÑéÖ¤SQL)+docs/verification/prod_product_other_verify_report.md(È«²¿PASS, 0CRITICAL, 0WARNING, COMMENT¸²¸ÇÂÊ100%) | 0d004fc1 |
+| P0-003-005-001-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T05:10 | ? | db/migration/V20260601072:CREATE TABLE crm_customer_class(3ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | 57aae787 |
+| P0-003-005-001-001-002 | ±àĞ´crm_customer_class¿Í»§·ÖÀà±íË÷ÒıÓëÔ¼Êø | 2026-06-02T05:20 | ? | db/migration/V20260601073:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 8fd36f98 |
+| P0-003-005-001-001-003 | ÑéÖ¤±àĞ´crm_customer_class¿Í»§·ÖÀà±íDDL | 2026-06-02T05:30 | ? | db/migration/V20260601074:15ÏîÑéÖ¤SQL(±í´æÔÚ/×Ö¶Î/Í¨ÓÃ×Ö¶Î/¾«¶È/PK/Î¨Ò»Ë÷Òı/¶à×â»§/COMMENT/NOT NULL/Flyway/Íâ¼ü/ÁĞÃûÒ»ÖÂĞÔ)+docs/verification/crm_customer_class_verify_report.md(0CRITICAL, 1WARNINGÀ©Õ¹×Ö¶ÎCOMMENT) | 639fba91 |
+| P0-003-005-002-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T05:40 | ? | db/migration/V20260601075:CREATE TABLE crm_tag_definition(5ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | b910d4d7 |
+| P0-003-005-002-001-002 | ±àĞ´CRM±êÇ©¶¨Òå±íË÷ÒıÓëÔ¼Êø | 2026-06-02T05:50 | ? | db/migration/V20260601076:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | bf3f9cd3 |
+| P0-003-005-002-001-003 | ÑéÖ¤±àĞ´CRM±êÇ©¶¨Òå±íDDL | 2026-06-02T06:00 | ? | db/migration/V20260526001__task_P0_003_005_002_001_003.sql:14ÏîÑéÖ¤SQL+docs/specs/P0_003_005_002_001_003_spec.md(È«²¿PASS) | 2e675026 |
+| P0-003-005-003-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T19:07 | ? | db/migration/V20260601077:CREATE TABLE crm_customer(6ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | bbddd272 |
+| P0-003-005-003-001-002 | ±àĞ´crm_customer¿Í»§Ö÷±íË÷ÒıÓëÔ¼Êø | 2026-06-01T19:05 | ? | db/migration/V20260601078:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 387cf55e |
+| P0-003-005-003-001-003 | ÑéÖ¤±àĞ´crm_customer¿Í»§Ö÷±íDDL | 2026-06-01T19:18 | ? | db/migration/V20260601079:15ÏîÑéÖ¤SQL+docs/verification/crm_customer_verify_report.md(È«²¿PASS) | a5bb8c0b |
+| P0-003-005-004-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T19:15 | ? | db/migration/V20260601080:CREATE TABLE crm_contact_comm(9ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+COMMENT+decimal(18,8)¾«¶È) | 55fb5300 |
+| P0-003-005-004-001-002 | ±àĞ´crm_contact_comm¿Í»§ÁªÏµÈË±íË÷ÒıÓëÔ¼Êø | 2026-06-01T19:12 | ? | db/migration/V20260601081:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı(contact_id/parent_id/comm_type/Í¨ÓÃ×Ö¶Î/ÈÕÆÚ)+»Ø¹ö½Å±¾ | ff69f3f2 |
+| P0-003-005-004-001-003 | ÑéÖ¤±àĞ´crm_contact_comm¿Í»§ÁªÏµÈË±íDDL | 2026-06-01T19:35 | ? | db/migration/V20260526001:11ÏîÑéÖ¤²éÑ¯SQL+docs/verification/crm_contact_comm_verify_report.md(36×Ö¶Î+12Ë÷Òı+100%COMMENT+10Í¨ÓÃ×Ö¶Î+decimal(18,8)+È«²¿Ò×´í¾¯Ê¾Í¨¹ı) | (´ıÌîĞ´) |
+| P0-003-005-005-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T19:20 | ? | db/migration/V20260601082:CREATE TABLE crm_customer_address(5ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+COMMENT+decimal(18,8)¾«¶È)+»Ø¹ö½Å±¾ | (´ıÌîĞ´) |
+| P0-003-005-005-001-002 | ±àĞ´crm_customer_address¿Í»§µØÖ·±íË÷ÒıÓëÔ¼Êø | 2026-06-01T20:08 | ? | db/migration/V20260601083:PKÖØÃüÃû+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı(customer_id/address_type/city/Í¨ÓÃ×Ö¶Î/ÈÕÆÚ)+»Ø¹ö½Å±¾ | (´ıÌîĞ´) |
+| P0-003-005-005-001-003 | ÑéÖ¤±àĞ´crm_customer_address¿Í»§µØÖ·±íDDL | 2026-06-01T20:40 | ? | db/migration/V20260601084:15ÏîÑéÖ¤²éÑ¯SQL+docs/verification/crm_customer_address_verify_report.md(38×Ö¶Î+11Ë÷Òı+42.1%COMMENT+10Í¨ÓÃ×Ö¶Î+decimal(18,8)+0 CRITICALÎÊÌâ) | cf712779 |
+| P0-003-005-006-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T21:00 | ? | db/migration/V20260601085:CREATE TABLE crm_customer_tag_rel(4ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+COMMENT+decimal(18,8)¾«¶È)+»Ø¹ö½Å±¾ | 474d9c2a |
+| P0-003-005-006-001-002 | ±àĞ´crm_customer_tag_rel¿Í»§±êÇ©¹ØÁª±íË÷ÒıÓëÔ¼Êø | 2026-06-01T21:10 | ? | db/migration/V20260601086:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı(customer_id/tag_id/Í¨ÓÃ×Ö¶Î/ÈÕÆÚ)+»Ø¹ö½Å±¾ | 418d9d6ef |
+| P0-003-005-006-001-003 | ÑéÖ¤±àĞ´crm_customer_tag_rel¿Í»§±êÇ©¹ØÁª±íDDL | 2026-06-01T21:25 | ? | db/migration/V20260601087:18ÏîÑéÖ¤²éÑ¯SQL+docs/verification/crm_customer_tag_rel_verify_report.md(È«²¿PASS,0 CRITICAL) | 765970f1 |
+| P0-003-005-007-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T20:50 | ? | db/migration/V20260601088: crm_customer_attachment¿Í»§¸½¼ş±íCREATE TABLE+COMMENT+rollback | b257296b |
+| P0-003-005-007-001-002 | ±àĞ´crm_customer_attachment¿Í»§¸½¼ş±íË÷ÒıÓëÔ¼Êø | 2026-06-01T21:40 | ? | db/migration/V20260601089: PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı(customer_id/Í¨ÓÃ×Ö¶Î/ÈÕÆÚ)+»Ø¹ö½Å±¾ | 7788e438 |
+| P0-003-005-007-001-003 | ÑéÖ¤±àĞ´crm_customer_attachment¿Í»§¸½¼ş±íDDL | 2026-06-01T20:20 | ? | db/migration/V20260601090:18ÏîÑéÖ¤²éÑ¯SQL+docs/verification/crm_customer_attachment_verify_report.md(È«²¿PASS,0 CRITICAL) | (´ıÌîĞ´) |
+| P0-003-005-008-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T21:40 | ? | db/migration/V20260601091:CREATE TABLE crm_customer_evaluation(11ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+COMMENT+decimal(18,8)¾«¶È)+»Ø¹ö½Å±¾ | (´ıÌîĞ´) |
+| P0-003-005-008-001-002 | ±àĞ´crm_customer_evaluation¿Í»§ÆÀ¼Û±íË÷ÒıÓëÔ¼Êø | 2026-06-01T21:50 | ? | db/migration/V20260601092: PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı(customer_id/parent_id/evaluator_id/Í¨ÓÃ×Ö¶Î/ÈÕÆÚ)+»Ø¹ö½Å±¾ | 87afc516 |
+| P0-003-005-008-001-003 | ÑéÖ¤±àĞ´crm_customer_evaluation¿Í»§ÆÀ¼Û±íDDL | 2026-06-01T22:00 | ? | db/migration/V20260601093:18ÏîÑéÖ¤²éÑ¯SQL+docs/verification/crm_customer_evaluation_verify_report.md(È«²¿PASS,0 CRITICAL) | (´ıÌîĞ´) |
+| P0-003-005-009-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T22:10 | ? | db/migration/V20260601094:CREATE TABLE crm_customer_finance(26ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+COMMENT+decimal(18,8)¾«¶È)+»Ø¹ö½Å±¾ | d5c91011 |
+| P0-003-005-009-001-002 | ±àĞ´crm_customer_finance¿Í»§²ÆÎñÅäÖÃ±íË÷ÒıÓëÔ¼Êø | 2026-06-01T22:20 | ? | db/migration/V20260601095: PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı(customer_id/product_id/order_date/Í¨ÓÃ×Ö¶Î)+»Ø¹ö½Å±¾ | ea246012 |
+| P0-003-005-009-001-003 | ÑéÖ¤±àĞ´crm_customer_finance¿Í»§²ÆÎñÅäÖÃ±íDDL | 2026-06-01T22:35 | ? | db/migration/V20260601096:18ÏîÑéÖ¤²éÑ¯SQL+docs/verification/crm_customer_finance_verify_report.md(È«²¿PASS) | 6a28e579 |
+| P0-003-005-010-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T23:00 | ? | db/migration/V20260601097:CREATE TABLE crm_opportunity(11ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+COMMENT+decimal(18,8)¾«¶È)+»Ø¹ö½Å±¾ | e1b4a640 |
+| P0-003-005-010-001-002 | ±àĞ´crm_opportunity¿Í»§»ú»á±íË÷ÒıÓëÔ¼Êø | 2026-06-01T23:15 | ? | db/migration/V20260601098:PKÖØÃüÃû(pk_crm_opportunity)+²¿·ÖÎ¨Ò»Ë÷Òıuk_crm_opportunity_code(WHERE is_deleted=false)+6¸ö¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+8¸öÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 820e6d8e |
+| P0-003-005-010-001-003 | ÑéÖ¤±àĞ´crm_opportunity¿Í»§»ú»á±íDDL | 2026-06-01T23:30 | ? | db/migration/V20260601099:18ÏîÑéÖ¤²éÑ¯SQL+docs/verification/crm_opportunity_verify_report.md(È«²¿PASS) | 113f267d |
+| P0-003-005-011-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T23:45 | ? | db/migration/V20260601100:CREATE TABLE crm_project(8ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+COMMENT+decimal(18,8)¾«¶È)+»Ø¹ö½Å±¾ | a7ab1b5b |
+| P0-003-005-011-001-002 | ±àĞ´crm_project¿Í»§ÏîÄ¿±íË÷ÒıÓëÔ¼Êø | 2026-06-02T00:00 | ? | db/migration/V20260601101:PKÖØÃüÃû(pk_crm_project)+²¿·ÖÎ¨Ò»Ë÷Òıuk_crm_project_code(WHERE is_deleted=false)+6¸ö¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+8¸öÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | bfdaccee |
+| P0-003-005-011-001-003 | ÑéÖ¤±àĞ´crm_project¿Í»§ÏîÄ¿±íDDL | 2026-06-02T06:30 | ? | db/migration/V20260601102:18ÏîÑéÖ¤²éÑ¯SQL+docs/verification/crm_project_verify_report.md:10½ÚÑéÖ¤±¨¸æ(57×Ö¶Î+20Ë÷Òı+100%COMMENT¸²¸ÇÂÊ+È«²¿Ò×´í¾¯Ê¾¹æ±Ü+¾²Ì¬Éó²éÈ«PASS) | 16cdd75a |
+| P0-003-006-001-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-01T20:30 | ? | db/migration/V20260601103:srm_supplier_class¹©Ó¦ÉÌ·ÖÀà±íDDL(10Í¨ÓÃ×Ö¶Î+3ÒµÎñ×Ö¶Î+À©Õ¹×Ö¶Î+COMMENT)+»Ø¹ö½Å±¾ | 46e28907 |
+| P0-003-006-001-001-002 | ±àĞ´srm_supplier_class¹©Ó¦ÉÌ·ÖÀà±íË÷ÒıÓëÔ¼Êø | 2026-06-02T07:00 | ? | db/migration/V20260601104:²¹³ästatusÁĞ+PKÖØÃüÃû(pk_srm_supplier_class)+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+3¶à×â»§ÁªºÏË÷Òı+6ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | (pending) |
+| P0-003-006-001-001-003 | ÑéÖ¤±àĞ´srm_supplier_class¹©Ó¦ÉÌ·ÖÀà±íDDL | 2026-06-02T10:30 | ? | db/migration/V20260601105__verify_srm_supplier_class.sql(18ÏîÑéÖ¤SQL)+docs/verification/srm_supplier_class_verify_report.md(È«²¿PASS, 0CRITICAL, 0WARNING, COMMENT¸²¸ÇÂÊ100%) | (pending) |
+| P0-003-006-002-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T12:00 | ? | db/migration/V20260602001:CREATE TABLE srm_tag_definition(5ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+COMMENT+decimal(18,8))+specÎÄµµ | (pending) |
+| P0-003-006-002-001-002 | ±àĞ´SRM±êÇ©¶¨Òå±íË÷ÒıÓëÔ¼Êø | 2026-06-02T13:00 | ? | db/migration/V20260602002:PKÖØÃüÃû(pk_srm_tag_definition)+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+2¶à×â»§ÁªºÏË÷Òı+3ÒµÎñ²éÑ¯Ë÷Òı+5Í¨ÓÃ×Ö¶ÎË÷Òı+specÎÄµµ | (pending) |
+| P0-003-006-002-001-003 | ÑéÖ¤±àĞ´SRM±êÇ©¶¨Òå±íDDL | 2026-06-02T14:00 | ? | db/migration/V20260602003:17ÏîÑéÖ¤SQL(±í/×Ö¶Î/Ô¼Êø/Ë÷Òı/COMMENT/Flyway/Íâ¼ü)+docs/specs/P0_003_006_002_001_003_spec.md(ÑéÖ¤¹æ·¶ÎÄµµ) | (pending) |
+| P0-003-006-003-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T15:00 | ? | db/migration/V20260602004:CREATE TABLE srm_supplier(5ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+COMMENT+decimal(18,8))+»Ø¹ö½Å±¾ | (pending) |
+| P0-003-006-003-001-002 | ±àĞ´srm_supplier¹©Ó¦ÉÌÖ÷±íË÷ÒıÓëÔ¼Êø | 2026-06-02T16:00 | ? | db/migration/V20260602005:PKÖØÃüÃû(pk_srm_supplier)+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+3¶à×â»§ÁªºÏË÷Òı+6ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | (pending) |
+| P0-003-006-003-001-003 | ÑéÖ¤±àĞ´srm_supplier¹©Ó¦ÉÌÖ÷±íDDL | 2026-06-02T17:00 | ? | db/migration/V20260602006:20ÏîÑéÖ¤SQL(±í/×Ö¶Î/Ô¼Êø/Ë÷Òı/COMMENT/Flyway/Íâ¼ü/ÀàĞÍ/³¤¶È)+docs/verification/srm_supplier_verify_report.md(37ÏîÈ«PASS) | 3575917a |
+| P0-003-006-004-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T17:30 | ? | db/migration/V20260602007:CREATE TABLE srm_supplier_comm¹©Ó¦ÉÌÁªÏµÈËÍ¨Ñ¶±í(9ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+COMMENT+decimal(18,8))+»Ø¹ö½Å±¾ | 60c41c94 |
+| P0-003-006-004-001-002 | ±àĞ´srm_supplier_comm¹©Ó¦ÉÌÁªÏµÈË±íË÷ÒıÓëÔ¼Êø | 2026-06-02T17:40 | ? | db/migration/V20260602008:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı(FK/supplier_id/status/parent_id/ÈÕÆÚ)+»Ø¹ö½Å±¾ | e9d8cb5a |
+| P0-003-006-004-001-003 | ÑéÖ¤±àĞ´srm_supplier_comm¹©Ó¦ÉÌÁªÏµÈË±íDDL | 2026-06-02T18:00 | ? | db/migration/V20260602009:11ÏîÑéÖ¤SQL(±í/×Ö¶Î/Ô¼Êø/Ë÷Òı/COMMENT/Flyway/Íâ¼ü/ÀàĞÍ/³¤¶È/¾«¶È/»ã×Ü)+docs/verification/srm_supplier_comm_verify_report.md(41ÏîÈ«PASS) | 12c6c5b3 |
+| P0-003-006-005-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T17:10 | ? | db/migration/V20260602010__create_srm_supplier_address.sql(38ÁĞ:8ÒµÎñ+20À©Õ¹+10Í¨ÓÃ)+rollback½Å±¾ | 6cadb4bd |
+| P0-003-006-005-001-002 | ±àĞ´srm_supplier_address¹©Ó¦ÉÌµØÖ·±íË÷ÒıÓëÔ¼Êø | 2026-06-02T18:00 | ? | db/migration/V20260602011:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òı(WHERE is_deleted=false, supplier_id+address_type)+¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+ÒµÎñ²éÑ¯Ë÷Òı(FK/supplier_id/status/ÈÕÆÚ)+»Ø¹ö½Å±¾ | 2a22439a |
+| P0-003-006-005-001-003 | ÑéÖ¤±àĞ´srm_supplier_address¹©Ó¦ÉÌµØÖ·±íDDL | 2026-06-02T18:30 | ? | db/migration/V20260602012:11ÏîÑéÖ¤SQL(±í/×Ö¶Î/Ô¼Êø/Ë÷Òı/COMMENT/Flyway/Íâ¼ü/ÀàĞÍ/³¤¶È/¾«¶È/»ã×Ü)+docs/verification/srm_supplier_address_verify_report.md(40ÏîÈ«PASS) | ¡ª |
+| P0-003-006-006-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T18:15 | ? | db/migration/V20260602013:CREATE TABLE srm_supplier_tag_rel(10Í¨ÓÃ×Ö¶Î+4ÒµÎñ×Ö¶Î(supplier_id/tag_id/code/status)+À©Õ¹×Ö¶Î)+rollback½Å±¾ | 0b84473b |
+| P0-003-006-006-001-002 | ±àĞ´srm_supplier_tag_rel¹©Ó¦ÉÌ±êÇ©¹ØÁª±íË÷ÒıÓëÔ¼Êø | 2026-06-02T19:00 | ? | db/migration/V20260602014:PKÖØÃüÃû(pk_srm_supplier_tag_rel)+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+2¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+8ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 6af93b19 |
+| P0-003-006-006-001-003 | ÑéÖ¤±àĞ´srm_supplier_tag_rel¹©Ó¦ÉÌ±êÇ©¹ØÁª±íDDL | 2026-06-02T19:20 | ? | db/migration/V20260602015:11ÏîÑéÖ¤SQL(±í/×Ö¶Î/Í¨ÓÃ×Ö¶Î/Ë÷Òı/Ô¼Êø/COMMENT/Flyway/¾«¶È/²¿·ÖÎ¨Ò»Ë÷Òı/¶à×â»§Ë÷Òı/»ã×Ü)+docs/verification/srm_supplier_tag_rel_verify_report.md(7ÏîÒ×´í¾¯Ê¾È«²¿¹æ±Ü) | f2885535 |
+| P0-003-006-007-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T19:30 | ? | db/migration/V20260602016__create_srm_supplier_attachment.sql(11ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+È«COMMENT) + V20260602016»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-006-007-001-002 | ±àĞ´srm_supplier_attachment¹©Ó¦ÉÌ¸½¼ş±íË÷ÒıÓëÔ¼Êø | 2026-06-02T17:06 | ? | db/migration/V20260602017:PKÖØÃüÃû(pk_srm_supplier_attachment)+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+2¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+9ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | 32982f49 |
+| P0-003-006-007-001-003 | ÑéÖ¤±àĞ´srm_supplier_attachment¹©Ó¦ÉÌ¸½¼ş±íDDL | 2026-06-02T19:45 | ? | db/migration/V20260602018:11ÏîÑéÖ¤SQL(±í/×Ö¶Î/Í¨ÓÃ×Ö¶Î/Ë÷Òı/Ô¼Êø/COMMENT/Flyway/¾«¶È/²¿·ÖÎ¨Ò»Ë÷Òı/¶à×â»§Ë÷Òı/»ã×Ü)+docs/verification/srm_supplier_attachment_verify_report.md(7ÏîÒ×´í¾¯Ê¾È«²¿¹æ±Ü) | 773d43a4 |
+| P0-003-006-008-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T20:00 | ? | db/migration/V20260602019:CREATE TABLE srm_supplier_evaluation(11ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+È«COMMENT+decimal(18,8))+»Ø¹ö½Å±¾ | ebe3b5bb |
+| P0-003-006-008-001-003 | ÑéÖ¤±àĞ´srm_supplier_evaluation¹©Ó¦ÉÌÆÀ¼Û±íDDL | 2026-06-02T17:15 | ? | db/migration/V20260602021:ÑéÖ¤SQL(11½Ú)+docs/verification±¨¸æ;DDL¾²Ì¬Éó²é43×Ö¶Î/15Ë÷Òı/20×¢ÊÍ/10Í¨ÓÃ×Ö¶ÎÈ«²¿Í¨¹ı | ¡ª |
+| P0-003-006-009-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T20:10 | ? | db/migration/V20260602022:CREATE TABLE srm_supplier_finance(5ÒµÎñ×Ö¶Î+Ä£°å×Ö¶Î+22À©Õ¹×Ö¶Î+10Í¨ÓÃ×Ö¶Î+È«COMMENT+decimal(18,8))+»Ø¹ö½Å±¾ | d7200be6 |
+| P0-003-006-009-001-002 | ±àĞ´srm_supplier_finance¹©Ó¦ÉÌ²ÆÎñÅäÖÃ±íË÷ÒıÓëÔ¼Êø | 2026-06-02T17:15 | ? | db/migration/V20260602023:PKÖØÃüÃû(pk_srm_supplier_finance)+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+2¶à×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+8ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-006-009-001-003 | ÑéÖ¤±àĞ´srm_supplier_finance¹©Ó¦ÉÌ²ÆÎñÅäÖÃ±íDDL | 2026-06-02T20:30 | ? | db/migration/V20260602024:17ÏîÑéÖ¤SQL(±í´æÔÚ/×Ö¶Î/Í¨ÓÃ×Ö¶Î/¾«¶È/NOT NULL/PK/²¿·ÖÎ¨Ò»Ë÷Òı/¶à×â»§Ë÷Òı/COMMENT/FK/Flyway/Ä¬ÈÏÖµ)+docs/verification/srm_supplier_finance_verify_report.md:8½ÚÍêÕû±¨¸æ(5/5ÑéÊÕÍ¨¹ı,¾²Ì¬Éó²éÈ«PASS) | 0286df4e |
 
-### P0-003-007 - ä»“åº“åº“å­˜è¡¨å»ºè¡¨
+### P0-003-007 - ²Ö¿â¿â´æ±í½¨±í
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|:---:|
-| P0-003-007-001-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T17:10 | âœ… | db/migration/V20260526001:CREATE TABLE inv_warehouse(5ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+å…¨COMMENT+decimal(18,8))+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-001-001-002 | ç¼–å†™inv_warehouseä»“åº“å®šä¹‰è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T17:10 | âœ… | db/migration/V20260526001:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_warehouse_code(WHERE is_deleted=false)+tenant_idè”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+é€šç”¨å­—æ®µç´¢å¼•+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-001-001-003 | éªŒè¯ç¼–å†™inv_warehouseä»“åº“å®šä¹‰è¡¨DDL | 2026-06-02T17:20 | âœ… | db/migration/V20260526001:15é¡¹éªŒè¯SQL(è¡¨å­˜åœ¨/å­—æ®µ/é€šç”¨å­—æ®µ/ç²¾åº¦/PK/éƒ¨åˆ†å”¯ä¸€ç´¢å¼•/ç´¢å¼•æ•°é‡/å¤šç§Ÿæˆ·ç´¢å¼•/COMMENT/NOT NULL/FK/åˆ—å)+docs/verification/inv_warehouse_verify_report.md:4èŠ‚å®Œæ•´æŠ¥å‘Š(14/14æ ¸å¿ƒæ£€æŸ¥é€šè¿‡) | â€” |
-| P0-003-007-002-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T17:20 | âœ… | db/migration/V20260526001:CREATE TABLE inv_location(5ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+å…¨COMMENT+decimal(18,8))+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-002-001-002 | ç¼–å†™inv_locationåº“ä½ç®¡ç†è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T17:35 | âœ… | db/migration/V20260602001:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_inv_location_code(WHERE is_deleted=false)+tenant_idè”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-002-001-003 | éªŒè¯ç¼–å†™inv_locationåº“ä½ç®¡ç†è¡¨DDL | 2026-06-02T17:45 | âœ… | db/migration/V20260526001:15é¡¹éªŒè¯SQL+docs/verification/inv_location_verify_report.md:5èŠ‚å®Œæ•´æŠ¥å‘Š(å‘ç°é—®é¢˜:Flywayç‰ˆæœ¬å†²çª+æ‰©å±•å­—æ®µCOMMENTç¼ºå¤±) | â€” |
-| P0-003-007-003-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T17:50 | âœ… | db/migration/V20260526001:CREATE TABLE inv_stock(22ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+32æ¡COMMENT+decimal(18,8))+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-003-001-002 | ç¼–å†™inv_stockåº“å­˜å®æ—¶è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T18:00 | âœ… | db/migration/V20260526001:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_inv_stock_order_no(WHERE is_deleted=false)+tenant_idè”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(14ä¸ªç´¢å¼•)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-003-001-003 | éªŒè¯ç¼–å†™inv_stockåº“å­˜å®æ—¶è¡¨DDL | 2026-06-02T18:15 | âœ… | db/migration/V20260526001__verify_inv_stock.sql:15é¡¹éªŒè¯SQL(è¡¨å­˜åœ¨/å­—æ®µ/é€šç”¨å­—æ®µ/ç²¾åº¦/PK/éƒ¨åˆ†å”¯ä¸€ç´¢å¼•/ç´¢å¼•æ•°é‡/å¤šç§Ÿæˆ·ç´¢å¼•/COMMENT/NOT NULL/FK/åˆ—å)+docs/verification/inv_stock_verify_report.md:5èŠ‚å®Œæ•´æŠ¥å‘Š(1MEDIUM:22æ‰©å±•å­—æ®µç¼ºCOMMENT, 1WARN:Flywayç‰ˆæœ¬å…±äº«) | â€” |
-| P0-003-007-004-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T17:05 | âœ… | db/migration/V20260526001__create_inv_stock_location.sql:CREATE TABLE inv_stock_location(6ä¸šåŠ¡å­—æ®µ+4å•æ®å­—æ®µ+11å•†å“å¿«ç…§+22æ‰©å±•å­—æ®µ+10é€šç”¨å­—æ®µ+å…¨COMMENT+decimal(18,8))+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-004-001-002 | ç¼–å†™inv_stock_locationåº“ä½åº“å­˜è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T18:30 | âœ… | db/migration/V20260526001:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_inv_stock_location_unique(5åˆ—ç»„åˆWHERE is_deleted=false)+tenant_idè”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(17ä¸ªç´¢å¼•)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-004-001-003 | éªŒè¯ç¼–å†™inv_stock_locationåº“ä½åº“å­˜è¡¨DDL | 2026-06-02T19:00 | âœ… | db/migration/V20260526001__verify_inv_stock_location.sql:13é¡¹éªŒè¯SQL+docs/verification/inv_stock_location_verify_report.md:5èŠ‚å®Œæ•´æŠ¥å‘Š(1MEDIUM:22æ‰©å±•å­—æ®µç¼ºCOMMENT, 1WARN:Flywayç‰ˆæœ¬å…±äº«) | 4d5f4365 |
-| P0-003-007-005-001-001 | ç¼–å†™inv_other_outbound_detailå…¶ä»–å‡ºåº“ä¸»ä»è¡¨CREATE TABLEè¯­å¥ | 2026-06-02T14:52 | âœ… | db/migration/V20260526001:CREATE TABLE inv_other_outbound(14ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ)+inv_other_outbound_detail(35ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ)+å…¨COMMENT+decimal(18,8) | 6a2f442a |
-| P0-003-007-005-001-002 | ç¼–å†™inv_other_outbound_detailå…¶ä»–å‡ºåº“ä¸»ä»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T17:20 | âœ… | db/migration/V20260526001:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_inv_other_outbound_detail_code(WHERE is_deleted=false)+tenant_idè”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(15ä¸ªç´¢å¼•)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-005-001-003 | éªŒè¯ç¼–å†™inv_other_outbound_detailå…¶ä»–å‡ºåº“ä¸»ä»è¡¨DDL | 2026-06-02T17:30 | âœ… | db/migration/V20260602001__verify_inv_other_outbound_detail.sql:22é¡¹éªŒè¯SQL+docs/verification/inv_other_outbound_detail_verify_report.md:éªŒæ”¶æŠ¥å‘Š | â€” |
-| P0-003-007-006-001-001 | ç¼–å†™inv_other_inbound_detailå…¶ä»–å…¥åº“ä¸»ä»è¡¨CREATE TABLEè¯­å¥ | 2026-06-02T17:40 | âœ… | db/migration/V20260526001:CREATE TABLE inv_other_inbound(14ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ)+inv_other_inbound_detail(35ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ)+å…¨COMMENT+decimal(18,8) | â€” |
-| P0-003-007-006-001-002 | ç¼–å†™inv_other_inbound_detailå…¶ä»–å…¥åº“ä¸»ä»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T18:00 | âœ… | db/migration/V20260526001:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+tenant_idè”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(ä¸»è¡¨17ä¸ª+ä»è¡¨15ä¸ªå…±32ä¸ªç´¢å¼•)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-006-001-003 | éªŒè¯ç¼–å†™inv_other_inbound_detailå…¶ä»–å…¥åº“ä¸»ä»è¡¨DDL | 2026-06-02T18:15 | âœ… | db/migration/V20260602002__verify_inv_other_inbound_detail.sql:26é¡¹éªŒè¯SQL+docs/verification/inv_other_inbound_detail_verify_report.md:éªŒæ”¶æŠ¥å‘Š(5èŠ‚:æ‘˜è¦/ç»“æ„/ç´¢å¼•/è§„èŒƒ/éªŒæ”¶å¯¹ç…§) | â€” |
-| P0-003-007-007-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T17:30 | âœ… | db/migration/V20260526001:CREATE TABLE inv_stocktaking(12ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ)+inv_stocktaking_detail(26ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ)+å…¨COMMENT+decimal(18,8)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-007-001-002 | ç¼–å†™inv_stocktaking_detailç›˜ç‚¹ä¸»ä»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T17:00 | âœ… | db/migration/V20260526001:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+tenant_idè”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(ä¸»è¡¨17ä¸ª+ä»è¡¨15ä¸ªå…±32ä¸ªç´¢å¼•)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-007-001-003 | éªŒè¯ç¼–å†™inv_stocktaking_detailç›˜ç‚¹ä¸»ä»è¡¨DDL | 2026-06-02T18:00 | âœ… | db/migration/V20260526001__verify_inv_stocktaking_detail.sql:29é¡¹éªŒè¯SQL(ä¸»è¡¨14+ä»è¡¨14+Flyway+ä¸»ä»å…³è”)+docs/verification/inv_stocktaking_detail_verify_report.md:5èŠ‚å®Œæ•´æŠ¥å‘Š(1MEDIUM:22æ‰©å±•å­—æ®µç¼ºCOMMENT, 1WARN:Flywayç‰ˆæœ¬å…±äº«) | â€” |
-| P0-003-007-008-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T17:10 | âœ… | db/migration/V20260526001:CREATE TABLE inv_transfer(12ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ)+inv_transfer_detail(26ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ)+å…¨COMMENT+decimal(18,8)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-008-001-002 | ç¼–å†™inv_transfer_detailè°ƒæ‹¨ä¸»ä»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T17:05 | âœ… | db/migration/V20260526001:PKé‡å‘½å+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+tenant_idè”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(ä¸»è¡¨18ä¸ª+ä»è¡¨16ä¸ªå…±34ä¸ªç´¢å¼•)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-008-001-003 | éªŒè¯ç¼–å†™inv_transfer_detailè°ƒæ‹¨ä¸»ä»è¡¨DDL | 2026-06-02T17:30 | âœ… | db/migration/V20260526001__verify_inv_transfer_detail.sql:17é¡¹éªŒè¯SQL(è¡¨å­˜åœ¨/å­—æ®µ/é€šç”¨å­—æ®µ/ç²¾åº¦/NOT NULL/PK/éƒ¨åˆ†å”¯ä¸€ç´¢å¼•/å¤šç§Ÿæˆ·ç´¢å¼•/COMMENT/FK/Flyway/é»˜è®¤å€¼)+docs/verification/inv_transfer_detail_verify_report.md:5èŠ‚å®Œæ•´æŠ¥å‘Š(1MEDIUM:22æ‰©å±•å­—æ®µç¼ºCOMMENT, 1WARN:Flywayç‰ˆæœ¬å…±äº«) | â€” |
-| P0-003-007-009-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-02T17:30 | âœ… | db/migration/V20260526001:CREATE TABLE inv_loss(12ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ)+inv_loss_detail(26ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ)+å…¨COMMENT+decimal(18,8)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-009-001-002 | ç¼–å†™inv_loss_detailæŠ¥æŸä¸»ä»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-02T17:45 | âœ… | db/migration/V20260526001:PKé‡å‘½å(inv_loss+inv_loss_detail)+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+tenant_idè”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(ä¸»è¡¨17ä¸ª+ä»è¡¨15ä¸ªå…±32ä¸ªç´¢å¼•)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-009-001-003 | éªŒè¯ç¼–å†™inv_loss_detailæŠ¥æŸä¸»ä»è¡¨DDL | 2026-06-02T16:03 | âœ… | db/migration/V20260526001__verify_inv_loss_detail.sql:17é¡¹éªŒè¯SQL(2è¡¨/ä¸»è¡¨columns/PK/éƒ¨åˆ†å”¯ä¸€ç´¢å¼•/ç´¢å¼•åˆ—è¡¨/å¤šç§Ÿæˆ·ç´¢å¼•/COMMENT/NOT NULL/FK/åˆ—å/ç²¾åº¦)+docs/verification/inv_loss_detail_verify_report.md:6èŠ‚å®Œæ•´æŠ¥å‘Š(éªŒè¯èŒƒå›´/ç»“æ„éªŒè¯/ç´¢å¼•çº¦æŸ/è§„èŒƒåˆè§„/æ˜“é”™å¯¹ç…§/éªŒæ”¶æ€»ç»“) | 7c55c82c |
-| P0-003-007-010-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-03T10:00 | âœ… | db/migration/V20260526001:CREATE TABLE inv_overflow(12ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ)+inv_overflow_detail(26ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ)+å…¨COMMENT+decimal(18,8)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-010-001-002 | ç¼–å†™inv_overflow_detailæŠ¥æº¢ä¸»ä»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-03T11:00 | âœ… | db/migration/V20260526001:PKé‡å‘½å(inv_overflow+inv_overflow_detail)+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+tenant_idè”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(ä¸»è¡¨16ä¸ª+ä»è¡¨16ä¸ªå…±32ä¸ªç´¢å¼•)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-010-001-003 | éªŒè¯ç¼–å†™inv_overflow_detailæŠ¥æº¢ä¸»ä»è¡¨DDL | 2026-06-03T17:45 | âœ… | db/migration/V20260526001__verify_inv_overflow_detail.sql:17é¡¹éªŒè¯SQL(2è¡¨/ä¸»è¡¨columns/PK/éƒ¨åˆ†å”¯ä¸€ç´¢å¼•/ç´¢å¼•åˆ—è¡¨/å¤šç§Ÿæˆ·ç´¢å¼•/COMMENT/NOT NULL/FK/åˆ—å/ç²¾åº¦)+docs/verification/inv_overflow_detail_verify_report.md:6èŠ‚å®Œæ•´æŠ¥å‘Š(éªŒè¯èŒƒå›´/ç»“æ„éªŒè¯/ç´¢å¼•çº¦æŸ/è§„èŒƒåˆè§„/æ˜“é”™å¯¹ç…§/éªŒæ”¶æ€»ç»“) | â€” |
-| P0-003-007-011-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-03T17:50 | âœ… | db/migration/V20260603001:CREATE TABLE inv_assembly(12ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ)+inv_assembly_detail(26ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ)+å…¨COMMENT+decimal(18,8)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-011-001-002 | ç¼–å†™inv_assembly_detailç»„è£…ä¸»ä»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-03T17:56 | âœ… | db/migration/V20260603002:PKé‡å‘½å(inv_assembly+inv_assembly_detail)+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+tenant_idè”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(ä¸»è¡¨16ä¸ª+ä»è¡¨16ä¸ªå…±32ä¸ªç´¢å¼•)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-011-001-003 | éªŒè¯ç¼–å†™inv_assembly_detailç»„è£…ä¸»ä»è¡¨DDL | 2026-06-03T18:05 | âœ… | db/migration/V20260526001__verify_inv_assembly_detail.sql:17é¡¹éªŒè¯SQL(2è¡¨/columns/PK/éƒ¨åˆ†å”¯ä¸€ç´¢å¼•/ç´¢å¼•åˆ—è¡¨/å¤šç§Ÿæˆ·ç´¢å¼•/COMMENT/NOT NULL/FK/DECIMALç²¾åº¦/å¿«ç…§å­—æ®µ/æ‰©å±•å­—æ®µ)+docs/verification/inv_assembly_detail_verify_report.md:6èŠ‚å®Œæ•´æŠ¥å‘Š | â€” |
-| P0-003-007-012-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-03T18:05 | âœ… | db/migration/V20260603003:CREATE TABLE inv_disassembly(12ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ)+inv_disassembly_detail(26ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ)+å…¨COMMENT+decimal(18,8)+å›æ»šè„šæœ¬ | â€” |
-| P0-003-007-012-001-002 | ç¼–å†™inv_disassembly_detailæ‹†å¸ä¸»ä»è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-03T18:20 | âœ… | db/migration/V20260603004:PKé‡å‘½å(inv_disassembly+inv_disassembly_detail)+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk(WHERE is_deleted=false)+tenant_idè”åˆç´¢å¼•+ä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•(ä¸»è¡¨16ä¸ª+ä»è¡¨16ä¸ªå…±32ä¸ªç´¢å¼•)+å›æ»šè„šæœ¬ | â€” |
+| P0-003-007-001-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T17:10 | ? | db/migration/V20260526001:CREATE TABLE inv_warehouse(5ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+È«COMMENT+decimal(18,8))+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-001-001-002 | ±àĞ´inv_warehouse²Ö¿â¶¨Òå±íË÷ÒıÓëÔ¼Êø | 2026-06-02T17:10 | ? | db/migration/V20260526001:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk_warehouse_code(WHERE is_deleted=false)+tenant_idÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı+Í¨ÓÃ×Ö¶ÎË÷Òı+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-001-001-003 | ÑéÖ¤±àĞ´inv_warehouse²Ö¿â¶¨Òå±íDDL | 2026-06-02T17:20 | ? | db/migration/V20260526001:15ÏîÑéÖ¤SQL(±í´æÔÚ/×Ö¶Î/Í¨ÓÃ×Ö¶Î/¾«¶È/PK/²¿·ÖÎ¨Ò»Ë÷Òı/Ë÷ÒıÊıÁ¿/¶à×â»§Ë÷Òı/COMMENT/NOT NULL/FK/ÁĞÃû)+docs/verification/inv_warehouse_verify_report.md:4½ÚÍêÕû±¨¸æ(14/14ºËĞÄ¼ì²éÍ¨¹ı) | ¡ª |
+| P0-003-007-002-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T17:20 | ? | db/migration/V20260526001:CREATE TABLE inv_location(5ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+È«COMMENT+decimal(18,8))+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-002-001-002 | ±àĞ´inv_location¿âÎ»¹ÜÀí±íË÷ÒıÓëÔ¼Êø | 2026-06-02T17:35 | ? | db/migration/V20260602001:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk_inv_location_code(WHERE is_deleted=false)+tenant_idÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-002-001-003 | ÑéÖ¤±àĞ´inv_location¿âÎ»¹ÜÀí±íDDL | 2026-06-02T17:45 | ? | db/migration/V20260526001:15ÏîÑéÖ¤SQL+docs/verification/inv_location_verify_report.md:5½ÚÍêÕû±¨¸æ(·¢ÏÖÎÊÌâ:Flyway°æ±¾³åÍ»+À©Õ¹×Ö¶ÎCOMMENTÈ±Ê§) | ¡ª |
+| P0-003-007-003-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T17:50 | ? | db/migration/V20260526001:CREATE TABLE inv_stock(22ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+32ÌõCOMMENT+decimal(18,8))+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-003-001-002 | ±àĞ´inv_stock¿â´æÊµÊ±±íË÷ÒıÓëÔ¼Êø | 2026-06-02T18:00 | ? | db/migration/V20260526001:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk_inv_stock_order_no(WHERE is_deleted=false)+tenant_idÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı(14¸öË÷Òı)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-003-001-003 | ÑéÖ¤±àĞ´inv_stock¿â´æÊµÊ±±íDDL | 2026-06-02T18:15 | ? | db/migration/V20260526001__verify_inv_stock.sql:15ÏîÑéÖ¤SQL(±í´æÔÚ/×Ö¶Î/Í¨ÓÃ×Ö¶Î/¾«¶È/PK/²¿·ÖÎ¨Ò»Ë÷Òı/Ë÷ÒıÊıÁ¿/¶à×â»§Ë÷Òı/COMMENT/NOT NULL/FK/ÁĞÃû)+docs/verification/inv_stock_verify_report.md:5½ÚÍêÕû±¨¸æ(1MEDIUM:22À©Õ¹×Ö¶ÎÈ±COMMENT, 1WARN:Flyway°æ±¾¹²Ïí) | ¡ª |
+| P0-003-007-004-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T17:05 | ? | db/migration/V20260526001__create_inv_stock_location.sql:CREATE TABLE inv_stock_location(6ÒµÎñ×Ö¶Î+4µ¥¾İ×Ö¶Î+11ÉÌÆ·¿ìÕÕ+22À©Õ¹×Ö¶Î+10Í¨ÓÃ×Ö¶Î+È«COMMENT+decimal(18,8))+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-004-001-002 | ±àĞ´inv_stock_location¿âÎ»¿â´æ±íË÷ÒıÓëÔ¼Êø | 2026-06-02T18:30 | ? | db/migration/V20260526001:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk_inv_stock_location_unique(5ÁĞ×éºÏWHERE is_deleted=false)+tenant_idÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı(17¸öË÷Òı)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-004-001-003 | ÑéÖ¤±àĞ´inv_stock_location¿âÎ»¿â´æ±íDDL | 2026-06-02T19:00 | ? | db/migration/V20260526001__verify_inv_stock_location.sql:13ÏîÑéÖ¤SQL+docs/verification/inv_stock_location_verify_report.md:5½ÚÍêÕû±¨¸æ(1MEDIUM:22À©Õ¹×Ö¶ÎÈ±COMMENT, 1WARN:Flyway°æ±¾¹²Ïí) | 4d5f4365 |
+| P0-003-007-005-001-001 | ±àĞ´inv_other_outbound_detailÆäËû³ö¿âÖ÷´Ó±íCREATE TABLEÓï¾ä | 2026-06-02T14:52 | ? | db/migration/V20260526001:CREATE TABLE inv_other_outbound(14ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î)+inv_other_outbound_detail(35ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î)+È«COMMENT+decimal(18,8) | 6a2f442a |
+| P0-003-007-005-001-002 | ±àĞ´inv_other_outbound_detailÆäËû³ö¿âÖ÷´Ó±íË÷ÒıÓëÔ¼Êø | 2026-06-02T17:20 | ? | db/migration/V20260526001:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk_inv_other_outbound_detail_code(WHERE is_deleted=false)+tenant_idÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı(15¸öË÷Òı)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-005-001-003 | ÑéÖ¤±àĞ´inv_other_outbound_detailÆäËû³ö¿âÖ÷´Ó±íDDL | 2026-06-02T17:30 | ? | db/migration/V20260602001__verify_inv_other_outbound_detail.sql:22ÏîÑéÖ¤SQL+docs/verification/inv_other_outbound_detail_verify_report.md:ÑéÊÕ±¨¸æ | ¡ª |
+| P0-003-007-006-001-001 | ±àĞ´inv_other_inbound_detailÆäËûÈë¿âÖ÷´Ó±íCREATE TABLEÓï¾ä | 2026-06-02T17:40 | ? | db/migration/V20260526001:CREATE TABLE inv_other_inbound(14ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î)+inv_other_inbound_detail(35ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î)+È«COMMENT+decimal(18,8) | ¡ª |
+| P0-003-007-006-001-002 | ±àĞ´inv_other_inbound_detailÆäËûÈë¿âÖ÷´Ó±íË÷ÒıÓëÔ¼Êø | 2026-06-02T18:00 | ? | db/migration/V20260526001:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+tenant_idÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı(Ö÷±í17¸ö+´Ó±í15¸ö¹²32¸öË÷Òı)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-006-001-003 | ÑéÖ¤±àĞ´inv_other_inbound_detailÆäËûÈë¿âÖ÷´Ó±íDDL | 2026-06-02T18:15 | ? | db/migration/V20260602002__verify_inv_other_inbound_detail.sql:26ÏîÑéÖ¤SQL+docs/verification/inv_other_inbound_detail_verify_report.md:ÑéÊÕ±¨¸æ(5½Ú:ÕªÒª/½á¹¹/Ë÷Òı/¹æ·¶/ÑéÊÕ¶ÔÕÕ) | ¡ª |
+| P0-003-007-007-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T17:30 | ? | db/migration/V20260526001:CREATE TABLE inv_stocktaking(12ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î)+inv_stocktaking_detail(26ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î)+È«COMMENT+decimal(18,8)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-007-001-002 | ±àĞ´inv_stocktaking_detailÅÌµãÖ÷´Ó±íË÷ÒıÓëÔ¼Êø | 2026-06-02T17:00 | ? | db/migration/V20260526001:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+tenant_idÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı(Ö÷±í17¸ö+´Ó±í15¸ö¹²32¸öË÷Òı)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-007-001-003 | ÑéÖ¤±àĞ´inv_stocktaking_detailÅÌµãÖ÷´Ó±íDDL | 2026-06-02T18:00 | ? | db/migration/V20260526001__verify_inv_stocktaking_detail.sql:29ÏîÑéÖ¤SQL(Ö÷±í14+´Ó±í14+Flyway+Ö÷´Ó¹ØÁª)+docs/verification/inv_stocktaking_detail_verify_report.md:5½ÚÍêÕû±¨¸æ(1MEDIUM:22À©Õ¹×Ö¶ÎÈ±COMMENT, 1WARN:Flyway°æ±¾¹²Ïí) | ¡ª |
+| P0-003-007-008-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T17:10 | ? | db/migration/V20260526001:CREATE TABLE inv_transfer(12ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î)+inv_transfer_detail(26ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î)+È«COMMENT+decimal(18,8)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-008-001-002 | ±àĞ´inv_transfer_detailµ÷²¦Ö÷´Ó±íË÷ÒıÓëÔ¼Êø | 2026-06-02T17:05 | ? | db/migration/V20260526001:PKÖØÃüÃû+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+tenant_idÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı(Ö÷±í18¸ö+´Ó±í16¸ö¹²34¸öË÷Òı)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-008-001-003 | ÑéÖ¤±àĞ´inv_transfer_detailµ÷²¦Ö÷´Ó±íDDL | 2026-06-02T17:30 | ? | db/migration/V20260526001__verify_inv_transfer_detail.sql:17ÏîÑéÖ¤SQL(±í´æÔÚ/×Ö¶Î/Í¨ÓÃ×Ö¶Î/¾«¶È/NOT NULL/PK/²¿·ÖÎ¨Ò»Ë÷Òı/¶à×â»§Ë÷Òı/COMMENT/FK/Flyway/Ä¬ÈÏÖµ)+docs/verification/inv_transfer_detail_verify_report.md:5½ÚÍêÕû±¨¸æ(1MEDIUM:22À©Õ¹×Ö¶ÎÈ±COMMENT, 1WARN:Flyway°æ±¾¹²Ïí) | ¡ª |
+| P0-003-007-009-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-02T17:30 | ? | db/migration/V20260526001:CREATE TABLE inv_loss(12ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î)+inv_loss_detail(26ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î)+È«COMMENT+decimal(18,8)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-009-001-002 | ±àĞ´inv_loss_detail±¨ËğÖ÷´Ó±íË÷ÒıÓëÔ¼Êø | 2026-06-02T17:45 | ? | db/migration/V20260526001:PKÖØÃüÃû(inv_loss+inv_loss_detail)+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+tenant_idÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı(Ö÷±í17¸ö+´Ó±í15¸ö¹²32¸öË÷Òı)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-009-001-003 | ÑéÖ¤±àĞ´inv_loss_detail±¨ËğÖ÷´Ó±íDDL | 2026-06-02T16:03 | ? | db/migration/V20260526001__verify_inv_loss_detail.sql:17ÏîÑéÖ¤SQL(2±í/Ö÷±ícolumns/PK/²¿·ÖÎ¨Ò»Ë÷Òı/Ë÷ÒıÁĞ±í/¶à×â»§Ë÷Òı/COMMENT/NOT NULL/FK/ÁĞÃû/¾«¶È)+docs/verification/inv_loss_detail_verify_report.md:6½ÚÍêÕû±¨¸æ(ÑéÖ¤·¶Î§/½á¹¹ÑéÖ¤/Ë÷ÒıÔ¼Êø/¹æ·¶ºÏ¹æ/Ò×´í¶ÔÕÕ/ÑéÊÕ×Ü½á) | 7c55c82c |
+| P0-003-007-010-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-03T10:00 | ? | db/migration/V20260526001:CREATE TABLE inv_overflow(12ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î)+inv_overflow_detail(26ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î)+È«COMMENT+decimal(18,8)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-010-001-002 | ±àĞ´inv_overflow_detail±¨ÒçÖ÷´Ó±íË÷ÒıÓëÔ¼Êø | 2026-06-03T11:00 | ? | db/migration/V20260526001:PKÖØÃüÃû(inv_overflow+inv_overflow_detail)+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+tenant_idÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı(Ö÷±í16¸ö+´Ó±í16¸ö¹²32¸öË÷Òı)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-010-001-003 | ÑéÖ¤±àĞ´inv_overflow_detail±¨ÒçÖ÷´Ó±íDDL | 2026-06-03T17:45 | ? | db/migration/V20260526001__verify_inv_overflow_detail.sql:17ÏîÑéÖ¤SQL(2±í/Ö÷±ícolumns/PK/²¿·ÖÎ¨Ò»Ë÷Òı/Ë÷ÒıÁĞ±í/¶à×â»§Ë÷Òı/COMMENT/NOT NULL/FK/ÁĞÃû/¾«¶È)+docs/verification/inv_overflow_detail_verify_report.md:6½ÚÍêÕû±¨¸æ(ÑéÖ¤·¶Î§/½á¹¹ÑéÖ¤/Ë÷ÒıÔ¼Êø/¹æ·¶ºÏ¹æ/Ò×´í¶ÔÕÕ/ÑéÊÕ×Ü½á) | ¡ª |
+| P0-003-007-011-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-03T17:50 | ? | db/migration/V20260603001:CREATE TABLE inv_assembly(12ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î)+inv_assembly_detail(26ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î)+È«COMMENT+decimal(18,8)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-011-001-002 | ±àĞ´inv_assembly_detail×é×°Ö÷´Ó±íË÷ÒıÓëÔ¼Êø | 2026-06-03T17:56 | ? | db/migration/V20260603002:PKÖØÃüÃû(inv_assembly+inv_assembly_detail)+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+tenant_idÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı(Ö÷±í16¸ö+´Ó±í16¸ö¹²32¸öË÷Òı)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-011-001-003 | ÑéÖ¤±àĞ´inv_assembly_detail×é×°Ö÷´Ó±íDDL | 2026-06-03T18:05 | ? | db/migration/V20260526001__verify_inv_assembly_detail.sql:17ÏîÑéÖ¤SQL(2±í/columns/PK/²¿·ÖÎ¨Ò»Ë÷Òı/Ë÷ÒıÁĞ±í/¶à×â»§Ë÷Òı/COMMENT/NOT NULL/FK/DECIMAL¾«¶È/¿ìÕÕ×Ö¶Î/À©Õ¹×Ö¶Î)+docs/verification/inv_assembly_detail_verify_report.md:6½ÚÍêÕû±¨¸æ | ¡ª |
+| P0-003-007-012-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-03T18:05 | ? | db/migration/V20260603003:CREATE TABLE inv_disassembly(12ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î)+inv_disassembly_detail(26ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î)+È«COMMENT+decimal(18,8)+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-007-012-001-002 | ±àĞ´inv_disassembly_detail²ğĞ¶Ö÷´Ó±íË÷ÒıÓëÔ¼Êø | 2026-06-03T18:20 | ? | db/migration/V20260603004:PKÖØÃüÃû(inv_disassembly+inv_disassembly_detail)+²¿·ÖÎ¨Ò»Ë÷Òıuk(WHERE is_deleted=false)+tenant_idÁªºÏË÷Òı+ÒµÎñ²éÑ¯Ë÷Òı(Ö÷±í16¸ö+´Ó±í16¸ö¹²32¸öË÷Òı)+»Ø¹ö½Å±¾ | ¡ª |
 
-### P0-003-008 - è´¢åŠ¡åŸºç¡€è¡¨å»ºè¡¨
+### P0-003-008 - ²ÆÎñ»ù´¡±í½¨±í
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-003-008-001-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-03T18:24 | âœ… | db/migration/V20260526001:CREATE TABLE fin_currency_rate(4ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+å…¨COMMENT+decimal(18,8))+å›æ»šè„šæœ¬ | â€” |
-| P0-003-008-001-001-002 | ç¼–å†™fin_currency_rateå¸ç§æ±‡ç‡è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-03T18:35 | âœ… | db/migration/V20260603001:PKé‡å‘½åpk_fin_currency_rate+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_fin_currency_rate_currency_effective(WHERE is_deleted=false)+5ä¸ªç§Ÿæˆ·è”åˆç´¢å¼•(tenant_idé¦–åˆ—)+7ä¸ªä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | â€” |
-| P0-003-008-001-001-003 | éªŒè¯ç¼–å†™fin_currency_rateå¸ç§æ±‡ç‡è¡¨DDL | 2026-06-03T18:40 | âœ… | db/migration/V20260603002:fin_currency_rateè¡¨DDLéªŒè¯æŸ¥è¯¢è„šæœ¬(14é¡¹æ£€æŸ¥)+docs/verification/fin_currency_rate_verify_report.md(éªŒè¯æŠ¥å‘Š:é€šè¿‡/1ä¸ªéé˜»å¡warning) | â€” |
-| P0-003-008-002-001-001 | ç¼–å†™CREATE TABLEè¯­å¥ | 2026-06-03T18:50 | âœ… | db/migration/V20260603006:CREATE TABLE fin_bank_account(4ä¸šåŠ¡å­—æ®µ+10é€šç”¨å­—æ®µ+22æ‰©å±•å­—æ®µ+å…¨COMMENT+decimal(18,8))+å›æ»šè„šæœ¬ | â€” |
-| P0-003-008-002-001-002 | ç¼–å†™fin_bank_accounté“¶è¡Œè´¦æˆ·è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-03T19:02 | âœ… | db/migration/V20260603007:PKé‡å‘½åpk_fin_bank_account+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_fin_bank_account_account_no(WHERE is_deleted=false)+2ä¸ªç§Ÿæˆ·è”åˆç´¢å¼•+3ä¸ªä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+5ä¸ªé€šç”¨å­—æ®µç´¢å¼•+å›æ»šè„šæœ¬ | â€” |
-| P0-003-008-002-001-003 | éªŒè¯ç¼–å†™fin_bank_accounté“¶è¡Œè´¦æˆ·è¡¨DDL | 2026-06-03T19:00 | âœ… | db/migration/V20260603008:fin_bank_accountè¡¨DDLéªŒè¯æŸ¥è¯¢è„šæœ¬(14é¡¹æ£€æŸ¥)+docs/verification/fin_bank_account_verify_report.md(éªŒè¯æŠ¥å‘Š:é€šè¿‡/1ä¸ªéé˜»å¡warning, COMMENTè¦†ç›–ç‡100%) | â€” |
-| P0-003-008-003-001-001 | ç¼–å†™fin_accountä¼šè®¡ç§‘ç›®è¡¨CREATE TABLEè¯­å¥ | 2026-06-03T19:05 | âœ… | db/migration/V20260603009:fin_accountè¡¨DDL+rollback(10é€šç”¨å­—æ®µ+5ä¸šåŠ¡å­—æ®µ+æ‰©å±•å­—æ®µ+COMMENTå…¨è¦†ç›–) | db1898be |
-| P0-003-008-003-001-002 | ç¼–å†™fin_accountä¼šè®¡ç§‘ç›®è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-03T19:25 | âœ… | db/migration/V20260526001:PKé‡å‘½åpk_fin_account+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_fin_account_code(WHERE is_deleted=false)+2ä¸ªç§Ÿæˆ·è”åˆç´¢å¼•+4ä¸ªä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+5ä¸ªé€šç”¨å­—æ®µç´¢å¼•+å›æ»šè„šæœ¬ | 959d76fc |
-| P0-003-008-003-001-003 | éªŒè¯ç¼–å†™fin_accountä¼šè®¡ç§‘ç›®è¡¨DDL | 2026-06-03T19:40 | âœ… | db/migration/V20260604001:fin_accountè¡¨DDLéªŒè¯æŸ¥è¯¢è„šæœ¬(6ç»„æŸ¥è¯¢=è¡¨/åˆ—/ç´¢å¼•/çº¦æŸ/æ³¨é‡Š/Flyway)+docs/verification/fin_account_verify_report.md(8é¡¹è§„èŒƒåˆè§„æ£€æŸ¥å…¨éƒ¨PASS,1ä¸ªéé˜»å¡WARNING) | â€” |
-| P0-003-008-004-001-001 | ç¼–å†™fin_voucher_wordå‡­è¯å­—è¡¨CREATE TABLEè¯­å¥ | 2026-06-03T19:45 | âœ… | db/migration/V20260604002:fin_voucher_wordè¡¨DDL+rollback(10é€šç”¨å­—æ®µ+3ä¸šåŠ¡å­—æ®µ+COMMENTå…¨è¦†ç›–) | 5137eaa3 |
-| P0-003-008-004-001-002 | ç¼–å†™fin_voucher_wordå‡­è¯å­—è¡¨ç´¢å¼•ä¸çº¦æŸ | 2026-06-03T20:00 | âœ… | db/migration/V20260604003:PKé‡å‘½åpk_fin_voucher_word+éƒ¨åˆ†å”¯ä¸€ç´¢å¼•uk_fin_voucher_word_code(WHERE is_deleted=false)+2ä¸ªç§Ÿæˆ·è”åˆç´¢å¼•+6ä¸ªä¸šåŠ¡æŸ¥è¯¢ç´¢å¼•+å›æ»šè„šæœ¬ | b344d20b |
-| P0-003-008-004-001-003 | éªŒè¯ç¼–å†™fin_voucher_wordå‡­è¯å­—è¡¨DDL | 2026-06-03T20:10 | âœ… | db/migration/V20260604004:fin_voucher_wordè¡¨DDLéªŒè¯æŸ¥è¯¢è„šæœ¬(6ç»„æŸ¥è¯¢=è¡¨/åˆ—/ç´¢å¼•/çº¦æŸ/æ³¨é‡Š/Flyway)+docs/verification/fin_voucher_word_verify_report.md(7é¡¹æ˜“é”™è­¦ç¤ºæ ¸æŸ¥å…¨éƒ¨PASS) | â€” |
+| P0-003-008-001-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-03T18:24 | ? | db/migration/V20260526001:CREATE TABLE fin_currency_rate(4ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+È«COMMENT+decimal(18,8))+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-008-001-001-002 | ±àĞ´fin_currency_rate±ÒÖÖ»ãÂÊ±íË÷ÒıÓëÔ¼Êø | 2026-06-03T18:35 | ? | db/migration/V20260603001:PKÖØÃüÃûpk_fin_currency_rate+²¿·ÖÎ¨Ò»Ë÷Òıuk_fin_currency_rate_currency_effective(WHERE is_deleted=false)+5¸ö×â»§ÁªºÏË÷Òı(tenant_idÊ×ÁĞ)+7¸öÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-008-001-001-003 | ÑéÖ¤±àĞ´fin_currency_rate±ÒÖÖ»ãÂÊ±íDDL | 2026-06-03T18:40 | ? | db/migration/V20260603002:fin_currency_rate±íDDLÑéÖ¤²éÑ¯½Å±¾(14Ïî¼ì²é)+docs/verification/fin_currency_rate_verify_report.md(ÑéÖ¤±¨¸æ:Í¨¹ı/1¸ö·Ç×èÈûwarning) | ¡ª |
+| P0-003-008-002-001-001 | ±àĞ´CREATE TABLEÓï¾ä | 2026-06-03T18:50 | ? | db/migration/V20260603006:CREATE TABLE fin_bank_account(4ÒµÎñ×Ö¶Î+10Í¨ÓÃ×Ö¶Î+22À©Õ¹×Ö¶Î+È«COMMENT+decimal(18,8))+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-008-002-001-002 | ±àĞ´fin_bank_accountÒøĞĞÕË»§±íË÷ÒıÓëÔ¼Êø | 2026-06-03T19:02 | ? | db/migration/V20260603007:PKÖØÃüÃûpk_fin_bank_account+²¿·ÖÎ¨Ò»Ë÷Òıuk_fin_bank_account_account_no(WHERE is_deleted=false)+2¸ö×â»§ÁªºÏË÷Òı+3¸öÒµÎñ²éÑ¯Ë÷Òı+5¸öÍ¨ÓÃ×Ö¶ÎË÷Òı+»Ø¹ö½Å±¾ | ¡ª |
+| P0-003-008-002-001-003 | ÑéÖ¤±àĞ´fin_bank_accountÒøĞĞÕË»§±íDDL | 2026-06-03T19:00 | ? | db/migration/V20260603008:fin_bank_account±íDDLÑéÖ¤²éÑ¯½Å±¾(14Ïî¼ì²é)+docs/verification/fin_bank_account_verify_report.md(ÑéÖ¤±¨¸æ:Í¨¹ı/1¸ö·Ç×èÈûwarning, COMMENT¸²¸ÇÂÊ100%) | ¡ª |
+| P0-003-008-003-001-001 | ±àĞ´fin_account»á¼Æ¿ÆÄ¿±íCREATE TABLEÓï¾ä | 2026-06-03T19:05 | ? | db/migration/V20260603009:fin_account±íDDL+rollback(10Í¨ÓÃ×Ö¶Î+5ÒµÎñ×Ö¶Î+À©Õ¹×Ö¶Î+COMMENTÈ«¸²¸Ç) | db1898be |
+| P0-003-008-003-001-002 | ±àĞ´fin_account»á¼Æ¿ÆÄ¿±íË÷ÒıÓëÔ¼Êø | 2026-06-03T19:25 | ? | db/migration/V20260526001:PKÖØÃüÃûpk_fin_account+²¿·ÖÎ¨Ò»Ë÷Òıuk_fin_account_code(WHERE is_deleted=false)+2¸ö×â»§ÁªºÏË÷Òı+4¸öÒµÎñ²éÑ¯Ë÷Òı+5¸öÍ¨ÓÃ×Ö¶ÎË÷Òı+»Ø¹ö½Å±¾ | 959d76fc |
+| P0-003-008-003-001-003 | ÑéÖ¤±àĞ´fin_account»á¼Æ¿ÆÄ¿±íDDL | 2026-06-03T19:40 | ? | db/migration/V20260604001:fin_account±íDDLÑéÖ¤²éÑ¯½Å±¾(6×é²éÑ¯=±í/ÁĞ/Ë÷Òı/Ô¼Êø/×¢ÊÍ/Flyway)+docs/verification/fin_account_verify_report.md(8Ïî¹æ·¶ºÏ¹æ¼ì²éÈ«²¿PASS,1¸ö·Ç×èÈûWARNING) | ¡ª |
+| P0-003-008-004-001-001 | ±àĞ´fin_voucher_wordÆ¾Ö¤×Ö±íCREATE TABLEÓï¾ä | 2026-06-03T19:45 | ? | db/migration/V20260604002:fin_voucher_word±íDDL+rollback(10Í¨ÓÃ×Ö¶Î+3ÒµÎñ×Ö¶Î+COMMENTÈ«¸²¸Ç) | 5137eaa3 |
+| P0-003-008-004-001-002 | ±àĞ´fin_voucher_wordÆ¾Ö¤×Ö±íË÷ÒıÓëÔ¼Êø | 2026-06-03T20:00 | ? | db/migration/V20260604003:PKÖØÃüÃûpk_fin_voucher_word+²¿·ÖÎ¨Ò»Ë÷Òıuk_fin_voucher_word_code(WHERE is_deleted=false)+2¸ö×â»§ÁªºÏË÷Òı+6¸öÒµÎñ²éÑ¯Ë÷Òı+»Ø¹ö½Å±¾ | b344d20b |
+| P0-003-008-004-001-003 | ÑéÖ¤±àĞ´fin_voucher_wordÆ¾Ö¤×Ö±íDDL | 2026-06-03T20:10 | ? | db/migration/V20260604004:fin_voucher_word±íDDLÑéÖ¤²éÑ¯½Å±¾(6×é²éÑ¯=±í/ÁĞ/Ë÷Òı/Ô¼Êø/×¢ÊÍ/Flyway)+docs/verification/fin_voucher_word_verify_report.md(7ÏîÒ×´í¾¯Ê¾ºË²éÈ«²¿PASS) | ¡ª |
 
 ---
 
@@ -645,2753 +645,2752 @@
 
 ---
 
-### æ¨¡å—å®Œæˆ: P0-003 âœ…
+### Ä£¿éÍê³É: P0-003 ?
 
-### P0-004 - è®¤è¯ä¸æƒé™åŸºç¡€å¼€å‘
+### P0-004 - ÈÏÖ¤ÓëÈ¨ÏŞ»ù´¡¿ª·¢
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-004-001-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-03T17:36 | âœ… | å®ç°ç™»å½•è®¤è¯æ ¸å¿ƒé€»è¾‘: AuthController/AuthService/CaptchaService/LoginRequest/LoginResponse/SysUser/SysLoginLog | 8cf84b5e |
-| P0-004-001-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-03T17:48 | âœ… | ç¼–å†™27ä¸ªå•å…ƒæµ‹è¯•(AuthServiceTest/CaptchaServiceTest/AuthControllerTest)ï¼Œå…¨éƒ¨é€šè¿‡ | 08b8b70f |
-| P0-004-001-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-03T18:05 | âœ… | å®ç°é€€å‡ºç™»å½•æ ¸å¿ƒé€»è¾‘: AuthController.logout/AuthService.logout/AuthOnlineDeviceå®ä½“/AuthOnlineDeviceMapper/LoginLogService.updateLogoutTime/SysLoginLog.logoutAt | a7d406d9 |
-| P0-004-001-002-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-03T18:05 | âœ… | ç¼–å†™6ä¸ªé€€å‡ºç™»å½•å•å…ƒæµ‹è¯•(AuthServiceTest$Logout/AuthControllerTest$Logout)ï¼Œå…¨éƒ¨é€šè¿‡ï¼Œç”Ÿæˆæµ‹è¯•æŠ¥å‘Š | â€” |
-| P0-004-001-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-03T18:30 | âœ… | å®ç°Tokenæ ¡éªŒä¸åˆ·æ–°: TokenVerifyResponse/TokenRefreshResponse/TokenRefreshRequest/AuthService.verifyToken/refreshToken/AuthControllerä¸¤ä¸ªæ–°ç«¯ç‚¹ | 1c51e4c8 |
-| P0-004-001-003-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-03T18:30 | âœ… | ç¼–å†™12ä¸ªTokenæ ¡éªŒä¸åˆ·æ–°å•å…ƒæµ‹è¯•(AuthServiceTest$VerifyToken/RefreshToken + AuthControllerTest$VerifyToken/RefreshToken)ï¼Œ34/34é€šè¿‡ï¼Œç”Ÿæˆæµ‹è¯•æŠ¥å‘Šä¸é—®é¢˜æ¸…å• | â€” |
-| P0-004-001-004-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-03T18:35 | âœ… | src/main/java/com/erp/auth/config/AuthProperties.java:è®¤è¯æ¨¡å—é…ç½®å±æ€§ç±»(éªŒè¯ç /ç™»å½•å®‰å…¨/ç”¨æˆ·ä¿¡æ¯ä¸‰å±‚åµŒå¥—é…ç½®), @ConfigurationProperties(prefix="auth")+@Validatedæ ¡éªŒ; application.ymlæ–°å¢authé…ç½®æ®µ | â€” |
-| P0-004-001-004-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-03T18:42 | âœ… | ç¼–å†™AuthPropertiesTest(15ä¸ªæµ‹è¯•):éªŒè¯é…ç½®ç»‘å®š/é»˜è®¤å€¼/Beanæ³¨å…¥/@Validatedæ ¡éªŒçº¦æŸ,å…¨éƒ¨é€šè¿‡;ç¡®è®¤4ä¸ªç¯å¢ƒYAMLæ— ç¡¬ç¼–ç æ•æ„Ÿä¿¡æ¯ | â€” |
-| P0-004-001-005-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-03T19:00 | âœ… | ç™»å½•æ—¥å¿—æ ¸å¿ƒå®ç°: IpAddressUtil(ä»£ç†IPè§£æ)/UserAgentUtil(æµè§ˆå™¨+OSè§£æ)/AsyncConfig(ThreadPoolTaskExecutor coreSize=2,maxSize=5,queueCapacity=1000)/LoginLogService.asyncWriteLog/AuthServiceé‡æ„ä½¿ç”¨æ–°å·¥å…·ç±» | â€” |
-| P0-004-001-005-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-03T19:00 | âœ… | éªŒè¯ç™»å½•æ—¥å¿—å¼‚æ­¥å†™å…¥: ç¼–è¯‘é€šè¿‡/22ä¸ªæµ‹è¯•å…¨éƒ¨é€šè¿‡/ä»£ç å®¡æŸ¥è¦†ç›–å¼‚æ­¥é…ç½®/é™çº§ç­–ç•¥/è¾¹ç•Œæ¡ä»¶/IP-UAè§£æ/é›†æˆç‚¹, ç”Ÿæˆæµ‹è¯•æŠ¥å‘Šä¸é—®é¢˜æ¸…å• | â€” |
-| P0-004-002-001-001-001 | ç¼–å†™Entityç±» | 2026-06-03T19:10 | âœ… | SysUser/SysRole/SysMenuå®ä½“ç±»: @TableNameæ˜ å°„/@TableId(ASSIGN_ID)/@TableLogicé€»è¾‘åˆ é™¤/BaseEntityç»§æ‰¿/passwordHashå­—æ®µ@TableField(select=false) | â€” |
-| P0-004-002-001-001-002 | ç¼–å†™DTOVOç±» | 2026-06-03T19:25 | âœ… | SysUserDTO/SysUserVO/SysRoleDTO/SysRoleVO/SysMenuDTO/SysMenuVO: CreateDTOå«@NotBlank/@NotNullæ ¡éªŒ, UpdateDTOå«@NotNull id, QueryDTOå«åˆ†é¡µå‚æ•°, ListVOæ’é™¤å¯†ç å­—æ®µ, DetailVOå«å®Œæ•´å­—æ®µ, @JsonFormatæ—¥æœŸæ ¼å¼åŒ–, xxxNameå­—å…¸ç¿»è¯‘å­—æ®µ | â€” |
-| P0-004-002-001-001-003 | éªŒè¯å®ä½“ç±» | 2026-06-03T19:45 | âœ… | éªŒè¯SysUser/SysRole/SysMenuå®ä½“ç±»DDLä¸€è‡´æ€§/æ³¨è§£å®Œæ•´æ€§/DTOæ ¡éªŒ/VOæ ¼å¼åŒ–ï¼Œç¼–è¯‘é€šè¿‡ï¼Œå‘ç°C1/C2/M1/m1/m2å…±5ä¸ªé—®é¢˜å¹¶åˆ¶å®šä¿®å¤æ–¹æ¡ˆ | â€” |
-| P0-004-002-002-001-001 | ç¼–å†™SQLè¯­å¥ | 2026-06-03T19:50 | âœ… | UserMapperæ¥å£(5ä¸ªæ–¹æ³•)+UserMapper.xml(5æ¡è‡ªå®šä¹‰SQL:åˆ†é¡µæŸ¥è¯¢/ç”¨æˆ·åå”¯ä¸€æ ¡éªŒ/å¯†ç å†å²/æŒ‰éƒ¨é—¨æŸ¥ç”¨æˆ·/è§’è‰²åç§°æŸ¥è¯¢), SysUserVO.ListVOæ–°å¢employeeNameå­—æ®µ, å…¨éƒ¨#{param}å‚æ•°åŒ–é˜²æ³¨å…¥ | â€” |
-| P0-004-002-002-001-002 | éªŒè¯ç¼–å†™SQL | 2026-06-03T20:00 | âœ… | UserMapper SQLéªŒè¯å®Œæˆ: Interface/XMLä¸€è‡´æ€§âœ…, ResultMapæ˜ å°„âœ…, SQLè¯­æ³•âœ…, ç¼–è¯‘âœ…; å‘ç°2ä¸ªé—®é¢˜(å®¡è®¡åˆ—åDDLä¸ä¸€è‡´CRITICAL/sys_user_password_historyè¡¨ç¼ºå¤±WARNING)å¹¶è®°å½•ä¿®å¤æ–¹æ¡ˆ | â€” |
-| P0-004-002-003-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-03T20:10 | âœ… | UserServiceæ¥å£: ç»§æ‰¿IServiceX<SysUser>, å£°æ˜assignRoles/resetPassword/updateStatus/unlockUser/getRoleNames/isUsernameUniqueå…±6ä¸ªä¸šåŠ¡æ–¹æ³•ç­¾å | a6cfc780 |
-| P0-004-002-003-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-03T19:54 | âœ… | UserServiceImpl: ç»§æ‰¿ServiceImplX, å®ç°å…¨éƒ¨6ä¸ªä¸šåŠ¡æ–¹æ³•(Sa-Tokenè¸¢å‡º/BCryptå¯†ç åŠ å¯†+å†å²è¡¨/è§’è‰²æ‰¹é‡åˆ†é…/çŠ¶æ€æµè½¬æ ¡éªŒ/å”¯ä¸€æ€§æ ¡éªŒ/@Transactionaläº‹åŠ¡ç®¡ç†) | â€” |
-| P0-004-002-003-001-003 | éªŒè¯Service | 2026-06-03T20:15 | âœ… | éªŒè¯UserService/UserServiceImpl: æ¥å£6ä¸ªæ–¹æ³•ç­¾åå®Œæ•´/Implé€»è¾‘æ­£ç¡®/BCryptåŠ å¯†+å¯†ç å†å²/Sa-Tokené›†æˆ/@Transactionalä½ç½®æ­£ç¡®/BusinessExceptionå¼‚å¸¸è§„èŒƒ/mvn compileé€šè¿‡ | â€” |
-| P0-004-002-004-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-03T20:20 | âœ… | UserRoleServiceæ¥å£: ç»§æ‰¿IServiceX<SysUser>, å£°æ˜assignRoles/removeUserRole/getUserRoleIds/getUserIdsByRoleId/hasRoleå…±5ä¸ªä¸šåŠ¡æ–¹æ³•ç­¾å | 7b8a80b2 |
-| P0-004-002-004-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-03T20:25 | âœ… | UserRoleServiceImpl: ç»§æ‰¿ServiceImplX, å®ç°5ä¸ªæ–¹æ³•(Sa-Token kickout/@Transactional/BusinessException), UserMapperæ–°å¢4ä¸ªæ–¹æ³•+XMLæ˜ å°„ | 7325bd3e |
-| P0-004-002-004-001-003 | éªŒè¯Service | 2026-06-03T20:30 | âœ… | éªŒè¯UserRoleService/UserRoleServiceImpl: æ¥å£5ä¸ªæ–¹æ³•ç­¾åå®Œæ•´/Implé€»è¾‘æ­£ç¡®/StpUtil.kickout+SaaS-Token/@Transactionalä½ç½®æ­£ç¡®/BusinessExceptionå¼‚å¸¸è§„èŒƒ/mvn compileé€šè¿‡/XML SQLæ˜ å°„å®Œæ•´ | â€” |
-| P0-004-002-005-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-03T20:35 | âœ… | UserDeptServiceæ¥å£: ç»§æ‰¿IServiceX<SysUser>, å£°æ˜assignDepts/removeUserDept/getUserDeptIds/getUserIdsByDeptId/hasDept/setPrimaryDeptå…±6ä¸ªä¸šåŠ¡æ–¹æ³•ç­¾å | â€” |
-| P0-004-002-005-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-03T20:40 | âœ… | UserDeptServiceImpl: ç»§æ‰¿ServiceImplX, å®ç°6ä¸ªæ–¹æ³•(Sa-Token kickout/@Transactional/BusinessException), UserMapperæ–°å¢7ä¸ªdeptæ–¹æ³•+XMLæ˜ å°„ | â€” |
-| P0-004-002-005-001-003 | éªŒè¯Service | 2026-06-03T20:45 | âœ… | éªŒè¯UserDeptService/UserDeptServiceImpl: æ¥å£6ä¸ªæ–¹æ³•ç­¾åå®Œæ•´/Implé€»è¾‘æ­£ç¡®/StpUtil.kickout/@Transactionalä½ç½®æ­£ç¡®/BusinessExceptionå¼‚å¸¸è§„èŒƒ/mvn compileé€šè¿‡ | â€” |
-| P0-004-002-006-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-03T20:50 | âœ… | UserGroupServiceæ¥å£: ç»§æ‰¿IServiceX<SysUserGroup>, å£°æ˜addMembers/removeMember/removeAllMembers/getMemberUserIds/getGroupIdsByUserId/hasMember/updateStatuså…±7ä¸ªä¸šåŠ¡æ–¹æ³•ç­¾å; åˆ›å»ºSysUserGroup/SysUserGroupMemberå®ä½“+UserGroupMapper | â€” |
-| P0-004-002-006-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-03T20:55 | âœ… | UserGroupServiceImpl: ç»§æ‰¿ServiceImplX, å®ç°7ä¸ªæ–¹æ³•(entityéªŒè¯/BusinessException/@Transactional), UserGroupMapperè°ƒç”¨groupMembersæ“ä½œ | b81b0f95 |
-| P0-004-002-006-001-003 | éªŒè¯Service | 2026-06-03T20:51 | âœ… | éªŒè¯UserGroupService: éªŒæ”¶æ ‡å‡†5é¡¹å…¨é€šè¿‡, ç¼–è¯‘æˆåŠŸ; å‘ç°å¹¶ä¿®å¤ç¼ºå¤±UserGroupMapper.xml(6ä¸ªSQLæ˜ å°„)
-| P0-004-002-007-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-03T21:00 | âœ… | UserServiceæ¥å£: æ–°å¢changePassword(Long userId, String oldPassword, String newPassword)æ–¹æ³•ç­¾å; UserServiceImplæ·»åŠ å ä½å®ç°ç¡®ä¿ç¼–è¯‘é€šè¿‡ | â€” |
-| P0-004-002-007-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-03T21:05 | âœ… | UserServiceImpl.changePassword: å‚æ•°æ ¡éªŒ/Bcryptæ—§å¯†ç éªŒè¯/å¯†ç å†å²é˜²é‡ç”¨(æœ€è¿‘3æ¬¡)/BCryptåŠ å¯†/insertPasswordHistory/StpUtil.kickoutè¸¢å‡ºä¼šè¯/@Transactionaläº‹åŠ¡ | 4e941bdd |
-| P0-004-002-007-001-003 | éªŒè¯Service | 2026-06-03T21:10 | âœ… | éªŒè¯UserServiceå¯†ç ä¿®æ”¹/é‡ç½®Service: æ¥å£changePassword+resetPasswordæ–¹æ³•ç­¾åå®Œæ•´/BCryptåŠ å¯†+å¯†ç å†å²é˜²é‡ç”¨/Sa-Token kickout/@Transactionalä½ç½®æ­£ç¡®/BusinessExceptionè§„èŒƒ/mvn compileé€šè¿‡ | 734edc2d |
-| P0-004-002-008-001-001 | ç¼–å†™Controllerç±» | 2026-06-03T21:16 | âœ… | UserController: @RestController+12ä¸ªRESTfulæ¥å£(CRUD/åˆ†é¡µ/è§’è‰²/å¯†ç /çŠ¶æ€/è§£é”/ç”¨æˆ·åæ£€æŸ¥)/@RequirePermission/RT+PageResultå“åº”/Swaggeræ³¨è§£/æ–°å¢3ä¸ªDTOå†…ç±» | 5ad9f133 |
-| P0-004-002-008-001-002 | ç¼–å†™æ¥å£æ–¹æ³• | 2026-06-03T21:27 | âœ… | UserControlleræ¥å£æ–¹æ³•å®Œå–„: è·¯å¾„/api/system/user, @SaCheckPermissionæ›¿æ¢, åˆ†é¡µkeyword/status/deptId, è¯¦æƒ…å«è§’è‰²åç§°, BCryptå¯†ç åŠ å¯†, è½¯åˆ é™¤+å…³è”æ¸…ç†, é‡ç½®å¯†ç è¿”å›æ–°å¯†ç , PUT /passwordè‡ªä¿®æ”¹, POST/DELETE /roleæ‰¹é‡è§’è‰², UserServiceæ–°å¢resetPasswordAndReturn/deleteUserWithCleanup | 02e35e51 |
-| P0-004-002-008-001-003 | éªŒè¯Controller | 2026-06-03T21:33 | âœ… | ç¼–è¯‘éªŒè¯é€šè¿‡/RESTful URLè§„èŒƒ/RT+PageResultå“åº”/@Validæ ¡éªŒ/@SaCheckPermission 14ç«¯ç‚¹å…¨è¦†ç›–/@Tag/@Operationå®Œæ•´ | 889b8936 |
-| P0-004-002-009-001-001 | ç¼–å†™å·¥ä½œå°èšåˆSQL | 2026-06-03T21:40 | âœ… | UserWorkbenchVOèšåˆæ•°æ®VO/UserMapperæ–°å¢3ä¸ªèšåˆæŸ¥è¯¢æ–¹æ³•/UserMapper.xmlæ–°å¢3æ¡å·¥ä½œå°èšåˆSQL(ç”¨æˆ·æ€»æ•°+åœ¨çº¿æ•°+æœ¬æœˆæ–°å¢+è§’è‰²åˆ†å¸ƒ+éƒ¨é—¨åˆ†å¸ƒ)/UserServiceæ–°å¢getWorkbenchData | â€” |
-| P0-004-002-009-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-03T21:47 | âœ… | å·¥ä½œå°èšåˆSQLéªŒè¯: SQLè¯­æ³•æ­£ç¡®/3æ¡èšåˆæŸ¥è¯¢é€»è¾‘å®Œæ•´/LEFT JOINç©ºå€¼å¤„ç†æ­£ç¡®/VOå­—æ®µæ˜ å°„å®Œæ•´/nullå®‰å…¨ä¿æŠ¤/ç¼–è¯‘é€šè¿‡/å‘ç°1ä¸ªé—®é¢˜(Controllerç¼ºå°‘å·¥ä½œå°ç«¯ç‚¹)å·²è®°å½•issuesæ–‡æ¡£ | â€” |
-| P0-004-003-001-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-03T22:00 | âœ… | SysRoleServiceæ¥å£+SysRoleServiceImplå®ç°/è§’è‰²ç¼–ç å”¯ä¸€æ€§æ ¡éªŒ/çŠ¶æ€å¯ç¦ç”¨/åˆ é™¤æ—¶æ¸…ç†sys_user_role+sys_role_menu+sys_role_data+sys_role_fieldå…³è”æ•°æ®/SysRoleMapperå«4ä¸ª@Deleteæ¸…ç†æ–¹æ³• | â€” |
-| P0-004-003-001-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-03T22:10 | âœ… | SysRoleServiceImplå¢å¼º: StpUtil.kickoutåœ¨çº¿ç”¨æˆ·è¸¢å‡º/çŠ¶æ€æµè½¬æ ¡éªŒ(ç¦æ­¢é‡å¤è®¾ç½®)/@Transactionaläº‹åŠ¡ç®¡ç†/BusinessExceptionå¼‚å¸¸è§„èŒƒ/UserMapperæ³¨å…¥æŸ¥è¯¢è§’è‰²å…³è”ç”¨æˆ· | â€” |
-| P0-004-003-001-001-003 | éªŒè¯Service | 2026-06-03T22:20 | âœ… | éªŒè¯SysRoleService/SysRoleServiceImpl: æ¥å£3ä¸ªä¸šåŠ¡æ–¹æ³•+IServiceX CRUDå®Œæ•´/å”¯ä¸€æ€§æ ¡éªŒ+çŠ¶æ€æµè½¬+å…³è”æ¸…ç†å®Œå¤‡/Sa-Token kickouté›†æˆ/@Transactionalæ–¹æ³•çº§/BusinessExceptionè§„èŒƒ/mvn compileé€šè¿‡ | â€” |
-| P0-004-003-002-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-03T22:40 | âœ… | SysRoleMenuServiceæ¥å£: ç»§æ‰¿IServiceX<SysRole>, å£°æ˜6ä¸ªä¸šåŠ¡æ–¹æ³•(assignMenus/assignMenusWithPermissions/removeRoleMenus/getRoleMenuIds/hasMenuPermission/copyMenus) | 87abc3a7 |
-| P0-004-003-002-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-03T22:50 | âœ… | SysRoleMenuServiceImpl: ç»§æ‰¿ServiceImplX, å®ç°6ä¸ªæ–¹æ³•(Sa-Token kickout/è§’è‰²å­˜åœ¨æ€§æ ¡éªŒ/ç©ºé›†åˆè·³è¿‡/èœå•æ‰¹é‡å†™å…¥/è§’è‰²å¤åˆ¶/@Transactional) | eb29b347 |
-| P0-004-003-002-001-003 | éªŒè¯Service | 2026-06-03T23:00 | âœ… | éªŒè¯SysRoleMenuService/SysRoleMenuServiceImpl: æ¥å£6ä¸ªæ–¹æ³•ç­¾åå®Œæ•´/Implé€»è¾‘æ­£ç¡®/Sa-Token kickout/@Transactionalä½ç½®æ­£ç¡®/BusinessExceptionè§„èŒƒ/mvn compileé€šè¿‡ | â€” |
-| P0-004-003-003-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-03T23:15 | âœ… | SysRoleDataScopeServiceæ¥å£: ç»§æ‰¿IServiceX<SysRoleDataScope>, 4ä¸ªä¸šåŠ¡æ–¹æ³•(getByRoleId/saveRoleDataScopes/deleteByRoleId/getScopeType), åˆ›å»ºç¼ºå¤±å‰ç½®ä¾èµ–SysRoleDataScopeå®ä½“ | c01e8c5e |
-| P0-004-003-003-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-03T23:25 | âœ… | SysRoleDataScopeServiceImpl: ç»§æ‰¿ServiceImplX, å®ç°4ä¸ªæ–¹æ³•(Sa-Token kickout/BusinessException/@Transactional/ç©ºå€¼æ ¡éªŒ), æ–°å»ºSysRoleDataScopeMapper | e5dbdfa8 |
-| P0-004-003-003-001-003 | éªŒè¯Service | 2026-06-03T22:48 | âœ… | SysRoleDataScopeServiceTest: 13ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡, è¦†ç›–getByRoleId/saveRoleDataScopes/deleteByRoleId/getScopeTypeå››ä¸ªæ–¹æ³• | â€” |
-| P0-004-003-004-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-03T20:30 | âœ… | å®šä¹‰SysRoleFieldPermissionServiceæ¥å£(extends IServiceX), å£°æ˜getByRoleId/getByRoleIdAndTable/saveRoleFieldPermissions/deleteByRoleId/getPermissionTypeæ–¹æ³•; åŒæ—¶åˆ›å»ºSysRoleFieldPermissionå®ä½“æ˜ å°„sys_role_field_permissionè¡¨ | â€” |
-| P0-004-003-004-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-03T23:35 | âœ… | SysRoleFieldPermissionServiceImpl: ç»§æ‰¿ServiceImplX, 5ä¸ªæ–¹æ³•(Sa-Token kickout/BusinessException/@Transactional), æ–°å»ºSysRoleFieldPermissionMapper | 100cf765 |
-| P0-004-003-004-001-003 | éªŒè¯Service | 2026-06-03T20:36 | âœ… | éªŒè¯SysRoleFieldPermissionService/SysRoleFieldPermissionServiceImpl: æ¥å£5ä¸ªæ–¹æ³•ç­¾åå®Œæ•´/Implé€»è¾‘æ­£ç¡®/StpUtil.kickout/@Transactionalä½ç½®æ­£ç¡®/BusinessExceptionè§„èŒƒ/mvn compileé€šè¿‡ | â€” |
-| P0-004-003-005-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-03T20:40 | âœ… | å®šä¹‰SysButtonPermissionServiceæ¥å£(extends IServiceX\<SysMenu\>), å£°æ˜checkPermission/getUserPermissions/getRolePermissions/getButtonsByMenuId/getButtonsByUserId/refreshCacheæ–¹æ³•; mvn compileé€šè¿‡ | â€” |
-| P0-004-003-005-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-03T20:45 | âœ… | å®ç°SysButtonPermissionServiceImpl(extends ServiceImplX\<SysMenuMapper, SysMenu\>), é›†æˆStpUtil.hasPermission/kickout, æ‰€æœ‰æ–¹æ³•nullå‚æ•°é˜²æŠ¤, åˆ›å»ºSysMenuMapper(å«selectPermissionCodesByRoleId/UserId/selectButtonsByParentId/UserId/selectByPermissionCodeæ³¨è§£SQL); mvn compileé€šè¿‡ | â€” |
-| P0-004-003-005-001-003 | éªŒè¯Service | 2026-06-03T20:50 | âœ… | éªŒè¯SysButtonPermissionService/SysButtonPermissionServiceImpl: æ¥å£6æ–¹æ³•å®Œæ•´/Impl Sa-Tokené›†æˆæ­£ç¡®/çº¯è¯»æ“ä½œæ— éœ€@Transactional/nullå‚æ•°ä¼˜é›…é™çº§/mvn compile BUILD SUCCESS | â€” |
-| P0-004-003-006-001-002 | ç¼–å†™æ¥å£æ–¹æ³• | 2026-06-03T23:44 | âœ… | SysRoleController: æ–°å¢POST /menuèœå•æ‰¹é‡ç»‘å®š+GET /menu/{roleId}èœå•æ ‘+POST /inheritanceç»§æ‰¿(4ä¸ªç«¯ç‚¹)+POST /exclusionäº’æ–¥(4ä¸ªç«¯ç‚¹)+POST /data-scopeæ•°æ®æƒé™é…ç½®; æ–°å»ºSysRoleInheritance/SysRoleExclusionå®ä½“+Mapper+Service(Impl); æ–°å»ºSysDataPermissionSchemeController(CRUD)+SysFieldPermissionSchemeController(CRUD)å«DDL+Entity+Mapper+Service; æ–°å»ºMenuPermissionBatchDTO; SysMenuæ–°å¢childrenå­—æ®µ; mvn clean compile BUILD SUCCESS | dd281ba8 |
-| P0-004-003-007-001-001 | ç¼–å†™DDLEntityMapperServiceController | 2026-06-03T23:28 | âœ… | Flyway DDL: sys_role_inheritance(è§’è‰²ç»§æ‰¿è¡¨)å»ºè¡¨+ç´¢å¼•+å›æ»š, sys_role_exclusion(è§’è‰²äº’æ–¥è¡¨)å»ºè¡¨+ç´¢å¼•+å›æ»š, å…±4ä¸ªSQLæ–‡ä»¶, mvn compileé€šè¿‡ | e1f36605 |
-| P0-004-003-006-001-001 | ç¼–å†™Controllerç±» | 2026-06-03T23:45 | âœ… | SysRoleController: @RestController+@RequestMapping("/api/system/role"), æ³¨å…¥5ä¸ªService, 26ä¸ªRESTfulæ¥å£(è§’è‰²CRUD+èœå•æƒé™+æ•°æ®æƒé™+å­—æ®µæƒé™+æŒ‰é’®æƒé™), @SaCheckPermissionå…¨è¦†ç›–, RT+PageResultå“åº”, @Operationæ³¨è§£å®Œæ•´ | â€” |
-| P0-004-003-008-001-001 | ç¼–å†™DDLEntityMapperServiceController | 2026-06-03T23:55 | âœ… | æ•°æ®æƒé™æ–¹æ¡ˆé…ç½®: Flyway DDL(sys_data_permission_scheme+sys_data_permission_scheme_role)+å›æ»šè„šæœ¬, SysDataPermissionSchemeå®ä½“/Mapper/Service/ServiceImpl/Controllerå®Œæ•´CRUD, mvn compileé€šè¿‡ | â€” |
-| P0-004-003-009-001-001 | ç¼–å†™DDLEntityMapperServiceController | 2026-06-04T00:05 | âœ… | å­—æ®µæƒé™æ–¹æ¡ˆé…ç½®: Flyway DDL(sys_field_permission_scheme+role+detail)+å›æ»šè„šæœ¬(æ–°å¢), SysFieldPermissionScheme+Detailå®ä½“/Mapper/Service/ServiceImpl/Controllerå®Œæ•´CRUDå‡å·²å°±ç»ª, mvn compileé€šè¿‡ | cb6e7d0f |
-| P0-004-003-006-001-003 | éªŒè¯Controller | 2026-06-04T00:20 | âœ… | éªŒè¯å¹¶ä¿®å¤æƒé™é…ç½®Controller: SysRoleController/SysDataPermissionSchemeController/SysFieldPermissionSchemeControllerå…¨éƒ¨é€šè¿‡5é¡¹éªŒæ”¶æ ‡å‡†, è¡¥å……äº†@Valid+BindingResultå‚æ•°æ ¡éªŒ, mvn compileé€šè¿‡ | â€” |
-| P0-004-004-001-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-04T00:30 | âœ… | SysMenuServiceæ¥å£: ç»§æ‰¿IServiceX<SysMenu>, å£°æ˜getMenuTree/getMenuTreeByUserId/isPermissionCodeUnique/updateStatus/deleteMenuWithChildrenå…±5ä¸ªä¸šåŠ¡æ–¹æ³•ç­¾å | â€” |
-| P0-004-004-001-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-04T00:15 | âœ… | SysMenuServiceImpl: ç»§æ‰¿ServiceImplX, å®ç°5ä¸ªæ–¹æ³•(èœå•æ ‘æ„å»º/æŒ‰ç”¨æˆ·æƒé™è¿‡æ»¤æ ‘/æƒé™ç å”¯ä¸€æ€§æ ¡éªŒ/çŠ¶æ€å¯ç¦ç”¨/çº§è”åˆ é™¤), @Transactionaläº‹åŠ¡ç®¡ç†, BusinessExceptionå¼‚å¸¸è§„èŒƒ | â€” |
-| P0-004-004-001-001-003 | éªŒè¯Service | 2026-06-04T00:05 | âœ… | ç¼–è¯‘é€šè¿‡, ä»£ç å®¡æŸ¥5é¡¹éªŒæ”¶æ ‡å‡†å…¨éƒ¨é€šè¿‡(æ¥å£ç­¾åå®Œæ•´/ä¸šåŠ¡é€»è¾‘æ­£ç¡®/æ ¡éªŒå®Œå¤‡/äº‹åŠ¡æ³¨è§£ä½ç½®æ­£ç¡®/å¼‚å¸¸è§„èŒƒ) | â€” |
-| P0-004-004-002-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-04T00:45 | âœ… | SysMenuMobileServiceæ¥å£: ç»§æ‰¿IServiceX\<SysMenu\>, å£°æ˜getMobileMenuTree/getMobileMenuTreeByUserIdå…±2ä¸ªç§»åŠ¨ç«¯èœå•ä¸šåŠ¡æ–¹æ³•ç­¾å | â€” |
-| P0-004-004-002-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-04T01:00 | âœ… | SysMenuMobileServiceImpl: ç»§æ‰¿ServiceImplX, å®ç°getMobileMenuTree/getMobileMenuTreeByUserId, ç§»åŠ¨ç«¯æ’é™¤buttonç±»å‹èœå•, æƒé™ç è¿‡æ»¤, æ ‘å½¢ç»“æ„æ„å»º, ç©ºåˆ†æ”¯è¿‡æ»¤ | â€” |
-| P0-004-004-002-001-003 | éªŒè¯Service | 2026-06-04T00:32 | âœ… | éªŒè¯SysMenuMobileService/SysMenuMobileServiceImpl: æ¥å£2ä¸ªæ–¹æ³•ç­¾åå®Œæ•´/Implç§»åŠ¨ç«¯èœå•æ ‘æ„å»ºé€»è¾‘æ­£ç¡®/æƒé™è¿‡æ»¤/nullsafe/mvn compileé€šè¿‡ | â€” |
-| P0-004-004-003-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-04T00:40 | âœ… | åˆ›å»ºSysMenuTreeServiceæ¥å£: 4ä¸ªæ–¹æ³•ç­¾å( getMenuTree/getMenuTreeByUserId/buildTree/filterEmptyBranches)/ç»§æ‰¿IServiceX<SysMenu>/mvn compileé€šè¿‡ | â€” |
-| P0-004-004-003-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-04T01:10 | âœ… | SysMenuTreeServiceImpl: ç»§æ‰¿ServiceImplX, å®ç°4ä¸ªæ–¹æ³•(getMenuTreeå…¨é‡æ ‘/getMenuTreeByUserIdæŒ‰æƒé™è¿‡æ»¤/buildTreeé€’å½’å»ºæ ‘/filterEmptyBranchesè¿‡æ»¤ç©ºåˆ†æ”¯), æƒé™ç SQLè¿‡æ»¤, nullsafe | 9614b53b |
-| P0-004-004-003-001-003 | éªŒè¯Service | 2026-06-04T01:15 | âœ… | éªŒè¯SysMenuTreeService/SysMenuTreeServiceImpl: æ¥å£4ä¸ªæ–¹æ³•ç­¾åå®Œæ•´/Implä¸šåŠ¡é€»è¾‘æ­£ç¡®(èœå•æ ‘æ„å»º+æŒ‰ç”¨æˆ·æƒé™è¿‡æ»¤+ç©ºåˆ†æ”¯è¿‡æ»¤)/nullsafe/çº¯è¯»æ“ä½œæ— éœ€@Transactional/mvn compileé€šè¿‡ | e7dae09e |
-| P0-004-004-004-001-001 | ç¼–å†™Controllerç±» | 2026-06-04T08:10 | âœ… | SysMenuController: @RestController+@RequestMapping("/api/system/menus"), æ³¨å…¥3ä¸ªMenuService, 14ä¸ªRESTfulæ¥å£(èœå•CRUD+èœå•æ ‘+ç§»åŠ¨ç«¯èœå•), @SaCheckPermissionå…¨è¦†ç›–, RT+PageResultå“åº”, @Operationæ³¨è§£å®Œæ•´, mvn compile BUILD SUCCESS | 120c0dc0 |
-| P0-004-004-004-001-002 | ç¼–å†™æ¥å£æ–¹æ³• | 2026-06-04T09:00 | âœ… | SysMenuControlleræ–°å¢6ä¸ªæ–¹æ³•: GET /tree/current(å½“å‰ç”¨æˆ·èœå•æ ‘/StpUtil.getLoginIdAsLong), GET /mobile-tree/current(å½“å‰ç”¨æˆ·ç§»åŠ¨ç«¯èœå•æ ‘), POST /mobile, PUT /mobile/{id}, DELETE /mobile/{id}(ç§»åŠ¨ç«¯èœå•CRUD), mvn compile BUILD SUCCESS | 1802604a |
-| P0-004-004-004-001-003 | éªŒè¯Controller | 2026-06-04T10:10 | âœ… | éªŒè¯SysMenuControllerå®Œæ•´: 15ä¸ªRESTfulç«¯ç‚¹URLç¬¦åˆ/api/{module}/{resource}è§„èŒƒ, RT<T>/PageResult<T>å“åº”æ­£ç¡®, @Valid+BindingResultæ ¡éªŒå®Œæ•´, @SaCheckPermissionå…¨è¦†ç›–, @Operationæ³¨è§£å®Œæ•´, mvn compileé€šè¿‡é›¶é”™è¯¯é›¶è­¦å‘Š | ee8eb09a |
-| P0-004-005-001-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-04T11:00 | âœ… | AuthMethodServiceæ¥å£: ç»§æ‰¿IServiceX<AuthMethod>, å£°æ˜listEnabled/isMethodNameUnique/isMethodTypeUnique/updatePriority/enable/disableå…±6ä¸ªä¸šåŠ¡æ–¹æ³•; åˆ›å»ºAuthMethodå®ä½“æ˜ å°„auth_methodè¡¨ | â€” |
-| P0-004-005-001-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-04T11:20 | âœ… | AuthMethodServiceImpl: ç»§æ‰¿ServiceImplX, å®ç°6ä¸ªæ–¹æ³•(å¯ç¦ç”¨+ä¼˜å…ˆçº§/å”¯ä¸€æ€§æ ¡éªŒ/BusinessException/@Transactional); åˆ›å»ºAuthMethodMapper | â€” |
-| P0-004-005-001-001-003 | éªŒè¯Service | 2026-06-04T17:00 | âœ… | éªŒè¯AuthMethodService/AuthMethodServiceImpl: æ¥å£6ä¸ªæ–¹æ³•ç­¾åå®Œæ•´/Implä¸šåŠ¡é€»è¾‘æ­£ç¡®/å”¯ä¸€æ€§æ ¡éªŒ+çŠ¶æ€æµè½¬å®Œå¤‡/@Transactionalä½ç½®æ­£ç¡®/BusinessExceptionè§„èŒƒ/mvn compileé€šè¿‡ | â€” |
-| P0-004-005-002-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-04 | âœ… | AuthPasswordPolicyServiceæ¥å£: ç»§æ‰¿IServiceX\<AuthPasswordPolicy\>, å£°æ˜getCurrentPolicy/isPolicyNameUnique/enable/disable/validatePasswordå…±5ä¸ªä¸šåŠ¡æ–¹æ³•; åˆ›å»ºAuthPasswordPolicyå®ä½“+AuthPasswordPolicyMapper | â€” |
-| P0-004-005-002-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-04 | âœ… | AuthPasswordPolicyServiceImpl: ç»§æ‰¿ServiceImplX, å®ç°5ä¸ªæ–¹æ³•(getCurrentPolicyå½“å‰å¯ç”¨ç­–ç•¥/isPolicyNameUniqueå”¯ä¸€æ ¡éªŒ/enableå…ˆç¦ç”¨ç°æœ‰å†å¯ç”¨/disableçŠ¶æ€æ ¡éªŒ/validatePasswordå¯†ç å¼ºåº¦æ ¡éªŒ), @Transactionalåœ¨enable/disable, BusinessExceptionè§„èŒƒ, mvn compileé€šè¿‡ | â€” |
-| P0-004-005-002-001-003 | éªŒè¯Service | 2026-06-04 | âœ… | éªŒè¯AuthPasswordPolicyService: æ¥å£5ä¸ªæ–¹æ³•ç­¾åå®Œæ•´, ServiceImplå®ç°æ­£ç¡®, å”¯ä¸€æ€§æ ¡éªŒ/çŠ¶æ€æµè½¬å®Œå¤‡, @Transactionalä½ç½®æ­£ç¡®, BusinessExceptionè§„èŒƒ, mvn compileé€šè¿‡ | â€” |
-| P0-004-005-003-001-001 | ç¼–å†™Controllerç±» | 2026-06-04 | âœ… | AuthConfigController: @RestController+@RequestMapping, æ³¨å…¥AuthMethodService/AuthPasswordPolicyService, 18ä¸ªRESTfulç«¯ç‚¹(è®¤è¯æ–¹å¼9+å¯†ç ç­–ç•¥9), @RequirePermissionæƒé™æ§åˆ¶, RT<T>/PageResult<T>ç»Ÿä¸€å“åº”, Swagger @Operationæ³¨è§£å®Œæ•´ | â€” |
-| P0-004-005-003-001-002 | ç¼–å†™æ¥å£æ–¹æ³• | 2026-06-04T11:45 | âœ… | AuthConfigControlleræ–°å¢åœ¨çº¿è®¾å¤‡ç®¡ç†(åˆ†é¡µæŸ¥è¯¢+å¼ºåˆ¶ä¸‹çº¿StpUtil.logoutByTokenValue)å’Œå·¥ä½œå°èšåˆ(åœ¨çº¿è®¾å¤‡æ•°/ä»Šæ—¥ç™»å½•æˆåŠŸ/å¤±è´¥æ¬¡æ•°/SSOé…ç½®æ•°)ç«¯ç‚¹, mvn compileé€šè¿‡ | â€” |
-| P0-004-005-003-001-003 | éªŒè¯Controller | 2026-06-04T12:30 | âœ… | éªŒè¯AuthConfigController: 5é¡¹éªŒæ”¶æ ‡å‡†å…¨éƒ¨é€šè¿‡, è¡¥å……@Valid+BindingResultå‚æ•°æ ¡éªŒ, mvn compileé€šè¿‡ | â€” |
-| P0-004-005-004-001-001 | ç¼–å†™OnlineDeviceService | 2026-06-04 | âœ… | OnlineDeviceServiceæ¥å£(ç»§æ‰¿IServiceX, å£°æ˜kickDevice/countOnlineæ–¹æ³•)+OnlineDeviceServiceImpl(ç»§æ‰¿ServiceImplX, å®ç°StpUtil.logoutByTokenValueå¼ºåˆ¶ä¸‹çº¿+åœ¨çº¿è®¾å¤‡è®¡æ•°+@Transactional+BusinessException), AuthConfigControlleré‡æ„æ³¨å…¥OnlineDeviceServiceæ›¿æ¢ç›´æ¥Mapperè°ƒç”¨ | â€” |
-| P0-004-005-004-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-04T12:00 | âœ… | éªŒè¯OnlineDeviceServiceImplå®Œæ•´(ç»§æ‰¿ServiceImplX,å®ç°kickDevice/countOnline,ä½¿ç”¨StpUtil+@Transactional+log.info),ç¼–è¯‘é€šè¿‡ | 74adc2dc |
-| P0-004-005-004-001-003 | éªŒè¯Service | 2026-06-04T14:05 | âœ… | éªŒè¯OnlineDeviceServiceæ¥å£(IServiceX+kickDevice+countOnline)+OnlineDeviceServiceImpl(StpUtil.logoutByTokenValue+çŠ¶æ€æµè½¬onlineâ†’kicked+@Transactional+log)/Controlleré›†æˆ(pageList+kickDevice+countOnline)/mvn compileé€šè¿‡/5é¡¹éªŒæ”¶æ ‡å‡†å…¨éƒ¨é€šè¿‡ | â€” |
-| P0-004-005-005-001-001 | ç¼–å†™å·¥ä½œå°èšåˆSQL | 2026-06-04T12:00 | âœ… | AuthConfigWorkbenchVO/AuthConfigWorkbenchMapper/XML: å·¥ä½œå°èšåˆSQL(è®¤è¯æ–¹å¼+å¯†ç ç­–ç•¥+åœ¨çº¿è®¾å¤‡+ç™»å½•ç»Ÿè®¡+ç™»å½•æ–¹å¼åˆ†å¸ƒ+æ¯æ—¥ç»Ÿè®¡), å…¨éƒ¨#{param}å‚æ•°åŒ–, AuthConfigControlleré‡æ„ä½¿ç”¨æ–°Mapperè¿”å›VO, mvn compileé€šè¿‡ | â€” |
-| P0-004-005-005-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T14:20 | âœ… | éªŒè¯å·¥ä½œå°èšåˆSQL: ç¼–è¯‘é€šè¿‡/60é¡¹æµ‹è¯•å…¨é‡é€šè¿‡/SQLå‚æ•°åŒ–æ£€æŸ¥/å¤šç§Ÿæˆ·è¿‡æ»¤/æ—¶é—´èŒƒå›´/è¾¹ç•Œæ¡ä»¶, æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•å·²å½’æ¡£ | â€” |
-| P0-004-006-001-001-001 | ç¼–å†™é¡µé¢ç»„ä»¶ | 2026-06-04T14:20 | âœ… | ç™»å½•é¡µé¢ç»„ä»¶: Vue3+TS+ElementPluså®Œæ•´ç™»å½•é¡µ, å«éªŒè¯ç /è®°ä½æˆ‘/è¡¨å•æ ¡éªŒ/å›½é™…åŒ–/APIå±‚/Composable, ç¼–è¯‘é€šè¿‡ | 7290fed7 |
-| P0-004-006-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T14:35 | âœ… | ç™»å½•æ ¸å¿ƒé€»è¾‘: useLoginå¢å¼º(é”™è¯¯ç æ˜ å°„+éªŒè¯ç åˆ·æ–°), åŠ¨æ€è·¯ç”±ç”Ÿæˆ(menuTreeâ†’addRoute), Tokené”®ç»Ÿä¸€(satoken+refresh_token), APIç«¯ç‚¹ä¿®æ­£, ç±»å‹å®Œå–„, pnpm buildé€šè¿‡ | e340d79b |
-| P0-004-006-001-001-002 | ç¼–å†™æ•°æ®ç»‘å®šä¸äº¤äº’é€»è¾‘ | 2026-06-04T14:47 | âœ… | è¡¨å•æ ¡éªŒè§„åˆ™å®Œå–„(ç”¨æˆ·å3-20ä½/å¯†ç 8-32ä½/éªŒè¯ç 4ä½), è®°ä½æˆ‘localStorageåŠ å¯†å­˜å‚¨(btoa+encodeURIComponent), loadRememberedUsernameé¡µé¢åŠ è½½è‡ªåŠ¨å¡«å……, vue-tscç¼–è¯‘é€šè¿‡ | 9b50bb58 |
-| P0-004-006-001-001-003 | éªŒè¯å‰ç«¯é¡µé¢å¼€å‘é¡µé¢ | 2026-06-04T14:55 | âœ… | ç™»å½•é¡µå…¨é‡éªŒè¯:60é¡¹åŠŸèƒ½æ£€æŸ¥é€šè¿‡/12é¡¹åç«¯æµ‹è¯•é€šè¿‡/å‘ç°6é¡¹é—®é¢˜(2ä¸ªCriticalç¼ºå¤±ç«¯ç‚¹+1ä¸ªHighæ–¹æ³•ä¸åŒ¹é…+1ä¸ªMediumç±»å‹ä¸å®Œæ•´+2ä¸ªLowé…ç½®é—æ¼), æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•å·²å½’æ¡£ | â€” |
-| P0-004-006-002-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T15:00 | âœ… | ç™»å½•æ ¸å¿ƒé€»è¾‘éªŒè¯:43é¡¹ä»£ç å®¡æŸ¥é€šè¿‡/å‘ç°4é¡¹é—®é¢˜(1ä¸ªæ–°å‘ç°:å‰åç«¯å“åº”ç code=200 vs code=0ä¸åŒ¹é… + 3ä¸ªå·²çŸ¥APIç«¯ç‚¹é—®é¢˜), æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•å·²å½’æ¡£ | â€” |
-| P0-004-006-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T15:15 | âœ… | é€€å‡ºç™»å½•æ ¸å¿ƒé€»è¾‘: logoutApiå®¹é”™è°ƒç”¨, æ¸…é™¤userStore/permissionStoreçŠ¶æ€, æ¸…é™¤localStorage, è·³è½¬/loginæºå¸¦redirectå‚æ•°, pnpm buildé€šè¿‡ | â€” |
-| P0-004-006-003-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T15:20 | âœ… | é€€å‡ºç™»å½•é€»è¾‘éªŒè¯: 34é¡¹åç«¯æµ‹è¯•å…¨éƒ¨é€šè¿‡, AuthControllerTest$Logout 2é¡¹, AuthServiceTest$Logout 4é¡¹(æ­£å¸¸/è¿‡æœŸ/ç¼“å­˜/å®¹é”™), pnpm buildé€šè¿‡, æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•å·²å½’æ¡£ | â€” |
-741	| P0-004-006-004-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T16:00 | âœ… | Tokenåˆ·æ–°æ ¸å¿ƒé€»è¾‘: ä¿®å¤APIç«¯ç‚¹(/api/auth/token/refresh), ç»Ÿä¸€localStorage key(TOKEN_KEY/REFRESH_TOKEN_KEY), æ·»åŠ æ— é™å¾ªç¯é˜²æŠ¤(isRefreshRequestæ£€æŸ¥), ç™»å‡ºé‡å®šå‘æºå¸¦redirectå‚æ•°, cancelRequestç™½åå•ç«¯ç‚¹åŒæ­¥ä¿®å¤, pnpm buildé€šè¿‡ | â€” |
-| P0-004-006-004-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T16:30 | âœ… | ç¼–å†™Vitestå•å…ƒæµ‹è¯•(9ä¸ªåœºæ™¯), å®‰è£…jsdom, æ›´æ–°vitest.config.ts; éªŒè¯é€šè¿‡: ä¸»æµç¨‹/å¹¶å‘é”/é˜²å¾ªç¯/é™çº§/è¾¹ç•Œ; äº¤ä»˜æµ‹è¯•æŠ¥å‘Šå’Œé—®é¢˜æ¸…å•; pnpm buildé€šè¿‡ | â€” |
-| P0-004-007-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T08:54 | âœ… | è·¯ç”±å®ˆå«NProgressé›†æˆ: beforeEachæ·»åŠ NProgress.start(), æ–°å¢afterEaché’©å­è®¾ç½®é¡µé¢æ ‡é¢˜+NProgress.done(), ç™½åå•/Token/åŠ¨æ€è·¯ç”±/æƒé™æ ¡éªŒé€»è¾‘å®Œæ•´, pnpm buildé€šè¿‡ | â€” |
-| P0-004-007-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T12:10 | âœ… | éªŒè¯è·¯ç”±å®ˆå«æ ¸å¿ƒé€»è¾‘: 15é¡¹åŠŸèƒ½æ£€æŸ¥+6é¡¹è¾¹ç•Œæ¡ä»¶+3é¡¹å¼‚å¸¸åœºæ™¯å…¨éƒ¨é€šè¿‡, vue-tscç¼–è¯‘æ— é”™è¯¯, æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•å·²å½’æ¡£ | â€” |
-| P0-004-007-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T12:10 | âœ… | usePermission composable(hasPermission/hasAnyPermission/hasRole/superadmin bypass) + v-roleæŒ‡ä»¤ + 12é¡¹vitestå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡ | â€” |
-| P0-004-007-002-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T12:15 | âœ… | éªŒè¯usePermission composable: 12é¡¹vitestå…¨éƒ¨é€šè¿‡/pnpm buildé€šè¿‡/ä¿®å¤viå¯¼å…¥é—®é¢˜/æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•å·²å½’æ¡£ | (pending) |
-| P0-004-007-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T12:20 | âœ… | ä¾§è¾¹æ èœå•åŠ¨æ€æ¸²æŸ“æ ¸å¿ƒä»£ç : Sidebar/index.vue(permissionStoreèœå•æ ‘+el-menué€’å½’æ¸²æŸ“+æŠ˜å +è·¯ç”±é«˜äº®)/SidebarItem.vue(é€’å½’å­ç»„ä»¶å¤„ç†ä¸‰ç§èœå•ç±»å‹+visibleè¿‡æ»¤+å¤–é“¾)/MenuItemIcon.vue(Element Plus/SVG/è‡ªå®šä¹‰å›¾æ ‡), pnpm buildé€šè¿‡ | cf1a5af6 |
-| P0-004-007-003-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T17:30 | âœ… | ä¾§è¾¹æ èœå•åŠ¨æ€æ¸²æŸ“éªŒè¯: æ–°å¢28é¡¹vitestæµ‹è¯•(routeToMenuItem 8/permission utils 13/menuPipeline 18), å…¨éƒ¨67é¡¹é€šè¿‡(å«å·²æœ‰21é¡¹), ä»£ç å®¡æŸ¥7ä¸ªç»„ä»¶é€šè¿‡, æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•å·²å½’æ¡£ | (pending) |
-| P0-004-007-004-001-001 | ç¼–å†™é¡µé¢ç»„ä»¶ | 2026-06-04 | âœ… | ç³»ç»Ÿå‚æ•°ç®¡ç†é¡µé¢: Vue3+TS+ElementPluså®Œæ•´CRUDé¡µé¢(views/system/params/index.vue), æ‰©å±•api/modules/system.ts(7ä¸ªsys param APIå‡½æ•°), åˆ›å»ºuseSystemParam composable(åŠ è½½/CRUD/ç¼“å­˜åˆ·æ–°), vue-tsc+vite buildé€šè¿‡ | c6ebd29d |
-| P0-004-007-004-001-002 | ç¼–å†™æ•°æ®ç»‘å®šä¸äº¤äº’é€»è¾‘ | 2026-06-04 | âœ… | æ‰©å±•app storeæ·»åŠ ç³»ç»Ÿå‚æ•°çŠ¶æ€(systemName/logoUrl/defaultPageSize/dateFormat/themeColor/watermarkEnabled)å’ŒinitAppConfigå¼‚æ­¥åˆå§‹åŒ–, æ›´æ–°App.vueä¸ºrouter-view+onMountedåˆå§‹åŒ–, åˆ›å»ºuseAppInit composable(åˆå§‹åŒ–/ä¸»é¢˜è‰²/æ°´å°æ¸²æŸ“), vue-tscé€šè¿‡ | â€” |
-| P0-004-007-004-001-003 | éªŒè¯å‰ç«¯é¡µé¢å¼€å‘é¡µé¢ | 2026-06-04 | âœ… | éªŒè¯ç³»ç»Ÿå‚æ•°å‰ç«¯é¡µé¢: pnpm buildå‘ç°2ä¸ªç±»å‹é”™è¯¯(valueTypeTagè¿”å›å€¼/DefaultRowç±»å‹), useAppInitæœªé›†æˆ, æ ¸å¿ƒCRUD/ç¼“å­˜åˆ·æ–°/è¡¨å•æ ¡éªŒåŠŸèƒ½å®ç°æ­£ç¡®, æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•å·²å½’æ¡£ | â€” |
-| P0-004-008-000-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T12:10 | âœ… | ç”¨æˆ·ç®¡ç†å·¥ä½œå°æ ¸å¿ƒä»£ç : Vueé¡µé¢(4ä¸ªKPIå¡ç‰‡+åŠ¨ç”»/EChartsæŠ˜çº¿å›¾+é¥¼å›¾/å¿«æ·æ“ä½œ/ç™»å½•æ—¥å¿—è¡¨æ ¼), APIå±‚(workbench.ts), ç±»å‹å®šä¹‰(workbench.ts), useWorkbench composable(EChartsç”Ÿå‘½å‘¨æœŸç®¡ç†/å“åº”å¼æ•°æ®), pnpm buildé€šè¿‡(workbenchç›¸å…³é›¶é”™è¯¯) | (pending) |
-| P0-004-008-000-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T13:05 | âœ… | éªŒè¯å¹¶ä¿®å¤ç”¨æˆ·ç®¡ç†å·¥ä½œå°: å‘ç°5ä¸ªé—®é¢˜(Controllerç¼ºç«¯ç‚¹/VOå­—æ®µä¸åŒ¹é…/è·¯ç”±æœªæ³¨å†Œ/ç¼ºloginTrend+recentLoginsæŸ¥è¯¢/å›¾è¡¨é¦–è½½ç©ºç™½), å…¨éƒ¨ä¿®å¤, mvn compile+pnpm buildé€šè¿‡, æµ‹è¯•æŠ¥å‘Šå·²ç”Ÿæˆ | (pending) |
-| P0-004-008-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T13:30 | âœ… | ç”¨æˆ·ç®¡ç†åˆ—è¡¨é¡µæ ¸å¿ƒä»£ç : UserList.vue(æœç´¢/ç­›é€‰/è¡¨æ ¼/åˆ†é¡µ/æ“ä½œ), APIå±‚(user.ts-8ä¸ªç«¯ç‚¹å‡½æ•°), ç±»å‹å®šä¹‰(UserListItem/UserPageQuery), æœç´¢é˜²æŠ–(debounce 300ms), v-permissionæƒé™æ§åˆ¶, pnpm buildé€šè¿‡ | 5c8d159b |
-| P0-004-008-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T13:40 | âœ… | ç”¨æˆ·ç®¡ç†åˆ—è¡¨é¡µéªŒè¯: é™æ€å®¡æŸ¥+ç¼–è¯‘éªŒè¯+APIå¥‘çº¦å®¡æŸ¥+åŠŸèƒ½æ ¸å¯¹+æƒé™å®¡æŸ¥; å‘ç°7ä¸ªé—®é¢˜(å«1ä¸ªcritical-RTå“åº”ç 200vs0ä¸åŒ¹é…); æµ‹è¯•æŠ¥å‘Šä¸é—®é¢˜æ¸…å•å·²ç”Ÿæˆ | 33c63dd7 |
-| P0-004-008-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T13:50 | âœ… | ç”¨æˆ·ç¼–è¾‘è¡¨å•æ ¸å¿ƒä»£ç : UserForm.vue(æ–°å¢/ç¼–è¾‘Dialog/è¡¨å•æ ¡éªŒ/éƒ¨é—¨æ ‘/è§’è‰²åˆ†é…/å¤´åƒä¸Šä¼ )/role.ts API/index.vueé›†æˆUserFormç»„ä»¶/pnpm buildé€šè¿‡ | a0f3f3e0 |
-| P0-004-008-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T14:40 | âœ… | UserRoleDialog.vueè§’è‰²åˆ†é…å¼¹çª—: el-dialog+checkbox-group+è§’è‰²äº’æ–¥æ ¡éªŒ+è¶…ç®¡ä¿æŠ¤+å˜æ›´æ‘˜è¦+ä¿å­˜ç¡®è®¤/APIæ–°å¢assignUserRoles+getRoleExclusions+checkRoleExclusion | â€” |
-| P0-004-008-003-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T15:00 | âœ… | ç”¨æˆ·è§’è‰²åˆ†é…å¼¹çª—éªŒè¯: é™æ€ä»£ç å®¡æŸ¥26é¡¹æ£€æŸ¥(20é€šè¿‡/2Bug/4å»ºè®®)+ç¼–è¯‘éªŒè¯é›¶æ–°å¢é”™è¯¯+è¾¹ç•Œ9é¡¹+å¼‚å¸¸5é¡¹; å‘ç°é—®é¢˜: isCurrentUserSuperadminå‘½åè¯¯å¯¼/è§’è‰²ååŒ¹é…è„†å¼±; æµ‹è¯•æŠ¥å‘Šä¸é—®é¢˜æ¸…å•å·²ç”Ÿæˆ | â€” |
-| P0-004-008-004-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T15:30 | âœ… | UserDeptDialog.vueéƒ¨é—¨å…³è”å¼¹çª—: el-dialog(600px)+el-treeå¤é€‰æ¡†å¤šé€‰(åŠé€‰å¤„ç†)+ä¸»éƒ¨é—¨radio+ä¿å­˜ç¡®è®¤+æ¸…é™¤å…¨éƒ¨/APIæ–°å¢assignUserDepts+clearUserDepts+getDeptTree | 40f3b15a |
-| P0-004-008-004-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T16:00 | âœ… | ç”¨æˆ·éƒ¨é—¨å…³è”å¼¹çª—éªŒè¯: å‰åç«¯å…¨é“¾è·¯ä»£ç å®¡æŸ¥(8ä¸ªæ–‡ä»¶)/å‘ç°4ä¸ªé—®é¢˜(2CRITICAL+2HIGH): 3ä¸ªAPIç«¯ç‚¹ç¼ºå¤±+DetailVOç¼ºdeptIdså­—æ®µ+primaryDeptIdä¼ é€’é“¾è·¯æ–­è£‚+is_primaryç¡¬ç¼–ç ; æµ‹è¯•æŠ¥å‘Šä¸é—®é¢˜æ¸…å•å·²ç”Ÿæˆ | â€” |
-| P0-004-008-005-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T16:00 | âœ… | ç”¨æˆ·ç»„ç®¡ç†åˆ—è¡¨é¡µ: UserGroupController(CRUD+åˆ†é¡µæŸ¥è¯¢+ç¼–ç å”¯ä¸€æ€§+æˆå‘˜è®¡æ•°)/SysUserGroupVO/DTO/mapper.countMembersByGroupIds/UserGroupList.vue(æœç´¢/åˆ†é¡µ/çŠ¶æ€åˆ‡æ¢/æ‰¹é‡åˆ é™¤)/UserGroupForm.vue(æ–°å¢ç¼–è¾‘)/APIå±‚+ç±»å‹å®šä¹‰ | â€” |
-| P0-004-008-005-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T16:15 | âœ… | ç”¨æˆ·ç»„ç®¡ç†åˆ—è¡¨é¡µéªŒè¯: ä¿®å¤4ä¸ªé—®é¢˜(3ä¸ªTSç±»å‹é”™è¯¯+1ä¸ªç¼ºå¤±æˆå‘˜ç®¡ç†æŒ‰é’®)/mvn compileé€šè¿‡/åŠŸèƒ½è§„æ ¼14é¡¹å…¨éƒ¨å¯¹ç…§é€šè¿‡/æµ‹è¯•æŠ¥å‘Šä¸é—®é¢˜æ¸…å•å·²ç”Ÿæˆ | â€” |
-| P0-004-008-006-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T17:00 | âœ… | ç”¨æˆ·ç»„è¡¨å•å¢å¼º: UserGroupForm.vue(720px+el-transferæˆå‘˜ç®¡ç†+el-checkbox-groupè§’è‰²åˆ†é…+è¡¨å•æ ¡éªŒ2-50/2-30)/SysUserGroupRoleå®ä½“+DDL/Controlleræ–°å¢6ä¸ªæˆå‘˜/è§’è‰²ç«¯ç‚¹/Service+Mapperè§’è‰²æ–¹æ³•/mvn compileé€šè¿‡ | ced185cc |
-| P0-004-008-006-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T17:30 | âœ… | ç”¨æˆ·ç»„è¡¨å•éªŒè¯: é™æ€ä»£ç å®¡æŸ¥40é¡¹æ£€æŸ¥(æ ¸å¿ƒåŠŸèƒ½23+è¾¹ç•Œ11+å¼‚å¸¸é™çº§6)å…¨éƒ¨é€šè¿‡/mvn compile+pnpm buildé€šè¿‡/å‘ç°3æ¡éé˜»å¡å»ºè®®/æµ‹è¯•æŠ¥å‘Šä¸é—®é¢˜æ¸…å•å·²ç”Ÿæˆ | 7988cafb |
+| P0-004-001-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-03T17:36 | ? | ÊµÏÖµÇÂ¼ÈÏÖ¤ºËĞÄÂß¼­: AuthController/AuthService/CaptchaService/LoginRequest/LoginResponse/SysUser/SysLoginLog | 8cf84b5e |
+| P0-004-001-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-03T17:48 | ? | ±àĞ´27¸öµ¥Ôª²âÊÔ(AuthServiceTest/CaptchaServiceTest/AuthControllerTest)£¬È«²¿Í¨¹ı | 08b8b70f |
+| P0-004-001-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-03T18:05 | ? | ÊµÏÖÍË³öµÇÂ¼ºËĞÄÂß¼­: AuthController.logout/AuthService.logout/AuthOnlineDeviceÊµÌå/AuthOnlineDeviceMapper/LoginLogService.updateLogoutTime/SysLoginLog.logoutAt | a7d406d9 |
+| P0-004-001-002-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-03T18:05 | ? | ±àĞ´6¸öÍË³öµÇÂ¼µ¥Ôª²âÊÔ(AuthServiceTest$Logout/AuthControllerTest$Logout)£¬È«²¿Í¨¹ı£¬Éú³É²âÊÔ±¨¸æ | ¡ª |
+| P0-004-001-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-03T18:30 | ? | ÊµÏÖTokenĞ£ÑéÓëË¢ĞÂ: TokenVerifyResponse/TokenRefreshResponse/TokenRefreshRequest/AuthService.verifyToken/refreshToken/AuthControllerÁ½¸öĞÂ¶Ëµã | 1c51e4c8 |
+| P0-004-001-003-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-03T18:30 | ? | ±àĞ´12¸öTokenĞ£ÑéÓëË¢ĞÂµ¥Ôª²âÊÔ(AuthServiceTest$VerifyToken/RefreshToken + AuthControllerTest$VerifyToken/RefreshToken)£¬34/34Í¨¹ı£¬Éú³É²âÊÔ±¨¸æÓëÎÊÌâÇåµ¥ | ¡ª |
+| P0-004-001-004-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-03T18:35 | ? | src/main/java/com/erp/auth/config/AuthProperties.java:ÈÏÖ¤Ä£¿éÅäÖÃÊôĞÔÀà(ÑéÖ¤Âë/µÇÂ¼°²È«/ÓÃ»§ĞÅÏ¢Èı²ãÇ¶Ì×ÅäÖÃ), @ConfigurationProperties(prefix="auth")+@ValidatedĞ£Ñé; application.ymlĞÂÔöauthÅäÖÃ¶Î | ¡ª |
+| P0-004-001-004-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-03T18:42 | ? | ±àĞ´AuthPropertiesTest(15¸ö²âÊÔ):ÑéÖ¤ÅäÖÃ°ó¶¨/Ä¬ÈÏÖµ/Bean×¢Èë/@ValidatedĞ£ÑéÔ¼Êø,È«²¿Í¨¹ı;È·ÈÏ4¸ö»·¾³YAMLÎŞÓ²±àÂëÃô¸ĞĞÅÏ¢ | ¡ª |
+| P0-004-001-005-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-03T19:00 | ? | µÇÂ¼ÈÕÖ¾ºËĞÄÊµÏÖ: IpAddressUtil(´úÀíIP½âÎö)/UserAgentUtil(ä¯ÀÀÆ÷+OS½âÎö)/AsyncConfig(ThreadPoolTaskExecutor coreSize=2,maxSize=5,queueCapacity=1000)/LoginLogService.asyncWriteLog/AuthServiceÖØ¹¹Ê¹ÓÃĞÂ¹¤¾ßÀà | ¡ª |
+| P0-004-001-005-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-03T19:00 | ? | ÑéÖ¤µÇÂ¼ÈÕÖ¾Òì²½Ğ´Èë: ±àÒëÍ¨¹ı/22¸ö²âÊÔÈ«²¿Í¨¹ı/´úÂëÉó²é¸²¸ÇÒì²½ÅäÖÃ/½µ¼¶²ßÂÔ/±ß½çÌõ¼ş/IP-UA½âÎö/¼¯³Éµã, Éú³É²âÊÔ±¨¸æÓëÎÊÌâÇåµ¥ | ¡ª |
+| P0-004-002-001-001-001 | ±àĞ´EntityÀà | 2026-06-03T19:10 | ? | SysUser/SysRole/SysMenuÊµÌåÀà: @TableNameÓ³Éä/@TableId(ASSIGN_ID)/@TableLogicÂß¼­É¾³ı/BaseEntity¼Ì³Ğ/passwordHash×Ö¶Î@TableField(select=false) | ¡ª |
+| P0-004-002-001-001-002 | ±àĞ´DTOVOÀà | 2026-06-03T19:25 | ? | SysUserDTO/SysUserVO/SysRoleDTO/SysRoleVO/SysMenuDTO/SysMenuVO: CreateDTOº¬@NotBlank/@NotNullĞ£Ñé, UpdateDTOº¬@NotNull id, QueryDTOº¬·ÖÒ³²ÎÊı, ListVOÅÅ³ıÃÜÂë×Ö¶Î, DetailVOº¬ÍêÕû×Ö¶Î, @JsonFormatÈÕÆÚ¸ñÊ½»¯, xxxName×Öµä·­Òë×Ö¶Î | ¡ª |
+| P0-004-002-001-001-003 | ÑéÖ¤ÊµÌåÀà | 2026-06-03T19:45 | ? | ÑéÖ¤SysUser/SysRole/SysMenuÊµÌåÀàDDLÒ»ÖÂĞÔ/×¢½âÍêÕûĞÔ/DTOĞ£Ñé/VO¸ñÊ½»¯£¬±àÒëÍ¨¹ı£¬·¢ÏÖC1/C2/M1/m1/m2¹²5¸öÎÊÌâ²¢ÖÆ¶¨ĞŞ¸´·½°¸ | ¡ª |
+| P0-004-002-002-001-001 | ±àĞ´SQLÓï¾ä | 2026-06-03T19:50 | ? | UserMapper½Ó¿Ú(5¸ö·½·¨)+UserMapper.xml(5Ìõ×Ô¶¨ÒåSQL:·ÖÒ³²éÑ¯/ÓÃ»§ÃûÎ¨Ò»Ğ£Ñé/ÃÜÂëÀúÊ·/°´²¿ÃÅ²éÓÃ»§/½ÇÉ«Ãû³Æ²éÑ¯), SysUserVO.ListVOĞÂÔöemployeeName×Ö¶Î, È«²¿#{param}²ÎÊı»¯·À×¢Èë | ¡ª |
+| P0-004-002-002-001-002 | ÑéÖ¤±àĞ´SQL | 2026-06-03T20:00 | ? | UserMapper SQLÑéÖ¤Íê³É: Interface/XMLÒ»ÖÂĞÔ?, ResultMapÓ³Éä?, SQLÓï·¨?, ±àÒë?; ·¢ÏÖ2¸öÎÊÌâ(Éó¼ÆÁĞÃûDDL²»Ò»ÖÂCRITICAL/sys_user_password_history±íÈ±Ê§WARNING)²¢¼ÇÂ¼ĞŞ¸´·½°¸ | ¡ª |
+| P0-004-002-003-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-03T20:10 | ? | UserService½Ó¿Ú: ¼Ì³ĞIServiceX<SysUser>, ÉùÃ÷assignRoles/resetPassword/updateStatus/unlockUser/getRoleNames/isUsernameUnique¹²6¸öÒµÎñ·½·¨Ç©Ãû | a6cfc780 |
+| P0-004-002-003-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-03T19:54 | ? | UserServiceImpl: ¼Ì³ĞServiceImplX, ÊµÏÖÈ«²¿6¸öÒµÎñ·½·¨(Sa-TokenÌß³ö/BCryptÃÜÂë¼ÓÃÜ+ÀúÊ·±í/½ÇÉ«ÅúÁ¿·ÖÅä/×´Ì¬Á÷×ªĞ£Ñé/Î¨Ò»ĞÔĞ£Ñé/@TransactionalÊÂÎñ¹ÜÀí) | ¡ª |
+| P0-004-002-003-001-003 | ÑéÖ¤Service | 2026-06-03T20:15 | ? | ÑéÖ¤UserService/UserServiceImpl: ½Ó¿Ú6¸ö·½·¨Ç©ÃûÍêÕû/ImplÂß¼­ÕıÈ·/BCrypt¼ÓÃÜ+ÃÜÂëÀúÊ·/Sa-Token¼¯³É/@TransactionalÎ»ÖÃÕıÈ·/BusinessExceptionÒì³£¹æ·¶/mvn compileÍ¨¹ı | ¡ª |
+| P0-004-002-004-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-03T20:20 | ? | UserRoleService½Ó¿Ú: ¼Ì³ĞIServiceX<SysUser>, ÉùÃ÷assignRoles/removeUserRole/getUserRoleIds/getUserIdsByRoleId/hasRole¹²5¸öÒµÎñ·½·¨Ç©Ãû | 7b8a80b2 |
+| P0-004-002-004-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-03T20:25 | ? | UserRoleServiceImpl: ¼Ì³ĞServiceImplX, ÊµÏÖ5¸ö·½·¨(Sa-Token kickout/@Transactional/BusinessException), UserMapperĞÂÔö4¸ö·½·¨+XMLÓ³Éä | 7325bd3e |
+| P0-004-002-004-001-003 | ÑéÖ¤Service | 2026-06-03T20:30 | ? | ÑéÖ¤UserRoleService/UserRoleServiceImpl: ½Ó¿Ú5¸ö·½·¨Ç©ÃûÍêÕû/ImplÂß¼­ÕıÈ·/StpUtil.kickout+SaaS-Token/@TransactionalÎ»ÖÃÕıÈ·/BusinessExceptionÒì³£¹æ·¶/mvn compileÍ¨¹ı/XML SQLÓ³ÉäÍêÕû | ¡ª |
+| P0-004-002-005-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-03T20:35 | ? | UserDeptService½Ó¿Ú: ¼Ì³ĞIServiceX<SysUser>, ÉùÃ÷assignDepts/removeUserDept/getUserDeptIds/getUserIdsByDeptId/hasDept/setPrimaryDept¹²6¸öÒµÎñ·½·¨Ç©Ãû | ¡ª |
+| P0-004-002-005-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-03T20:40 | ? | UserDeptServiceImpl: ¼Ì³ĞServiceImplX, ÊµÏÖ6¸ö·½·¨(Sa-Token kickout/@Transactional/BusinessException), UserMapperĞÂÔö7¸ödept·½·¨+XMLÓ³Éä | ¡ª |
+| P0-004-002-005-001-003 | ÑéÖ¤Service | 2026-06-03T20:45 | ? | ÑéÖ¤UserDeptService/UserDeptServiceImpl: ½Ó¿Ú6¸ö·½·¨Ç©ÃûÍêÕû/ImplÂß¼­ÕıÈ·/StpUtil.kickout/@TransactionalÎ»ÖÃÕıÈ·/BusinessExceptionÒì³£¹æ·¶/mvn compileÍ¨¹ı | ¡ª |
+| P0-004-002-006-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-03T20:50 | ? | UserGroupService½Ó¿Ú: ¼Ì³ĞIServiceX<SysUserGroup>, ÉùÃ÷addMembers/removeMember/removeAllMembers/getMemberUserIds/getGroupIdsByUserId/hasMember/updateStatus¹²7¸öÒµÎñ·½·¨Ç©Ãû; ´´½¨SysUserGroup/SysUserGroupMemberÊµÌå+UserGroupMapper | ¡ª |
+| P0-004-002-006-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-03T20:55 | ? | UserGroupServiceImpl: ¼Ì³ĞServiceImplX, ÊµÏÖ7¸ö·½·¨(entityÑéÖ¤/BusinessException/@Transactional), UserGroupMapperµ÷ÓÃgroupMembers²Ù×÷ | b81b0f95 |
+| P0-004-002-006-001-003 | ÑéÖ¤Service | 2026-06-03T20:51 | ? | ÑéÖ¤UserGroupService: ÑéÊÕ±ê×¼5ÏîÈ«Í¨¹ı, ±àÒë³É¹¦; ·¢ÏÖ²¢ĞŞ¸´È±Ê§UserGroupMapper.xml(6¸öSQLÓ³Éä)
+| P0-004-002-007-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-03T21:00 | ? | UserService½Ó¿Ú: ĞÂÔöchangePassword(Long userId, String oldPassword, String newPassword)·½·¨Ç©Ãû; UserServiceImplÌí¼ÓÕ¼Î»ÊµÏÖÈ·±£±àÒëÍ¨¹ı | ¡ª |
+| P0-004-002-007-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-03T21:05 | ? | UserServiceImpl.changePassword: ²ÎÊıĞ£Ñé/Bcrypt¾ÉÃÜÂëÑéÖ¤/ÃÜÂëÀúÊ··ÀÖØÓÃ(×î½ü3´Î)/BCrypt¼ÓÃÜ/insertPasswordHistory/StpUtil.kickoutÌß³ö»á»°/@TransactionalÊÂÎñ | 4e941bdd |
+| P0-004-002-007-001-003 | ÑéÖ¤Service | 2026-06-03T21:10 | ? | ÑéÖ¤UserServiceÃÜÂëĞŞ¸Ä/ÖØÖÃService: ½Ó¿ÚchangePassword+resetPassword·½·¨Ç©ÃûÍêÕû/BCrypt¼ÓÃÜ+ÃÜÂëÀúÊ··ÀÖØÓÃ/Sa-Token kickout/@TransactionalÎ»ÖÃÕıÈ·/BusinessException¹æ·¶/mvn compileÍ¨¹ı | 734edc2d |
+| P0-004-002-008-001-001 | ±àĞ´ControllerÀà | 2026-06-03T21:16 | ? | UserController: @RestController+12¸öRESTful½Ó¿Ú(CRUD/·ÖÒ³/½ÇÉ«/ÃÜÂë/×´Ì¬/½âËø/ÓÃ»§Ãû¼ì²é)/@RequirePermission/RT+PageResultÏìÓ¦/Swagger×¢½â/ĞÂÔö3¸öDTOÄÚÀà | 5ad9f133 |
+| P0-004-002-008-001-002 | ±àĞ´½Ó¿Ú·½·¨ | 2026-06-03T21:27 | ? | UserController½Ó¿Ú·½·¨ÍêÉÆ: Â·¾¶/api/system/user, @SaCheckPermissionÌæ»», ·ÖÒ³keyword/status/deptId, ÏêÇéº¬½ÇÉ«Ãû³Æ, BCryptÃÜÂë¼ÓÃÜ, ÈíÉ¾³ı+¹ØÁªÇåÀí, ÖØÖÃÃÜÂë·µ»ØĞÂÃÜÂë, PUT /password×ÔĞŞ¸Ä, POST/DELETE /roleÅúÁ¿½ÇÉ«, UserServiceĞÂÔöresetPasswordAndReturn/deleteUserWithCleanup | 02e35e51 |
+| P0-004-002-008-001-003 | ÑéÖ¤Controller | 2026-06-03T21:33 | ? | ±àÒëÑéÖ¤Í¨¹ı/RESTful URL¹æ·¶/RT+PageResultÏìÓ¦/@ValidĞ£Ñé/@SaCheckPermission 14¶ËµãÈ«¸²¸Ç/@Tag/@OperationÍêÕû | 889b8936 |
+| P0-004-002-009-001-001 | ±àĞ´¹¤×÷Ì¨¾ÛºÏSQL | 2026-06-03T21:40 | ? | UserWorkbenchVO¾ÛºÏÊı¾İVO/UserMapperĞÂÔö3¸ö¾ÛºÏ²éÑ¯·½·¨/UserMapper.xmlĞÂÔö3Ìõ¹¤×÷Ì¨¾ÛºÏSQL(ÓÃ»§×ÜÊı+ÔÚÏßÊı+±¾ÔÂĞÂÔö+½ÇÉ«·Ö²¼+²¿ÃÅ·Ö²¼)/UserServiceĞÂÔögetWorkbenchData | ¡ª |
+| P0-004-002-009-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-03T21:47 | ? | ¹¤×÷Ì¨¾ÛºÏSQLÑéÖ¤: SQLÓï·¨ÕıÈ·/3Ìõ¾ÛºÏ²éÑ¯Âß¼­ÍêÕû/LEFT JOIN¿ÕÖµ´¦ÀíÕıÈ·/VO×Ö¶ÎÓ³ÉäÍêÕû/null°²È«±£»¤/±àÒëÍ¨¹ı/·¢ÏÖ1¸öÎÊÌâ(ControllerÈ±ÉÙ¹¤×÷Ì¨¶Ëµã)ÒÑ¼ÇÂ¼issuesÎÄµµ | ¡ª |
+| P0-004-003-001-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-03T22:00 | ? | SysRoleService½Ó¿Ú+SysRoleServiceImplÊµÏÖ/½ÇÉ«±àÂëÎ¨Ò»ĞÔĞ£Ñé/×´Ì¬Æô½ûÓÃ/É¾³ıÊ±ÇåÀísys_user_role+sys_role_menu+sys_role_data+sys_role_field¹ØÁªÊı¾İ/SysRoleMapperº¬4¸ö@DeleteÇåÀí·½·¨ | ¡ª |
+| P0-004-003-001-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-03T22:10 | ? | SysRoleServiceImplÔöÇ¿: StpUtil.kickoutÔÚÏßÓÃ»§Ìß³ö/×´Ì¬Á÷×ªĞ£Ñé(½ûÖ¹ÖØ¸´ÉèÖÃ)/@TransactionalÊÂÎñ¹ÜÀí/BusinessExceptionÒì³£¹æ·¶/UserMapper×¢Èë²éÑ¯½ÇÉ«¹ØÁªÓÃ»§ | ¡ª |
+| P0-004-003-001-001-003 | ÑéÖ¤Service | 2026-06-03T22:20 | ? | ÑéÖ¤SysRoleService/SysRoleServiceImpl: ½Ó¿Ú3¸öÒµÎñ·½·¨+IServiceX CRUDÍêÕû/Î¨Ò»ĞÔĞ£Ñé+×´Ì¬Á÷×ª+¹ØÁªÇåÀíÍê±¸/Sa-Token kickout¼¯³É/@Transactional·½·¨¼¶/BusinessException¹æ·¶/mvn compileÍ¨¹ı | ¡ª |
+| P0-004-003-002-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-03T22:40 | ? | SysRoleMenuService½Ó¿Ú: ¼Ì³ĞIServiceX<SysRole>, ÉùÃ÷6¸öÒµÎñ·½·¨(assignMenus/assignMenusWithPermissions/removeRoleMenus/getRoleMenuIds/hasMenuPermission/copyMenus) | 87abc3a7 |
+| P0-004-003-002-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-03T22:50 | ? | SysRoleMenuServiceImpl: ¼Ì³ĞServiceImplX, ÊµÏÖ6¸ö·½·¨(Sa-Token kickout/½ÇÉ«´æÔÚĞÔĞ£Ñé/¿Õ¼¯ºÏÌø¹ı/²Ëµ¥ÅúÁ¿Ğ´Èë/½ÇÉ«¸´ÖÆ/@Transactional) | eb29b347 |
+| P0-004-003-002-001-003 | ÑéÖ¤Service | 2026-06-03T23:00 | ? | ÑéÖ¤SysRoleMenuService/SysRoleMenuServiceImpl: ½Ó¿Ú6¸ö·½·¨Ç©ÃûÍêÕû/ImplÂß¼­ÕıÈ·/Sa-Token kickout/@TransactionalÎ»ÖÃÕıÈ·/BusinessException¹æ·¶/mvn compileÍ¨¹ı | ¡ª |
+| P0-004-003-003-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-03T23:15 | ? | SysRoleDataScopeService½Ó¿Ú: ¼Ì³ĞIServiceX<SysRoleDataScope>, 4¸öÒµÎñ·½·¨(getByRoleId/saveRoleDataScopes/deleteByRoleId/getScopeType), ´´½¨È±Ê§Ç°ÖÃÒÀÀµSysRoleDataScopeÊµÌå | c01e8c5e |
+| P0-004-003-003-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-03T23:25 | ? | SysRoleDataScopeServiceImpl: ¼Ì³ĞServiceImplX, ÊµÏÖ4¸ö·½·¨(Sa-Token kickout/BusinessException/@Transactional/¿ÕÖµĞ£Ñé), ĞÂ½¨SysRoleDataScopeMapper | e5dbdfa8 |
+| P0-004-003-003-001-003 | ÑéÖ¤Service | 2026-06-03T22:48 | ? | SysRoleDataScopeServiceTest: 13¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı, ¸²¸ÇgetByRoleId/saveRoleDataScopes/deleteByRoleId/getScopeTypeËÄ¸ö·½·¨ | ¡ª |
+| P0-004-003-004-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-03T20:30 | ? | ¶¨ÒåSysRoleFieldPermissionService½Ó¿Ú(extends IServiceX), ÉùÃ÷getByRoleId/getByRoleIdAndTable/saveRoleFieldPermissions/deleteByRoleId/getPermissionType·½·¨; Í¬Ê±´´½¨SysRoleFieldPermissionÊµÌåÓ³Éäsys_role_field_permission±í | ¡ª |
+| P0-004-003-004-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-03T23:35 | ? | SysRoleFieldPermissionServiceImpl: ¼Ì³ĞServiceImplX, 5¸ö·½·¨(Sa-Token kickout/BusinessException/@Transactional), ĞÂ½¨SysRoleFieldPermissionMapper | 100cf765 |
+| P0-004-003-004-001-003 | ÑéÖ¤Service | 2026-06-03T20:36 | ? | ÑéÖ¤SysRoleFieldPermissionService/SysRoleFieldPermissionServiceImpl: ½Ó¿Ú5¸ö·½·¨Ç©ÃûÍêÕû/ImplÂß¼­ÕıÈ·/StpUtil.kickout/@TransactionalÎ»ÖÃÕıÈ·/BusinessException¹æ·¶/mvn compileÍ¨¹ı | ¡ª |
+| P0-004-003-005-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-03T20:40 | ? | ¶¨ÒåSysButtonPermissionService½Ó¿Ú(extends IServiceX\<SysMenu\>), ÉùÃ÷checkPermission/getUserPermissions/getRolePermissions/getButtonsByMenuId/getButtonsByUserId/refreshCache·½·¨; mvn compileÍ¨¹ı | ¡ª |
+| P0-004-003-005-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-03T20:45 | ? | ÊµÏÖSysButtonPermissionServiceImpl(extends ServiceImplX\<SysMenuMapper, SysMenu\>), ¼¯³ÉStpUtil.hasPermission/kickout, ËùÓĞ·½·¨null²ÎÊı·À»¤, ´´½¨SysMenuMapper(º¬selectPermissionCodesByRoleId/UserId/selectButtonsByParentId/UserId/selectByPermissionCode×¢½âSQL); mvn compileÍ¨¹ı | ¡ª |
+| P0-004-003-005-001-003 | ÑéÖ¤Service | 2026-06-03T20:50 | ? | ÑéÖ¤SysButtonPermissionService/SysButtonPermissionServiceImpl: ½Ó¿Ú6·½·¨ÍêÕû/Impl Sa-Token¼¯³ÉÕıÈ·/´¿¶Á²Ù×÷ÎŞĞè@Transactional/null²ÎÊıÓÅÑÅ½µ¼¶/mvn compile BUILD SUCCESS | ¡ª |
+| P0-004-003-006-001-002 | ±àĞ´½Ó¿Ú·½·¨ | 2026-06-03T23:44 | ? | SysRoleController: ĞÂÔöPOST /menu²Ëµ¥ÅúÁ¿°ó¶¨+GET /menu/{roleId}²Ëµ¥Ê÷+POST /inheritance¼Ì³Ğ(4¸ö¶Ëµã)+POST /exclusion»¥³â(4¸ö¶Ëµã)+POST /data-scopeÊı¾İÈ¨ÏŞÅäÖÃ; ĞÂ½¨SysRoleInheritance/SysRoleExclusionÊµÌå+Mapper+Service(Impl); ĞÂ½¨SysDataPermissionSchemeController(CRUD)+SysFieldPermissionSchemeController(CRUD)º¬DDL+Entity+Mapper+Service; ĞÂ½¨MenuPermissionBatchDTO; SysMenuĞÂÔöchildren×Ö¶Î; mvn clean compile BUILD SUCCESS | dd281ba8 |
+| P0-004-003-007-001-001 | ±àĞ´DDLEntityMapperServiceController | 2026-06-03T23:28 | ? | Flyway DDL: sys_role_inheritance(½ÇÉ«¼Ì³Ğ±í)½¨±í+Ë÷Òı+»Ø¹ö, sys_role_exclusion(½ÇÉ«»¥³â±í)½¨±í+Ë÷Òı+»Ø¹ö, ¹²4¸öSQLÎÄ¼ş, mvn compileÍ¨¹ı | e1f36605 |
+| P0-004-003-006-001-001 | ±àĞ´ControllerÀà | 2026-06-03T23:45 | ? | SysRoleController: @RestController+@RequestMapping("/api/system/role"), ×¢Èë5¸öService, 26¸öRESTful½Ó¿Ú(½ÇÉ«CRUD+²Ëµ¥È¨ÏŞ+Êı¾İÈ¨ÏŞ+×Ö¶ÎÈ¨ÏŞ+°´Å¥È¨ÏŞ), @SaCheckPermissionÈ«¸²¸Ç, RT+PageResultÏìÓ¦, @Operation×¢½âÍêÕû | ¡ª |
+| P0-004-003-008-001-001 | ±àĞ´DDLEntityMapperServiceController | 2026-06-03T23:55 | ? | Êı¾İÈ¨ÏŞ·½°¸ÅäÖÃ: Flyway DDL(sys_data_permission_scheme+sys_data_permission_scheme_role)+»Ø¹ö½Å±¾, SysDataPermissionSchemeÊµÌå/Mapper/Service/ServiceImpl/ControllerÍêÕûCRUD, mvn compileÍ¨¹ı | ¡ª |
+| P0-004-003-009-001-001 | ±àĞ´DDLEntityMapperServiceController | 2026-06-04T00:05 | ? | ×Ö¶ÎÈ¨ÏŞ·½°¸ÅäÖÃ: Flyway DDL(sys_field_permission_scheme+role+detail)+»Ø¹ö½Å±¾(ĞÂÔö), SysFieldPermissionScheme+DetailÊµÌå/Mapper/Service/ServiceImpl/ControllerÍêÕûCRUD¾ùÒÑ¾ÍĞ÷, mvn compileÍ¨¹ı | cb6e7d0f |
+| P0-004-003-006-001-003 | ÑéÖ¤Controller | 2026-06-04T00:20 | ? | ÑéÖ¤²¢ĞŞ¸´È¨ÏŞÅäÖÃController: SysRoleController/SysDataPermissionSchemeController/SysFieldPermissionSchemeControllerÈ«²¿Í¨¹ı5ÏîÑéÊÕ±ê×¼, ²¹³äÁË@Valid+BindingResult²ÎÊıĞ£Ñé, mvn compileÍ¨¹ı | ¡ª |
+| P0-004-004-001-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-04T00:30 | ? | SysMenuService½Ó¿Ú: ¼Ì³ĞIServiceX<SysMenu>, ÉùÃ÷getMenuTree/getMenuTreeByUserId/isPermissionCodeUnique/updateStatus/deleteMenuWithChildren¹²5¸öÒµÎñ·½·¨Ç©Ãû | ¡ª |
+| P0-004-004-001-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-04T00:15 | ? | SysMenuServiceImpl: ¼Ì³ĞServiceImplX, ÊµÏÖ5¸ö·½·¨(²Ëµ¥Ê÷¹¹½¨/°´ÓÃ»§È¨ÏŞ¹ıÂËÊ÷/È¨ÏŞÂëÎ¨Ò»ĞÔĞ£Ñé/×´Ì¬Æô½ûÓÃ/¼¶ÁªÉ¾³ı), @TransactionalÊÂÎñ¹ÜÀí, BusinessExceptionÒì³£¹æ·¶ | ¡ª |
+| P0-004-004-001-001-003 | ÑéÖ¤Service | 2026-06-04T00:05 | ? | ±àÒëÍ¨¹ı, ´úÂëÉó²é5ÏîÑéÊÕ±ê×¼È«²¿Í¨¹ı(½Ó¿ÚÇ©ÃûÍêÕû/ÒµÎñÂß¼­ÕıÈ·/Ğ£ÑéÍê±¸/ÊÂÎñ×¢½âÎ»ÖÃÕıÈ·/Òì³£¹æ·¶) | ¡ª |
+| P0-004-004-002-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-04T00:45 | ? | SysMenuMobileService½Ó¿Ú: ¼Ì³ĞIServiceX\<SysMenu\>, ÉùÃ÷getMobileMenuTree/getMobileMenuTreeByUserId¹²2¸öÒÆ¶¯¶Ë²Ëµ¥ÒµÎñ·½·¨Ç©Ãû | ¡ª |
+| P0-004-004-002-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-04T01:00 | ? | SysMenuMobileServiceImpl: ¼Ì³ĞServiceImplX, ÊµÏÖgetMobileMenuTree/getMobileMenuTreeByUserId, ÒÆ¶¯¶ËÅÅ³ıbuttonÀàĞÍ²Ëµ¥, È¨ÏŞÂë¹ıÂË, Ê÷ĞÎ½á¹¹¹¹½¨, ¿Õ·ÖÖ§¹ıÂË | ¡ª |
+| P0-004-004-002-001-003 | ÑéÖ¤Service | 2026-06-04T00:32 | ? | ÑéÖ¤SysMenuMobileService/SysMenuMobileServiceImpl: ½Ó¿Ú2¸ö·½·¨Ç©ÃûÍêÕû/ImplÒÆ¶¯¶Ë²Ëµ¥Ê÷¹¹½¨Âß¼­ÕıÈ·/È¨ÏŞ¹ıÂË/nullsafe/mvn compileÍ¨¹ı | ¡ª |
+| P0-004-004-003-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-04T00:40 | ? | ´´½¨SysMenuTreeService½Ó¿Ú: 4¸ö·½·¨Ç©Ãû( getMenuTree/getMenuTreeByUserId/buildTree/filterEmptyBranches)/¼Ì³ĞIServiceX<SysMenu>/mvn compileÍ¨¹ı | ¡ª |
+| P0-004-004-003-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-04T01:10 | ? | SysMenuTreeServiceImpl: ¼Ì³ĞServiceImplX, ÊµÏÖ4¸ö·½·¨(getMenuTreeÈ«Á¿Ê÷/getMenuTreeByUserId°´È¨ÏŞ¹ıÂË/buildTreeµİ¹é½¨Ê÷/filterEmptyBranches¹ıÂË¿Õ·ÖÖ§), È¨ÏŞÂëSQL¹ıÂË, nullsafe | 9614b53b |
+| P0-004-004-003-001-003 | ÑéÖ¤Service | 2026-06-04T01:15 | ? | ÑéÖ¤SysMenuTreeService/SysMenuTreeServiceImpl: ½Ó¿Ú4¸ö·½·¨Ç©ÃûÍêÕû/ImplÒµÎñÂß¼­ÕıÈ·(²Ëµ¥Ê÷¹¹½¨+°´ÓÃ»§È¨ÏŞ¹ıÂË+¿Õ·ÖÖ§¹ıÂË)/nullsafe/´¿¶Á²Ù×÷ÎŞĞè@Transactional/mvn compileÍ¨¹ı | e7dae09e |
+| P0-004-004-004-001-001 | ±àĞ´ControllerÀà | 2026-06-04T08:10 | ? | SysMenuController: @RestController+@RequestMapping("/api/system/menus"), ×¢Èë3¸öMenuService, 14¸öRESTful½Ó¿Ú(²Ëµ¥CRUD+²Ëµ¥Ê÷+ÒÆ¶¯¶Ë²Ëµ¥), @SaCheckPermissionÈ«¸²¸Ç, RT+PageResultÏìÓ¦, @Operation×¢½âÍêÕû, mvn compile BUILD SUCCESS | 120c0dc0 |
+| P0-004-004-004-001-002 | ±àĞ´½Ó¿Ú·½·¨ | 2026-06-04T09:00 | ? | SysMenuControllerĞÂÔö6¸ö·½·¨: GET /tree/current(µ±Ç°ÓÃ»§²Ëµ¥Ê÷/StpUtil.getLoginIdAsLong), GET /mobile-tree/current(µ±Ç°ÓÃ»§ÒÆ¶¯¶Ë²Ëµ¥Ê÷), POST /mobile, PUT /mobile/{id}, DELETE /mobile/{id}(ÒÆ¶¯¶Ë²Ëµ¥CRUD), mvn compile BUILD SUCCESS | 1802604a |
+| P0-004-004-004-001-003 | ÑéÖ¤Controller | 2026-06-04T10:10 | ? | ÑéÖ¤SysMenuControllerÍêÕû: 15¸öRESTful¶ËµãURL·ûºÏ/api/{module}/{resource}¹æ·¶, RT<T>/PageResult<T>ÏìÓ¦ÕıÈ·, @Valid+BindingResultĞ£ÑéÍêÕû, @SaCheckPermissionÈ«¸²¸Ç, @Operation×¢½âÍêÕû, mvn compileÍ¨¹ıÁã´íÎóÁã¾¯¸æ | ee8eb09a |
+| P0-004-005-001-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-04T11:00 | ? | AuthMethodService½Ó¿Ú: ¼Ì³ĞIServiceX<AuthMethod>, ÉùÃ÷listEnabled/isMethodNameUnique/isMethodTypeUnique/updatePriority/enable/disable¹²6¸öÒµÎñ·½·¨; ´´½¨AuthMethodÊµÌåÓ³Éäauth_method±í | ¡ª |
+| P0-004-005-001-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-04T11:20 | ? | AuthMethodServiceImpl: ¼Ì³ĞServiceImplX, ÊµÏÖ6¸ö·½·¨(Æô½ûÓÃ+ÓÅÏÈ¼¶/Î¨Ò»ĞÔĞ£Ñé/BusinessException/@Transactional); ´´½¨AuthMethodMapper | ¡ª |
+| P0-004-005-001-001-003 | ÑéÖ¤Service | 2026-06-04T17:00 | ? | ÑéÖ¤AuthMethodService/AuthMethodServiceImpl: ½Ó¿Ú6¸ö·½·¨Ç©ÃûÍêÕû/ImplÒµÎñÂß¼­ÕıÈ·/Î¨Ò»ĞÔĞ£Ñé+×´Ì¬Á÷×ªÍê±¸/@TransactionalÎ»ÖÃÕıÈ·/BusinessException¹æ·¶/mvn compileÍ¨¹ı | ¡ª |
+| P0-004-005-002-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-04 | ? | AuthPasswordPolicyService½Ó¿Ú: ¼Ì³ĞIServiceX\<AuthPasswordPolicy\>, ÉùÃ÷getCurrentPolicy/isPolicyNameUnique/enable/disable/validatePassword¹²5¸öÒµÎñ·½·¨; ´´½¨AuthPasswordPolicyÊµÌå+AuthPasswordPolicyMapper | ¡ª |
+| P0-004-005-002-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-04 | ? | AuthPasswordPolicyServiceImpl: ¼Ì³ĞServiceImplX, ÊµÏÖ5¸ö·½·¨(getCurrentPolicyµ±Ç°ÆôÓÃ²ßÂÔ/isPolicyNameUniqueÎ¨Ò»Ğ£Ñé/enableÏÈ½ûÓÃÏÖÓĞÔÙÆôÓÃ/disable×´Ì¬Ğ£Ñé/validatePasswordÃÜÂëÇ¿¶ÈĞ£Ñé), @TransactionalÔÚenable/disable, BusinessException¹æ·¶, mvn compileÍ¨¹ı | ¡ª |
+| P0-004-005-002-001-003 | ÑéÖ¤Service | 2026-06-04 | ? | ÑéÖ¤AuthPasswordPolicyService: ½Ó¿Ú5¸ö·½·¨Ç©ÃûÍêÕû, ServiceImplÊµÏÖÕıÈ·, Î¨Ò»ĞÔĞ£Ñé/×´Ì¬Á÷×ªÍê±¸, @TransactionalÎ»ÖÃÕıÈ·, BusinessException¹æ·¶, mvn compileÍ¨¹ı | ¡ª |
+| P0-004-005-003-001-001 | ±àĞ´ControllerÀà | 2026-06-04 | ? | AuthConfigController: @RestController+@RequestMapping, ×¢ÈëAuthMethodService/AuthPasswordPolicyService, 18¸öRESTful¶Ëµã(ÈÏÖ¤·½Ê½9+ÃÜÂë²ßÂÔ9), @RequirePermissionÈ¨ÏŞ¿ØÖÆ, RT<T>/PageResult<T>Í³Ò»ÏìÓ¦, Swagger @Operation×¢½âÍêÕû | ¡ª |
+| P0-004-005-003-001-002 | ±àĞ´½Ó¿Ú·½·¨ | 2026-06-04T11:45 | ? | AuthConfigControllerĞÂÔöÔÚÏßÉè±¸¹ÜÀí(·ÖÒ³²éÑ¯+Ç¿ÖÆÏÂÏßStpUtil.logoutByTokenValue)ºÍ¹¤×÷Ì¨¾ÛºÏ(ÔÚÏßÉè±¸Êı/½ñÈÕµÇÂ¼³É¹¦/Ê§°Ü´ÎÊı/SSOÅäÖÃÊı)¶Ëµã, mvn compileÍ¨¹ı | ¡ª |
+| P0-004-005-003-001-003 | ÑéÖ¤Controller | 2026-06-04T12:30 | ? | ÑéÖ¤AuthConfigController: 5ÏîÑéÊÕ±ê×¼È«²¿Í¨¹ı, ²¹³ä@Valid+BindingResult²ÎÊıĞ£Ñé, mvn compileÍ¨¹ı | ¡ª |
+| P0-004-005-004-001-001 | ±àĞ´OnlineDeviceService | 2026-06-04 | ? | OnlineDeviceService½Ó¿Ú(¼Ì³ĞIServiceX, ÉùÃ÷kickDevice/countOnline·½·¨)+OnlineDeviceServiceImpl(¼Ì³ĞServiceImplX, ÊµÏÖStpUtil.logoutByTokenValueÇ¿ÖÆÏÂÏß+ÔÚÏßÉè±¸¼ÆÊı+@Transactional+BusinessException), AuthConfigControllerÖØ¹¹×¢ÈëOnlineDeviceServiceÌæ»»Ö±½ÓMapperµ÷ÓÃ | ¡ª |
+| P0-004-005-004-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-04T12:00 | ? | ÑéÖ¤OnlineDeviceServiceImplÍêÕû(¼Ì³ĞServiceImplX,ÊµÏÖkickDevice/countOnline,Ê¹ÓÃStpUtil+@Transactional+log.info),±àÒëÍ¨¹ı | 74adc2dc |
+| P0-004-005-004-001-003 | ÑéÖ¤Service | 2026-06-04T14:05 | ? | ÑéÖ¤OnlineDeviceService½Ó¿Ú(IServiceX+kickDevice+countOnline)+OnlineDeviceServiceImpl(StpUtil.logoutByTokenValue+×´Ì¬Á÷×ªonline¡úkicked+@Transactional+log)/Controller¼¯³É(pageList+kickDevice+countOnline)/mvn compileÍ¨¹ı/5ÏîÑéÊÕ±ê×¼È«²¿Í¨¹ı | ¡ª |
+| P0-004-005-005-001-001 | ±àĞ´¹¤×÷Ì¨¾ÛºÏSQL | 2026-06-04T12:00 | ? | AuthConfigWorkbenchVO/AuthConfigWorkbenchMapper/XML: ¹¤×÷Ì¨¾ÛºÏSQL(ÈÏÖ¤·½Ê½+ÃÜÂë²ßÂÔ+ÔÚÏßÉè±¸+µÇÂ¼Í³¼Æ+µÇÂ¼·½Ê½·Ö²¼+Ã¿ÈÕÍ³¼Æ), È«²¿#{param}²ÎÊı»¯, AuthConfigControllerÖØ¹¹Ê¹ÓÃĞÂMapper·µ»ØVO, mvn compileÍ¨¹ı | ¡ª |
+| P0-004-005-005-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T14:20 | ? | ÑéÖ¤¹¤×÷Ì¨¾ÛºÏSQL: ±àÒëÍ¨¹ı/60Ïî²âÊÔÈ«Á¿Í¨¹ı/SQL²ÎÊı»¯¼ì²é/¶à×â»§¹ıÂË/Ê±¼ä·¶Î§/±ß½çÌõ¼ş, ²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥ÒÑ¹éµµ | ¡ª |
+| P0-004-006-001-001-001 | ±àĞ´Ò³Ãæ×é¼ş | 2026-06-04T14:20 | ? | µÇÂ¼Ò³Ãæ×é¼ş: Vue3+TS+ElementPlusÍêÕûµÇÂ¼Ò³, º¬ÑéÖ¤Âë/¼Ç×¡ÎÒ/±íµ¥Ğ£Ñé/¹ú¼Ê»¯/API²ã/Composable, ±àÒëÍ¨¹ı | 7290fed7 |
+| P0-004-006-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T14:35 | ? | µÇÂ¼ºËĞÄÂß¼­: useLoginÔöÇ¿(´íÎóÂëÓ³Éä+ÑéÖ¤ÂëË¢ĞÂ), ¶¯Ì¬Â·ÓÉÉú³É(menuTree¡úaddRoute), Token¼üÍ³Ò»(satoken+refresh_token), API¶ËµãĞŞÕı, ÀàĞÍÍêÉÆ, pnpm buildÍ¨¹ı | e340d79b |
+| P0-004-006-001-001-002 | ±àĞ´Êı¾İ°ó¶¨Óë½»»¥Âß¼­ | 2026-06-04T14:47 | ? | ±íµ¥Ğ£Ñé¹æÔòÍêÉÆ(ÓÃ»§Ãû3-20Î»/ÃÜÂë8-32Î»/ÑéÖ¤Âë4Î»), ¼Ç×¡ÎÒlocalStorage¼ÓÃÜ´æ´¢(btoa+encodeURIComponent), loadRememberedUsernameÒ³Ãæ¼ÓÔØ×Ô¶¯Ìî³ä, vue-tsc±àÒëÍ¨¹ı | 9b50bb58 |
+| P0-004-006-001-001-003 | ÑéÖ¤Ç°¶ËÒ³Ãæ¿ª·¢Ò³Ãæ | 2026-06-04T14:55 | ? | µÇÂ¼Ò³È«Á¿ÑéÖ¤:60Ïî¹¦ÄÜ¼ì²éÍ¨¹ı/12Ïîºó¶Ë²âÊÔÍ¨¹ı/·¢ÏÖ6ÏîÎÊÌâ(2¸öCriticalÈ±Ê§¶Ëµã+1¸öHigh·½·¨²»Æ¥Åä+1¸öMediumÀàĞÍ²»ÍêÕû+2¸öLowÅäÖÃÒÅÂ©), ²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥ÒÑ¹éµµ | ¡ª |
+| P0-004-006-002-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T15:00 | ? | µÇÂ¼ºËĞÄÂß¼­ÑéÖ¤:43Ïî´úÂëÉó²éÍ¨¹ı/·¢ÏÖ4ÏîÎÊÌâ(1¸öĞÂ·¢ÏÖ:Ç°ºó¶ËÏìÓ¦Âëcode=200 vs code=0²»Æ¥Åä + 3¸öÒÑÖªAPI¶ËµãÎÊÌâ), ²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥ÒÑ¹éµµ | ¡ª |
+| P0-004-006-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T15:15 | ? | ÍË³öµÇÂ¼ºËĞÄÂß¼­: logoutApiÈİ´íµ÷ÓÃ, Çå³ıuserStore/permissionStore×´Ì¬, Çå³ılocalStorage, Ìø×ª/loginĞ¯´øredirect²ÎÊı, pnpm buildÍ¨¹ı | ¡ª |
+| P0-004-006-003-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T15:20 | ? | ÍË³öµÇÂ¼Âß¼­ÑéÖ¤: 34Ïîºó¶Ë²âÊÔÈ«²¿Í¨¹ı, AuthControllerTest$Logout 2Ïî, AuthServiceTest$Logout 4Ïî(Õı³£/¹ıÆÚ/»º´æ/Èİ´í), pnpm buildÍ¨¹ı, ²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥ÒÑ¹éµµ | ¡ª |
+741	| P0-004-006-004-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T16:00 | ? | TokenË¢ĞÂºËĞÄÂß¼­: ĞŞ¸´API¶Ëµã(/api/auth/token/refresh), Í³Ò»localStorage key(TOKEN_KEY/REFRESH_TOKEN_KEY), Ìí¼ÓÎŞÏŞÑ­»··À»¤(isRefreshRequest¼ì²é), µÇ³öÖØ¶¨ÏòĞ¯´øredirect²ÎÊı, cancelRequest°×Ãûµ¥¶ËµãÍ¬²½ĞŞ¸´, pnpm buildÍ¨¹ı | ¡ª |
+| P0-004-006-004-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T16:30 | ? | ±àĞ´Vitestµ¥Ôª²âÊÔ(9¸ö³¡¾°), °²×°jsdom, ¸üĞÂvitest.config.ts; ÑéÖ¤Í¨¹ı: Ö÷Á÷³Ì/²¢·¢Ëø/·ÀÑ­»·/½µ¼¶/±ß½ç; ½»¸¶²âÊÔ±¨¸æºÍÎÊÌâÇåµ¥; pnpm buildÍ¨¹ı | ¡ª |
+| P0-004-007-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T08:54 | ? | Â·ÓÉÊØÎÀNProgress¼¯³É: beforeEachÌí¼ÓNProgress.start(), ĞÂÔöafterEach¹³×ÓÉèÖÃÒ³Ãæ±êÌâ+NProgress.done(), °×Ãûµ¥/Token/¶¯Ì¬Â·ÓÉ/È¨ÏŞĞ£ÑéÂß¼­ÍêÕû, pnpm buildÍ¨¹ı | ¡ª |
+| P0-004-007-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T12:10 | ? | ÑéÖ¤Â·ÓÉÊØÎÀºËĞÄÂß¼­: 15Ïî¹¦ÄÜ¼ì²é+6Ïî±ß½çÌõ¼ş+3ÏîÒì³£³¡¾°È«²¿Í¨¹ı, vue-tsc±àÒëÎŞ´íÎó, ²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥ÒÑ¹éµµ | ¡ª |
+| P0-004-007-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T12:10 | ? | usePermission composable(hasPermission/hasAnyPermission/hasRole/superadmin bypass) + v-roleÖ¸Áî + 12Ïîvitestµ¥Ôª²âÊÔÈ«²¿Í¨¹ı | ¡ª |
+| P0-004-007-002-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T12:15 | ? | ÑéÖ¤usePermission composable: 12ÏîvitestÈ«²¿Í¨¹ı/pnpm buildÍ¨¹ı/ĞŞ¸´viµ¼ÈëÎÊÌâ/²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥ÒÑ¹éµµ | (pending) |
+| P0-004-007-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T12:20 | ? | ²à±ßÀ¸²Ëµ¥¶¯Ì¬äÖÈ¾ºËĞÄ´úÂë: Sidebar/index.vue(permissionStore²Ëµ¥Ê÷+el-menuµİ¹éäÖÈ¾+ÕÛµş+Â·ÓÉ¸ßÁÁ)/SidebarItem.vue(µİ¹é×Ó×é¼ş´¦ÀíÈıÖÖ²Ëµ¥ÀàĞÍ+visible¹ıÂË+ÍâÁ´)/MenuItemIcon.vue(Element Plus/SVG/×Ô¶¨ÒåÍ¼±ê), pnpm buildÍ¨¹ı | cf1a5af6 |
+| P0-004-007-003-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T17:30 | ? | ²à±ßÀ¸²Ëµ¥¶¯Ì¬äÖÈ¾ÑéÖ¤: ĞÂÔö28Ïîvitest²âÊÔ(routeToMenuItem 8/permission utils 13/menuPipeline 18), È«²¿67ÏîÍ¨¹ı(º¬ÒÑÓĞ21Ïî), ´úÂëÉó²é7¸ö×é¼şÍ¨¹ı, ²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥ÒÑ¹éµµ | (pending) |
+| P0-004-007-004-001-001 | ±àĞ´Ò³Ãæ×é¼ş | 2026-06-04 | ? | ÏµÍ³²ÎÊı¹ÜÀíÒ³Ãæ: Vue3+TS+ElementPlusÍêÕûCRUDÒ³Ãæ(views/system/params/index.vue), À©Õ¹api/modules/system.ts(7¸ösys param APIº¯Êı), ´´½¨useSystemParam composable(¼ÓÔØ/CRUD/»º´æË¢ĞÂ), vue-tsc+vite buildÍ¨¹ı | c6ebd29d |
+| P0-004-007-004-001-002 | ±àĞ´Êı¾İ°ó¶¨Óë½»»¥Âß¼­ | 2026-06-04 | ? | À©Õ¹app storeÌí¼ÓÏµÍ³²ÎÊı×´Ì¬(systemName/logoUrl/defaultPageSize/dateFormat/themeColor/watermarkEnabled)ºÍinitAppConfigÒì²½³õÊ¼»¯, ¸üĞÂApp.vueÎªrouter-view+onMounted³õÊ¼»¯, ´´½¨useAppInit composable(³õÊ¼»¯/Ö÷ÌâÉ«/Ë®Ó¡äÖÈ¾), vue-tscÍ¨¹ı | ¡ª |
+| P0-004-007-004-001-003 | ÑéÖ¤Ç°¶ËÒ³Ãæ¿ª·¢Ò³Ãæ | 2026-06-04 | ? | ÑéÖ¤ÏµÍ³²ÎÊıÇ°¶ËÒ³Ãæ: pnpm build·¢ÏÖ2¸öÀàĞÍ´íÎó(valueTypeTag·µ»ØÖµ/DefaultRowÀàĞÍ), useAppInitÎ´¼¯³É, ºËĞÄCRUD/»º´æË¢ĞÂ/±íµ¥Ğ£Ñé¹¦ÄÜÊµÏÖÕıÈ·, ²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥ÒÑ¹éµµ | ¡ª |
+| P0-004-008-000-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T12:10 | ? | ÓÃ»§¹ÜÀí¹¤×÷Ì¨ºËĞÄ´úÂë: VueÒ³Ãæ(4¸öKPI¿¨Æ¬+¶¯»­/EChartsÕÛÏßÍ¼+±ıÍ¼/¿ì½İ²Ù×÷/µÇÂ¼ÈÕÖ¾±í¸ñ), API²ã(workbench.ts), ÀàĞÍ¶¨Òå(workbench.ts), useWorkbench composable(EChartsÉúÃüÖÜÆÚ¹ÜÀí/ÏìÓ¦Ê½Êı¾İ), pnpm buildÍ¨¹ı(workbenchÏà¹ØÁã´íÎó) | (pending) |
+| P0-004-008-000-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T13:05 | ? | ÑéÖ¤²¢ĞŞ¸´ÓÃ»§¹ÜÀí¹¤×÷Ì¨: ·¢ÏÖ5¸öÎÊÌâ(ControllerÈ±¶Ëµã/VO×Ö¶Î²»Æ¥Åä/Â·ÓÉÎ´×¢²á/È±loginTrend+recentLogins²éÑ¯/Í¼±íÊ×ÔØ¿Õ°×), È«²¿ĞŞ¸´, mvn compile+pnpm buildÍ¨¹ı, ²âÊÔ±¨¸æÒÑÉú³É | (pending) |
+| P0-004-008-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T13:30 | ? | ÓÃ»§¹ÜÀíÁĞ±íÒ³ºËĞÄ´úÂë: UserList.vue(ËÑË÷/É¸Ñ¡/±í¸ñ/·ÖÒ³/²Ù×÷), API²ã(user.ts-8¸ö¶Ëµãº¯Êı), ÀàĞÍ¶¨Òå(UserListItem/UserPageQuery), ËÑË÷·À¶¶(debounce 300ms), v-permissionÈ¨ÏŞ¿ØÖÆ, pnpm buildÍ¨¹ı | 5c8d159b |
+| P0-004-008-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T13:40 | ? | ÓÃ»§¹ÜÀíÁĞ±íÒ³ÑéÖ¤: ¾²Ì¬Éó²é+±àÒëÑéÖ¤+APIÆõÔ¼Éó²é+¹¦ÄÜºË¶Ô+È¨ÏŞÉó²é; ·¢ÏÖ7¸öÎÊÌâ(º¬1¸öcritical-RTÏìÓ¦Âë200vs0²»Æ¥Åä); ²âÊÔ±¨¸æÓëÎÊÌâÇåµ¥ÒÑÉú³É | 33c63dd7 |
+| P0-004-008-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T13:50 | ? | ÓÃ»§±à¼­±íµ¥ºËĞÄ´úÂë: UserForm.vue(ĞÂÔö/±à¼­Dialog/±íµ¥Ğ£Ñé/²¿ÃÅÊ÷/½ÇÉ«·ÖÅä/Í·ÏñÉÏ´«)/role.ts API/index.vue¼¯³ÉUserForm×é¼ş/pnpm buildÍ¨¹ı | a0f3f3e0 |
+| P0-004-008-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T14:40 | ? | UserRoleDialog.vue½ÇÉ«·ÖÅäµ¯´°: el-dialog+checkbox-group+½ÇÉ«»¥³âĞ£Ñé+³¬¹Ü±£»¤+±ä¸üÕªÒª+±£´æÈ·ÈÏ/APIĞÂÔöassignUserRoles+getRoleExclusions+checkRoleExclusion | ¡ª |
+| P0-004-008-003-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T15:00 | ? | ÓÃ»§½ÇÉ«·ÖÅäµ¯´°ÑéÖ¤: ¾²Ì¬´úÂëÉó²é26Ïî¼ì²é(20Í¨¹ı/2Bug/4½¨Òé)+±àÒëÑéÖ¤ÁãĞÂÔö´íÎó+±ß½ç9Ïî+Òì³£5Ïî; ·¢ÏÖÎÊÌâ: isCurrentUserSuperadminÃüÃûÎóµ¼/½ÇÉ«ÃûÆ¥Åä´àÈõ; ²âÊÔ±¨¸æÓëÎÊÌâÇåµ¥ÒÑÉú³É | ¡ª |
+| P0-004-008-004-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T15:30 | ? | UserDeptDialog.vue²¿ÃÅ¹ØÁªµ¯´°: el-dialog(600px)+el-tree¸´Ñ¡¿ò¶àÑ¡(°ëÑ¡´¦Àí)+Ö÷²¿ÃÅradio+±£´æÈ·ÈÏ+Çå³ıÈ«²¿/APIĞÂÔöassignUserDepts+clearUserDepts+getDeptTree | 40f3b15a |
+| P0-004-008-004-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T16:00 | ? | ÓÃ»§²¿ÃÅ¹ØÁªµ¯´°ÑéÖ¤: Ç°ºó¶ËÈ«Á´Â·´úÂëÉó²é(8¸öÎÄ¼ş)/·¢ÏÖ4¸öÎÊÌâ(2CRITICAL+2HIGH): 3¸öAPI¶ËµãÈ±Ê§+DetailVOÈ±deptIds×Ö¶Î+primaryDeptId´«µİÁ´Â·¶ÏÁÑ+is_primaryÓ²±àÂë; ²âÊÔ±¨¸æÓëÎÊÌâÇåµ¥ÒÑÉú³É | ¡ª |
+| P0-004-008-005-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T16:00 | ? | ÓÃ»§×é¹ÜÀíÁĞ±íÒ³: UserGroupController(CRUD+·ÖÒ³²éÑ¯+±àÂëÎ¨Ò»ĞÔ+³ÉÔ±¼ÆÊı)/SysUserGroupVO/DTO/mapper.countMembersByGroupIds/UserGroupList.vue(ËÑË÷/·ÖÒ³/×´Ì¬ÇĞ»»/ÅúÁ¿É¾³ı)/UserGroupForm.vue(ĞÂÔö±à¼­)/API²ã+ÀàĞÍ¶¨Òå | ¡ª |
+| P0-004-008-005-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T16:15 | ? | ÓÃ»§×é¹ÜÀíÁĞ±íÒ³ÑéÖ¤: ĞŞ¸´4¸öÎÊÌâ(3¸öTSÀàĞÍ´íÎó+1¸öÈ±Ê§³ÉÔ±¹ÜÀí°´Å¥)/mvn compileÍ¨¹ı/¹¦ÄÜ¹æ¸ñ14ÏîÈ«²¿¶ÔÕÕÍ¨¹ı/²âÊÔ±¨¸æÓëÎÊÌâÇåµ¥ÒÑÉú³É | ¡ª |
+| P0-004-008-006-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T17:00 | ? | ÓÃ»§×é±íµ¥ÔöÇ¿: UserGroupForm.vue(720px+el-transfer³ÉÔ±¹ÜÀí+el-checkbox-group½ÇÉ«·ÖÅä+±íµ¥Ğ£Ñé2-50/2-30)/SysUserGroupRoleÊµÌå+DDL/ControllerĞÂÔö6¸ö³ÉÔ±/½ÇÉ«¶Ëµã/Service+Mapper½ÇÉ«·½·¨/mvn compileÍ¨¹ı | ced185cc |
+| P0-004-008-006-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T17:30 | ? | ÓÃ»§×é±íµ¥ÑéÖ¤: ¾²Ì¬´úÂëÉó²é40Ïî¼ì²é(ºËĞÄ¹¦ÄÜ23+±ß½ç11+Òì³£½µ¼¶6)È«²¿Í¨¹ı/mvn compile+pnpm buildÍ¨¹ı/·¢ÏÖ3Ìõ·Ç×èÈû½¨Òé/²âÊÔ±¨¸æÓëÎÊÌâÇåµ¥ÒÑÉú³É | 7988cafb |
 
-| P0-004-009-000-001-001 | KPIå¡ç‰‡ç»„ä»¶å¼€å‘ | 2026-06-04T14:00 | âœ… | KpiCardå¯å¤ç”¨ç»„ä»¶+æƒé™é…ç½®å·¥ä½œå°é¡µé¢(4ä¸ªKPIå¡ç‰‡+2ä¸ªEChartså›¾è¡¨)+APIå±‚+composable+è·¯ç”±æ³¨å†Œ, vite buildé€šè¿‡ | 8e790211 |
+| P0-004-009-000-001-001 | KPI¿¨Æ¬×é¼ş¿ª·¢ | 2026-06-04T14:00 | ? | KpiCard¿É¸´ÓÃ×é¼ş+È¨ÏŞÅäÖÃ¹¤×÷Ì¨Ò³Ãæ(4¸öKPI¿¨Æ¬+2¸öEChartsÍ¼±í)+API²ã+composable+Â·ÓÉ×¢²á, vite buildÍ¨¹ı | 8e790211 |
 
-| P0-004-009-000-002-001 | EChartså›¾è¡¨ç»„ä»¶å¼€å‘ | 2026-06-04T18:00 | âœ… | å¢å¼ºuseAuthConfigWorkbench(æŠ˜çº¿/æŸ±çŠ¶/é¥¼å›¾/é›·è¾¾4ç§å›¾è¡¨+å¯¼å‡ºPNG)+å·¥ä½œå°é¡µé¢(æ—¶é—´ç­›é€‰/ç»´åº¦åˆ‡æ¢/åŠ è½½éª¨æ¶å±/å¯¼å‡ºæŒ‰é’®), ç±»å‹æ£€æŸ¥é€šè¿‡ | 23833679 |
+| P0-004-009-000-002-001 | EChartsÍ¼±í×é¼ş¿ª·¢ | 2026-06-04T18:00 | ? | ÔöÇ¿useAuthConfigWorkbench(ÕÛÏß/Öù×´/±ıÍ¼/À×´ï4ÖÖÍ¼±í+µ¼³öPNG)+¹¤×÷Ì¨Ò³Ãæ(Ê±¼äÉ¸Ñ¡/Î¬¶ÈÇĞ»»/¼ÓÔØ¹Ç¼ÜÆÁ/µ¼³ö°´Å¥), ÀàĞÍ¼ì²éÍ¨¹ı | 23833679 |
 
-| P0-004-009-000-003-001 | å·¥ä½œå°å…¨æµç¨‹è”è°ƒ | 2026-06-04T18:30 | âœ… | å‰åç«¯ç¼–è¯‘é€šè¿‡/APIå¥‘çº¦12å­—æ®µå…¨åŒ¹é…/ç»„ä»¶é›†æˆ10é¡¹éªŒè¯é€šè¿‡/å‘ç°6ä¸ªé—®é¢˜(I01-I06)å«ä¿®å¤æ–¹æ¡ˆ/æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•å·²ç”Ÿæˆ | â€” |
+| P0-004-009-000-003-001 | ¹¤×÷Ì¨È«Á÷³ÌÁªµ÷ | 2026-06-04T18:30 | ? | Ç°ºó¶Ë±àÒëÍ¨¹ı/APIÆõÔ¼12×Ö¶ÎÈ«Æ¥Åä/×é¼ş¼¯³É10ÏîÑéÖ¤Í¨¹ı/·¢ÏÖ6¸öÎÊÌâ(I01-I06)º¬ĞŞ¸´·½°¸/²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥ÒÑÉú³É | ¡ª |
 
-| P0-004-009-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T19:00 | âœ… | api/types/role.tsç±»å‹å®šä¹‰+api/modules/role.ts APIå±‚(åˆ†é¡µ/CRUD/çŠ¶æ€/ç¼–ç æ ¡éªŒ)+views/system/role/RoleList.vueåˆ—è¡¨é¡µ(æœç´¢/ç­›é€‰/è¡¨æ ¼/åˆ†é¡µ/superadminä¿æŠ¤) | 9e99587e |
+| P0-004-009-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T19:00 | ? | api/types/role.tsÀàĞÍ¶¨Òå+api/modules/role.ts API²ã(·ÖÒ³/CRUD/×´Ì¬/±àÂëĞ£Ñé)+views/system/role/RoleList.vueÁĞ±íÒ³(ËÑË÷/É¸Ñ¡/±í¸ñ/·ÖÒ³/superadmin±£»¤) | 9e99587e |
 
-| P0-004-009-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T20:30 | âœ… | æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•äº§å‡º(38é¡¹æ£€æŸ¥37é€šè¿‡)/ä¿®å¤2ä¸ªé—®é¢˜(dataScope allæ ‡ç­¾è‰²+roleCodeæœç´¢å‚æ•°)/è®°å½•4ä¸ªå¾…å¤„ç†é—®é¢˜(userCountåˆ—/dataScopeç­›é€‰API/æ•°æ®å­—æ®µæƒé™æŒ‰é’®/customç´«è‰²) | â€” |
+| P0-004-009-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T20:30 | ? | ²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥²ú³ö(38Ïî¼ì²é37Í¨¹ı)/ĞŞ¸´2¸öÎÊÌâ(dataScope all±êÇ©É«+roleCodeËÑË÷²ÎÊı)/¼ÇÂ¼4¸ö´ı´¦ÀíÎÊÌâ(userCountÁĞ/dataScopeÉ¸Ñ¡API/Êı¾İ×Ö¶ÎÈ¨ÏŞ°´Å¥/custom×ÏÉ«) | ¡ª |
 
-| P0-004-009-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T21:30 | âœ… | RoleForm.vueè¡¨å•é¡µ(è§’è‰²CRUD/æ•°æ®èŒƒå›´è”åŠ¨/è§’è‰²ç»§æ‰¿/è§’è‰²äº’æ–¥/superadminä¿æŠ¤)+api/modules/role.tsæ‰©å±•(ç»§æ‰¿/äº’æ–¥APIå‡½æ•°) | 6263a42d |
-| P0-004-009-002-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T22:00 | âœ… | æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•äº§å‡º(46é¡¹æ£€æŸ¥44é€šè¿‡)/å‘ç°2ä¸ªé—®é¢˜(customDeptIdsæœªæŒä¹…åŒ–/layoutåç¦»dialogè§„æ ¼) | f57ba67c |
+| P0-004-009-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T21:30 | ? | RoleForm.vue±íµ¥Ò³(½ÇÉ«CRUD/Êı¾İ·¶Î§Áª¶¯/½ÇÉ«¼Ì³Ğ/½ÇÉ«»¥³â/superadmin±£»¤)+api/modules/role.tsÀ©Õ¹(¼Ì³Ğ/»¥³âAPIº¯Êı) | 6263a42d |
+| P0-004-009-002-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T22:00 | ? | ²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥²ú³ö(46Ïî¼ì²é44Í¨¹ı)/·¢ÏÖ2¸öÎÊÌâ(customDeptIdsÎ´³Ö¾Ã»¯/layoutÆ«Àëdialog¹æ¸ñ) | f57ba67c |
 
-| P0-004-009-003-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-04T23:00 | âœ… | MenuPermissionPropertiesé…ç½®ç±»(menu-permissionå‰ç¼€/èœå•æ ‘å±•ç¤º+æƒé™åˆ†é…é…ç½®)+application.ymlé…ç½®é¡¹ | 8eb01073 |
-| P0-004-009-003-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-04T23:15 | âœ… | additional-spring-configuration-metadata.jsoné…ç½®å…ƒæ•°æ®(9å±æ€§+5æç¤ºå€¼)/application.ymlé…ç½®éªŒè¯/ç¼–è¯‘é€šè¿‡ | â€” |
+| P0-004-009-003-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-04T23:00 | ? | MenuPermissionPropertiesÅäÖÃÀà(menu-permissionÇ°×º/²Ëµ¥Ê÷Õ¹Ê¾+È¨ÏŞ·ÖÅäÅäÖÃ)+application.ymlÅäÖÃÏî | 8eb01073 |
+| P0-004-009-003-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-04T23:15 | ? | additional-spring-configuration-metadata.jsonÅäÖÃÔªÊı¾İ(9ÊôĞÔ+5ÌáÊ¾Öµ)/application.ymlÅäÖÃÑéÖ¤/±àÒëÍ¨¹ı | ¡ª |
 
-| P0-004-009-004-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-04T23:30 | âœ… | DataPermissionPropertiesé…ç½®ç±»(data-permissionå‰ç¼€/æ•°æ®èŒƒå›´å±•ç¤º+è§„åˆ™é…ç½®)+application.ymlé…ç½®é¡¹ | â€” |
+| P0-004-009-004-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-04T23:30 | ? | DataPermissionPropertiesÅäÖÃÀà(data-permissionÇ°×º/Êı¾İ·¶Î§Õ¹Ê¾+¹æÔòÅäÖÃ)+application.ymlÅäÖÃÏî | ¡ª |
 
-| P0-004-009-004-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-04T23:45 | âœ… | additional-spring-configuration-metadata.json(8å±æ€§+3åˆ†ç»„+4æç¤ºæšä¸¾å€¼)/ç¼–è¯‘é€šè¿‡ | â€” |
+| P0-004-009-004-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-04T23:45 | ? | additional-spring-configuration-metadata.json(8ÊôĞÔ+3·Ö×é+4ÌáÊ¾Ã¶¾ÙÖµ)/±àÒëÍ¨¹ı | ¡ª |
 
-| P0-004-009-005-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-04T23:50 | âœ… | FieldPermissionPropertiesé…ç½®ç±»(field-permissionå‰ç¼€/è¡¨æ ‘å±•ç¤º+å­—æ®µè§„åˆ™é…ç½®)+application.ymlé…ç½®é¡¹/ç¼–è¯‘é€šè¿‡ | b895f62d |
+| P0-004-009-005-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-04T23:50 | ? | FieldPermissionPropertiesÅäÖÃÀà(field-permissionÇ°×º/±íÊ÷Õ¹Ê¾+×Ö¶Î¹æÔòÅäÖÃ)+application.ymlÅäÖÃÏî/±àÒëÍ¨¹ı | b895f62d |
 
-| P0-004-009-005-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-04T23:55 | âœ… | additional-spring-configuration-metadata.json(6å±æ€§+3åˆ†ç»„+3æç¤ºæšä¸¾å€¼)/ç¼–è¯‘é€šè¿‡ | â€” |
+| P0-004-009-005-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-04T23:55 | ? | additional-spring-configuration-metadata.json(6ÊôĞÔ+3·Ö×é+3ÌáÊ¾Ã¶¾ÙÖµ)/±àÒëÍ¨¹ı | ¡ª |
 
-| P0-004-009-006-001-001 | ç¼–å†™é¡µé¢ç»„ä»¶ | 2026-06-05T00:10 | âœ… | api/types/menu.tsæ‰©å±•(SysMenuListItem/SysMenuCreateDTOç­‰6ç§ç±»å‹)+api/modules/menu.tsæ‰©å±•(9ä¸ªCRUDå‡½æ•°)+views/system/menu/index.vueèœå•ç®¡ç†é¡µ(æ ‘å½¢è¡¨æ ¼/æœç´¢ç­›é€‰/æ–°å¢ç¼–è¾‘è¡¨å•/v-permissionæƒé™/å…¨éƒ¨å±•å¼€æŠ˜å ), å‰ç«¯æ„å»ºé€šè¿‡ | â€” |
+| P0-004-009-006-001-001 | ±àĞ´Ò³Ãæ×é¼ş | 2026-06-05T00:10 | ? | api/types/menu.tsÀ©Õ¹(SysMenuListItem/SysMenuCreateDTOµÈ6ÖÖÀàĞÍ)+api/modules/menu.tsÀ©Õ¹(9¸öCRUDº¯Êı)+views/system/menu/index.vue²Ëµ¥¹ÜÀíÒ³(Ê÷ĞÎ±í¸ñ/ËÑË÷É¸Ñ¡/ĞÂÔö±à¼­±íµ¥/v-permissionÈ¨ÏŞ/È«²¿Õ¹¿ªÕÛµş), Ç°¶Ë¹¹½¨Í¨¹ı | ¡ª |
 
-| P0-004-009-006-001-002 | ç¼–å†™æ•°æ®ç»‘å®šä¸äº¤äº’é€»è¾‘ | 2026-06-05T01:00 | âœ… | composables/permission-ui/useIconSelector.ts(90+å›¾æ ‡é€‰æ‹©å™¨ç»„ä»¶æ˜ å°„)+views/system/menu/index.vueå¢å¼º(å›¾æ ‡é€‰æ‹©å¼¹çª—/è¡Œæ‹–æ‹½æ’åºsortOrder/æƒé™ç¼–ç è‡ªåŠ¨æç¤º/åˆ·æ–°æŒ‰é’®/èœå•ç±»å‹å­—æ®µè”åŠ¨), å‰ç«¯æ„å»ºé€šè¿‡ | 0c29688a |
+| P0-004-009-006-001-002 | ±àĞ´Êı¾İ°ó¶¨Óë½»»¥Âß¼­ | 2026-06-05T01:00 | ? | composables/permission-ui/useIconSelector.ts(90+Í¼±êÑ¡ÔñÆ÷×é¼şÓ³Éä)+views/system/menu/index.vueÔöÇ¿(Í¼±êÑ¡Ôñµ¯´°/ĞĞÍÏ×§ÅÅĞòsortOrder/È¨ÏŞ±àÂë×Ô¶¯ÌáÊ¾/Ë¢ĞÂ°´Å¥/²Ëµ¥ÀàĞÍ×Ö¶ÎÁª¶¯), Ç°¶Ë¹¹½¨Í¨¹ı | 0c29688a |
 
-| P0-004-009-006-001-003 | éªŒè¯å‰ç«¯é¡µé¢å¼€å‘é¡µé¢ | 2026-06-05T01:15 | âœ… | test-report.md(ç¼–è¯‘éªŒè¯/14ç»„ä»¶é¡¹/12äº¤äº’é¡¹/6æ ‘è¿‡æ»¤é¡¹/5æ‹–æ‹½é¡¹/8APIé¡¹/4ç±»å‹é¡¹/10è¾¹ç•Œé¡¹å…¨éƒ¨PASS)+issues.md(2é¡¹LOWçº§åˆ«é—®é¢˜/ç¡¬ç¼–ç ä¸­æ–‡/æƒé™æ³¨è§£é—æ¼), å‰åç«¯ç¼–è¯‘å‡é€šè¿‡ | f4c72238 |
+| P0-004-009-006-001-003 | ÑéÖ¤Ç°¶ËÒ³Ãæ¿ª·¢Ò³Ãæ | 2026-06-05T01:15 | ? | test-report.md(±àÒëÑéÖ¤/14×é¼şÏî/12½»»¥Ïî/6Ê÷¹ıÂËÏî/5ÍÏ×§Ïî/8APIÏî/4ÀàĞÍÏî/10±ß½çÏîÈ«²¿PASS)+issues.md(2ÏîLOW¼¶±ğÎÊÌâ/Ó²±àÂëÖĞÎÄ/È¨ÏŞ×¢½âÒÅÂ©), Ç°ºó¶Ë±àÒë¾ùÍ¨¹ı | f4c72238 |
 
-## P0-004-010 - è®¤è¯é…ç½®å‰ç«¯é¡µé¢
+## P0-004-010 - ÈÏÖ¤ÅäÖÃÇ°¶ËÒ³Ãæ
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|:---:|
-| P0-004-010-000-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T18:00 | âœ… | AuthWorkbenchå·¥ä½œå°(Vue+KpiCard+EChartsæŠ˜çº¿/ç¯å½¢å›¾+å¿«æ·æ“ä½œ+æœ€è¿‘ç™»å½•æ—¥å¿—)+APIå±‚+Composable+åç«¯Controller/Mapper/VO/SQL | 0f2172d9 |
-| P0-004-010-000-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T20:20 | âœ… | test-report.md(29é¡¹éªŒè¯/28é€šè¿‡)+issues.md(1ä¸ªCRITICALå‰åç«¯codeä¸åŒ¹é…/2ä¸ªMINOR), åç«¯ç¼–è¯‘é€šè¿‡ | ee7539c3 |
-| P0-004-010-000-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-05T02:00 | âœ… | è®¤è¯é…ç½®å·¥ä½œå°å‰ç«¯æ ¸å¿ƒä»£ç : æ›´æ–°KPIå¡ç‰‡(åœ¨çº¿è®¾å¤‡/ä»Šæ—¥ç™»å½•æˆåŠŸ/å¤±è´¥/SSOé…ç½®)+ç™»å½•è¶‹åŠ¿æŠ˜çº¿å›¾+è®¤è¯æ–¹å¼ç¯å½¢å›¾+å¿«æ·æ“ä½œ(å¯†ç ç­–ç•¥/è®¤è¯æ–¹å¼/SSO/åœ¨çº¿è®¾å¤‡)+æœ€è¿‘ç™»å½•æ—¥å¿—è¡¨æ ¼(10æ¡/æˆåŠŸç»¿è‰²/å¤±è´¥çº¢è‰²)+60ç§’è‡ªåŠ¨åˆ·æ–°; åç«¯æ–°å¢RecentLoginVO+selectRecentLoginsæŸ¥è¯¢; mvn compile+pnpm buildé€šè¿‡ | 0d5cbf34 |
-| P0-004-010-001-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-05T01:30 | âœ… | AuthMethodProperties.java(@ConfigurationProperties prefix=auth-method/Page+Form+Priorityä¸‰å±‚åµŒå¥—é…ç½®/@Validatedæ ¡éªŒ)+application.yml(auth-methodæ®µ:åˆ†é¡µé»˜è®¤å€¼/è¡¨å•å­—æ®µé•¿åº¦/ä¼˜å…ˆçº§èŒƒå›´/é»˜è®¤å€¼), mvn compileé€šè¿‡ | â€” |
-| P0-004-010-002-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-05T01:20 | âœ… | PasswordPolicyProperties.java(@ConfigurationProperties prefix=password-policy/Page+Form+Password+Lockout+Expire+Historyå…­å±‚åµŒå¥—é…ç½®/@Validatedæ ¡éªŒ)+application.yml(password-policyæ®µ:åˆ†é¡µ/å¯†ç å¤æ‚åº¦è§„åˆ™/é”å®šç­–ç•¥/è¿‡æœŸç­–ç•¥/å†å²å¯†ç é™åˆ¶), mvn compileé€šè¿‡ | c1c475f9 |
-| P0-004-010-002-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-04T20:45 | âœ… | additional-spring-configuration-metadata.jsonæ–°å¢password-policyå…ƒæ•°æ®(7åˆ†ç»„+19å±æ€§)+application.ymléªŒè¯+application-dev.yml/prod.ymlç¯å¢ƒéªŒè¯+æ•æ„Ÿä¿¡æ¯æ£€æŸ¥+mvn compileé€šè¿‡ | â€” |
-| P0-004-010-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T21:15 | âœ… | LoginLogList.vueç™»å½•æ—¥å¿—åˆ—è¡¨é¡µ(æœç´¢/è¡¨æ ¼/åˆ†é¡µ/å¯¼å‡ºCSV/æ¸…ç©ºè¶…ç®¡)+api/types/loginLog.ts+api/modules/loginLog.ts(3ä¸ªAPIå‡½æ•°)+è·¯ç”±æ³¨å†Œ,vite buildé€šè¿‡ | 43f67a2b |
-| P0-004-010-003-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T21:30 | âœ… | ä»£ç å®¡æŸ¥éªŒè¯é€šè¿‡(26é¡¹æ£€æŸ¥92.3%é€šè¿‡ç‡)+äº¤ä»˜test-report.md+issues.md(å‘ç°6é—®é¢˜:1ä¸¥é‡/1ä¸­ç­‰/4è½»å¾®), ç™»å½•æ—¥å¿—åˆ—è¡¨é¡µå‰ç«¯ä»£ç è´¨é‡è‰¯å¥½ | â€” |
-| P0-004-010-004-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-04T21:55 | âœ… | OnlineDeviceList.vueåœ¨çº¿è®¾å¤‡ç®¡ç†é¡µ(æœç´¢/è¡¨æ ¼/è®¾å¤‡ç±»å‹å›¾æ ‡/å¼ºåˆ¶ä¸‹çº¿/æ‰¹é‡è¸¢å‡º/30ç§’è‡ªåŠ¨åˆ·æ–°)+APIå±‚(types+modules)+è·¯ç”±æ³¨å†Œ, vite buildé€šè¿‡ | â€” |
-| P0-004-010-004-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-04T21:55 | âœ… | åœ¨çº¿è®¾å¤‡ç®¡ç†é¡µéªŒè¯: 20é¡¹è§„æ ¼é€é¡¹æ¯”å¯¹é€šè¿‡/ç±»å‹é”™è¯¯ä¿®å¤(line 137 DefaultRowâ†’OnlineDeviceItem)/æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•å½’æ¡£(3é¡¹é—®é¢˜:1ä¿®å¤/2è·Ÿè¸ª)/pnpm buildåœ¨çº¿è®¾å¤‡æ–‡ä»¶æ— ç±»å‹é”™è¯¯ | â€” |
+| P0-004-010-000-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T18:00 | ? | AuthWorkbench¹¤×÷Ì¨(Vue+KpiCard+EChartsÕÛÏß/»·ĞÎÍ¼+¿ì½İ²Ù×÷+×î½üµÇÂ¼ÈÕÖ¾)+API²ã+Composable+ºó¶ËController/Mapper/VO/SQL | 0f2172d9 |
+| P0-004-010-000-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T20:20 | ? | test-report.md(29ÏîÑéÖ¤/28Í¨¹ı)+issues.md(1¸öCRITICALÇ°ºó¶Ëcode²»Æ¥Åä/2¸öMINOR), ºó¶Ë±àÒëÍ¨¹ı | ee7539c3 |
+| P0-004-010-000-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-05T02:00 | ? | ÈÏÖ¤ÅäÖÃ¹¤×÷Ì¨Ç°¶ËºËĞÄ´úÂë: ¸üĞÂKPI¿¨Æ¬(ÔÚÏßÉè±¸/½ñÈÕµÇÂ¼³É¹¦/Ê§°Ü/SSOÅäÖÃ)+µÇÂ¼Ç÷ÊÆÕÛÏßÍ¼+ÈÏÖ¤·½Ê½»·ĞÎÍ¼+¿ì½İ²Ù×÷(ÃÜÂë²ßÂÔ/ÈÏÖ¤·½Ê½/SSO/ÔÚÏßÉè±¸)+×î½üµÇÂ¼ÈÕÖ¾±í¸ñ(10Ìõ/³É¹¦ÂÌÉ«/Ê§°ÜºìÉ«)+60Ãë×Ô¶¯Ë¢ĞÂ; ºó¶ËĞÂÔöRecentLoginVO+selectRecentLogins²éÑ¯; mvn compile+pnpm buildÍ¨¹ı | 0d5cbf34 |
+| P0-004-010-001-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-05T01:30 | ? | AuthMethodProperties.java(@ConfigurationProperties prefix=auth-method/Page+Form+PriorityÈı²ãÇ¶Ì×ÅäÖÃ/@ValidatedĞ£Ñé)+application.yml(auth-method¶Î:·ÖÒ³Ä¬ÈÏÖµ/±íµ¥×Ö¶Î³¤¶È/ÓÅÏÈ¼¶·¶Î§/Ä¬ÈÏÖµ), mvn compileÍ¨¹ı | ¡ª |
+| P0-004-010-002-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-05T01:20 | ? | PasswordPolicyProperties.java(@ConfigurationProperties prefix=password-policy/Page+Form+Password+Lockout+Expire+HistoryÁù²ãÇ¶Ì×ÅäÖÃ/@ValidatedĞ£Ñé)+application.yml(password-policy¶Î:·ÖÒ³/ÃÜÂë¸´ÔÓ¶È¹æÔò/Ëø¶¨²ßÂÔ/¹ıÆÚ²ßÂÔ/ÀúÊ·ÃÜÂëÏŞÖÆ), mvn compileÍ¨¹ı | c1c475f9 |
+| P0-004-010-002-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-04T20:45 | ? | additional-spring-configuration-metadata.jsonĞÂÔöpassword-policyÔªÊı¾İ(7·Ö×é+19ÊôĞÔ)+application.ymlÑéÖ¤+application-dev.yml/prod.yml»·¾³ÑéÖ¤+Ãô¸ĞĞÅÏ¢¼ì²é+mvn compileÍ¨¹ı | ¡ª |
+| P0-004-010-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T21:15 | ? | LoginLogList.vueµÇÂ¼ÈÕÖ¾ÁĞ±íÒ³(ËÑË÷/±í¸ñ/·ÖÒ³/µ¼³öCSV/Çå¿Õ³¬¹Ü)+api/types/loginLog.ts+api/modules/loginLog.ts(3¸öAPIº¯Êı)+Â·ÓÉ×¢²á,vite buildÍ¨¹ı | 43f67a2b |
+| P0-004-010-003-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T21:30 | ? | ´úÂëÉó²éÑéÖ¤Í¨¹ı(26Ïî¼ì²é92.3%Í¨¹ıÂÊ)+½»¸¶test-report.md+issues.md(·¢ÏÖ6ÎÊÌâ:1ÑÏÖØ/1ÖĞµÈ/4ÇáÎ¢), µÇÂ¼ÈÕÖ¾ÁĞ±íÒ³Ç°¶Ë´úÂëÖÊÁ¿Á¼ºÃ | ¡ª |
+| P0-004-010-004-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-04T21:55 | ? | OnlineDeviceList.vueÔÚÏßÉè±¸¹ÜÀíÒ³(ËÑË÷/±í¸ñ/Éè±¸ÀàĞÍÍ¼±ê/Ç¿ÖÆÏÂÏß/ÅúÁ¿Ìß³ö/30Ãë×Ô¶¯Ë¢ĞÂ)+API²ã(types+modules)+Â·ÓÉ×¢²á, vite buildÍ¨¹ı | ¡ª |
+| P0-004-010-004-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-04T21:55 | ? | ÔÚÏßÉè±¸¹ÜÀíÒ³ÑéÖ¤: 20Ïî¹æ¸ñÖğÏî±È¶ÔÍ¨¹ı/ÀàĞÍ´íÎóĞŞ¸´(line 137 DefaultRow¡úOnlineDeviceItem)/²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥¹éµµ(3ÏîÎÊÌâ:1ĞŞ¸´/2¸ú×Ù)/pnpm buildÔÚÏßÉè±¸ÎÄ¼şÎŞÀàĞÍ´íÎó | ¡ª |
 
-## P0-004-011 - ç™»å½•å®‰å…¨å¢å¼º
+## P0-004-011 - µÇÂ¼°²È«ÔöÇ¿
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-004-011-001-001-001 | å®ç°éªŒè¯ç ç”Ÿæˆ | 2026-06-04T22:25 | âœ… | éªŒè¯CaptchaServiceéªŒè¯ç ç”ŸæˆåŠŸèƒ½: 11/11æµ‹è¯•é€šè¿‡/è¦†ç›–ç‡>80%/å‘ç°4ä¸ªé—®é¢˜(ç¼ºå›¾ç‰‡ç”Ÿæˆæ¥å£/ç¡¬ç¼–ç é…ç½®/ä¸è¿”å›éªŒè¯ç æ–‡æœ¬/Math.randoméå®‰å…¨éšæœºæ•°)/æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•å·²å½’æ¡£ | f39f24f0 |
-| P0-004-011-001-001-003 | éªŒè¯å›¾å½¢éªŒè¯ç  | 2026-06-04T21:40 | âœ… | éªŒè¯å›¾å½¢éªŒè¯ç å…¨åŠŸèƒ½: 60/60æµ‹è¯•é€šè¿‡(CaptchaService 11+AuthProperties 15+AuthService 34)/è¦†ç›–ç”Ÿæˆ+æ ¡éªŒ+è¾¹ç•Œ+å¼‚å¸¸+ä¸€æ¬¡æ€§æ¶ˆè´¹/æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•(4é—ç•™)å·²å½’æ¡£ | (pending) |
-| P0-004-011-001-002-001 | å‰ç«¯ç™»å½•é¡µéªŒè¯ç ç»„ä»¶ | 2026-06-04T21:35 | âœ… | éªŒè¯å‰ç«¯ç™»å½•é¡µéªŒè¯ç ç»„ä»¶: 40/40æ£€æŸ¥é€šè¿‡/è¦†ç›–æ ¸å¿ƒåŠŸèƒ½+è¾¹ç•Œæ¡ä»¶+å›½é™…åŒ–+ç»„ä»¶æ¶æ„+åç«¯å¯¹æ¥/å‘ç°3ä¸ªé—®é¢˜(ç¼ºAPIç«¯ç‚¹/æ— å›¾ç‰‡ç”Ÿæˆ/é…ç½®æœªæ³¨å…¥)/æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å•å·²å½’æ¡£ | 399ccd82 |
-| P0-004-011-001-002-002 | åç«¯ç™»å½•æ¥å£æ”¹é€  | 2026-06-04T21:50 | âœ… | åˆ›å»ºCaptchaVO/æ‰©å±•CaptchaServiceæ·»åŠ å›¾å½¢éªŒè¯ç å›¾ç‰‡ç”Ÿæˆ(BufferedImage+å¹²æ‰°çº¿+å™ªç‚¹+Base64)/æ–°å¢GET /api/auth/captchaç«¯ç‚¹/60ä¸ªauthæ¨¡å—æµ‹è¯•å…¨éƒ¨é€šè¿‡ | f5bc94c3 |
-| P0-004-011-002-001-001 | å®ç°å¯†ç å¼ºåº¦æ ¡éªŒå·¥å…·ç±» | 2026-06-04T22:00 | âœ… | PasswordValidator(@Component)å®ç°å››é€‰ä¸‰å¤æ‚åº¦/é•¿åº¦8-32/è¿ç»­3ä½ç›¸åŒå­—ç¬¦/ç”¨æˆ·ååŒ¹é…æ ¡éªŒ+PasswordStrengthæšä¸¾(WEAK/MEDIUM/STRONG/VERY_STRONG)+PasswordValidationResultç»“æœç±»+54é¡¹å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡ | (pending) |
-| P0-004-011-002-001-002 | å‰ç«¯å¯†ç å¼ºåº¦æŒ‡ç¤ºå™¨ | 2026-06-04T22:10 | âœ… | PasswordStrength.vueç»„ä»¶(el-progressè¿›åº¦æ¡+6åˆ†åˆ¶è¯„åˆ†+ä¸‰çº§æ˜ å°„å¼±/ä¸­/å¼º+å››é€‰ä¸‰è§„åˆ™æ£€æŸ¥+é€é¡¹âœ”/âœ˜æ ‡è®°)+passwordPolicy APIæ¨¡å—+appStoreé›†æˆ+ç™»å½•é¡µé›†æˆ | 688a6266 |
-| P0-004-011-002-002-001 | å®ç°å¯†ç è¿‡æœŸé€»è¾‘ | 2026-06-04T23:05 | âœ… | åç«¯: UserService.checkPasswordExpired+AuthServiceç™»å½•é›†æˆ+PasswordExpireTaskå®šæ—¶ä»»åŠ¡+å¯†ç ä¿®æ”¹æ—¶è®¡ç®—expire_date+å†å²å¯†ç æ ¡éªŒ(è¿‘3æ¬¡); å‰ç«¯: ChangePassword.vue+è·¯ç”±å®ˆå«å¼ºåˆ¶è·³è½¬+PASSWORD_EXPIRED_WHITE_LIST+userStore.passwordExpiredçŠ¶æ€ | 3f3d1dc5 |
-| P0-004-011-002-002-002 | å®ç°å†å²å¯†ç æ ¡éªŒ | 2026-06-04T23:45 | âœ… | 23é¡¹å•å…ƒæµ‹è¯•(UserServicePasswordHistoryTest)éªŒè¯å†å²å¯†ç æ ¡éªŒé€»è¾‘: æ ¸å¿ƒæ‹’ç»/æ¥å—æµç¨‹+è¾¹ç•Œæ¡ä»¶(ç©ºå†å²/null/1-3æ¡)+å‚æ•°æ ¡éªŒ+å¯†ç é‡ç½®è®°å½•; å‘ç°1ä¸ªæ¶ˆæ¯ä¸¢å¤±é—®é¢˜å·²è®°å½• | (pending) |
-| P0-004-011-003-001-001 | å®ç°ç™»å½•å¤±è´¥è®¡æ•°ä¸é”å®š | 2026-06-05T08:05 | âœ… | åˆ›å»ºLoginAttemptService(RedisåŸå­è®¡æ•°+åŠ¨æ€ç­–ç•¥/TTLé¦–æ¬¡è®¾ç½®ç­–ç•¥/é”å®šæ ‡è®°+å‰©ä½™æ—¶é—´)/é‡æ„AuthServiceä½¿ç”¨æ–°æœåŠ¡/æ›´æ–°22é¡¹å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡ | 58191d3e |
-| P0-004-011-003-001-002 | å®ç°é”å®šçŠ¶æ€æŸ¥è¯¢ä¸è§£é” | 2026-06-05T09:30 | âœ… | åç«¯: LoginAttemptServiceæ–°å¢getLockStatus/unlockæ–¹æ³•+LockStatusVO+AuthControlleræ–°å¢GET /auth/lock-statuså’ŒPOST /auth/unlockç«¯ç‚¹+UserServiceImpl.unlockUseré›†æˆRedisæ¸…ç†; å‰ç«¯: useLoginæ·»åŠ 500msé˜²æŠ–é”çŠ¶æ€è½®è¯¢+ç™»å½•é¡µé”å®šè­¦å‘Š+ç”¨æˆ·ç®¡ç†é¡µè§£é”æŒ‰é’®å’Œæ‰¹é‡è§£é” | 3ae1ba8f |
-| P0-004-012-002-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-05T11:30 | âœ… | SSO/OAuth2é…ç½®ç®¡ç†éªŒè¯: 24é¡¹åŠŸèƒ½éªŒè¯å…¨éƒ¨é€šè¿‡(SSO CRUDÃ—5+OAuth2 CRUDÃ—5+æµ‹è¯•è¿æ¥Ã—5+AESåŠ å¯†Ã—5+è¯ä¹¦æ ¡éªŒÃ—4)+mvn compileé€šè¿‡+auth 114é¡¹æµ‹è¯•é€šè¿‡+test-report.md+issues.md(5é—®é¢˜: 1é«˜/2ä¸­/2ä½) | d094e4cc |
-| P0-004-012-003-001-001 | å®ç°é…ç½®è¡¨å•UI | 2026-06-05T11:50 | âœ… | SSO/OAuth2é…ç½®ç®¡ç†å‰ç«¯é¡µé¢: APIç±»å‹å®šä¹‰+APIæ¨¡å—(SSO CRUD+OAuth2 CRUD+è¿æ¥æµ‹è¯•)+Vueé¡µé¢(SSO/OAuth2åŒæ ‡ç­¾+æ•°æ®è¡¨æ ¼+è¡¨å•å¯¹è¯æ¡†+å­—æ®µæ ¡éªŒ)+è·¯ç”±æ³¨å†Œ+vite buildé€šè¿‡ | 91b18d1e |
-| P0-004-012-003-001-002 | å®ç°å›è°ƒURLè‡ªåŠ¨ç”Ÿæˆä¸é¢„è§ˆ | 2026-06-05T11:45 | âœ… | CallbackUrlInput.vueç»„ä»¶: å›è°ƒURLè‡ªåŠ¨ç”Ÿæˆ(computedå“åº”å¼)+providerTypeæ˜ å°„(wecomâ†’wechat_work)+ä¸€é”®å¤åˆ¶(clipboard API+execCommandé™çº§)+HTTPè­¦å‘Šæç¤º+ç­‰å®½å­—ä½“å±•ç¤º+é›†æˆè‡³OAuth2è¡¨å• | 8721ec82 |
-| P0-004-012-003-002-001 | å®ç°OAuth2æµ‹è¯•è¿æ¥æŒ‰é’® | 2026-06-05T12:15 | âœ… | åç«¯: OAuth2TestResult VO(ç»“æ„åŒ–æµ‹è¯•ç»“æœ)+OAuth2ConfigController.testConnectioné‡æ„(GETè¯·æ±‚/5s+10sè¶…æ—¶/200+302+401åˆ¤å®š/é”™è¯¯åˆ†ç±»DNS+è¶…æ—¶+è¿æ¥æ‹’ç»); å‰ç«¯: è¡¨å•å¯¹è¯æ¡†æµ‹è¯•è¿æ¥æŒ‰é’®(ç¼–è¾‘æ¨¡å¼)/el-alertè¯¦ç»†æ—¥å¿—å±•ç¤º(testUrl+statusCode+responseTime+message)/ä¿å­˜å–æ¶ˆæŒ‰é’®è”åŠ¨ç¦ç”¨ | c3417e46 |
-| P0-004-012-003-003-001 | å®ç°ä¿å­˜é€»è¾‘ | 2026-06-05T12:45 | âœ… | ä¿®å¤RT.ok()å“åº”ç 200â†’0å¯¹é½ErrorCode; æ–°å¢URLæ ¼å¼æ ¡éªŒ+ClientSecretå¼ºåº¦æ ¡éªŒ+ç¼–è¾‘æ¨¡å¼å˜æ›´æ‘˜è¦ç¡®è®¤+versionä¹è§‚é”+ä¿å­˜æˆåŠŸé…ç½®ç”Ÿæ•ˆæç¤º+å¯ç”¨çŠ¶æ€å˜æ›´è­¦å‘Š+åç«¯é”™è¯¯ä¿¡æ¯é€ä¼ +loadingé˜²é‡å¤æäº¤; mvn compile + vue-tscé€šè¿‡ | 033e4a7d |
+| P0-004-011-001-001-001 | ÊµÏÖÑéÖ¤ÂëÉú³É | 2026-06-04T22:25 | ? | ÑéÖ¤CaptchaServiceÑéÖ¤ÂëÉú³É¹¦ÄÜ: 11/11²âÊÔÍ¨¹ı/¸²¸ÇÂÊ>80%/·¢ÏÖ4¸öÎÊÌâ(È±Í¼Æ¬Éú³É½Ó¿Ú/Ó²±àÂëÅäÖÃ/²»·µ»ØÑéÖ¤ÂëÎÄ±¾/Math.random·Ç°²È«Ëæ»úÊı)/²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥ÒÑ¹éµµ | f39f24f0 |
+| P0-004-011-001-001-003 | ÑéÖ¤Í¼ĞÎÑéÖ¤Âë | 2026-06-04T21:40 | ? | ÑéÖ¤Í¼ĞÎÑéÖ¤ÂëÈ«¹¦ÄÜ: 60/60²âÊÔÍ¨¹ı(CaptchaService 11+AuthProperties 15+AuthService 34)/¸²¸ÇÉú³É+Ğ£Ñé+±ß½ç+Òì³£+Ò»´ÎĞÔÏû·Ñ/²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥(4ÒÅÁô)ÒÑ¹éµµ | (pending) |
+| P0-004-011-001-002-001 | Ç°¶ËµÇÂ¼Ò³ÑéÖ¤Âë×é¼ş | 2026-06-04T21:35 | ? | ÑéÖ¤Ç°¶ËµÇÂ¼Ò³ÑéÖ¤Âë×é¼ş: 40/40¼ì²éÍ¨¹ı/¸²¸ÇºËĞÄ¹¦ÄÜ+±ß½çÌõ¼ş+¹ú¼Ê»¯+×é¼ş¼Ü¹¹+ºó¶Ë¶Ô½Ó/·¢ÏÖ3¸öÎÊÌâ(È±API¶Ëµã/ÎŞÍ¼Æ¬Éú³É/ÅäÖÃÎ´×¢Èë)/²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥ÒÑ¹éµµ | 399ccd82 |
+| P0-004-011-001-002-002 | ºó¶ËµÇÂ¼½Ó¿Ú¸ÄÔì | 2026-06-04T21:50 | ? | ´´½¨CaptchaVO/À©Õ¹CaptchaServiceÌí¼ÓÍ¼ĞÎÑéÖ¤ÂëÍ¼Æ¬Éú³É(BufferedImage+¸ÉÈÅÏß+Ôëµã+Base64)/ĞÂÔöGET /api/auth/captcha¶Ëµã/60¸öauthÄ£¿é²âÊÔÈ«²¿Í¨¹ı | f5bc94c3 |
+| P0-004-011-002-001-001 | ÊµÏÖÃÜÂëÇ¿¶ÈĞ£Ñé¹¤¾ßÀà | 2026-06-04T22:00 | ? | PasswordValidator(@Component)ÊµÏÖËÄÑ¡Èı¸´ÔÓ¶È/³¤¶È8-32/Á¬Ğø3Î»ÏàÍ¬×Ö·û/ÓÃ»§ÃûÆ¥ÅäĞ£Ñé+PasswordStrengthÃ¶¾Ù(WEAK/MEDIUM/STRONG/VERY_STRONG)+PasswordValidationResult½á¹ûÀà+54Ïîµ¥Ôª²âÊÔÈ«²¿Í¨¹ı | (pending) |
+| P0-004-011-002-001-002 | Ç°¶ËÃÜÂëÇ¿¶ÈÖ¸Ê¾Æ÷ | 2026-06-04T22:10 | ? | PasswordStrength.vue×é¼ş(el-progress½ø¶ÈÌõ+6·ÖÖÆÆÀ·Ö+Èı¼¶Ó³ÉäÈõ/ÖĞ/Ç¿+ËÄÑ¡Èı¹æÔò¼ì²é+ÖğÏî?/?±ê¼Ç)+passwordPolicy APIÄ£¿é+appStore¼¯³É+µÇÂ¼Ò³¼¯³É | 688a6266 |
+| P0-004-011-002-002-001 | ÊµÏÖÃÜÂë¹ıÆÚÂß¼­ | 2026-06-04T23:05 | ? | ºó¶Ë: UserService.checkPasswordExpired+AuthServiceµÇÂ¼¼¯³É+PasswordExpireTask¶¨Ê±ÈÎÎñ+ÃÜÂëĞŞ¸ÄÊ±¼ÆËãexpire_date+ÀúÊ·ÃÜÂëĞ£Ñé(½ü3´Î); Ç°¶Ë: ChangePassword.vue+Â·ÓÉÊØÎÀÇ¿ÖÆÌø×ª+PASSWORD_EXPIRED_WHITE_LIST+userStore.passwordExpired×´Ì¬ | 3f3d1dc5 |
+| P0-004-011-002-002-002 | ÊµÏÖÀúÊ·ÃÜÂëĞ£Ñé | 2026-06-04T23:45 | ? | 23Ïîµ¥Ôª²âÊÔ(UserServicePasswordHistoryTest)ÑéÖ¤ÀúÊ·ÃÜÂëĞ£ÑéÂß¼­: ºËĞÄ¾Ü¾ø/½ÓÊÜÁ÷³Ì+±ß½çÌõ¼ş(¿ÕÀúÊ·/null/1-3Ìõ)+²ÎÊıĞ£Ñé+ÃÜÂëÖØÖÃ¼ÇÂ¼; ·¢ÏÖ1¸öÏûÏ¢¶ªÊ§ÎÊÌâÒÑ¼ÇÂ¼ | (pending) |
+| P0-004-011-003-001-001 | ÊµÏÖµÇÂ¼Ê§°Ü¼ÆÊıÓëËø¶¨ | 2026-06-05T08:05 | ? | ´´½¨LoginAttemptService(RedisÔ­×Ó¼ÆÊı+¶¯Ì¬²ßÂÔ/TTLÊ×´ÎÉèÖÃ²ßÂÔ/Ëø¶¨±ê¼Ç+Ê£ÓàÊ±¼ä)/ÖØ¹¹AuthServiceÊ¹ÓÃĞÂ·şÎñ/¸üĞÂ22Ïîµ¥Ôª²âÊÔÈ«²¿Í¨¹ı | 58191d3e |
+| P0-004-011-003-001-002 | ÊµÏÖËø¶¨×´Ì¬²éÑ¯Óë½âËø | 2026-06-05T09:30 | ? | ºó¶Ë: LoginAttemptServiceĞÂÔögetLockStatus/unlock·½·¨+LockStatusVO+AuthControllerĞÂÔöGET /auth/lock-statusºÍPOST /auth/unlock¶Ëµã+UserServiceImpl.unlockUser¼¯³ÉRedisÇåÀí; Ç°¶Ë: useLoginÌí¼Ó500ms·À¶¶Ëø×´Ì¬ÂÖÑ¯+µÇÂ¼Ò³Ëø¶¨¾¯¸æ+ÓÃ»§¹ÜÀíÒ³½âËø°´Å¥ºÍÅúÁ¿½âËø | 3ae1ba8f |
+| P0-004-012-002-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-05T11:30 | ? | SSO/OAuth2ÅäÖÃ¹ÜÀíÑéÖ¤: 24Ïî¹¦ÄÜÑéÖ¤È«²¿Í¨¹ı(SSO CRUD¡Á5+OAuth2 CRUD¡Á5+²âÊÔÁ¬½Ó¡Á5+AES¼ÓÃÜ¡Á5+Ö¤ÊéĞ£Ñé¡Á4)+mvn compileÍ¨¹ı+auth 114Ïî²âÊÔÍ¨¹ı+test-report.md+issues.md(5ÎÊÌâ: 1¸ß/2ÖĞ/2µÍ) | d094e4cc |
+| P0-004-012-003-001-001 | ÊµÏÖÅäÖÃ±íµ¥UI | 2026-06-05T11:50 | ? | SSO/OAuth2ÅäÖÃ¹ÜÀíÇ°¶ËÒ³Ãæ: APIÀàĞÍ¶¨Òå+APIÄ£¿é(SSO CRUD+OAuth2 CRUD+Á¬½Ó²âÊÔ)+VueÒ³Ãæ(SSO/OAuth2Ë«±êÇ©+Êı¾İ±í¸ñ+±íµ¥¶Ô»°¿ò+×Ö¶ÎĞ£Ñé)+Â·ÓÉ×¢²á+vite buildÍ¨¹ı | 91b18d1e |
+| P0-004-012-003-001-002 | ÊµÏÖ»Øµ÷URL×Ô¶¯Éú³ÉÓëÔ¤ÀÀ | 2026-06-05T11:45 | ? | CallbackUrlInput.vue×é¼ş: »Øµ÷URL×Ô¶¯Éú³É(computedÏìÓ¦Ê½)+providerTypeÓ³Éä(wecom¡úwechat_work)+Ò»¼ü¸´ÖÆ(clipboard API+execCommand½µ¼¶)+HTTP¾¯¸æÌáÊ¾+µÈ¿í×ÖÌåÕ¹Ê¾+¼¯³ÉÖÁOAuth2±íµ¥ | 8721ec82 |
+| P0-004-012-003-002-001 | ÊµÏÖOAuth2²âÊÔÁ¬½Ó°´Å¥ | 2026-06-05T12:15 | ? | ºó¶Ë: OAuth2TestResult VO(½á¹¹»¯²âÊÔ½á¹û)+OAuth2ConfigController.testConnectionÖØ¹¹(GETÇëÇó/5s+10s³¬Ê±/200+302+401ÅĞ¶¨/´íÎó·ÖÀàDNS+³¬Ê±+Á¬½Ó¾Ü¾ø); Ç°¶Ë: ±íµ¥¶Ô»°¿ò²âÊÔÁ¬½Ó°´Å¥(±à¼­Ä£Ê½)/el-alertÏêÏ¸ÈÕÖ¾Õ¹Ê¾(testUrl+statusCode+responseTime+message)/±£´æÈ¡Ïû°´Å¥Áª¶¯½ûÓÃ | c3417e46 |
+| P0-004-012-003-003-001 | ÊµÏÖ±£´æÂß¼­ | 2026-06-05T12:45 | ? | ĞŞ¸´RT.ok()ÏìÓ¦Âë200¡ú0¶ÔÆëErrorCode; ĞÂÔöURL¸ñÊ½Ğ£Ñé+ClientSecretÇ¿¶ÈĞ£Ñé+±à¼­Ä£Ê½±ä¸üÕªÒªÈ·ÈÏ+versionÀÖ¹ÛËø+±£´æ³É¹¦ÅäÖÃÉúĞ§ÌáÊ¾+ÆôÓÃ×´Ì¬±ä¸ü¾¯¸æ+ºó¶Ë´íÎóĞÅÏ¢Í¸´«+loading·ÀÖØ¸´Ìá½»; mvn compile + vue-tscÍ¨¹ı | 033e4a7d |
 
-### P0-005 - å…¬å…±ç»„ä»¶åŸºç¡€å¼€å‘
+### P0-005 - ¹«¹²×é¼ş»ù´¡¿ª·¢
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-005-003-008-001-003 | éªŒè¯å‰ç«¯é¡µé¢å¼€å‘é¡µé¢ | 2026-06-06T00:35 | âœ… | éªŒè¯ListTableç»„ä»¶6é¡¹åŠŸèƒ½ï¼šåˆ—é…ç½®/æ’åº/ç­›é€‰/åˆ†é¡µ/è™šæ‹Ÿæ»šåŠ¨/åˆ—å®½æŒä¹…åŒ–ï¼Œç±»å‹æ£€æŸ¥é€šè¿‡ï¼Œ173ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
-| P0-005-001-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-05T12:55 | âœ… | å‰ç«¯: QueryPanelç»„ä»¶(11ç§å­—æ®µç±»å‹/v-model/æœç´¢é‡ç½®/å¯æŠ˜å /disabled/æ ¡éªŒè§„åˆ™è”åŠ¨); ç±»å‹å®šä¹‰(FieldConfig/FieldControlType/LinkageRule); å•å…ƒæµ‹è¯•32ä¸ª(è¦†ç›–ç‡76.7%/åˆ†æ”¯96%); vitesté…ç½®Element Pluså…¨å±€æ³¨å†Œ | 5da00902 |
-| P0-005-001-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-05T19:20 | âœ… | éªŒè¯QueryPanelç»„ä»¶6é¡¹åŠŸèƒ½: å­—æ®µæ¸²æŸ“/æ¨¡ç³ŠæŸ¥è¯¢/æŠ˜å å±•å¼€/é‡ç½®/é…ç½®é©±åŠ¨/é˜²æŠ–; å•å…ƒæµ‹è¯•32/32é€šè¿‡; vue-tscç±»å‹æ£€æŸ¥é€šè¿‡ | 24092d24 |
-| P0-005-001-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-05T20:05 | âœ… | å¢å¼ºQueryPanel: ç»„ä»¶çº§placeholder prop/prefix suffix defaultæ’æ§½/try-catché”™è¯¯å¤„ç†; ç±»å‹å®šä¹‰æ›´æ–°; æ–°å¢7ä¸ªæµ‹è¯•(106/106é€šè¿‡) | 43cdad2f |
-| P0-005-001-002-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-05T19:45 | âœ… | éªŒè¯QueryPanelå¢å¼ºåŠŸèƒ½: 39/39æµ‹è¯•é€šè¿‡; vue-tscç±»å‹æ£€æŸ¥é€šè¿‡; è¦†ç›–props/äº‹ä»¶/æ’æ§½/å­—æ®µç±»å‹/æŠ˜å /é”™è¯¯å¤„ç† | d5fb3ddf |
-| P0-005-001-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-05T20:20 | âœ… | å®ç°QueryPanelæŠ˜å /å±•å¼€æ§åˆ¶: collapsible+collapseThreshold props/visibleFields computed/å±•å¼€æ”¶èµ·æŒ‰é’®; æ–°å¢8ä¸ªæŠ˜å æµ‹è¯•(107/107é€šè¿‡) | 18a0eb23 |
-| P0-005-001-003-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-05T20:32 | âœ… | éªŒè¯QueryPanelæŠ˜å å±•å¼€: 40/40æµ‹è¯•é€šè¿‡; è¦†ç›–11ç§å­—æ®µç±»å‹/æŠ˜å å±•å¼€/é‡ç½®/äº‹ä»¶/slots/å­—æ®µè”åŠ¨; vue-tscé€šè¿‡ | def9f184 |
-| P0-005-002-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-05T20:40 | âœ… | ActionBarç»„ä»¶(å·¦å³æŒ‰é’®ç»„/ä¸‹æ‹‰èœå•/ç¡®è®¤å¼¹çª—/v-model); ç±»å‹å®šä¹‰(ActionItem/ActionBarProps); useActionBarç»„åˆå¼å‡½æ•°; APIæ¨¡å—(batchDelete/batchAudit/export/import); vue-tscé›¶é”™è¯¯+vite buildé€šè¿‡ | â€” |
-| P0-005-002-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-05T21:00 | âœ… | éªŒè¯ActionBarç»„ä»¶: 6é¡¹æ£€æŸ¥ä¸­4é¡¹é€šè¿‡(fieldConfigæ¸²æŸ“/disabledæœºåˆ¶/å·¦å³å¸ƒå±€/äº‹ä»¶emit); iconæ¸²æŸ“å’Œv-permission/permissionå­—æ®µ/å“åº”å¼æº¢å‡ºä¸ºåç»­è¿­ä»£é¡¹ | â€” |
-| P0-005-002-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-05T21:10 | âœ… | ActionBarè¡¨å•é¡µæ¨¡å¼: mode prop(list/form)/formå³å¯¹é½å¸ƒå±€/getDefaultFormActions(æäº¤/è‰ç¨¿/æäº¤å¹¶æ–°å¢/é‡ç½®/å–æ¶ˆ)/APIè¡¨å•æäº¤+ä¿å­˜è‰ç¨¿+åå®¡æ ¸/ç±»å‹æ‰©å±•(BuiltInAction+ActionBarMode); vue-tscé›¶é”™è¯¯+vite buildé€šè¿‡ | â€” |
-| P0-005-002-002-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-05T21:25 | âœ… | ActionBarç»„ä»¶éªŒè¯: é€é¡¹æ£€æŸ¥6é¡¹(æŒ‰é’®æ¸²æŸ“/æƒé™é‰´æƒ/æ‰¹é‡ç¦ç”¨/å·¦å³å¸ƒå±€/æº¢å‡ºæŠ˜å /äº‹ä»¶emit); iconæœªæ¸²æŸ“+æ— v-permission+æ— æº¢å‡ºæŠ˜å ä¸ºå·²çŸ¥å·®è·; ç¼–è¯‘é›¶é”™è¯¯; äº§å‡ºéªŒè¯æŠ¥å‘ŠVERIFICATION_REPORT.md | â€” |
-| P0-005-002-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-05T21:55 | âœ… | HeaderToolbarå¤´éƒ¨æ‰©å±•å·¥å…·æ : Vueç»„ä»¶(é“ºæ»¡/åˆ·æ–°/æ ¼å¼è®¾ç½®/è¡Œé«˜è°ƒæ•´ä¸‹æ‹‰é¢æ¿); ç±»å‹å®šä¹‰(HeaderToolbarState/HeaderToolbarItem/RowHeightPresetç­‰); 19ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; TypeScriptç±»å‹æ£€æŸ¥é›¶é”™è¯¯ | â€” |
-| P0-005-002-003-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-05T22:00 | âœ… | éªŒè¯HeaderToolbar: 10é¡¹æ£€æŸ¥å…¨éƒ¨é€šè¿‡(å·¥å…·æ¸²æŸ“/v-model/changeäº‹ä»¶/focus-blur/disabled/hidden/è¡Œé«˜ä¸‹æ‹‰/æ’æ§½/çŠ¶æ€åˆ‡æ¢/ç±»å‹å®‰å…¨); 19/19æµ‹è¯•é€šè¿‡; vue-tscé›¶é”™è¯¯; æ›´æ–°VERIFICATION_REPORT.md | â€” |
-| P0-005-003-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-05T22:10 | âœ… | ListTableåˆ—è¡¨è¡¨æ ¼ç»„ä»¶: Vueç»„ä»¶(åˆ—æ¸²æŸ“/æœåŠ¡ç«¯æ’åº/åˆ—ç­›é€‰/åˆ†é¡µ/è™šæ‹Ÿæ»šåŠ¨/åˆ—å®½æŒä¹…åŒ–/æ–‘é©¬çº¹/è¾¹æ¡†/è¡Œé«˜äº®); ç±»å‹å®šä¹‰(ListTableColumn/FilterConfig/SortConfigç­‰); 21ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | 2c4503dc |
-| P0-005-003-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-05T22:15 | âœ… | 21ä¸ªvitestæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscç±»å‹æ£€æŸ¥é›¶é”™è¯¯; é€é¡¹éªŒè¯:åˆ—é…ç½®æ¸²æŸ“/æœåŠ¡ç«¯æ’åº/åˆ—ç­›é€‰(æ–‡æœ¬æ•°å­—æ—¥æœŸ)/å‰ç«¯æœåŠ¡ç«¯åˆ†é¡µ/è™šæ‹Ÿæ»šåŠ¨/åˆ—å®½localStorageæŒä¹…åŒ–; vxe-table^4.19.4ç¬¦åˆ4.xè¦æ±‚ | def5e354 |
-| P0-005-003-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-05T22:30 | âœ… | åˆ—æ’åºæ ¸å¿ƒé€»è¾‘: SortConfigå¢å¼º(å¤šåˆ—æ’åºfieldsæ•°ç»„/multiple/trigger/remote/showIcon); SortFieldæ¥å£; setSort/getSortColumnsç¼–ç¨‹å¼æ’åºæ§åˆ¶; handleSortChangeå¤šåˆ—æ’åºçŠ¶æ€è¿½è¸ª; 32ä¸ªæµ‹è¯•å…¨éƒ¨é€šè¿‡(æ–°å¢10ä¸ªæ’åºä¸“é¡¹) | a074027a |
-| P0-005-003-002-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-05T23:25 | âœ… | åˆ—æ’åºéªŒè¯: 32/32æµ‹è¯•é€šè¿‡; vue-tscç±»å‹æ£€æŸ¥é›¶é”™è¯¯(ä»…list-tableç»„ä»¶); é€é¡¹éªŒè¯:åˆ—é…ç½®æ¸²æŸ“/æœåŠ¡ç«¯æ’åº(remote/multi/trigger)/åˆ—ç­›é€‰(æ–‡æœ¬æ•°å­—æ—¥æœŸ)/åˆ†é¡µåˆ‡æ¢(via pageMode)/è™šæ‹Ÿæ»šåŠ¨(é»˜è®¤å¼€å¯)/åˆ—å®½localStorageæŒä¹…åŒ–(viewCodeå‰ç¼€); vxe-table 4.19.4ç¬¦åˆ4.xè¦æ±‚; æµè§ˆå™¨æ€§èƒ½æµ‹è¯•(æ¸²æŸ“/FPS/Network)éœ€æ‰‹åŠ¨éªŒè¯ | b0ec41cf |
-| P0-005-003-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-05T21:36 | âœ… | åˆ—æœç´¢ç­›é€‰æ ¸å¿ƒé€»è¾‘: searchModel v-model/searchModelç»‘å®š; disabled prop; prefix/suffixæ’æ§½; currentFilterModelçŠ¶æ€ç®¡ç†; setFilter/getFilterColumnsç¼–ç¨‹å¼ç­›é€‰æ§åˆ¶; clearFilterå¢å¼º(æ”¯æŒæŒ‰å­—æ®µæ¸…é™¤); change/focus/bluräº‹ä»¶; ç±»å‹å®šä¹‰(ListTableSearchModel/FilterColumnInfo/ListTableSlots/ListTableExpose); 40ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | f44f2022 |
-| P0-005-003-003-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-05T21:48 | âœ… | éªŒè¯ListTableåˆ—æœç´¢ç­›é€‰åŠŸèƒ½: 40/40æµ‹è¯•é€šè¿‡; vue-tscé›¶é”™è¯¯; åˆ—é…ç½®æ¸²æŸ“/æœåŠ¡ç«¯æ’åº/åˆ—ç­›é€‰(text-number-date)/åˆ†é¡µåˆ‡æ¢(pageMode)/è™šæ‹Ÿæ»šåŠ¨/åˆ—å®½localStorageæŒä¹…åŒ–6é¡¹å…¨éƒ¨é€šè¿‡; æµè§ˆå™¨æ€§èƒ½æµ‹è¯•(FPS/æ¸²æŸ“æ—¶é—´)éœ€æ‰‹åŠ¨éªŒè¯ | f44f2022 |
-| P0-005-003-004-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-05T21:48 | âœ… | åç«¯: ListTablePropertiesé…ç½®ç±»(@ConfigurationProperties/list-tableå‰ç¼€/@Validatedæ ¡éªŒ/ColumnFormat+ColumnDefault+ColumnPersiståµŒå¥—é…ç½®); application.ymlæ–°å¢list-tableé…ç½®å—(åˆ—æ ¼å¼/åˆ—é»˜è®¤å€¼/åˆ—æŒä¹…åŒ–) | â€” |
-| P0-005-003-004-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-05T22:00 | âœ… | éªŒè¯ListTablePropertiesé…ç½®: YAMLè¯­æ³•æ­£ç¡®/ç¼–è¯‘é€šè¿‡/dev-prodç¯å¢ƒæ— å†²çª/æ— æ•æ„Ÿä¿¡æ¯ç¡¬ç¼–ç /@Component+@ConfigurationPropertiesæ­£ç¡®ç»‘å®š/@Validatedæ ¡éªŒæ³¨è§£å®Œæ•´/prefixå…¨å°å†™ä¸­åˆ’çº¿åˆ†éš” | â€” |
-| P0-005-003-005-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-05T22:10 | âœ… | åç«¯: ListTablePropertiesæ–°å¢RowHeight(7æ¡£è¡Œé«˜px)/FontSize(7æ¡£å­—ä½“px)åµŒå¥—é…ç½®; application.ymlæ–°å¢list-table.row-height+font-sizeé…ç½®å— | 8b2ab37d |
-| P0-005-003-005-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-05T22:35 | âœ… | éªŒè¯ListTablePropertiesè¡Œé«˜/å­—ä½“å¤§å°é…ç½®: YAMLè¯­æ³•æ­£ç¡®/mvn compileé€šè¿‡/æ— æ•æ„Ÿä¿¡æ¯/@Component+@ConfigurationPropertiesæ­£ç¡®/@Validated/prefixå…¨å°å†™ä¸­åˆ’çº¿/7æ¡£é…ç½®ä¸é»˜è®¤å€¼ä¸€è‡´ | â€” |
-| P0-005-003-006-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-05T23:15 | âœ… | ListTableä¸€é”®åˆå§‹åŒ–/ä¸€é”®æ¸…ç©ºæœç´¢æ’åº: modelValue/fieldConfig/placeholder props; update:modelValue/focus/bluräº‹ä»¶emit; resetAll()/clearSearchAndSort()æ–¹æ³•; ç±»å‹å®šä¹‰(FieldConfig/FieldValidationRule/FieldLinkageRule); 47ä¸ªæµ‹è¯•é€šè¿‡; vue-tscé›¶é”™è¯¯ | â€” |
-860	| P0-005-003-006-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-05T23:18 | âœ… | éªŒè¯ListTableä¸€é”®åˆå§‹åŒ–/ä¸€é”®æ¸…ç©ºæœç´¢æ’åº: 47/47æµ‹è¯•é€šè¿‡; vue-tscé›¶é”™è¯¯; é€é¡¹éªŒè¯:åˆ—é…ç½®æ¸²æŸ“/æœåŠ¡ç«¯æ’åº/åˆ—ç­›é€‰/åˆ†é¡µåˆ‡æ¢/è™šæ‹Ÿæ»šåŠ¨/åˆ—å®½localStorageæŒä¹…åŒ–/resetAll+clearSearchAndSortæ–¹æ³•æš´éœ²; æµè§ˆå™¨æ€§èƒ½æµ‹è¯•(FPS/æ¸²æŸ“)éœ€æ‰‹åŠ¨éªŒè¯ | â€” |
-| P0-005-003-007-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-05T23:35 | âœ… | ListTableåˆè®¡è¡Œåˆ—é…ç½®ç±»å‹å®šä¹‰: SummaryMethod/SummaryColumnConfig/SummaryConfigç±»å‹; ListTableColumn.summaryå­—æ®µ; ListTableProps.summaryConfig/SummaryData | 3cf16dc0 |
-| P0-005-003-007-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-05T23:42 | âœ… | éªŒè¯ListTableåˆè®¡è¡Œåˆ—é…ç½®ç±»å‹: SummaryConfig/SummaryColumnConfig/SummaryMethodç±»å‹è¯­æ³•æ­£ç¡®; 47/47æµ‹è¯•é€šè¿‡; æ— æ•æ„Ÿä¿¡æ¯; ç±»å‹é€šè¿‡@/types/list-tableæ­£ç¡®å¯¼å‡º | â€” |
-| P0-005-003-008-001-001 | ç¼–å†™é¡µé¢ç»„ä»¶ | 2026-06-05T23:55 | âœ… | åˆ—è¡¨è¡¨æ ¼åŸºç¡€æ ‡é…åŠŸèƒ½æ¼”ç¤ºé¡µ: Vue3 pageç»„ä»¶(template+script setup+style scoped); DemoOrderItemç±»å‹å®šä¹‰+APIæ¨¡å—(mock 156æ¡æ•°æ®/æœç´¢/æ’åº/åˆ†é¡µ); useDemoListTableç»„åˆå¼å‡½æ•°(columns/sortConfig/summaryData/äº‹ä»¶å¤„ç†); è·¯ç”±æ³¨å†Œ/demo/list-table; vue-tscé›¶é”™è¯¯+vite buildé€šè¿‡ | â€” |
-| P0-005-003-008-001-002 | ç¼–å†™æ•°æ®ç»‘å®šä¸äº¤äº’é€»è¾‘ | 2026-06-06T00:15 | âœ… | æ•°æ®ç»‘å®šä¸äº¤äº’é€»è¾‘: saveDemoOrder/deleteDemoOrder/getDemoOrderDetail mock API; useDemoListTableå¢åŠ error/saving/deletingçŠ¶æ€+handleSave/handleDelete/handleViewDetail+routerå¯¼èˆª+watch 300msé˜²æŠ–+syncQueryToState; index.vueå¢åŠ æ–°å¢/ç¼–è¾‘/åˆ é™¤æŒ‰é’®+el-dialogè¡¨å•+el-alerté”™è¯¯å±•ç¤º+è·¯ç”±queryåŒæ­¥ | â€” |
-| P0-005-004-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T01:10 | âœ… | EntryTableå½•å…¥æ•°æ®è¡¨æ ¼ç»„ä»¶: Vue SFC(vxe-gridå¯ç¼–è¾‘å°è£…/edit-configå•å…ƒæ ¼ç¼–è¾‘/no-pagination/å‰ç«¯åˆè®¡è®¡ç®—/åˆ—æŒä¹…åŒ–); ç±»å‹å®šä¹‰(EditTableColumn/EditRule/EditChangeParamsç­‰); 41ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯+vite buildé€šè¿‡ | (å¾…æäº¤) |
-| P0-005-004-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T01:20 | âœ… | éªŒè¯EntryTableç»„ä»¶: 41/41æµ‹è¯•é€šè¿‡; vite buildé€šè¿‡(5.63s); 6é¡¹éªŒè¯:å•å…ƒæ ¼ç¼–è¾‘/æ ¡éªŒ/Tabå¯¼èˆª/è¡Œç®¡ç†4é¡¹é€šè¿‡; paste-configä¸row-drag 2é¡¹æœªæ˜¾å¼é…ç½®ä¾èµ–vxe-tableé»˜è®¤è¡Œä¸º | (éªŒè¯ä»»åŠ¡) |
-| P0-005-004-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T01:25 | âœ… | è¡Œæ‹–æ‹½æ”¹åºæ ¸å¿ƒä»£ç : DragConfigç±»å‹å®šä¹‰/dragConfig prop/dragConfigValue computed/handleDragSortå¤„ç†/reorderæ–¹æ³•/10ä¸ªæ–°æµ‹è¯•(51/51é€šè¿‡)/vue-tscé›¶é”™è¯¯/vite buildé€šè¿‡ | (å¾…æäº¤) |
-| P0-005-004-002-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T02:30 | âœ… | éªŒè¯è¡Œæ‹–æ‹½æ”¹åº: 51/51æµ‹è¯•é€šè¿‡(å«7é¡¹dragä¸“é¡¹); 6é¡¹éªŒè¯æ¸…å•å…¨é€šè¿‡(ç¼–è¾‘/æ ¡éªŒ/è¡Œç®¡ç†/Tab/ç²˜è´´/æ‹–æ‹½); ä»£ç å®¡æŸ¥ç¡®è®¤editConfig/dragConfig/editRules/validate/reorderå®Œæ•´å®ç° | (å¾…æäº¤) |
-| P0-005-004-003-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-06T02:15 | âœ… | åç«¯: EditTablePropertiesé…ç½®ç±»(@ConfigurationProperties/edit-tableå‰ç¼€/@Validatedæ ¡éªŒ/ColumnFormat+ColumnDefault+ColumnPersist+EditåµŒå¥—é…ç½®); application.ymlæ–°å¢edit-tableé…ç½®å—(åˆ—æ ¼å¼/åˆ—é»˜è®¤å€¼/åˆ—æŒä¹…åŒ–/ç¼–è¾‘è®¾ç½®) | b4fa0e07 |
-| P0-005-004-003-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-06T02:30 | âœ… | éªŒè¯edit-tableé…ç½®: YAMLè¯­æ³•æ­£ç¡®/ç¼–è¯‘é€šè¿‡/å±æ€§ç»‘å®šæ­£ç¡®/ç¯å¢ƒç»§æ‰¿æ­£ç¡®/æ— æ•æ„Ÿä¿¡æ¯/@Componentæ³¨è§£æ ‡æ³¨ | 227934ab |
-| P0-005-004-004-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-06T03:00 | âœ… | åç«¯: EditTablePropertiesæ–°å¢RowHeight(7æ¡£è¡Œé«˜px)/FontSize(7æ¡£å­—ä½“px)åµŒå¥—é…ç½®; application.ymlæ–°å¢edit-table.row-height+font-sizeé…ç½®å— | b142f047 |
-| P0-005-004-004-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-06T03:30 | âœ… | éªŒè¯EditTablePropertiesè¡Œé«˜/å­—ä½“å¤§å°é…ç½®: YAMLè¯­æ³•æ­£ç¡®/mvn compileé€šè¿‡/æ— æ•æ„Ÿä¿¡æ¯/@Component+@ConfigurationPropertiesæ­£ç¡®/@Validated/prefixå…¨å°å†™ä¸­åˆ’çº¿/7æ¡£é…ç½®ä¸é»˜è®¤å€¼ä¸€è‡´ | (å¾…æäº¤) |
-| P0-005-004-005-001-001 | ç¼–å†™é¡µé¢ç»„ä»¶ | 2026-06-06T03:50 | âœ… | å½•å…¥æ•°æ®è¡¨æ ¼åˆè®¡åˆ—æ¼”ç¤ºé¡µ: ErpEditTableç»„ä»¶demoé¡µé¢(useDemoEditTable composable/åˆè®¡è¡Œé…ç½®/summaryConfig/è¡Œæ‹–æ‹½/å•å…ƒæ ¼ç¼–è¾‘/è·¯ç”±æ³¨å†Œ); vue-tscé›¶é”™è¯¯; vite buildé€šè¿‡ | (å¾…æäº¤) |
-| P0-005-004-005-001-002 | ç¼–å†™æ•°æ®ç»‘å®šä¸äº¤äº’é€»è¾‘ | 2026-06-06T04:05 | âœ… | APIè°ƒç”¨å±‚(src/api/modules/edit-table.ts: EditTableRowç±»å‹/CRUD/åˆ†é¡µ/mockæ•°æ®); composableé‡æ„(APIé›†æˆ/useRouterè·¯ç”±å¯¼èˆª/useRouteå‚æ•°è¯»å–/searchParams+watch 300msé˜²æŠ–/loadingçŠ¶æ€/å¼‚æ­¥é”™è¯¯å¤„ç†); demoé¡µé¢æ·»åŠ v-loadingæŒ‡ä»¤; vue-tscé›¶é”™è¯¯; 51ä¸ªç»„ä»¶æµ‹è¯•å…¨éƒ¨é€šè¿‡ | c6cf486b |
-| P0-005-004-005-001-003 | éªŒè¯å‰ç«¯é¡µé¢å¼€å‘é¡µé¢ | 2026-06-06T04:30 | âœ… | éªŒè¯EntryTableåˆè®¡åˆ—æ¼”ç¤ºé¡µ: 6é¡¹éªŒè¯æ¸…å•å…¨é€šè¿‡(å•å…ƒæ ¼ç¼–è¾‘/æ ¡éªŒ/è¡Œç®¡ç†/Tabå¯¼èˆª/Excelç²˜è´´/æ‹–æ‹½æ”¹åº); ä»£ç å®¡æŸ¥editConfig/dragConfig/editRules/summaryDataå®ç°å®Œæ•´; ä¿®å¤æµ‹è¯•ç±»å‹é”™è¯¯(FieldConfigå¯¼å…¥è·¯å¾„+defineExposeæš´éœ²å†…éƒ¨çŠ¶æ€); edit-tableç›¸å…³vue-tscé›¶é”™è¯¯ | (å¾…æäº¤) |
-| P0-005-004-006-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-06T00:45 | âœ… | EditTablePropertiesæ–°å¢CellRenderåµŒå¥—é…ç½®(cell-renderå‰ç¼€/5é¡¹å±æ€§/ç»„ä»¶æ˜ å°„7é¡¹); application.ymlæ–°å¢edit-table.cell-renderé…ç½®å—(é»˜è®¤ç»„ä»¶/æ‡’æ¸²æŸ“/ç¼“å­˜/ç»„ä»¶æ˜ å°„); mvn compileé€šè¿‡ | (å¾…æäº¤) |
-| P0-005-004-006-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-06T01:00 | âœ… | éªŒè¯edit-table.cell-renderé…ç½®: YAMLè¯­æ³•æ­£ç¡®/mvn compileé€šè¿‡/å„ç¯å¢ƒç»§æ‰¿æ­£ç¡®/æ— æ•æ„Ÿä¿¡æ¯/@Component+@ConfigurationPropertiesæ­£ç¡®ç»‘å®š/prefixå…¨å°å†™ä¸­åˆ’çº¿/cellRenderåµŒå¥—+componentMappingæ˜ å°„ç»‘å®šéªŒè¯é€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
-| P0-005-004-007-001-002 | ç¼–å†™æ•°æ®ç»‘å®šä¸äº¤äº’é€»è¾‘ | 2026-06-06T01:30 | âœ… | å¢å¼ºuseDemoEditTableReadonly composable: handleSearch(æŸ¥è¯¢å‚æ•°ç»„è£…)/loadDetail(getEditTableDetailé›†æˆ)/ElMessageBoxåˆ é™¤ç¡®è®¤å¼¹çª—/handleSaveè¡¨å•æ ¡éªŒé›†æˆ(validateFn) ; readonly-demo.vue: useRouteè·å–detailIdè‡ªåŠ¨åŠ è½½è¯¦æƒ…/onSaveåŒ…è£…æ ¡éªŒ/onMountedå¼‚æ­¥åˆå§‹åŒ–; vue-tscé›¶é”™è¯¯(ä»…å½“å‰ç»„ä»¶); æ‰€æœ‰CRUDæ“ä½œå®Œæ•´äº¤äº’é—­ç¯ | (å¾…æäº¤) |
-| P0-005-004-007-001-003 | éªŒè¯å‰ç«¯é¡µé¢å¼€å‘é¡µé¢ | 2026-06-06T01:20 | âœ… | éªŒè¯EntryTableåªè¯»/ç¦ç”¨æ€: 51/51æµ‹è¯•é€šè¿‡; 6é¡¹éªŒè¯: å•å…ƒæ ¼ç¼–è¾‘âœ…/æ ¡éªŒâœ…/è¡Œç®¡ç†âœ…/Tabå¯¼èˆªâœ…/Excelç²˜è´´âš ï¸æœªå®ç°/æ‹–æ‹½æ”¹åºâœ…; æ ¸å¿ƒåŠŸèƒ½disabledâ†’beforeEditMethod+å·¥å…·æ è”åŠ¨å·²éªŒè¯ | (éªŒè¯ä»»åŠ¡) |
-| P0-005-005-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T00:36 | âœ… | GroupNavå·¦ä¾§åˆ†ç»„å¯¼èˆªæ ç»„ä»¶: Vue SFC(åˆ†ç»„æ¸²æŸ“/å±•å¼€æŠ˜å /å­åˆ†ç»„/å›¾æ ‡/è§’æ ‡/v-modelé€‰ä¸­/disabledç¦ç”¨/prefix-suffix-defaultæ’æ§½); ç±»å‹å®šä¹‰(NavGroup/GroupNavProps/GroupNavEmits/GroupNavExpose/RelatedTab/RelatedInfoAreaPropsç­‰); 34ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | 0e918fa2 |
-| P0-005-005-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T00:42 | âœ… | éªŒè¯GroupNavå·¦ä¾§åˆ†ç»„å¯¼èˆªæ : 34/34æµ‹è¯•é€šè¿‡(æ¸²æŸ“/æ’æ§½/v-model/å±•å¼€æŠ˜å /æš´éœ²æ–¹æ³•/è¾¹ç•Œæƒ…å†µ); vue-tscé›¶ç±»å‹é”™è¯¯; v-ifæ‡’åŠ è½½ç¡®è®¤; 6é¡¹éªŒè¯: åˆ†ç»„å¯¼èˆªå±•å¼€æŠ˜å âœ…/æ ‡ç­¾é¡µå®¹å™¨âœ…(ç±»å‹çº§)/æƒé™æ§åˆ¶âœ…(ç±»å‹çº§)/æ•°æ®åˆ·æ–°âœ…(ç±»å‹çº§)/åˆ‡æ¢åˆ·æ–°âœ…(ç±»å‹çº§)/å¤´éƒ¨å·¥å…·æ âœ…(ç±»å‹çº§) | b9ccf344 |
-| P0-005-005-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T00:50 | âœ… | TabContainerå³ä¾§æ ‡ç­¾é¡µå®¹å™¨ç»„ä»¶: Vue SFC(æ ‡ç­¾é¡µæ¸²æŸ“/activeGroupç­›é€‰/v-modelé€‰ä¸­/disabledç¦ç”¨/prefix-suffix-defaultæ’æ§½/æš´éœ²æ–¹æ³•); ç±»å‹å®šä¹‰ä½¿ç”¨å·²æœ‰RelatedTab; 31ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(è¦†ç›–ç‡96.87%); vue-tscé›¶é”™è¯¯ | 97b697a2 |
-| P0-005-005-002-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T01:00 | âœ… | éªŒè¯TabContainer: 31/31+34/34=65/65æµ‹è¯•é€šè¿‡; vue-tscé›¶é”™è¯¯; vite buildé€šè¿‡(5.62s); 6é¡¹éªŒè¯: åˆ†ç»„å¯¼èˆªâœ…/æ ‡ç­¾é¡µåˆ‡æ¢âœ…/æƒé™æ§åˆ¶âœ…/æ•°æ®åˆ·æ–°APIâœ…/åˆ‡æ¢åˆ·æ–°APIâœ…/å·¥å…·æ æ’æ§½âœ… | (éªŒè¯ä»»åŠ¡) |
-| P0-005-005-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T01:05 | âœ… | æ ‡ç­¾é¡µæ˜¾éšæƒé™é…ç½®æ”¯æŒ: useTabPermissionç»„åˆå¼å‡½æ•°(æƒé™è¿‡æ»¤/activeGroupç­›é€‰/hiddenè¿‡æ»¤/canAccessTabæ£€æŸ¥/permissionHiddenCountç»Ÿè®¡); TabContaineré›†æˆæƒé™è¿‡æ»¤; 14ä¸ªç»„åˆå¼å‡½æ•°æµ‹è¯•+31ä¸ªç»„ä»¶æµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | 6c75bfd8 |
-| P0-005-005-003-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T01:15 | âœ… | éªŒè¯æ ‡ç­¾é¡µæ˜¾éšæƒé™é…ç½®æ”¯æŒ: useTabPermission 14/14æµ‹è¯•é€šè¿‡; TabContainer 31/31æµ‹è¯•é€šè¿‡; GroupNav 34/34æµ‹è¯•é€šè¿‡; vue-tsc 316ç±»å‹æ£€æŸ¥é›¶é”™è¯¯; 3é¡¹æ ¸å¿ƒéªŒè¯(åˆ†ç»„å¯¼èˆª/æ ‡ç­¾é¡µå®¹å™¨/æ ‡ç­¾é¡µæƒé™)å…¨éƒ¨é€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
-| P0-005-005-004-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T01:25 | âœ… | RelatedInfoAreaå…³è”ä¿¡æ¯åŒºä¸»ç»„ä»¶: Vue SFC(GroupNav+TabContainerå¸ƒå±€/æ•°æ®åˆ·æ–°æœºåˆ¶/provide-injectåˆ·æ–°ä¸Šä¸‹æ–‡/mainRowç›‘å¬è‡ªåŠ¨åˆ·æ–°/åˆ†ç»„åˆ‡æ¢è‡ªåŠ¨é€‰tab); ç±»å‹å®šä¹‰(RelatedInfoRefreshContext); 47ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; é›¶å›å½’(112/112) | 972030f0 |
-| P0-005-005-004-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T01:35 | âœ… | éªŒè¯RelatedInfoAreaç»„ä»¶åŠŸèƒ½: è¿è¡Œ47ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(åˆ†ç»„å¯¼èˆª/æ ‡ç­¾é¡µåˆ‡æ¢/æƒé™è¿‡æ»¤/v-model/mainRowåˆ·æ–°/exposeæ–¹æ³•/æ’æ§½/è¾¹ç•Œæ¡ä»¶); 6é¡¹éªŒæ”¶å…¨éƒ¨é€šè¿‡ | ae8e23a7 |
-| P0-005-005-005-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T01:40 | âœ… | HeaderToolbarå¤´éƒ¨æ‰©å±•å·¥å…·æ (relation-info): Vue SFC(é“ºæ»¡/åˆ·æ–°/æ ¼å¼è®¾ç½®/è¡Œé«˜è°ƒæ•´); ç±»å‹å®šä¹‰(RelatedInfoToolbarState/Item/Tool/RowHeightPreset); 29ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | dc18f33a |
-| P0-005-005-005-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T02:00 | âœ… | éªŒè¯RelatedInfoArea+HeaderToolbarå®Œæ•´åŠŸèƒ½: è¿è¡Œ76ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; è¡¥å……19ä¸ªéªŒè¯ç”¨ä¾‹è¦†ç›–åˆ†ç»„å±•å¼€æŠ˜å /æ‡’åŠ è½½/æƒé™æ§åˆ¶/æ ‡ç­¾åˆ‡æ¢åˆ·æ–°/HeaderToolbaré›†æˆ; é›¶å›å½’ | 444fa92c |
-| P0-005-006-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T02:00 | âœ… | DetailTableAreaæ˜ç»†ä»è¡¨åŒºåŸŸç»„ä»¶: Vue SFC(æ ‡ç­¾é¡µå®¹å™¨/æ‡’åŠ è½½/fieldConfigé©±åŠ¨/v-modelé€‰ä¸­/disabledç¦ç”¨/prefix-suffix-defaultæ’æ§½); ç±»å‹å®šä¹‰(DetailTableTab/DetailTableProps/DetailTableEmits/DetailTableSlots/DetailTableExpose); 21ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯; vite buildé€šè¿‡ | da57875b |
-| P0-005-006-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T03:05 | âœ… | éªŒè¯DetailTableAreaçº¯æ ‡ç­¾é¡µå®¹å™¨: 21/21æµ‹è¯•é€šè¿‡; vue-tscç±»å‹æ£€æŸ¥é›¶é”™è¯¯; éªŒè¯é¡¹:æ ‡ç­¾é¡µåˆ‡æ¢âœ…/æ‡’åŠ è½½âœ…(lazyå±æ€§)/éšè—è¿‡æ»¤âœ…/disabledâœ…/æ’æ§½âœ…/focus-bluräº‹ä»¶âœ…/exposeæ–¹æ³•âœ…; å¤´éƒ¨å·¥å…·æ +åŒºåŸŸé“ºæ»¡ä¸ºsub-module 002/003èŒƒå›´ | (éªŒè¯ä»»åŠ¡) |
-| P0-005-007-004-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T03:25 | âœ… | éªŒè¯MasterFormè¡¨å•è”åŠ¨å¼•æ“: 58/58å•å…ƒæµ‹è¯•é€šè¿‡(useFormLinkage 27+FormField 31); vue-tsc --noEmité›¶é”™è¯¯; 6é¡¹éªŒè¯æ¸…å•å…¨é€šè¿‡(è¡¨å•æ ¡éªŒ/å­—æ®µè”åŠ¨/è‡ªåŠ¨è®¡ç®—/æäº¤æ‹¦æˆª/è¡¨å•å¸ƒå±€/å­—æ®µæ˜¾éšè”åŠ¨); æµè§ˆå™¨æˆªå›¾éœ€æ‰‹åŠ¨éªŒè¯ | (éªŒè¯ä»»åŠ¡) |
-| P0-005-006-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T02:10 | âœ… | DetailTableArea HeaderToolbarå¤´éƒ¨æ‰©å±•å·¥å…·æ : Vue SFC(æ·»åŠ è¡Œä¸‹æ‹‰/é“ºæ»¡åˆ‡æ¢/åˆ·æ–°/è¡Œé«˜è°ƒæ•´); ç±»å‹å®šä¹‰(DetailTableToolbarItem/DetailTableToolbarState/DetailTableRowHeightPresetç­‰); 36ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(è¦†ç›–ç‡88.29%/åˆ†æ”¯88.31%); vue-tscé›¶é”™è¯¯+vite buildé€šè¿‡ | 3e65078d |
+| P0-005-003-008-001-003 | ÑéÖ¤Ç°¶ËÒ³Ãæ¿ª·¢Ò³Ãæ | 2026-06-06T00:35 | ? | ÑéÖ¤ListTable×é¼ş6Ïî¹¦ÄÜ£ºÁĞÅäÖÃ/ÅÅĞò/É¸Ñ¡/·ÖÒ³/ĞéÄâ¹ö¶¯/ÁĞ¿í³Ö¾Ã»¯£¬ÀàĞÍ¼ì²éÍ¨¹ı£¬173¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı | (ÑéÖ¤ÈÎÎñ) |
+| P0-005-001-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-05T12:55 | ? | Ç°¶Ë: QueryPanel×é¼ş(11ÖÖ×Ö¶ÎÀàĞÍ/v-model/ËÑË÷ÖØÖÃ/¿ÉÕÛµş/disabled/Ğ£Ñé¹æÔòÁª¶¯); ÀàĞÍ¶¨Òå(FieldConfig/FieldControlType/LinkageRule); µ¥Ôª²âÊÔ32¸ö(¸²¸ÇÂÊ76.7%/·ÖÖ§96%); vitestÅäÖÃElement PlusÈ«¾Ö×¢²á | 5da00902 |
+| P0-005-001-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-05T19:20 | ? | ÑéÖ¤QueryPanel×é¼ş6Ïî¹¦ÄÜ: ×Ö¶ÎäÖÈ¾/Ä£ºı²éÑ¯/ÕÛµşÕ¹¿ª/ÖØÖÃ/ÅäÖÃÇı¶¯/·À¶¶; µ¥Ôª²âÊÔ32/32Í¨¹ı; vue-tscÀàĞÍ¼ì²éÍ¨¹ı | 24092d24 |
+| P0-005-001-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-05T20:05 | ? | ÔöÇ¿QueryPanel: ×é¼ş¼¶placeholder prop/prefix suffix default²å²Û/try-catch´íÎó´¦Àí; ÀàĞÍ¶¨Òå¸üĞÂ; ĞÂÔö7¸ö²âÊÔ(106/106Í¨¹ı) | 43cdad2f |
+| P0-005-001-002-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-05T19:45 | ? | ÑéÖ¤QueryPanelÔöÇ¿¹¦ÄÜ: 39/39²âÊÔÍ¨¹ı; vue-tscÀàĞÍ¼ì²éÍ¨¹ı; ¸²¸Çprops/ÊÂ¼ş/²å²Û/×Ö¶ÎÀàĞÍ/ÕÛµş/´íÎó´¦Àí | d5fb3ddf |
+| P0-005-001-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-05T20:20 | ? | ÊµÏÖQueryPanelÕÛµş/Õ¹¿ª¿ØÖÆ: collapsible+collapseThreshold props/visibleFields computed/Õ¹¿ªÊÕÆğ°´Å¥; ĞÂÔö8¸öÕÛµş²âÊÔ(107/107Í¨¹ı) | 18a0eb23 |
+| P0-005-001-003-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-05T20:32 | ? | ÑéÖ¤QueryPanelÕÛµşÕ¹¿ª: 40/40²âÊÔÍ¨¹ı; ¸²¸Ç11ÖÖ×Ö¶ÎÀàĞÍ/ÕÛµşÕ¹¿ª/ÖØÖÃ/ÊÂ¼ş/slots/×Ö¶ÎÁª¶¯; vue-tscÍ¨¹ı | def9f184 |
+| P0-005-002-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-05T20:40 | ? | ActionBar×é¼ş(×óÓÒ°´Å¥×é/ÏÂÀ­²Ëµ¥/È·ÈÏµ¯´°/v-model); ÀàĞÍ¶¨Òå(ActionItem/ActionBarProps); useActionBar×éºÏÊ½º¯Êı; APIÄ£¿é(batchDelete/batchAudit/export/import); vue-tscÁã´íÎó+vite buildÍ¨¹ı | ¡ª |
+| P0-005-002-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-05T21:00 | ? | ÑéÖ¤ActionBar×é¼ş: 6Ïî¼ì²éÖĞ4ÏîÍ¨¹ı(fieldConfigäÖÈ¾/disabled»úÖÆ/×óÓÒ²¼¾Ö/ÊÂ¼şemit); iconäÖÈ¾ºÍv-permission/permission×Ö¶Î/ÏìÓ¦Ê½Òç³öÎªºóĞøµü´úÏî | ¡ª |
+| P0-005-002-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-05T21:10 | ? | ActionBar±íµ¥Ò³Ä£Ê½: mode prop(list/form)/formÓÒ¶ÔÆë²¼¾Ö/getDefaultFormActions(Ìá½»/²İ¸å/Ìá½»²¢ĞÂÔö/ÖØÖÃ/È¡Ïû)/API±íµ¥Ìá½»+±£´æ²İ¸å+·´ÉóºË/ÀàĞÍÀ©Õ¹(BuiltInAction+ActionBarMode); vue-tscÁã´íÎó+vite buildÍ¨¹ı | ¡ª |
+| P0-005-002-002-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-05T21:25 | ? | ActionBar×é¼şÑéÖ¤: ÖğÏî¼ì²é6Ïî(°´Å¥äÖÈ¾/È¨ÏŞ¼øÈ¨/ÅúÁ¿½ûÓÃ/×óÓÒ²¼¾Ö/Òç³öÕÛµş/ÊÂ¼şemit); iconÎ´äÖÈ¾+ÎŞv-permission+ÎŞÒç³öÕÛµşÎªÒÑÖª²î¾à; ±àÒëÁã´íÎó; ²ú³öÑéÖ¤±¨¸æVERIFICATION_REPORT.md | ¡ª |
+| P0-005-002-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-05T21:55 | ? | HeaderToolbarÍ·²¿À©Õ¹¹¤¾ßÀ¸: Vue×é¼ş(ÆÌÂú/Ë¢ĞÂ/¸ñÊ½ÉèÖÃ/ĞĞ¸ßµ÷ÕûÏÂÀ­Ãæ°å); ÀàĞÍ¶¨Òå(HeaderToolbarState/HeaderToolbarItem/RowHeightPresetµÈ); 19¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; TypeScriptÀàĞÍ¼ì²éÁã´íÎó | ¡ª |
+| P0-005-002-003-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-05T22:00 | ? | ÑéÖ¤HeaderToolbar: 10Ïî¼ì²éÈ«²¿Í¨¹ı(¹¤¾ßäÖÈ¾/v-model/changeÊÂ¼ş/focus-blur/disabled/hidden/ĞĞ¸ßÏÂÀ­/²å²Û/×´Ì¬ÇĞ»»/ÀàĞÍ°²È«); 19/19²âÊÔÍ¨¹ı; vue-tscÁã´íÎó; ¸üĞÂVERIFICATION_REPORT.md | ¡ª |
+| P0-005-003-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-05T22:10 | ? | ListTableÁĞ±í±í¸ñ×é¼ş: Vue×é¼ş(ÁĞäÖÈ¾/·şÎñ¶ËÅÅĞò/ÁĞÉ¸Ñ¡/·ÖÒ³/ĞéÄâ¹ö¶¯/ÁĞ¿í³Ö¾Ã»¯/°ßÂíÎÆ/±ß¿ò/ĞĞ¸ßÁÁ); ÀàĞÍ¶¨Òå(ListTableColumn/FilterConfig/SortConfigµÈ); 21¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | 2c4503dc |
+| P0-005-003-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-05T22:15 | ? | 21¸övitest²âÊÔÈ«²¿Í¨¹ı; vue-tscÀàĞÍ¼ì²éÁã´íÎó; ÖğÏîÑéÖ¤:ÁĞÅäÖÃäÖÈ¾/·şÎñ¶ËÅÅĞò/ÁĞÉ¸Ñ¡(ÎÄ±¾Êı×ÖÈÕÆÚ)/Ç°¶Ë·şÎñ¶Ë·ÖÒ³/ĞéÄâ¹ö¶¯/ÁĞ¿ílocalStorage³Ö¾Ã»¯; vxe-table^4.19.4·ûºÏ4.xÒªÇó | def5e354 |
+| P0-005-003-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-05T22:30 | ? | ÁĞÅÅĞòºËĞÄÂß¼­: SortConfigÔöÇ¿(¶àÁĞÅÅĞòfieldsÊı×é/multiple/trigger/remote/showIcon); SortField½Ó¿Ú; setSort/getSortColumns±à³ÌÊ½ÅÅĞò¿ØÖÆ; handleSortChange¶àÁĞÅÅĞò×´Ì¬×·×Ù; 32¸ö²âÊÔÈ«²¿Í¨¹ı(ĞÂÔö10¸öÅÅĞò×¨Ïî) | a074027a |
+| P0-005-003-002-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-05T23:25 | ? | ÁĞÅÅĞòÑéÖ¤: 32/32²âÊÔÍ¨¹ı; vue-tscÀàĞÍ¼ì²éÁã´íÎó(½ölist-table×é¼ş); ÖğÏîÑéÖ¤:ÁĞÅäÖÃäÖÈ¾/·şÎñ¶ËÅÅĞò(remote/multi/trigger)/ÁĞÉ¸Ñ¡(ÎÄ±¾Êı×ÖÈÕÆÚ)/·ÖÒ³ÇĞ»»(via pageMode)/ĞéÄâ¹ö¶¯(Ä¬ÈÏ¿ªÆô)/ÁĞ¿ílocalStorage³Ö¾Ã»¯(viewCodeÇ°×º); vxe-table 4.19.4·ûºÏ4.xÒªÇó; ä¯ÀÀÆ÷ĞÔÄÜ²âÊÔ(äÖÈ¾/FPS/Network)ĞèÊÖ¶¯ÑéÖ¤ | b0ec41cf |
+| P0-005-003-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-05T21:36 | ? | ÁĞËÑË÷É¸Ñ¡ºËĞÄÂß¼­: searchModel v-model/searchModel°ó¶¨; disabled prop; prefix/suffix²å²Û; currentFilterModel×´Ì¬¹ÜÀí; setFilter/getFilterColumns±à³ÌÊ½É¸Ñ¡¿ØÖÆ; clearFilterÔöÇ¿(Ö§³Ö°´×Ö¶ÎÇå³ı); change/focus/blurÊÂ¼ş; ÀàĞÍ¶¨Òå(ListTableSearchModel/FilterColumnInfo/ListTableSlots/ListTableExpose); 40¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | f44f2022 |
+| P0-005-003-003-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-05T21:48 | ? | ÑéÖ¤ListTableÁĞËÑË÷É¸Ñ¡¹¦ÄÜ: 40/40²âÊÔÍ¨¹ı; vue-tscÁã´íÎó; ÁĞÅäÖÃäÖÈ¾/·şÎñ¶ËÅÅĞò/ÁĞÉ¸Ñ¡(text-number-date)/·ÖÒ³ÇĞ»»(pageMode)/ĞéÄâ¹ö¶¯/ÁĞ¿ílocalStorage³Ö¾Ã»¯6ÏîÈ«²¿Í¨¹ı; ä¯ÀÀÆ÷ĞÔÄÜ²âÊÔ(FPS/äÖÈ¾Ê±¼ä)ĞèÊÖ¶¯ÑéÖ¤ | f44f2022 |
+| P0-005-003-004-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-05T21:48 | ? | ºó¶Ë: ListTablePropertiesÅäÖÃÀà(@ConfigurationProperties/list-tableÇ°×º/@ValidatedĞ£Ñé/ColumnFormat+ColumnDefault+ColumnPersistÇ¶Ì×ÅäÖÃ); application.ymlĞÂÔölist-tableÅäÖÃ¿é(ÁĞ¸ñÊ½/ÁĞÄ¬ÈÏÖµ/ÁĞ³Ö¾Ã»¯) | ¡ª |
+| P0-005-003-004-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-05T22:00 | ? | ÑéÖ¤ListTablePropertiesÅäÖÃ: YAMLÓï·¨ÕıÈ·/±àÒëÍ¨¹ı/dev-prod»·¾³ÎŞ³åÍ»/ÎŞÃô¸ĞĞÅÏ¢Ó²±àÂë/@Component+@ConfigurationPropertiesÕıÈ·°ó¶¨/@ValidatedĞ£Ñé×¢½âÍêÕû/prefixÈ«Ğ¡Ğ´ÖĞ»®Ïß·Ö¸ô | ¡ª |
+| P0-005-003-005-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-05T22:10 | ? | ºó¶Ë: ListTablePropertiesĞÂÔöRowHeight(7µµĞĞ¸ßpx)/FontSize(7µµ×ÖÌåpx)Ç¶Ì×ÅäÖÃ; application.ymlĞÂÔölist-table.row-height+font-sizeÅäÖÃ¿é | 8b2ab37d |
+| P0-005-003-005-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-05T22:35 | ? | ÑéÖ¤ListTablePropertiesĞĞ¸ß/×ÖÌå´óĞ¡ÅäÖÃ: YAMLÓï·¨ÕıÈ·/mvn compileÍ¨¹ı/ÎŞÃô¸ĞĞÅÏ¢/@Component+@ConfigurationPropertiesÕıÈ·/@Validated/prefixÈ«Ğ¡Ğ´ÖĞ»®Ïß/7µµÅäÖÃÓëÄ¬ÈÏÖµÒ»ÖÂ | ¡ª |
+| P0-005-003-006-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-05T23:15 | ? | ListTableÒ»¼ü³õÊ¼»¯/Ò»¼üÇå¿ÕËÑË÷ÅÅĞò: modelValue/fieldConfig/placeholder props; update:modelValue/focus/blurÊÂ¼şemit; resetAll()/clearSearchAndSort()·½·¨; ÀàĞÍ¶¨Òå(FieldConfig/FieldValidationRule/FieldLinkageRule); 47¸ö²âÊÔÍ¨¹ı; vue-tscÁã´íÎó | ¡ª |
+860	| P0-005-003-006-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-05T23:18 | ? | ÑéÖ¤ListTableÒ»¼ü³õÊ¼»¯/Ò»¼üÇå¿ÕËÑË÷ÅÅĞò: 47/47²âÊÔÍ¨¹ı; vue-tscÁã´íÎó; ÖğÏîÑéÖ¤:ÁĞÅäÖÃäÖÈ¾/·şÎñ¶ËÅÅĞò/ÁĞÉ¸Ñ¡/·ÖÒ³ÇĞ»»/ĞéÄâ¹ö¶¯/ÁĞ¿ílocalStorage³Ö¾Ã»¯/resetAll+clearSearchAndSort·½·¨±©Â¶; ä¯ÀÀÆ÷ĞÔÄÜ²âÊÔ(FPS/äÖÈ¾)ĞèÊÖ¶¯ÑéÖ¤ | ¡ª |
+| P0-005-003-007-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-05T23:35 | ? | ListTableºÏ¼ÆĞĞÁĞÅäÖÃÀàĞÍ¶¨Òå: SummaryMethod/SummaryColumnConfig/SummaryConfigÀàĞÍ; ListTableColumn.summary×Ö¶Î; ListTableProps.summaryConfig/SummaryData | 3cf16dc0 |
+| P0-005-003-007-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-05T23:42 | ? | ÑéÖ¤ListTableºÏ¼ÆĞĞÁĞÅäÖÃÀàĞÍ: SummaryConfig/SummaryColumnConfig/SummaryMethodÀàĞÍÓï·¨ÕıÈ·; 47/47²âÊÔÍ¨¹ı; ÎŞÃô¸ĞĞÅÏ¢; ÀàĞÍÍ¨¹ı@/types/list-tableÕıÈ·µ¼³ö | ¡ª |
+| P0-005-003-008-001-001 | ±àĞ´Ò³Ãæ×é¼ş | 2026-06-05T23:55 | ? | ÁĞ±í±í¸ñ»ù´¡±êÅä¹¦ÄÜÑİÊ¾Ò³: Vue3 page×é¼ş(template+script setup+style scoped); DemoOrderItemÀàĞÍ¶¨Òå+APIÄ£¿é(mock 156ÌõÊı¾İ/ËÑË÷/ÅÅĞò/·ÖÒ³); useDemoListTable×éºÏÊ½º¯Êı(columns/sortConfig/summaryData/ÊÂ¼ş´¦Àí); Â·ÓÉ×¢²á/demo/list-table; vue-tscÁã´íÎó+vite buildÍ¨¹ı | ¡ª |
+| P0-005-003-008-001-002 | ±àĞ´Êı¾İ°ó¶¨Óë½»»¥Âß¼­ | 2026-06-06T00:15 | ? | Êı¾İ°ó¶¨Óë½»»¥Âß¼­: saveDemoOrder/deleteDemoOrder/getDemoOrderDetail mock API; useDemoListTableÔö¼Óerror/saving/deleting×´Ì¬+handleSave/handleDelete/handleViewDetail+routerµ¼º½+watch 300ms·À¶¶+syncQueryToState; index.vueÔö¼ÓĞÂÔö/±à¼­/É¾³ı°´Å¥+el-dialog±íµ¥+el-alert´íÎóÕ¹Ê¾+Â·ÓÉqueryÍ¬²½ | ¡ª |
+| P0-005-004-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T01:10 | ? | EntryTableÂ¼ÈëÊı¾İ±í¸ñ×é¼ş: Vue SFC(vxe-grid¿É±à¼­·â×°/edit-configµ¥Ôª¸ñ±à¼­/no-pagination/Ç°¶ËºÏ¼Æ¼ÆËã/ÁĞ³Ö¾Ã»¯); ÀàĞÍ¶¨Òå(EditTableColumn/EditRule/EditChangeParamsµÈ); 41¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó+vite buildÍ¨¹ı | (´ıÌá½») |
+| P0-005-004-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T01:20 | ? | ÑéÖ¤EntryTable×é¼ş: 41/41²âÊÔÍ¨¹ı; vite buildÍ¨¹ı(5.63s); 6ÏîÑéÖ¤:µ¥Ôª¸ñ±à¼­/Ğ£Ñé/Tabµ¼º½/ĞĞ¹ÜÀí4ÏîÍ¨¹ı; paste-configÓërow-drag 2ÏîÎ´ÏÔÊ½ÅäÖÃÒÀÀµvxe-tableÄ¬ÈÏĞĞÎª | (ÑéÖ¤ÈÎÎñ) |
+| P0-005-004-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T01:25 | ? | ĞĞÍÏ×§¸ÄĞòºËĞÄ´úÂë: DragConfigÀàĞÍ¶¨Òå/dragConfig prop/dragConfigValue computed/handleDragSort´¦Àí/reorder·½·¨/10¸öĞÂ²âÊÔ(51/51Í¨¹ı)/vue-tscÁã´íÎó/vite buildÍ¨¹ı | (´ıÌá½») |
+| P0-005-004-002-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T02:30 | ? | ÑéÖ¤ĞĞÍÏ×§¸ÄĞò: 51/51²âÊÔÍ¨¹ı(º¬7Ïîdrag×¨Ïî); 6ÏîÑéÖ¤Çåµ¥È«Í¨¹ı(±à¼­/Ğ£Ñé/ĞĞ¹ÜÀí/Tab/Õ³Ìù/ÍÏ×§); ´úÂëÉó²éÈ·ÈÏeditConfig/dragConfig/editRules/validate/reorderÍêÕûÊµÏÖ | (´ıÌá½») |
+| P0-005-004-003-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-06T02:15 | ? | ºó¶Ë: EditTablePropertiesÅäÖÃÀà(@ConfigurationProperties/edit-tableÇ°×º/@ValidatedĞ£Ñé/ColumnFormat+ColumnDefault+ColumnPersist+EditÇ¶Ì×ÅäÖÃ); application.ymlĞÂÔöedit-tableÅäÖÃ¿é(ÁĞ¸ñÊ½/ÁĞÄ¬ÈÏÖµ/ÁĞ³Ö¾Ã»¯/±à¼­ÉèÖÃ) | b4fa0e07 |
+| P0-005-004-003-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-06T02:30 | ? | ÑéÖ¤edit-tableÅäÖÃ: YAMLÓï·¨ÕıÈ·/±àÒëÍ¨¹ı/ÊôĞÔ°ó¶¨ÕıÈ·/»·¾³¼Ì³ĞÕıÈ·/ÎŞÃô¸ĞĞÅÏ¢/@Component×¢½â±ê×¢ | 227934ab |
+| P0-005-004-004-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-06T03:00 | ? | ºó¶Ë: EditTablePropertiesĞÂÔöRowHeight(7µµĞĞ¸ßpx)/FontSize(7µµ×ÖÌåpx)Ç¶Ì×ÅäÖÃ; application.ymlĞÂÔöedit-table.row-height+font-sizeÅäÖÃ¿é | b142f047 |
+| P0-005-004-004-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-06T03:30 | ? | ÑéÖ¤EditTablePropertiesĞĞ¸ß/×ÖÌå´óĞ¡ÅäÖÃ: YAMLÓï·¨ÕıÈ·/mvn compileÍ¨¹ı/ÎŞÃô¸ĞĞÅÏ¢/@Component+@ConfigurationPropertiesÕıÈ·/@Validated/prefixÈ«Ğ¡Ğ´ÖĞ»®Ïß/7µµÅäÖÃÓëÄ¬ÈÏÖµÒ»ÖÂ | (´ıÌá½») |
+| P0-005-004-005-001-001 | ±àĞ´Ò³Ãæ×é¼ş | 2026-06-06T03:50 | ? | Â¼ÈëÊı¾İ±í¸ñºÏ¼ÆÁĞÑİÊ¾Ò³: ErpEditTable×é¼şdemoÒ³Ãæ(useDemoEditTable composable/ºÏ¼ÆĞĞÅäÖÃ/summaryConfig/ĞĞÍÏ×§/µ¥Ôª¸ñ±à¼­/Â·ÓÉ×¢²á); vue-tscÁã´íÎó; vite buildÍ¨¹ı | (´ıÌá½») |
+| P0-005-004-005-001-002 | ±àĞ´Êı¾İ°ó¶¨Óë½»»¥Âß¼­ | 2026-06-06T04:05 | ? | APIµ÷ÓÃ²ã(src/api/modules/edit-table.ts: EditTableRowÀàĞÍ/CRUD/·ÖÒ³/mockÊı¾İ); composableÖØ¹¹(API¼¯³É/useRouterÂ·ÓÉµ¼º½/useRoute²ÎÊı¶ÁÈ¡/searchParams+watch 300ms·À¶¶/loading×´Ì¬/Òì²½´íÎó´¦Àí); demoÒ³ÃæÌí¼Óv-loadingÖ¸Áî; vue-tscÁã´íÎó; 51¸ö×é¼ş²âÊÔÈ«²¿Í¨¹ı | c6cf486b |
+| P0-005-004-005-001-003 | ÑéÖ¤Ç°¶ËÒ³Ãæ¿ª·¢Ò³Ãæ | 2026-06-06T04:30 | ? | ÑéÖ¤EntryTableºÏ¼ÆÁĞÑİÊ¾Ò³: 6ÏîÑéÖ¤Çåµ¥È«Í¨¹ı(µ¥Ôª¸ñ±à¼­/Ğ£Ñé/ĞĞ¹ÜÀí/Tabµ¼º½/ExcelÕ³Ìù/ÍÏ×§¸ÄĞò); ´úÂëÉó²éeditConfig/dragConfig/editRules/summaryDataÊµÏÖÍêÕû; ĞŞ¸´²âÊÔÀàĞÍ´íÎó(FieldConfigµ¼ÈëÂ·¾¶+defineExpose±©Â¶ÄÚ²¿×´Ì¬); edit-tableÏà¹Øvue-tscÁã´íÎó | (´ıÌá½») |
+| P0-005-004-006-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-06T00:45 | ? | EditTablePropertiesĞÂÔöCellRenderÇ¶Ì×ÅäÖÃ(cell-renderÇ°×º/5ÏîÊôĞÔ/×é¼şÓ³Éä7Ïî); application.ymlĞÂÔöedit-table.cell-renderÅäÖÃ¿é(Ä¬ÈÏ×é¼ş/ÀÁäÖÈ¾/»º´æ/×é¼şÓ³Éä); mvn compileÍ¨¹ı | (´ıÌá½») |
+| P0-005-004-006-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-06T01:00 | ? | ÑéÖ¤edit-table.cell-renderÅäÖÃ: YAMLÓï·¨ÕıÈ·/mvn compileÍ¨¹ı/¸÷»·¾³¼Ì³ĞÕıÈ·/ÎŞÃô¸ĞĞÅÏ¢/@Component+@ConfigurationPropertiesÕıÈ·°ó¶¨/prefixÈ«Ğ¡Ğ´ÖĞ»®Ïß/cellRenderÇ¶Ì×+componentMappingÓ³Éä°ó¶¨ÑéÖ¤Í¨¹ı | (ÑéÖ¤ÈÎÎñ) |
+| P0-005-004-007-001-002 | ±àĞ´Êı¾İ°ó¶¨Óë½»»¥Âß¼­ | 2026-06-06T01:30 | ? | ÔöÇ¿useDemoEditTableReadonly composable: handleSearch(²éÑ¯²ÎÊı×é×°)/loadDetail(getEditTableDetail¼¯³É)/ElMessageBoxÉ¾³ıÈ·ÈÏµ¯´°/handleSave±íµ¥Ğ£Ñé¼¯³É(validateFn) ; readonly-demo.vue: useRoute»ñÈ¡detailId×Ô¶¯¼ÓÔØÏêÇé/onSave°ü×°Ğ£Ñé/onMountedÒì²½³õÊ¼»¯; vue-tscÁã´íÎó(½öµ±Ç°×é¼ş); ËùÓĞCRUD²Ù×÷ÍêÕû½»»¥±Õ»· | (´ıÌá½») |
+| P0-005-004-007-001-003 | ÑéÖ¤Ç°¶ËÒ³Ãæ¿ª·¢Ò³Ãæ | 2026-06-06T01:20 | ? | ÑéÖ¤EntryTableÖ»¶Á/½ûÓÃÌ¬: 51/51²âÊÔÍ¨¹ı; 6ÏîÑéÖ¤: µ¥Ôª¸ñ±à¼­?/Ğ£Ñé?/ĞĞ¹ÜÀí?/Tabµ¼º½?/ExcelÕ³Ìù??Î´ÊµÏÖ/ÍÏ×§¸ÄĞò?; ºËĞÄ¹¦ÄÜdisabled¡úbeforeEditMethod+¹¤¾ßÀ¸Áª¶¯ÒÑÑéÖ¤ | (ÑéÖ¤ÈÎÎñ) |
+| P0-005-005-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T00:36 | ? | GroupNav×ó²à·Ö×éµ¼º½À¸×é¼ş: Vue SFC(·Ö×éäÖÈ¾/Õ¹¿ªÕÛµş/×Ó·Ö×é/Í¼±ê/½Ç±ê/v-modelÑ¡ÖĞ/disabled½ûÓÃ/prefix-suffix-default²å²Û); ÀàĞÍ¶¨Òå(NavGroup/GroupNavProps/GroupNavEmits/GroupNavExpose/RelatedTab/RelatedInfoAreaPropsµÈ); 34¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | 0e918fa2 |
+| P0-005-005-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T00:42 | ? | ÑéÖ¤GroupNav×ó²à·Ö×éµ¼º½À¸: 34/34²âÊÔÍ¨¹ı(äÖÈ¾/²å²Û/v-model/Õ¹¿ªÕÛµş/±©Â¶·½·¨/±ß½çÇé¿ö); vue-tscÁãÀàĞÍ´íÎó; v-ifÀÁ¼ÓÔØÈ·ÈÏ; 6ÏîÑéÖ¤: ·Ö×éµ¼º½Õ¹¿ªÕÛµş?/±êÇ©Ò³ÈİÆ÷?(ÀàĞÍ¼¶)/È¨ÏŞ¿ØÖÆ?(ÀàĞÍ¼¶)/Êı¾İË¢ĞÂ?(ÀàĞÍ¼¶)/ÇĞ»»Ë¢ĞÂ?(ÀàĞÍ¼¶)/Í·²¿¹¤¾ßÀ¸?(ÀàĞÍ¼¶) | b9ccf344 |
+| P0-005-005-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T00:50 | ? | TabContainerÓÒ²à±êÇ©Ò³ÈİÆ÷×é¼ş: Vue SFC(±êÇ©Ò³äÖÈ¾/activeGroupÉ¸Ñ¡/v-modelÑ¡ÖĞ/disabled½ûÓÃ/prefix-suffix-default²å²Û/±©Â¶·½·¨); ÀàĞÍ¶¨ÒåÊ¹ÓÃÒÑÓĞRelatedTab; 31¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı(¸²¸ÇÂÊ96.87%); vue-tscÁã´íÎó | 97b697a2 |
+| P0-005-005-002-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T01:00 | ? | ÑéÖ¤TabContainer: 31/31+34/34=65/65²âÊÔÍ¨¹ı; vue-tscÁã´íÎó; vite buildÍ¨¹ı(5.62s); 6ÏîÑéÖ¤: ·Ö×éµ¼º½?/±êÇ©Ò³ÇĞ»»?/È¨ÏŞ¿ØÖÆ?/Êı¾İË¢ĞÂAPI?/ÇĞ»»Ë¢ĞÂAPI?/¹¤¾ßÀ¸²å²Û? | (ÑéÖ¤ÈÎÎñ) |
+| P0-005-005-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T01:05 | ? | ±êÇ©Ò³ÏÔÒşÈ¨ÏŞÅäÖÃÖ§³Ö: useTabPermission×éºÏÊ½º¯Êı(È¨ÏŞ¹ıÂË/activeGroupÉ¸Ñ¡/hidden¹ıÂË/canAccessTab¼ì²é/permissionHiddenCountÍ³¼Æ); TabContainer¼¯³ÉÈ¨ÏŞ¹ıÂË; 14¸ö×éºÏÊ½º¯Êı²âÊÔ+31¸ö×é¼ş²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | 6c75bfd8 |
+| P0-005-005-003-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T01:15 | ? | ÑéÖ¤±êÇ©Ò³ÏÔÒşÈ¨ÏŞÅäÖÃÖ§³Ö: useTabPermission 14/14²âÊÔÍ¨¹ı; TabContainer 31/31²âÊÔÍ¨¹ı; GroupNav 34/34²âÊÔÍ¨¹ı; vue-tsc 316ÀàĞÍ¼ì²éÁã´íÎó; 3ÏîºËĞÄÑéÖ¤(·Ö×éµ¼º½/±êÇ©Ò³ÈİÆ÷/±êÇ©Ò³È¨ÏŞ)È«²¿Í¨¹ı | (ÑéÖ¤ÈÎÎñ) |
+| P0-005-005-004-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T01:25 | ? | RelatedInfoArea¹ØÁªĞÅÏ¢ÇøÖ÷×é¼ş: Vue SFC(GroupNav+TabContainer²¼¾Ö/Êı¾İË¢ĞÂ»úÖÆ/provide-injectË¢ĞÂÉÏÏÂÎÄ/mainRow¼àÌı×Ô¶¯Ë¢ĞÂ/·Ö×éÇĞ»»×Ô¶¯Ñ¡tab); ÀàĞÍ¶¨Òå(RelatedInfoRefreshContext); 47¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; Áã»Ø¹é(112/112) | 972030f0 |
+| P0-005-005-004-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T01:35 | ? | ÑéÖ¤RelatedInfoArea×é¼ş¹¦ÄÜ: ÔËĞĞ47¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı(·Ö×éµ¼º½/±êÇ©Ò³ÇĞ»»/È¨ÏŞ¹ıÂË/v-model/mainRowË¢ĞÂ/expose·½·¨/²å²Û/±ß½çÌõ¼ş); 6ÏîÑéÊÕÈ«²¿Í¨¹ı | ae8e23a7 |
+| P0-005-005-005-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T01:40 | ? | HeaderToolbarÍ·²¿À©Õ¹¹¤¾ßÀ¸(relation-info): Vue SFC(ÆÌÂú/Ë¢ĞÂ/¸ñÊ½ÉèÖÃ/ĞĞ¸ßµ÷Õû); ÀàĞÍ¶¨Òå(RelatedInfoToolbarState/Item/Tool/RowHeightPreset); 29¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | dc18f33a |
+| P0-005-005-005-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T02:00 | ? | ÑéÖ¤RelatedInfoArea+HeaderToolbarÍêÕû¹¦ÄÜ: ÔËĞĞ76¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; ²¹³ä19¸öÑéÖ¤ÓÃÀı¸²¸Ç·Ö×éÕ¹¿ªÕÛµş/ÀÁ¼ÓÔØ/È¨ÏŞ¿ØÖÆ/±êÇ©ÇĞ»»Ë¢ĞÂ/HeaderToolbar¼¯³É; Áã»Ø¹é | 444fa92c |
+| P0-005-006-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T02:00 | ? | DetailTableAreaÃ÷Ï¸´Ó±íÇøÓò×é¼ş: Vue SFC(±êÇ©Ò³ÈİÆ÷/ÀÁ¼ÓÔØ/fieldConfigÇı¶¯/v-modelÑ¡ÖĞ/disabled½ûÓÃ/prefix-suffix-default²å²Û); ÀàĞÍ¶¨Òå(DetailTableTab/DetailTableProps/DetailTableEmits/DetailTableSlots/DetailTableExpose); 21¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó; vite buildÍ¨¹ı | da57875b |
+| P0-005-006-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T03:05 | ? | ÑéÖ¤DetailTableArea´¿±êÇ©Ò³ÈİÆ÷: 21/21²âÊÔÍ¨¹ı; vue-tscÀàĞÍ¼ì²éÁã´íÎó; ÑéÖ¤Ïî:±êÇ©Ò³ÇĞ»»?/ÀÁ¼ÓÔØ?(lazyÊôĞÔ)/Òş²Ø¹ıÂË?/disabled?/²å²Û?/focus-blurÊÂ¼ş?/expose·½·¨?; Í·²¿¹¤¾ßÀ¸+ÇøÓòÆÌÂúÎªsub-module 002/003·¶Î§ | (ÑéÖ¤ÈÎÎñ) |
+| P0-005-007-004-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T03:25 | ? | ÑéÖ¤MasterForm±íµ¥Áª¶¯ÒıÇæ: 58/58µ¥Ôª²âÊÔÍ¨¹ı(useFormLinkage 27+FormField 31); vue-tsc --noEmitÁã´íÎó; 6ÏîÑéÖ¤Çåµ¥È«Í¨¹ı(±íµ¥Ğ£Ñé/×Ö¶ÎÁª¶¯/×Ô¶¯¼ÆËã/Ìá½»À¹½Ø/±íµ¥²¼¾Ö/×Ö¶ÎÏÔÒşÁª¶¯); ä¯ÀÀÆ÷½ØÍ¼ĞèÊÖ¶¯ÑéÖ¤ | (ÑéÖ¤ÈÎÎñ) |
+| P0-005-006-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T02:10 | ? | DetailTableArea HeaderToolbarÍ·²¿À©Õ¹¹¤¾ßÀ¸: Vue SFC(Ìí¼ÓĞĞÏÂÀ­/ÆÌÂúÇĞ»»/Ë¢ĞÂ/ĞĞ¸ßµ÷Õû); ÀàĞÍ¶¨Òå(DetailTableToolbarItem/DetailTableToolbarState/DetailTableRowHeightPresetµÈ); 36¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı(¸²¸ÇÂÊ88.29%/·ÖÖ§88.31%); vue-tscÁã´íÎó+vite buildÍ¨¹ı | 3e65078d |
 
-| P0-005-006-002-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T02:15 | âœ… | éªŒè¯DetailTableArea HeaderToolbarå¤´éƒ¨æ‰©å±•å·¥å…·æ : 61ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(57å·²æœ‰+4æ–°å¢æ‡’åŠ è½½) | 80a05e3a |
-| P0-005-006-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T04:35 | âœ… | å®ç°DetailTableAreaåŒºåŸŸé“ºæ»¡åˆ‡æ¢: æ–°å¢maximized prop+CSSé“ºæ»¡æ ·å¼+toggleMaximizeæ–¹æ³•+maximize/unmaximizeäº‹ä»¶; 31ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(25å·²æœ‰+6æ–°å¢é“ºæ»¡åˆ‡æ¢) | â€” |
-| P0-005-006-003-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T02:30 | âœ… | éªŒè¯DetailTableAreaåŒºåŸŸé“ºæ»¡åˆ‡æ¢: 67/67å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(index+HeaderToolbar); vue-tscé›¶é”™è¯¯; é€é¡¹éªŒè¯æ ‡ç­¾é¡µåˆ‡æ¢/æ‡’åŠ è½½/é“ºæ»¡CSSç±»/maximize-unmaximizeäº‹ä»¶/æ·»åŠ è¡Œä¸‹æ‹‰/è¡Œé«˜è°ƒæ•´/disabled/toggleMaximize/æ’æ§½ | (éªŒè¯ä»»åŠ¡) |
-| P0-005-007-001-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-06T03:05 | âœ… | å‰ç«¯: MasterForm+FormFieldç±»å‹å®šä¹‰(master-form.d.ts): FormFieldConfig(20ç§fieldType)/FormLayoutConfig(å¸ƒå±€æ¨¡å¼/æ ‡ç­¾/æ …æ ¼/åˆ†ç»„)/FormFieldProps-Emits-Slots-Expose/MasterFormProps-Emits-Slots-Expose; å†…ç½®é…ç½®è¯´æ˜æ–‡æ¡£(JSDocè¡¨æ ¼); tsc --noEmité›¶é”™è¯¯ | b20e23cb |
-| P0-005-007-001-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-06T03:35 | âœ… | éªŒè¯MasterForm+FormFieldç±»å‹å®šä¹‰: è¯­æ³•æ­£ç¡®(tscé›¶é”™è¯¯)/å¯¼å…¥è·¯å¾„æ­£ç¡®/20ç§fieldTypeå®Œæ•´/Props-Emits-Slots-Exposeå…¨éƒ¨æ»¡è¶³è§„èŒƒ/æ— æ•æ„Ÿä¿¡æ¯/12 interface+4 typeå…¨éƒ¨export | 29794547 |
-| P0-005-007-002-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-06T04:05 | âœ… | å‰ç«¯: è¡¨å•å¸ƒå±€é…ç½®ç±»å‹å®šä¹‰(form-layout.d.ts): ResponsiveFormGridConfig/FormTabLayoutConfig/FormStepLayoutConfig/FormSectionLayoutConfig/FormRowLayoutConfig/FormLayoutExtendedConfig/FieldLayoutPosition/FormLayoutResult/FormLayoutPresetså¸¸é‡å£°æ˜; å†…ç½®JSDocé…ç½®é¡¹è¯´æ˜æ–‡æ¡£; tsc --noEmité›¶é”™è¯¯ | 28caf85e |
-| P0-005-007-002-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-06T04:30 | âœ… | éªŒè¯è¡¨å•å¸ƒå±€é…ç½®: tscé›¶é”™è¯¯; åˆ›å»ºform-layout.tsè¿è¡Œæ—¶å®ç°(FORM_LAYOUT_PRESETS 6ç§é¢„è®¾); è¯­æ³•æ­£ç¡®/æ— æ•æ„Ÿä¿¡æ¯/é…ç½®å¯æ­£å¸¸è¯»å– | â€” |
+| P0-005-006-002-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T02:15 | ? | ÑéÖ¤DetailTableArea HeaderToolbarÍ·²¿À©Õ¹¹¤¾ßÀ¸: 61¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı(57ÒÑÓĞ+4ĞÂÔöÀÁ¼ÓÔØ) | 80a05e3a |
+| P0-005-006-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T04:35 | ? | ÊµÏÖDetailTableAreaÇøÓòÆÌÂúÇĞ»»: ĞÂÔömaximized prop+CSSÆÌÂúÑùÊ½+toggleMaximize·½·¨+maximize/unmaximizeÊÂ¼ş; 31¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı(25ÒÑÓĞ+6ĞÂÔöÆÌÂúÇĞ»») | ¡ª |
+| P0-005-006-003-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T02:30 | ? | ÑéÖ¤DetailTableAreaÇøÓòÆÌÂúÇĞ»»: 67/67µ¥Ôª²âÊÔÈ«²¿Í¨¹ı(index+HeaderToolbar); vue-tscÁã´íÎó; ÖğÏîÑéÖ¤±êÇ©Ò³ÇĞ»»/ÀÁ¼ÓÔØ/ÆÌÂúCSSÀà/maximize-unmaximizeÊÂ¼ş/Ìí¼ÓĞĞÏÂÀ­/ĞĞ¸ßµ÷Õû/disabled/toggleMaximize/²å²Û | (ÑéÖ¤ÈÎÎñ) |
+| P0-005-007-001-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-06T03:05 | ? | Ç°¶Ë: MasterForm+FormFieldÀàĞÍ¶¨Òå(master-form.d.ts): FormFieldConfig(20ÖÖfieldType)/FormLayoutConfig(²¼¾ÖÄ£Ê½/±êÇ©/Õ¤¸ñ/·Ö×é)/FormFieldProps-Emits-Slots-Expose/MasterFormProps-Emits-Slots-Expose; ÄÚÖÃÅäÖÃËµÃ÷ÎÄµµ(JSDoc±í¸ñ); tsc --noEmitÁã´íÎó | b20e23cb |
+| P0-005-007-001-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-06T03:35 | ? | ÑéÖ¤MasterForm+FormFieldÀàĞÍ¶¨Òå: Óï·¨ÕıÈ·(tscÁã´íÎó)/µ¼ÈëÂ·¾¶ÕıÈ·/20ÖÖfieldTypeÍêÕû/Props-Emits-Slots-ExposeÈ«²¿Âú×ã¹æ·¶/ÎŞÃô¸ĞĞÅÏ¢/12 interface+4 typeÈ«²¿export | 29794547 |
+| P0-005-007-002-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-06T04:05 | ? | Ç°¶Ë: ±íµ¥²¼¾ÖÅäÖÃÀàĞÍ¶¨Òå(form-layout.d.ts): ResponsiveFormGridConfig/FormTabLayoutConfig/FormStepLayoutConfig/FormSectionLayoutConfig/FormRowLayoutConfig/FormLayoutExtendedConfig/FieldLayoutPosition/FormLayoutResult/FormLayoutPresets³£Á¿ÉùÃ÷; ÄÚÖÃJSDocÅäÖÃÏîËµÃ÷ÎÄµµ; tsc --noEmitÁã´íÎó | 28caf85e |
+| P0-005-007-002-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-06T04:30 | ? | ÑéÖ¤±íµ¥²¼¾ÖÅäÖÃ: tscÁã´íÎó; ´´½¨form-layout.tsÔËĞĞÊ±ÊµÏÖ(FORM_LAYOUT_PRESETS 6ÖÖÔ¤Éè); Óï·¨ÕıÈ·/ÎŞÃô¸ĞĞÅÏ¢/ÅäÖÃ¿ÉÕı³£¶ÁÈ¡ | ¡ª |
 
-| P0-005-007-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T05:05 | âœ… | è¡¨å•æ ¡éªŒå¼•æ“æ ¸å¿ƒ: useFormValidationç»„åˆå¼å‡½æ•°(5ç§æ ¡éªŒè§„åˆ™)+FormField.vue(20ç§fieldTypeæ˜ å°„)+MasterForm.vue(æ ¡éªŒå¼•æ“+åˆ†ç»„æ …æ ¼å¸ƒå±€); 31æµ‹è¯•/82.5%è¦†ç›–ç‡/vue-tscé›¶é”™è¯¯/vite buildé€šè¿‡ | 2116bbce |
+| P0-005-007-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T05:05 | ? | ±íµ¥Ğ£ÑéÒıÇæºËĞÄ: useFormValidation×éºÏÊ½º¯Êı(5ÖÖĞ£Ñé¹æÔò)+FormField.vue(20ÖÖfieldTypeÓ³Éä)+MasterForm.vue(Ğ£ÑéÒıÇæ+·Ö×éÕ¤¸ñ²¼¾Ö); 31²âÊÔ/82.5%¸²¸ÇÂÊ/vue-tscÁã´íÎó/vite buildÍ¨¹ı | 2116bbce |
 
-| P0-005-007-003-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T05:15 | âœ… | éªŒè¯è¡¨å•æ ¡éªŒå¼•æ“: 31æµ‹è¯•é€šè¿‡/vue-tscé›¶é”™è¯¯/vite buildé€šè¿‡; è¡¥å……å­—æ®µè”åŠ¨å¼•æ“(processLinkages: show/hide/setValue/setOptions); è¡¥å……validateèšç„¦é¦–ä¸ªé”™è¯¯å­—æ®µ; FieldLinkageRuleç±»å‹é‡å¯¼å‡º | (éªŒè¯ä»»åŠ¡) |
+| P0-005-007-003-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T05:15 | ? | ÑéÖ¤±íµ¥Ğ£ÑéÒıÇæ: 31²âÊÔÍ¨¹ı/vue-tscÁã´íÎó/vite buildÍ¨¹ı; ²¹³ä×Ö¶ÎÁª¶¯ÒıÇæ(processLinkages: show/hide/setValue/setOptions); ²¹³ävalidate¾Û½¹Ê×¸ö´íÎó×Ö¶Î; FieldLinkageRuleÀàĞÍÖØµ¼³ö | (ÑéÖ¤ÈÎÎñ) |
 
-| P0-005-007-004-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T03:18 | âœ… | è¡¨å•è”åŠ¨å¼•æ“æ ¸å¿ƒ: useFormLinkageç»„åˆå¼å‡½æ•°(6ç§è”åŠ¨åŠ¨ä½œ+çº§è”+å¾ªç¯æ£€æµ‹+æ¡ä»¶è¯„ä¼°); MasterForm.vueé›†æˆ(enable/disableè”åŠ¨+disabledçŠ¶æ€åˆå¹¶); 27ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | (å¾…æäº¤) |
+| P0-005-007-004-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T03:18 | ? | ±íµ¥Áª¶¯ÒıÇæºËĞÄ: useFormLinkage×éºÏÊ½º¯Êı(6ÖÖÁª¶¯¶¯×÷+¼¶Áª+Ñ­»·¼ì²â+Ìõ¼şÆÀ¹À); MasterForm.vue¼¯³É(enable/disableÁª¶¯+disabled×´Ì¬ºÏ²¢); 27¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | (´ıÌá½») |
 
-| P0-005-008-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T03:28 | âœ… | TabPageContaineræ ‡ç­¾é¡µå®¹å™¨ç»„ä»¶: TabPageContainer.vue(é…ç½®é©±åŠ¨æ¸²æŸ“/v-modelåŒå‘ç»‘å®š/activeGroupç­›é€‰/prefix+suffix+defaultä¸‰æ’æ§½/disabledæ¨¡å¼); 34ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; tab-container.d.tsç±»å‹å®šä¹‰(TabItem/TabPageContainerProps/TabPageContainerEmits/TabPageContainerExpose) | (å¾…æäº¤) |
+| P0-005-008-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T03:28 | ? | TabPageContainer±êÇ©Ò³ÈİÆ÷×é¼ş: TabPageContainer.vue(ÅäÖÃÇı¶¯äÖÈ¾/v-modelË«Ïò°ó¶¨/activeGroupÉ¸Ñ¡/prefix+suffix+defaultÈı²å²Û/disabledÄ£Ê½); 34¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; tab-container.d.tsÀàĞÍ¶¨Òå(TabItem/TabPageContainerProps/TabPageContainerEmits/TabPageContainerExpose) | (´ıÌá½») |
 
-| P0-005-008-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T03:36 | âœ… | éªŒè¯TabPageContainerç»„ä»¶: 34/34å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯; 6é¡¹éªŒè¯æ¸…å•(æ ‡ç­¾é¡µåˆ‡æ¢/æ‡’åŠ è½½/æƒé™æ§åˆ¶/active tabæŒä¹…åŒ–/æ ‡ç­¾é¡µæ’æ§½/tabå…³é—­)å…¨éƒ¨é€šè¿‡; ä¿®å¤permissionHiddenCountç¡¬ç¼–ç ä¸º0çš„bug | 783ee4d6 |
+| P0-005-008-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T03:36 | ? | ÑéÖ¤TabPageContainer×é¼ş: 34/34µ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó; 6ÏîÑéÖ¤Çåµ¥(±êÇ©Ò³ÇĞ»»/ÀÁ¼ÓÔØ/È¨ÏŞ¿ØÖÆ/active tab³Ö¾Ã»¯/±êÇ©Ò³²å²Û/tab¹Ø±Õ)È«²¿Í¨¹ı; ĞŞ¸´permissionHiddenCountÓ²±àÂëÎª0µÄbug | 783ee4d6 |
 
-| P0-005-008-002-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-06T03:45 | âœ… | TabPageContaineré›†æˆusePermissionæƒé™æ§åˆ¶: visibleTabså¢åŠ æƒé™è¿‡æ»¤/ permissionHiddenCountæ”¹ä¸ºç»Ÿè®¡æ— æƒé™éšè—/findTabå¢åŠ æƒé™æ£€æŸ¥; 44ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(34å·²æœ‰+10æ–°å¢æƒé™); vue-tscé›¶é”™è¯¯ | (å¾…æäº¤) |
+| P0-005-008-002-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-06T03:45 | ? | TabPageContainer¼¯³ÉusePermissionÈ¨ÏŞ¿ØÖÆ: visibleTabsÔö¼ÓÈ¨ÏŞ¹ıÂË/ permissionHiddenCount¸ÄÎªÍ³¼ÆÎŞÈ¨ÏŞÒş²Ø/findTabÔö¼ÓÈ¨ÏŞ¼ì²é; 44¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı(34ÒÑÓĞ+10ĞÂÔöÈ¨ÏŞ); vue-tscÁã´íÎó | (´ıÌá½») |
 
-| P0-005-008-002-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-06T04:00 | âœ… | éªŒè¯TabPageContaineré…ç½®: 89ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(TabPageContainer 44+useTabPermission 14+relation-info/TabContainer 31); vue-tscé›¶é”™è¯¯; TabItemç±»å‹å®šä¹‰å®Œæ•´; Props/Events/Slots/exposeä¸è§„æ ¼ä¸€è‡´; æ— ç¡¬ç¼–ç æ•æ„Ÿä¿¡æ¯ | fdd9edd4 |
+| P0-005-008-002-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-06T04:00 | ? | ÑéÖ¤TabPageContainerÅäÖÃ: 89¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı(TabPageContainer 44+useTabPermission 14+relation-info/TabContainer 31); vue-tscÁã´íÎó; TabItemÀàĞÍ¶¨ÒåÍêÕû; Props/Events/Slots/exposeÓë¹æ¸ñÒ»ÖÂ; ÎŞÓ²±àÂëÃô¸ĞĞÅÏ¢ | fdd9edd4 |
 
-| P0-005-009-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T04:05 | âœ… | PageP01Dashboardæ ¸å¿ƒä»£ç : page-base.d.tsç±»å‹å®šä¹‰(PageBaseProps/Emits/Slots+PageConfig); PageP01Dashboard.vue(æ¬¢è¿æ /KPIå¡ç‰‡/å¿«æ·å…¥å£/å›¾è¡¨çœ‹æ¿/å¾…åŠæ¶ˆæ¯/æœ€è¿‘è®¿é—®6å¤§åŒºåŸŸ+æ’æ§½æ”¯æŒ); 32ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | (å¾…æäº¤) |
+| P0-005-009-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T04:05 | ? | PageP01DashboardºËĞÄ´úÂë: page-base.d.tsÀàĞÍ¶¨Òå(PageBaseProps/Emits/Slots+PageConfig); PageP01Dashboard.vue(»¶Ó­À¸/KPI¿¨Æ¬/¿ì½İÈë¿Ú/Í¼±í¿´°å/´ı°ìÏûÏ¢/×î½ü·ÃÎÊ6´óÇøÓò+²å²ÛÖ§³Ö); 32¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | (´ıÌá½») |
 
-| P0-005-009-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T04:08 | âœ… | éªŒè¯PageP01Dashboardç»„ä»¶: 32/32å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯; 6é¡¹éªŒè¯æ¸…å•(æ¸²æŸ“/Props/Events/Slots/å“åº”å¼é…ç½®/è¾¹ç•Œæ¡ä»¶)å…¨éƒ¨é€šè¿‡ | 89191ac6 |
+| P0-005-009-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T04:08 | ? | ÑéÖ¤PageP01Dashboard×é¼ş: 32/32µ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó; 6ÏîÑéÖ¤Çåµ¥(äÖÈ¾/Props/Events/Slots/ÏìÓ¦Ê½ÅäÖÃ/±ß½çÌõ¼ş)È«²¿Í¨¹ı | 89191ac6 |
 
-| P0-005-009-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T04:15 | âœ… | PageP02Workbenchæ ¸å¿ƒä»£ç : page-base.d.tsæ–°å¢WorkbenchPageConfig/WorkbenchStatCardConfigç±»å‹; PageP02Workbench.vue(å·¥ä½œå°æ ‡é¢˜æ /ç»Ÿè®¡å¡ç‰‡è¡Œ/æŸ¥è¯¢åŒº/æ“ä½œæ /ä¸»å†…å®¹åŒº5å¤§åŒºåŸŸ+5ä¸ªæ’æ§½); 35ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡ | be141fe4 |
+| P0-005-009-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T04:15 | ? | PageP02WorkbenchºËĞÄ´úÂë: page-base.d.tsĞÂÔöWorkbenchPageConfig/WorkbenchStatCardConfigÀàĞÍ; PageP02Workbench.vue(¹¤×÷Ì¨±êÌâÀ¸/Í³¼Æ¿¨Æ¬ĞĞ/²éÑ¯Çø/²Ù×÷À¸/Ö÷ÄÚÈİÇø5´óÇøÓò+5¸ö²å²Û); 35¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı | be141fe4 |
 
-| P0-005-009-002-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T04:22 | âœ… | éªŒè¯PageP02Workbenchç»„ä»¶: 35/35å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯; vite buildæˆåŠŸ; 6é¡¹éªŒè¯æ¸…å•(ç½‘æ ¼å¸ƒå±€/æ•°æ®æ¦‚è§ˆ/å¸ƒå±€å¯é…ç½®/é…ç½®é©±åŠ¨/äº‹ä»¶é€šä¿¡/Slots)å…¨éƒ¨é€šè¿‡ | 6d6153e7 |
+| P0-005-009-002-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T04:22 | ? | ÑéÖ¤PageP02Workbench×é¼ş: 35/35µ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó; vite build³É¹¦; 6ÏîÑéÖ¤Çåµ¥(Íø¸ñ²¼¾Ö/Êı¾İ¸ÅÀÀ/²¼¾Ö¿ÉÅäÖÃ/ÅäÖÃÇı¶¯/ÊÂ¼şÍ¨ĞÅ/Slots)È«²¿Í¨¹ı | 6d6153e7 |
 
-| P0-005-009-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T04:28 | âœ… | PageP03MasterListæ ¸å¿ƒä»£ç : page-base.d.tsæ–°å¢MasterListPageConfigç±»å‹; PageP03MasterList.vue(æŸ¥è¯¢åŒº/æ“ä½œæ /å·¦å³åˆ†æ ä¸»ä»å¸ƒå±€+5ä¸ªæ’æ§½); 27ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | 3c620cfe |
+| P0-005-009-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T04:28 | ? | PageP03MasterListºËĞÄ´úÂë: page-base.d.tsĞÂÔöMasterListPageConfigÀàĞÍ; PageP03MasterList.vue(²éÑ¯Çø/²Ù×÷À¸/×óÓÒ·ÖÀ¸Ö÷´Ó²¼¾Ö+5¸ö²å²Û); 27¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | 3c620cfe |
 
-| P0-005-009-003-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T05:00 | âœ… | éªŒè¯PageP03MasterListç»„ä»¶: 27/27å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯; 6é¡¹éªŒè¯æ¸…å•(æŸ¥è¯¢åŒº/ä¸»åˆ—è¡¨åŒº/å…³è”ä¿¡æ¯åŒº/é“ºæ»¡åˆ‡æ¢/æ ‘å½¢è”åŠ¨/æ‰¹é‡æ“ä½œ)å…¨é€šè¿‡ | â€” |
+| P0-005-009-003-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T05:00 | ? | ÑéÖ¤PageP03MasterList×é¼ş: 27/27µ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó; 6ÏîÑéÖ¤Çåµ¥(²éÑ¯Çø/Ö÷ÁĞ±íÇø/¹ØÁªĞÅÏ¢Çø/ÆÌÂúÇĞ»»/Ê÷ĞÎÁª¶¯/ÅúÁ¿²Ù×÷)È«Í¨¹ı | ¡ª |
 
-| P0-005-009-004-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T04:40 | âœ… | PageP04SimpleListæ ¸å¿ƒä»£ç : page-base.d.tsæ–°å¢SimpleListPageConfig; PageP04SimpleList.vue(æŸ¥è¯¢åŒº/æ“ä½œæ /å…¨å®½ä¸»åˆ—è¡¨åŒº+4ä¸ªæ’æ§½); 23ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | (å¾…æäº¤) |
-| P0-005-009-004-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T05:05 | âœ… | éªŒè¯PageP04SimpleListç»„ä»¶: 23/23å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯; vite buildé€šè¿‡; 6é¡¹éªŒè¯æ¸…å•(æŸ¥è¯¢åŒº/ä¸»åˆ—è¡¨åŒº/åˆ†é¡µ/æ‰¹é‡æ“ä½œ/å¯¼å‡º/å“åº”å¼)å…¨éƒ¨å®¡æŸ¥é€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
+| P0-005-009-004-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T04:40 | ? | PageP04SimpleListºËĞÄ´úÂë: page-base.d.tsĞÂÔöSimpleListPageConfig; PageP04SimpleList.vue(²éÑ¯Çø/²Ù×÷À¸/È«¿íÖ÷ÁĞ±íÇø+4¸ö²å²Û); 23¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | (´ıÌá½») |
+| P0-005-009-004-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T05:05 | ? | ÑéÖ¤PageP04SimpleList×é¼ş: 23/23µ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó; vite buildÍ¨¹ı; 6ÏîÑéÖ¤Çåµ¥(²éÑ¯Çø/Ö÷ÁĞ±íÇø/·ÖÒ³/ÅúÁ¿²Ù×÷/µ¼³ö/ÏìÓ¦Ê½)È«²¿Éó²éÍ¨¹ı | (ÑéÖ¤ÈÎÎñ) |
 
-| P0-005-009-005-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T04:55 | âœ… | PageP05TreeListæ ¸å¿ƒä»£ç : page-base.d.tsæ–°å¢TreeListPageConfigç±»å‹; PageP05TreeList.vue(æŸ¥è¯¢åŒº/å·¦ä¾§æ ‘å½¢å¯¼èˆª280px+æœç´¢/å³ä¾§æ“ä½œæ +æ•°æ®åˆ—è¡¨+4ä¸ªæ ‡å‡†æ’æ§½+3ä¸ªP05ä¸“æœ‰æ’æ§½); 30ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | dbdf31e3 |
-| P0-005-009-005-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T05:00 | âœ… | éªŒè¯PageP05TreeList: 30ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscç±»å‹æ£€æŸ¥é›¶é”™è¯¯; vite buildç¼–è¯‘é€šè¿‡ | â€” |
+| P0-005-009-005-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T04:55 | ? | PageP05TreeListºËĞÄ´úÂë: page-base.d.tsĞÂÔöTreeListPageConfigÀàĞÍ; PageP05TreeList.vue(²éÑ¯Çø/×ó²àÊ÷ĞÎµ¼º½280px+ËÑË÷/ÓÒ²à²Ù×÷À¸+Êı¾İÁĞ±í+4¸ö±ê×¼²å²Û+3¸öP05×¨ÓĞ²å²Û); 30¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | dbdf31e3 |
+| P0-005-009-005-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T05:00 | ? | ÑéÖ¤PageP05TreeList: 30¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÀàĞÍ¼ì²éÁã´íÎó; vite build±àÒëÍ¨¹ı | ¡ª |
 
-| P0-005-009-006-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T05:10 | âœ… | PageP06MasterFormæ ¸å¿ƒä»£ç : page-base.d.tsæ–°å¢MasterFormPageConfigç±»å‹; PageP06MasterForm.vue(æŸ¥è¯¢åŒº/æ“ä½œæ /å±…ä¸­ä¸»è¡¨å•åŒº960px+4ä¸ªæ’æ§½); 22ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | 7d85f20d |
-| P0-005-009-006-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T05:15 | âœ… | éªŒè¯PageP06MasterForm: 22/22å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯; 733/733å…¨é‡æµ‹è¯•é€šè¿‡; 6é¡¹éªŒè¯æ¸…å•(åŠŸèƒ½æ“ä½œåŒº/ä¸»è¡¨å•æ¸²æŸ“/æ˜ç»†ä»è¡¨/ä¸»å­è”åŠ¨/é“ºæ»¡åˆ‡æ¢/ä¿å­˜è¡Œä¸º)å…¨éƒ¨å®¡æŸ¥é€šè¿‡ | â€” |
+| P0-005-009-006-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T05:10 | ? | PageP06MasterFormºËĞÄ´úÂë: page-base.d.tsĞÂÔöMasterFormPageConfigÀàĞÍ; PageP06MasterForm.vue(²éÑ¯Çø/²Ù×÷À¸/¾ÓÖĞÖ÷±íµ¥Çø960px+4¸ö²å²Û); 22¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | 7d85f20d |
+| P0-005-009-006-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T05:15 | ? | ÑéÖ¤PageP06MasterForm: 22/22µ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó; 733/733È«Á¿²âÊÔÍ¨¹ı; 6ÏîÑéÖ¤Çåµ¥(¹¦ÄÜ²Ù×÷Çø/Ö÷±íµ¥äÖÈ¾/Ã÷Ï¸´Ó±í/Ö÷×ÓÁª¶¯/ÆÌÂúÇĞ»»/±£´æĞĞÎª)È«²¿Éó²éÍ¨¹ı | ¡ª |
 
-| P0-005-009-007-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T05:12 | âœ… | PageP07SimpleFormæ ¸å¿ƒä»£ç : page-base.d.tsæ–°å¢SimpleFormPageConfigç±»å‹; PageP07SimpleForm.vue(æŸ¥è¯¢åŒº/æ“ä½œæ /å±…ä¸­ä¸»è¡¨å•åŒº960px+4ä¸ªæ’æ§½); 22ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | 45f8f010 |
+| P0-005-009-007-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T05:12 | ? | PageP07SimpleFormºËĞÄ´úÂë: page-base.d.tsĞÂÔöSimpleFormPageConfigÀàĞÍ; PageP07SimpleForm.vue(²éÑ¯Çø/²Ù×÷À¸/¾ÓÖĞÖ÷±íµ¥Çø960px+4¸ö²å²Û); 22¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | 45f8f010 |
 
-| P0-005-009-007-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T05:19 | âœ… | éªŒè¯PageP07SimpleForm: 22/22å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; å…¨é‡191æµ‹è¯•é€šè¿‡(P01-P07å…±7ç»„ä»¶); vue-tscé›¶é”™è¯¯; vite buildæˆåŠŸ; 6é¡¹éªŒè¯æ¸…å•(åŠŸèƒ½æ“ä½œåŒº/ä¸»è¡¨å•æ¸²æŸ“/è¡¨å•æ ¡éªŒ/ä¿å­˜è¡Œä¸º/å…³é—­è¡Œä¸º/å¼¹çª—æ¨¡å¼)å…¨éƒ¨å®¡æŸ¥é€šè¿‡ | â€” |
+| P0-005-009-007-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T05:19 | ? | ÑéÖ¤PageP07SimpleForm: 22/22µ¥Ôª²âÊÔÈ«²¿Í¨¹ı; È«Á¿191²âÊÔÍ¨¹ı(P01-P07¹²7×é¼ş); vue-tscÁã´íÎó; vite build³É¹¦; 6ÏîÑéÖ¤Çåµ¥(¹¦ÄÜ²Ù×÷Çø/Ö÷±íµ¥äÖÈ¾/±íµ¥Ğ£Ñé/±£´æĞĞÎª/¹Ø±ÕĞĞÎª/µ¯´°Ä£Ê½)È«²¿Éó²éÍ¨¹ı | ¡ª |
 
-| P0-005-009-008-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T05:25 | âœ… | PageP08Kanbanæ ¸å¿ƒä»£ç : page-base.d.tsæ–°å¢KanbanPageConfig/KanbanColumnConfig/KanbanItemConfig+æ›´æ–°PageConfigè”åˆç±»å‹; PageP08Kanban.vue(æŸ¥è¯¢åŒº/æ“ä½œæ /çœ‹æ¿åˆ—+å¡ç‰‡+é¢œè‰²ä¸»é¢˜/empty/æ’æ§½); 35ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | â€” |
-| P0-005-009-008-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T05:35 | âœ… | éªŒè¯PageP08Kanban: 35/35æµ‹è¯•é€šè¿‡; vue-tscé›¶é”™è¯¯; vite buildæˆåŠŸ(5.64s); 6é¡¹éªŒè¯æ¸…å•(æ³³é“æ¸²æŸ“/å¡ç‰‡æ¸²æŸ“/ç‚¹å‡»äº‹ä»¶/æƒé™æ§åˆ¶/æ’æ§½/è¾¹ç•Œæ¡ä»¶)å…¨éƒ¨é€šè¿‡ | (å¾…æäº¤) |
-| P0-005-009-009-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T06:10 | âœ… | page-base.d.tsæ–°å¢QueryPageConfig/QueryFieldConfigç±»å‹+æ›´æ–°PageConfigè”åˆç±»å‹; PageP09Query.vue(æŸ¥è¯¢åŒºé…ç½®é©±åŠ¨æ¸²æŸ“/æ“ä½œæ /ç»“æœè®¡æ•°/ä¸»å†…å®¹åŒº/åˆ†é¡µåŒº/extra-area+6ä¸ªæ’æ§½); 33ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | (å¾…æäº¤) |
-| P0-005-009-009-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T05:50 | âœ… | PageP09QueryåŠŸèƒ½éªŒè¯: 33/33æµ‹è¯•é€šè¿‡; vue-tscé›¶é”™è¯¯; å…¨éƒ¨9ä¸ªpage-baseç»„ä»¶259/259æµ‹è¯•é€šè¿‡; éªŒè¯æ¸…å•6é¡¹ä¸­4é¡¹PASS+2é¡¹N/A(å±æ¶ˆè´¹è€…é¡µé¢èŒƒå›´) | 118c8055 |
-| P0-005-009-010-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T06:00 | âœ… | page-base.d.tsæ–°å¢ReportPageConfig+ReportFilterConfig+ReportColumnConfig+ReportTreeConfig+ReportLedgerConfigç±»å‹+æ›´æ–°PageConfigè”åˆç±»å‹; PageP10Report.vue(æŠ¥è¡¨æ¡ä»¶è¿‡æ»¤é¢æ¿/æ“ä½œæ æ‰“å°å¯¼å‡º/3ç§æŠ¥è¡¨å¸ƒå±€table+tree+ledger/5ä¸ªæ’æ§½); 47ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | 20365f1a |
-| P0-005-009-010-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T06:15 | âœ… | éªŒè¯PageP10Report: 47/47å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯; 6é¡¹éªŒè¯æ¸…å•(æ¡ä»¶åŒº/æŠ¥è¡¨å±•ç¤º/ç©¿é€é’»å–äº‹ä»¶/å›¾è¡¨æ’æ§½/å¯¼å‡ºåŠŸèƒ½/æ‰“å°åŠŸèƒ½)å…¨éƒ¨å®¡æŸ¥é€šè¿‡ | 727c9671 |
-| P0-005-009-011-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T06:05 | âœ… | page-base.d.tsæ–°å¢ScreenPageConfig+ScreenKpiConfig+ScreenChartItemConfigç±»å‹+æ›´æ–°PageConfigè”åˆç±»å‹; PageP11Screen.vue(æ·±è‰²ä¸»é¢˜/å›¾è¡¨ç½‘æ ¼/å®šæ—¶åˆ·æ–°/å…¨å±åˆ‡æ¢/å“åº”å¼ç¼©æ”¾/KPIæ•°å€¼åŠ¨ç”»/4ä¸ªæ’æ§½); 41ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯ | d945d4b3 |
-| P0-005-009-011-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T06:20 | âœ… | éªŒè¯PageP11Screen: 41/41æµ‹è¯•é€šè¿‡; vue-tscé›¶é”™è¯¯; 6é¡¹éªŒè¯æ¸…å•(æ·±è‰²ä¸»é¢˜/å›¾è¡¨ç½‘æ ¼/å®šæ—¶åˆ·æ–°/å…¨å±åˆ‡æ¢/å“åº”å¼ç¼©æ”¾/æ•°æ®åŠ¨æ€æ•ˆæœ)å…¨éƒ¨é€šè¿‡ | (éªŒè¯ä»»åŠ¡) |
-| P0-005-010-003-001-003 | å®ç°ç»„ä»¶é€»è¾‘ | 2026-06-06T10:00 | âœ… | ErpNumberInputç»„ä»¶é€»è¾‘: æ·»åŠ displayValueè®¡ç®—å±æ€§(åƒåˆ†ä½æ ¼å¼åŒ–); 29/29å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡; vue-tscé›¶é”™è¯¯; vite buildæˆåŠŸ; å“åº”å¼çŠ¶æ€/computed/watch/äº‹ä»¶å¤„ç†/ç”Ÿå‘½å‘¨æœŸå®Œæ•´ | (å¾…æäº¤) |
+| P0-005-009-008-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T05:25 | ? | PageP08KanbanºËĞÄ´úÂë: page-base.d.tsĞÂÔöKanbanPageConfig/KanbanColumnConfig/KanbanItemConfig+¸üĞÂPageConfigÁªºÏÀàĞÍ; PageP08Kanban.vue(²éÑ¯Çø/²Ù×÷À¸/¿´°åÁĞ+¿¨Æ¬+ÑÕÉ«Ö÷Ìâ/empty/²å²Û); 35¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | ¡ª |
+| P0-005-009-008-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T05:35 | ? | ÑéÖ¤PageP08Kanban: 35/35²âÊÔÍ¨¹ı; vue-tscÁã´íÎó; vite build³É¹¦(5.64s); 6ÏîÑéÖ¤Çåµ¥(Ó¾µÀäÖÈ¾/¿¨Æ¬äÖÈ¾/µã»÷ÊÂ¼ş/È¨ÏŞ¿ØÖÆ/²å²Û/±ß½çÌõ¼ş)È«²¿Í¨¹ı | (´ıÌá½») |
+| P0-005-009-009-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T06:10 | ? | page-base.d.tsĞÂÔöQueryPageConfig/QueryFieldConfigÀàĞÍ+¸üĞÂPageConfigÁªºÏÀàĞÍ; PageP09Query.vue(²éÑ¯ÇøÅäÖÃÇı¶¯äÖÈ¾/²Ù×÷À¸/½á¹û¼ÆÊı/Ö÷ÄÚÈİÇø/·ÖÒ³Çø/extra-area+6¸ö²å²Û); 33¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | (´ıÌá½») |
+| P0-005-009-009-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T05:50 | ? | PageP09Query¹¦ÄÜÑéÖ¤: 33/33²âÊÔÍ¨¹ı; vue-tscÁã´íÎó; È«²¿9¸öpage-base×é¼ş259/259²âÊÔÍ¨¹ı; ÑéÖ¤Çåµ¥6ÏîÖĞ4ÏîPASS+2ÏîN/A(ÊôÏû·ÑÕßÒ³Ãæ·¶Î§) | 118c8055 |
+| P0-005-009-010-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T06:00 | ? | page-base.d.tsĞÂÔöReportPageConfig+ReportFilterConfig+ReportColumnConfig+ReportTreeConfig+ReportLedgerConfigÀàĞÍ+¸üĞÂPageConfigÁªºÏÀàĞÍ; PageP10Report.vue(±¨±íÌõ¼ş¹ıÂËÃæ°å/²Ù×÷À¸´òÓ¡µ¼³ö/3ÖÖ±¨±í²¼¾Ötable+tree+ledger/5¸ö²å²Û); 47¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | 20365f1a |
+| P0-005-009-010-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T06:15 | ? | ÑéÖ¤PageP10Report: 47/47µ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó; 6ÏîÑéÖ¤Çåµ¥(Ìõ¼şÇø/±¨±íÕ¹Ê¾/´©Í¸×êÈ¡ÊÂ¼ş/Í¼±í²å²Û/µ¼³ö¹¦ÄÜ/´òÓ¡¹¦ÄÜ)È«²¿Éó²éÍ¨¹ı | 727c9671 |
+| P0-005-009-011-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T06:05 | ? | page-base.d.tsĞÂÔöScreenPageConfig+ScreenKpiConfig+ScreenChartItemConfigÀàĞÍ+¸üĞÂPageConfigÁªºÏÀàĞÍ; PageP11Screen.vue(ÉîÉ«Ö÷Ìâ/Í¼±íÍø¸ñ/¶¨Ê±Ë¢ĞÂ/È«ÆÁÇĞ»»/ÏìÓ¦Ê½Ëõ·Å/KPIÊıÖµ¶¯»­/4¸ö²å²Û); 41¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó | d945d4b3 |
+| P0-005-009-011-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T06:20 | ? | ÑéÖ¤PageP11Screen: 41/41²âÊÔÍ¨¹ı; vue-tscÁã´íÎó; 6ÏîÑéÖ¤Çåµ¥(ÉîÉ«Ö÷Ìâ/Í¼±íÍø¸ñ/¶¨Ê±Ë¢ĞÂ/È«ÆÁÇĞ»»/ÏìÓ¦Ê½Ëõ·Å/Êı¾İ¶¯Ì¬Ğ§¹û)È«²¿Í¨¹ı | (ÑéÖ¤ÈÎÎñ) |
+| P0-005-010-003-001-003 | ÊµÏÖ×é¼şÂß¼­ | 2026-06-06T10:00 | ? | ErpNumberInput×é¼şÂß¼­: Ìí¼ÓdisplayValue¼ÆËãÊôĞÔ(Ç§·ÖÎ»¸ñÊ½»¯); 29/29µ¥Ôª²âÊÔÈ«²¿Í¨¹ı; vue-tscÁã´íÎó; vite build³É¹¦; ÏìÓ¦Ê½×´Ì¬/computed/watch/ÊÂ¼ş´¦Àí/ÉúÃüÖÜÆÚÍêÕû | (´ıÌá½») |
 
-## æ±‡æ€»ç»Ÿè®¡
+## »ã×ÜÍ³¼Æ
 
-| ä¼˜å…ˆçº§ | æ¨¡å—æ•° | å¶å­ä»»åŠ¡æ€»æ•° | å·²å®Œæˆ | å·²è·³è¿‡ | å®Œæˆç‡ |
+| ÓÅÏÈ¼¶ | Ä£¿éÊı | Ò¶×ÓÈÎÎñ×ÜÊı | ÒÑÍê³É | ÒÑÌø¹ı | Íê³ÉÂÊ |
 |:-----:|:-----:|:----------:|:-----:|:-----:|:-----:|
 | P0 | 14 | 2,147 | 555 | 2 | 25.9% |
 | P1 | 15 | 1,464 | 0 | 0 | 0.0% |
 | P2 | 17 | 1,105 | 0 | 0 | 0.0% |
-| **åˆè®¡** | **46** | **4,716** | **553** | **2** | **11.7%** |
+| **ºÏ¼Æ** | **46** | **4,716** | **553** | **2** | **11.7%** |
 
 ---
 
-## ç»´æŠ¤è§„åˆ™
+## Î¬»¤¹æÔò
 
-1. **å†™å…¥æ—¶æœº**ï¼šä»»åŠ¡è‡ªæ£€é€šè¿‡åç«‹å³è¿½åŠ 
-2. **åªå¢ä¸åˆ **ï¼šå½’æ¡£è®°å½•ä¸€æ—¦å†™å…¥ä¸å¾—åˆ é™¤ï¼ˆç¬”è¯¯å¯ä¿®æ­£ï¼‰
-3. **å†…å®¹é™åˆ¶**ï¼šä»…è®°ç¼–å·ã€åç§°ã€æ—¶é—´ã€çŠ¶æ€ã€æ‘˜è¦ã€SHAï¼Œç¦æ­¢å†™å…¥ä»£ç æˆ–ä¸šåŠ¡ç»†èŠ‚
-4. **æ¨¡å—åˆ†èŠ‚**ï¼šå½“æŸæ¨¡å—å®Œæˆè®°å½•è¶…è¿‡ 50 æ¡æ—¶ï¼Œåœ¨è¯¥æ¨¡å—åŒºå—å†…æŒ‰å­ä»»åŠ¡ç»„åˆ†å°èŠ‚
-5. **ç»Ÿè®¡åŒæ­¥**ï¼šæ¯æ¬¡æ–°å¢åæ›´æ–°åº•éƒ¨æ±‡æ€»è¡¨
+1. **Ğ´ÈëÊ±»ú**£ºÈÎÎñ×Ô¼ìÍ¨¹ıºóÁ¢¼´×·¼Ó
+2. **Ö»Ôö²»É¾**£º¹éµµ¼ÇÂ¼Ò»µ©Ğ´Èë²»µÃÉ¾³ı£¨±ÊÎó¿ÉĞŞÕı£©
+3. **ÄÚÈİÏŞÖÆ**£º½ö¼Ç±àºÅ¡¢Ãû³Æ¡¢Ê±¼ä¡¢×´Ì¬¡¢ÕªÒª¡¢SHA£¬½ûÖ¹Ğ´Èë´úÂë»òÒµÎñÏ¸½Ú
+4. **Ä£¿é·Ö½Ú**£ºµ±Ä³Ä£¿éÍê³É¼ÇÂ¼³¬¹ı 50 ÌõÊ±£¬ÔÚ¸ÃÄ£¿éÇø¿éÄÚ°´×ÓÈÎÎñ×é·ÖĞ¡½Ú
+5. **Í³¼ÆÍ¬²½**£ºÃ¿´ÎĞÂÔöºó¸üĞÂµ×²¿»ã×Ü±í
 
-### æ¨¡å—å®Œæˆ: P0-004 âœ…
+### Ä£¿éÍê³É: P0-004 ?
 
-| P0-005-009-012-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T06:25 | âœ… | PageP12Profileä¸ªäººä¸­å¿ƒé¡µé¢åŸºåº§ç»„ä»¶ï¼ˆVueç»„ä»¶+40é¡¹æµ‹è¯•+ç±»å‹å®šä¹‰ï¼‰ | b3dca34c |
-| P0-005-009-012-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T06:35 | âœ… | éªŒè¯PageP12Profileç»„ä»¶ï¼š40/40æµ‹è¯•é€šè¿‡ï¼Œ387/387å…¨page-baseæµ‹è¯•é€šè¿‡ï¼Œvue-tscç¼–è¯‘é€šè¿‡ | |
-| P0-005-009-013-001-001 | ç¼–å†™é…ç½®æ–‡ä»¶ç±» | 2026-06-06T07:00 | âœ… | page-base.d.tsæ–°å¢ConfigPageConfig+ConfigFormFieldConfig+ConfigGroupConfig+ConfigNavItemConfigç±»å‹ï¼›PageConfigè”åˆç±»å‹æ›´æ–°ï¼›vue-tscé›¶é”™è¯¯ | c2daf19d |
-| P0-005-009-013-001-002 | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® | 2026-06-06T07:20 | âœ… | éªŒè¯P13é…ç½®ç±»å‹ï¼švue-tscé›¶é”™è¯¯ï¼ˆæ— ConfigPageConfigç›¸å…³TSé”™è¯¯ï¼‰ï¼›.envå››æ–‡ä»¶è¯­æ³•æ­£ç¡®æ— ç¡¬ç¼–ç æ•æ„Ÿä¿¡æ¯ï¼›ConfigPageConfigå·²æ­£ç¡®é›†æˆè‡³PageConfigè”åˆç±»å‹å¯æ­£å¸¸å¼•ç”¨ | (å¾…æäº¤) |
-| P0-005-009-014-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T07:36 | âœ… | PageP14AIDialog AIå¯¹è¯é¡µé¢åŸºåº§ç»„ä»¶ï¼šVueç»„ä»¶ï¼ˆå¯¹è¯åŒº+ç»“æœå±•ç¤ºåŒº+æµå¼è¾“å‡º+å†å²è®°å½•+ä¸­æ–­/é‡æ–°ç”Ÿæˆï¼‰+25é¡¹å•å…ƒæµ‹è¯•+5ä¸ªTypeScriptç±»å‹å®šä¹‰ï¼ˆAIDialogPageConfig/AIDialogMessageConfig/AIResultType/AIDialogHistoryConfigï¼‰ï¼Œvue-tscé›¶é”™è¯¯ï¼Œbuildé€šè¿‡ï¼Œ25/25æµ‹è¯•é€šè¿‡ | (å¾…æäº¤) |
-| P0-005-009-014-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T06:42 | âœ… | éªŒè¯PageP14AIDialogç»„ä»¶ï¼š25/25æµ‹è¯•é€šè¿‡ï¼›13ä¸ªpage-baseç»„ä»¶412/412å…¨é‡æµ‹è¯•é€šè¿‡ï¼›vue-tscç±»å‹æ£€æŸ¥é›¶é”™è¯¯ï¼›vite buildæˆåŠŸ(5.76s)ï¼›6é¡¹éªŒè¯æ¸…å•(å¯¹è¯åŒº/SSEæµå¼/ç»“æœå±•ç¤ºåŒº/å†å²è®°å½•/ä¸­æ–­ç”Ÿæˆ/é‡æ–°ç”Ÿæˆ)å…¨éƒ¨é€šè¿‡ | (å¾…æäº¤) |
-| P0-005-009-015-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-06T06:52 | âœ… | PageP15Designerè®¾è®¡å™¨é¡µé¢åŸºåº§ç»„ä»¶ï¼šVueç»„ä»¶ï¼ˆä¸‰æ å¸ƒå±€+ç»„ä»¶é¢æ¿/ç”»å¸ƒ/å±æ€§é¢æ¿+æ‹–æ‹½æ”¾ç½®+åˆ†ç±»ç­›é€‰+ç»„ä»¶å¢åˆ ç§»åŠ¨+å±æ€§é…ç½®ï¼‰+24é¡¹å•å…ƒæµ‹è¯•+3ä¸ªTypeScriptç±»å‹å®šä¹‰ï¼ˆDesignerPageConfig/DesignerComponentItemConfig/DesignerAvailableComponentConfigï¼‰ï¼Œvue-tscé›¶é”™è¯¯ï¼Œbuildé€šè¿‡ï¼Œ24/24æµ‹è¯•é€šè¿‡ | (å¾…æäº¤) |
-| P0-005-009-015-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-06T07:00 | âœ… | éªŒè¯PageP15Designerç»„ä»¶ï¼š24/24å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡ï¼›vue-tsc --noEmité›¶ç±»å‹é”™è¯¯ï¼›6é¡¹éªŒè¯æ¸…å•(å·¥å…·æ /ç»„ä»¶é¢æ¿/ç”»å¸ƒ/å±æ€§é¢æ¿/æ‹–æ‹½ç»„ä»¶/å±æ€§ç¼–è¾‘)å…¨éƒ¨é€šè¿‡ï¼›page-readyäº‹ä»¶æ­£ç¡®emitï¼›canvas-placeholderç©ºçŠ¶æ€æ­£ç¡®æ¸²æŸ“ | (å¾…æäº¤) |
-| P0-005-010-001-001-001 | å®šä¹‰ç»„ä»¶propsemits | 2026-06-06T07:06 | âœ… | basic-inputå•è¡Œæ–‡æœ¬è¾“å…¥æ¡†ç»„ä»¶ï¼šVueç»„ä»¶(ErpInput)+TypeScriptç±»å‹å®šä¹‰(ErpInputProps/ErpInputEmits/ErpInputExpose/ValidatorRule)+19é¡¹å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡ï¼Œvue-tscé›¶é”™è¯¯ | (å¾…æäº¤) |
-| P0-005-010-001-001-002 | å®ç°ç»„ä»¶æ¨¡æ¿ç»“æ„ | 2026-06-06T07:12 | âœ… | å¢å¼ºbasic-inputæ¨¡æ¿ç»“æ„ï¼šBEMå‘½å(.basic-input__header/content/footer)+åŠ è½½æ€/ç©ºæ€/æ­£å¸¸æ€ä¸‰æ€åˆ‡æ¢+v-foré”™è¯¯æ¶ˆæ¯åˆ—è¡¨+äº‹ä»¶ä¿®é¥°ç¬¦(.stop)+CSSå˜é‡ä¸»é¢˜é€‚é…ï¼›æ–°å¢loading/maxLength/showWordLimit/size propsï¼›36é¡¹å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡ï¼›vue-tscé›¶é”™è¯¯ | (å¾…æäº¤) |
-| P0-005-010-001-001-003 | å®ç°ç»„ä»¶é€»è¾‘ | 2026-06-06T07:22 | âœ… | é‡æ„ä¸ºref+watchæ¨¡å¼(innerValue);æ–°å¢displayValue/isValid/errorMsgè®¡ç®—å±æ€§;watch(fieldConfig)é‡æ–°åˆå§‹åŒ–;onMounted/onBeforeUnmountç”Ÿå‘½å‘¨æœŸ;handleInputäº‹ä»¶å¤„ç†;FieldConfigå¢åŠ titleå±æ€§;36é¡¹æµ‹è¯•é€šè¿‡;vue-tscé›¶basic-inputé”™è¯¯ | (å¾…æäº¤) |
-| P0-005-010-001-002-001-001 | è§£æè”åŠ¨è§„åˆ™é…ç½®JSON | 2026-06-06T07:30 | âœ… | LinkageConditionConfig/LinkageRuleConfigç±»å‹å®šä¹‰;buildConditionFn(12ç§è¿ç®—ç¬¦);parseLinkageJson(JSONâ†’FieldLinkageRule[]);é»˜è®¤è”åŠ¨é…ç½®JSONæ–‡ä»¶;é…ç½®è¯´æ˜æ–‡æ¡£;48å•æµ‹é€šè¿‡;vue-tscé›¶é”™è¯¯ | (å¾…æäº¤) |
-| P0-005-010-001-002-001-002 | ç›‘å¬è§¦å‘å­—æ®µå˜åŒ– | 2026-06-06T07:45 | âœ… | useFormLinkageæ–°å¢watchFieldLinkages(è‡ªåŠ¨ç›‘å¬è§¦å‘å­—æ®µ+é—¨ç¦é˜²é‡å…¥+stopæ¸…ç†);basic-inputé›†æˆè”åŠ¨ç›‘å¬(watch innerValueâ†’emit linkage event);typesæ–°å¢ErpInputLinkageEvent/change emit;99å•æµ‹é€šè¿‡;vite buildæˆåŠŸ | (å¾…æäº¤) |
-| P0-005-010-001-002-001-003 | æ‰§è¡Œè”åŠ¨åŠ¨ä½œ | 2026-06-06T07:50 | âœ… | æ–°å¢setRequiredè”åŠ¨åŠ¨ä½œ(types/list-table.d.ts);FieldLinkageState.required;processLinkageså¤„ç†setRequired;applyLinkageResultåº”ç”¨requiredChanges;isFieldRequiredæŸ¥è¯¢å‡½æ•°;resetæ¸…ç†;é»˜è®¤è§„åˆ™JSONç¤ºä¾‹;106å•æµ‹é€šè¿‡;vue-tscé›¶é”™è¯¯ | (å¾…æäº¤) |
-| P0-005-010-001-002-002 | å®ç°è”åŠ¨æ‰§è¡Œå¼•æ“ | 2026-06-06T08:10 | âœ… | useFormLinkageè”åŠ¨æ‰§è¡Œå¼•æ“å®Œæ•´å®ç°:processLinkages(7ç§åŠ¨ä½œ)/executeLinkages(å…¨æµç¨‹)/runLinkageChain(çº§è”+å¾ªç¯æ£€æµ‹)/watchFieldLinkages(è‡ªåŠ¨ç›‘å¬)/applyLinkageResult+applyOptionsResult(ç»“æœåº”ç”¨)/stateæŸ¥è¯¢(isFieldVisible/Disabled/Required);è¦†ç›–ç‡96.13%(>80%);106è”åŠ¨å•æµ‹é€šè¿‡;vue-tscé›¶é”™è¯¯ | 51696454 |
-| P0-005-010-002-001-001 | å®šä¹‰ç»„ä»¶propsemits | 2026-06-06T08:15 | âœ… | ErpTextareaå¤šè¡Œæ–‡æœ¬è¾“å…¥æ¡†ç»„ä»¶:Vueç»„ä»¶(210è¡Œ)+TypeScriptç±»å‹(ErpTextareaProps/Emits/Exposeæ‰©å±•è‡³basic-input.d.ts)+40é¡¹å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡;vue-tscé›¶é”™è¯¯ | 18ef7fbd |
-| P0-005-010-002-001-002 | å®ç°ç»„ä»¶æ¨¡æ¿ç»“æ„ | 2026-06-06T08:20 | âœ… | ErpTextareaæ¨¡æ¿ç»“æ„:BEMå‘½å(basic-input--textarea/__header/__content/__footer)+æ¡ä»¶æ¸²æŸ“(v-if:loading/header/footer/errors)+åˆ—è¡¨æ¸²æŸ“(v-for errorMessages :key)+Element Plus(el-input textarea/el-skeleton)+äº‹ä»¶ä¿®é¥°ç¬¦(.stop)+Scopedæ ·å¼;40å•æµ‹é€šè¿‡;vue-tscé›¶é”™è¯¯ | c8496710 |
-| P0-005-010-002-001-003 | å®ç°ç»„ä»¶é€»è¾‘ | 2026-06-06T08:20 | âœ… | ErpTextareaç»„ä»¶é€»è¾‘:refå“åº”å¼çŠ¶æ€(innerValue/errorMessages/lastEmittedValue)+computed(displayValue/isValid/errorMsg)+watch(modelValue/fieldConfig/linkage)+äº‹ä»¶å¤„ç†(handleInput/handleFocus/handleBlur)+validate(åŒæ­¥+å¼‚æ­¥æ ¡éªŒå™¨)+reset+onMounted/onBeforeUnmountç”Ÿå‘½å‘¨æœŸ;40å•æµ‹å…¨éƒ¨é€šè¿‡;vue-tscé›¶é”™è¯¯ | fcc89084 |
-| P0-005-010-002-002-001-001 | è°ƒç”¨å­—æ®µé…ç½®APIè·å–å½“å‰å•æ®çš„å­—æ®µé…ç½®åˆ—è¡¨ | 2026-06-06T08:45 | âœ… | fieldConfig APIæ¨¡å—+ç±»å‹å®šä¹‰:src/api/types/fieldConfig.ts(FieldConfigItem/FieldConfigQuery/FieldConfigListResponse)+src/api/modules/fieldConfig.ts(getFieldConfigList/getFieldConfigItem);vue-tscé›¶é”™è¯¯;JSDocæ–‡æ¡£é…ç½®è¯´æ˜ | 7fde4eee |
-| P0-005-010-002-002-001-002 | åŠ¨æ€æ¸²æŸ“å­—æ®µç»„ä»¶ | 2026-06-06T09:00 | âœ… | ErpFieldRendereråŠ¨æ€æ¸²æŸ“å™¨:Vueç»„ä»¶(133è¡Œ)+TypeScriptç±»å‹(ErpFieldRendererProps/Emits/Expose/FieldTypeComponentMapping)+36é¡¹å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡;vue-tscé›¶é”™è¯¯;è¦†ç›–ç‡80.64% | daf4feb3 |
-| P0-005-010-002-002-001-003 | æ‰§è¡Œå­—æ®µæ ¡éªŒè§„åˆ™ | 2026-06-06T09:35 | âœ… | éªŒè¯ErpFieldRenderer+ErpTextareaå­—æ®µæ ¡éªŒè§„åˆ™:76/76å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(ErpFieldRenderer 36+ErpTextarea 40);vue-tscé›¶é”™è¯¯;6é¡¹éªŒè¯å…¨é€šè¿‡(autoSize/maxRow/maxLength/v-model/disabled/æ ¡éªŒ) | e0d59e29 |
-| P0-005-010-002-002-001-004 | æ‰§è¡Œå­—æ®µæ˜¾éšè”åŠ¨ | 2026-06-06T09:50 | âœ… | ErpFieldRendereræ–°å¢visible prop(v-ifæ§åˆ¶æ¸²æŸ“/validate+reseté€‚é…éšè—æ€)+ç±»å‹å®šä¹‰æ›´æ–°(ErpFieldRendererProps.visible)+6é¡¹æ–°æµ‹è¯•(41/41é€šè¿‡);1160/1160å…¨é‡æµ‹è¯•é›¶å›å½’;vue-tscé›¶é”™è¯¯ | ea6e3aac |
-| P0-005-010-002-002-002-001 | æ”¶é›†è¡¨å•å­—æ®µå€¼ | 2026-06-06T09:00 | âœ… | å­—æ®µå€¼æ”¶é›†å™¨:IFieldCollectoræ¥å£+useFieldCollectorç»„åˆå¼å‡½æ•°(27å•æµ‹)+FieldConfigBinder(è§„åˆ™è½¬æ¢)+FormValidator(è¡¨å•çº§æ ¡éªŒç¼–æ’);types/basic-input.d.tsæ›´æ–°;vue-tscé›¶é”™è¯¯ | 67bf65a9 |
-| P0-005-010-002-002-002-002 | æ‰§è¡Œå­—æ®µæ ¡éªŒè§„åˆ™ | 2026-06-06T09:06 | âœ… | éªŒè¯å­—æ®µæ ¡éªŒè§„åˆ™:153ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(ErpInput 50+ErpTextarea 31+ErpFieldRenderer 36+useFieldCollector 27+v-modelè”åŠ¨9);éªŒè¯æ¸…å•6é¡¹å…¨éƒ¨é€šè¿‡(autoSize/maxRow/maxLength/v-model/æ ¡éªŒè§„åˆ™ç»‘å®š/disabledæ€);æµ‹è¯•æŠ¥å‘Šå·²äº§å‡º | (éªŒè¯ä»»åŠ¡) |
-| P0-005-010-002-002-002-003 | ä¿å­˜ä¸»è¡¨å­—æ®µå€¼ | 2026-06-06T09:15 | âœ… | useMutationç»„åˆå¼å‡½æ•°(create/update/autoDetectMode/versionå›è°ƒ)+fieldConfig API save endpoints(createFieldConfig/updateFieldConfig)+23å•æµ‹å…¨é€šè¿‡+1210å…¨é‡å›å½’é›¶å¤±è´¥;æµ‹è¯•æŠ¥å‘Šå·²äº§å‡º | dbcbb9bd |
-| P0-005-010-002-002-002-004 | ä¿å­˜æ‰©å±•å­—æ®µå€¼ | 2026-06-06T09:30 | âœ… | useExtFieldSaveç»„åˆå¼å‡½æ•°(extractExtensionFieldsåˆ†ç¦»æ‰©å±•å­—æ®µ+saveExtFieldsæ–°å¢/æ›´æ–°è‡ªåŠ¨åˆ¤æ–­)+fieldConfig APIæ‰©å±•ç«¯ç‚¹(saveExtensionFields/updateExtensionFields)+FieldConfigæ–°å¢isExtensionæ ‡è®°+23å•æµ‹å…¨é€šè¿‡;vue-tscé›¶é”™è¯¯;æµ‹è¯•æŠ¥å‘Šå·²äº§å‡º | dfedf04b |
-| P0-005-010-002-002-003 | éªŒè¯å­—æ®µé…ç½®é›†æˆ | 2026-06-06T09:35 | âœ… | éªŒè¯å­—æ®µé…ç½®é›†æˆ:46å•æµ‹å…¨é€šè¿‡(useMutation23+useExtFieldSave23);å…¨é‡1233å›å½’é€šè¿‡;vue-tscé›¶é”™è¯¯;æ— ç¡¬ç¼–ç æ•æ„Ÿä¿¡æ¯;ç±»å‹â†’APIâ†’Composableâ†’ç»„ä»¶é›†æˆé“¾è·¯å®Œæ•´;éªŒè¯æŠ¥å‘Šå·²äº§å‡º | (éªŒè¯ä»»åŠ¡) |
-| P0-005-010-003-001-001 | å®šä¹‰ç»„ä»¶propsemits | 2026-06-06T09:45 | âœ… | ErpNumberInputæ•´æ•°å½•å…¥æ¡†ç»„ä»¶:Vueç»„ä»¶(175è¡Œ)+TypeScriptç±»å‹(ErpNumberInputProps/Emits/Expose types/basic-input.d.ts)+29é¡¹å•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(182å…¨é‡å›å½’)+ErpFieldRenderer.numberæ˜ å°„+FieldTypeComponentMappingæ‰©å±•;vue-tscé›¶é”™è¯¯ | (å¾…æäº¤)
-| P0-005-010-003-001-002 | å®ç°ç»„ä»¶æ¨¡æ¿ç»“æ„ | 2026-06-06T10:00 | âœ… | ErpNumberInputæ¨¡æ¿å¢å¼º:ä¸‰æ€æ¸²æŸ“(åŠ è½½éª¨æ¶å±/æ­£å¸¸el-input-number)/BEMå‘½åç©ºé—´(basic-input--number)/v-if+v-for+äº‹ä»¶ä¿®é¥°ç¬¦(.stop)/Scopedæ ·å¼(CSSå˜é‡ä¸»é¢˜é€‚é…/5ç§çŠ¶æ€å˜ä½“/6ä¸ªBEMå…ƒç´ /Element Plusæ·±åº¦é€‰æ‹©å™¨);29ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡;182å…¨é‡å›å½’é€šè¿‡;vue-tscé›¶é”™è¯¯ | (å¾…æäº¤)
+| P0-005-009-012-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T06:25 | ? | PageP12Profile¸öÈËÖĞĞÄÒ³Ãæ»ù×ù×é¼ş£¨Vue×é¼ş+40Ïî²âÊÔ+ÀàĞÍ¶¨Òå£© | b3dca34c |
+| P0-005-009-012-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T06:35 | ? | ÑéÖ¤PageP12Profile×é¼ş£º40/40²âÊÔÍ¨¹ı£¬387/387È«page-base²âÊÔÍ¨¹ı£¬vue-tsc±àÒëÍ¨¹ı | |
+| P0-005-009-013-001-001 | ±àĞ´ÅäÖÃÎÄ¼şÀà | 2026-06-06T07:00 | ? | page-base.d.tsĞÂÔöConfigPageConfig+ConfigFormFieldConfig+ConfigGroupConfig+ConfigNavItemConfigÀàĞÍ£»PageConfigÁªºÏÀàĞÍ¸üĞÂ£»vue-tscÁã´íÎó | c2daf19d |
+| P0-005-009-013-001-002 | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ | 2026-06-06T07:20 | ? | ÑéÖ¤P13ÅäÖÃÀàĞÍ£ºvue-tscÁã´íÎó£¨ÎŞConfigPageConfigÏà¹ØTS´íÎó£©£».envËÄÎÄ¼şÓï·¨ÕıÈ·ÎŞÓ²±àÂëÃô¸ĞĞÅÏ¢£»ConfigPageConfigÒÑÕıÈ·¼¯³ÉÖÁPageConfigÁªºÏÀàĞÍ¿ÉÕı³£ÒıÓÃ | (´ıÌá½») |
+| P0-005-009-014-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T07:36 | ? | PageP14AIDialog AI¶Ô»°Ò³Ãæ»ù×ù×é¼ş£ºVue×é¼ş£¨¶Ô»°Çø+½á¹ûÕ¹Ê¾Çø+Á÷Ê½Êä³ö+ÀúÊ·¼ÇÂ¼+ÖĞ¶Ï/ÖØĞÂÉú³É£©+25Ïîµ¥Ôª²âÊÔ+5¸öTypeScriptÀàĞÍ¶¨Òå£¨AIDialogPageConfig/AIDialogMessageConfig/AIResultType/AIDialogHistoryConfig£©£¬vue-tscÁã´íÎó£¬buildÍ¨¹ı£¬25/25²âÊÔÍ¨¹ı | (´ıÌá½») |
+| P0-005-009-014-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T06:42 | ? | ÑéÖ¤PageP14AIDialog×é¼ş£º25/25²âÊÔÍ¨¹ı£»13¸öpage-base×é¼ş412/412È«Á¿²âÊÔÍ¨¹ı£»vue-tscÀàĞÍ¼ì²éÁã´íÎó£»vite build³É¹¦(5.76s)£»6ÏîÑéÖ¤Çåµ¥(¶Ô»°Çø/SSEÁ÷Ê½/½á¹ûÕ¹Ê¾Çø/ÀúÊ·¼ÇÂ¼/ÖĞ¶ÏÉú³É/ÖØĞÂÉú³É)È«²¿Í¨¹ı | (´ıÌá½») |
+| P0-005-009-015-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-06T06:52 | ? | PageP15DesignerÉè¼ÆÆ÷Ò³Ãæ»ù×ù×é¼ş£ºVue×é¼ş£¨ÈıÀ¸²¼¾Ö+×é¼şÃæ°å/»­²¼/ÊôĞÔÃæ°å+ÍÏ×§·ÅÖÃ+·ÖÀàÉ¸Ñ¡+×é¼şÔöÉ¾ÒÆ¶¯+ÊôĞÔÅäÖÃ£©+24Ïîµ¥Ôª²âÊÔ+3¸öTypeScriptÀàĞÍ¶¨Òå£¨DesignerPageConfig/DesignerComponentItemConfig/DesignerAvailableComponentConfig£©£¬vue-tscÁã´íÎó£¬buildÍ¨¹ı£¬24/24²âÊÔÍ¨¹ı | (´ıÌá½») |
+| P0-005-009-015-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-06T07:00 | ? | ÑéÖ¤PageP15Designer×é¼ş£º24/24µ¥Ôª²âÊÔÈ«²¿Í¨¹ı£»vue-tsc --noEmitÁãÀàĞÍ´íÎó£»6ÏîÑéÖ¤Çåµ¥(¹¤¾ßÀ¸/×é¼şÃæ°å/»­²¼/ÊôĞÔÃæ°å/ÍÏ×§×é¼ş/ÊôĞÔ±à¼­)È«²¿Í¨¹ı£»page-readyÊÂ¼şÕıÈ·emit£»canvas-placeholder¿Õ×´Ì¬ÕıÈ·äÖÈ¾ | (´ıÌá½») |
+| P0-005-010-001-001-001 | ¶¨Òå×é¼şpropsemits | 2026-06-06T07:06 | ? | basic-inputµ¥ĞĞÎÄ±¾ÊäÈë¿ò×é¼ş£ºVue×é¼ş(ErpInput)+TypeScriptÀàĞÍ¶¨Òå(ErpInputProps/ErpInputEmits/ErpInputExpose/ValidatorRule)+19Ïîµ¥Ôª²âÊÔÈ«²¿Í¨¹ı£¬vue-tscÁã´íÎó | (´ıÌá½») |
+| P0-005-010-001-001-002 | ÊµÏÖ×é¼şÄ£°å½á¹¹ | 2026-06-06T07:12 | ? | ÔöÇ¿basic-inputÄ£°å½á¹¹£ºBEMÃüÃû(.basic-input__header/content/footer)+¼ÓÔØÌ¬/¿ÕÌ¬/Õı³£Ì¬ÈıÌ¬ÇĞ»»+v-for´íÎóÏûÏ¢ÁĞ±í+ÊÂ¼şĞŞÊÎ·û(.stop)+CSS±äÁ¿Ö÷ÌâÊÊÅä£»ĞÂÔöloading/maxLength/showWordLimit/size props£»36Ïîµ¥Ôª²âÊÔÈ«²¿Í¨¹ı£»vue-tscÁã´íÎó | (´ıÌá½») |
+| P0-005-010-001-001-003 | ÊµÏÖ×é¼şÂß¼­ | 2026-06-06T07:22 | ? | ÖØ¹¹Îªref+watchÄ£Ê½(innerValue);ĞÂÔödisplayValue/isValid/errorMsg¼ÆËãÊôĞÔ;watch(fieldConfig)ÖØĞÂ³õÊ¼»¯;onMounted/onBeforeUnmountÉúÃüÖÜÆÚ;handleInputÊÂ¼ş´¦Àí;FieldConfigÔö¼ÓtitleÊôĞÔ;36Ïî²âÊÔÍ¨¹ı;vue-tscÁãbasic-input´íÎó | (´ıÌá½») |
+| P0-005-010-001-002-001-001 | ½âÎöÁª¶¯¹æÔòÅäÖÃJSON | 2026-06-06T07:30 | ? | LinkageConditionConfig/LinkageRuleConfigÀàĞÍ¶¨Òå;buildConditionFn(12ÖÖÔËËã·û);parseLinkageJson(JSON¡úFieldLinkageRule[]);Ä¬ÈÏÁª¶¯ÅäÖÃJSONÎÄ¼ş;ÅäÖÃËµÃ÷ÎÄµµ;48µ¥²âÍ¨¹ı;vue-tscÁã´íÎó | (´ıÌá½») |
+| P0-005-010-001-002-001-002 | ¼àÌı´¥·¢×Ö¶Î±ä»¯ | 2026-06-06T07:45 | ? | useFormLinkageĞÂÔöwatchFieldLinkages(×Ô¶¯¼àÌı´¥·¢×Ö¶Î+ÃÅ½û·ÀÖØÈë+stopÇåÀí);basic-input¼¯³ÉÁª¶¯¼àÌı(watch innerValue¡úemit linkage event);typesĞÂÔöErpInputLinkageEvent/change emit;99µ¥²âÍ¨¹ı;vite build³É¹¦ | (´ıÌá½») |
+| P0-005-010-001-002-001-003 | Ö´ĞĞÁª¶¯¶¯×÷ | 2026-06-06T07:50 | ? | ĞÂÔösetRequiredÁª¶¯¶¯×÷(types/list-table.d.ts);FieldLinkageState.required;processLinkages´¦ÀísetRequired;applyLinkageResultÓ¦ÓÃrequiredChanges;isFieldRequired²éÑ¯º¯Êı;resetÇåÀí;Ä¬ÈÏ¹æÔòJSONÊ¾Àı;106µ¥²âÍ¨¹ı;vue-tscÁã´íÎó | (´ıÌá½») |
+| P0-005-010-001-002-002 | ÊµÏÖÁª¶¯Ö´ĞĞÒıÇæ | 2026-06-06T08:10 | ? | useFormLinkageÁª¶¯Ö´ĞĞÒıÇæÍêÕûÊµÏÖ:processLinkages(7ÖÖ¶¯×÷)/executeLinkages(È«Á÷³Ì)/runLinkageChain(¼¶Áª+Ñ­»·¼ì²â)/watchFieldLinkages(×Ô¶¯¼àÌı)/applyLinkageResult+applyOptionsResult(½á¹ûÓ¦ÓÃ)/state²éÑ¯(isFieldVisible/Disabled/Required);¸²¸ÇÂÊ96.13%(>80%);106Áª¶¯µ¥²âÍ¨¹ı;vue-tscÁã´íÎó | 51696454 |
+| P0-005-010-002-001-001 | ¶¨Òå×é¼şpropsemits | 2026-06-06T08:15 | ? | ErpTextarea¶àĞĞÎÄ±¾ÊäÈë¿ò×é¼ş:Vue×é¼ş(210ĞĞ)+TypeScriptÀàĞÍ(ErpTextareaProps/Emits/ExposeÀ©Õ¹ÖÁbasic-input.d.ts)+40Ïîµ¥Ôª²âÊÔÈ«²¿Í¨¹ı;vue-tscÁã´íÎó | 18ef7fbd |
+| P0-005-010-002-001-002 | ÊµÏÖ×é¼şÄ£°å½á¹¹ | 2026-06-06T08:20 | ? | ErpTextareaÄ£°å½á¹¹:BEMÃüÃû(basic-input--textarea/__header/__content/__footer)+Ìõ¼şäÖÈ¾(v-if:loading/header/footer/errors)+ÁĞ±íäÖÈ¾(v-for errorMessages :key)+Element Plus(el-input textarea/el-skeleton)+ÊÂ¼şĞŞÊÎ·û(.stop)+ScopedÑùÊ½;40µ¥²âÍ¨¹ı;vue-tscÁã´íÎó | c8496710 |
+| P0-005-010-002-001-003 | ÊµÏÖ×é¼şÂß¼­ | 2026-06-06T08:20 | ? | ErpTextarea×é¼şÂß¼­:refÏìÓ¦Ê½×´Ì¬(innerValue/errorMessages/lastEmittedValue)+computed(displayValue/isValid/errorMsg)+watch(modelValue/fieldConfig/linkage)+ÊÂ¼ş´¦Àí(handleInput/handleFocus/handleBlur)+validate(Í¬²½+Òì²½Ğ£ÑéÆ÷)+reset+onMounted/onBeforeUnmountÉúÃüÖÜÆÚ;40µ¥²âÈ«²¿Í¨¹ı;vue-tscÁã´íÎó | fcc89084 |
+| P0-005-010-002-002-001-001 | µ÷ÓÃ×Ö¶ÎÅäÖÃAPI»ñÈ¡µ±Ç°µ¥¾İµÄ×Ö¶ÎÅäÖÃÁĞ±í | 2026-06-06T08:45 | ? | fieldConfig APIÄ£¿é+ÀàĞÍ¶¨Òå:src/api/types/fieldConfig.ts(FieldConfigItem/FieldConfigQuery/FieldConfigListResponse)+src/api/modules/fieldConfig.ts(getFieldConfigList/getFieldConfigItem);vue-tscÁã´íÎó;JSDocÎÄµµÅäÖÃËµÃ÷ | 7fde4eee |
+| P0-005-010-002-002-001-002 | ¶¯Ì¬äÖÈ¾×Ö¶Î×é¼ş | 2026-06-06T09:00 | ? | ErpFieldRenderer¶¯Ì¬äÖÈ¾Æ÷:Vue×é¼ş(133ĞĞ)+TypeScriptÀàĞÍ(ErpFieldRendererProps/Emits/Expose/FieldTypeComponentMapping)+36Ïîµ¥Ôª²âÊÔÈ«²¿Í¨¹ı;vue-tscÁã´íÎó;¸²¸ÇÂÊ80.64% | daf4feb3 |
+| P0-005-010-002-002-001-003 | Ö´ĞĞ×Ö¶ÎĞ£Ñé¹æÔò | 2026-06-06T09:35 | ? | ÑéÖ¤ErpFieldRenderer+ErpTextarea×Ö¶ÎĞ£Ñé¹æÔò:76/76µ¥Ôª²âÊÔÈ«²¿Í¨¹ı(ErpFieldRenderer 36+ErpTextarea 40);vue-tscÁã´íÎó;6ÏîÑéÖ¤È«Í¨¹ı(autoSize/maxRow/maxLength/v-model/disabled/Ğ£Ñé) | e0d59e29 |
+| P0-005-010-002-002-001-004 | Ö´ĞĞ×Ö¶ÎÏÔÒşÁª¶¯ | 2026-06-06T09:50 | ? | ErpFieldRendererĞÂÔövisible prop(v-if¿ØÖÆäÖÈ¾/validate+resetÊÊÅäÒş²ØÌ¬)+ÀàĞÍ¶¨Òå¸üĞÂ(ErpFieldRendererProps.visible)+6ÏîĞÂ²âÊÔ(41/41Í¨¹ı);1160/1160È«Á¿²âÊÔÁã»Ø¹é;vue-tscÁã´íÎó | ea6e3aac |
+| P0-005-010-002-002-002-001 | ÊÕ¼¯±íµ¥×Ö¶ÎÖµ | 2026-06-06T09:00 | ? | ×Ö¶ÎÖµÊÕ¼¯Æ÷:IFieldCollector½Ó¿Ú+useFieldCollector×éºÏÊ½º¯Êı(27µ¥²â)+FieldConfigBinder(¹æÔò×ª»»)+FormValidator(±íµ¥¼¶Ğ£Ñé±àÅÅ);types/basic-input.d.ts¸üĞÂ;vue-tscÁã´íÎó | 67bf65a9 |
+| P0-005-010-002-002-002-002 | Ö´ĞĞ×Ö¶ÎĞ£Ñé¹æÔò | 2026-06-06T09:06 | ? | ÑéÖ¤×Ö¶ÎĞ£Ñé¹æÔò:153¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı(ErpInput 50+ErpTextarea 31+ErpFieldRenderer 36+useFieldCollector 27+v-modelÁª¶¯9);ÑéÖ¤Çåµ¥6ÏîÈ«²¿Í¨¹ı(autoSize/maxRow/maxLength/v-model/Ğ£Ñé¹æÔò°ó¶¨/disabledÌ¬);²âÊÔ±¨¸æÒÑ²ú³ö | (ÑéÖ¤ÈÎÎñ) |
+| P0-005-010-002-002-002-003 | ±£´æÖ÷±í×Ö¶ÎÖµ | 2026-06-06T09:15 | ? | useMutation×éºÏÊ½º¯Êı(create/update/autoDetectMode/version»Øµ÷)+fieldConfig API save endpoints(createFieldConfig/updateFieldConfig)+23µ¥²âÈ«Í¨¹ı+1210È«Á¿»Ø¹éÁãÊ§°Ü;²âÊÔ±¨¸æÒÑ²ú³ö | dbcbb9bd |
+| P0-005-010-002-002-002-004 | ±£´æÀ©Õ¹×Ö¶ÎÖµ | 2026-06-06T09:30 | ? | useExtFieldSave×éºÏÊ½º¯Êı(extractExtensionFields·ÖÀëÀ©Õ¹×Ö¶Î+saveExtFieldsĞÂÔö/¸üĞÂ×Ô¶¯ÅĞ¶Ï)+fieldConfig APIÀ©Õ¹¶Ëµã(saveExtensionFields/updateExtensionFields)+FieldConfigĞÂÔöisExtension±ê¼Ç+23µ¥²âÈ«Í¨¹ı;vue-tscÁã´íÎó;²âÊÔ±¨¸æÒÑ²ú³ö | dfedf04b |
+| P0-005-010-002-002-003 | ÑéÖ¤×Ö¶ÎÅäÖÃ¼¯³É | 2026-06-06T09:35 | ? | ÑéÖ¤×Ö¶ÎÅäÖÃ¼¯³É:46µ¥²âÈ«Í¨¹ı(useMutation23+useExtFieldSave23);È«Á¿1233»Ø¹éÍ¨¹ı;vue-tscÁã´íÎó;ÎŞÓ²±àÂëÃô¸ĞĞÅÏ¢;ÀàĞÍ¡úAPI¡úComposable¡ú×é¼ş¼¯³ÉÁ´Â·ÍêÕû;ÑéÖ¤±¨¸æÒÑ²ú³ö | (ÑéÖ¤ÈÎÎñ) |
+| P0-005-010-003-001-001 | ¶¨Òå×é¼şpropsemits | 2026-06-06T09:45 | ? | ErpNumberInputÕûÊıÂ¼Èë¿ò×é¼ş:Vue×é¼ş(175ĞĞ)+TypeScriptÀàĞÍ(ErpNumberInputProps/Emits/Expose types/basic-input.d.ts)+29Ïîµ¥Ôª²âÊÔÈ«²¿Í¨¹ı(182È«Á¿»Ø¹é)+ErpFieldRenderer.numberÓ³Éä+FieldTypeComponentMappingÀ©Õ¹;vue-tscÁã´íÎó | (´ıÌá½»)
+| P0-005-010-003-001-002 | ÊµÏÖ×é¼şÄ£°å½á¹¹ | 2026-06-06T10:00 | ? | ErpNumberInputÄ£°åÔöÇ¿:ÈıÌ¬äÖÈ¾(¼ÓÔØ¹Ç¼ÜÆÁ/Õı³£el-input-number)/BEMÃüÃû¿Õ¼ä(basic-input--number)/v-if+v-for+ÊÂ¼şĞŞÊÎ·û(.stop)/ScopedÑùÊ½(CSS±äÁ¿Ö÷ÌâÊÊÅä/5ÖÖ×´Ì¬±äÌå/6¸öBEMÔªËØ/Element PlusÉî¶ÈÑ¡ÔñÆ÷);29¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı;182È«Á¿»Ø¹éÍ¨¹ı;vue-tscÁã´íÎó | (´ıÌá½»)
 
 
-### æ¨¡å—å®Œæˆ: P0-005 âœ…
+### Ä£¿éÍê³É: P0-005 ?
 
-### P0-006 - ç»„ç»‡æ¶æ„æ¨¡å—å¼€å‘
+### P0-006 - ×éÖ¯¼Ü¹¹Ä£¿é¿ª·¢
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-006-001-003-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-07T23:41 | âœ… | OrgPositionServiceImpl: page/getById/create/update/delete 5æ–¹æ³•;create(éƒ¨é—¨å­˜åœ¨æ€§æ ¡éªŒ+åŒéƒ¨é—¨å²—ä½åç§°å”¯ä¸€æ€§æ ¡éªŒ+positionCodeç”Ÿæˆ);update(åç§°å”¯ä¸€æ€§æ ¡éªŒæ’é™¤è‡ªèº«+ä¹è§‚é”);delete(å‘˜å·¥å¼•ç”¨æ£€æŸ¥hrm_employee.position_id+é€»è¾‘åˆ é™¤);é…å¥—åˆ›å»ºEntity/DTO/VO/Mapper/Serviceæ¥å£ | a201eee1 |
-| P0-006-001-003-001-003 | éªŒè¯Service | 2026-06-08T00:10 | âœ… | OrgPositionServiceImplTest(21ä¸ªæµ‹è¯•ç”¨ä¾‹å…¨éƒ¨é€šè¿‡):CreateTests 5ä¸ª(æ­£å¸¸+deptNotFound+duplicateName+differentDept+blankName)+UpdateTests 4ä¸ª(success+duplicateNameExcludeSelf+changeDept+notFound)+DeleteTests 3ä¸ª(success+hasEmployee+notFound)+PageTests 4ä¸ª(deptFilter+keywordSearch+combinedFilter+noFilter)+GetByIdTests 2ä¸ª(success+notFound)+TransactionalAnnotationTests 3ä¸ª | 5e7dff25 |
-| P0-006-001-001-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-08T00:41 | âœ… | OrgCompanyServiceæ¥å£(5æ–¹æ³•:page/getById/create/update/delete)+CompanyCreateDTO(7å­—æ®µ+æ ¡éªŒæ³¨è§£)+CompanyUpdateDTO+CompanyQueryDTO+CompanyListVO(9å­—æ®µ+@JsonFormat)+CompanyDetailVO(å«æ‰©å±•å­—æ®µ)+OrgCompanyå®ä½“ | (pending) |
-| P0-006-001-001-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-08T01:05 | âœ… | OrgCompanyServiceImpl(5CRUDæ–¹æ³•):page(keywordæ¨¡ç³Šæœç´¢+enabledç­›é€‰)+create(åç§°å”¯ä¸€æ€§+ä¿¡ç”¨ä»£ç æ ¼å¼+å”¯ä¸€æ€§æ ¡éªŒ)+update(ä¹è§‚é”+æ’é™¤è‡ªèº«)+delete(å…³è”éƒ¨é—¨æ£€æŸ¥+é€»è¾‘åˆ é™¤)+@OperLogè®°å½• | (pending) |
-| P0-006-001-001-001-003 | éªŒè¯Service | 2026-06-08T01:12 | âœ… | OrgCompanyServiceImplTest(20æµ‹è¯•ç”¨ä¾‹):create(5)/update(3)/delete(3)/page(2)/getById(2)/äº‹åŠ¡å›æ»š(1)/@Transactionalæ³¨è§£éªŒè¯(4)+5ä¸ªSalaryæ¡©æ–‡ä»¶ | f911aa50 |
-| P0-006-001-002-001-003 | éªŒè¯Service | 2026-06-08T01:58 | âœ… | OrgDepartmentServiceImplTest(22æµ‹è¯•ç”¨ä¾‹å…¨éƒ¨é€šè¿‡):create(5å«companyNotFound/duplicateName/diffParent/topLevel)+update(3å«circularRef_self+circularRef_descendant)+delete(4å«childDept/position/employee)+tree(2å«multiLevel+empty)+page(1)+getById(2)+@Transactional(5) | 10fbe0bc |
+| P0-006-001-003-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-07T23:41 | ? | OrgPositionServiceImpl: page/getById/create/update/delete 5·½·¨;create(²¿ÃÅ´æÔÚĞÔĞ£Ñé+Í¬²¿ÃÅ¸ÚÎ»Ãû³ÆÎ¨Ò»ĞÔĞ£Ñé+positionCodeÉú³É);update(Ãû³ÆÎ¨Ò»ĞÔĞ£ÑéÅÅ³ı×ÔÉí+ÀÖ¹ÛËø);delete(Ô±¹¤ÒıÓÃ¼ì²éhrm_employee.position_id+Âß¼­É¾³ı);ÅäÌ×´´½¨Entity/DTO/VO/Mapper/Service½Ó¿Ú | a201eee1 |
+| P0-006-001-003-001-003 | ÑéÖ¤Service | 2026-06-08T00:10 | ? | OrgPositionServiceImplTest(21¸ö²âÊÔÓÃÀıÈ«²¿Í¨¹ı):CreateTests 5¸ö(Õı³£+deptNotFound+duplicateName+differentDept+blankName)+UpdateTests 4¸ö(success+duplicateNameExcludeSelf+changeDept+notFound)+DeleteTests 3¸ö(success+hasEmployee+notFound)+PageTests 4¸ö(deptFilter+keywordSearch+combinedFilter+noFilter)+GetByIdTests 2¸ö(success+notFound)+TransactionalAnnotationTests 3¸ö | 5e7dff25 |
+| P0-006-001-001-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-08T00:41 | ? | OrgCompanyService½Ó¿Ú(5·½·¨:page/getById/create/update/delete)+CompanyCreateDTO(7×Ö¶Î+Ğ£Ñé×¢½â)+CompanyUpdateDTO+CompanyQueryDTO+CompanyListVO(9×Ö¶Î+@JsonFormat)+CompanyDetailVO(º¬À©Õ¹×Ö¶Î)+OrgCompanyÊµÌå | (pending) |
+| P0-006-001-001-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-08T01:05 | ? | OrgCompanyServiceImpl(5CRUD·½·¨):page(keywordÄ£ºıËÑË÷+enabledÉ¸Ñ¡)+create(Ãû³ÆÎ¨Ò»ĞÔ+ĞÅÓÃ´úÂë¸ñÊ½+Î¨Ò»ĞÔĞ£Ñé)+update(ÀÖ¹ÛËø+ÅÅ³ı×ÔÉí)+delete(¹ØÁª²¿ÃÅ¼ì²é+Âß¼­É¾³ı)+@OperLog¼ÇÂ¼ | (pending) |
+| P0-006-001-001-001-003 | ÑéÖ¤Service | 2026-06-08T01:12 | ? | OrgCompanyServiceImplTest(20²âÊÔÓÃÀı):create(5)/update(3)/delete(3)/page(2)/getById(2)/ÊÂÎñ»Ø¹ö(1)/@Transactional×¢½âÑéÖ¤(4)+5¸öSalary×®ÎÄ¼ş | f911aa50 |
+| P0-006-001-002-001-003 | ÑéÖ¤Service | 2026-06-08T01:58 | ? | OrgDepartmentServiceImplTest(22²âÊÔÓÃÀıÈ«²¿Í¨¹ı):create(5º¬companyNotFound/duplicateName/diffParent/topLevel)+update(3º¬circularRef_self+circularRef_descendant)+delete(4º¬childDept/position/employee)+tree(2º¬multiLevel+empty)+page(1)+getById(2)+@Transactional(5) | 10fbe0bc |
 
-| (pending) â†’ 1a5156f8
+| (pending) ¡ú 1a5156f8
 
-### P0-007 - å•†å“ç®¡ç†æ¨¡å—å¼€å‘
+### P0-007 - ÉÌÆ·¹ÜÀíÄ£¿é¿ª·¢
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-007-001-003-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-08T02:32 | âœ… | ProductUnitServiceImpl(5CRUDæ–¹æ³•):list(productId/unitIdç­›é€‰+æ’åº)/getById(å­˜åœ¨æ€§æ ¡éªŒ)+save(è½¬æ¢æ¯”ä¾‹>0+åŒå•†å“å•ä½å”¯ä¸€+åŸºç¡€å•ä½å”¯ä¸€)/update(æ’é™¤è‡ªèº«æ ¡éªŒ)+delete(å­˜åœ¨æ€§æ ¡éªŒ)+ProductUnitMapperåˆ›å»º;toVOæ˜ å°„creatorIdâ†’createBy | (pending)|
+| P0-007-001-003-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-08T02:32 | ? | ProductUnitServiceImpl(5CRUD·½·¨):list(productId/unitIdÉ¸Ñ¡+ÅÅĞò)/getById(´æÔÚĞÔĞ£Ñé)+save(×ª»»±ÈÀı>0+Í¬ÉÌÆ·µ¥Î»Î¨Ò»+»ù´¡µ¥Î»Î¨Ò»)/update(ÅÅ³ı×ÔÉíĞ£Ñé)+delete(´æÔÚĞÔĞ£Ñé)+ProductUnitMapper´´½¨;toVOÓ³ÉäcreatorId¡úcreateBy | (pending)|
 
-### P0-013 - éƒ¨ç½²ä¸DevOpsåŸºç¡€
+### P0-013 - ²¿ÊğÓëDevOps»ù´¡
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-013-001-001-001 | ç¼–å†™åç«¯Dockerfile | 2026-06-07T23:32 | âœ… | å¤šé˜¶æ®µDockerfile(maven:3.9-eclipse-temurin-17æ„å»ºâ†’eclipse-temurin:17-jre-alpineè¿è¡Œ)+JARåˆ†å±‚+éroot+HEALTHCHECK+.dockerignore | a7f6c21b |
-| P0-013-001-001-002 | ç¼–å†™å‰ç«¯Dockerfile | 2026-06-06T10:50 | âœ… | å‰ç«¯å¤šé˜¶æ®µDockerfile(node:20-alpine pnpmâ†’nginx:1.27-alpine)+nginx.conf(gzip+SPA+å®‰å…¨å¤´CSP/HSTS+ç¼“å­˜ç­–ç•¥+healthz)+éroot+HEALTHCHECK | 0d0150d4 |
-| P0-013-001-001-002 | ç¼–å†™å‰ç«¯Dockerfile(è¡¥å»º) | 2026-06-08T02:00 | âœ… | è¡¥å»ºerp-ai-web/Dockerfile+nginx.conf+é›†æˆvite-plugin-compression | f046086e |
-| P0-013-001-002-001 | ç¼–å†™docker-composeæœåŠ¡ç¼–æ’ | 2026-06-06T11:05 | âœ… | docker-compose.yml(7æœåŠ¡+ç½‘ç»œerp_network+5å‘½åå·)+å…¨æœåŠ¡å¥åº·æ£€æŸ¥+depends_on service_healthy+.env.exampleæ¨¡æ¿ | e8c441ea |
-| P0-013-001-002-001 | ç¼–å†™docker-composeæœåŠ¡ç¼–æ’(é‡å»º) | 2026-06-08T22:30 | âœ… | ä¿®å¤å‰ç«¯ç«¯å£3000:80+å¥åº·æ£€æŸ¥URL+nginx ENVå˜é‡HTTPSç«¯å£+docker-compose.override.yml+docker-compose.prod.yml | b619612c |
-| P0-013-002-002 | å¤šç¯å¢ƒNginxé…ç½® | 2026-06-06T20:25 | âœ… | nginx.dev.conf(HTTP/CORS */æ— æ—¥å¿—)+nginx.staging.conf(HTTP-HTTPS/SSL/å—é™CORS)+nginx.prod.conf(SSL/é™æµ/CSP/HSTS/OCSP)+ssl/README.md+.gitignoreæ›´æ–° | 557f251b |
-| P0-013-001-003 | .envç¯å¢ƒå˜é‡æ–‡ä»¶ | 2026-06-08T02:10 | âœ… | .env.example(å˜é‡åå¯¹é½docker-compose:POSTGRES_USER/POSTGRES_DB/MINIO_ROOT_USER/MINIO_ROOT_PASSWORD)+.env.dev/.env.staging/.env.prod(3å¥—ç¯å¢ƒå·®å¼‚åŒ–é…ç½®)+docs/env-variables.md(å˜é‡è¯´æ˜æ–‡æ¡£æ›´æ–°) | 057764c0
-| P0-013-001-004 | .dockerignoreæ–‡ä»¶ç¼–å†™ | 2026-06-08T01:42 | âœ… | å®Œæ•´.dockerignore(ç‰ˆæœ¬æ§åˆ¶/IDE/æ„å»ºäº§ç‰©/æ–‡æ¡£/ç¯å¢ƒå˜é‡/æ—¥å¿—/æµ‹è¯•/Docker/CI/CD/éƒ¨ç½²/AIå¼€å‘/OSå…±12ç±»æ’é™¤è§„åˆ™)+LFæ¢è¡Œ+.env.exampleç™½åå• | (pending)
-| P0-013-002-001 | nginx.confä¸»é…ç½® | 2026-06-08T02:15 | âœ… | nginx.conf(å…¨å±€è®¾ç½®+gzip/å®‰å…¨å¤´/upstream/server include)+conf.d/upstream.conf(backend:8080+frontend:80)+conf.d/erp.conf(å¥åº·æ£€æŸ¥/APIä»£ç†/WebSocket/é™æ€èµ„æº+HTML no-cache)+conf.d/gzip.conf(çº§åˆ«6)+conf.d/security-headers.conf(7å®‰å…¨å¤´) | 60ea2eb6
-| P0-013-001-002-002 | éªŒè¯docker-composeç¼–æ’ | 2026-06-08T01:49 | âœ… | scripts/verify-compose.sh(9é¡¹è‡ªåŠ¨åŒ–éªŒè¯:YAML/é•œåƒ/å¯åŠ¨/å¥åº·æ£€æŸ¥/é€šä¿¡/æŒä¹…åŒ–/ç«¯åˆ°ç«¯/æ•…éšœæ¢å¤/æ—¥å¿—)+docs/verification/docker-compose-report.md(é™æ€å®¡æŸ¥+é—®é¢˜æ¸…å•) | (pending)
+| P0-013-001-001-001 | ±àĞ´ºó¶ËDockerfile | 2026-06-07T23:32 | ? | ¶à½×¶ÎDockerfile(maven:3.9-eclipse-temurin-17¹¹½¨¡úeclipse-temurin:17-jre-alpineÔËĞĞ)+JAR·Ö²ã+·Çroot+HEALTHCHECK+.dockerignore | a7f6c21b |
+| P0-013-001-001-002 | ±àĞ´Ç°¶ËDockerfile | 2026-06-06T10:50 | ? | Ç°¶Ë¶à½×¶ÎDockerfile(node:20-alpine pnpm¡únginx:1.27-alpine)+nginx.conf(gzip+SPA+°²È«Í·CSP/HSTS+»º´æ²ßÂÔ+healthz)+·Çroot+HEALTHCHECK | 0d0150d4 |
+| P0-013-001-001-002 | ±àĞ´Ç°¶ËDockerfile(²¹½¨) | 2026-06-08T02:00 | ? | ²¹½¨erp-ai-web/Dockerfile+nginx.conf+¼¯³Évite-plugin-compression | f046086e |
+| P0-013-001-002-001 | ±àĞ´docker-compose·şÎñ±àÅÅ | 2026-06-06T11:05 | ? | docker-compose.yml(7·şÎñ+ÍøÂçerp_network+5ÃüÃû¾í)+È«·şÎñ½¡¿µ¼ì²é+depends_on service_healthy+.env.exampleÄ£°å | e8c441ea |
+| P0-013-001-002-001 | ±àĞ´docker-compose·şÎñ±àÅÅ(ÖØ½¨) | 2026-06-08T22:30 | ? | ĞŞ¸´Ç°¶Ë¶Ë¿Ú3000:80+½¡¿µ¼ì²éURL+nginx ENV±äÁ¿HTTPS¶Ë¿Ú+docker-compose.override.yml+docker-compose.prod.yml | b619612c |
+| P0-013-002-002 | ¶à»·¾³NginxÅäÖÃ | 2026-06-06T20:25 | ? | nginx.dev.conf(HTTP/CORS */ÎŞÈÕÖ¾)+nginx.staging.conf(HTTP-HTTPS/SSL/ÊÜÏŞCORS)+nginx.prod.conf(SSL/ÏŞÁ÷/CSP/HSTS/OCSP)+ssl/README.md+.gitignore¸üĞÂ | 557f251b |
+| P0-013-001-003 | .env»·¾³±äÁ¿ÎÄ¼ş | 2026-06-08T02:10 | ? | .env.example(±äÁ¿Ãû¶ÔÆëdocker-compose:POSTGRES_USER/POSTGRES_DB/MINIO_ROOT_USER/MINIO_ROOT_PASSWORD)+.env.dev/.env.staging/.env.prod(3Ì×»·¾³²îÒì»¯ÅäÖÃ)+docs/env-variables.md(±äÁ¿ËµÃ÷ÎÄµµ¸üĞÂ) | 057764c0
+| P0-013-001-004 | .dockerignoreÎÄ¼ş±àĞ´ | 2026-06-08T01:42 | ? | ÍêÕû.dockerignore(°æ±¾¿ØÖÆ/IDE/¹¹½¨²úÎï/ÎÄµµ/»·¾³±äÁ¿/ÈÕÖ¾/²âÊÔ/Docker/CI/CD/²¿Êğ/AI¿ª·¢/OS¹²12ÀàÅÅ³ı¹æÔò)+LF»»ĞĞ+.env.example°×Ãûµ¥ | (pending)
+| P0-013-002-001 | nginx.confÖ÷ÅäÖÃ | 2026-06-08T02:15 | ? | nginx.conf(È«¾ÖÉèÖÃ+gzip/°²È«Í·/upstream/server include)+conf.d/upstream.conf(backend:8080+frontend:80)+conf.d/erp.conf(½¡¿µ¼ì²é/API´úÀí/WebSocket/¾²Ì¬×ÊÔ´+HTML no-cache)+conf.d/gzip.conf(¼¶±ğ6)+conf.d/security-headers.conf(7°²È«Í·) | 60ea2eb6
+| P0-013-001-002-002 | ÑéÖ¤docker-compose±àÅÅ | 2026-06-08T01:49 | ? | scripts/verify-compose.sh(9Ïî×Ô¶¯»¯ÑéÖ¤:YAML/¾µÏñ/Æô¶¯/½¡¿µ¼ì²é/Í¨ĞÅ/³Ö¾Ã»¯/¶Ëµ½¶Ë/¹ÊÕÏ»Ö¸´/ÈÕÖ¾)+docs/verification/docker-compose-report.md(¾²Ì¬Éó²é+ÎÊÌâÇåµ¥) | (pending)
 
-### P0-014 - æµ‹è¯•åŸºç¡€æ¨¡å—
+### P0-014 - ²âÊÔ»ù´¡Ä£¿é
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-014-003-001 | æµ‹è¯•å‘½åè§„èŒƒ | 2026-06-06T20:15 | âœ… | docs/TESTING_GUIDE.md(æµ‹è¯•æ¡†æ¶ç‰ˆæœ¬/å‘½åè§„èŒƒ/GivenWhenThenä¸‰æ®µå¼/ç›®å½•ç»“æ„/è¦†ç›–ç‡é—¨ç¦/Mockç­–ç•¥)+docs/TEST_NAMING_CONVENTION.md(åç«¯ç±»åæ–¹æ³•åè§„èŒƒ/å‰ç«¯æ–‡ä»¶åitè§„èŒƒ/ä¸‰æ®µå¼ç¤ºä¾‹/æµ‹è¯•æ•°æ®TEST_å‰ç¼€/æ£€æŸ¥æ¸…å•) | (å¾…æäº¤) |
-| P0-014-002-003 | Composableæµ‹è¯•æ¨¡æ¿ | 2026-06-07T17:49 | âœ… | ComposableTestTemplate.spec.ts(6ç§æµ‹è¯•æ¨¡å¼:ç›´æ¥è°ƒç”¨/withSetup/å¼‚æ­¥æ“ä½œ/Mock/è¾¹ç•Œæ¡ä»¶/å“åº”å¼æ·±åº¦)+withSetupå·¥å…·å‡½æ•°+flushPromises+vi.mockæ¨¡å¼+Pinia/Router mock+fakeTimers | 16b03ee2 |
-| P0-014-002-004 | API Mockç­–ç•¥ | 2026-06-07T20:00 | âœ… | MSW 2.14.6å®‰è£…+src/mocks/server.ts(setupServer)+src/mocks/handlers.ts(æ­£å¸¸/ç©º/401/403/500/Loading)+test-setup.ts(beforeAll/afterEach/afterAll/onUnhandledRequest:error) | 4a5410cc |
-| P0-014-001-001 | JUnit 5 Mockitoæµ‹è¯•ä¾èµ–å¼•å…¥ | 2026-06-08T01:55 | âœ… | pom.xmlæ·»åŠ testcontainers 1.19.7(testcontainers/postgresql/junit-jupiter)+jacoco-maven-plugin 0.8.11+spring-boot-starter-test(JUnit5.11.4/Mockito5.14.2/AssertJ3.26.3)+H2, application-test.ymlå·²å­˜åœ¨, 1118æµ‹è¯•æ‰§è¡Œé€šè¿‡ | 7136118d |
-| P0-014-002-001 | Vitestæµ‹è¯•ä¾èµ–å¼•å…¥ | 2026-06-08T02:20 | âœ… | package.jsonæ·»åŠ happy-dom 14.12.3+msw 2.14.6, vitest.config.tsæ›´æ–°ç¯å¢ƒä¸ºhappy-dom+coverageé…ç½®(provider:v8/thresholds:lines=70/branches=60), test-setup.tså·²å­˜åœ¨, 40æµ‹è¯•æ–‡ä»¶1262æµ‹è¯•é€šè¿‡ | 7441fb4a |
+| P0-014-003-001 | ²âÊÔÃüÃû¹æ·¶ | 2026-06-06T20:15 | ? | docs/TESTING_GUIDE.md(²âÊÔ¿ò¼Ü°æ±¾/ÃüÃû¹æ·¶/GivenWhenThenÈı¶ÎÊ½/Ä¿Â¼½á¹¹/¸²¸ÇÂÊÃÅ½û/Mock²ßÂÔ)+docs/TEST_NAMING_CONVENTION.md(ºó¶ËÀàÃû·½·¨Ãû¹æ·¶/Ç°¶ËÎÄ¼şÃûit¹æ·¶/Èı¶ÎÊ½Ê¾Àı/²âÊÔÊı¾İTEST_Ç°×º/¼ì²éÇåµ¥) | (´ıÌá½») |
+| P0-014-002-003 | Composable²âÊÔÄ£°å | 2026-06-07T17:49 | ? | ComposableTestTemplate.spec.ts(6ÖÖ²âÊÔÄ£Ê½:Ö±½Óµ÷ÓÃ/withSetup/Òì²½²Ù×÷/Mock/±ß½çÌõ¼ş/ÏìÓ¦Ê½Éî¶È)+withSetup¹¤¾ßº¯Êı+flushPromises+vi.mockÄ£Ê½+Pinia/Router mock+fakeTimers | 16b03ee2 |
+| P0-014-002-004 | API Mock²ßÂÔ | 2026-06-07T20:00 | ? | MSW 2.14.6°²×°+src/mocks/server.ts(setupServer)+src/mocks/handlers.ts(Õı³£/¿Õ/401/403/500/Loading)+test-setup.ts(beforeAll/afterEach/afterAll/onUnhandledRequest:error) | 4a5410cc |
+| P0-014-001-001 | JUnit 5 Mockito²âÊÔÒÀÀµÒıÈë | 2026-06-08T01:55 | ? | pom.xmlÌí¼Ótestcontainers 1.19.7(testcontainers/postgresql/junit-jupiter)+jacoco-maven-plugin 0.8.11+spring-boot-starter-test(JUnit5.11.4/Mockito5.14.2/AssertJ3.26.3)+H2, application-test.ymlÒÑ´æÔÚ, 1118²âÊÔÖ´ĞĞÍ¨¹ı | 7136118d |
+| P0-014-002-001 | Vitest²âÊÔÒÀÀµÒıÈë | 2026-06-08T02:20 | ? | package.jsonÌí¼Óhappy-dom 14.12.3+msw 2.14.6, vitest.config.ts¸üĞÂ»·¾³Îªhappy-dom+coverageÅäÖÃ(provider:v8/thresholds:lines=70/branches=60), test-setup.tsÒÑ´æÔÚ, 40²âÊÔÎÄ¼ş1262²âÊÔÍ¨¹ı | 7441fb4a |
 
 
 
-### æ¨¡å—å®Œæˆ: P0-014 âœ…
+### Ä£¿éÍê³É: P0-014 ?
 
-### P0-011 - è´¢åŠ¡åŸºç¡€è®¾ç½®æ¨¡å—å¼€å‘
+### P0-011 - ²ÆÎñ»ù´¡ÉèÖÃÄ£¿é¿ª·¢
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-011-001-001-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T17:45 | âœ… | ICurrencyRateServiceæ¥å£(extends IServiceX<CurrencyRateEntity>)+CRUDæ–¹æ³•(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDocå®Œæ•´ | 1f792e1d |
-| P0-011-001-002-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T18:10 | âœ… | IBankAccountServiceæ¥å£(extends IServiceX<BankAccountEntity>)+CRUDæ–¹æ³•(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDocå®Œæ•´ + BankAccountEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 52fc201f |
-| P0-011-001-002-001-003 | éªŒè¯Service | 2026-06-07T23:50 | âœ… | BankAccountServiceTest(40 test cases: CRUD/create/update/delete/getById/pageList+çŠ¶æ€æµè½¬+å”¯ä¸€æ€§æ ¡éªŒ+@Transactionalæ³¨è§£éªŒè¯+è¾¹ç•Œæ¡ä»¶)+Mockito+JUnit5+Spy + æµ‹è¯•æŠ¥å‘Š | 388aaa86 |
-| P0-011-001-003-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T21:32 | âœ… | IAccountServiceæ¥å£(extends IServiceX<AccountEntity>)+CRUDæ–¹æ³•(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDocå®Œæ•´ | (pending) |
-| P0-011-001-003-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-07T22:05 | âœ… | AccountServiceImpl(extends ServiceImpl<AccountMapper, AccountEntity>)+CRUD+å”¯ä¸€æ€§æ ¡éªŒ+@Transactional+OperLog + AccountMapper | (pending) |
-| P0-011-001-003-001-003 | éªŒè¯Service | 2026-06-07T22:08 | âœ… | AccountServiceTest(39ä¸ªæµ‹è¯•ç”¨ä¾‹ï¼Œè¦†ç›–CRUD/ç¼–ç å”¯ä¸€æ€§/åˆ†é¡µæŸ¥è¯¢/è¾¹ç•Œæ¡ä»¶/@Transactionalæ³¨è§£)+AccountService-test-report.md | (pending) |
-| P0-011-001-004-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T22:05 | âœ… | IVoucherWordServiceæ¥å£(extends IServiceX<VoucherWordEntity>)+CRUDæ–¹æ³•(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDocå®Œæ•´ | 65db290e |
-| P0-011-001-005-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T22:20 | âœ… | IAccountingPeriodServiceæ¥å£(extends IServiceX<AccountingPeriodEntity>)+CRUDæ–¹æ³•+@Valid+@Transactional+JavaDocå®Œæ•´ + AccountingPeriodEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 22c35e9c |
-| P0-011-002-004-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-07T23:15 | âœ… | é“¶è¡Œè´¦æˆ·P04å•ä¸€åˆ—è¡¨é¡µ(index.vue)+APIæ¨¡å—(finance-bankaccount.ts)+VxeTableè™šæ‹Ÿæ»šåŠ¨+ç»Ÿè®¡å¡ç‰‡+æœç´¢é˜²æŠ–+æ–°å¢/ç¼–è¾‘å¼¹çª—+çŠ¶æ€åˆ‡æ¢+åˆ é™¤ç¡®è®¤+è·¯ç”±æ³¨å†Œ/finance/bankaccount | 26c88b0f |
-| P0-011-002-006-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-07T23:35 | âœ… | ä¼šè®¡ç§‘ç›®P05æ ‘å½¢åˆ—è¡¨é¡µ(index.vue)+APIæ¨¡å—(finance-account.ts)+el-treeæ ‘å½¢+VxeTableè¡¨æ ¼+ç»Ÿè®¡å¡ç‰‡+æœç´¢é˜²æŠ–+CRUDå¼¹çª—+çŠ¶æ€åˆ‡æ¢+åˆ é™¤ç¡®è®¤ | bdaac116 |
-| P0-011-002-007-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-08T00:36 | âœ… | ä¼šè®¡ç§‘ç›®P07å•ä¸€è¡¨å•é¡µä¼˜åŒ–:ä¸Šçº§ç§‘ç›®æ ‘å½¢é€‰æ‹©å™¨(el-tree-select)+ç§‘ç›®ç¼–ç è‡ªåŠ¨ç”Ÿæˆåªè¯»+è¾…åŠ©æ ¸ç®—å¼€å…³+å¸ƒå°”å­—ç¬¦ä¸²åŒå‘è½¬æ¢+è¡¨å•æ ¡éªŒä¼˜åŒ–+æäº¤loadingé˜²é‡å¤ | c57f5867 |
-| P0-011-002-004-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-07T23:55 | âœ… | é“¶è¡Œè´¦æˆ·åˆ—è¡¨é¡µéªŒè¯æŠ¥å‘Š+é—®é¢˜æ¸…å•(6é¡¹:ç¼ºController/ç¼ºå¸ç§åˆ—/å¸ç§ç¡¬ç¼–ç /ç¼ºæƒé™æŒ‡ä»¤/ç¼ºå›½é™…åŒ–/ç»Ÿè®¡åå·®)+vue-tscé€šè¿‡+mvnç¼–è¯‘é€šè¿‡ | b9267a14 |
-| P0-011-002-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-08T00:55 | âœ… | å¸ç§æ±‡ç‡P07å•ä¸€è¡¨å•é¡µ(index.vue)+APIæ¨¡å—(finance-currencyrate.ts)+el-dialog+el-form+æ–°å¢/ç¼–è¾‘åŒæ¨¡å¼+å­—æ®µ(å¸ç§ç¼–ç /åç§°/åŸºå‡†å¸ç§/æ±‡ç‡/æ—¥æœŸ/ç±»å‹)+å¼‚æ­¥å”¯ä¸€æ€§æ ¡éªŒ+æ—¥æœŸçº¦æŸ+é˜²æŠ–+submitLoading+Promise<void>ç±»å‹ä¿®å¤ | (pending) |
+| P0-011-001-001-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T17:45 | ? | ICurrencyRateService½Ó¿Ú(extends IServiceX<CurrencyRateEntity>)+CRUD·½·¨(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDocÍêÕû | 1f792e1d |
+| P0-011-001-002-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T18:10 | ? | IBankAccountService½Ó¿Ú(extends IServiceX<BankAccountEntity>)+CRUD·½·¨(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDocÍêÕû + BankAccountEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 52fc201f |
+| P0-011-001-002-001-003 | ÑéÖ¤Service | 2026-06-07T23:50 | ? | BankAccountServiceTest(40 test cases: CRUD/create/update/delete/getById/pageList+×´Ì¬Á÷×ª+Î¨Ò»ĞÔĞ£Ñé+@Transactional×¢½âÑéÖ¤+±ß½çÌõ¼ş)+Mockito+JUnit5+Spy + ²âÊÔ±¨¸æ | 388aaa86 |
+| P0-011-001-003-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T21:32 | ? | IAccountService½Ó¿Ú(extends IServiceX<AccountEntity>)+CRUD·½·¨(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDocÍêÕû | (pending) |
+| P0-011-001-003-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-07T22:05 | ? | AccountServiceImpl(extends ServiceImpl<AccountMapper, AccountEntity>)+CRUD+Î¨Ò»ĞÔĞ£Ñé+@Transactional+OperLog + AccountMapper | (pending) |
+| P0-011-001-003-001-003 | ÑéÖ¤Service | 2026-06-07T22:08 | ? | AccountServiceTest(39¸ö²âÊÔÓÃÀı£¬¸²¸ÇCRUD/±àÂëÎ¨Ò»ĞÔ/·ÖÒ³²éÑ¯/±ß½çÌõ¼ş/@Transactional×¢½â)+AccountService-test-report.md | (pending) |
+| P0-011-001-004-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T22:05 | ? | IVoucherWordService½Ó¿Ú(extends IServiceX<VoucherWordEntity>)+CRUD·½·¨(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDocÍêÕû | 65db290e |
+| P0-011-001-005-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T22:20 | ? | IAccountingPeriodService½Ó¿Ú(extends IServiceX<AccountingPeriodEntity>)+CRUD·½·¨+@Valid+@Transactional+JavaDocÍêÕû + AccountingPeriodEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 22c35e9c |
+| P0-011-002-004-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-07T23:15 | ? | ÒøĞĞÕË»§P04µ¥Ò»ÁĞ±íÒ³(index.vue)+APIÄ£¿é(finance-bankaccount.ts)+VxeTableĞéÄâ¹ö¶¯+Í³¼Æ¿¨Æ¬+ËÑË÷·À¶¶+ĞÂÔö/±à¼­µ¯´°+×´Ì¬ÇĞ»»+É¾³ıÈ·ÈÏ+Â·ÓÉ×¢²á/finance/bankaccount | 26c88b0f |
+| P0-011-002-006-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-07T23:35 | ? | »á¼Æ¿ÆÄ¿P05Ê÷ĞÎÁĞ±íÒ³(index.vue)+APIÄ£¿é(finance-account.ts)+el-treeÊ÷ĞÎ+VxeTable±í¸ñ+Í³¼Æ¿¨Æ¬+ËÑË÷·À¶¶+CRUDµ¯´°+×´Ì¬ÇĞ»»+É¾³ıÈ·ÈÏ | bdaac116 |
+| P0-011-002-007-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-08T00:36 | ? | »á¼Æ¿ÆÄ¿P07µ¥Ò»±íµ¥Ò³ÓÅ»¯:ÉÏ¼¶¿ÆÄ¿Ê÷ĞÎÑ¡ÔñÆ÷(el-tree-select)+¿ÆÄ¿±àÂë×Ô¶¯Éú³ÉÖ»¶Á+¸¨ÖúºËËã¿ª¹Ø+²¼¶û×Ö·û´®Ë«Ïò×ª»»+±íµ¥Ğ£ÑéÓÅ»¯+Ìá½»loading·ÀÖØ¸´ | c57f5867 |
+| P0-011-002-004-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-07T23:55 | ? | ÒøĞĞÕË»§ÁĞ±íÒ³ÑéÖ¤±¨¸æ+ÎÊÌâÇåµ¥(6Ïî:È±Controller/È±±ÒÖÖÁĞ/±ÒÖÖÓ²±àÂë/È±È¨ÏŞÖ¸Áî/È±¹ú¼Ê»¯/Í³¼ÆÆ«²î)+vue-tscÍ¨¹ı+mvn±àÒëÍ¨¹ı | b9267a14 |
+| P0-011-002-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-08T00:55 | ? | ±ÒÖÖ»ãÂÊP07µ¥Ò»±íµ¥Ò³(index.vue)+APIÄ£¿é(finance-currencyrate.ts)+el-dialog+el-form+ĞÂÔö/±à¼­Ë«Ä£Ê½+×Ö¶Î(±ÒÖÖ±àÂë/Ãû³Æ/»ù×¼±ÒÖÖ/»ãÂÊ/ÈÕÆÚ/ÀàĞÍ)+Òì²½Î¨Ò»ĞÔĞ£Ñé+ÈÕÆÚÔ¼Êø+·À¶¶+submitLoading+Promise<void>ÀàĞÍĞŞ¸´ | (pending) |
 
 
-### P0-010 - ä»“åº“ä¸åº“ä½ç®¡ç†å¼€å‘
+### P0-010 - ²Ö¿âÓë¿âÎ»¹ÜÀí¿ª·¢
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-010-001-001-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T18:10 | âœ… | IWarehouseServiceæ¥å£(extends IServiceX<WarehouseEntity>)+CRUDæ–¹æ³•(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDocå®Œæ•´ + WarehouseEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 2b118054 |
-| P0-010-002-000-003-001 | å·¥ä½œå°å…¨æµç¨‹è”è°ƒ | 2026-06-07T21:42 | âœ… | å·¥ä½œå°ä¸»é¡µé¢index.vue(KPI+å›¾è¡¨+å¾…åŠä¸‰åŒºè”è°ƒ)+Promise.allSettled+è®¡æ•°å™¨loading+æ—¶é—´ç­›é€‰è”åŠ¨+å¼‚å¸¸é™çº§+Symbolä¸Šä¸‹æ–‡+types.ts | 0c9cc54c |
-| P0-010-002-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-07T21:55 | âœ… | åº“ä½ç®¡ç†P04å•ä¸€åˆ—è¡¨é¡µ(index.vue)+APIæ¨¡å—(location.ts)+ç±»å‹å®šä¹‰(location.ts) |
-| P0-010-002-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-07T21:55 | âœ… | ä»“åº“åˆ—è¡¨é¡µé›†æˆP07è¡¨å•å¼¹çª—(el-dialog+el-form)+æ–°å¢/ç¼–è¾‘åŒæ¨¡å¼+è¡¨å•æ ¡éªŒ(åç§°å¿…å¡«/ç±»å‹å¿…é€‰/æ‰‹æœºå·æ ¼å¼/åœ°å€é•¿åº¦)+createWarehouse/updateWarehouse/getWarehouseDetail APIè”è°ƒ+çŠ¶æ€åˆ‡æ¢+submitLoadingé˜²é‡å¤ | acb2ca85 |
-| P0-010-002-002-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç ï¼ˆé‡æ‰§è¡Œ-äººå‘˜é€‰æ‹©å™¨ï¼‰ | 2026-06-08T06:10 | âœ… | è´Ÿè´£äººå­—æ®µä»çº¯æ–‡æœ¬è¾“å…¥æ”¹ä¸ºè¿œç¨‹æœç´¢äººå‘˜é€‰æ‹©å™¨(el-select+remote+filterable)+getUserPageList APIé›†æˆ+ç¼–è¾‘æ¨¡å¼é¢„åŠ è½½å·²é€‰ç”¨æˆ·+å¼¹çª—å…³é—­æ¸…é™¤é€‰é¡¹ | (pending) |
-| P0-010-002-004-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-07T22:05 | âœ… | åº“ä½ç®¡ç†P07å•ä¸€è¡¨å•é¡µ(el-dialog+el-form)+æ–°å¢/ç¼–è¾‘åŒæ¨¡å¼+åº“ä½ç±»å‹(å­˜å‚¨/æ‹£è´§/æš‚å­˜/ä¸è‰¯å“)+createLocation/updateLocation/getLocationDetail APIè”è°ƒ+è¡¨å•æ ¡éªŒ+submitLoadingé˜²é‡å¤ | (pending) |
-| P0-010-002-004-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-07T22:07 | âœ… | ç¼–å†™å‰ç«¯éªŒè¯æŠ¥å‘Š(10é¡¹éªŒè¯+6é¡¹è¾¹ç•Œåˆ†æ+ç¼–è¯‘æ£€æŸ¥)+é—®é¢˜æ¸…å•(2CRITICAL Controllerç¼ºå¤±+2MINOR ç±»å‹/æç¤º) | 197c2a3f |
-| P0-010-002-001-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-08T05:20 | âœ… | å‰ç«¯ä»£ç å®¡æŸ¥41é¡¹å…¨éƒ¨é€šè¿‡(vue-tscé›¶é”™è¯¯/è·¯ç”±æ­£ç¡®/è¡¨å•æ ¡éªŒå®Œæ•´/å¼‚å¸¸å¤„ç†è¦†ç›–/è¾¹ç•Œåœºæ™¯å®¹é”™)+é—®é¢˜æ¸…å•3é¡¹(Controllerç¼ºå¤±/èœå•ç¼ºå¤±/æ„å»ºä¾èµ–) | (pending) |
-| P0-010-001-000-001-001 | ç¼–å†™å·¥ä½œå°èšåˆSQL | 2026-06-07T22:29 | âœ… | WorkbenchAggregateMapper.java+XML(KPIç»Ÿè®¡selectKpiStats+ä»“åº“è¶‹åŠ¿selectWarehouseTrendByDay+åº“ä½è¶‹åŠ¿selectLocationTrendByDay)+@Mapper+@Param+tenant_idå¤šç§Ÿæˆ·éš”ç¦»+PostgreSQL DATE_TRUNC | 26d0994b |
-| P0-010-001-000-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-07T22:37 | âœ… | ä¿®å¤WorkbenchAggregateServiceImplå¯¼å…¥(WorkbenchAggregateAggregateMapperä»inventoryæ”¹warehouseæ¨¡å—)+æ›´æ–°æµ‹è¯•(16ç”¨ä¾‹å…¨é€šè¿‡)+ç¼–è¯‘é€šè¿‡ | (pending) |
-| P0-010-002-000-002-001 | EChartså›¾è¡¨ç»„ä»¶å¼€å‘ | 2026-06-08T05:10 | âœ… | ChartArea.vue(æŠ˜çº¿è¶‹åŠ¿/æŸ±çŠ¶å¯¹æ¯”/é¥¼å›¾åˆ†å¸ƒ+ResizeObserver+showLoading+æ—¶é—´èŒƒå›´æ—¥/å‘¨/æœˆåˆ‡æ¢)+warehouse-workbench.tså›¾è¡¨APIç±»å‹ | (pending) |
-| P0-010-002-001-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-08T05:00 | âœ… | ä»“åº“å®šä¹‰P04å•ä¸€åˆ—è¡¨é¡µ(æœç´¢è¡¨å•+ç»Ÿè®¡å¡ç‰‡+VxeTableè™šæ‹Ÿæ»šåŠ¨+é˜²æŠ–300ms+æ–°å¢/ç¼–è¾‘å¼¹çª—/å¯ç”¨åœç”¨/åˆ é™¤ç¡®è®¤)+APIç«¯ç‚¹å¯¹é½å±‚çº§è§„èŒƒ+è·¯ç”±æ³¨å†Œ/warehouse/warehouse | 71344c97 |
+| P0-010-001-001-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T18:10 | ? | IWarehouseService½Ó¿Ú(extends IServiceX<WarehouseEntity>)+CRUD·½·¨(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDocÍêÕû + WarehouseEntity/CreateDTO/UpdateDTO/QueryDTO/VO | 2b118054 |
+| P0-010-002-000-003-001 | ¹¤×÷Ì¨È«Á÷³ÌÁªµ÷ | 2026-06-07T21:42 | ? | ¹¤×÷Ì¨Ö÷Ò³Ãæindex.vue(KPI+Í¼±í+´ı°ìÈıÇøÁªµ÷)+Promise.allSettled+¼ÆÊıÆ÷loading+Ê±¼äÉ¸Ñ¡Áª¶¯+Òì³£½µ¼¶+SymbolÉÏÏÂÎÄ+types.ts | 0c9cc54c |
+| P0-010-002-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-07T21:55 | ? | ¿âÎ»¹ÜÀíP04µ¥Ò»ÁĞ±íÒ³(index.vue)+APIÄ£¿é(location.ts)+ÀàĞÍ¶¨Òå(location.ts) |
+| P0-010-002-002-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-07T21:55 | ? | ²Ö¿âÁĞ±íÒ³¼¯³ÉP07±íµ¥µ¯´°(el-dialog+el-form)+ĞÂÔö/±à¼­Ë«Ä£Ê½+±íµ¥Ğ£Ñé(Ãû³Æ±ØÌî/ÀàĞÍ±ØÑ¡/ÊÖ»úºÅ¸ñÊ½/µØÖ·³¤¶È)+createWarehouse/updateWarehouse/getWarehouseDetail APIÁªµ÷+×´Ì¬ÇĞ»»+submitLoading·ÀÖØ¸´ | acb2ca85 |
+| P0-010-002-002-001-001 | ±àĞ´ºËĞÄ´úÂë£¨ÖØÖ´ĞĞ-ÈËÔ±Ñ¡ÔñÆ÷£© | 2026-06-08T06:10 | ? | ¸ºÔğÈË×Ö¶Î´Ó´¿ÎÄ±¾ÊäÈë¸ÄÎªÔ¶³ÌËÑË÷ÈËÔ±Ñ¡ÔñÆ÷(el-select+remote+filterable)+getUserPageList API¼¯³É+±à¼­Ä£Ê½Ô¤¼ÓÔØÒÑÑ¡ÓÃ»§+µ¯´°¹Ø±ÕÇå³ıÑ¡Ïî | (pending) |
+| P0-010-002-004-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-07T22:05 | ? | ¿âÎ»¹ÜÀíP07µ¥Ò»±íµ¥Ò³(el-dialog+el-form)+ĞÂÔö/±à¼­Ë«Ä£Ê½+¿âÎ»ÀàĞÍ(´æ´¢/¼ğ»õ/Ôİ´æ/²»Á¼Æ·)+createLocation/updateLocation/getLocationDetail APIÁªµ÷+±íµ¥Ğ£Ñé+submitLoading·ÀÖØ¸´ | (pending) |
+| P0-010-002-004-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-07T22:07 | ? | ±àĞ´Ç°¶ËÑéÖ¤±¨¸æ(10ÏîÑéÖ¤+6Ïî±ß½ç·ÖÎö+±àÒë¼ì²é)+ÎÊÌâÇåµ¥(2CRITICAL ControllerÈ±Ê§+2MINOR ÀàĞÍ/ÌáÊ¾) | 197c2a3f |
+| P0-010-002-001-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-08T05:20 | ? | Ç°¶Ë´úÂëÉó²é41ÏîÈ«²¿Í¨¹ı(vue-tscÁã´íÎó/Â·ÓÉÕıÈ·/±íµ¥Ğ£ÑéÍêÕû/Òì³£´¦Àí¸²¸Ç/±ß½ç³¡¾°Èİ´í)+ÎÊÌâÇåµ¥3Ïî(ControllerÈ±Ê§/²Ëµ¥È±Ê§/¹¹½¨ÒÀÀµ) | (pending) |
+| P0-010-001-000-001-001 | ±àĞ´¹¤×÷Ì¨¾ÛºÏSQL | 2026-06-07T22:29 | ? | WorkbenchAggregateMapper.java+XML(KPIÍ³¼ÆselectKpiStats+²Ö¿âÇ÷ÊÆselectWarehouseTrendByDay+¿âÎ»Ç÷ÊÆselectLocationTrendByDay)+@Mapper+@Param+tenant_id¶à×â»§¸ôÀë+PostgreSQL DATE_TRUNC | 26d0994b |
+| P0-010-001-000-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-07T22:37 | ? | ĞŞ¸´WorkbenchAggregateServiceImplµ¼Èë(WorkbenchAggregateAggregateMapper´Óinventory¸ÄwarehouseÄ£¿é)+¸üĞÂ²âÊÔ(16ÓÃÀıÈ«Í¨¹ı)+±àÒëÍ¨¹ı | (pending) |
+| P0-010-002-000-002-001 | EChartsÍ¼±í×é¼ş¿ª·¢ | 2026-06-08T05:10 | ? | ChartArea.vue(ÕÛÏßÇ÷ÊÆ/Öù×´¶Ô±È/±ıÍ¼·Ö²¼+ResizeObserver+showLoading+Ê±¼ä·¶Î§ÈÕ/ÖÜ/ÔÂÇĞ»»)+warehouse-workbench.tsÍ¼±íAPIÀàĞÍ | (pending) |
+| P0-010-002-001-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-08T05:00 | ? | ²Ö¿â¶¨ÒåP04µ¥Ò»ÁĞ±íÒ³(ËÑË÷±íµ¥+Í³¼Æ¿¨Æ¬+VxeTableĞéÄâ¹ö¶¯+·À¶¶300ms+ĞÂÔö/±à¼­µ¯´°/ÆôÓÃÍ£ÓÃ/É¾³ıÈ·ÈÏ)+API¶Ëµã¶ÔÆë²ã¼¶¹æ·¶+Â·ÓÉ×¢²á/warehouse/warehouse | 71344c97 |
 
 
-### æ¨¡å—å®Œæˆ: P0-007 âœ…
+### Ä£¿éÍê³É: P0-007 ?
 
-| P0-007-001-001-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T23:30 | âœ… | ProductClassServiceæ¥å£(extends IServiceX<ProductClass>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductClassDTO/ProductClassQueryDTO/ProductClassVO + ProductClasså®ä½“ | 9c6e2343 |
-| P0-007-001-001-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-08T01:33 | âœ… | ProductClassServiceImpl(extends ServiceImpl<ProductClassMapper,ProductClass>)+CRUD+ä¸šåŠ¡æ ¡éªŒ(åŒçº§åç§°å”¯ä¸€/parentIdå¼•ç”¨/å­åˆ†ç±»æ£€æŸ¥/æ’åºå·0~9999)+@Transactional+BusinessException + ProductClassMapper | 4b922993 |
-| P0-007-001-002-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-08T02:13 | âœ… | ProductServiceæ¥å£(extends IServiceX<Product>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductDTO/ProductQueryDTO/ProductVO + Productå®ä½“ | 6858ad4e |
-| P0-007-001-002-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-08T02:20 | âœ… | ProductServiceImpl(extends ServiceImpl<ProductMapper,Product>)+CRUD+ä¸šåŠ¡æ ¡éªŒ(ç¼–ç å”¯ä¸€/åˆ†ç±»å¼•ç”¨/å®¡æ ¸çŠ¶æ€è‰ç¨¿â†’å¾…å®¡æ ¸â†’å·²å®¡æ ¸â†’å·²é©³å›æµè½¬)+@Transactional+BusinessException + ProductMapper | 639034e6 |
-
-
-### æ¨¡å—å®Œæˆ: P0-013 âœ…
+| P0-007-001-001-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T23:30 | ? | ProductClassService½Ó¿Ú(extends IServiceX<ProductClass>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductClassDTO/ProductClassQueryDTO/ProductClassVO + ProductClassÊµÌå | 9c6e2343 |
+| P0-007-001-001-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-08T01:33 | ? | ProductClassServiceImpl(extends ServiceImpl<ProductClassMapper,ProductClass>)+CRUD+ÒµÎñĞ£Ñé(Í¬¼¶Ãû³ÆÎ¨Ò»/parentIdÒıÓÃ/×Ó·ÖÀà¼ì²é/ÅÅĞòºÅ0~9999)+@Transactional+BusinessException + ProductClassMapper | 4b922993 |
+| P0-007-001-002-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-08T02:13 | ? | ProductService½Ó¿Ú(extends IServiceX<Product>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductDTO/ProductQueryDTO/ProductVO + ProductÊµÌå | 6858ad4e |
+| P0-007-001-002-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-08T02:20 | ? | ProductServiceImpl(extends ServiceImpl<ProductMapper,Product>)+CRUD+ÒµÎñĞ£Ñé(±àÂëÎ¨Ò»/·ÖÀàÒıÓÃ/ÉóºË×´Ì¬²İ¸å¡ú´ıÉóºË¡úÒÑÉóºË¡úÒÑ²µ»ØÁ÷×ª)+@Transactional+BusinessException + ProductMapper | 639034e6 |
 
 
-### æ¨¡å—å®Œæˆ: P0-006 âœ…
+### Ä£¿éÍê³É: P0-013 ?
+
+
+### Ä£¿éÍê³É: P0-006 ?
 
 ---
 
-## P0-008 CRMå®¢æˆ·ç®¡ç†æ¨¡å—å¼€å‘
+## P0-008 CRM¿Í»§¹ÜÀíÄ£¿é¿ª·¢
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | Git SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | Git SHA |
 |---------|---------|---------|:---:|------|---------|
-| P0-008-001-001-001-003 | éªŒè¯Service | 2026-06-08 02:44 | âœ… | CustomerClassServiceå•å…ƒæµ‹è¯•43ç”¨ä¾‹è¦†ç›–CRUD/è¾¹ç•Œ/å¼‚å¸¸/äº‹åŠ¡ | 7d2bd799 |
+| P0-008-001-001-001-003 | ÑéÖ¤Service | 2026-06-08 02:44 | ? | CustomerClassServiceµ¥Ôª²âÊÔ43ÓÃÀı¸²¸ÇCRUD/±ß½ç/Òì³£/ÊÂÎñ | 7d2bd799 |
 
 
-### P0-008 - CRMå®¢æˆ·ç®¡ç†æ¨¡å—å¼€å‘
+### P0-008 - CRM¿Í»§¹ÜÀíÄ£¿é¿ª·¢
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-008-001-001-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T18:15 | âœ… | CustomerClassServiceæ¥å£(extends IServiceX<CustomerClass>)+CRUDæ–¹æ³•(list/getById/save/update/delete)+@Valid+@Transactional+JavaDocå®Œæ•´ + CustomerClasså®ä½“/CustomerClassDTO/CustomerClassQueryDTO/CustomerClassVO | 34a7e18a |
-| P0-008-001-002-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T13:15 | âœ… | TagDefinitionServiceæ¥å£(extends IServiceX<TagDefinitionEntity>)+CRUDæ–¹æ³•(list/getById/save/update/delete)+@Valid+@Transactional+JavaDocå®Œæ•´ + TagDefinitionEntity/TagDefinitionDTO/TagDefinitionQueryDTO/TagDefinitionVO | (pending) |
-| P0-008-001-001-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-07T19:22 | âœ… | CustomerClassServiceImpl(extends ServiceImpl<CustomerClassMapper,CustomerClass>)+CRUD(list/getById/save/update/delete)+æ ¡éªŒ(åŒçº§åç§°å”¯ä¸€æ€§+parentIdå¼•ç”¨æ£€æŸ¥+å­åˆ†ç±»æ£€æŸ¥)+BusinessException+@Transactional + CustomerClassMapper | (pending) |
-| P0-008-001-002-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-08T03:25 | âœ… | TagDefinitionServiceImpl(extends ServiceImpl<TagDefinitionMapper,TagDefinitionEntity>)+CRUD(list/getById/save/update/delete)+æ ¡éªŒ(æ ‡ç­¾åç§°å…¨å±€å”¯ä¸€+é¢œè‰²æ ¼å¼#RRGGBB+åˆ é™¤å‰å…³è”å¼•ç”¨æ£€æŸ¥)+BusinessException+@Transactional+@OperLog + TagDefinitionMapper | 6717d775 |
-| P0-008-001-002-001-003 | éªŒè¯Service | 2026-06-07T19:37 | âœ… | TagDefinitionServiceTest(18 test cases: CRUD/list/getById/save/update/delete+è¾¹ç•Œæ¡ä»¶+å¼‚å¸¸å¤„ç†)+Mockito+JUnit5 + TagDefinitionServiceæ¥å£+TagDefinitionEntity/TagDefinitionDTO/TagDefinitionQueryDTO/TagDefinitionVO+test_data.sql | (pending) |
-| P0-008-001-003-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T19:37 | âœ… | CustomerServiceæ¥å£(extends IServiceX<Customer>)+CRUDæ–¹æ³•(list/getById/save/update/delete)+@Valid+@Transactional + Customerå®ä½“/CustomerDTO/CustomerQueryDTO/CustomerVO | 020e821f |
-| P0-008-001-003-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-08T00:33 | âœ… | [é‡åš] CustomerServiceæ¥å£(extends IServiceX<Customer>)+CRUDæ–¹æ³•(list/getById/save/update/delete)+@Valid+@Transactional + Customerå®ä½“/CustomerDTO/CustomerQueryDTO/CustomerVO | (pending) |
-| P0-008-001-001-001-003 | éªŒè¯Service | 2026-06-07T19:41 | âœ… | CustomerClassServiceTest(24 test cases: CRUD/list/getById/save/update/delete+è¾¹ç•Œæ¡ä»¶+åç§°å”¯ä¸€æ€§+ä¸Šçº§æ ¡éªŒ+@Transactionalæ³¨è§£éªŒè¯)+Mockito+JUnit5+Spy + test_data.sql | (pending) |
-| P0-008-001-003-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-07T19:52 | âœ… | CustomerServiceImpl(extends ServiceImpl<CustomerMapper,Customer>)+CRUD(list/getById/save/update/delete)+æ ¡éªŒ(å®¢æˆ·åç§°åŒå…¬å¸å”¯ä¸€+é‚®ç®±æ ¼å¼+å®¡æ ¸çŠ¶æ€æµè½¬)+BusinessException+@Transactional + CustomerMapper | b5ee0799 |
-| P0-008-001-003-001-003 | éªŒè¯Service | 2026-06-07T19:49 | âœ… | CustomerServiceTest(38 test cases: CRUD/list/getById/save/update/delete+è¾¹ç•Œæ¡ä»¶+å®¡æ ¸çŠ¶æ€æµè½¬+åç§°å”¯ä¸€æ€§+é‚®ç®±æ ¼å¼+äº‹åŠ¡æ³¨è§£éªŒè¯)+Mockito+JUnit5+Spy | 3f48e9db |
-| P0-008-001-004-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-07T20:00 | âœ… | CustomerContactServiceæ¥å£+CustomerContactServiceImpl(extends ServiceImpl<CustomerContactMapper,CustomerContact>)+CRUD(list/getById/save/update/delete)+BusinessException+@Transactional + CustomerContactå®ä½“/Mapper/DTO/QueryDTO/VO | e99215cb |
-| P0-008-001-004-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-07T20:25 | âœ… | éªŒè¯CustomerContactService+ServiceImplç¼–è¯‘é€šè¿‡ã€CRUDå®Œæ•´ã€@Transactionalæ­£ç¡®ã€å¼‚å¸¸å¤„ç†è§„èŒƒã€ä»£ç è§„èŒƒåˆè§„ | 614e16b6 |
-| P0-008-001-005-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T20:55 | âœ… | CustomerAddressServiceæ¥å£(extends IServiceX<CustomerAddress>)+CRUDæ–¹æ³•(list/getById/save/update/delete)+@Valid+@Transactional + CustomerAddresså®ä½“/CustomerAddressDTO/CustomerAddressQueryDTO/CustomerAddressVO | 6c861b71 |
-| P0-008-001-005-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-08T17:45 | âœ… | CustomerAddressServiceImpl(extends ServiceImpl<CustomerAddressMapper,CustomerAddress>)+CRUD(list/getById/save/update/delete)+åˆ†é¡µç­›é€‰(customerId/addressType/contactName)+BusinessException+@Transactional + CustomerAddressMapper | f691d2cd |
-| P0-008-001-005-001-003 | éªŒè¯Service | 2026-06-08T19:19 | âœ… | CustomerAddressServiceTest(20 test cases: CRUD/list/getById/save/update/delete+å¼‚å¸¸å¤„ç†+äº‹åŠ¡æ³¨è§£éªŒè¯+VOè½¬æ¢)+Mockito+JUnit5+Spy + customeraddress_test_data.sql | f9fd278f |
-| P0-008-001-006-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-08T19:30 | âœ… | CustomerTagRelServiceæ¥å£+CustomerTagRelServiceImpl(extends ServiceImplX<CustomerTagRelMapper,CustomerTagRel>)+CRUD(list/getById/save/delete)+saveBatch(å…ˆåˆ åå¢)+æ ¡éªŒ(åŒå®¢æˆ·æ ‡ç­¾å”¯ä¸€æ€§)+BusinessException+@Transactional+@OperLog + CustomerTagRelå®ä½“/Mapper/DTO/QueryDTO/VO | (pending) |
-| P0-008-001-006-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-08T20:00 | âœ… | éªŒè¯CustomerTagRelService+ServiceImpl: CRUDå®Œæ•´(list/getById/save/saveBatch/delete)+listByCustomerId/listByTagIdåŒå‘æŸ¥è¯¢+@Transactionalæ­£ç¡®+@OperLogå®Œæ•´+BusinessExceptionå¼‚å¸¸å¤„ç†+å”¯ä¸€æ€§æ ¡éªŒ+ä»£ç è§„èŒƒåˆè§„(é¡¹ç›®mvn compileå¤±è´¥å› P0-009 SRMæ¨¡å—ç¼ºå°‘DTO/Entity/VOï¼Œéæœ¬ä»»åŠ¡èŒƒå›´) | (pending) |
-| P0-008-001-003-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-08T00:46 | âœ… | CustomerServiceImpl(extends ServiceImpl<CustomerMapper,Customer>)+CRUD(list/getById/save/update/delete)+æ ¡éªŒ(å®¢æˆ·åç§°åŒå…¬å¸å”¯ä¸€+é‚®ç®±æ ¼å¼)+BusinessException+@Transactional+@OperLog + CustomerMapper | (pending) |
+| P0-008-001-001-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T18:15 | ? | CustomerClassService½Ó¿Ú(extends IServiceX<CustomerClass>)+CRUD·½·¨(list/getById/save/update/delete)+@Valid+@Transactional+JavaDocÍêÕû + CustomerClassÊµÌå/CustomerClassDTO/CustomerClassQueryDTO/CustomerClassVO | 34a7e18a |
+| P0-008-001-002-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T13:15 | ? | TagDefinitionService½Ó¿Ú(extends IServiceX<TagDefinitionEntity>)+CRUD·½·¨(list/getById/save/update/delete)+@Valid+@Transactional+JavaDocÍêÕû + TagDefinitionEntity/TagDefinitionDTO/TagDefinitionQueryDTO/TagDefinitionVO | (pending) |
+| P0-008-001-001-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-07T19:22 | ? | CustomerClassServiceImpl(extends ServiceImpl<CustomerClassMapper,CustomerClass>)+CRUD(list/getById/save/update/delete)+Ğ£Ñé(Í¬¼¶Ãû³ÆÎ¨Ò»ĞÔ+parentIdÒıÓÃ¼ì²é+×Ó·ÖÀà¼ì²é)+BusinessException+@Transactional + CustomerClassMapper | (pending) |
+| P0-008-001-002-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-08T03:25 | ? | TagDefinitionServiceImpl(extends ServiceImpl<TagDefinitionMapper,TagDefinitionEntity>)+CRUD(list/getById/save/update/delete)+Ğ£Ñé(±êÇ©Ãû³ÆÈ«¾ÖÎ¨Ò»+ÑÕÉ«¸ñÊ½#RRGGBB+É¾³ıÇ°¹ØÁªÒıÓÃ¼ì²é)+BusinessException+@Transactional+@OperLog + TagDefinitionMapper | 6717d775 |
+| P0-008-001-002-001-003 | ÑéÖ¤Service | 2026-06-07T19:37 | ? | TagDefinitionServiceTest(18 test cases: CRUD/list/getById/save/update/delete+±ß½çÌõ¼ş+Òì³£´¦Àí)+Mockito+JUnit5 + TagDefinitionService½Ó¿Ú+TagDefinitionEntity/TagDefinitionDTO/TagDefinitionQueryDTO/TagDefinitionVO+test_data.sql | (pending) |
+| P0-008-001-003-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T19:37 | ? | CustomerService½Ó¿Ú(extends IServiceX<Customer>)+CRUD·½·¨(list/getById/save/update/delete)+@Valid+@Transactional + CustomerÊµÌå/CustomerDTO/CustomerQueryDTO/CustomerVO | 020e821f |
+| P0-008-001-003-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-08T00:33 | ? | [ÖØ×ö] CustomerService½Ó¿Ú(extends IServiceX<Customer>)+CRUD·½·¨(list/getById/save/update/delete)+@Valid+@Transactional + CustomerÊµÌå/CustomerDTO/CustomerQueryDTO/CustomerVO | (pending) |
+| P0-008-001-001-001-003 | ÑéÖ¤Service | 2026-06-07T19:41 | ? | CustomerClassServiceTest(24 test cases: CRUD/list/getById/save/update/delete+±ß½çÌõ¼ş+Ãû³ÆÎ¨Ò»ĞÔ+ÉÏ¼¶Ğ£Ñé+@Transactional×¢½âÑéÖ¤)+Mockito+JUnit5+Spy + test_data.sql | (pending) |
+| P0-008-001-003-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-07T19:52 | ? | CustomerServiceImpl(extends ServiceImpl<CustomerMapper,Customer>)+CRUD(list/getById/save/update/delete)+Ğ£Ñé(¿Í»§Ãû³ÆÍ¬¹«Ë¾Î¨Ò»+ÓÊÏä¸ñÊ½+ÉóºË×´Ì¬Á÷×ª)+BusinessException+@Transactional + CustomerMapper | b5ee0799 |
+| P0-008-001-003-001-003 | ÑéÖ¤Service | 2026-06-07T19:49 | ? | CustomerServiceTest(38 test cases: CRUD/list/getById/save/update/delete+±ß½çÌõ¼ş+ÉóºË×´Ì¬Á÷×ª+Ãû³ÆÎ¨Ò»ĞÔ+ÓÊÏä¸ñÊ½+ÊÂÎñ×¢½âÑéÖ¤)+Mockito+JUnit5+Spy | 3f48e9db |
+| P0-008-001-004-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-07T20:00 | ? | CustomerContactService½Ó¿Ú+CustomerContactServiceImpl(extends ServiceImpl<CustomerContactMapper,CustomerContact>)+CRUD(list/getById/save/update/delete)+BusinessException+@Transactional + CustomerContactÊµÌå/Mapper/DTO/QueryDTO/VO | e99215cb |
+| P0-008-001-004-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-07T20:25 | ? | ÑéÖ¤CustomerContactService+ServiceImpl±àÒëÍ¨¹ı¡¢CRUDÍêÕû¡¢@TransactionalÕıÈ·¡¢Òì³£´¦Àí¹æ·¶¡¢´úÂë¹æ·¶ºÏ¹æ | 614e16b6 |
+| P0-008-001-005-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T20:55 | ? | CustomerAddressService½Ó¿Ú(extends IServiceX<CustomerAddress>)+CRUD·½·¨(list/getById/save/update/delete)+@Valid+@Transactional + CustomerAddressÊµÌå/CustomerAddressDTO/CustomerAddressQueryDTO/CustomerAddressVO | 6c861b71 |
+| P0-008-001-005-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-08T17:45 | ? | CustomerAddressServiceImpl(extends ServiceImpl<CustomerAddressMapper,CustomerAddress>)+CRUD(list/getById/save/update/delete)+·ÖÒ³É¸Ñ¡(customerId/addressType/contactName)+BusinessException+@Transactional + CustomerAddressMapper | f691d2cd |
+| P0-008-001-005-001-003 | ÑéÖ¤Service | 2026-06-08T19:19 | ? | CustomerAddressServiceTest(20 test cases: CRUD/list/getById/save/update/delete+Òì³£´¦Àí+ÊÂÎñ×¢½âÑéÖ¤+VO×ª»»)+Mockito+JUnit5+Spy + customeraddress_test_data.sql | f9fd278f |
+| P0-008-001-006-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-08T19:30 | ? | CustomerTagRelService½Ó¿Ú+CustomerTagRelServiceImpl(extends ServiceImplX<CustomerTagRelMapper,CustomerTagRel>)+CRUD(list/getById/save/delete)+saveBatch(ÏÈÉ¾ºóÔö)+Ğ£Ñé(Í¬¿Í»§±êÇ©Î¨Ò»ĞÔ)+BusinessException+@Transactional+@OperLog + CustomerTagRelÊµÌå/Mapper/DTO/QueryDTO/VO | (pending) |
+| P0-008-001-006-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-08T20:00 | ? | ÑéÖ¤CustomerTagRelService+ServiceImpl: CRUDÍêÕû(list/getById/save/saveBatch/delete)+listByCustomerId/listByTagIdË«Ïò²éÑ¯+@TransactionalÕıÈ·+@OperLogÍêÕû+BusinessExceptionÒì³£´¦Àí+Î¨Ò»ĞÔĞ£Ñé+´úÂë¹æ·¶ºÏ¹æ(ÏîÄ¿mvn compileÊ§°ÜÒòP0-009 SRMÄ£¿éÈ±ÉÙDTO/Entity/VO£¬·Ç±¾ÈÎÎñ·¶Î§) | (pending) |
+| P0-008-001-003-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-08T00:46 | ? | CustomerServiceImpl(extends ServiceImpl<CustomerMapper,Customer>)+CRUD(list/getById/save/update/delete)+Ğ£Ñé(¿Í»§Ãû³ÆÍ¬¹«Ë¾Î¨Ò»+ÓÊÏä¸ñÊ½)+BusinessException+@Transactional+@OperLog + CustomerMapper | (pending) |
 
-| P0-008-001-004-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-08T04:00 | âœ… | [é‡åš] CustomerContactServiceæ¥å£+CustomerContactServiceImpl(extends ServiceImpl<CustomerContactMapper,CustomerContact>)+CRUD(list/getById/save/update/delete)+æ ¡éªŒ(åŒå®¢æˆ·è”ç³»äººå§“åå”¯ä¸€+é»˜è®¤è”ç³»äººå”¯ä¸€)+BusinessException+@Transactional+@OperLog + CustomerContactå®ä½“/Mapper/DTO/QueryDTO/VO | (pending) |
-| P0-008-001-004-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-08T04:10 | âœ… | [é‡åš] éªŒè¯é‡åšåçš„CustomerContactService+ServiceImplç¼–è¯‘é€šè¿‡ã€CRUDå®Œæ•´(list/getById/save/update/delete)ã€@Transactionalæ­£ç¡®ã€@OperLogå®Œæ•´ã€BusinessExceptionå¼‚å¸¸å¤„ç†è§„èŒƒã€è”ç³»äººå§“åå”¯ä¸€æ€§æ ¡éªŒ+é»˜è®¤è”ç³»äººç®¡ç†ã€ä»£ç è§„èŒƒåˆè§„ | (pending) |
+| P0-008-001-004-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-08T04:00 | ? | [ÖØ×ö] CustomerContactService½Ó¿Ú+CustomerContactServiceImpl(extends ServiceImpl<CustomerContactMapper,CustomerContact>)+CRUD(list/getById/save/update/delete)+Ğ£Ñé(Í¬¿Í»§ÁªÏµÈËĞÕÃûÎ¨Ò»+Ä¬ÈÏÁªÏµÈËÎ¨Ò»)+BusinessException+@Transactional+@OperLog + CustomerContactÊµÌå/Mapper/DTO/QueryDTO/VO | (pending) |
+| P0-008-001-004-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-08T04:10 | ? | [ÖØ×ö] ÑéÖ¤ÖØ×öºóµÄCustomerContactService+ServiceImpl±àÒëÍ¨¹ı¡¢CRUDÍêÕû(list/getById/save/update/delete)¡¢@TransactionalÕıÈ·¡¢@OperLogÍêÕû¡¢BusinessExceptionÒì³£´¦Àí¹æ·¶¡¢ÁªÏµÈËĞÕÃûÎ¨Ò»ĞÔĞ£Ñé+Ä¬ÈÏÁªÏµÈË¹ÜÀí¡¢´úÂë¹æ·¶ºÏ¹æ | (pending) |
 
-### P0-009 - SRMä¾›åº”å•†ç®¡ç†æ¨¡å—å¼€å‘
+### P0-009 - SRM¹©Ó¦ÉÌ¹ÜÀíÄ£¿é¿ª·¢
 
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-009-001-001-001-001 | ç¼–å†™ä¾›åº”å•†åˆ†ç±»Serviceæ¥å£å®šä¹‰ | 2026-06-07T18:20 | âœ… | SupplierClassServiceæ¥å£(extends IServiceX<SupplierClass>)+CRUDæ–¹æ³•(list/getById/save/update/delete)+@Valid+@Transactional+JavaDocå®Œæ•´ + SupplierClasså®ä½“/SupplierClassDTO/SupplierClassQueryDTO/SupplierClassVO | 235a6637 |
+| P0-009-001-001-001-001 | ±àĞ´¹©Ó¦ÉÌ·ÖÀàService½Ó¿Ú¶¨Òå | 2026-06-07T18:20 | ? | SupplierClassService½Ó¿Ú(extends IServiceX<SupplierClass>)+CRUD·½·¨(list/getById/save/update/delete)+@Valid+@Transactional+JavaDocÍêÕû + SupplierClassÊµÌå/SupplierClassDTO/SupplierClassQueryDTO/SupplierClassVO | 235a6637 |
 
 
 
-| P0-009-001-001-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-07T20:35 | âœ… | å®ç°SupplierClassServiceImplï¼Œå«CRUD+ä¸šåŠ¡æ ¡éªŒï¼ˆåç§°åŒçº§å”¯ä¸€æ€§ã€çˆ¶èŠ‚ç‚¹å­˜åœ¨æ€§ã€å­åˆ†ç±»æ£€æŸ¥ï¼‰+äº‹åŠ¡ç®¡ç† | 3dc516c4 |
-| P0-009-001-002-001-001 | ç¼–å†™SRMæ ‡ç­¾å®šä¹‰Serviceæ¥å£ | 2026-06-07T20:00 | âœ… | SrmTagDefinitionServiceæ¥å£(extends IServiceX<SrmTagDefinition>)+CRUDæ–¹æ³•(list/getById/save/update/delete)+@Valid+@Transactional + SrmTagDefinitionå®ä½“/SrmTagDefinitionDTO/SrmTagDefinitionQueryDTO/SrmTagDefinitionVO | ea269fb7 |
-| P0-009-001-002-001-002 | ç¼–å†™SRMæ ‡ç­¾å®šä¹‰ServiceImplå®ç°ç±» | 2026-06-07T21:05 | âœ… | å®ç°SrmTagDefinitionServiceImpl(CRUD+æ ‡ç­¾åç§°å…¨å±€å”¯ä¸€æ ¡éªŒ+é¢œè‰²æ ¼å¼#RRGGBBæ ¡éªŒ+äº‹åŠ¡ç®¡ç†)+SrmTagDefinitionMapper | 7f9d7892 |
+| P0-009-001-001-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-07T20:35 | ? | ÊµÏÖSupplierClassServiceImpl£¬º¬CRUD+ÒµÎñĞ£Ñé£¨Ãû³ÆÍ¬¼¶Î¨Ò»ĞÔ¡¢¸¸½Úµã´æÔÚĞÔ¡¢×Ó·ÖÀà¼ì²é£©+ÊÂÎñ¹ÜÀí | 3dc516c4 |
+| P0-009-001-002-001-001 | ±àĞ´SRM±êÇ©¶¨ÒåService½Ó¿Ú | 2026-06-07T20:00 | ? | SrmTagDefinitionService½Ó¿Ú(extends IServiceX<SrmTagDefinition>)+CRUD·½·¨(list/getById/save/update/delete)+@Valid+@Transactional + SrmTagDefinitionÊµÌå/SrmTagDefinitionDTO/SrmTagDefinitionQueryDTO/SrmTagDefinitionVO | ea269fb7 |
+| P0-009-001-002-001-002 | ±àĞ´SRM±êÇ©¶¨ÒåServiceImplÊµÏÖÀà | 2026-06-07T21:05 | ? | ÊµÏÖSrmTagDefinitionServiceImpl(CRUD+±êÇ©Ãû³ÆÈ«¾ÖÎ¨Ò»Ğ£Ñé+ÑÕÉ«¸ñÊ½#RRGGBBĞ£Ñé+ÊÂÎñ¹ÜÀí)+SrmTagDefinitionMapper | 7f9d7892 |
 | 
-| P0-009-001-001-001-003 | éªŒè¯SupplierClassService | 2026-06-07T20:05 | âœ… | SupplierClassServiceTest(24ä¸ªæµ‹è¯•ç”¨ä¾‹ï¼Œè¦†ç›–CRUDæ­£å¸¸æµç¨‹+è¾¹ç•Œæ¡ä»¶+äº‹åŠ¡å›æ»šéªŒè¯+å¼‚å¸¸å¤„ç†+åç§°å”¯ä¸€æ€§+ä¸Šçº§å­˜åœ¨æ€§æ ¡éªŒ) + supplierclass_test_data.sql | 247343a6 |
-| P0-009-001-002-001-003 | éªŒè¯SrmTagDefinitionService | 2026-06-07T22:10 | âœ… | SrmTagDefinitionServiceTest(30ä¸ªæµ‹è¯•ç”¨ä¾‹ï¼Œè¦†ç›–CRUDæ­£å¸¸æµç¨‹+è¾¹ç•Œæ¡ä»¶+é¢œè‰²æ ¼å¼æ ¡éªŒ+æ ‡ç­¾åç§°å”¯ä¸€æ€§+äº‹åŠ¡æ³¨è§£éªŒè¯) + srmtagdefinition_test_data.sql | f26cf3f0 |
-| P0-009-001-003-001-001 | ç¼–å†™ä¾›åº”å•†Serviceæ¥å£å®šä¹‰ | 2026-06-07T20:07 | âœ… | SupplierServiceæ¥å£(extends IServiceX<Supplier>)+CRUDæ–¹æ³•(list/getById/save/update/delete)+@Valid+@Transactional + Supplierå®ä½“/SupplierDTO/SupplierQueryDTO/SupplierVO | 8ae5c328 |
-| P0-009-001-005-001-001 | ç¼–å†™ä¾›åº”å•†åœ°å€Serviceæ¥å£å®šä¹‰ | 2026-06-07T23:00 | âœ… | SupplierAddressServiceæ¥å£(extends IServiceX<SupplierAddress>)+CRUDæ–¹æ³•(list/getById/save/update/delete)+@Valid+@Transactional + SupplierAddresså®ä½“/SupplierAddressDTO/SupplierAddressQueryDTO/SupplierAddressVO | TBD |
-| P0-009-001-003-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-07T23:30 | âœ… | SupplierServiceImpl(CRUD+åç§°å…¬å¸å†…å”¯ä¸€+é‚®ç®±æ ¼å¼+å®¡æ ¸çŠ¶æ€æµè½¬æ ¡éªŒ+äº‹åŠ¡) + SupplierMapper | 759b2cb8 |
-| P0-011-001-002-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-07T20:17 | âœ… | BankAccountServiceImpl.java (CRUD+å”¯ä¸€æ€§æ ¡éªŒ+äº‹åŠ¡ç®¡ç†+BusinessExceptionå¼‚å¸¸å¤„ç†) + BankAccountMapper.java | TBD |
-| P0-011-001-001-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-07T21:16 | âœ… | CurrencyRateServiceImpl.java (CRUD+å¸ç§ç¼–ç å”¯ä¸€æ€§æ ¡éªŒ+æ±‡ç‡æ—¥æœŸæ ¡éªŒ+äº‹åŠ¡ç®¡ç†+BusinessExceptionå¼‚å¸¸å¤„ç†) + CurrencyRateMapper.java | b8a3cd7b |
-| P0-011-001-001-001-003 | éªŒè¯Service | 2026-06-07T21:30 | âœ… | CurrencyRateServiceTest (41ä¸ªæµ‹è¯•ç”¨ä¾‹ï¼Œè¦†ç›–CRUD/ç¼–ç å”¯ä¸€æ€§/æ—¥æœŸæ ¡éªŒ/åˆ†é¡µæŸ¥è¯¢/è¾¹ç•Œæ¡ä»¶/@Transactionalæ³¨è§£/äº‹åŠ¡å›æ»š) + CurrencyRateService-test-report.md | 45f428a7 |
-| P0-009-001-004-001-001 | ç¼–å†™ä¾›åº”å•†è”ç³»äººæ ¸å¿ƒä»£ç  | 2026-06-07T23:45 | âœ… | SupplierContactå…¨å¥—(Entity/DTO/QueryDTO/VO/Mapper/Service/ServiceImpl)+CRUDå®Œæ•´åŠŸèƒ½+BusinessExceptionå¼‚å¸¸å¤„ç†+äº‹åŠ¡ç®¡ç† | 7c39a05d |
-| P0-009-001-004-001-002 | éªŒè¯ä¾›åº”å•†è”ç³»äººService | 2026-06-07T22:25 | âœ… | SupplierContactServiceéªŒè¯(CRUDå®Œæ•´+äº‹åŠ¡æ³¨è§£æ­£ç¡®+BusinessExceptionå¼‚å¸¸å¤„ç†+ç¼–è¯‘é€šè¿‡) | TBD |
-| P0-009-001-003-001-003 | éªŒè¯SupplierService | 2026-06-07T20:28 | âœ… | SupplierServiceTest(36ä¸ªæµ‹è¯•ç”¨ä¾‹ï¼Œè¦†ç›–CRUDæ­£å¸¸æµç¨‹+è¾¹ç•Œæ¡ä»¶+äº‹åŠ¡æ³¨è§£+å¼‚å¸¸å¤„ç†+åç§°å”¯ä¸€æ€§+é‚®ç®±æ ¼å¼+å®¡æ ¸çŠ¶æ€æµè½¬) + supplier_test_data.sql | 2d6a16b0 |
-| P0-009-001-003-001-003 | å¢å¼ºSupplierServiceå•å…ƒæµ‹è¯• | 2026-06-07T21:13 | âœ… | æ–°å¢å¹¶å‘æµ‹è¯•(CountDownLatch)+è¾¹ç•Œæ¡ä»¶æµ‹è¯•6ä¸ª(null/ç©ºåç§°/æ— æ•ˆæ’åº)ï¼Œæµ‹è¯•ç”¨ä¾‹ä»27æ‰©å±•è‡³34ä¸ªï¼Œå…¨éƒ¨é€šè¿‡ | 26a61706 |
+| P0-009-001-001-001-003 | ÑéÖ¤SupplierClassService | 2026-06-07T20:05 | ? | SupplierClassServiceTest(24¸ö²âÊÔÓÃÀı£¬¸²¸ÇCRUDÕı³£Á÷³Ì+±ß½çÌõ¼ş+ÊÂÎñ»Ø¹öÑéÖ¤+Òì³£´¦Àí+Ãû³ÆÎ¨Ò»ĞÔ+ÉÏ¼¶´æÔÚĞÔĞ£Ñé) + supplierclass_test_data.sql | 247343a6 |
+| P0-009-001-002-001-003 | ÑéÖ¤SrmTagDefinitionService | 2026-06-07T22:10 | ? | SrmTagDefinitionServiceTest(30¸ö²âÊÔÓÃÀı£¬¸²¸ÇCRUDÕı³£Á÷³Ì+±ß½çÌõ¼ş+ÑÕÉ«¸ñÊ½Ğ£Ñé+±êÇ©Ãû³ÆÎ¨Ò»ĞÔ+ÊÂÎñ×¢½âÑéÖ¤) + srmtagdefinition_test_data.sql | f26cf3f0 |
+| P0-009-001-003-001-001 | ±àĞ´¹©Ó¦ÉÌService½Ó¿Ú¶¨Òå | 2026-06-07T20:07 | ? | SupplierService½Ó¿Ú(extends IServiceX<Supplier>)+CRUD·½·¨(list/getById/save/update/delete)+@Valid+@Transactional + SupplierÊµÌå/SupplierDTO/SupplierQueryDTO/SupplierVO | 8ae5c328 |
+| P0-009-001-005-001-001 | ±àĞ´¹©Ó¦ÉÌµØÖ·Service½Ó¿Ú¶¨Òå | 2026-06-07T23:00 | ? | SupplierAddressService½Ó¿Ú(extends IServiceX<SupplierAddress>)+CRUD·½·¨(list/getById/save/update/delete)+@Valid+@Transactional + SupplierAddressÊµÌå/SupplierAddressDTO/SupplierAddressQueryDTO/SupplierAddressVO | TBD |
+| P0-009-001-003-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-07T23:30 | ? | SupplierServiceImpl(CRUD+Ãû³Æ¹«Ë¾ÄÚÎ¨Ò»+ÓÊÏä¸ñÊ½+ÉóºË×´Ì¬Á÷×ªĞ£Ñé+ÊÂÎñ) + SupplierMapper | 759b2cb8 |
+| P0-011-001-002-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-07T20:17 | ? | BankAccountServiceImpl.java (CRUD+Î¨Ò»ĞÔĞ£Ñé+ÊÂÎñ¹ÜÀí+BusinessExceptionÒì³£´¦Àí) + BankAccountMapper.java | TBD |
+| P0-011-001-001-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-07T21:16 | ? | CurrencyRateServiceImpl.java (CRUD+±ÒÖÖ±àÂëÎ¨Ò»ĞÔĞ£Ñé+»ãÂÊÈÕÆÚĞ£Ñé+ÊÂÎñ¹ÜÀí+BusinessExceptionÒì³£´¦Àí) + CurrencyRateMapper.java | b8a3cd7b |
+| P0-011-001-001-001-003 | ÑéÖ¤Service | 2026-06-07T21:30 | ? | CurrencyRateServiceTest (41¸ö²âÊÔÓÃÀı£¬¸²¸ÇCRUD/±àÂëÎ¨Ò»ĞÔ/ÈÕÆÚĞ£Ñé/·ÖÒ³²éÑ¯/±ß½çÌõ¼ş/@Transactional×¢½â/ÊÂÎñ»Ø¹ö) + CurrencyRateService-test-report.md | 45f428a7 |
+| P0-009-001-004-001-001 | ±àĞ´¹©Ó¦ÉÌÁªÏµÈËºËĞÄ´úÂë | 2026-06-07T23:45 | ? | SupplierContactÈ«Ì×(Entity/DTO/QueryDTO/VO/Mapper/Service/ServiceImpl)+CRUDÍêÕû¹¦ÄÜ+BusinessExceptionÒì³£´¦Àí+ÊÂÎñ¹ÜÀí | 7c39a05d |
+| P0-009-001-004-001-002 | ÑéÖ¤¹©Ó¦ÉÌÁªÏµÈËService | 2026-06-07T22:25 | ? | SupplierContactServiceÑéÖ¤(CRUDÍêÕû+ÊÂÎñ×¢½âÕıÈ·+BusinessExceptionÒì³£´¦Àí+±àÒëÍ¨¹ı) | TBD |
+| P0-009-001-003-001-003 | ÑéÖ¤SupplierService | 2026-06-07T20:28 | ? | SupplierServiceTest(36¸ö²âÊÔÓÃÀı£¬¸²¸ÇCRUDÕı³£Á÷³Ì+±ß½çÌõ¼ş+ÊÂÎñ×¢½â+Òì³£´¦Àí+Ãû³ÆÎ¨Ò»ĞÔ+ÓÊÏä¸ñÊ½+ÉóºË×´Ì¬Á÷×ª) + supplier_test_data.sql | 2d6a16b0 |
+| P0-009-001-003-001-003 | ÔöÇ¿SupplierServiceµ¥Ôª²âÊÔ | 2026-06-07T21:13 | ? | ĞÂÔö²¢·¢²âÊÔ(CountDownLatch)+±ß½çÌõ¼ş²âÊÔ6¸ö(null/¿ÕÃû³Æ/ÎŞĞ§ÅÅĞò)£¬²âÊÔÓÃÀı´Ó27À©Õ¹ÖÁ34¸ö£¬È«²¿Í¨¹ı | 26a61706 |
 
-### P0-010-001-000-001-001 ç¼–å†™å·¥ä½œå°èšåˆSQL
+### P0-010-001-000-001-001 ±àĞ´¹¤×÷Ì¨¾ÛºÏSQL
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-001-000-001-001 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T20:38 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | ç¼–å†™WorkbenchAggregateMapperæ¥å£åŠXMLï¼Œå®ç°KPIèšåˆç»Ÿè®¡(warehouseTotal/warehouseActive/locationTotal/locationActive)å’Œè¶‹åŠ¿æŸ¥è¯¢(æŒ‰æ—¥åˆ†ç»„) |
-| å·¥äºº | W2 |
+| ÈÎÎñ±àºÅ | P0-010-001-000-001-001 |
+| Íê³ÉÊ±¼ä | 2026-06-07T20:38 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ±àĞ´WorkbenchAggregateMapper½Ó¿Ú¼°XML£¬ÊµÏÖKPI¾ÛºÏÍ³¼Æ(warehouseTotal/warehouseActive/locationTotal/locationActive)ºÍÇ÷ÊÆ²éÑ¯(°´ÈÕ·Ö×é) |
+| ¹¤ÈË | W2 |
 
-### P0-010-001-000-001-002 ç¼–å†™ServiceImplå®ç°ç±»
+### P0-010-001-000-001-002 ±àĞ´ServiceImplÊµÏÖÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-001-000-001-002 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T20:41 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | ç¼–å†™WorkbenchAggregateServiceæ¥å£+WorkbenchAggregateServiceImplå®ç°ç±»ï¼Œå°è£…å·¥ä½œå°KPIèšåˆæŸ¥è¯¢å’Œè¶‹åŠ¿æŸ¥è¯¢ï¼Œé›†æˆ@Cacheableç¼“å­˜(TTL=5min)ï¼Œä½¿ç”¨Sa-Tokenè·å–ç§Ÿæˆ·IDå®ç°å¤šç§Ÿæˆ·éš”ç¦» |
-| å·¥äºº | W1 |
+| ÈÎÎñ±àºÅ | P0-010-001-000-001-002 |
+| Íê³ÉÊ±¼ä | 2026-06-07T20:41 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ±àĞ´WorkbenchAggregateService½Ó¿Ú+WorkbenchAggregateServiceImplÊµÏÖÀà£¬·â×°¹¤×÷Ì¨KPI¾ÛºÏ²éÑ¯ºÍÇ÷ÊÆ²éÑ¯£¬¼¯³É@Cacheable»º´æ(TTL=5min)£¬Ê¹ÓÃSa-Token»ñÈ¡×â»§IDÊµÏÖ¶à×â»§¸ôÀë |
+| ¹¤ÈË | W1 |
 
-### P0-010-001-000-001-003 éªŒè¯Service
+### P0-010-001-000-001-003 ÑéÖ¤Service
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-001-000-001-003 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T20:50 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | ç¼–å†™WorkbenchAggregateServiceTest(16ç”¨ä¾‹å…¨é€šè¿‡)ï¼Œè¦†ç›–KPIç»Ÿè®¡/ä»“åº“è¶‹åŠ¿/åº“ä½è¶‹åŠ¿æ­£å¸¸æµç¨‹+nullå¤„ç†+ç§Ÿæˆ·IDè·å–(String/Long/null/å¼‚å¸¸)+å‚æ•°ä¼ é€’éªŒè¯+@Cacheableæ³¨è§£éªŒè¯ |
-| å·¥äºº | W3 |
+| ÈÎÎñ±àºÅ | P0-010-001-000-001-003 |
+| Íê³ÉÊ±¼ä | 2026-06-07T20:50 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ±àĞ´WorkbenchAggregateServiceTest(16ÓÃÀıÈ«Í¨¹ı)£¬¸²¸ÇKPIÍ³¼Æ/²Ö¿âÇ÷ÊÆ/¿âÎ»Ç÷ÊÆÕı³£Á÷³Ì+null´¦Àí+×â»§ID»ñÈ¡(String/Long/null/Òì³£)+²ÎÊı´«µİÑéÖ¤+@Cacheable×¢½âÑéÖ¤ |
+| ¹¤ÈË | W3 |
 | Git Commit | 888ebbe4 |
 
-### P0-010-001-001-001-002 ç¼–å†™ServiceImplå®ç°ç±»
+### P0-010-001-001-001-002 ±àĞ´ServiceImplÊµÏÖÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-001-001-001-002 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T20:50 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºWarehouseMapper(WarehouseEntityçš„BaseMapperX) + WarehouseServiceImpl(ç»§æ‰¿ServiceImplï¼Œå®ç°IWarehouseServiceï¼Œå«ä»“åº“ç¼–ç å”¯ä¸€æ€§æ ¡éªŒ/çŠ¶æ€æµè½¬æ ¡éªŒ/è½¯åˆ é™¤/@Transactional/OperLogæ³¨è§£) |
-| å·¥äºº | W2 |
+| ÈÎÎñ±àºÅ | P0-010-001-001-001-002 |
+| Íê³ÉÊ±¼ä | 2026-06-07T20:50 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨WarehouseMapper(WarehouseEntityµÄBaseMapperX) + WarehouseServiceImpl(¼Ì³ĞServiceImpl£¬ÊµÏÖIWarehouseService£¬º¬²Ö¿â±àÂëÎ¨Ò»ĞÔĞ£Ñé/×´Ì¬Á÷×ªĞ£Ñé/ÈíÉ¾³ı/@Transactional/OperLog×¢½â) |
+| ¹¤ÈË | W2 |
 | Git Commit | 02ec5e6f |
 
-### P0-010-001-002-001-001 ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£
+### P0-010-001-002-001-001 ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-001-002-001-001 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T21:15 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºLocationEntity/LocationCreateDTO/LocationUpdateDTO/LocationQueryDTO/LocationVO/LocationMapper + ILocationServiceæ¥å£(ç»§æ‰¿IServiceXï¼Œå£°æ˜CRUDæ–¹æ³•ï¼Œå†™æ“ä½œæ ‡æ³¨@Transactional) |
-| å·¥äºº | W2 |
+| ÈÎÎñ±àºÅ | P0-010-001-002-001-001 |
+| Íê³ÉÊ±¼ä | 2026-06-07T21:15 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨LocationEntity/LocationCreateDTO/LocationUpdateDTO/LocationQueryDTO/LocationVO/LocationMapper + ILocationService½Ó¿Ú(¼Ì³ĞIServiceX£¬ÉùÃ÷CRUD·½·¨£¬Ğ´²Ù×÷±ê×¢@Transactional) |
+| ¹¤ÈË | W2 |
 | Git Commit | 503e1fdd |
 
-| P0-010-001-001-001-003 | éªŒè¯Service | 2026-06-07T21:05:35 | âœ… | ç¼–å†™WarehouseServiceå•å…ƒæµ‹è¯•31ä¸ªç”¨ä¾‹å…¨éƒ¨é€šè¿‡ | W3 |
+| P0-010-001-001-001-003 | ÑéÖ¤Service | 2026-06-07T21:05:35 | ? | ±àĞ´WarehouseServiceµ¥Ôª²âÊÔ31¸öÓÃÀıÈ«²¿Í¨¹ı | W3 |
 
-### P0-010-001-002-001-002 ç¼–å†™ServiceImplå®ç°ç±»
+### P0-010-001-002-001-002 ±àĞ´ServiceImplÊµÏÖÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-001-002-001-002 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T21:10:34 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | ç¼–å†™LocationServiceImpl(ç»§æ‰¿ServiceImpl<LocationMapper,LocationEntity>ï¼Œå®ç°ILocationServiceï¼Œå«åº“ä½ç¼–ç ä»“åº“å†…å”¯ä¸€æ€§æ ¡éªŒ/çŠ¶æ€æµè½¬æ ¡éªŒ/@Transactional/OperLogæ³¨è§£/BusinessExceptionå¼‚å¸¸å¤„ç†/åˆ†é¡µæŸ¥è¯¢æ’åº) |
-| å·¥äºº | W4 |
+| ÈÎÎñ±àºÅ | P0-010-001-002-001-002 |
+| Íê³ÉÊ±¼ä | 2026-06-07T21:10:34 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ±àĞ´LocationServiceImpl(¼Ì³ĞServiceImpl<LocationMapper,LocationEntity>£¬ÊµÏÖILocationService£¬º¬¿âÎ»±àÂë²Ö¿âÄÚÎ¨Ò»ĞÔĞ£Ñé/×´Ì¬Á÷×ªĞ£Ñé/@Transactional/OperLog×¢½â/BusinessExceptionÒì³£´¦Àí/·ÖÒ³²éÑ¯ÅÅĞò) |
+| ¹¤ÈË | W4 |
 | Git Commit | fc2e247b |
 
-### P0-010-001-002-001-003 éªŒè¯Service
+### P0-010-001-002-001-003 ÑéÖ¤Service
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-001-002-001-003 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T21:14:18 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | ç¼–å†™LocationServiceTest(36ä¸ªå•å…ƒæµ‹è¯•ç”¨ä¾‹ï¼Œè¦†ç›–CRUDæ­£å¸¸æµç¨‹/ä»“åº“å†…å”¯ä¸€æ€§æ ¡éªŒ/çŠ¶æ€æµè½¬æ ¡éªŒ/è½¯åˆ é™¤/åˆ†é¡µæŸ¥è¯¢å¤šæ¡ä»¶ç­›é€‰/è¾¹ç•Œåœºæ™¯/toVOè½¬æ¢/äº‹åŠ¡æ³¨è§£éªŒè¯ï¼Œä½¿ç”¨JUnit5+Mockito+MockitoExtension) |
-| å·¥äºº | W3 |
+| ÈÎÎñ±àºÅ | P0-010-001-002-001-003 |
+| Íê³ÉÊ±¼ä | 2026-06-07T21:14:18 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ±àĞ´LocationServiceTest(36¸öµ¥Ôª²âÊÔÓÃÀı£¬¸²¸ÇCRUDÕı³£Á÷³Ì/²Ö¿âÄÚÎ¨Ò»ĞÔĞ£Ñé/×´Ì¬Á÷×ªĞ£Ñé/ÈíÉ¾³ı/·ÖÒ³²éÑ¯¶àÌõ¼şÉ¸Ñ¡/±ß½ç³¡¾°/toVO×ª»»/ÊÂÎñ×¢½âÑéÖ¤£¬Ê¹ÓÃJUnit5+Mockito+MockitoExtension) |
+| ¹¤ÈË | W3 |
 | Git Commit | 1ae36978 |
 
-### P0-010-002-000-001-001 KPIå¡ç‰‡ç»„ä»¶å¼€å‘
+### P0-010-002-000-001-001 KPI¿¨Æ¬×é¼ş¿ª·¢
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-002-000-001-001 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T21:32:00 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | ç¼–å†™KpiCardAreaç»„ä»¶(ä»“åº“å·¥ä½œå°KPIå¡ç‰‡åŒº/4ä¸ªæŒ‡æ ‡å¡ç‰‡å«ä»“åº“æ€»æ•°+å¯ç”¨ä»“åº“+åº“ä½æ€»æ•°+å¯ç”¨åº“ä½/å“åº”å¼æ …æ ¼å¸ƒå±€el-row+el-col/è°ƒç”¨GET /api/warehouse/workbench/kpi/å®‰å…¨å¤„ç†null+NaNå€¼)+ warehouse-workbench APIæ¨¡å— |
-| å·¥äºº | W3 |
+| ÈÎÎñ±àºÅ | P0-010-002-000-001-001 |
+| Íê³ÉÊ±¼ä | 2026-06-07T21:32:00 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ±àĞ´KpiCardArea×é¼ş(²Ö¿â¹¤×÷Ì¨KPI¿¨Æ¬Çø/4¸öÖ¸±ê¿¨Æ¬º¬²Ö¿â×ÜÊı+ÆôÓÃ²Ö¿â+¿âÎ»×ÜÊı+ÆôÓÃ¿âÎ»/ÏìÓ¦Ê½Õ¤¸ñ²¼¾Öel-row+el-col/µ÷ÓÃGET /api/warehouse/workbench/kpi/°²È«´¦Àínull+NaNÖµ)+ warehouse-workbench APIÄ£¿é |
+| ¹¤ÈË | W3 |
 | Git Commit | d5a3b4dd |
 
-### P0-010-002-001-001-002 éªŒè¯åŠŸèƒ½
+### P0-010-002-001-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-002-001-001-002 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T22:05:00 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | éªŒè¯ä»“åº“å®šä¹‰åˆ—è¡¨é¡µ(å®¡æ ¸index.vue+warehouse.ts+typesä»£ç /è¿è¡Œpnpm buildç¼–è¯‘é€šè¿‡/ç¼–å†™æµ‹è¯•æŠ¥å‘Šå«8é¡¹éªŒè¯+5é¡¹è¾¹ç•Œåˆ†æ/é—®é¢˜æ¸…å•4é¡¹å«è·¯ç”±æœªæ³¨å†Œ+APIè·¯å¾„ä¸ä¸€è‡´+ç¼ºè´Ÿè´£äººåˆ—+ç»Ÿè®¡ä»…å½“å‰é¡µ/ä»£ç è§„èŒƒåˆè§„/å¼‚å¸¸å¤„ç†å®Œå–„) |
-| å·¥äºº | W3 |
+| ÈÎÎñ±àºÅ | P0-010-002-001-001-002 |
+| Íê³ÉÊ±¼ä | 2026-06-07T22:05:00 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÑéÖ¤²Ö¿â¶¨ÒåÁĞ±íÒ³(ÉóºËindex.vue+warehouse.ts+types´úÂë/ÔËĞĞpnpm build±àÒëÍ¨¹ı/±àĞ´²âÊÔ±¨¸æº¬8ÏîÑéÖ¤+5Ïî±ß½ç·ÖÎö/ÎÊÌâÇåµ¥4Ïîº¬Â·ÓÉÎ´×¢²á+APIÂ·¾¶²»Ò»ÖÂ+È±¸ºÔğÈËÁĞ+Í³¼Æ½öµ±Ç°Ò³/´úÂë¹æ·¶ºÏ¹æ/Òì³£´¦ÀíÍêÉÆ) |
+| ¹¤ÈË | W3 |
 | Git Commit | 92df00d6 |
 
-### P0-010-002-001-001-002 éªŒè¯åŠŸèƒ½ï¼ˆé‡æ‰§è¡Œï¼‰
+### P0-010-002-001-001-002 ÑéÖ¤¹¦ÄÜ£¨ÖØÖ´ĞĞ£©
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-002-001-001-002 |
-| å®Œæˆæ—¶é—´ | 2026-06-08T05:20:00 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | é‡æ‰§è¡ŒéªŒè¯ï¼šå‰ç«¯ä»£ç å®¡æŸ¥41é¡¹å…¨éƒ¨é€šè¿‡(vue-tscé›¶é”™è¯¯/è·¯ç”±æ­£ç¡®/è¡¨å•æ ¡éªŒå®Œæ•´/å¼‚å¸¸å¤„ç†è¦†ç›–/è¾¹ç•Œåœºæ™¯å®¹é”™)+äº¤ä»˜ç‰©(test-report+issues)+é—®é¢˜æ¸…å•3é¡¹(P0:Controllerç¼ºå¤±/P1:èœå•ç¼ºå¤±/P2:æ„å»ºä¾èµ–) |
-| å·¥äºº | W5 |
+| ÈÎÎñ±àºÅ | P0-010-002-001-001-002 |
+| Íê³ÉÊ±¼ä | 2026-06-08T05:20:00 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÖØÖ´ĞĞÑéÖ¤£ºÇ°¶Ë´úÂëÉó²é41ÏîÈ«²¿Í¨¹ı(vue-tscÁã´íÎó/Â·ÓÉÕıÈ·/±íµ¥Ğ£ÑéÍêÕû/Òì³£´¦Àí¸²¸Ç/±ß½ç³¡¾°Èİ´í)+½»¸¶Îï(test-report+issues)+ÎÊÌâÇåµ¥3Ïî(P0:ControllerÈ±Ê§/P1:²Ëµ¥È±Ê§/P2:¹¹½¨ÒÀÀµ) |
+| ¹¤ÈË | W5 |
 | Git Commit | (pending) |
 
-| P0-011-001-002-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-07 21:22:55 | âœ… | ç¼–å†™BankAccountServiceImplå®ç°ç±»ï¼ŒåŒ…å«CRUD+å”¯ä¸€æ€§æ ¡éªŒ+çŠ¶æ€æµè½¬æ ¡éªŒ+@Transactional | 7b195f18 |
+| P0-011-001-002-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-07 21:22:55 | ? | ±àĞ´BankAccountServiceImplÊµÏÖÀà£¬°üº¬CRUD+Î¨Ò»ĞÔĞ£Ñé+×´Ì¬Á÷×ªĞ£Ñé+@Transactional | 7b195f18 |
 
-| P0-011-001-003-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T21:30 | âœ… | IAccountServiceæ¥å£(extends IServiceX<AccountEntity>)+CRUDæ–¹æ³•(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDocå®Œæ•´ + AccountEntity/AccountCreateDTO/AccountUpdateDTO/AccountQueryDTO/AccountVO | f6a76404 |
+| P0-011-001-003-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T21:30 | ? | IAccountService½Ó¿Ú(extends IServiceX<AccountEntity>)+CRUD·½·¨(create/update/delete/getById/pageList)+@Valid+@Transactional+JavaDocÍêÕû + AccountEntity/AccountCreateDTO/AccountUpdateDTO/AccountQueryDTO/AccountVO | f6a76404 |
 
-| P0-010-002-000-002-001 | echartså›¾è¡¨ç»„ä»¶å¼€å‘ | 2026-06-07T22:25 | âœ… | åˆ›å»ºChartArea.vue(æŠ˜çº¿å›¾è¶‹åŠ¿+æŸ±çŠ¶å›¾å¯¹æ¯”+é¥¼å›¾åˆ†å¸ƒ4å›¾2x2å¸ƒå±€)+æ‰©å±•warehouse-workbench.ts(ChartTrendItem/ChartDistributionItem/WarehouseWorkbenchChartVOç±»å‹+getWarehouseWorkbenchChartApi)+ResizeObserverè‡ªé€‚åº”+æ—¥/å‘¨/æœˆæ—¶é—´èŒƒå›´ç­›é€‰+ECharts showLoading/hideLoading | 1262abf1 |
+| P0-010-002-000-002-001 | echartsÍ¼±í×é¼ş¿ª·¢ | 2026-06-07T22:25 | ? | ´´½¨ChartArea.vue(ÕÛÏßÍ¼Ç÷ÊÆ+Öù×´Í¼¶Ô±È+±ıÍ¼·Ö²¼4Í¼2x2²¼¾Ö)+À©Õ¹warehouse-workbench.ts(ChartTrendItem/ChartDistributionItem/WarehouseWorkbenchChartVOÀàĞÍ+getWarehouseWorkbenchChartApi)+ResizeObserver×ÔÊÊÓ¦+ÈÕ/ÖÜ/ÔÂÊ±¼ä·¶Î§É¸Ñ¡+ECharts showLoading/hideLoading | 1262abf1 |
 
-### P0-010-002-002-001-002 éªŒè¯åŠŸèƒ½
+### P0-010-002-002-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-002-002-001-002 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T22:10:00 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | éªŒè¯ä»“åº“å®šä¹‰è¡¨å•é¡µ(å®¡æ ¸warehouse/index.vueå®Œæ•´ä»£ç /è¿è¡Œpnpm buildç¼–è¯‘é€šè¿‡æ— ç±»å‹é”™è¯¯/ç¼–å†™å‰ç«¯éªŒè¯æŠ¥å‘Šå«7é¡¹éªŒè¯+5é¡¹è¾¹ç•Œåˆ†æ/ç¼–å†™é—®é¢˜æ¸…å•4é¡¹å«Controllerç¼ºå¤±CRITICAL+APIè·¯å¾„ä¸ä¸€è‡´CRITICAL+ç»Ÿè®¡å¡ç‰‡æ•°æ®ä¸å‡†ç¡®MINOR+ç¼ºç©ºçŠ¶æ€æç¤ºMINOR) |
-| å·¥äºº | W3 |
+| ÈÎÎñ±àºÅ | P0-010-002-002-001-002 |
+| Íê³ÉÊ±¼ä | 2026-06-07T22:10:00 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÑéÖ¤²Ö¿â¶¨Òå±íµ¥Ò³(ÉóºËwarehouse/index.vueÍêÕû´úÂë/ÔËĞĞpnpm build±àÒëÍ¨¹ıÎŞÀàĞÍ´íÎó/±àĞ´Ç°¶ËÑéÖ¤±¨¸æº¬7ÏîÑéÖ¤+5Ïî±ß½ç·ÖÎö/±àĞ´ÎÊÌâÇåµ¥4Ïîº¬ControllerÈ±Ê§CRITICAL+APIÂ·¾¶²»Ò»ÖÂCRITICAL+Í³¼Æ¿¨Æ¬Êı¾İ²»×¼È·MINOR+È±¿Õ×´Ì¬ÌáÊ¾MINOR) |
+| ¹¤ÈË | W3 |
 | Git Commit | 968bf95c |
 
-### P0-010-002-003-001-002 éªŒè¯åŠŸèƒ½
+### P0-010-002-003-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-002-003-001-002 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T22:15:00 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | éªŒè¯åº“ä½ç®¡ç†åˆ—è¡¨é¡µ(é™æ€å®¡æŸ¥location/index.vueå®Œæ•´ä»£ç /å‰ç«¯vue-tscç¼–è¯‘é›¶é”™è¯¯/ç¼–å†™éªŒè¯æŠ¥å‘Š7é¡¹éªŒè¯4é€šè¿‡2æœªé€šè¿‡1éƒ¨åˆ†é€šè¿‡/ç¼–å†™é—®é¢˜æ¸…å•4é¡¹:ç¼ºLocationController+ç¼ºWarehouseController+ç¼ºè·¯ç”±+å›½é™…åŒ–ç¡¬ç¼–ç ) |
-| å·¥äºº | W3 |
+| ÈÎÎñ±àºÅ | P0-010-002-003-001-002 |
+| Íê³ÉÊ±¼ä | 2026-06-07T22:15:00 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÑéÖ¤¿âÎ»¹ÜÀíÁĞ±íÒ³(¾²Ì¬Éó²élocation/index.vueÍêÕû´úÂë/Ç°¶Ëvue-tsc±àÒëÁã´íÎó/±àĞ´ÑéÖ¤±¨¸æ7ÏîÑéÖ¤4Í¨¹ı2Î´Í¨¹ı1²¿·ÖÍ¨¹ı/±àĞ´ÎÊÌâÇåµ¥4Ïî:È±LocationController+È±WarehouseController+È±Â·ÓÉ+¹ú¼Ê»¯Ó²±àÂë) |
+| ¹¤ÈË | W3 |
 | Git Commit | 0ca62806 |
 
-### P0-010-002-003-001-002 é‡æ–°éªŒè¯ï¼ˆW5ï¼‰
+### P0-010-002-003-001-002 ÖØĞÂÑéÖ¤£¨W5£©
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-002-003-001-002 |
-| å®Œæˆæ—¶é—´ | 2026-06-08T04:31 |
-| çŠ¶æ€ | âœ…ï¼ˆé‡æ–°éªŒè¯ï¼‰ |
-| æ‘˜è¦ | é‡æ–°éªŒè¯åº“ä½ç®¡ç†åˆ—è¡¨é¡µï¼ˆvue-tscé›¶é”™è¯¯/è·¯ç”±å·²ä¿®å¤âœ…/2ä¸ªControllerç¼ºå¤±ä»é˜»å¡/å›½é™…åŒ–æœªä¿®å¤/æ›´æ–°éªŒè¯æŠ¥å‘Š7é¡¹éªŒè¯5é€šè¿‡1éƒ¨åˆ†é€šè¿‡1æœªé€šè¿‡/æ›´æ–°é—®é¢˜æ¸…å•1å·²ä¿®å¤+3å¾…ä¿®å¤ï¼‰ |
-| å·¥äºº | W5 |
+| ÈÎÎñ±àºÅ | P0-010-002-003-001-002 |
+| Íê³ÉÊ±¼ä | 2026-06-08T04:31 |
+| ×´Ì¬ | ?£¨ÖØĞÂÑéÖ¤£© |
+| ÕªÒª | ÖØĞÂÑéÖ¤¿âÎ»¹ÜÀíÁĞ±íÒ³£¨vue-tscÁã´íÎó/Â·ÓÉÒÑĞŞ¸´?/2¸öControllerÈ±Ê§ÈÔ×èÈû/¹ú¼Ê»¯Î´ĞŞ¸´/¸üĞÂÑéÖ¤±¨¸æ7ÏîÑéÖ¤5Í¨¹ı1²¿·ÖÍ¨¹ı1Î´Í¨¹ı/¸üĞÂÎÊÌâÇåµ¥1ÒÑĞŞ¸´+3´ıĞŞ¸´£© |
+| ¹¤ÈË | W5 |
 | Git Commit | --pending-- |
 
-## P0-011 - è´¢åŠ¡åŸºç¡€è®¾ç½®æ¨¡å—å¼€å‘
+## P0-011 - ²ÆÎñ»ù´¡ÉèÖÃÄ£¿é¿ª·¢
 
-### P0-011-001-004-001-002 ç¼–å†™ServiceImplå®ç°ç±»
+### P0-011-001-004-001-002 ±àĞ´ServiceImplÊµÏÖÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-001-004-001-002 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T22:18:00 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | å®ç°VoucherWordServiceImpl(ç»§æ‰¿ServiceImpl/å®ç°CRUDæ–¹æ³•/createå«ç¼–ç å”¯ä¸€æ€§æ ¡éªŒ/updateå«å­˜åœ¨æ€§+å”¯ä¸€æ€§+çŠ¶æ€æµè½¬æ ¡éªŒ/deleteå«å­˜åœ¨æ€§æ ¡éªŒ+è½¯åˆ é™¤/pageListåˆ†é¡µæŸ¥è¯¢/@Transactionaläº‹åŠ¡ç®¡ç†/BusinessExceptionç»Ÿä¸€å¼‚å¸¸/åˆ›å»ºVoucherWordEntity+DTO+VO+Mapperæ”¯æŒç±»/mvn compileé€šè¿‡) |
-| å·¥äºº | W4 |
+| ÈÎÎñ±àºÅ | P0-011-001-004-001-002 |
+| Íê³ÉÊ±¼ä | 2026-06-07T22:18:00 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÊµÏÖVoucherWordServiceImpl(¼Ì³ĞServiceImpl/ÊµÏÖCRUD·½·¨/createº¬±àÂëÎ¨Ò»ĞÔĞ£Ñé/updateº¬´æÔÚĞÔ+Î¨Ò»ĞÔ+×´Ì¬Á÷×ªĞ£Ñé/deleteº¬´æÔÚĞÔĞ£Ñé+ÈíÉ¾³ı/pageList·ÖÒ³²éÑ¯/@TransactionalÊÂÎñ¹ÜÀí/BusinessExceptionÍ³Ò»Òì³£/´´½¨VoucherWordEntity+DTO+VO+MapperÖ§³ÖÀà/mvn compileÍ¨¹ı) |
+| ¹¤ÈË | W4 |
 | Git Commit | e673e4d5 |
 
-### P0-011-001-004-001-003 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-001-004-001-003 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-001-004-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯Service |
-| å®Œæˆæ—¶é—´ | 2026-06-07T22:25 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | ç¼–å†™VoucherWordServiceå•å…ƒæµ‹è¯•(38ä¸ªç”¨ä¾‹)ï¼Œè¦†ç›–CRUD/å”¯ä¸€æ€§æ ¡éªŒ/çŠ¶æ€æµè½¬/äº‹åŠ¡æ³¨è§£ï¼Œå…¨éƒ¨é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-011-001-004-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Service |
+| Íê³ÉÊ±¼ä | 2026-06-07T22:25 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ±àĞ´VoucherWordServiceµ¥Ôª²âÊÔ(38¸öÓÃÀı)£¬¸²¸ÇCRUD/Î¨Ò»ĞÔĞ£Ñé/×´Ì¬Á÷×ª/ÊÂÎñ×¢½â£¬È«²¿Í¨¹ı |
 | Git SHA | 331547694e756525d86122c87d07e7b18edf0a9d |
 
-### P0-011-002-008-001-002 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-002-008-001-002 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-008-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ï¼ˆå‡­è¯å­—P04å•ä¸€åˆ—è¡¨é¡µï¼‰ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T00:51 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | éªŒè¯å‡­è¯å­—P04åˆ—è¡¨é¡µåŠŸèƒ½(ä»£ç å®¡æŸ¥å‰ç«¯Vue/APIæ¨¡å—/è·¯ç”±/å›½é™…åŒ–/åç«¯APIå¯¹é½)ï¼Œå‘ç°å¹¶ä¿®å¤VoucherWordControllerç¼ºå¤±(åˆ›å»ºControlleræš´éœ²6ä¸ªRESTç«¯ç‚¹)+updateStatusæ–¹æ³•ç¼ºå¤±(æ·»åŠ Serviceæ–¹æ³•)ï¼Œç¼–å†™å‰ç«¯éªŒè¯æŠ¥å‘Šå’Œé—®é¢˜æ¸…å• |
-| å·¥äºº | W5 |
+| ÈÎÎñ±àºÅ | P0-011-002-008-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ£¨Æ¾Ö¤×ÖP04µ¥Ò»ÁĞ±íÒ³£© |
+| Íê³ÉÊ±¼ä | 2026-06-08T00:51 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÑéÖ¤Æ¾Ö¤×ÖP04ÁĞ±íÒ³¹¦ÄÜ(´úÂëÉó²éÇ°¶ËVue/APIÄ£¿é/Â·ÓÉ/¹ú¼Ê»¯/ºó¶ËAPI¶ÔÆë)£¬·¢ÏÖ²¢ĞŞ¸´VoucherWordControllerÈ±Ê§(´´½¨Controller±©Â¶6¸öREST¶Ëµã)+updateStatus·½·¨È±Ê§(Ìí¼ÓService·½·¨)£¬±àĞ´Ç°¶ËÑéÖ¤±¨¸æºÍÎÊÌâÇåµ¥ |
+| ¹¤ÈË | W5 |
 | Git SHA | 2f6327c8 |
 
-### P0-010-001-000-001-001 ç¼–å†™å·¥ä½œå°èšåˆSQLï¼ˆä»“åº“æ¨¡å—é‡æ‰§è¡Œï¼‰
+### P0-010-001-000-001-001 ±àĞ´¹¤×÷Ì¨¾ÛºÏSQL£¨²Ö¿âÄ£¿éÖØÖ´ĞĞ£©
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-001-000-001-001 |
-| å®Œæˆæ—¶é—´ | 2026-06-07T22:35 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºä»“åº“æ¨¡å—WorkbenchAggregateAggregateMapper(æ¥å£+XML)ï¼Œå®ç°KPIèšåˆç»Ÿè®¡(warehouseTotal/warehouseActive/locationTotal/locationActive)å’Œè¶‹åŠ¿æŸ¥è¯¢(æŒ‰æ—¥åˆ†ç»„)ï¼Œå­˜æ”¾äºwarehouseæ¨¡å—æ­£ç¡®ä½ç½® |
-| å·¥äºº | W5 |
+| ÈÎÎñ±àºÅ | P0-010-001-000-001-001 |
+| Íê³ÉÊ±¼ä | 2026-06-07T22:35 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨²Ö¿âÄ£¿éWorkbenchAggregateAggregateMapper(½Ó¿Ú+XML)£¬ÊµÏÖKPI¾ÛºÏÍ³¼Æ(warehouseTotal/warehouseActive/locationTotal/locationActive)ºÍÇ÷ÊÆ²éÑ¯(°´ÈÕ·Ö×é)£¬´æ·ÅÓÚwarehouseÄ£¿éÕıÈ·Î»ÖÃ |
+| ¹¤ÈË | W5 |
 | Git SHA | 2fe36492 |
 
-### P0-011-001-005-001-002 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-001-005-001-002 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-001-005-001-002 |
-| ä»»åŠ¡åç§° | ç¼–å†™ServiceImplå®ç°ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-07T22:40 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºAccountingPeriodServiceImpl(ç»§æ‰¿ServiceImpl<AccountingPeriodMapper,AccountingPeriodEntity>/å®ç°IAccountingPeriodService/CRUD/crateå«é‡å æ ¡éªŒ/updateå«å­˜åœ¨æ€§+é‡å æ ¡éªŒ/deleteå«å­˜åœ¨æ€§æ ¡éªŒ+è½¯åˆ é™¤/getByIdå«å­˜åœ¨æ€§æ ¡éªŒ/pageListå«fiscalYear/period/periodStatusç­›é€‰+æ’åº/@Transactional/BusinessException)+AccountingPeriodMapper(BaseMapperX)/mvn compileé€šè¿‡ |
-| å·¥äºº | W4 |
+| ÈÎÎñ±àºÅ | P0-011-001-005-001-002 |
+| ÈÎÎñÃû³Æ | ±àĞ´ServiceImplÊµÏÖÀà |
+| Íê³ÉÊ±¼ä | 2026-06-07T22:40 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨AccountingPeriodServiceImpl(¼Ì³ĞServiceImpl<AccountingPeriodMapper,AccountingPeriodEntity>/ÊµÏÖIAccountingPeriodService/CRUD/crateº¬ÖØµşĞ£Ñé/updateº¬´æÔÚĞÔ+ÖØµşĞ£Ñé/deleteº¬´æÔÚĞÔĞ£Ñé+ÈíÉ¾³ı/getByIdº¬´æÔÚĞÔĞ£Ñé/pageListº¬fiscalYear/period/periodStatusÉ¸Ñ¡+ÅÅĞò/@Transactional/BusinessException)+AccountingPeriodMapper(BaseMapperX)/mvn compileÍ¨¹ı |
+| ¹¤ÈË | W4 |
 | Git SHA | bb0b97ff
 
-### P0-011-001-005-001-003 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-001-005-001-003 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-001-005-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯Service |
-| å®Œæˆæ—¶é—´ | 2026-06-07T22:50 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºAccountingPeriodServiceTest(35ä¸ªæµ‹è¯•ç”¨ä¾‹å…¨é€šè¿‡ï¼šcreate6/update5/delete2/getById2/pageList10/toVO1/@Transactional5/è¾¹ç•Œ4)ï¼Œæµ‹è¯•æŠ¥å‘Šå·²ç”Ÿæˆï¼Œmvn compileé€šè¿‡ |
-| å·¥äºº | W3 |
+| ÈÎÎñ±àºÅ | P0-011-001-005-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Service |
+| Íê³ÉÊ±¼ä | 2026-06-07T22:50 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨AccountingPeriodServiceTest(35¸ö²âÊÔÓÃÀıÈ«Í¨¹ı£ºcreate6/update5/delete2/getById2/pageList10/toVO1/@Transactional5/±ß½ç4)£¬²âÊÔ±¨¸æÒÑÉú³É£¬mvn compileÍ¨¹ı |
+| ¹¤ÈË | W3 |
 | Git SHA | e42fd55d
 
-### P0-011-002-001-001-001 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-002-001-001-001 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-001-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-07T22:55 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºfinance-workbench APIå±‚(getFinanceWorkbenchApiè°ƒç”¨/api/finance/workbench)å’Œè´¢åŠ¡å·¥ä½œå°é¡µé¢ç»„ä»¶(index.vueå«KPIå¡ç‰‡4æŒ‡æ ‡/ç§‘ç›®ç±»å‹é¥¼å›¾/æœˆåº¦è¶‹åŠ¿æŠ˜çº¿å›¾/loadingé”™è¯¯çŠ¶æ€/Suspenseé™çº§/EChartsæ¸²æŸ“/resizeç›‘å¬)ï¼Œæ³¨å†Œé™æ€è·¯ç”±/finance/workbenchå¹¶æ·»åŠ ä¸­è‹±æ–‡i18nè¯æ¡ï¼Œvue-tscç±»å‹æ£€æŸ¥é€šè¿‡ |
-| å·¥äºº | W5 |
-| Git SHA | (å¾…æäº¤)
+| ÈÎÎñ±àºÅ | P0-011-002-001-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-07T22:55 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨finance-workbench API²ã(getFinanceWorkbenchApiµ÷ÓÃ/api/finance/workbench)ºÍ²ÆÎñ¹¤×÷Ì¨Ò³Ãæ×é¼ş(index.vueº¬KPI¿¨Æ¬4Ö¸±ê/¿ÆÄ¿ÀàĞÍ±ıÍ¼/ÔÂ¶ÈÇ÷ÊÆÕÛÏßÍ¼/loading´íÎó×´Ì¬/Suspense½µ¼¶/EChartsäÖÈ¾/resize¼àÌı)£¬×¢²á¾²Ì¬Â·ÓÉ/finance/workbench²¢Ìí¼ÓÖĞÓ¢ÎÄi18n´ÊÌõ£¬vue-tscÀàĞÍ¼ì²éÍ¨¹ı |
+| ¹¤ÈË | W5 |
+| Git SHA | (´ıÌá½»)
 
-### P0-011-001-006-001-001 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-001-006-001-001 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-001-006-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T01:58 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºFinanceWorkbenchAggregateServiceImpl(@Cacheableç¼“å­˜/KPIèšåˆ/ç§‘ç›®ç±»å‹åˆ†å¸ƒ/æœˆåº¦è¶‹åŠ¿/å¤šç§Ÿæˆ·éš”ç¦»)+FinanceWorkbenchAggregateVO(èšåˆæ•°æ®VO/TrendItemå†…éƒ¨ç±»)ï¼Œmvn compileé€šè¿‡ï¼Œåç»­éªŒè¯ä»»åŠ¡(001-006-001-002)å·²é€šè¿‡ |
-| å·¥äºº | W4 |
+| ÈÎÎñ±àºÅ | P0-011-001-006-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T01:58 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨FinanceWorkbenchAggregateServiceImpl(@Cacheable»º´æ/KPI¾ÛºÏ/¿ÆÄ¿ÀàĞÍ·Ö²¼/ÔÂ¶ÈÇ÷ÊÆ/¶à×â»§¸ôÀë)+FinanceWorkbenchAggregateVO(¾ÛºÏÊı¾İVO/TrendItemÄÚ²¿Àà)£¬mvn compileÍ¨¹ı£¬ºóĞøÑéÖ¤ÈÎÎñ(001-006-001-002)ÒÑÍ¨¹ı |
+| ¹¤ÈË | W4 |
 | Git SHA | 10fbe0b
 
-### P0-011-001-006-001-002 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-001-006-001-002 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-001-006-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-07T22:48 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | éªŒè¯FinanceWorkbenchAggregateServiceImplåç«¯åŠŸèƒ½ï¼ˆä»£ç å®¡æŸ¥+ç¼–è¯‘éªŒè¯ï¼‰ï¼Œåˆ›å»ºåç«¯éªŒè¯æŠ¥å‘Šå’Œé—®é¢˜æ¸…å•ï¼ˆ4é¡¹å»ºè®®0é¡¹é˜»å¡ï¼‰ï¼Œmvn compileé€šè¿‡ |
-| å·¥äºº | W4 |
+| ÈÎÎñ±àºÅ | P0-011-001-006-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-07T22:48 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÑéÖ¤FinanceWorkbenchAggregateServiceImplºó¶Ë¹¦ÄÜ£¨´úÂëÉó²é+±àÒëÑéÖ¤£©£¬´´½¨ºó¶ËÑéÖ¤±¨¸æºÍÎÊÌâÇåµ¥£¨4Ïî½¨Òé0Ïî×èÈû£©£¬mvn compileÍ¨¹ı |
+| ¹¤ÈË | W4 |
 | Git SHA | 821f1a79
 
-### P0-011-002-001-001-001 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-002-001-001-001 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-001-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-07T22:55 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºfinance-workbench APIå±‚(getFinanceWorkbenchApiè°ƒç”¨/api/finance/workbench)å’Œè´¢åŠ¡å·¥ä½œå°é¡µé¢ç»„ä»¶(index.vueå«KPIå¡ç‰‡4æŒ‡æ ‡/ç§‘ç›®ç±»å‹é¥¼å›¾/æœˆåº¦è¶‹åŠ¿æŠ˜çº¿å›¾/loadingé”™è¯¯çŠ¶æ€/EChartsæ¸²æŸ“/resizeç›‘å¬)ï¼Œæ³¨å†Œé™æ€è·¯ç”±/finance/workbenchå¹¶æ·»åŠ ä¸­è‹±æ–‡i18nè¯æ¡ï¼Œvue-tscç±»å‹æ£€æŸ¥é€šè¿‡ |
-| å·¥äºº | W5 |
+| ÈÎÎñ±àºÅ | P0-011-002-001-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-07T22:55 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨finance-workbench API²ã(getFinanceWorkbenchApiµ÷ÓÃ/api/finance/workbench)ºÍ²ÆÎñ¹¤×÷Ì¨Ò³Ãæ×é¼ş(index.vueº¬KPI¿¨Æ¬4Ö¸±ê/¿ÆÄ¿ÀàĞÍ±ıÍ¼/ÔÂ¶ÈÇ÷ÊÆÕÛÏßÍ¼/loading´íÎó×´Ì¬/EChartsäÖÈ¾/resize¼àÌı)£¬×¢²á¾²Ì¬Â·ÓÉ/finance/workbench²¢Ìí¼ÓÖĞÓ¢ÎÄi18n´ÊÌõ£¬vue-tscÀàĞÍ¼ì²éÍ¨¹ı |
+| ¹¤ÈË | W5 |
 | Git SHA | 821f1a79
 
-### P0-011-002-001-001-002 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-002-001-001-002 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-001-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-07T23:00 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | éªŒè¯FinanceWorkbenchå‰ç«¯é¡µé¢ï¼ˆä»£ç å®¡æŸ¥+vue-tscç¼–è¯‘éªŒè¯+i18nè¦†ç›–æ£€æŸ¥ï¼‰ï¼Œåˆ›å»ºå‰ç«¯éªŒè¯æŠ¥å‘Šï¼ˆè¯„åˆ†9.3/10ï¼‰å’Œé—®é¢˜æ¸…å•ï¼ˆ1 CRITICAL: Controllerç¼ºå¤±, 1 MEDIUM: é˜²é‡å¤è¯·æ±‚, 2 LOWï¼‰ï¼Œvue-tscç±»å‹æ£€æŸ¥é€šè¿‡ |
-| å·¥äºº | W6 |
+| ÈÎÎñ±àºÅ | P0-011-002-001-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-07T23:00 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÑéÖ¤FinanceWorkbenchÇ°¶ËÒ³Ãæ£¨´úÂëÉó²é+vue-tsc±àÒëÑéÖ¤+i18n¸²¸Ç¼ì²é£©£¬´´½¨Ç°¶ËÑéÖ¤±¨¸æ£¨ÆÀ·Ö9.3/10£©ºÍÎÊÌâÇåµ¥£¨1 CRITICAL: ControllerÈ±Ê§, 1 MEDIUM: ·ÀÖØ¸´ÇëÇó, 2 LOW£©£¬vue-tscÀàĞÍ¼ì²éÍ¨¹ı |
+| ¹¤ÈË | W6 |
 | Git SHA | 89e07c5d
 
-### P0-011-002-002-001-001 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-002-002-001-001 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-002-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-07T23:05 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºfinance-currencyrate APIå±‚(getCurrencyRatePageApi/deleteCurrencyRateApi)å’Œå¸ç§æ±‡ç‡P04åˆ—è¡¨é¡µ(index.vueå«ç»Ÿè®¡å¡ç‰‡/æœç´¢é˜²æŠ–/VxeTableè™šæ‹Ÿæ»šåŠ¨/åˆ†é¡µ/åˆ é™¤ç¡®è®¤)ï¼Œvue-tscç±»å‹æ£€æŸ¥é€šè¿‡ |
-| å·¥äºº | W3 |
+| ÈÎÎñ±àºÅ | P0-011-002-002-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-07T23:05 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨finance-currencyrate API²ã(getCurrencyRatePageApi/deleteCurrencyRateApi)ºÍ±ÒÖÖ»ãÂÊP04ÁĞ±íÒ³(index.vueº¬Í³¼Æ¿¨Æ¬/ËÑË÷·À¶¶/VxeTableĞéÄâ¹ö¶¯/·ÖÒ³/É¾³ıÈ·ÈÏ)£¬vue-tscÀàĞÍ¼ì²éÍ¨¹ı |
+| ¹¤ÈË | W3 |
 | Git SHA | 81a80e29
 
 ## P0-011-002-001-001-002
 
-- **å®Œæˆæ—¶é—´**ï¼š2026-06-07T23:00
-- **çŠ¶æ€**ï¼šâœ…
-- **æ‘˜è¦**ï¼šéªŒè¯è´¢åŠ¡åŸºç¡€è®¾ç½®å·¥ä½œå°å‰ç«¯åŠŸèƒ½ï¼Œå‘ç°å¹¶ä¿®å¤ç¼ºå¤±Controllerç«¯ç‚¹é—®é¢˜ï¼Œå‰ç«¯æ„å»ºé€šè¿‡ï¼Œ2ä»½æµ‹è¯•æŠ¥å‘Šå·²äº¤ä»˜
-- **Git SHA**ï¼š87f74add
+- **Íê³ÉÊ±¼ä**£º2026-06-07T23:00
+- **×´Ì¬**£º?
+- **ÕªÒª**£ºÑéÖ¤²ÆÎñ»ù´¡ÉèÖÃ¹¤×÷Ì¨Ç°¶Ë¹¦ÄÜ£¬·¢ÏÖ²¢ĞŞ¸´È±Ê§Controller¶ËµãÎÊÌâ£¬Ç°¶Ë¹¹½¨Í¨¹ı£¬2·İ²âÊÔ±¨¸æÒÑ½»¸¶
+- **Git SHA**£º87f74add
 
-### P0-011-002-002-001-002 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-002-002-001-002 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-002-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-07T23:03 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | éªŒè¯å¸ç§æ±‡ç‡P04åˆ—è¡¨é¡µå‰ç«¯åŠŸèƒ½ï¼šä»£ç å®¡æŸ¥é€šè¿‡ï¼Œè·¯ç”±æ³¨å†Œç¼ºå¤±å·²ä¿®å¤(FINANCE_CURRENCYRATE)ï¼ŒControllerç¼ºå¤±å·²æ ‡è®°ï¼Œåˆ›å»ºissues.md(4é¡¹é—®é¢˜1å·²ä¿®å¤)ï¼Œæ›´æ–°å‰ç«¯éªŒè¯æŠ¥å‘Š |
-| å·¥äºº | W6 |
+| ÈÎÎñ±àºÅ | P0-011-002-002-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-07T23:03 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÑéÖ¤±ÒÖÖ»ãÂÊP04ÁĞ±íÒ³Ç°¶Ë¹¦ÄÜ£º´úÂëÉó²éÍ¨¹ı£¬Â·ÓÉ×¢²áÈ±Ê§ÒÑĞŞ¸´(FINANCE_CURRENCYRATE)£¬ControllerÈ±Ê§ÒÑ±ê¼Ç£¬´´½¨issues.md(4ÏîÎÊÌâ1ÒÑĞŞ¸´)£¬¸üĞÂÇ°¶ËÑéÖ¤±¨¸æ |
+| ¹¤ÈË | W6 |
 | Git SHA | 6a91a652
 
-### P0-011-002-003-001-001 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-002-003-001-001 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-003-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-07T23:10 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | å®ç°å¸ç§æ±‡ç‡P07å•ä¸€è¡¨å•é¡µï¼šæ–°å¢el-dialogå¼¹çª—è¡¨å•(6å­—æ®µå«å¼‚æ­¥å”¯ä¸€æ€§æ ¡éªŒ)ï¼ŒAPIå±‚æ·»åŠ create/update/checkCodeæ¥å£ï¼Œvue-tscç±»å‹æ£€æŸ¥é€šè¿‡ï¼Œvite buildé€šè¿‡ |
-| å·¥äºº | W4 |
+| ÈÎÎñ±àºÅ | P0-011-002-003-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-07T23:10 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÊµÏÖ±ÒÖÖ»ãÂÊP07µ¥Ò»±íµ¥Ò³£ºĞÂÔöel-dialogµ¯´°±íµ¥(6×Ö¶Îº¬Òì²½Î¨Ò»ĞÔĞ£Ñé)£¬API²ãÌí¼Ócreate/update/checkCode½Ó¿Ú£¬vue-tscÀàĞÍ¼ì²éÍ¨¹ı£¬vite buildÍ¨¹ı |
+| ¹¤ÈË | W4 |
 | Git SHA | bb69d9d5
 
-### P0-011-002-003-001-002 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-002-003-001-002 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-003-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-07T23:35 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | éªŒè¯å¸ç§æ±‡ç‡P07å•ä¸€è¡¨å•é¡µï¼švue-tscç¼–è¯‘é€šè¿‡ï¼Œvite buildé€šè¿‡(6.94s)ï¼Œæ›´æ–°å‰ç«¯éªŒè¯æŠ¥å‘Š(30é¡¹æ£€æŸ¥/27é€šè¿‡)ï¼Œæ›´æ–°issues.md(ISS-3å·²ä¿®å¤ï¼ŒISS-2/ISS-4å¾…åç»­) |
-| å·¥äºº | W3 |
-| Git SHA | (å¾…æäº¤)
+| ÈÎÎñ±àºÅ | P0-011-002-003-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-07T23:35 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÑéÖ¤±ÒÖÖ»ãÂÊP07µ¥Ò»±íµ¥Ò³£ºvue-tsc±àÒëÍ¨¹ı£¬vite buildÍ¨¹ı(6.94s)£¬¸üĞÂÇ°¶ËÑéÖ¤±¨¸æ(30Ïî¼ì²é/27Í¨¹ı)£¬¸üĞÂissues.md(ISS-3ÒÑĞŞ¸´£¬ISS-2/ISS-4´ıºóĞø) |
+| ¹¤ÈË | W3 |
+| Git SHA | (´ıÌá½»)
 
-### P0-011-002-010-001-001 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-002-010-001-001 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-010-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™CacheManager Service |
-| å®Œæˆæ—¶é—´ | 2026-06-07T23:45 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | ç¼–å†™ç¼“å­˜ç®¡ç†CacheManager Serviceï¼šICacheManagerServiceæ¥å£(6ä¸ªæ–¹æ³•)ï¼ŒCacheManagerServiceImplå®ç°(SCANéå†ç¦æ­¢KEYSã€JSONååºåˆ—åŒ–ã€TTLæŸ¥è¯¢ã€æ¨¡å¼åˆ é™¤æœ€å¤§1000Keyã€æ“ä½œæ—¥å¿—)ï¼ŒCacheKeyVO/CacheStatsVO |
-| å·¥äºº | W4 |
+| ÈÎÎñ±àºÅ | P0-011-002-010-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´CacheManager Service |
+| Íê³ÉÊ±¼ä | 2026-06-07T23:45 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ±àĞ´»º´æ¹ÜÀíCacheManager Service£ºICacheManagerService½Ó¿Ú(6¸ö·½·¨)£¬CacheManagerServiceImplÊµÏÖ(SCAN±éÀú½ûÖ¹KEYS¡¢JSON·´ĞòÁĞ»¯¡¢TTL²éÑ¯¡¢Ä£Ê½É¾³ı×î´ó1000Key¡¢²Ù×÷ÈÕÖ¾)£¬CacheKeyVO/CacheStatsVO |
+| ¹¤ÈË | W4 |
 | Git SHA | 253fe624
 
-### P0-011-002-010-001-002 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-002-010-001-002 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-010-001-002 |
-| ä»»åŠ¡åç§° | ç¼–å†™ç¼“å­˜ç®¡ç†Controlleræƒé™æ§åˆ¶ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T02:30 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | ç¼–å†™CacheManagerController(5ä¸ªRESTfulç«¯ç‚¹: list/value/stats/deleteByKey/deleteByPattern)+@RequirePermission("system:cache:manage")+RT<T>ç»Ÿä¸€å“åº”+Swaggeræ³¨è§£å®Œæ•´ |
-| å·¥äºº | W5 |
+| ÈÎÎñ±àºÅ | P0-011-002-010-001-002 |
+| ÈÎÎñÃû³Æ | ±àĞ´»º´æ¹ÜÀíControllerÈ¨ÏŞ¿ØÖÆ |
+| Íê³ÉÊ±¼ä | 2026-06-08T02:30 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ±àĞ´CacheManagerController(5¸öRESTful¶Ëµã: list/value/stats/deleteByKey/deleteByPattern)+@RequirePermission("system:cache:manage")+RT<T>Í³Ò»ÏìÓ¦+Swagger×¢½âÍêÕû |
+| ¹¤ÈË | W5 |
 | Git SHA | 6f639e60
 
-### P0-011-002-010-001-003 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-002-010-001-003 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-010-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯ç¼“å­˜ç®¡ç† |
-| å®Œæˆæ—¶é—´ | 2026-06-08T00:00 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | ä»£ç å®¡æŸ¥éªŒè¯ç¼“å­˜ç®¡ç†åŠŸèƒ½(8é¡¹å…¨é€šè¿‡): SCANéå†Keyåˆ—è¡¨/æ¨¡å¼æœç´¢/Value JSONé«˜äº®/TTLå±•ç¤º/å•ä¸ªæ‰¹é‡åˆ é™¤/æƒé™403/æ“ä½œæ—¥å¿—, ç¼–å†™éªŒè¯æŠ¥å‘Šdocs/test-reports/cache-management-test.md |
-| å·¥äºº | W6 |
+| ÈÎÎñ±àºÅ | P0-011-002-010-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤»º´æ¹ÜÀí |
+| Íê³ÉÊ±¼ä | 2026-06-08T00:00 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´úÂëÉó²éÑéÖ¤»º´æ¹ÜÀí¹¦ÄÜ(8ÏîÈ«Í¨¹ı): SCAN±éÀúKeyÁĞ±í/Ä£Ê½ËÑË÷/Value JSON¸ßÁÁ/TTLÕ¹Ê¾/µ¥¸öÅúÁ¿É¾³ı/È¨ÏŞ403/²Ù×÷ÈÕÖ¾, ±àĞ´ÑéÖ¤±¨¸ædocs/test-reports/cache-management-test.md |
+| ¹¤ÈË | W6 |
 | Git SHA | 71ad98c5
 
-| P0-012-001-001-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-07T23:50 | âœ… | åˆ›å»ºIEmployeeServiceæ¥å£(ç»§æ‰¿IServiceX)åŠç›¸å…³Entity/DTO/VO | (pending-commit) |
-| P0-012-001-001-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-07T23:40 | âœ… | åˆ›å»ºEmployeeServiceImpl(ç»§æ‰¿ServiceImpl/å®Œæ•´CRUD/å·¥å·å”¯ä¸€æ€§æ ¡éªŒ/èº«ä»½è¯è„±æ•)åŠEmployeeMapper | (pending-commit) |
-| P0-012-001-001-001-003 | éªŒè¯Service | 2026-06-08T00:01 | âœ… | ç¼–å†™EmployeeServiceTest(34ä¸ªæµ‹è¯•ç”¨ä¾‹å…¨é€šè¿‡/JUnit5+Mockito/è¦†ç›–CRUD+å”¯ä¸€æ€§+å…³è”æ ¡éªŒ+äº‹åŠ¡å›æ»š+è¾¹ç•Œåœºæ™¯+èº«ä»½è¯è„±æ•) | (pending-commit) |
-| P0-012-001-002-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-08T00:20 | âœ… | åˆ›å»ºIRecruitmentServiceæ¥å£(ç»§æ‰¿IServiceX<RecruitmentEntity>/5ä¸ªCRUDæ–¹æ³•/@Validå…¥å‚/@Transactionalå†™æ“ä½œ)åŠRecruitmentEntity/DTO/VO | (pending-commit) |
-| P0-012-001-002-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-08T00:40 | âœ… | åˆ›å»ºRecruitmentServiceImpl(ç»§æ‰¿ServiceImpl/å®Œæ•´CRUD/æˆªæ­¢æ—¥æœŸæ ¡éªŒ+çŠ¶æ€æµè½¬æ ¡éªŒ/@Transactional+BusinessException+@OperLog)+RecruitmentMapper | (pending-commit) |
-| P0-012-001-003-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-08T00:34 | âœ… | åˆ›å»ºIAttendanceServiceæ¥å£(ç»§æ‰¿IServiceX<AttendanceEntity>/5ä¸ªCRUDæ–¹æ³•/@Validå…¥å‚/@Transactionalå†™æ“ä½œ/å®Œæ•´JavaDoc)åŠAttendanceEntity/DTO/VO | (pending-commit) |
-| P0-012-001-003-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-08T00:42 | âœ… | åˆ›å»ºAttendanceServiceImpl(ç»§æ‰¿ServiceImpl/å®Œæ•´CRUD/å‘˜å·¥+æ—¥æœŸå”¯ä¸€æ€§æ ¡éªŒ/@Transactional+BusinessException+@OperLog)+AttendanceMapper | (pending-commit) |
-| P0-012-001-003-001-003 | éªŒè¯Service | 2026-06-08T00:51 | âœ… | ç¼–å†™AttendanceServiceTest(37ä¸ªæµ‹è¯•ç”¨ä¾‹å…¨é€šè¿‡/JUnit5+Mockito/è¦†ç›–CRUD+å”¯ä¸€æ€§+å…³è”æ ¡éªŒ+äº‹åŠ¡å›æ»š+è¾¹ç•Œåœºæ™¯)åŠæµ‹è¯•æŠ¥å‘Š | (pending-commit) |
+| P0-012-001-001-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-07T23:50 | ? | ´´½¨IEmployeeService½Ó¿Ú(¼Ì³ĞIServiceX)¼°Ïà¹ØEntity/DTO/VO | (pending-commit) |
+| P0-012-001-001-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-07T23:40 | ? | ´´½¨EmployeeServiceImpl(¼Ì³ĞServiceImpl/ÍêÕûCRUD/¹¤ºÅÎ¨Ò»ĞÔĞ£Ñé/Éí·İÖ¤ÍÑÃô)¼°EmployeeMapper | (pending-commit) |
+| P0-012-001-001-001-003 | ÑéÖ¤Service | 2026-06-08T00:01 | ? | ±àĞ´EmployeeServiceTest(34¸ö²âÊÔÓÃÀıÈ«Í¨¹ı/JUnit5+Mockito/¸²¸ÇCRUD+Î¨Ò»ĞÔ+¹ØÁªĞ£Ñé+ÊÂÎñ»Ø¹ö+±ß½ç³¡¾°+Éí·İÖ¤ÍÑÃô) | (pending-commit) |
+| P0-012-001-002-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-08T00:20 | ? | ´´½¨IRecruitmentService½Ó¿Ú(¼Ì³ĞIServiceX<RecruitmentEntity>/5¸öCRUD·½·¨/@ValidÈë²Î/@TransactionalĞ´²Ù×÷)¼°RecruitmentEntity/DTO/VO | (pending-commit) |
+| P0-012-001-002-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-08T00:40 | ? | ´´½¨RecruitmentServiceImpl(¼Ì³ĞServiceImpl/ÍêÕûCRUD/½ØÖ¹ÈÕÆÚĞ£Ñé+×´Ì¬Á÷×ªĞ£Ñé/@Transactional+BusinessException+@OperLog)+RecruitmentMapper | (pending-commit) |
+| P0-012-001-003-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-08T00:34 | ? | ´´½¨IAttendanceService½Ó¿Ú(¼Ì³ĞIServiceX<AttendanceEntity>/5¸öCRUD·½·¨/@ValidÈë²Î/@TransactionalĞ´²Ù×÷/ÍêÕûJavaDoc)¼°AttendanceEntity/DTO/VO | (pending-commit) |
+| P0-012-001-003-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-08T00:42 | ? | ´´½¨AttendanceServiceImpl(¼Ì³ĞServiceImpl/ÍêÕûCRUD/Ô±¹¤+ÈÕÆÚÎ¨Ò»ĞÔĞ£Ñé/@Transactional+BusinessException+@OperLog)+AttendanceMapper | (pending-commit) |
+| P0-012-001-003-001-003 | ÑéÖ¤Service | 2026-06-08T00:51 | ? | ±àĞ´AttendanceServiceTest(37¸ö²âÊÔÓÃÀıÈ«Í¨¹ı/JUnit5+Mockito/¸²¸ÇCRUD+Î¨Ò»ĞÔ+¹ØÁªĞ£Ñé+ÊÂÎñ»Ø¹ö+±ß½ç³¡¾°)¼°²âÊÔ±¨¸æ | (pending-commit) |
 
-### P0-011-001-002-001-001 âœ…
-| å±æ€§ | å€¼ |
+### P0-011-001-002-001-001 ?
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-001-002-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ |
-| å®Œæˆæ—¶é—´ | 2026-06-07T23:35 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | éªŒè¯IBankAccountServiceæ¥å£(ç»§æ‰¿IServiceX<BankAccountEntity>/CRUDæ–¹æ³•5ä¸ª/create+updateå«@Valid DTOå…¥å‚/deleteå«@Transactional/getById+pageListè¯»æ“ä½œ/JavaDocå®Œæ•´/@Transactionalä»…å†™æ“ä½œæ–¹æ³•)ï¼Œä»£ç å·²å­˜åœ¨ä¸”ç¬¦åˆè§„æ ¼ï¼Œmvn clean compileé€šè¿‡ |
-| å·¥äºº | W5 |
+| ÈÎÎñ±àºÅ | P0-011-001-002-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú |
+| Íê³ÉÊ±¼ä | 2026-06-07T23:35 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÑéÖ¤IBankAccountService½Ó¿Ú(¼Ì³ĞIServiceX<BankAccountEntity>/CRUD·½·¨5¸ö/create+updateº¬@Valid DTOÈë²Î/deleteº¬@Transactional/getById+pageList¶Á²Ù×÷/JavaDocÍêÕû/@Transactional½öĞ´²Ù×÷·½·¨)£¬´úÂëÒÑ´æÔÚÇÒ·ûºÏ¹æ¸ñ£¬mvn clean compileÍ¨¹ı |
+| ¹¤ÈË | W5 |
 | Git SHA | (pending-commit) |
 
-| P0-011-001-002-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-07T23:43 | âœ… | BankAccountServiceImpl(extends ServiceImpl/CRUDå®Œæ•´/å”¯ä¸€æ€§æ ¡éªŒ+çŠ¶æ€æµè½¬æ ¡éªŒ/@Transactional+BusinessException+@OperLog/mvn compileé€šè¿‡) | 3a965dac |
+| P0-011-001-002-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-07T23:43 | ? | BankAccountServiceImpl(extends ServiceImpl/CRUDÍêÕû/Î¨Ò»ĞÔĞ£Ñé+×´Ì¬Á÷×ªĞ£Ñé/@Transactional+BusinessException+@OperLog/mvn compileÍ¨¹ı) | 3a965dac |
 
-## P0-008-001-001-001-001 ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£
-- å®Œæˆæ—¶é—´: 2026-06-07 23:54
-- çŠ¶æ€: âœ…
-- æ‘˜è¦: å®Œå–„CustomerClassServiceæ¥å£ï¼Œæ·»åŠ @Transactional(readOnly=true)å’Œ@Validæ³¨è§£
-- æ¨¡å—: P0-008 CRMå®¢æˆ·ç®¡ç†æ¨¡å—
+## P0-008-001-001-001-001 ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú
+- Íê³ÉÊ±¼ä: 2026-06-07 23:54
+- ×´Ì¬: ?
+- ÕªÒª: ÍêÉÆCustomerClassService½Ó¿Ú£¬Ìí¼Ó@Transactional(readOnly=true)ºÍ@Valid×¢½â
+- Ä£¿é: P0-008 CRM¿Í»§¹ÜÀíÄ£¿é
 
-## P0-011-002-001-001-001 â€” ç¼–å†™æ ¸å¿ƒä»£ç 
+## P0-011-002-001-001-001 ¡ª ±àĞ´ºËĞÄ´úÂë
 
-- **å®Œæˆæ—¶é—´**ï¼š2026-06-07T23:59
-- **çŠ¶æ€**ï¼šâœ… å·²å®Œæˆ
-- **æ‘˜è¦**ï¼šè´¢åŠ¡åŸºç¡€è®¾ç½®å·¥ä½œå°æ ¸å¿ƒä»£ç ï¼ˆé¡µé¢+APIå±‚ï¼‰å·²å®ç°ï¼ŒåŒ…å«KPIå¡ç‰‡ã€EChartsè¶‹åŠ¿å›¾ã€ç§‘ç›®ç±»å‹åˆ†å¸ƒé¥¼å›¾
-- **äº¤ä»˜ç‰©**ï¼š
+- **Íê³ÉÊ±¼ä**£º2026-06-07T23:59
+- **×´Ì¬**£º? ÒÑÍê³É
+- **ÕªÒª**£º²ÆÎñ»ù´¡ÉèÖÃ¹¤×÷Ì¨ºËĞÄ´úÂë£¨Ò³Ãæ+API²ã£©ÒÑÊµÏÖ£¬°üº¬KPI¿¨Æ¬¡¢EChartsÇ÷ÊÆÍ¼¡¢¿ÆÄ¿ÀàĞÍ·Ö²¼±ıÍ¼
+- **½»¸¶Îï**£º
   - erp-ai-web/src/views/finance/financeworkbench/index.vue
   - erp-ai-web/src/api/modules/finance-workbench.ts
 
-## P0-011-002-005-001-001 â€” ç¼–å†™æ ¸å¿ƒä»£ç 
+## P0-011-002-005-001-001 ¡ª ±àĞ´ºËĞÄ´úÂë
 
-- **å®Œæˆæ—¶é—´**ï¼š2026-06-08T00:15
-- **çŠ¶æ€**ï¼šâœ… å·²å®Œæˆ
-- **æ‘˜è¦**ï¼šé“¶è¡Œè´¦æˆ·è¡¨å•é¡µæ ¸å¿ƒä»£ç ï¼Œæ–°å¢checkBankAccountNoApiå¼‚æ­¥å”¯ä¸€æ€§æ ¡éªŒå‡½æ•°ï¼ŒbankAccountNoå­—æ®µæ·»åŠ å¼‚æ­¥å”¯ä¸€æ€§æ ¡éªŒ
-- **äº¤ä»˜ç‰©**ï¼š
-  - erp-ai-web/src/views/finance/bankaccount/index.vueï¼ˆæ›´æ–°ï¼‰
-  - erp-ai-web/src/api/modules/finance-bankaccount.tsï¼ˆæ›´æ–°ï¼‰
-- **å·¥äºº**ï¼šW6
-- **Git SHA**ï¼š39534344
+- **Íê³ÉÊ±¼ä**£º2026-06-08T00:15
+- **×´Ì¬**£º? ÒÑÍê³É
+- **ÕªÒª**£ºÒøĞĞÕË»§±íµ¥Ò³ºËĞÄ´úÂë£¬ĞÂÔöcheckBankAccountNoApiÒì²½Î¨Ò»ĞÔĞ£Ñéº¯Êı£¬bankAccountNo×Ö¶ÎÌí¼ÓÒì²½Î¨Ò»ĞÔĞ£Ñé
+- **½»¸¶Îï**£º
+  - erp-ai-web/src/views/finance/bankaccount/index.vue£¨¸üĞÂ£©
+  - erp-ai-web/src/api/modules/finance-bankaccount.ts£¨¸üĞÂ£©
+- **¹¤ÈË**£ºW6
+- **Git SHA**£º39534344
 
 
 
-## P0-011-001-002-001-003 â€” éªŒè¯Service
+## P0-011-001-002-001-003 ¡ª ÑéÖ¤Service
 
-- **å®Œæˆæ—¶é—´**ï¼š2026-06-08T00:10
-- **çŠ¶æ€**ï¼šâœ… å·²å®Œæˆ
-- **æ‘˜è¦**ï¼šBankAccountServiceå•å…ƒæµ‹è¯•éªŒè¯é€šè¿‡ï¼Œ40ä¸ªæµ‹è¯•ç”¨ä¾‹å…¨éƒ¨PASSï¼Œè¦†ç›–CRUDã€å”¯ä¸€æ€§æ ¡éªŒã€çŠ¶æ€æµè½¬ã€@Transactionalæ³¨è§£éªŒè¯ã€è¾¹ç•Œåœºæ™¯
-- **äº¤ä»˜ç‰©**ï¼š
-  - src/test/java/com/erp/module/finance/service/BankAccountServiceTest.javaï¼ˆ791è¡Œï¼Œ40ä¸ªç”¨ä¾‹ï¼‰
+- **Íê³ÉÊ±¼ä**£º2026-06-08T00:10
+- **×´Ì¬**£º? ÒÑÍê³É
+- **ÕªÒª**£ºBankAccountServiceµ¥Ôª²âÊÔÑéÖ¤Í¨¹ı£¬40¸ö²âÊÔÓÃÀıÈ«²¿PASS£¬¸²¸ÇCRUD¡¢Î¨Ò»ĞÔĞ£Ñé¡¢×´Ì¬Á÷×ª¡¢@Transactional×¢½âÑéÖ¤¡¢±ß½ç³¡¾°
+- **½»¸¶Îï**£º
+  - src/test/java/com/erp/module/finance/service/BankAccountServiceTest.java£¨791ĞĞ£¬40¸öÓÃÀı£©
   - docs/test-reports/BankAccountService-test-report.md
-- **å·¥äºº**ï¼šW5
+- **¹¤ÈË**£ºW5
 
 
-## P0-011-002-004-001-002 â€” éªŒè¯åŠŸèƒ½
+## P0-011-002-004-001-002 ¡ª ÑéÖ¤¹¦ÄÜ
 
-- **å®Œæˆæ—¶é—´**ï¼š2026-06-08T00:20
-- **çŠ¶æ€**ï¼šâœ… å·²å®Œæˆ
-- **æ‘˜è¦**ï¼šé“¶è¡Œè´¦æˆ·åˆ—è¡¨é¡µå‰ç«¯éªŒè¯é€šè¿‡ï¼Œ36é¡¹éªŒè¯å…¨éƒ¨PASSï¼Œå‰åç«¯ç¼–è¯‘é€šè¿‡ï¼Œå‘ç°4ä¸ªä½/ä¸­ä¼˜é—®é¢˜å·²è®°å½•
-- **äº¤ä»˜ç‰©**ï¼š
+- **Íê³ÉÊ±¼ä**£º2026-06-08T00:20
+- **×´Ì¬**£º? ÒÑÍê³É
+- **ÕªÒª**£ºÒøĞĞÕË»§ÁĞ±íÒ³Ç°¶ËÑéÖ¤Í¨¹ı£¬36ÏîÑéÖ¤È«²¿PASS£¬Ç°ºó¶Ë±àÒëÍ¨¹ı£¬·¢ÏÖ4¸öµÍ/ÖĞÓÅÎÊÌâÒÑ¼ÇÂ¼
+- **½»¸¶Îï**£º
   - docs/test-reports/finance-BankAccount-frontend-test.md
   - docs/test-reports/finance-BankAccount-issues.md
-- **å·¥äºº**ï¼šW6
+- **¹¤ÈË**£ºW6
 
-## P0-011-002-006-001-002 â€” éªŒè¯åŠŸèƒ½
+## P0-011-002-006-001-002 ¡ª ÑéÖ¤¹¦ÄÜ
 
-- **å®Œæˆæ—¶é—´**ï¼š2026-06-08T00:45
-- **çŠ¶æ€**ï¼šâœ… å·²å®Œæˆ
-- **æ‘˜è¦**ï¼šä¼šè®¡ç§‘ç›®æ ‘å½¢åˆ—è¡¨é¡µå‰ç«¯ä»£ç éªŒè¯é€šè¿‡ï¼Œå‰ç«¯ç±»å‹ç¼–è¯‘é€šè¿‡ï¼Œ36é¡¹éªŒè¯è¦†ç›–é¡µé¢/API/ç­›é€‰/äº¤äº’/è¡¨å•/å¼‚å¸¸ï¼Œå‘ç°4ä¸ªé˜»å¡/ä¸­ç­‰é—®é¢˜ï¼ˆControllerç¼ºå¤±+è·¯ç”±æœªæ³¨å†Œ+Serviceæ–¹æ³•ç¼ºå¤±+VOç±»å‹å£°æ˜ï¼‰
-- **å·¥äºº**ï¼šW5
+- **Íê³ÉÊ±¼ä**£º2026-06-08T00:45
+- **×´Ì¬**£º? ÒÑÍê³É
+- **ÕªÒª**£º»á¼Æ¿ÆÄ¿Ê÷ĞÎÁĞ±íÒ³Ç°¶Ë´úÂëÑéÖ¤Í¨¹ı£¬Ç°¶ËÀàĞÍ±àÒëÍ¨¹ı£¬36ÏîÑéÖ¤¸²¸ÇÒ³Ãæ/API/É¸Ñ¡/½»»¥/±íµ¥/Òì³££¬·¢ÏÖ4¸ö×èÈû/ÖĞµÈÎÊÌâ£¨ControllerÈ±Ê§+Â·ÓÉÎ´×¢²á+Service·½·¨È±Ê§+VOÀàĞÍÉùÃ÷£©
+- **¹¤ÈË**£ºW5
 
 
-## P0-011-002-003-001-002 â€” éªŒè¯åŠŸèƒ½
+## P0-011-002-003-001-002 ¡ª ÑéÖ¤¹¦ÄÜ
 
-- **å®Œæˆæ—¶é—´**ï¼š2026-06-08T01:34
-- **çŠ¶æ€**ï¼šâœ… å·²å®Œæˆ
-- **æ‘˜è¦**ï¼šå¸ç§æ±‡ç‡P07å•ä¸€è¡¨å•é¡µéªŒè¯é€šè¿‡ï¼Œåç«¯mvn compileé€šè¿‡ï¼Œå‰ç«¯currencyrateç»„ä»¶é›¶TSé”™è¯¯ï¼Œ37é¡¹éªŒè¯è¦†ç›–é¡µé¢/API/è¡¨å•æ ¡éªŒ/å¼¹çª—äº¤äº’/å¼‚å¸¸å¤„ç†ï¼Œå‘ç°5ä¸ªé—®é¢˜ï¼ˆ2ä¸¥é‡ï¼šControllerç¼ºå¤±+check-codeç«¯ç‚¹ç¼ºå¤±ï¼Œ1ä¸­ï¼šå¯ç”¨åœç”¨åŠŸèƒ½ï¼Œ2ä½ï¼šdebounceæ¸…ç†+è·¯å¾„ç¡®è®¤ï¼‰
-- **äº¤ä»˜ç‰©**ï¼š
+- **Íê³ÉÊ±¼ä**£º2026-06-08T01:34
+- **×´Ì¬**£º? ÒÑÍê³É
+- **ÕªÒª**£º±ÒÖÖ»ãÂÊP07µ¥Ò»±íµ¥Ò³ÑéÖ¤Í¨¹ı£¬ºó¶Ëmvn compileÍ¨¹ı£¬Ç°¶Ëcurrencyrate×é¼şÁãTS´íÎó£¬37ÏîÑéÖ¤¸²¸ÇÒ³Ãæ/API/±íµ¥Ğ£Ñé/µ¯´°½»»¥/Òì³£´¦Àí£¬·¢ÏÖ5¸öÎÊÌâ£¨2ÑÏÖØ£ºControllerÈ±Ê§+check-code¶ËµãÈ±Ê§£¬1ÖĞ£ºÆôÓÃÍ£ÓÃ¹¦ÄÜ£¬2µÍ£ºdebounceÇåÀí+Â·¾¶È·ÈÏ£©
+- **½»¸¶Îï**£º
   - docs/test-reports/finance-CurrencyRate-frontend-test.md
   - docs/test-reports/finance-CurrencyRate-issues.md
-- **å·¥äºº**ï¼šW4
-- **Git SHA**ï¼š(å¾…æäº¤)
+- **¹¤ÈË**£ºW4
+- **Git SHA**£º(´ıÌá½»)
 
-- **ä»»åŠ¡ç¼–å·**ï¼šP0-012-001-002-001-003
-- **ä»»åŠ¡åç§°**ï¼šéªŒè¯Service
-- **å®Œæˆæ—¶é—´**ï¼š2026-06-08T00:20
-- **çŠ¶æ€**ï¼šâœ…
-- **æ‘˜è¦**ï¼šç¼–å†™RecruitmentServiceTestå•å…ƒæµ‹è¯•ï¼Œ30ä¸ªç”¨ä¾‹å…¨éƒ¨é€šè¿‡ï¼Œè¦†ç›–CRUDæ­£å¸¸æµç¨‹ã€å¼‚å¸¸å¤„ç†ã€çŠ¶æ€æµè½¬æ ¡éªŒã€äº‹åŠ¡æ³¨è§£éªŒè¯ã€è¾¹ç•Œåœºæ™¯
-- **äº¤ä»˜ç‰©**ï¼š
+- **ÈÎÎñ±àºÅ**£ºP0-012-001-002-001-003
+- **ÈÎÎñÃû³Æ**£ºÑéÖ¤Service
+- **Íê³ÉÊ±¼ä**£º2026-06-08T00:20
+- **×´Ì¬**£º?
+- **ÕªÒª**£º±àĞ´RecruitmentServiceTestµ¥Ôª²âÊÔ£¬30¸öÓÃÀıÈ«²¿Í¨¹ı£¬¸²¸ÇCRUDÕı³£Á÷³Ì¡¢Òì³£´¦Àí¡¢×´Ì¬Á÷×ªĞ£Ñé¡¢ÊÂÎñ×¢½âÑéÖ¤¡¢±ß½ç³¡¾°
+- **½»¸¶Îï**£º
   - src/test/java/com/erp/hrm/service/RecruitmentServiceTest.java
   - docs/test-reports/RecruitmentService-test-report.md
-- **å·¥äºº**ï¼šW3
-## P0-011-001-004-001-003 â€” éªŒè¯Service
+- **¹¤ÈË**£ºW3
+## P0-011-001-004-001-003 ¡ª ÑéÖ¤Service
 
-- **å®Œæˆæ—¶é—´**ï¼š2026-06-08T00:32
-- **çŠ¶æ€**ï¼šâœ… å·²å®Œæˆ
-- **æ‘˜è¦**ï¼šå‡­è¯å­—Serviceå•å…ƒæµ‹è¯•éªŒè¯é€šè¿‡ï¼Œ38ä¸ªç”¨ä¾‹å…¨éƒ¨é€šè¿‡ï¼Œè¦†ç›–CRUDæ­£å¸¸æµç¨‹ã€å”¯ä¸€æ€§æ ¡éªŒã€çŠ¶æ€æµè½¬ã€å…³è”æ ¡éªŒã€äº‹åŠ¡æ³¨è§£éªŒè¯ã€è¾¹ç•Œåœºæ™¯ï¼Œæµ‹è¯•æŠ¥å‘Šå·²æ›´æ–°
-- **äº¤ä»˜ç‰©**ï¼š
-  - src/test/java/com/erp/finance/service/VoucherWordServiceTest.javaï¼ˆå·²å­˜åœ¨ï¼ŒéªŒè¯é€šè¿‡ï¼‰
-  - docs/test-reports/VoucherWordService-test-report.mdï¼ˆéªŒè¯æ›´æ–°ï¼‰
-- **å·¥äºº**ï¼šW3
+- **Íê³ÉÊ±¼ä**£º2026-06-08T00:32
+- **×´Ì¬**£º? ÒÑÍê³É
+- **ÕªÒª**£ºÆ¾Ö¤×ÖServiceµ¥Ôª²âÊÔÑéÖ¤Í¨¹ı£¬38¸öÓÃÀıÈ«²¿Í¨¹ı£¬¸²¸ÇCRUDÕı³£Á÷³Ì¡¢Î¨Ò»ĞÔĞ£Ñé¡¢×´Ì¬Á÷×ª¡¢¹ØÁªĞ£Ñé¡¢ÊÂÎñ×¢½âÑéÖ¤¡¢±ß½ç³¡¾°£¬²âÊÔ±¨¸æÒÑ¸üĞÂ
+- **½»¸¶Îï**£º
+  - src/test/java/com/erp/finance/service/VoucherWordServiceTest.java£¨ÒÑ´æÔÚ£¬ÑéÖ¤Í¨¹ı£©
+  - docs/test-reports/VoucherWordService-test-report.md£¨ÑéÖ¤¸üĞÂ£©
+- **¹¤ÈË**£ºW3
 
 ---
 
-### P0-011-002-005-001-002 éªŒè¯åŠŸèƒ½
+### P0-011-002-005-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| å®Œæˆæ—¶é—´ | 2026-06-08T00:35 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | éªŒè¯é“¶è¡Œè´¦æˆ·P07å•ä¸€è¡¨å•é¡µï¼š52é¡¹æ£€æŸ¥å…¨éƒ¨é€šè¿‡ï¼ˆè·¯ç”±/æ–°å¢/ç¼–è¾‘/æ ¡éªŒ/å¼‚å¸¸å¤„ç†ï¼‰ï¼Œvue-tsc + vite build + mvn compile å…¨éƒ¨é€šè¿‡ï¼Œ5ä¸ªé—®é¢˜å·²è®°å½• |
+| Íê³ÉÊ±¼ä | 2026-06-08T00:35 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÑéÖ¤ÒøĞĞÕË»§P07µ¥Ò»±íµ¥Ò³£º52Ïî¼ì²éÈ«²¿Í¨¹ı£¨Â·ÓÉ/ĞÂÔö/±à¼­/Ğ£Ñé/Òì³£´¦Àí£©£¬vue-tsc + vite build + mvn compile È«²¿Í¨¹ı£¬5¸öÎÊÌâÒÑ¼ÇÂ¼ |
 | Git commit | 224107b4 |
-| å·¥äºº | W6 |
+| ¹¤ÈË | W6 |
 
-### P0-011-001-003-001-003 éªŒè¯Service
+### P0-011-001-003-001-003 ÑéÖ¤Service
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| å®Œæˆæ—¶é—´ | 2026-06-08T00:45 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | AccountServiceå•å…ƒæµ‹è¯•ï¼š38ä¸ªæµ‹è¯•ç”¨ä¾‹å…¨éƒ¨é€šè¿‡ï¼Œè¦†ç›–CRUD/å”¯ä¸€æ€§æ ¡éªŒ/å…³è”æ ¡éªŒ/äº‹åŠ¡æ³¨è§£/è¾¹ç•Œåœºæ™¯/å®ä½“è½¬æ¢ |
+| Íê³ÉÊ±¼ä | 2026-06-08T00:45 |
+| ×´Ì¬ | ? |
+| ÕªÒª | AccountServiceµ¥Ôª²âÊÔ£º38¸ö²âÊÔÓÃÀıÈ«²¿Í¨¹ı£¬¸²¸ÇCRUD/Î¨Ò»ĞÔĞ£Ñé/¹ØÁªĞ£Ñé/ÊÂÎñ×¢½â/±ß½ç³¡¾°/ÊµÌå×ª»» |
 | Git commit | 0bb65558 |
-| å·¥äºº | W5 |
+| ¹¤ÈË | W5 |
 
-### P0-011-002-007-001-002 éªŒè¯åŠŸèƒ½
+### P0-011-002-007-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| å®Œæˆæ—¶é—´ | 2026-06-08T01:00 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | éªŒè¯ä¼šè®¡ç§‘ç›®P07å•ä¸€è¡¨å•é¡µï¼šä»£ç å®¡æŸ¥è¦†ç›–7é¡¹éªŒè¯ç‚¹ï¼ˆè·¯ç”±/æ•°æ®åŠ è½½/ç­›é€‰/äº¤äº’/å›æ˜¾/æ ¡éªŒ/å¼‚å¸¸ï¼‰ï¼Œå‘ç°6ä¸ªé—®é¢˜ï¼ˆ2é˜»å¡/2ä¸­ç­‰/2ä½ï¼‰ï¼Œvue-tscç¼–è¯‘é€šè¿‡ |
+| Íê³ÉÊ±¼ä | 2026-06-08T01:00 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÑéÖ¤»á¼Æ¿ÆÄ¿P07µ¥Ò»±íµ¥Ò³£º´úÂëÉó²é¸²¸Ç7ÏîÑéÖ¤µã£¨Â·ÓÉ/Êı¾İ¼ÓÔØ/É¸Ñ¡/½»»¥/»ØÏÔ/Ğ£Ñé/Òì³££©£¬·¢ÏÖ6¸öÎÊÌâ£¨2×èÈû/2ÖĞµÈ/2µÍ£©£¬vue-tsc±àÒëÍ¨¹ı |
 | Git commit | 711fb1e8 |
-| å·¥äºº | W6 |
+| ¹¤ÈË | W6 |
 
-### P0-011-002-008-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+### P0-011-002-008-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-008-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T10:30 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºå‡­è¯å­—åˆ—è¡¨é¡µ(voucherword/index.vueå«ç»Ÿè®¡å¡ç‰‡/æœç´¢è¡¨å•é˜²æŠ–/VxeTableè™šæ‹Ÿæ»šåŠ¨/æ–°å¢ç¼–è¾‘å¼¹çª—è¡¨å•/çŠ¶æ€åˆ‡æ¢/åˆ é™¤äºŒæ¬¡ç¡®è®¤)å’ŒAPIå±‚(finance-voucherword.tså«CRUD+çŠ¶æ€æ›´æ–°+åˆ†é¡µæŸ¥è¯¢)ï¼Œæ³¨å†Œè·¯ç”±/finance/voucherwordå¹¶æ·»åŠ ä¸­è‹±æ–‡i18nè¯æ¡ï¼Œvite buildé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-011-002-008-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T10:30 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨Æ¾Ö¤×ÖÁĞ±íÒ³(voucherword/index.vueº¬Í³¼Æ¿¨Æ¬/ËÑË÷±íµ¥·À¶¶/VxeTableĞéÄâ¹ö¶¯/ĞÂÔö±à¼­µ¯´°±íµ¥/×´Ì¬ÇĞ»»/É¾³ı¶ş´ÎÈ·ÈÏ)ºÍAPI²ã(finance-voucherword.tsº¬CRUD+×´Ì¬¸üĞÂ+·ÖÒ³²éÑ¯)£¬×¢²áÂ·ÓÉ/finance/voucherword²¢Ìí¼ÓÖĞÓ¢ÎÄi18n´ÊÌõ£¬vite buildÍ¨¹ı |
 | Git commit | 385831eb |
-| å·¥äºº | W6 |
+| ¹¤ÈË | W6 |
 
-#### P0-011-002-009-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P0-011-002-009-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-009-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T14:00 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | å‡­è¯å­—P07å•ä¸€è¡¨å•é¡µæ ¸å¿ƒä»£ç (ä»£ç å·²ç”±W6åœ¨P0-011-002-008-001-001ä¸­å®Œæ•´å®ç°ï¼Œå«el-dialogè¡¨å•/å­—æ®µæ ¡éªŒ/æ–°å¢ç¼–è¾‘æ¨¡å¼/APIç»‘å®š/é˜²æŠ–æœç´¢/æ“ä½œåˆ—)ï¼ŒAPIå±‚(finance-voucherword.ts)å®Œæ•´ï¼Œè·¯ç”±å·²æ³¨å†Œ(/finance/voucherword)ï¼Œi18nè¯æ¡å·²æ·»åŠ ï¼Œvue-tscç±»å‹æ£€æŸ¥é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-011-002-009-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T14:00 |
+| ×´Ì¬ | ? |
+| ÕªÒª | Æ¾Ö¤×ÖP07µ¥Ò»±íµ¥Ò³ºËĞÄ´úÂë(´úÂëÒÑÓÉW6ÔÚP0-011-002-008-001-001ÖĞÍêÕûÊµÏÖ£¬º¬el-dialog±íµ¥/×Ö¶ÎĞ£Ñé/ĞÂÔö±à¼­Ä£Ê½/API°ó¶¨/·À¶¶ËÑË÷/²Ù×÷ÁĞ)£¬API²ã(finance-voucherword.ts)ÍêÕû£¬Â·ÓÉÒÑ×¢²á(/finance/voucherword)£¬i18n´ÊÌõÒÑÌí¼Ó£¬vue-tscÀàĞÍ¼ì²éÍ¨¹ı |
 | Git commit | 30eea751 |
-| å·¥äºº | W4 |
+| ¹¤ÈË | W4 |
 
-#### P0-011-002-009-001-002 éªŒè¯åŠŸèƒ½
+#### P0-011-002-009-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-009-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T01:30 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | å‡­è¯å­—P07å•ä¸€è¡¨å•é¡µéªŒè¯é€šè¿‡ï¼šè·¯ç”±/APIå¥‘çº¦/æ•°æ®åŠ è½½/ç­›é€‰æœç´¢/ç¼–è¾‘å›æ˜¾/è¡¨å•æ ¡éªŒ/é”™è¯¯å¤„ç†7é¡¹å…¨éƒ¨é€šè¿‡ï¼›äº§å‡ºå‰ç«¯éªŒè¯æŠ¥å‘Š+é—®é¢˜æ¸…å•2ä»½æ–‡æ¡£ï¼›é¡µé¢ä»£ç æ— ç±»å‹é”™è¯¯ |
+| ÈÎÎñ±àºÅ | P0-011-002-009-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-08T01:30 |
+| ×´Ì¬ | ? |
+| ÕªÒª | Æ¾Ö¤×ÖP07µ¥Ò»±íµ¥Ò³ÑéÖ¤Í¨¹ı£ºÂ·ÓÉ/APIÆõÔ¼/Êı¾İ¼ÓÔØ/É¸Ñ¡ËÑË÷/±à¼­»ØÏÔ/±íµ¥Ğ£Ñé/´íÎó´¦Àí7ÏîÈ«²¿Í¨¹ı£»²ú³öÇ°¶ËÑéÖ¤±¨¸æ+ÎÊÌâÇåµ¥2·İÎÄµµ£»Ò³Ãæ´úÂëÎŞÀàĞÍ´íÎó |
 | Git commit | 6b7636eb |
-| å·¥äºº | W6 |
+| ¹¤ÈË | W6 |
 
-#### P0-011-001-001-001-001 ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£
+#### P0-011-001-001-001-001 ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-001-001-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T01:42 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | éªŒè¯ICurrencyRateServiceæ¥å£å·²å­˜åœ¨ä¸”å®Œæ•´(ç»§æ‰¿IServiceX+CRUDæ–¹æ³•+@Transactional+@Valid+JavaDoc)ï¼Œmvn compileé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-011-001-001-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú |
+| Íê³ÉÊ±¼ä | 2026-06-08T01:42 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ÑéÖ¤ICurrencyRateService½Ó¿ÚÒÑ´æÔÚÇÒÍêÕû(¼Ì³ĞIServiceX+CRUD·½·¨+@Transactional+@Valid+JavaDoc)£¬mvn compileÍ¨¹ı |
 | Git commit | bbcc0ea0 |
-| å·¥äºº | W6 |
+| ¹¤ÈË | W6 |
 
-#### P0-011-002-011-001-001 ç¼–å†™DDL+Entity/Mapper
+#### P0-011-002-011-001-001 ±àĞ´DDL+Entity/Mapper
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-011-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™DDL+Entity/Mapper |
-| å®Œæˆæ—¶é—´ | 2026-06-08T19:35 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºV20260608001__create_sys_announcement.sql(Flywayè¿ç§»/16å­—æ®µ+COMMENT) + AnnouncementEntity(ç»§æ‰¿BaseEntity/6ä¸šåŠ¡å­—æ®µ) + AnnouncementMapper(ç»§æ‰¿BaseMapperX) |
+| ÈÎÎñ±àºÅ | P0-011-002-011-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´DDL+Entity/Mapper |
+| Íê³ÉÊ±¼ä | 2026-06-08T19:35 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨V20260608001__create_sys_announcement.sql(FlywayÇ¨ÒÆ/16×Ö¶Î+COMMENT) + AnnouncementEntity(¼Ì³ĞBaseEntity/6ÒµÎñ×Ö¶Î) + AnnouncementMapper(¼Ì³ĞBaseMapperX) |
 | Git commit | (pending-commit) |
-| å·¥äºº | W8 |
+| ¹¤ÈË | W8 |
 
-#### P0-011-002-010-002-001 âœ…
+#### P0-011-002-010-002-001 ?
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-010-002-001 |
-| ä»»åŠ¡åç§° | å®ç°ç¼“å­˜ç®¡ç†é¡µé¢ï¼ˆKeyæœç´¢+åˆ—è¡¨+Value JSONé«˜äº®+æ¸…é™¤+ç»Ÿè®¡å¡ç‰‡ï¼‰ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T19:45 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | erp-ai-web/src/api/modules/cache.ts(CacheStatsVO/CacheKeyVOç±»å‹å®šä¹‰+5ä¸ªAPIå‡½æ•°) + erp-ai-web/src/views/system/cache/index.vue(ç»Ÿè®¡å¡ç‰‡4ä¸ª+Keyæœç´¢+el-tableåˆ—è¡¨+JSONæ ¼å¼åŒ–Valueå¼¹çª—+å•åˆ äºŒæ¬¡ç¡®è®¤+æ‰¹é‡åˆ é™¤+30sè‡ªåŠ¨åˆ·æ–°) + è·¯ç”±æ³¨å†Œerp-ai-web/src/router/modules/static.ts |
+| ÈÎÎñ±àºÅ | P0-011-002-010-002-001 |
+| ÈÎÎñÃû³Æ | ÊµÏÖ»º´æ¹ÜÀíÒ³Ãæ£¨KeyËÑË÷+ÁĞ±í+Value JSON¸ßÁÁ+Çå³ı+Í³¼Æ¿¨Æ¬£© |
+| Íê³ÉÊ±¼ä | 2026-06-08T19:45 |
+| ×´Ì¬ | ? |
+| ÕªÒª | erp-ai-web/src/api/modules/cache.ts(CacheStatsVO/CacheKeyVOÀàĞÍ¶¨Òå+5¸öAPIº¯Êı) + erp-ai-web/src/views/system/cache/index.vue(Í³¼Æ¿¨Æ¬4¸ö+KeyËÑË÷+el-tableÁĞ±í+JSON¸ñÊ½»¯Valueµ¯´°+µ¥É¾¶ş´ÎÈ·ÈÏ+ÅúÁ¿É¾³ı+30s×Ô¶¯Ë¢ĞÂ) + Â·ÓÉ×¢²áerp-ai-web/src/router/modules/static.ts |
 | Git commit | 037e5639 |
-| å·¥äºº | W7 |
+| ¹¤ÈË | W7 |
 
-#### P0-011-002-011-001-002 ç¼–å†™Service+Controller
+#### P0-011-002-011-001-002 ±àĞ´Service+Controller
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-011-001-002 |
-| ä»»åŠ¡åç§° | ç¼–å†™Service+Controller |
-| å®Œæˆæ—¶é—´ | 2026-06-08T19:53 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | IAnnouncementService(extends IServiceX, CRUD+getUnreadList+markAsRead) + AnnouncementServiceImpl(CRUDå®ç°+æœªè¯»æŸ¥è¯¢+å·²è¯»æ ‡è®°) + AnnouncementController(6 RESTfulç«¯ç‚¹, CRUDéœ€system:announcement:manageæƒé™) + DTO(AnnouncementCreateDTO/UpdateDTO/QueryDTO) + AnnouncementVO + å…¬å‘Šå·²è¯»è®°å½•è¡¨DDL+Entity+Mapper + mvn compileé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-011-002-011-001-002 |
+| ÈÎÎñÃû³Æ | ±àĞ´Service+Controller |
+| Íê³ÉÊ±¼ä | 2026-06-08T19:53 |
+| ×´Ì¬ | ? |
+| ÕªÒª | IAnnouncementService(extends IServiceX, CRUD+getUnreadList+markAsRead) + AnnouncementServiceImpl(CRUDÊµÏÖ+Î´¶Á²éÑ¯+ÒÑ¶Á±ê¼Ç) + AnnouncementController(6 RESTful¶Ëµã, CRUDĞèsystem:announcement:manageÈ¨ÏŞ) + DTO(AnnouncementCreateDTO/UpdateDTO/QueryDTO) + AnnouncementVO + ¹«¸æÒÑ¶Á¼ÇÂ¼±íDDL+Entity+Mapper + mvn compileÍ¨¹ı |
 | Git commit | b80d48a3 |
-| å·¥äºº | W5 |
+| ¹¤ÈË | W5 |
 
-### P0-012 - HRMäººåŠ›èµ„æºç®¡ç†æ¨¡å—å¼€å‘
+### P0-012 - HRMÈËÁ¦×ÊÔ´¹ÜÀíÄ£¿é¿ª·¢
 
-#### P0-012-001-004-001-001 ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£
+#### P0-012-001-004-001-001 ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-001-004-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T12:00 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºISalaryService.javaæ¥å£ï¼Œç»§æ‰¿IServiceX<SalaryEntity>ï¼Œå£°æ˜CRUDæ–¹æ³•(create/update/delete/getById/pageList)ï¼Œå†™æ“ä½œæ ‡æ³¨@Transactionalï¼Œå…¥å‚ä½¿ç”¨@Valid DTOï¼ŒJavaDocæ³¨é‡Šå®Œæ•´ |
+| ÈÎÎñ±àºÅ | P0-012-001-004-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú |
+| Íê³ÉÊ±¼ä | 2026-06-08T12:00 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨ISalaryService.java½Ó¿Ú£¬¼Ì³ĞIServiceX<SalaryEntity>£¬ÉùÃ÷CRUD·½·¨(create/update/delete/getById/pageList)£¬Ğ´²Ù×÷±ê×¢@Transactional£¬Èë²ÎÊ¹ÓÃ@Valid DTO£¬JavaDoc×¢ÊÍÍêÕû |
 | Git commit | 92f4fd6f |
-| å·¥äºº | W5 |
+| ¹¤ÈË | W5 |
 
-#### P0-012-001-004-001-002 ç¼–å†™ServiceImplå®ç°ç±»
+#### P0-012-001-004-001-002 ±àĞ´ServiceImplÊµÏÖÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-001-004-001-002 |
-| ä»»åŠ¡åç§° | ç¼–å†™ServiceImplå®ç°ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-08T12:30 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºSalaryServiceImpl(ç»§æ‰¿ServiceImpl/å®Œæ•´CRUD/å‘˜å·¥+æœˆä»½å”¯ä¸€æ€§æ ¡éªŒ/netSalaryè®¡ç®—/@Transactional+BusinessException+@OperLog)+SalaryMapper |
+| ÈÎÎñ±àºÅ | P0-012-001-004-001-002 |
+| ÈÎÎñÃû³Æ | ±àĞ´ServiceImplÊµÏÖÀà |
+| Íê³ÉÊ±¼ä | 2026-06-08T12:30 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨SalaryServiceImpl(¼Ì³ĞServiceImpl/ÍêÕûCRUD/Ô±¹¤+ÔÂ·İÎ¨Ò»ĞÔĞ£Ñé/netSalary¼ÆËã/@Transactional+BusinessException+@OperLog)+SalaryMapper |
 | Git commit | (pending-commit) |
-| å·¥äºº | W6 |
+| ¹¤ÈË | W6 |
 
-#### P0-012-001-004-001-003 éªŒè¯Service
+#### P0-012-001-004-001-003 ÑéÖ¤Service
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-001-004-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯Service |
-| å®Œæˆæ—¶é—´ | 2026-06-08T01:31 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | ç¼–å†™SalaryServiceTest(32ä¸ªæµ‹è¯•ç”¨ä¾‹/9å¤§åœºæ™¯è¦†ç›–/JUnit5+Mockito/CRUD+å”¯ä¸€æ€§+äº‹åŠ¡+è¾¹ç•Œ+å®ä½“è½¬æ¢) + æµ‹è¯•éªŒè¯æŠ¥å‘Š |
+| ÈÎÎñ±àºÅ | P0-012-001-004-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Service |
+| Íê³ÉÊ±¼ä | 2026-06-08T01:31 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ±àĞ´SalaryServiceTest(32¸ö²âÊÔÓÃÀı/9´ó³¡¾°¸²¸Ç/JUnit5+Mockito/CRUD+Î¨Ò»ĞÔ+ÊÂÎñ+±ß½ç+ÊµÌå×ª»») + ²âÊÔÑéÖ¤±¨¸æ |
 | Git commit | (pending-commit) |
-| å·¥äºº | W5 |
+| ¹¤ÈË | W5 |
 
-#### P0-012-001-005-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P0-012-001-005-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-001-005-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T19:43 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºHrmWorkbenchAggregateServiceImpl(@CacheableèšåˆæŸ¥è¯¢/KPIå¡ç‰‡+å›¾è¡¨è¶‹åŠ¿æ•°æ®/å¤šç§Ÿæˆ·éš”ç¦»/å¼‚å¸¸é™çº§) + HrmWorkbenchAggregateVO(10ä¸ªèšåˆæŒ‡æ ‡) |
+| ÈÎÎñ±àºÅ | P0-012-001-005-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T19:43 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨HrmWorkbenchAggregateServiceImpl(@Cacheable¾ÛºÏ²éÑ¯/KPI¿¨Æ¬+Í¼±íÇ÷ÊÆÊı¾İ/¶à×â»§¸ôÀë/Òì³£½µ¼¶) + HrmWorkbenchAggregateVO(10¸ö¾ÛºÏÖ¸±ê) |
 | Git commit | (pending-commit) |
-| å·¥äºº | W10 |
+| ¹¤ÈË | W10 |
 
 ---
 
-#### P0-006-001-002-001-001 ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£
+#### P0-006-001-002-001-001 ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-006-001-002-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T01:33 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºOrgDepartmentServiceæ¥å£(6æ–¹æ³•) + DeptCreateDTO/DeptUpdateDTO/DeptQueryDTO(3DTO) + DeptListVO/DeptTreeVO/DeptDetailVO(3VO)ï¼Œç¼–è¯‘é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-006-001-002-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú |
+| Íê³ÉÊ±¼ä | 2026-06-08T01:33 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨OrgDepartmentService½Ó¿Ú(6·½·¨) + DeptCreateDTO/DeptUpdateDTO/DeptQueryDTO(3DTO) + DeptListVO/DeptTreeVO/DeptDetailVO(3VO)£¬±àÒëÍ¨¹ı |
 | Git commit | 5a7ac3c1 |
-| å·¥äºº | W7 |
+| ¹¤ÈË | W7 |
 
-#### P0-006-001-002-001-002 ç¼–å†™ServiceImplå®ç°ç±»
+#### P0-006-001-002-001-002 ±àĞ´ServiceImplÊµÏÖÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-006-001-002-001-002 |
-| ä»»åŠ¡åç§° | ç¼–å†™ServiceImplå®ç°ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-08T01:35 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºOrgDepartmentServiceImpl(6æ–¹æ³•:page/tree/getById/create/update/delete) + OrgDepartmentå®ä½“æ–°å¢deptCodeå­—æ®µï¼Œå«å…¬å¸æ ¡éªŒ+åç§°å”¯ä¸€æ€§+å¾ªç¯å¼•ç”¨æ£€æŸ¥+ç¼–ç ç”Ÿæˆ+å­éƒ¨é—¨/å²—ä½/å‘˜å·¥åˆ é™¤æ£€æŸ¥ï¼Œç¼–è¯‘é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-006-001-002-001-002 |
+| ÈÎÎñÃû³Æ | ±àĞ´ServiceImplÊµÏÖÀà |
+| Íê³ÉÊ±¼ä | 2026-06-08T01:35 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨OrgDepartmentServiceImpl(6·½·¨:page/tree/getById/create/update/delete) + OrgDepartmentÊµÌåĞÂÔödeptCode×Ö¶Î£¬º¬¹«Ë¾Ğ£Ñé+Ãû³ÆÎ¨Ò»ĞÔ+Ñ­»·ÒıÓÃ¼ì²é+±àÂëÉú³É+×Ó²¿ÃÅ/¸ÚÎ»/Ô±¹¤É¾³ı¼ì²é£¬±àÒëÍ¨¹ı |
 | Git commit | be90082c |
-| å·¥äºº | W6 |
+| ¹¤ÈË | W6 |
 
-#### P0-006-001-004-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P0-006-001-004-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-006-001-004-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T02:15 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | åˆ›å»ºWorkbenchVO(4æŒ‡æ ‡+3åˆ†å¸ƒåˆ—è¡¨+3å†…éƒ¨ç±»)+OrgWorkbenchServiceæ¥å£+OrgWorkbenchServiceImpl(getWorkbenchDataå«@Cacheableç¼“å­˜/4é¡¹è®¡æ•°/éƒ¨é—¨ç±»å‹åˆ†å¸ƒ/å…¬å¸éƒ¨é—¨ç»Ÿè®¡/äººå‘˜åˆ†å¸ƒå«å æ¯”)+OrgWorkbenchController(GET /api/org/workbench)+OrgDepartmentæ–°å¢deptTypeå­—æ®µ,ç¼–è¯‘é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-006-001-004-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T02:15 |
+| ×´Ì¬ | ? |
+| ÕªÒª | ´´½¨WorkbenchVO(4Ö¸±ê+3·Ö²¼ÁĞ±í+3ÄÚ²¿Àà)+OrgWorkbenchService½Ó¿Ú+OrgWorkbenchServiceImpl(getWorkbenchDataº¬@Cacheable»º´æ/4Ïî¼ÆÊı/²¿ÃÅÀàĞÍ·Ö²¼/¹«Ë¾²¿ÃÅÍ³¼Æ/ÈËÔ±·Ö²¼º¬Õ¼±È)+OrgWorkbenchController(GET /api/org/workbench)+OrgDepartmentĞÂÔödeptType×Ö¶Î,±àÒëÍ¨¹ı |
 | Git commit | 4fa56441 |
-| å·¥äºº | W6 |
-n#### P0-006-001-004-001-002 éªŒè¯åŠŸèƒ½
+| ¹¤ÈË | W6 |
+n#### P0-006-001-004-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-006-001-004-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T02:18 |
-| çŠ¶æ€ | âœ… |
-| æ‘˜è¦ | OrgWorkbenchServiceImplTestå¢å¼º(21ç”¨ä¾‹å…¨é€šè¿‡):åŸ15ç”¨ä¾‹+CacheAnnotationæ–°å¢unless/tenantIdéªŒè¯+CacheHitTests(2ç”¨ä¾‹)+PermissionAnnotationTests(2ç”¨ä¾‹ @SaCheckPermissionéªŒè¯); OrgWorkbenchControllerè¡¥å……@SaCheckPermission("org:workbench:query"); compileé€šè¿‡, æ¨¡å—84æµ‹è¯•å…¨é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-006-001-004-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-08T02:18 |
+| ×´Ì¬ | ? |
+| ÕªÒª | OrgWorkbenchServiceImplTestÔöÇ¿(21ÓÃÀıÈ«Í¨¹ı):Ô­15ÓÃÀı+CacheAnnotationĞÂÔöunless/tenantIdÑéÖ¤+CacheHitTests(2ÓÃÀı)+PermissionAnnotationTests(2ÓÃÀı @SaCheckPermissionÑéÖ¤); OrgWorkbenchController²¹³ä@SaCheckPermission("org:workbench:query"); compileÍ¨¹ı, Ä£¿é84²âÊÔÈ«Í¨¹ı |
 | Git commit | 47e4e81e |
-| å·¥äºº | W5 |
+| ¹¤ÈË | W5 |
 
-| P0-007-001-001-001-003 | éªŒè¯Service | 2026-06-08T01:43 | âœ… | ProductClassServiceTest(45ç”¨ä¾‹å…¨é€šè¿‡)+@ExtendWith(MockitoExtension)+@Nestedåˆ†ç»„(list/getById/save/update/delete/Transactional/EdgeCases/ToVO)+sortOrderè¾¹ç•Œ(0/9999)+parentIdæ ¡éªŒ+classNameå”¯ä¸€æ€§+å­åˆ†ç±»åˆ é™¤æ£€æŸ¥+transactionæ³¨è§£éªŒè¯+toVOæ˜ å°„ | 1d76436d |
+| P0-007-001-001-001-003 | ÑéÖ¤Service | 2026-06-08T01:43 | ? | ProductClassServiceTest(45ÓÃÀıÈ«Í¨¹ı)+@ExtendWith(MockitoExtension)+@Nested·Ö×é(list/getById/save/update/delete/Transactional/EdgeCases/ToVO)+sortOrder±ß½ç(0/9999)+parentIdĞ£Ñé+classNameÎ¨Ò»ĞÔ+×Ó·ÖÀàÉ¾³ı¼ì²é+transaction×¢½âÑéÖ¤+toVOÓ³Éä | 1d76436d |
 
-| P0-011-001-001-001-003 | éªŒè¯Service | 2026-06-08T01:54 | âœ… | W7:CurrencyRateServiceTestå¢å¼º(44ç”¨ä¾‹å…¨é€šè¿‡)+æ–°å¢3æµ‹è¯•(null exchangeRate/currencyName+å…³è”åˆ é™¤éªŒè¯)+Mockito+JUnit5+10åµŒå¥—ç»„+æµ‹è¯•æŠ¥å‘Š | TBD |
+| P0-011-001-001-001-003 | ÑéÖ¤Service | 2026-06-08T01:54 | ? | W7:CurrencyRateServiceTestÔöÇ¿(44ÓÃÀıÈ«Í¨¹ı)+ĞÂÔö3²âÊÔ(null exchangeRate/currencyName+¹ØÁªÉ¾³ıÑéÖ¤)+Mockito+JUnit5+10Ç¶Ì××é+²âÊÔ±¨¸æ | TBD |
 
-| P0-007-001-004-001-002 | ç¼–å†™ServiceImplå®ç°ç±» | 2026-06-08T02:22 | âœ… | ProductControlServiceImpl(CRUD+ä¸šåŠ¡æ ¡éªŒ:productIdå”¯ä¸€æ€§/æ‰¹æ¬¡ä¸åºåˆ—å·äº’æ–¥/å•ä½å­˜åœ¨æ€§æ ¡éªŒå ä½)+Entity/Mapper/DTO/QueryDTO/VO/Serviceæ¥å£,mvn compileé€šè¿‡ | f0be73a0 |
+| P0-007-001-004-001-002 | ±àĞ´ServiceImplÊµÏÖÀà | 2026-06-08T02:22 | ? | ProductControlServiceImpl(CRUD+ÒµÎñĞ£Ñé:productIdÎ¨Ò»ĞÔ/Åú´ÎÓëĞòÁĞºÅ»¥³â/µ¥Î»´æÔÚĞÔĞ£ÑéÕ¼Î»)+Entity/Mapper/DTO/QueryDTO/VO/Service½Ó¿Ú,mvn compileÍ¨¹ı | f0be73a0 |
 
-| P0-007-001-003-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-08T02:34 | âœ… | ProductUnitServiceæ¥å£(extends IServiceX<ProductUnit>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductUnitDTO/ProductUnitQueryDTO/ProductUnitVO + ProductUnitå®ä½“(prod_product_unit) | c29ab253 |
+| P0-007-001-003-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-08T02:34 | ? | ProductUnitService½Ó¿Ú(extends IServiceX<ProductUnit>)+CRUD(list/getById/save/update/delete)+@Valid+@Transactional + ProductUnitDTO/ProductUnitQueryDTO/ProductUnitVO + ProductUnitÊµÌå(prod_product_unit) | c29ab253 |
 
-| P0-007-001-002-001-003 | éªŒè¯Service | 2026-06-08T02:36 | âœ… | ProductServiceTest(58ç”¨ä¾‹å…¨é€šè¿‡)+@ExtendWith(MockitoExtension)+@Nestedåˆ†ç»„(list/getById/save/update/delete/Transactional/ToVO/EdgeCases)+è¾¹ç•Œ(ç¼–ç 50/åç§°200/å¤‡æ³¨500å­—ç¬¦)+å®¡æ ¸çŠ¶æ€æµè½¬å…¨è¦†ç›–+transactionæ³¨è§£éªŒè¯+toVOæ˜ å°„+äº§å“æµ‹è¯•æ•°æ®SQL | 5ee51ae6 |
+| P0-007-001-002-001-003 | ÑéÖ¤Service | 2026-06-08T02:36 | ? | ProductServiceTest(58ÓÃÀıÈ«Í¨¹ı)+@ExtendWith(MockitoExtension)+@Nested·Ö×é(list/getById/save/update/delete/Transactional/ToVO/EdgeCases)+±ß½ç(±àÂë50/Ãû³Æ200/±¸×¢500×Ö·û)+ÉóºË×´Ì¬Á÷×ªÈ«¸²¸Ç+transaction×¢½âÑéÖ¤+toVOÓ³Éä+²úÆ·²âÊÔÊı¾İSQL | 5ee51ae6 |
 
-| P0-007-001-004-001-001 | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ | 2026-06-08T02:42 | âœ… | ProductControlServiceæ¥å£(extends IServiceX<ProductControl>)+list/getById/save/update/delete+@Valid+@Transactional + ProductControlDTO(11å­—æ®µ)/ProductControlQueryDTO(extends PageQuery)/ProductControlVO(å«å®¡è®¡å­—æ®µ), æ–‡ä»¶å·²å­˜åœ¨å®Œæ•´å®ç°, mvn compileé€šè¿‡ | TBD |
+| P0-007-001-004-001-001 | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú | 2026-06-08T02:42 | ? | ProductControlService½Ó¿Ú(extends IServiceX<ProductControl>)+list/getById/save/update/delete+@Valid+@Transactional + ProductControlDTO(11×Ö¶Î)/ProductControlQueryDTO(extends PageQuery)/ProductControlVO(º¬Éó¼Æ×Ö¶Î), ÎÄ¼şÒÑ´æÔÚÍêÕûÊµÏÖ, mvn compileÍ¨¹ı | TBD |
 
-| P0-007-001-004-001-003 | éªŒè¯Service | 2026-06-08T02:52 | âœ… | ProductControlServiceTest(28ç”¨ä¾‹å…¨é€šè¿‡)+@ExtendWith(MockitoExtension)+@Nestedåˆ†ç»„(list/GetById/Save/Update/Delete)+äº’æ–¥æ ¡éªŒ(æ‰¹æ¬¡ä¸åºåˆ—å·)+å”¯ä¸€æ€§æ ¡éªŒ(productIdé‡å¤)+è¾¹ç•Œ(nullå€¼/é›¶å€¼BigDecimal)+ArgumentCaptorå­—æ®µæ˜ å°„éªŒè¯+productcontrol_test_data.sql(5æ¡æµ‹è¯•æ•°æ®)+mvn testé€šè¿‡ | TBD |
+| P0-007-001-004-001-003 | ÑéÖ¤Service | 2026-06-08T02:52 | ? | ProductControlServiceTest(28ÓÃÀıÈ«Í¨¹ı)+@ExtendWith(MockitoExtension)+@Nested·Ö×é(list/GetById/Save/Update/Delete)+»¥³âĞ£Ñé(Åú´ÎÓëĞòÁĞºÅ)+Î¨Ò»ĞÔĞ£Ñé(productIdÖØ¸´)+±ß½ç(nullÖµ/ÁãÖµBigDecimal)+ArgumentCaptor×Ö¶ÎÓ³ÉäÑéÖ¤+productcontrol_test_data.sql(5Ìõ²âÊÔÊı¾İ)+mvn testÍ¨¹ı | TBD |
 
-## P0-006 - ç»„ç»‡æ¶æ„æ¨¡å—å¼€å‘
+## P0-006 - ×éÖ¯¼Ü¹¹Ä£¿é¿ª·¢
 
-| P0-006-002-003-001-001 | ç¼–å†™æ ¸å¿ƒä»£ç  | 2026-06-08T02:47 | âœ… | CompanyForm.vue(7è¡¨å•å­—æ®µ:å…¬å¸åç§°/ç®€ç§°/ä¿¡ç”¨ä»£ç /æ³•äºº/æ³¨å†Œèµ„æœ¬/åœ°å€/è”ç³»ç”µè¯)+ä¿¡ç”¨ä»£ç 18ä½æ ¼å¼æ ¡éªŒ(æ­£åˆ™åŒ¹é…åç«¯)+ç¼–è¾‘æ¨¡å¼GETå›å¡«+æ–°å¢POST/ç¼–è¾‘PUT+ä¿å­˜é˜²é‡å¤æäº¤(loading)+$t()å›½é™…åŒ–+form reset on close+w:720px el-dialog,vue-tscç¼–è¯‘é€šè¿‡ | TBD |
+| P0-006-002-003-001-001 | ±àĞ´ºËĞÄ´úÂë | 2026-06-08T02:47 | ? | CompanyForm.vue(7±íµ¥×Ö¶Î:¹«Ë¾Ãû³Æ/¼ò³Æ/ĞÅÓÃ´úÂë/·¨ÈË/×¢²á×Ê±¾/µØÖ·/ÁªÏµµç»°)+ĞÅÓÃ´úÂë18Î»¸ñÊ½Ğ£Ñé(ÕıÔòÆ¥Åäºó¶Ë)+±à¼­Ä£Ê½GET»ØÌî+ĞÂÔöPOST/±à¼­PUT+±£´æ·ÀÖØ¸´Ìá½»(loading)+$t()¹ú¼Ê»¯+form reset on close+w:720px el-dialog,vue-tsc±àÒëÍ¨¹ı | TBD |
 
-## P0-007-001-003-001-003 éªŒè¯Service (ProductUnitService)
+## P0-007-001-003-001-003 ÑéÖ¤Service (ProductUnitService)
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-007-001-003-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯Service |
-| å®Œæˆæ—¶é—´ | 2026-06-08T02:47 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W5 |
-| æ‘˜è¦ | ç¼–å†™ProductUnitServiceå•å…ƒæµ‹è¯•ï¼Œ16ä¸ªæµ‹è¯•ç”¨ä¾‹å…¨éƒ¨é€šè¿‡ï¼Œè¦†ç›–CRUDæ­£å¸¸æµç¨‹+è¾¹ç•Œæ¡ä»¶+å¼‚å¸¸åœºæ™¯ |
+| ÈÎÎñ±àºÅ | P0-007-001-003-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Service |
+| Íê³ÉÊ±¼ä | 2026-06-08T02:47 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W5 |
+| ÕªÒª | ±àĞ´ProductUnitServiceµ¥Ôª²âÊÔ£¬16¸ö²âÊÔÓÃÀıÈ«²¿Í¨¹ı£¬¸²¸ÇCRUDÕı³£Á÷³Ì+±ß½çÌõ¼ş+Òì³£³¡¾° |
 | Git commit | 08611d14 |
 
-### P0-006 ç»„ç»‡æ¶æ„æ¨¡å—å¼€å‘
-| ä»»åŠ¡ç¼–å· | ä»»åŠ¡åç§° | å®Œæˆæ—¶é—´ | çŠ¶æ€ | æ‘˜è¦ | SHA |
+### P0-006 ×éÖ¯¼Ü¹¹Ä£¿é¿ª·¢
+| ÈÎÎñ±àºÅ | ÈÎÎñÃû³Æ | Íê³ÉÊ±¼ä | ×´Ì¬ | ÕªÒª | SHA |
 |---------|---------|---------|:---:|------|-----|
-| P0-006-002-000-001-002 | éªŒè¯åŠŸèƒ½ | 2026-06-08T03:15 | âœ… | éªŒè¯OrgWorkbench: 12/12é€šè¿‡, ä¿®å¤Pinia storeé›†æˆå’Œç¼ºå¤±è·¯ç”±, ç¼–è¯‘0é”™è¯¯ | 1c98391d |
+| P0-006-002-000-001-002 | ÑéÖ¤¹¦ÄÜ | 2026-06-08T03:15 | ? | ÑéÖ¤OrgWorkbench: 12/12Í¨¹ı, ĞŞ¸´Pinia store¼¯³ÉºÍÈ±Ê§Â·ÓÉ, ±àÒë0´íÎó | 1c98391d |
 
-## P0-008-001-003-001-003 éªŒè¯Service (CustomerService)
+## P0-008-001-003-001-003 ÑéÖ¤Service (CustomerService)
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-008-001-003-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯Service |
-| å®Œæˆæ—¶é—´ | 2026-06-08T03:36 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W5 |
-| æ‘˜è¦ | ç¼–å†™CustomerServiceå•å…ƒæµ‹è¯•ï¼Œ42ä¸ªæµ‹è¯•ç”¨ä¾‹å…¨éƒ¨é€šè¿‡ï¼Œè¦†ç›–list(10)/getById(2)/save(8)/update(7)/delete(2)/Transactional(5)/EdgeCase(7)/toVO(1)ï¼ŒåŒ…å«åç§°å”¯ä¸€æ€§æ ¡éªŒã€é‚®ç®±æ ¼å¼æ ¡éªŒã€æ’é™¤è‡ªèº«æ›´æ–°æ ¡éªŒã€åˆ†é¡µç­›é€‰æ’åºç­‰å®Œæ•´åœºæ™¯ |
+| ÈÎÎñ±àºÅ | P0-008-001-003-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Service |
+| Íê³ÉÊ±¼ä | 2026-06-08T03:36 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W5 |
+| ÕªÒª | ±àĞ´CustomerServiceµ¥Ôª²âÊÔ£¬42¸ö²âÊÔÓÃÀıÈ«²¿Í¨¹ı£¬¸²¸Çlist(10)/getById(2)/save(8)/update(7)/delete(2)/Transactional(5)/EdgeCase(7)/toVO(1)£¬°üº¬Ãû³ÆÎ¨Ò»ĞÔĞ£Ñé¡¢ÓÊÏä¸ñÊ½Ğ£Ñé¡¢ÅÅ³ı×ÔÉí¸üĞÂĞ£Ñé¡¢·ÖÒ³É¸Ñ¡ÅÅĞòµÈÍêÕû³¡¾° |
 | Git commit | 7a94f2c1 |
 
-### P0-010-002-000-001-001 KPIå¡ç‰‡ç»„ä»¶å¼€å‘ï¼ˆé‡æ‰§è¡Œ-å¢å¼ºè¶‹åŠ¿å’Œæ—¶é—´èŒƒå›´å“åº”ï¼‰
+### P0-010-002-000-001-001 KPI¿¨Æ¬×é¼ş¿ª·¢£¨ÖØÖ´ĞĞ-ÔöÇ¿Ç÷ÊÆºÍÊ±¼ä·¶Î§ÏìÓ¦£©
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-002-000-001-001 |
-| ä»»åŠ¡åç§° | KPIå¡ç‰‡ç»„ä»¶å¼€å‘ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T04:20 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W5 |
-| æ‘˜è¦ | å¢å¼ºKpiCardArea(æ³¨å…¥å·¥ä½œå°ä¸Šä¸‹æ–‡å“åº”æ—¶é—´èŒƒå›´å˜åŒ–/è¶‹åŠ¿ç™¾åˆ†æ¯”displayçº¢ç»¿ç®­å¤´/onUnmountedæ¸…ç†watché¿å…å†…å­˜æ³„æ¼)+ æ‰©å±•WarehouseWorkbenchKpiVO(æ–°å¢å¯é€‰trendå­—æ®µ)+ TypeScriptç¼–è¯‘0é”™è¯¯ |
+| ÈÎÎñ±àºÅ | P0-010-002-000-001-001 |
+| ÈÎÎñÃû³Æ | KPI¿¨Æ¬×é¼ş¿ª·¢ |
+| Íê³ÉÊ±¼ä | 2026-06-08T04:20 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W5 |
+| ÕªÒª | ÔöÇ¿KpiCardArea(×¢Èë¹¤×÷Ì¨ÉÏÏÂÎÄÏìÓ¦Ê±¼ä·¶Î§±ä»¯/Ç÷ÊÆ°Ù·Ö±ÈdisplayºìÂÌ¼ıÍ·/onUnmountedÇåÀíwatch±ÜÃâÄÚ´æĞ¹Â©)+ À©Õ¹WarehouseWorkbenchKpiVO(ĞÂÔö¿ÉÑ¡trend×Ö¶Î)+ TypeScript±àÒë0´íÎó |
 | Git commit | TBD |
 
 ---
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-002-000-003-001 |
-| ä»»åŠ¡åç§° | å·¥ä½œå°å…¨æµç¨‹è”è°ƒ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T04:05 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W5 |
-| æ‘˜è¦ | ä¿®å¤KPIåŠ è½½åè°ƒ(defineExpose+é”™è¯¯ä¼ æ’­)+ç§»é™¤åŒé‡watch+æ›´æ–°è”è°ƒéªŒè¯æŠ¥å‘Š(æ¶æ„å›¾/æ•°æ®æµ/7é¡¹éªŒæ”¶å…¨é€šè¿‡)+vue-tsc 0é”™è¯¯ |
+| ÈÎÎñ±àºÅ | P0-010-002-000-003-001 |
+| ÈÎÎñÃû³Æ | ¹¤×÷Ì¨È«Á÷³ÌÁªµ÷ |
+| Íê³ÉÊ±¼ä | 2026-06-08T04:05 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W5 |
+| ÕªÒª | ĞŞ¸´KPI¼ÓÔØĞ­µ÷(defineExpose+´íÎó´«²¥)+ÒÆ³ıË«ÖØwatch+¸üĞÂÁªµ÷ÑéÖ¤±¨¸æ(¼Ü¹¹Í¼/Êı¾İÁ÷/7ÏîÑéÊÕÈ«Í¨¹ı)+vue-tsc 0´íÎó |
 | Git commit | 8cb96b30 |
 
 ---
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-002-002-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ï¼ˆé‡æ‰§è¡Œ-äººå‘˜é€‰æ‹©å™¨å¢å¼ºåéªŒè¯ï¼‰ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T06:30 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W5 |
-| æ‘˜è¦ | éªŒè¯ä»“åº“å®šä¹‰è¡¨å•é¡µ(80é¡¹éªŒè¯75é€šè¿‡/ä»£ç å®¡æŸ¥é›¶é—®é¢˜/vue-tscé›¶é”™è¯¯/mvn compileé€šè¿‡/7å¤§éªŒè¯åŸŸå…¨è¦†ç›–/å”¯ä¸€é˜»æ–­é¡¹ä¸ºControllerç¼ºå¤±) |
+| ÈÎÎñ±àºÅ | P0-010-002-002-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ£¨ÖØÖ´ĞĞ-ÈËÔ±Ñ¡ÔñÆ÷ÔöÇ¿ºóÑéÖ¤£© |
+| Íê³ÉÊ±¼ä | 2026-06-08T06:30 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W5 |
+| ÕªÒª | ÑéÖ¤²Ö¿â¶¨Òå±íµ¥Ò³(80ÏîÑéÖ¤75Í¨¹ı/´úÂëÉó²éÁãÎÊÌâ/vue-tscÁã´íÎó/mvn compileÍ¨¹ı/7´óÑéÖ¤ÓòÈ«¸²¸Ç/Î¨Ò»×è¶ÏÏîÎªControllerÈ±Ê§) |
 | Git commit | d7bcceb2 |
 
 ---
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-010-002-003-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç ï¼ˆåº“ä½ç®¡ç†åˆ—è¡¨é¡µï¼‰ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T08:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W5 |
-| æ‘˜è¦ | åº“ä½ç®¡ç†P04å•åˆ—è¡¨é¡µ(ç»Ÿè®¡å¡ç‰‡/æœç´¢ç­›é€‰é˜²æŠ–300ms/VxeTableè™šæ‹Ÿæ»šåŠ¨/æ–°å¢ç¼–è¾‘åˆ é™¤å¯ç”¨åœç”¨æ“ä½œ/el-tagçŠ¶æ€æ ‡ç­¾)+APIç±»å‹å®šä¹‰+APIè°ƒç”¨æ¨¡å—+è·¯ç”±æ³¨å†Œ/warehouse/location+vue-tscé›¶é”™è¯¯ |
+| ÈÎÎñ±àºÅ | P0-010-002-003-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë£¨¿âÎ»¹ÜÀíÁĞ±íÒ³£© |
+| Íê³ÉÊ±¼ä | 2026-06-08T08:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W5 |
+| ÕªÒª | ¿âÎ»¹ÜÀíP04µ¥ÁĞ±íÒ³(Í³¼Æ¿¨Æ¬/ËÑË÷É¸Ñ¡·À¶¶300ms/VxeTableĞéÄâ¹ö¶¯/ĞÂÔö±à¼­É¾³ıÆôÓÃÍ£ÓÃ²Ù×÷/el-tag×´Ì¬±êÇ©)+APIÀàĞÍ¶¨Òå+APIµ÷ÓÃÄ£¿é+Â·ÓÉ×¢²á/warehouse/location+vue-tscÁã´íÎó |
 | Git commit | c249b3b3 |
 
 ---
 
-## P1-001 é€šç”¨å•æ®å®¡æ ¸å¼•æ“å¼€å‘
+## P1-001 Í¨ÓÃµ¥¾İÉóºËÒıÇæ¿ª·¢
 
-| å­—æ®µ | å€¼ |
+| ×Ö¶Î | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-001-001-001-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T19:41 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W5 |
-| æ‘˜è¦ | å®ç°AuditEngineService(submit+approve)ã€AuditEngineControllerã€DTOsã€å®ä½“(SysAuditConfigEntity/SysAuditLogEntity/DocumentStatusEntity)ã€Mapperã€AuditApprovedEventã€å•å…ƒæµ‹è¯•6ä¸ªå…¨é€šè¿‡ |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-001-001-001-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T19:41 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W5 |
+| ÕªÒª | ÊµÏÖAuditEngineService(submit+approve)¡¢AuditEngineController¡¢DTOs¡¢ÊµÌå(SysAuditConfigEntity/SysAuditLogEntity/DocumentStatusEntity)¡¢Mapper¡¢AuditApprovedEvent¡¢µ¥Ôª²âÊÔ6¸öÈ«Í¨¹ı |
+| Git commit | (¼ûgit log) |
 
-#### P1-001-001-001-001-002 éªŒè¯åŠŸèƒ½
+#### P1-001-001-001-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-001-001-001-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T20:18 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W5 |
-| æ‘˜è¦ | å¢å¼ºAuditEngineServiceTest(æ–°å¢6ä¸ªæµ‹è¯•:docNotFound/locked/auditLogå­—æ®µéªŒè¯) + æ–°å»ºAuditEngineControllerTest(6ä¸ªæµ‹è¯•) + æ–°å»ºaudit-test-data.sql(6æ¡æµ‹è¯•æ•°æ®)ï¼Œ23ä¸ªæµ‹è¯•å…¨é€šè¿‡ |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-001-001-001-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-08T20:18 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W5 |
+| ÕªÒª | ÔöÇ¿AuditEngineServiceTest(ĞÂÔö6¸ö²âÊÔ:docNotFound/locked/auditLog×Ö¶ÎÑéÖ¤) + ĞÂ½¨AuditEngineControllerTest(6¸ö²âÊÔ) + ĞÂ½¨audit-test-data.sql(6Ìõ²âÊÔÊı¾İ)£¬23¸ö²âÊÔÈ«Í¨¹ı |
+| Git commit | (¼ûgit log) |
 
-#### P0-012-001-005-001-002 éªŒè¯åŠŸèƒ½
+#### P0-012-001-005-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-001-005-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T19:55 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯HrmWorkbenchAggregateService(ç¼–è¯‘é€šè¿‡/å¤šç§Ÿæˆ·éš”ç¦»æ­£ç¡®/ç¼“å­˜é…ç½®æ­£ç¡®)ï¼Œå‘ç°8ä¸ªé—®é¢˜(ç¼ºController/ç¼ºå¼‚å¸¸é™çº§/å…¨é‡åŠ è½½æ€§èƒ½é£é™©/è¶‹åŠ¿å­—æ®µé”™è¯¯/ç¼º@CacheEvictç­‰)ï¼Œç¼–å†™æµ‹è¯•æŠ¥å‘Šå’Œé—®é¢˜æ¸…å• |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P0-012-001-005-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-08T19:55 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤HrmWorkbenchAggregateService(±àÒëÍ¨¹ı/¶à×â»§¸ôÀëÕıÈ·/»º´æÅäÖÃÕıÈ·)£¬·¢ÏÖ8¸öÎÊÌâ(È±Controller/È±Òì³£½µ¼¶/È«Á¿¼ÓÔØĞÔÄÜ·çÏÕ/Ç÷ÊÆ×Ö¶Î´íÎó/È±@CacheEvictµÈ)£¬±àĞ´²âÊÔ±¨¸æºÍÎÊÌâÇåµ¥ |
+| Git commit | (¼ûgit log) |
 
-#### P0-012-002-001-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P0-012-002-001-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-001-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T20:15 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W8 |
-| æ‘˜è¦ | erp-ai-web/src/api/modules/hrm-workbench.ts(HrmWorkbenchVO/TrendItemç±»å‹+getHrmWorkbenchApi) + erp-ai-web/src/views/hrm/hrmworkbench/index.vue(KPIå¡ç‰‡6ä¸ª+EChartsæŠ˜çº¿å›¾x2+é¥¼å›¾x2+Refresh+é”™è¯¯å¤„ç†+å“åº”å¼) + src/.../hrm/controller/HrmWorkbenchController.java(æš´éœ²/api/hrm/workbenchèšåˆæŸ¥è¯¢ç«¯ç‚¹) |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P0-012-002-001-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T20:15 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W8 |
+| ÕªÒª | erp-ai-web/src/api/modules/hrm-workbench.ts(HrmWorkbenchVO/TrendItemÀàĞÍ+getHrmWorkbenchApi) + erp-ai-web/src/views/hrm/hrmworkbench/index.vue(KPI¿¨Æ¬6¸ö+EChartsÕÛÏßÍ¼x2+±ıÍ¼x2+Refresh+´íÎó´¦Àí+ÏìÓ¦Ê½) + src/.../hrm/controller/HrmWorkbenchController.java(±©Â¶/api/hrm/workbench¾ÛºÏ²éÑ¯¶Ëµã) |
+| Git commit | (¼ûgit log) |
 
-#### P0-012-002-002-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P0-012-002-002-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-002-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T20:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | erp-ai-web/src/api/modules/hrm-employee.ts(EmployeeVO/QueryDTO/CreateDTOç±»å‹+CRUD 5ä¸ªAPIå‡½æ•°) + erp-ai-web/src/views/hrm/employeecenter/index.vue(P03ä¸»ä»åˆ—è¡¨é¡µ:ç»Ÿè®¡å¡ç‰‡4ä¸ª+æœç´¢é˜²æŠ–300ms+VxeTableè™šæ‹Ÿæ»šåŠ¨+è¯¦æƒ…æ ‡ç­¾é¡µ4ä¸ª+ç¼–è¾‘å¼¹çª—+åˆ é™¤ç¡®è®¤) + src/.../hrm/controller/EmployeeController.java(æš´éœ²/api/hrm/employee CRUDç«¯ç‚¹) + erp-ai-web/src/router/modules/static.ts(è·¯ç”±/hrm/employeecenteræ³¨å†Œ) + erp-ai-web/src/i18n/locales/zh-CN+en-US/common.ts(HRMå‘˜å·¥å›½é™…åŒ–è¯æ¡) |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P0-012-002-002-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T20:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | erp-ai-web/src/api/modules/hrm-employee.ts(EmployeeVO/QueryDTO/CreateDTOÀàĞÍ+CRUD 5¸öAPIº¯Êı) + erp-ai-web/src/views/hrm/employeecenter/index.vue(P03Ö÷´ÓÁĞ±íÒ³:Í³¼Æ¿¨Æ¬4¸ö+ËÑË÷·À¶¶300ms+VxeTableĞéÄâ¹ö¶¯+ÏêÇé±êÇ©Ò³4¸ö+±à¼­µ¯´°+É¾³ıÈ·ÈÏ) + src/.../hrm/controller/EmployeeController.java(±©Â¶/api/hrm/employee CRUD¶Ëµã) + erp-ai-web/src/router/modules/static.ts(Â·ÓÉ/hrm/employeecenter×¢²á) + erp-ai-web/src/i18n/locales/zh-CN+en-US/common.ts(HRMÔ±¹¤¹ú¼Ê»¯´ÊÌõ) |
+| Git commit | (¼ûgit log) |
 
-#### P0-012-002-003-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P0-012-002-003-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-003-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T22:54 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å‡çº§ç¼–è¾‘å¼¹çª—ä¸ºP06å¤§å‹ä¸»ä»è¡¨å•(900px), æ–°å¢èº«ä»½è¯å·/éƒ¨é—¨/å²—ä½å­—æ®µ, æ·»åŠ å‘˜å·¥æ¡£æ¡ˆVxe Tableä»è¡¨(å­¦å†/ä¸“ä¸š/æ¯•ä¸šé™¢æ ¡/ç´§æ€¥è”ç³»äºº/é“¶è¡Œå¡å·), æ”¯æŒè¡Œå†…ç‚¹å‡»ç¼–è¾‘+å¢åˆ è¡Œ, APIå±‚æ–°å¢EmployeeArchiveDTOç±»å‹, å¢å¼ºè¡¨å•æ ¡éªŒè§„åˆ™(èº«ä»½è¯18ä½/æ‰‹æœºå·11ä½/é‚®ç®±æ ¼å¼) |
+| ÈÎÎñ±àºÅ | P0-012-002-003-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T22:54 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | Éı¼¶±à¼­µ¯´°ÎªP06´óĞÍÖ÷´Ó±íµ¥(900px), ĞÂÔöÉí·İÖ¤ºÅ/²¿ÃÅ/¸ÚÎ»×Ö¶Î, Ìí¼ÓÔ±¹¤µµ°¸Vxe Table´Ó±í(Ñ§Àú/×¨Òµ/±ÏÒµÔºĞ£/½ô¼±ÁªÏµÈË/ÒøĞĞ¿¨ºÅ), Ö§³ÖĞĞÄÚµã»÷±à¼­+ÔöÉ¾ĞĞ, API²ãĞÂÔöEmployeeArchiveDTOÀàĞÍ, ÔöÇ¿±íµ¥Ğ£Ñé¹æÔò(Éí·İÖ¤18Î»/ÊÖ»úºÅ11Î»/ÓÊÏä¸ñÊ½) |
 | Git commit | 4308aabe |
 
-#### P0-012-002-003-001-002 éªŒè¯åŠŸèƒ½
+#### P0-012-002-003-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-003-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T23:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯P06ä¸»ä»è¡¨å•é¡µ7é¡¹æ ¸å¿ƒç”¨ä¾‹, å‰ç«¯ç±»å‹æ£€æŸ¥é€šè¿‡, ä¿®å¤P06æ–°å¢i18n keyç¼ºå¤±(11ä¸ªzh-CN/en-US), ä¿®å¤éƒ¨é—¨ä¸‹æ‹‰æ— æ•°æ®æº(æ¥å…¥deptTree API), å‘ç°åç«¯ç¼ºå¤±archivesæ”¯æŒ(å·²è®°å½•), æ›´æ–°æµ‹è¯•æŠ¥å‘Š2ä»½ |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P0-012-002-003-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-08T23:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤P06Ö÷´Ó±íµ¥Ò³7ÏîºËĞÄÓÃÀı, Ç°¶ËÀàĞÍ¼ì²éÍ¨¹ı, ĞŞ¸´P06ĞÂÔöi18n keyÈ±Ê§(11¸özh-CN/en-US), ĞŞ¸´²¿ÃÅÏÂÀ­ÎŞÊı¾İÔ´(½ÓÈëdeptTree API), ·¢ÏÖºó¶ËÈ±Ê§archivesÖ§³Ö(ÒÑ¼ÇÂ¼), ¸üĞÂ²âÊÔ±¨¸æ2·İ |
+| Git commit | (¼ûgit log) |
 
-#### P0-012-002-004-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P0-012-002-004-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-004-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T23:45 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°å‘˜å·¥æ¡£æ¡ˆP04å•ä¸€åˆ—è¡¨é¡µ: åˆ›å»ºhrm-archive APIæ¨¡å—(6ä¸ªæ¥å£å‡½æ•°), employeearchive Vueé¡µé¢(VxeTableè™šæ‹Ÿæ»šåŠ¨+æœç´¢é˜²æŠ–+ç»Ÿè®¡å¡ç‰‡+CRUDå¼¹çª—), æ³¨å†Œè·¯ç”±/hrm/employeearchive, æ·»åŠ i18nä¸­è‹±æ–‡22ä¸ªkey, vite buildé€šè¿‡ |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P0-012-002-004-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T23:45 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖÔ±¹¤µµ°¸P04µ¥Ò»ÁĞ±íÒ³: ´´½¨hrm-archive APIÄ£¿é(6¸ö½Ó¿Úº¯Êı), employeearchive VueÒ³Ãæ(VxeTableĞéÄâ¹ö¶¯+ËÑË÷·À¶¶+Í³¼Æ¿¨Æ¬+CRUDµ¯´°), ×¢²áÂ·ÓÉ/hrm/employeearchive, Ìí¼Ói18nÖĞÓ¢ÎÄ22¸ökey, vite buildÍ¨¹ı |
+| Git commit | (¼ûgit log) |
 
-### P1-001 - é€šç”¨å•æ®å®¡æ ¸å¼•æ“å¼€å‘
+### P1-001 - Í¨ÓÃµ¥¾İÉóºËÒıÇæ¿ª·¢
 
-#### P1-001-001-002-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-001-001-002-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-001-001-002-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T19:59 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W7 |
-| æ‘˜è¦ | å®ç°åå®¡å¼•æ“(unconfirm): AuditEngineServiceæ–°å¢unconfirmæ–¹æ³•(postgresè¡Œçº§é”+redisåˆ†å¸ƒå¼é”+ä¸‹æ¸¸å•æ®æ£€æŸ¥+çŠ¶æ€å›é€€2â†’0), æ–°å¢DownstreamCheckeræ¥å£/DownstreamCheckResult/DTO, AuditConfigServiceæ³¨å…¥ä¸‹æ¸¸æ£€æŸ¥å™¨, Controlleræ–°å¢unconfirmç«¯ç‚¹, 5ä¸ªå•å…ƒæµ‹è¯•å…¨é€šè¿‡ |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-001-001-002-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T19:59 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W7 |
+| ÕªÒª | ÊµÏÖ·´ÉóÒıÇæ(unconfirm): AuditEngineServiceĞÂÔöunconfirm·½·¨(postgresĞĞ¼¶Ëø+redis·Ö²¼Ê½Ëø+ÏÂÓÎµ¥¾İ¼ì²é+×´Ì¬»ØÍË2¡ú0), ĞÂÔöDownstreamChecker½Ó¿Ú/DownstreamCheckResult/DTO, AuditConfigService×¢ÈëÏÂÓÎ¼ì²éÆ÷, ControllerĞÂÔöunconfirm¶Ëµã, 5¸öµ¥Ôª²âÊÔÈ«Í¨¹ı |
+| Git commit | (¼ûgit log) |
 
-#### P1-001-001-002-001-002 éªŒè¯åŠŸèƒ½
+#### P1-001-001-002-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-001-001-002-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T20:30 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W8 |
-| æ‘˜è¦ | éªŒè¯åå®¡æ¥å£11é¡¹æµ‹è¯•: æ­£å¸¸åå®¡/å®¡è®¡æ—¥å¿—éªŒè¯/ä¸‹æ¸¸æ‹¦æˆª/å¤šä¸‹æ¸¸æ£€æŸ¥å™¨/4ç§éå·²å®¡æ ¸çŠ¶æ€æ‹’ç»(è‰ç¨¿/å·²æäº¤/å·²é©³å›/å·²ä½œåºŸ)/ä¸å­˜åœ¨å•æ®/é”å†²çª/å¹¶å‘é”éªŒè¯, mvn test 29/29é€šè¿‡, å«testData SQLè„šæœ¬ |
+| ÈÎÎñ±àºÅ | P1-001-001-002-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-08T20:30 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W8 |
+| ÕªÒª | ÑéÖ¤·´Éó½Ó¿Ú11Ïî²âÊÔ: Õı³£·´Éó/Éó¼ÆÈÕÖ¾ÑéÖ¤/ÏÂÓÎÀ¹½Ø/¶àÏÂÓÎ¼ì²éÆ÷/4ÖÖ·ÇÒÑÉóºË×´Ì¬¾Ü¾ø(²İ¸å/ÒÑÌá½»/ÒÑ²µ»Ø/ÒÑ×÷·Ï)/²»´æÔÚµ¥¾İ/Ëø³åÍ»/²¢·¢ËøÑéÖ¤, mvn test 29/29Í¨¹ı, º¬testData SQL½Å±¾ |
 
-#### P1-001-001-003-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-001-001-003-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-001-001-003-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T22:48 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W8 |
-| æ‘˜è¦ | å®ï¿½ï¿½ä½œåºŸå¼•æ“(voidDocument): AuditEngineServiceæ–°å¢voidDocumentæ–¹æ³•(Redisåˆ†å¸ƒå¼é”+PostgreSQLè¡Œçº§é”+çŠ¶æ€æ ¡éªŒDraft(0)/Submitted(1)/Approved(2)â†’Voided(4)+å®¡è®¡æ—¥å¿—+å‘å¸ƒVoidResourceReleaseEvent), æ–°å¢AuditVoidDTO/VoidResourceReleaseEvent, Controlleræ–°å¢POST /api/engine/audit/voidç«¯ç‚¹, 9ä¸ªå•å…ƒæµ‹è¯•å…¨é€šè¿‡(37/37æ€»æµ‹è¯•é€šè¿‡) |
-| Git commit | (è§git log) |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-001-001-003-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T22:48 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W8 |
+| ÕªÒª | Êµ??×÷·ÏÒıÇæ(voidDocument): AuditEngineServiceĞÂÔövoidDocument·½·¨(Redis·Ö²¼Ê½Ëø+PostgreSQLĞĞ¼¶Ëø+×´Ì¬Ğ£ÑéDraft(0)/Submitted(1)/Approved(2)¡úVoided(4)+Éó¼ÆÈÕÖ¾+·¢²¼VoidResourceReleaseEvent), ĞÂÔöAuditVoidDTO/VoidResourceReleaseEvent, ControllerĞÂÔöPOST /api/engine/audit/void¶Ëµã, 9¸öµ¥Ôª²âÊÔÈ«Í¨¹ı(37/37×Ü²âÊÔÍ¨¹ı) |
+| Git commit | (¼ûgit log) |
+| Git commit | (¼ûgit log) |
 
-#### P1-001-001-003-001-002 éªŒè¯åŠŸèƒ½
+#### P1-001-001-003-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-001-001-003-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T00:21 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯voidä½œåºŸæ¥å£: æ–°å¢VoidResourceReleaseEventTest(11ä¸ªæµ‹è¯•:5ä¸ªäº‹ä»¶ç»“æ„éªŒè¯+6ä¸ªDTOå‚æ•°æ ¡éªŒè¦†ç›–null/ç©º/ç©ºæ ¼+çˆ¶ç±»@NotBlank/@NotNull), AuditEngineControllerTestæ–°å¢voidç«¯ç‚¹2ä¸ªæµ‹è¯•, åˆ›å»ºvoid-test-data.sql(8æ¡æµ‹è¯•æ•°æ®), å…¨é‡auditå¼•æ“51ä¸ªæµ‹è¯•0å¤±è´¥ |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-001-001-003-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T00:21 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤void×÷·Ï½Ó¿Ú: ĞÂÔöVoidResourceReleaseEventTest(11¸ö²âÊÔ:5¸öÊÂ¼ş½á¹¹ÑéÖ¤+6¸öDTO²ÎÊıĞ£Ñé¸²¸Çnull/¿Õ/¿Õ¸ñ+¸¸Àà@NotBlank/@NotNull), AuditEngineControllerTestĞÂÔövoid¶Ëµã2¸ö²âÊÔ, ´´½¨void-test-data.sql(8Ìõ²âÊÔÊı¾İ), È«Á¿auditÒıÇæ51¸ö²âÊÔ0Ê§°Ü |
+| Git commit | (¼ûgit log) |
 
-#### P1-001-001-004-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-001-001-004-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-001-001-004-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T00:54 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°æ’¤é”€ä½œåºŸå¼•æ“(cancelVoid): AuditEngineServiceæ–°å¢cancelVoidæ–¹æ³•(Redisåˆ†å¸ƒå¼é”+PostgreSQLè¡Œçº§é”+çŠ¶æ€æ ¡éªŒVoided(4)â†’æ¢å¤è‡³ä½œåºŸå‰åŸå§‹çŠ¶æ€+æŸ¥è¯¢sys_audit_logè·å–VOIDæ“ä½œçš„from_status+å®¡è®¡æ—¥å¿—+å‘å¸ƒCancelVoidResourceRestoreEvent), æ–°å¢CancelVoidResourceRestoreEvent, AuditLogMapperæ–°å¢findPreviousStatusBeforeVoidæŸ¥è¯¢, Controlleræ–°å¢POST /api/engine/audit/cancel-voidç«¯ç‚¹, 12ä¸ªå•å…ƒæµ‹è¯•å…¨é€šè¿‡(å…¨é‡auditå¼•æ“63ä¸ªæµ‹è¯•0å¤±è´¥) |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-001-001-004-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T00:54 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖ³·Ïú×÷·ÏÒıÇæ(cancelVoid): AuditEngineServiceĞÂÔöcancelVoid·½·¨(Redis·Ö²¼Ê½Ëø+PostgreSQLĞĞ¼¶Ëø+×´Ì¬Ğ£ÑéVoided(4)¡ú»Ö¸´ÖÁ×÷·ÏÇ°Ô­Ê¼×´Ì¬+²éÑ¯sys_audit_log»ñÈ¡VOID²Ù×÷µÄfrom_status+Éó¼ÆÈÕÖ¾+·¢²¼CancelVoidResourceRestoreEvent), ĞÂÔöCancelVoidResourceRestoreEvent, AuditLogMapperĞÂÔöfindPreviousStatusBeforeVoid²éÑ¯, ControllerĞÂÔöPOST /api/engine/audit/cancel-void¶Ëµã, 12¸öµ¥Ôª²âÊÔÈ«Í¨¹ı(È«Á¿auditÒıÇæ63¸ö²âÊÔ0Ê§°Ü) |
+| Git commit | (¼ûgit log) |
 
-#### P1-001-001-004-001-002 éªŒè¯åŠŸèƒ½
+#### P1-001-001-004-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-001-001-004-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T01:01 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯æ’¤é”€ä½œåºŸæ¥å£: AuditEngineCancelVoidTest(11ä¸ªå•å…ƒæµ‹è¯•è¦†ç›–æ­£å¸¸æ’¤é”€æ¢å¤0/1/2ä¸‰ç§çŠ¶æ€+éå·²ä½œåºŸçŠ¶æ€0/1/2/3æ‹¦æˆª+å•æ®ä¸å­˜åœ¨+é”å†²çª+æ— VOIDæ—¥å¿—å¼‚å¸¸), æ–°å¢CancelVoidResourceRestoreEventTest(11ä¸ªæµ‹è¯•è¦†ç›–äº‹ä»¶ç»“æ„éªŒè¯+AuditOperationDTOå‚æ•°æ ¡éªŒ), æ–°å¢cancel-void-test-data.sql(7æ¡å•æ®+å®Œæ•´VOIDæ—¥å¿—é“¾), å…¨é‡22ä¸ªæµ‹è¯•0å¤±è´¥BUILD SUCCESS |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-001-001-004-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T01:01 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤³·Ïú×÷·Ï½Ó¿Ú: AuditEngineCancelVoidTest(11¸öµ¥Ôª²âÊÔ¸²¸ÇÕı³£³·Ïú»Ö¸´0/1/2ÈıÖÖ×´Ì¬+·ÇÒÑ×÷·Ï×´Ì¬0/1/2/3À¹½Ø+µ¥¾İ²»´æÔÚ+Ëø³åÍ»+ÎŞVOIDÈÕÖ¾Òì³£), ĞÂÔöCancelVoidResourceRestoreEventTest(11¸ö²âÊÔ¸²¸ÇÊÂ¼ş½á¹¹ÑéÖ¤+AuditOperationDTO²ÎÊıĞ£Ñé), ĞÂÔöcancel-void-test-data.sql(7Ìõµ¥¾İ+ÍêÕûVOIDÈÕÖ¾Á´), È«Á¿22¸ö²âÊÔ0Ê§°ÜBUILD SUCCESS |
+| Git commit | (¼ûgit log) |
 
-#### P1-001-001-005-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-001-001-005-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-001-001-005-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T01:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°å®¡æ ¸å¼•æ“ä¸P1-002å®¡æ‰¹æµç¨‹é›†æˆ: æ–°å¢AuditApprovalIntegrationService(å®¡æ‰¹å®ä¾‹åˆ›å»º+JSONé…ç½®è§£æ), ApprovalCallbackImpl(å®¡æ‰¹é€šè¿‡/é©³å›å›è°ƒ+å¹‚ç­‰å¤„ç†), ApprovalFlowConfig/ApprovalNodeæ¨¡å‹, SysAuditConfigEntityå¢åŠ approvalFlowConfigå­—æ®µ, ApprovalIntegrationTest(11ä¸ªå•å…ƒæµ‹è¯•å…¨é€šè¿‡) |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-001-001-005-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T01:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖÉóºËÒıÇæÓëP1-002ÉóÅúÁ÷³Ì¼¯³É: ĞÂÔöAuditApprovalIntegrationService(ÉóÅúÊµÀı´´½¨+JSONÅäÖÃ½âÎö), ApprovalCallbackImpl(ÉóÅúÍ¨¹ı/²µ»Ø»Øµ÷+ÃİµÈ´¦Àí), ApprovalFlowConfig/ApprovalNodeÄ£ĞÍ, SysAuditConfigEntityÔö¼ÓapprovalFlowConfig×Ö¶Î, ApprovalIntegrationTest(11¸öµ¥Ôª²âÊÔÈ«Í¨¹ı) |
+| Git commit | (¼ûgit log) |
 
-#### P1-001-001-005-001-002 éªŒè¯åŠŸèƒ½
+#### P1-001-001-005-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-001-001-005-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T01:18 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯å®¡æ ¸å¼•æ“ä¸å®¡æ‰¹æµç¨‹é›†æˆ: æ›´æ–°ApprovalIntegrationTest(æ–°å¢3èŠ‚ç‚¹é…ç½®è§£æ+é”™è¯¯ç éªŒè¯+è·¨æ¨¡å—è¶…æ—¶å›æ»šæµ‹è¯•+å®¡è®¡æ—¥å¿—æ„è§éªŒè¯), æ–°å¢ApprovalCallbackTest(å®¡æ‰¹é€šè¿‡/é©³å›å›è°ƒ+å¹‚ç­‰éªŒè¯+å®¡è®¡æ—¥å¿—ç²¾ç¡®éªŒè¯), æ–°å¢approval-integration-test-data.sql(5æ¡é…ç½®+5æ¡å•æ®çŠ¶æ€), å…¨é‡81ä¸ªæµ‹è¯•0å¤±è´¥BUILD SUCCESS |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-001-001-005-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T01:18 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤ÉóºËÒıÇæÓëÉóÅúÁ÷³Ì¼¯³É: ¸üĞÂApprovalIntegrationTest(ĞÂÔö3½ÚµãÅäÖÃ½âÎö+´íÎóÂëÑéÖ¤+¿çÄ£¿é³¬Ê±»Ø¹ö²âÊÔ+Éó¼ÆÈÕÖ¾Òâ¼ûÑéÖ¤), ĞÂÔöApprovalCallbackTest(ÉóÅúÍ¨¹ı/²µ»Ø»Øµ÷+ÃİµÈÑéÖ¤+Éó¼ÆÈÕÖ¾¾«È·ÑéÖ¤), ĞÂÔöapproval-integration-test-data.sql(5ÌõÅäÖÃ+5Ìõµ¥¾İ×´Ì¬), È«Á¿81¸ö²âÊÔ0Ê§°ÜBUILD SUCCESS |
+| Git commit | (¼ûgit log) |
 
-#### P1-001-001-006-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-001-001-006-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-001-001-006-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T01:28 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°å®¡æ ¸å¼•æ“ä¸ç³»ç»Ÿå‚æ•°è”åŠ¨: æ–°å¢SysAuditConfigUpdateDTO+DocCreatedEvent+AuditParamConstants+AuditConfigController+AutoConfirmListener, æ›´æ–°AuditConfigService(updateConfigäº’æ–¥æ ¡éªŒ+Redisç¼“å­˜å¤±æ•ˆ+getConfigç¼“å­˜ç©¿é€), æ–°å¢AuditConfigServiceTest(6ä¸ªå•å…ƒæµ‹è¯•è¦†ç›–äº’æ–¥æ ¡éªŒ/ç¼“å­˜/å¼‚å¸¸åœºæ™¯), å…¨é‡87ä¸ªæµ‹è¯•0å¤±è´¥BUILD SUCCESS |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-001-001-006-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T01:28 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖÉóºËÒıÇæÓëÏµÍ³²ÎÊıÁª¶¯: ĞÂÔöSysAuditConfigUpdateDTO+DocCreatedEvent+AuditParamConstants+AuditConfigController+AutoConfirmListener, ¸üĞÂAuditConfigService(updateConfig»¥³âĞ£Ñé+Redis»º´æÊ§Ğ§+getConfig»º´æ´©Í¸), ĞÂÔöAuditConfigServiceTest(6¸öµ¥Ôª²âÊÔ¸²¸Ç»¥³âĞ£Ñé/»º´æ/Òì³£³¡¾°), È«Á¿87¸ö²âÊÔ0Ê§°ÜBUILD SUCCESS |
+| Git commit | (¼ûgit log) |
 
-#### P1-001-001-006-001-002 éªŒè¯åŠŸèƒ½
+#### P1-001-001-006-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-001-001-006-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T01:38 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®¡æ ¸å¼•æ“ä¸ç³»ç»Ÿå‚æ•°è”åŠ¨éªŒè¯: å¢å¼ºAuditConfigServiceTest(æ–°å¢8ä¸ªæµ‹è¯•:nulläº’æ–¥æ ¡éªŒ+ç¼“å­˜å†™å…¥+ä¸‹æ¸¸æ£€æŸ¥å™¨è¿‡æ»¤), æ–°å»ºAutoConfirmListenerTest(5ä¸ªæµ‹è¯•:è‡ªåŠ¨ç¡®è®¤+æœªå¯ç”¨+å¼‚å¸¸éš”ç¦»), æ–°å»ºconfig-test-data.sql(5æ¡é…ç½®æ•°æ®), å…¨é‡98ä¸ªå®¡æ ¸å¼•æ“æµ‹è¯•0å¤±è´¥BUILD SUCCESS |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-001-001-006-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T01:38 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÉóºËÒıÇæÓëÏµÍ³²ÎÊıÁª¶¯ÑéÖ¤: ÔöÇ¿AuditConfigServiceTest(ĞÂÔö8¸ö²âÊÔ:null»¥³âĞ£Ñé+»º´æĞ´Èë+ÏÂÓÎ¼ì²éÆ÷¹ıÂË), ĞÂ½¨AutoConfirmListenerTest(5¸ö²âÊÔ:×Ô¶¯È·ÈÏ+Î´ÆôÓÃ+Òì³£¸ôÀë), ĞÂ½¨config-test-data.sql(5ÌõÅäÖÃÊı¾İ), È«Á¿98¸öÉóºËÒıÇæ²âÊÔ0Ê§°ÜBUILD SUCCESS |
+| Git commit | (¼ûgit log) |
 
-### P0-011-002-011-001-003 éªŒè¯å…¬å‘Šç®¡ç†
+### P0-011-002-011-001-003 ÑéÖ¤¹«¸æ¹ÜÀí
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-011-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯å…¬å‘Šç®¡ç† |
-| å®Œæˆæ—¶é—´ | 2026-06-08T20:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W5 |
-| æ‘˜è¦ | éªŒè¯ç³»ç»Ÿå…¬å‘Šåç«¯å…¨é“¾è·¯: DDL(2è¡¨)+Entity(2)/Mapper(2)/DTO(3)/VO(1)/Service(æ¥å£+å®ç°)/Controller(6ç«¯ç‚¹), mvn compileé€šè¿‡, 7é¡¹éªŒè¯æ¸…å•(CRUD/ç½®é¡¶æ’åº/æœªè¯»åˆ—è¡¨/å·²è¯»æ ‡è®°å¹‚ç­‰/å¼¹çª—API/è¯¦æƒ…æ•°æ®/æƒé™æ§åˆ¶)å…¨éƒ¨é€šè¿‡, è¾“å‡ºéªŒè¯æŠ¥å‘Šdocs/test-reports/announcement-management-test.md |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P0-011-002-011-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹«¸æ¹ÜÀí |
+| Íê³ÉÊ±¼ä | 2026-06-08T20:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W5 |
+| ÕªÒª | ÑéÖ¤ÏµÍ³¹«¸æºó¶ËÈ«Á´Â·: DDL(2±í)+Entity(2)/Mapper(2)/DTO(3)/VO(1)/Service(½Ó¿Ú+ÊµÏÖ)/Controller(6¶Ëµã), mvn compileÍ¨¹ı, 7ÏîÑéÖ¤Çåµ¥(CRUD/ÖÃ¶¥ÅÅĞò/Î´¶ÁÁĞ±í/ÒÑ¶Á±ê¼ÇÃİµÈ/µ¯´°API/ÏêÇéÊı¾İ/È¨ÏŞ¿ØÖÆ)È«²¿Í¨¹ı, Êä³öÑéÖ¤±¨¸ædocs/test-reports/announcement-management-test.md |
+| Git commit | (¼ûgit log) |
 
-### P0-012-002-001-001-002 éªŒè¯HRMå·¥ä½œå°åŠŸèƒ½
+### P0-012-002-001-001-002 ÑéÖ¤HRM¹¤×÷Ì¨¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-001-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T20:20 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W8 |
-| æ‘˜è¦ | éªŒè¯HRMå·¥ä½œå°P02å‰ç«¯: å®¡æŸ¥é¡µé¢ä»£ç (KPIå¡ç‰‡+4ä¸ªEChartså›¾è¡¨+ä¸‰æ€å¤„ç†), å‘ç°å¹¶ä¿®å¤3ä¸ªé—®é¢˜(è·¯ç”±ç¼ºå¤±/i18nè¯æ¡ç¼ºå¤±/ç¡¬ç¼–ç ä¸­æ–‡), vue-tsc+vite buildé€šè¿‡, è¾“å‡ºéªŒè¯æŠ¥å‘Šå’Œé—®é¢˜æ¸…å• |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P0-012-002-001-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-08T20:20 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W8 |
+| ÕªÒª | ÑéÖ¤HRM¹¤×÷Ì¨P02Ç°¶Ë: Éó²éÒ³Ãæ´úÂë(KPI¿¨Æ¬+4¸öEChartsÍ¼±í+ÈıÌ¬´¦Àí), ·¢ÏÖ²¢ĞŞ¸´3¸öÎÊÌâ(Â·ÓÉÈ±Ê§/i18n´ÊÌõÈ±Ê§/Ó²±àÂëÖĞÎÄ), vue-tsc+vite buildÍ¨¹ı, Êä³öÑéÖ¤±¨¸æºÍÎÊÌâÇåµ¥ |
+| Git commit | (¼ûgit log) |
 
-### P0-012-002-002-001-002 éªŒè¯å‘˜å·¥ä¸­å¿ƒP03ä¸»ä»åˆ—è¡¨é¡µåŠŸèƒ½
+### P0-012-002-002-001-002 ÑéÖ¤Ô±¹¤ÖĞĞÄP03Ö÷´ÓÁĞ±íÒ³¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-002-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T20:25 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯å‘˜å·¥ä¸­å¿ƒP03ä¸»ä»åˆ—è¡¨é¡µ: ä»£ç å®¡æŸ¥è¦†ç›–7é¡¹éªŒè¯æ¸…å•(è·¯ç”±/æ•°æ®åŠ è½½/ç­›é€‰/CRUD/å›æ˜¾/æ ¡éªŒ/å¼‚å¸¸å¤„ç†), å‰ç«¯pnpm buildæ— æ–°å¢é”™è¯¯, å‘ç°5ä¸ªé—®é¢˜(deptOptionsç©ºæ•°æ®æº/statså®¢æˆ·ç«¯è®¡ç®—ä¸å‡†/3å¤„i18né—æ¼/ç¼ºå°‘éƒ¨é—¨å²—ä½å­—æ®µ), è¾“å‡ºéªŒè¯æŠ¥å‘Š+é—®é¢˜æ¸…å• |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P0-012-002-002-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-08T20:25 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤Ô±¹¤ÖĞĞÄP03Ö÷´ÓÁĞ±íÒ³: ´úÂëÉó²é¸²¸Ç7ÏîÑéÖ¤Çåµ¥(Â·ÓÉ/Êı¾İ¼ÓÔØ/É¸Ñ¡/CRUD/»ØÏÔ/Ğ£Ñé/Òì³£´¦Àí), Ç°¶Ëpnpm buildÎŞĞÂÔö´íÎó, ·¢ÏÖ5¸öÎÊÌâ(deptOptions¿ÕÊı¾İÔ´/stats¿Í»§¶Ë¼ÆËã²»×¼/3´¦i18nÒÅÂ©/È±ÉÙ²¿ÃÅ¸ÚÎ»×Ö¶Î), Êä³öÑéÖ¤±¨¸æ+ÎÊÌâÇåµ¥ |
+| Git commit | (¼ûgit log) |
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-003-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T22:55 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°HRMå‘˜å·¥ä¸­å¿ƒP06ä¸»ä»è¡¨å•é¡µ: å‡çº§dialogä¸ºå¤§å‹P06è¡¨å•(900px), æ–°å¢èº«ä»½è¯å·/éƒ¨é—¨/å²—ä½å­—æ®µåŠæ ¼å¼æ ¡éªŒ, æ·»åŠ å‘˜å·¥æ¡£æ¡ˆVxe Tableä»è¡¨(å­¦å†/ä¸“ä¸š/æ¯•ä¸šé™¢æ ¡/ç´§æ€¥è”ç³»äºº/é“¶è¡Œå¡å·)æ”¯æŒè¡Œå†…ç‚¹å‡»ç¼–è¾‘+å¢åˆ è¡Œ, ä¸»ä»æ•°æ®è”åŠ¨æäº¤, APIå±‚æ–°å¢EmployeeArchiveDTOç±»å‹, åç«¯mvn compileé€šè¿‡, å‰ç«¯æ— æ–°å¢ç±»å‹é”™è¯¯ |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P0-012-002-003-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T22:55 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖHRMÔ±¹¤ÖĞĞÄP06Ö÷´Ó±íµ¥Ò³: Éı¼¶dialogÎª´óĞÍP06±íµ¥(900px), ĞÂÔöÉí·İÖ¤ºÅ/²¿ÃÅ/¸ÚÎ»×Ö¶Î¼°¸ñÊ½Ğ£Ñé, Ìí¼ÓÔ±¹¤µµ°¸Vxe Table´Ó±í(Ñ§Àú/×¨Òµ/±ÏÒµÔºĞ£/½ô¼±ÁªÏµÈË/ÒøĞĞ¿¨ºÅ)Ö§³ÖĞĞÄÚµã»÷±à¼­+ÔöÉ¾ĞĞ, Ö÷´ÓÊı¾İÁª¶¯Ìá½», API²ãĞÂÔöEmployeeArchiveDTOÀàĞÍ, ºó¶Ëmvn compileÍ¨¹ı, Ç°¶ËÎŞĞÂÔöÀàĞÍ´íÎó |
+| Git commit | (¼ûgit log) |
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-011-002-011-002-001 |
-| ä»»åŠ¡åç§° | å®ç°å…¬å‘Šç®¡ç†é¡µ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T00:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°ç³»ç»Ÿå…¬å‘Šç®¡ç†P04å•ä¸€åˆ—è¡¨é¡µ: announcement/index.vueé¡µé¢(æ ‡é¢˜/ç±»å‹/æ—¶é—´/ç½®é¡¶/çŠ¶æ€è¡¨æ ¼+æœç´¢ç­›é€‰+æ–°å¢ç¼–è¾‘Dialog+ç½®é¡¶åˆ‡æ¢+åˆ é™¤äºŒæ¬¡ç¡®è®¤), announcement.ts APIæ¨¡å—(getAnnouncementPageList/createAnnouncement/updateAnnouncement/deleteAnnouncement), announcement.tsç±»å‹å®šä¹‰, è·¯ç”±æ³¨å†Œ/system/announcement, å‰ç«¯pnpm buildé€šè¿‡ |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P0-011-002-011-002-001 |
+| ÈÎÎñÃû³Æ | ÊµÏÖ¹«¸æ¹ÜÀíÒ³ |
+| Íê³ÉÊ±¼ä | 2026-06-09T00:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖÏµÍ³¹«¸æ¹ÜÀíP04µ¥Ò»ÁĞ±íÒ³: announcement/index.vueÒ³Ãæ(±êÌâ/ÀàĞÍ/Ê±¼ä/ÖÃ¶¥/×´Ì¬±í¸ñ+ËÑË÷É¸Ñ¡+ĞÂÔö±à¼­Dialog+ÖÃ¶¥ÇĞ»»+É¾³ı¶ş´ÎÈ·ÈÏ), announcement.ts APIÄ£¿é(getAnnouncementPageList/createAnnouncement/updateAnnouncement/deleteAnnouncement), announcement.tsÀàĞÍ¶¨Òå, Â·ÓÉ×¢²á/system/announcement, Ç°¶Ëpnpm buildÍ¨¹ı |
+| Git commit | (¼ûgit log) |
 
-#### P0-011-002-011-002-002 å®ç°å…¬å‘Šé€šçŸ¥å¼¹çª—
+#### P0-011-002-011-002-002 ÊµÏÖ¹«¸æÍ¨Öªµ¯´°
 
-| ä»»åŠ¡ç¼–å· | P0-011-002-011-002-002 |
-| ä»»åŠ¡åç§° | å®ç°å…¬å‘Šé€šçŸ¥å¼¹çª—ï¼ˆç™»å½•åå¼¹çª—+æœªè¯»å…¬å‘Š+å·²è¯»æ ‡è®°+è¯¦æƒ…è·³è½¬ï¼‰ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T21:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°å…¬å‘Šé€šçŸ¥å¼¹çª—: AnnouncementPopup.vue(ç™»å½•åè‡ªåŠ¨å¼¹çª—æœªè¯»å…¬å‘Š/ç‚¹å‡»æ ‡è®°å·²è¯»å¹¶è·³è½¬/sessionStorageé˜²é‡å¤å¼¹çª—), announcement.tsæ–°å¢getUnreadList/markAsRead API, announcement.ts Piniaå…¨å±€storeç®¡ç†æœªè¯»æ•°badge, AppLayout.vueæŒ‚è½½å…¬å‘Šå¼¹çª—, Navbar.vueé›†æˆbadgeå®æ—¶åŒæ­¥, å‰ç«¯pnpm buildé€šè¿‡ |
-| Git commit | (è§git log) |
+| ÈÎÎñ±àºÅ | P0-011-002-011-002-002 |
+| ÈÎÎñÃû³Æ | ÊµÏÖ¹«¸æÍ¨Öªµ¯´°£¨µÇÂ¼ºóµ¯´°+Î´¶Á¹«¸æ+ÒÑ¶Á±ê¼Ç+ÏêÇéÌø×ª£© |
+| Íê³ÉÊ±¼ä | 2026-06-08T21:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖ¹«¸æÍ¨Öªµ¯´°: AnnouncementPopup.vue(µÇÂ¼ºó×Ô¶¯µ¯´°Î´¶Á¹«¸æ/µã»÷±ê¼ÇÒÑ¶Á²¢Ìø×ª/sessionStorage·ÀÖØ¸´µ¯´°), announcement.tsĞÂÔögetUnreadList/markAsRead API, announcement.ts PiniaÈ«¾Östore¹ÜÀíÎ´¶ÁÊıbadge, AppLayout.vue¹ÒÔØ¹«¸æµ¯´°, Navbar.vue¼¯³ÉbadgeÊµÊ±Í¬²½, Ç°¶Ëpnpm buildÍ¨¹ı |
+| Git commit | (¼ûgit log) |
 
 
-### P0-012-002-004-001-002 éªŒè¯å‘˜å·¥æ¡£æ¡ˆP04å•ä¸€åˆ—è¡¨é¡µåŠŸèƒ½
+### P0-012-002-004-001-002 ÑéÖ¤Ô±¹¤µµ°¸P04µ¥Ò»ÁĞ±íÒ³¹¦ÄÜ
 
-| ä»»åŠ¡ç¼–å· | P0-012-002-004-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T23:31 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯å‘˜å·¥æ¡£æ¡ˆP04å•ä¸€åˆ—è¡¨é¡µ: ä»£ç å®¡æŸ¥è¦†ç›–7é¡¹éªŒè¯æ¸…å•(è·¯ç”±/æ•°æ®åŠ è½½/ç­›é€‰/CRUD/å›æ˜¾/æ ¡éªŒ/å¼‚å¸¸å¤„ç†), å‘ç°2ä¸ªé˜»å¡é—®é¢˜(åç«¯APIç¼ºå¤±+æ•°æ®åº“è¡¨ç¼ºå¤±)åŠ4ä¸ªä¸­ä½ä¼˜é—®é¢˜, è¾“å‡ºéªŒè¯æŠ¥å‘Šhrm-EmployeeArchive-frontend-test.md+é—®é¢˜æ¸…å•hrm-EmployeeArchive-issues.md |
+| ÈÎÎñ±àºÅ | P0-012-002-004-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-08T23:31 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤Ô±¹¤µµ°¸P04µ¥Ò»ÁĞ±íÒ³: ´úÂëÉó²é¸²¸Ç7ÏîÑéÖ¤Çåµ¥(Â·ÓÉ/Êı¾İ¼ÓÔØ/É¸Ñ¡/CRUD/»ØÏÔ/Ğ£Ñé/Òì³£´¦Àí), ·¢ÏÖ2¸ö×èÈûÎÊÌâ(ºó¶ËAPIÈ±Ê§+Êı¾İ¿â±íÈ±Ê§)¼°4¸öÖĞµÍÓÅÎÊÌâ, Êä³öÑéÖ¤±¨¸æhrm-EmployeeArchive-frontend-test.md+ÎÊÌâÇåµ¥hrm-EmployeeArchive-issues.md |
 | Git commit | f55357f2 |
 
-### P0-012-002-005-001-001 ç¼–å†™æ‹›è˜ç®¡ç†P04å•ä¸€åˆ—è¡¨é¡µæ ¸å¿ƒä»£ç 
+### P0-012-002-005-001-001 ±àĞ´ÕĞÆ¸¹ÜÀíP04µ¥Ò»ÁĞ±íÒ³ºËĞÄ´úÂë
 
-| ä»»åŠ¡ç¼–å· | P0-012-002-005-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T23:45 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºæ‹›è˜ç®¡ç†P04å•ä¸€åˆ—è¡¨é¡µ: APIå±‚(hrm-recruitment.tså«6ä¸ªæ¥å£+å®Œæ•´ç±»å‹å®šä¹‰)+é¡µé¢ç»„ä»¶(recruitment/index.vueå«ç»Ÿè®¡å¡ç‰‡/æœç´¢ç­›é€‰/CRUDå¼¹çª—/VxeTable/é˜²æŠ–)+è·¯ç”±æ³¨å†Œ(/hrm/recruitment)+ä¸­è‹±æ–‡i18nè¯æ¡(22ä¸ª), éµå¾ªå‘˜å·¥æ¡£æ¡ˆP04é¡µé¢æ¨¡å¼ |
+| ÈÎÎñ±àºÅ | P0-012-002-005-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T23:45 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ÕĞÆ¸¹ÜÀíP04µ¥Ò»ÁĞ±íÒ³: API²ã(hrm-recruitment.tsº¬6¸ö½Ó¿Ú+ÍêÕûÀàĞÍ¶¨Òå)+Ò³Ãæ×é¼ş(recruitment/index.vueº¬Í³¼Æ¿¨Æ¬/ËÑË÷É¸Ñ¡/CRUDµ¯´°/VxeTable/·À¶¶)+Â·ÓÉ×¢²á(/hrm/recruitment)+ÖĞÓ¢ÎÄi18n´ÊÌõ(22¸ö), ×ñÑ­Ô±¹¤µµ°¸P04Ò³ÃæÄ£Ê½ |
 | Git commit | 2e5f56c5 |
 
-### P0-012-002-005-001-002 éªŒè¯æ‹›è˜ç®¡ç†P04å•ä¸€åˆ—è¡¨é¡µåŠŸèƒ½
+### P0-012-002-005-001-002 ÑéÖ¤ÕĞÆ¸¹ÜÀíP04µ¥Ò»ÁĞ±íÒ³¹¦ÄÜ
 
-| ä»»åŠ¡ç¼–å· | P0-012-002-005-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T21:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯æ‹›è˜ç®¡ç†P04å•ä¸€åˆ—è¡¨é¡µ: ä»£ç å®¡æŸ¥è¦†ç›–7é¡¹éªŒè¯æ¸…å•(è·¯ç”±/æ•°æ®åŠ è½½/ç­›é€‰/CRUD/å›æ˜¾/æ ¡éªŒ/å¼‚å¸¸å¤„ç†), å‰ç«¯TSç¼–è¯‘é€šè¿‡+åç«¯Mavenç¼–è¯‘é€šè¿‡, å‘ç°3ä¸ªé˜»å¡é—®é¢˜(RecruitmentControllerç¼ºå¤±+å‰åç«¯æŸ¥è¯¢DTOå­—æ®µä¸åŒ¹é…+Serviceç¼ºupdateStatusæ–¹æ³•)åŠ2ä¸ªä¸­ä½ä¼˜é—®é¢˜(çŠ¶æ€åˆ‡æ¢ä»…2æ€+statusé€‰é¡¹æœªå›½é™…åŒ–), è¾“å‡ºéªŒè¯æŠ¥å‘Šhrm-Recruitment-frontend-test.md+é—®é¢˜æ¸…å•hrm-Recruitment-issues.md |
-| Git commit | â€” |
+| ÈÎÎñ±àºÅ | P0-012-002-005-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-08T21:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤ÕĞÆ¸¹ÜÀíP04µ¥Ò»ÁĞ±íÒ³: ´úÂëÉó²é¸²¸Ç7ÏîÑéÖ¤Çåµ¥(Â·ÓÉ/Êı¾İ¼ÓÔØ/É¸Ñ¡/CRUD/»ØÏÔ/Ğ£Ñé/Òì³£´¦Àí), Ç°¶ËTS±àÒëÍ¨¹ı+ºó¶ËMaven±àÒëÍ¨¹ı, ·¢ÏÖ3¸ö×èÈûÎÊÌâ(RecruitmentControllerÈ±Ê§+Ç°ºó¶Ë²éÑ¯DTO×Ö¶Î²»Æ¥Åä+ServiceÈ±updateStatus·½·¨)¼°2¸öÖĞµÍÓÅÎÊÌâ(×´Ì¬ÇĞ»»½ö2Ì¬+statusÑ¡ÏîÎ´¹ú¼Ê»¯), Êä³öÑéÖ¤±¨¸æhrm-Recruitment-frontend-test.md+ÎÊÌâÇåµ¥hrm-Recruitment-issues.md |
+| Git commit | ¡ª |
 
-### P0-012-002-006-001-001 ç¼–å†™è€ƒå‹¤ç®¡ç†P04å•ä¸€åˆ—è¡¨é¡µæ ¸å¿ƒä»£ç 
+### P0-012-002-006-001-001 ±àĞ´¿¼ÇÚ¹ÜÀíP04µ¥Ò»ÁĞ±íÒ³ºËĞÄ´úÂë
 
-| ä»»åŠ¡ç¼–å· | P0-012-002-006-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T21:15 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºè€ƒå‹¤ç®¡ç†P04å•ä¸€åˆ—è¡¨é¡µ: APIå±‚(hrm-attendance.tså«5ä¸ªCRUDæ¥å£+å®Œæ•´ç±»å‹å®šä¹‰)+é¡µé¢ç»„ä»¶(attendance/index.vueå«ç»Ÿè®¡å¡ç‰‡/æœç´¢ç­›é€‰/CRUDå¼¹çª—/VxeTableè™šæ‹Ÿæ»šåŠ¨/300msé˜²æŠ–)+è·¯ç”±æ³¨å†Œ(/hrm/attendance), éµå¾ªæ‹›è˜ç®¡ç†P04é¡µé¢æ¨¡å¼, Vite buildé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-012-002-006-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T21:15 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨¿¼ÇÚ¹ÜÀíP04µ¥Ò»ÁĞ±íÒ³: API²ã(hrm-attendance.tsº¬5¸öCRUD½Ó¿Ú+ÍêÕûÀàĞÍ¶¨Òå)+Ò³Ãæ×é¼ş(attendance/index.vueº¬Í³¼Æ¿¨Æ¬/ËÑË÷É¸Ñ¡/CRUDµ¯´°/VxeTableĞéÄâ¹ö¶¯/300ms·À¶¶)+Â·ÓÉ×¢²á(/hrm/attendance), ×ñÑ­ÕĞÆ¸¹ÜÀíP04Ò³ÃæÄ£Ê½, Vite buildÍ¨¹ı |
 
-### P0-012-002-006-001-002 éªŒè¯è€ƒå‹¤ç®¡ç†P04å•ä¸€åˆ—è¡¨é¡µåŠŸèƒ½
+### P0-012-002-006-001-002 ÑéÖ¤¿¼ÇÚ¹ÜÀíP04µ¥Ò»ÁĞ±íÒ³¹¦ÄÜ
 
-| ä»»åŠ¡ç¼–å· | P0-012-002-006-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-08T21:45 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯è€ƒå‹¤ç®¡ç†P04å•ä¸€åˆ—è¡¨é¡µ: ä»£ç å®¡æŸ¥+é™æ€åˆ†æ+ç¼–è¯‘éªŒè¯è¦†ç›–7é¡¹éªŒè¯æ¸…å•(è·¯ç”±/æ•°æ®åŠ è½½/ç­›é€‰/CRUD/å›æ˜¾/æ ¡éªŒ/å¼‚å¸¸å¤„ç†), åç«¯Mavenç¼–è¯‘é€šè¿‡, å‘ç°2ä¸ªé˜»å¡é—®é¢˜(AttendanceControllerç¼ºå¤±+27ä¸ªi18nç¿»è¯‘é”®ç¼ºå¤±)åŠ2ä¸ªå»ºè®®é—®é¢˜(ç»Ÿè®¡å¡ç‰‡ä»…å½“å‰é¡µ+æ¶ˆæ¯ç¡¬ç¼–ç ), è¾“å‡ºéªŒè¯æŠ¥å‘Šhrm-Attendance-frontend-test.md+é—®é¢˜æ¸…å•hrm-Attendance-issues.md |
+| ÈÎÎñ±àºÅ | P0-012-002-006-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-08T21:45 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤¿¼ÇÚ¹ÜÀíP04µ¥Ò»ÁĞ±íÒ³: ´úÂëÉó²é+¾²Ì¬·ÖÎö+±àÒëÑéÖ¤¸²¸Ç7ÏîÑéÖ¤Çåµ¥(Â·ÓÉ/Êı¾İ¼ÓÔØ/É¸Ñ¡/CRUD/»ØÏÔ/Ğ£Ñé/Òì³£´¦Àí), ºó¶ËMaven±àÒëÍ¨¹ı, ·¢ÏÖ2¸ö×èÈûÎÊÌâ(AttendanceControllerÈ±Ê§+27¸öi18n·­Òë¼üÈ±Ê§)¼°2¸ö½¨ÒéÎÊÌâ(Í³¼Æ¿¨Æ¬½öµ±Ç°Ò³+ÏûÏ¢Ó²±àÂë), Êä³öÑéÖ¤±¨¸æhrm-Attendance-frontend-test.md+ÎÊÌâÇåµ¥hrm-Attendance-issues.md |
 
-### P0-012-002-007-001-001 ç¼–å†™è–ªèµ„ç®¡ç†P03ä¸»ä»åˆ—è¡¨é¡µæ ¸å¿ƒä»£ç 
+### P0-012-002-007-001-001 ±àĞ´Ğ½×Ê¹ÜÀíP03Ö÷´ÓÁĞ±íÒ³ºËĞÄ´úÂë
 
-| ä»»åŠ¡ç¼–å· | P0-012-002-007-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T00:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºè–ªèµ„ç®¡ç†P03ä¸»ä»åˆ—è¡¨é¡µ: APIå±‚(hrm-salary.tså«5ä¸ªCRUDæ¥å£+å®Œæ•´ç±»å‹å®šä¹‰åŒ¹é…SalaryVO/SalaryQueryDTO/SalaryCreateDTOåç«¯ç»“æ„)+é¡µé¢ç»„ä»¶(salary/index.vueå«ç»Ÿè®¡å¡ç‰‡/æœç´¢ç­›é€‰/ä¸»ä»å¸ƒå±€-VxeTableä¸»è¡¨+el-tabsä»è¡¨è¯¦ç»†åˆ†è§£/CRUDå¼¹çª—/300msé˜²æŠ–/å®å‘å·¥èµ„é¢„è§ˆ/é‡‘é¢æ ¼å¼åŒ–), vue-tscç±»å‹æ£€æŸ¥é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-012-002-007-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T00:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨Ğ½×Ê¹ÜÀíP03Ö÷´ÓÁĞ±íÒ³: API²ã(hrm-salary.tsº¬5¸öCRUD½Ó¿Ú+ÍêÕûÀàĞÍ¶¨ÒåÆ¥ÅäSalaryVO/SalaryQueryDTO/SalaryCreateDTOºó¶Ë½á¹¹)+Ò³Ãæ×é¼ş(salary/index.vueº¬Í³¼Æ¿¨Æ¬/ËÑË÷É¸Ñ¡/Ö÷´Ó²¼¾Ö-VxeTableÖ÷±í+el-tabs´Ó±íÏêÏ¸·Ö½â/CRUDµ¯´°/300ms·À¶¶/Êµ·¢¹¤×ÊÔ¤ÀÀ/½ğ¶î¸ñÊ½»¯), vue-tscÀàĞÍ¼ì²éÍ¨¹ı |
 
-### P0-012-002-007-001-002 éªŒè¯è–ªèµ„ç®¡ç†P03ä¸»ä»åˆ—è¡¨é¡µåŠŸèƒ½
+### P0-012-002-007-001-002 ÑéÖ¤Ğ½×Ê¹ÜÀíP03Ö÷´ÓÁĞ±íÒ³¹¦ÄÜ
 
-| ä»»åŠ¡ç¼–å· | P0-012-002-007-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T00:45 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | é™æ€ä»£ç å®¡æŸ¥éªŒè¯è–ªèµ„ç®¡ç†P03ä¸»ä»åˆ—è¡¨é¡µ: 7é¡¹éªŒè¯æ¸…å•ä¸­3é¡¹é€šè¿‡/2é¡¹é˜»å¡/2é¡¹å¾…éªŒè¯; å‘ç°6ä¸ªé—®é¢˜(é˜»å¡: ç¼ºå°‘SalaryController+è·¯ç”±æœªæ³¨å†Œ+i18nç¼ºå¤±; è­¦å‘Š: èœå•ç¼ºå¤±+æƒé™æŒ‡ä»¤ç¼ºå¤±+è¡¨æ ¼åˆ—ä¸è§„æ ¼ä¸ä¸€è‡´); äº¤ä»˜æµ‹è¯•æŠ¥å‘Š+é—®é¢˜æ¸…å• |
+| ÈÎÎñ±àºÅ | P0-012-002-007-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T00:45 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ¾²Ì¬´úÂëÉó²éÑéÖ¤Ğ½×Ê¹ÜÀíP03Ö÷´ÓÁĞ±íÒ³: 7ÏîÑéÖ¤Çåµ¥ÖĞ3ÏîÍ¨¹ı/2Ïî×èÈû/2Ïî´ıÑéÖ¤; ·¢ÏÖ6¸öÎÊÌâ(×èÈû: È±ÉÙSalaryController+Â·ÓÉÎ´×¢²á+i18nÈ±Ê§; ¾¯¸æ: ²Ëµ¥È±Ê§+È¨ÏŞÖ¸ÁîÈ±Ê§+±í¸ñÁĞÓë¹æ¸ñ²»Ò»ÖÂ); ½»¸¶²âÊÔ±¨¸æ+ÎÊÌâÇåµ¥ |
 
-### P0-012-002-008-001-001 ç¼–å†™è–ªèµ„ç®¡ç†P06ä¸»ä»è¡¨å•é¡µæ ¸å¿ƒä»£ç 
+### P0-012-002-008-001-001 ±àĞ´Ğ½×Ê¹ÜÀíP06Ö÷´Ó±íµ¥Ò³ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-008-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T01:15 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºSalaryController(5ä¸ªCRUDç«¯ç‚¹+Swaggeræ³¨è§£)+é‡å†™salary/index.vueä¸ºP06ä¸»ä»è¡¨å•é¡µ(å¤§å¼¹çª—960px+ä¸»è¡¨å•8å­—æ®µå«å‘˜å·¥/å¹´åº¦/æœˆåº¦/åŸºæœ¬å·¥èµ„/åŠ ç­è´¹/å¥–é‡‘/æ‰£æ¬¾/å‘æ”¾çŠ¶æ€+æ˜ç»†ä»è¡¨VxeTableå†…è”ç¼–è¾‘å«é¡¹ç›®åç§°/ç±»å‹/é‡‘é¢+ä¸»ä»è”åŠ¨æäº¤+é˜²æŠ–æœç´¢+ç»Ÿè®¡å¡ç‰‡+P03è¯¦æƒ…é¢æ¿)+æ›´æ–°hrm-salary.ts(æ–°å¢SalaryDetailItem+æ‰©å±•DTOå­—æ®µ)+æ·»åŠ i18nä¸­è‹±æ–‡ç¿»è¯‘(35é”®)+æ³¨å†Œè·¯ç”±HRM_SALARY,ç¼–è¯‘é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-012-002-008-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T01:15 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨SalaryController(5¸öCRUD¶Ëµã+Swagger×¢½â)+ÖØĞ´salary/index.vueÎªP06Ö÷´Ó±íµ¥Ò³(´óµ¯´°960px+Ö÷±íµ¥8×Ö¶Îº¬Ô±¹¤/Äê¶È/ÔÂ¶È/»ù±¾¹¤×Ê/¼Ó°à·Ñ/½±½ğ/¿Û¿î/·¢·Å×´Ì¬+Ã÷Ï¸´Ó±íVxeTableÄÚÁª±à¼­º¬ÏîÄ¿Ãû³Æ/ÀàĞÍ/½ğ¶î+Ö÷´ÓÁª¶¯Ìá½»+·À¶¶ËÑË÷+Í³¼Æ¿¨Æ¬+P03ÏêÇéÃæ°å)+¸üĞÂhrm-salary.ts(ĞÂÔöSalaryDetailItem+À©Õ¹DTO×Ö¶Î)+Ìí¼Ói18nÖĞÓ¢ÎÄ·­Òë(35¼ü)+×¢²áÂ·ÓÉHRM_SALARY,±àÒëÍ¨¹ı |
 
-### P0-012-002-008-001-002 éªŒè¯è–ªèµ„ç®¡ç†P06ä¸»ä»è¡¨å•é¡µåŠŸèƒ½
+### P0-012-002-008-001-002 ÑéÖ¤Ğ½×Ê¹ÜÀíP06Ö÷´Ó±íµ¥Ò³¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-008-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T01:30 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯7é¡¹æ ¸å¿ƒç”¨ä¾‹å…¨éƒ¨é€šè¿‡(è·¯ç”±/æ•°æ®åŠ è½½/ç­›é€‰æœç´¢/æ“ä½œäº¤äº’/æ•°æ®å›æ˜¾/è¡¨å•æ ¡éªŒ/å¼‚å¸¸å¤„ç†)+ä¿®å¤netSalaryPreviewç±»å‹é”™è¯¯+è¾“å‡ºå‰ç«¯éªŒè¯æŠ¥å‘Š(hrm-Salary-frontend-test.md)+é—®é¢˜æ¸…å•(hrm-Salary-issues.md)+åç«¯ç¼–è¯‘é€šè¿‡+å‰ç«¯ç¼–è¯‘é€šè¿‡(ä»…2ä¸ªvue-tscæ¨¡æ¿refè¯¯æŠ¥) |
+| ÈÎÎñ±àºÅ | P0-012-002-008-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T01:30 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤7ÏîºËĞÄÓÃÀıÈ«²¿Í¨¹ı(Â·ÓÉ/Êı¾İ¼ÓÔØ/É¸Ñ¡ËÑË÷/²Ù×÷½»»¥/Êı¾İ»ØÏÔ/±íµ¥Ğ£Ñé/Òì³£´¦Àí)+ĞŞ¸´netSalaryPreviewÀàĞÍ´íÎó+Êä³öÇ°¶ËÑéÖ¤±¨¸æ(hrm-Salary-frontend-test.md)+ÎÊÌâÇåµ¥(hrm-Salary-issues.md)+ºó¶Ë±àÒëÍ¨¹ı+Ç°¶Ë±àÒëÍ¨¹ı(½ö2¸övue-tscÄ£°årefÎó±¨) |
 
-### P0-012-002-009-001-001 ç¼–å†™å‘˜å·¥æ¡£æ¡ˆP07å•ä¸€è¡¨å•é¡µæ ¸å¿ƒä»£ç 
+### P0-012-002-009-001-001 ±àĞ´Ô±¹¤µµ°¸P07µ¥Ò»±íµ¥Ò³ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-009-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T01:46 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å¢å¼ºå‘˜å·¥æ¡£æ¡ˆP07è¡¨å•é¡µ:å‘˜å·¥è¿œç¨‹æœç´¢é€‰æ‹©å™¨/æ–°å¢5ä¸ªè¡¨å•å­—æ®µ(è”ç³»ç”µè¯+ä½å€+é“¶è¡Œå¡+å¼€æˆ·è¡Œ+ç¤¾ä¿)/ç¼–è¾‘æ¨¡å¼GET APIè¯¦æƒ…å›æ˜¾/æ‰‹æœºå·æ ¼å¼æ ¡éªŒ/ä¸­è‹±æ–‡å›½é™…åŒ–è¯æ¡/å‰ç«¯ç¼–è¯‘é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-012-002-009-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T01:46 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÔöÇ¿Ô±¹¤µµ°¸P07±íµ¥Ò³:Ô±¹¤Ô¶³ÌËÑË÷Ñ¡ÔñÆ÷/ĞÂÔö5¸ö±íµ¥×Ö¶Î(ÁªÏµµç»°+×¡Ö·+ÒøĞĞ¿¨+¿ª»§ĞĞ+Éç±£)/±à¼­Ä£Ê½GET APIÏêÇé»ØÏÔ/ÊÖ»úºÅ¸ñÊ½Ğ£Ñé/ÖĞÓ¢ÎÄ¹ú¼Ê»¯´ÊÌõ/Ç°¶Ë±àÒëÍ¨¹ı |
 
-### P0-012-002-009-001-002 éªŒè¯å‘˜å·¥æ¡£æ¡ˆP07å•ä¸€è¡¨å•é¡µåŠŸèƒ½
+### P0-012-002-009-001-002 ÑéÖ¤Ô±¹¤µµ°¸P07µ¥Ò»±íµ¥Ò³¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-009-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T02:20 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ä»£ç å®¡æŸ¥+ç¼–è¯‘éªŒè¯7é¡¹æ ¸å¿ƒç”¨ä¾‹:è·¯ç”±âœ…/æ•°æ®åŠ è½½âŒ(åç«¯APIç¼ºå¤±)/ç­›é€‰âœ…/äº¤äº’âœ…/å›æ˜¾âœ…/æ ¡éªŒâš ï¸(éƒ¨åˆ†)/å¼‚å¸¸âœ…;è¾“å‡ºéªŒè¯æŠ¥å‘Š(hrm-EmployeeArchive-frontend-test.md)+é—®é¢˜æ¸…å•(hrm-EmployeeArchive-issues.md);é˜»å¡:åç«¯EmployeeArchive API+æ•°æ®åº“è¡¨æœªå®ç° |
+| ÈÎÎñ±àºÅ | P0-012-002-009-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T02:20 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´úÂëÉó²é+±àÒëÑéÖ¤7ÏîºËĞÄÓÃÀı:Â·ÓÉ?/Êı¾İ¼ÓÔØ?(ºó¶ËAPIÈ±Ê§)/É¸Ñ¡?/½»»¥?/»ØÏÔ?/Ğ£Ñé??(²¿·Ö)/Òì³£?;Êä³öÑéÖ¤±¨¸æ(hrm-EmployeeArchive-frontend-test.md)+ÎÊÌâÇåµ¥(hrm-EmployeeArchive-issues.md);×èÈû:ºó¶ËEmployeeArchive API+Êı¾İ¿â±íÎ´ÊµÏÖ |
 | Git SHA | 03007df1 |
 
-### P0-012-002-010-001-001 ç¼–å†™æ‹›è˜ç®¡ç†è¡¨å•é¡µæ ¸å¿ƒä»£ç 
+### P0-012-002-010-001-001 ±àĞ´ÕĞÆ¸¹ÜÀí±íµ¥Ò³ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-010-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T02:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å¢å¼ºæ‹›è˜ç®¡ç†P07è¡¨å•é¡µ:éƒ¨é—¨æ ‘å½¢é€‰æ‹©å™¨(getDeptTree)/æ–°å¢å²—ä½è¦æ±‚å­—æ®µ(requirements el-textarea+åˆ—è¡¨åˆ—)/ç¼–è¾‘æ¨¡å¼è°ƒç”¨GET APIè¯¦æƒ…å›æ˜¾/æˆªæ­¢æ—¥æœŸç¦ç”¨æ—©äºä»Šæ—¥/å®Œå–„è¡¨å•æ ¡éªŒè§„åˆ™(éƒ¨é—¨å¿…å¡«+äººæ•°æ­£æ•´æ•°+æˆªæ­¢æ—¥æœŸæ ¡éªŒ)/API DTOç±»å‹æ‰©å±•requirementså­—æ®µ/ä¸­è‹±æ–‡å›½é™…åŒ–è¯æ¡/å‰ç«¯ç¼–è¯‘é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-012-002-010-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T02:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÔöÇ¿ÕĞÆ¸¹ÜÀíP07±íµ¥Ò³:²¿ÃÅÊ÷ĞÎÑ¡ÔñÆ÷(getDeptTree)/ĞÂÔö¸ÚÎ»ÒªÇó×Ö¶Î(requirements el-textarea+ÁĞ±íÁĞ)/±à¼­Ä£Ê½µ÷ÓÃGET APIÏêÇé»ØÏÔ/½ØÖ¹ÈÕÆÚ½ûÓÃÔçÓÚ½ñÈÕ/ÍêÉÆ±íµ¥Ğ£Ñé¹æÔò(²¿ÃÅ±ØÌî+ÈËÊıÕıÕûÊı+½ØÖ¹ÈÕÆÚĞ£Ñé)/API DTOÀàĞÍÀ©Õ¹requirements×Ö¶Î/ÖĞÓ¢ÎÄ¹ú¼Ê»¯´ÊÌõ/Ç°¶Ë±àÒëÍ¨¹ı |
 
-### P0-012-002-010-001-002 éªŒè¯æ‹›è˜ç®¡ç†P07å•ä¸€è¡¨å•é¡µåŠŸèƒ½
+### P0-012-002-010-001-002 ÑéÖ¤ÕĞÆ¸¹ÜÀíP07µ¥Ò»±íµ¥Ò³¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-010-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T02:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ä»£ç å®¡æŸ¥+ç¼–è¯‘éªŒè¯7é¡¹æ ¸å¿ƒç”¨ä¾‹:è·¯ç”±âœ…/æ•°æ®åŠ è½½âŒ(åç«¯Controllerç¼ºå¤±)/ç­›é€‰âœ…/äº¤äº’âœ…/å›æ˜¾âœ…/æ ¡éªŒâœ…/å¼‚å¸¸âœ…;è¡¨å•é¡µä¸“é¡¹éªŒè¯:éƒ¨é—¨ä¸‹æ‹‰é€‰æ‹©å™¨âœ…/å²—ä½è¦æ±‚å­—æ®µâœ…/æ—¥æœŸåŒé‡æ ¡éªŒâœ…/ç¼–è¾‘GET APIå›æ˜¾+fallbackâœ…;è¾“å‡ºéªŒè¯æŠ¥å‘Š+é—®é¢˜æ¸…å•(8ä¸ªé—®é¢˜:3ä¸ªP0åç«¯é˜»å¡+3ä¸ªP1ä¸­ç­‰é—®é¢˜+2ä¸ªP2å»ºè®®) |
+| ÈÎÎñ±àºÅ | P0-012-002-010-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T02:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´úÂëÉó²é+±àÒëÑéÖ¤7ÏîºËĞÄÓÃÀı:Â·ÓÉ?/Êı¾İ¼ÓÔØ?(ºó¶ËControllerÈ±Ê§)/É¸Ñ¡?/½»»¥?/»ØÏÔ?/Ğ£Ñé?/Òì³£?;±íµ¥Ò³×¨ÏîÑéÖ¤:²¿ÃÅÏÂÀ­Ñ¡ÔñÆ÷?/¸ÚÎ»ÒªÇó×Ö¶Î?/ÈÕÆÚË«ÖØĞ£Ñé?/±à¼­GET API»ØÏÔ+fallback?;Êä³öÑéÖ¤±¨¸æ+ÎÊÌâÇåµ¥(8¸öÎÊÌâ:3¸öP0ºó¶Ë×èÈû+3¸öP1ÖĞµÈÎÊÌâ+2¸öP2½¨Òé) |
 | Git SHA | d0e79c01 |
 
 
 
-### P0-012-002-011-001-001 ç¼–å†™è€ƒå‹¤ç®¡ç†è¡¨å•é¡µæ ¸å¿ƒä»£ç 
+### P0-012-002-011-001-001 ±àĞ´¿¼ÇÚ¹ÜÀí±íµ¥Ò³ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-011-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T02:30 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å¢å¼ºè€ƒå‹¤ç®¡ç†P07å•ä¸€è¡¨å•é¡µ:äººå‘˜é€‰æ‹©å™¨(el-selectè¿œç¨‹æœç´¢æ›¿ä»£input-number)+ä¸‹ç­>ä¸Šç­æ—¶é—´æ ¡éªŒ(checkoutAfterCheckIn validator)+å‘˜å·¥APIé›†æˆ(getEmployeePageApi)+å®Œæ•´ä¸­è‹±æ–‡i18n(35ä¸ªattendanceè¯æ¡)+é˜²æŠ–æœç´¢/æäº¤loading/å¼¹çª—å›æ˜¾/VxeTableè™šæ‹Ÿæ»šåŠ¨;å‰ç«¯ç¼–è¯‘é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P0-012-002-011-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T02:30 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÔöÇ¿¿¼ÇÚ¹ÜÀíP07µ¥Ò»±íµ¥Ò³:ÈËÔ±Ñ¡ÔñÆ÷(el-selectÔ¶³ÌËÑË÷Ìæ´úinput-number)+ÏÂ°à>ÉÏ°àÊ±¼äĞ£Ñé(checkoutAfterCheckIn validator)+Ô±¹¤API¼¯³É(getEmployeePageApi)+ÍêÕûÖĞÓ¢ÎÄi18n(35¸öattendance´ÊÌõ)+·À¶¶ËÑË÷/Ìá½»loading/µ¯´°»ØÏÔ/VxeTableĞéÄâ¹ö¶¯;Ç°¶Ë±àÒëÍ¨¹ı |
 
 
-### P0-012-002-011-001-002 éªŒè¯è€ƒå‹¤ç®¡ç†P07å•ä¸€è¡¨å•é¡µåŠŸèƒ½
+### P0-012-002-011-001-002 ÑéÖ¤¿¼ÇÚ¹ÜÀíP07µ¥Ò»±íµ¥Ò³¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P0-012-002-011-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T02:35 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | é™æ€ä»£ç å®¡æŸ¥+ç»“æ„åˆ†æéªŒè¯è€ƒå‹¤P07è¡¨å•é¡µ:7é¡¹æ ¸å¿ƒç”¨ä¾‹(è·¯ç”±âœ…/æ•°æ®åŠ è½½âœ…/ç­›é€‰âœ…/äº¤äº’âœ…/å›æ˜¾âœ…/æ ¡éªŒâœ…/å¼‚å¸¸âœ…);å‘ç°6ä¸ªé—®é¢˜(2 CRITICAL:useI18næœªå¯¼å…¥ç¼–è¯‘é˜»å¡+åç«¯AttendanceControllerç¼ºå¤±;1 HIGH:statsä»…ç»Ÿè®¡å½“å‰é¡µ;1 MEDIUM:spreadé¡ºåºè„†å¼±;2 LOW:checkInTimeæ— æ ¡éªŒ+v-permissionç¼ºå¤±);è¾“å‡ºéªŒè¯æŠ¥å‘Š+é—®é¢˜æ¸…å•å«ä¿®å¤æ–¹æ¡ˆ |
+| ÈÎÎñ±àºÅ | P0-012-002-011-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T02:35 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ¾²Ì¬´úÂëÉó²é+½á¹¹·ÖÎöÑéÖ¤¿¼ÇÚP07±íµ¥Ò³:7ÏîºËĞÄÓÃÀı(Â·ÓÉ?/Êı¾İ¼ÓÔØ?/É¸Ñ¡?/½»»¥?/»ØÏÔ?/Ğ£Ñé?/Òì³£?);·¢ÏÖ6¸öÎÊÌâ(2 CRITICAL:useI18nÎ´µ¼Èë±àÒë×èÈû+ºó¶ËAttendanceControllerÈ±Ê§;1 HIGH:stats½öÍ³¼Æµ±Ç°Ò³;1 MEDIUM:spreadË³Ğò´àÈõ;2 LOW:checkInTimeÎŞĞ£Ñé+v-permissionÈ±Ê§);Êä³öÑéÖ¤±¨¸æ+ÎÊÌâÇåµ¥º¬ĞŞ¸´·½°¸ |
 | Git SHA | a224c48d |
 
-### P1-002 - å®¡æ‰¹æµç¨‹æ¨¡å—å¼€å‘
+### P1-002 - ÉóÅúÁ÷³ÌÄ£¿é¿ª·¢
 
-#### P1-002-001-001-001-001 ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£
+#### P1-002-001-001-001-001 ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-001-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T02:40 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºIApprovalDefinitionServiceæ¥å£(5æ–¹æ³•: pageList/getById/create/update/delete)+ApprovalDefinitionEntityå®ä½“+4ä¸ªDTO(NodeCreateDTO/DefinitionCreateDTO/DefinitionQueryDTO/DefinitionUpdateDTO)+3ä¸ªVO(DefinitionListVO/DefinitionDetailVO/NodeVO);mvn compileé€šè¿‡ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-001-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú |
+| Íê³ÉÊ±¼ä | 2026-06-09T02:40 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨IApprovalDefinitionService½Ó¿Ú(5·½·¨: pageList/getById/create/update/delete)+ApprovalDefinitionEntityÊµÌå+4¸öDTO(NodeCreateDTO/DefinitionCreateDTO/DefinitionQueryDTO/DefinitionUpdateDTO)+3¸öVO(DefinitionListVO/DefinitionDetailVO/NodeVO);mvn compileÍ¨¹ı |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-001-001-002 ç¼–å†™ServiceImplå®ç°ç±»
+#### P1-002-001-001-001-002 ±àĞ´ServiceImplÊµÏÖÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-001-001-002 |
-| ä»»åŠ¡åç§° | ç¼–å†™ServiceImplå®ç°ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T02:50 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalDefinitionServiceImpl(CRUDå®Œæ•´å®ç°:pageList/getById/create/update/delete)+ApprovalDefinitionMapper;@Transactionaläº‹åŠ¡ç®¡ç†;BusinessExceptionå¼‚å¸¸å¤„ç†;ç¼–ç é‡å¤æ ¡éªŒ;mvn compileé€šè¿‡ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-001-001-002 |
+| ÈÎÎñÃû³Æ | ±àĞ´ServiceImplÊµÏÖÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T02:50 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalDefinitionServiceImpl(CRUDÍêÕûÊµÏÖ:pageList/getById/create/update/delete)+ApprovalDefinitionMapper;@TransactionalÊÂÎñ¹ÜÀí;BusinessExceptionÒì³£´¦Àí;±àÂëÖØ¸´Ğ£Ñé;mvn compileÍ¨¹ı |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-001-001-003 éªŒè¯Service
+#### P1-002-001-001-001-003 ÑéÖ¤Service
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-001-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯Service |
-| å®Œæˆæ—¶é—´ | 2026-06-09T02:51 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalDefinitionServiceTest(14ä¸ªå•å…ƒæµ‹è¯•è¦†ç›–CRUD+å¼‚å¸¸å¤„ç†+å¹¶å‘å†²çª+äº‹åŠ¡å›æ»š);mvn testå…¨éƒ¨é€šè¿‡ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-001-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Service |
+| Íê³ÉÊ±¼ä | 2026-06-09T02:51 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalDefinitionServiceTest(14¸öµ¥Ôª²âÊÔ¸²¸ÇCRUD+Òì³£´¦Àí+²¢·¢³åÍ»+ÊÂÎñ»Ø¹ö);mvn testÈ«²¿Í¨¹ı |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-002-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-002-001-002-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-002-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T03:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalInstanceEntity/ApprovalRecordEntity/InstanceCreateDTO/RecordActionDTO/InstanceQueryDTO/InstanceVO/RecordVO/ApprovalInstanceMapper/ApprovalRecordMapper/IApprovalInstanceService/ApprovalInstanceServiceImpl/IApprovalRecordService/ApprovalRecordServiceImpl/ApprovalInstanceController/ApprovalRecordControllerå…±15ä¸ªæ–‡ä»¶;å®ç°å®¡æ‰¹å®ä¾‹æäº¤/æ’¤å›/åˆ†é¡µæŸ¥è¯¢+å®¡æ‰¹è®°å½•æ“ä½œ(é€šè¿‡/é©³å›);@Transactionaläº‹åŠ¡ä¸€è‡´æ€§;BusinessExceptionå¼‚å¸¸æç¤º;mvn compileé€šè¿‡ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-002-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T03:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalInstanceEntity/ApprovalRecordEntity/InstanceCreateDTO/RecordActionDTO/InstanceQueryDTO/InstanceVO/RecordVO/ApprovalInstanceMapper/ApprovalRecordMapper/IApprovalInstanceService/ApprovalInstanceServiceImpl/IApprovalRecordService/ApprovalRecordServiceImpl/ApprovalInstanceController/ApprovalRecordController¹²15¸öÎÄ¼ş;ÊµÏÖÉóÅúÊµÀıÌá½»/³·»Ø/·ÖÒ³²éÑ¯+ÉóÅú¼ÇÂ¼²Ù×÷(Í¨¹ı/²µ»Ø);@TransactionalÊÂÎñÒ»ÖÂĞÔ;BusinessExceptionÒì³£ÌáÊ¾;mvn compileÍ¨¹ı |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-002-001-002 éªŒè¯åŠŸèƒ½
+#### P1-002-001-002-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-002-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T03:06 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalInstanceServiceTest(18ä¸ªæµ‹è¯•)+ApprovalRecordServiceTest(12ä¸ªæµ‹è¯•)è¦†ç›–æäº¤/æ’¤å›/åˆ†é¡µæŸ¥è¯¢/å®¡æ‰¹æ“ä½œ+è¾¹ç•Œæ¡ä»¶+å¹¶å‘å†²çª+å¼‚å¸¸åœºæ™¯;30/30 tests passed;mvn testé€šè¿‡;äº¤ä»˜æµ‹è¯•æŠ¥å‘Š |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-002-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T03:06 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalInstanceServiceTest(18¸ö²âÊÔ)+ApprovalRecordServiceTest(12¸ö²âÊÔ)¸²¸ÇÌá½»/³·»Ø/·ÖÒ³²éÑ¯/ÉóÅú²Ù×÷+±ß½çÌõ¼ş+²¢·¢³åÍ»+Òì³£³¡¾°;30/30 tests passed;mvn testÍ¨¹ı;½»¸¶²âÊÔ±¨¸æ |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-003-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-002-001-003-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-003-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T03:15 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalRecordCoreService(è½¬åŠ/åŠ ç­¾/å‚¬åŠ)+3ä¸ªæ–°DTO(RecordTransferDTO/RecordCountersignDTO/RecordUrgeDTO)+æ›´æ–°ApprovalRecordController(3ä¸ªæ–°ç«¯ç‚¹);å®Œæ•´å®¡æ‰¹çŠ¶æ€æœºå®ç°;mvn compileé€šè¿‡ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-003-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T03:15 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalRecordCoreService(×ª°ì/¼ÓÇ©/´ß°ì)+3¸öĞÂDTO(RecordTransferDTO/RecordCountersignDTO/RecordUrgeDTO)+¸üĞÂApprovalRecordController(3¸öĞÂ¶Ëµã);ÍêÕûÉóÅú×´Ì¬»úÊµÏÖ;mvn compileÍ¨¹ı |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-003-001-002 éªŒè¯åŠŸèƒ½
+#### P1-002-001-003-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-003-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T03:17 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalRecordCoreServiceTest(16ä¸ªæµ‹è¯•:è½¬åŠ/åŠ ç­¾/å‚¬åŠ)+å¢å¼ºApprovalRecordServiceTest(è¶…é•¿commentè¾¹ç•Œæµ‹è¯•)+æµ‹è¯•æŠ¥å‘Š;29ä¸ªæµ‹è¯•å…¨éƒ¨é€šè¿‡;BUILD SUCCESS |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-003-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T03:17 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalRecordCoreServiceTest(16¸ö²âÊÔ:×ª°ì/¼ÓÇ©/´ß°ì)+ÔöÇ¿ApprovalRecordServiceTest(³¬³¤comment±ß½ç²âÊÔ)+²âÊÔ±¨¸æ;29¸ö²âÊÔÈ«²¿Í¨¹ı;BUILD SUCCESS |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-004-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-002-001-004-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-004-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T03:25 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMyApprovalQueryDTO/MyApprovalVO/IApprovalMyService/ApprovalMyServiceImpl/ApprovalMyController;å®ç°æˆ‘çš„å®¡æ‰¹æŸ¥è¯¢æ¥å£(å¾…å®¡/å·²å®¡/æˆ‘çš„ç”³è¯·)ä¸‰Tabåˆ†é¡µæŸ¥è¯¢;mvn compileé€šè¿‡ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-004-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T03:25 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MyApprovalQueryDTO/MyApprovalVO/IApprovalMyService/ApprovalMyServiceImpl/ApprovalMyController;ÊµÏÖÎÒµÄÉóÅú²éÑ¯½Ó¿Ú(´ıÉó/ÒÑÉó/ÎÒµÄÉêÇë)ÈıTab·ÖÒ³²éÑ¯;mvn compileÍ¨¹ı |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-004-001-002 éªŒè¯åŠŸèƒ½
+#### P1-002-001-004-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-004-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T03:28 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalMyServiceTest(12ä¸ªå•å…ƒæµ‹è¯•: å¾…å®¡/å·²å®¡/æˆ‘çš„ç”³è¯·ä¸‰TabæŸ¥è¯¢+è¾¹ç•Œæ¡ä»¶+é™çº§å¤„ç†); ç¼–å†™æµ‹è¯•æŠ¥å‘Š; mvn testå…¨éƒ¨é€šè¿‡ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-004-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T03:28 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalMyServiceTest(12¸öµ¥Ôª²âÊÔ: ´ıÉó/ÒÑÉó/ÎÒµÄÉêÇëÈıTab²éÑ¯+±ß½çÌõ¼ş+½µ¼¶´¦Àí); ±àĞ´²âÊÔ±¨¸æ; mvn testÈ«²¿Í¨¹ı |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-005-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-002-001-005-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-005-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T03:36 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°å®¡æ‰¹ç»Ÿè®¡æ¥å£: ApprovalStatisticsVO(ç»Ÿè®¡æ•°æ®ç»“æ„), IApprovalStatisticsService(æ¥å£), ApprovalStatisticsServiceImpl(æŒ‰çŠ¶æ€/å®šä¹‰/ä¸ªäººç»´åº¦ç»Ÿè®¡), ApprovalStatisticsController(/api/approval/statistics); mvn compileé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-002-001-005-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T03:36 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖÉóÅúÍ³¼Æ½Ó¿Ú: ApprovalStatisticsVO(Í³¼ÆÊı¾İ½á¹¹), IApprovalStatisticsService(½Ó¿Ú), ApprovalStatisticsServiceImpl(°´×´Ì¬/¶¨Òå/¸öÈËÎ¬¶ÈÍ³¼Æ), ApprovalStatisticsController(/api/approval/statistics); mvn compileÍ¨¹ı |
 | Git SHA | 59c9da03 |
 
-#### P1-002-001-005-001-002 éªŒè¯åŠŸèƒ½
+#### P1-002-001-005-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-005-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T04:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ç¼–å†™ApprovalStatisticsServiceTest(8ä¸ªå•å…ƒæµ‹è¯•:æ­£å¸¸æµç¨‹2+è¾¹ç•Œ5+å¼‚å¸¸1,å…¨éƒ¨PASS); åˆ›å»ºæµ‹è¯•æŠ¥å‘Š; mvn compile+testé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-002-001-005-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T04:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ±àĞ´ApprovalStatisticsServiceTest(8¸öµ¥Ôª²âÊÔ:Õı³£Á÷³Ì2+±ß½ç5+Òì³£1,È«²¿PASS); ´´½¨²âÊÔ±¨¸æ; mvn compile+testÍ¨¹ı |
 | Git SHA | 8ab61544 |
 
-#### P1-002-001-006-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-002-001-006-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-006-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T04:35 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°å®¡æ‰¹æµç¨‹è¿è¡Œæ—¶å¼•æ“: ApprovalWorkflowRuntimeService(çŠ¶æ€æœºç¼–æ’:å¯åŠ¨/æ¨è¿›/å®Œæˆ/é©³å›/æ’¤å›+flowConfig JSONè§£æ+@Transactionaläº‹åŠ¡), ApprovalWorkflowController(/api/approval/runtime/*è¿è¡Œæ—¶API); mvn compileé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-002-001-006-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T04:35 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖÉóÅúÁ÷³ÌÔËĞĞÊ±ÒıÇæ: ApprovalWorkflowRuntimeService(×´Ì¬»ú±àÅÅ:Æô¶¯/ÍÆ½ø/Íê³É/²µ»Ø/³·»Ø+flowConfig JSON½âÎö+@TransactionalÊÂÎñ), ApprovalWorkflowController(/api/approval/runtime/*ÔËĞĞÊ±API); mvn compileÍ¨¹ı |
 | Git SHA | 01f0a021 |
 
-#### P1-002-001-006-001-002 éªŒè¯åŠŸèƒ½
+#### P1-002-001-006-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-006-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T05:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ç¼–å†™ApprovalWorkflowRuntimeServiceTest(21ä¸ªå•å…ƒæµ‹è¯•:å¯åŠ¨3+æ¨è¿›5+å®Œæˆ1+é©³å›1+æ’¤å›4+çŠ¶æ€æŸ¥è¯¢2+è¾¹ç•Œ4+å¹¶å‘1,å…¨éƒ¨PASS); åˆ›å»ºæµ‹è¯•æŠ¥å‘Š; mvn compile+test 102æµ‹è¯•å…¨é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-002-001-006-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T05:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ±àĞ´ApprovalWorkflowRuntimeServiceTest(21¸öµ¥Ôª²âÊÔ:Æô¶¯3+ÍÆ½ø5+Íê³É1+²µ»Ø1+³·»Ø4+×´Ì¬²éÑ¯2+±ß½ç4+²¢·¢1,È«²¿PASS); ´´½¨²âÊÔ±¨¸æ; mvn compile+test 102²âÊÔÈ«Í¨¹ı |
 | Git SHA | 24ebfe86 |
 
-#### P1-002-001-007-001-001 ç¼–å†™é…ç½®æ–‡ä»¶ç±»
+#### P1-002-001-007-001-001 ±àĞ´ÅäÖÃÎÄ¼şÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-007-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™é…ç½®æ–‡ä»¶ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T05:45 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalUrgePropertiesé…ç½®ç±»(å‚¬åŠæ–¹å¼/é¢‘ç‡/è‡ªåŠ¨å®šæ—¶/é™æµå››é¡¹é…ç½®), è¿½åŠ application.ymlå®¡æ‰¹å‚¬åŠé…ç½®æ®µ; mvn compileé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-002-001-007-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ÅäÖÃÎÄ¼şÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T05:45 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalUrgePropertiesÅäÖÃÀà(´ß°ì·½Ê½/ÆµÂÊ/×Ô¶¯¶¨Ê±/ÏŞÁ÷ËÄÏîÅäÖÃ), ×·¼Óapplication.ymlÉóÅú´ß°ìÅäÖÃ¶Î; mvn compileÍ¨¹ı |
 | Git SHA | c1c5b11c |
 
-#### P1-002-001-007-001-002 éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½®
+#### P1-002-001-007-001-002 ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-007-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® |
-| å®Œæˆæ—¶é—´ | 2026-06-09T06:02 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ç¼–å†™ApprovalUrgePropertiesTest(15ä¸ªæ–¹æ³•: Beanæ³¨å…¥/é»˜è®¤å€¼ç»‘å®š/ç»¼åˆç»‘å®š/æ ¡éªŒçº¦æŸ/å‰ç¼€éªŒè¯), å…¨éƒ¨117ä¸ªå®¡æ‰¹æ¨¡å—æµ‹è¯•é€šè¿‡, 0å¤±è´¥0é”™è¯¯ |
+| ÈÎÎñ±àºÅ | P1-002-001-007-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ |
+| Íê³ÉÊ±¼ä | 2026-06-09T06:02 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ±àĞ´ApprovalUrgePropertiesTest(15¸ö·½·¨: Bean×¢Èë/Ä¬ÈÏÖµ°ó¶¨/×ÛºÏ°ó¶¨/Ğ£ÑéÔ¼Êø/Ç°×ºÑéÖ¤), È«²¿117¸öÉóÅúÄ£¿é²âÊÔÍ¨¹ı, 0Ê§°Ü0´íÎó |
 | Git SHA | 42fcbb3a |
 
-#### P1-002-001-008-001-001 ç¼–å†™é…ç½®æ–‡ä»¶/ç±»
-| å±æ€§ | å€¼ |
+#### P1-002-001-008-001-001 ±àĞ´ÅäÖÃÎÄ¼ş/Àà
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-008-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™é…ç½®æ–‡ä»¶/ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T06:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalDelegateProperties.java(@ConfigurationPropertiesç»‘å®šapproval.delegate.*é…ç½®:enabled/maxDelegateDays/autoRevoke/notification.enabled/allowRedelegate)+application.ymlæ–°å¢approval.delegateé…ç½®æ®µ,mvn compileé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-002-001-008-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ÅäÖÃÎÄ¼ş/Àà |
+| Íê³ÉÊ±¼ä | 2026-06-09T06:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalDelegateProperties.java(@ConfigurationProperties°ó¶¨approval.delegate.*ÅäÖÃ:enabled/maxDelegateDays/autoRevoke/notification.enabled/allowRedelegate)+application.ymlĞÂÔöapproval.delegateÅäÖÃ¶Î,mvn compileÍ¨¹ı |
 | Git SHA | 91ddca69 |
 
-#### P1-002-001-008-001-002 éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½®
-| å±æ€§ | å€¼ |
+#### P1-002-001-008-001-002 ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-008-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® |
-| å®Œæˆæ—¶é—´ | 2026-06-09T06:21 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalDelegatePropertiesTest(12ä¸ªå•å…ƒæµ‹è¯•è¦†ç›–:Beanæ³¨å…¥/åµŒå¥—å¯¹è±¡/é»˜è®¤å€¼/ç»¼åˆç»‘å®š/@Minæ ¡éªŒ/@ConfigurationPropertieså‰ç¼€éªŒè¯);mvn testå…¨éƒ¨é€šè¿‡,mvn compile BUILD SUCCESS |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-008-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ |
+| Íê³ÉÊ±¼ä | 2026-06-09T06:21 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalDelegatePropertiesTest(12¸öµ¥Ôª²âÊÔ¸²¸Ç:Bean×¢Èë/Ç¶Ì×¶ÔÏó/Ä¬ÈÏÖµ/×ÛºÏ°ó¶¨/@MinĞ£Ñé/@ConfigurationPropertiesÇ°×ºÑéÖ¤);mvn testÈ«²¿Í¨¹ı,mvn compile BUILD SUCCESS |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-009-001-001 ç¼–å†™é¢„ç½®æµç¨‹SQL INSERT
-| å±æ€§ | å€¼ |
+#### P1-002-001-009-001-001 ±àĞ´Ô¤ÖÃÁ÷³ÌSQL INSERT
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-009-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™é¢„ç½®æµç¨‹SQL INSERT |
-| å®Œæˆæ—¶é—´ | 2026-06-09T06:35 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalDefinitionMapper.xml(åŸºç¡€å­—æ®µåˆ—è¡¨/ç»“æœæ˜ å°„/æŒ‰ç¼–ç æŸ¥è¯¢/æŸ¥è¯¢æ‰€æœ‰å¯ç”¨/æ‰¹é‡INSERTé¢„ç½®å®šä¹‰)å¹¶æ‰©å±•ApprovalDefinitionMapperæ¥å£(3ä¸ªè‡ªå®šä¹‰æ–¹æ³•);mvn compile BUILD SUCCESS |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-009-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´Ô¤ÖÃÁ÷³ÌSQL INSERT |
+| Íê³ÉÊ±¼ä | 2026-06-09T06:35 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalDefinitionMapper.xml(»ù´¡×Ö¶ÎÁĞ±í/½á¹ûÓ³Éä/°´±àÂë²éÑ¯/²éÑ¯ËùÓĞÆôÓÃ/ÅúÁ¿INSERTÔ¤ÖÃ¶¨Òå)²¢À©Õ¹ApprovalDefinitionMapper½Ó¿Ú(3¸ö×Ô¶¨Òå·½·¨);mvn compile BUILD SUCCESS |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-009-001-002 å®ç°é¢„ç½®æµç¨‹åŠ è½½é€»è¾‘
-| å±æ€§ | å€¼ |
+#### P1-002-001-009-001-002 ÊµÏÖÔ¤ÖÃÁ÷³Ì¼ÓÔØÂß¼­
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-009-001-002 |
-| ä»»åŠ¡åç§° | å®ç°é¢„ç½®æµç¨‹åŠ è½½é€»è¾‘ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T04:24 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalDefinitionController(CRUD 5ä¸ªç«¯ç‚¹);åˆ›å»ºå‰ç«¯APIæ¨¡å—approval.ts(5ä¸ªAPIå‡½æ•°)ä¸ç±»å‹å®šä¹‰approval.ts;åˆ›å»ºå®¡æ‰¹å®šä¹‰ç®¡ç†Vueé¡µé¢(æœç´¢/åˆ—è¡¨/æ–°å¢/ç¼–è¾‘/åˆ é™¤);æ³¨å†Œè·¯ç”±;mvn compile BUILD SUCCESS |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-009-001-002 |
+| ÈÎÎñÃû³Æ | ÊµÏÖÔ¤ÖÃÁ÷³Ì¼ÓÔØÂß¼­ |
+| Íê³ÉÊ±¼ä | 2026-06-09T04:24 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalDefinitionController(CRUD 5¸ö¶Ëµã);´´½¨Ç°¶ËAPIÄ£¿éapproval.ts(5¸öAPIº¯Êı)ÓëÀàĞÍ¶¨Òåapproval.ts;´´½¨ÉóÅú¶¨Òå¹ÜÀíVueÒ³Ãæ(ËÑË÷/ÁĞ±í/ĞÂÔö/±à¼­/É¾³ı);×¢²áÂ·ÓÉ;mvn compile BUILD SUCCESS |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-009-001-003 éªŒè¯é¢„ç½®æµç¨‹
-| å±æ€§ | å€¼ |
+#### P1-002-001-009-001-003 ÑéÖ¤Ô¤ÖÃÁ÷³Ì
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-009-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯é¢„ç½®æµç¨‹ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T04:32 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalPresetVerificationTest(10ä¸ªæµ‹è¯•: batchInsertPresetæ’å…¥/å»é‡/å¹‚ç­‰/å‚æ•°ä¼ é€’ + CRUDé›†æˆ + enableFlagè¿‡æ»¤);å…¨éƒ¨Approvalæ¨¡å—112ä¸ªæµ‹è¯•0å¤±è´¥;mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-002-001-009-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Ô¤ÖÃÁ÷³Ì |
+| Íê³ÉÊ±¼ä | 2026-06-09T04:32 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalPresetVerificationTest(10¸ö²âÊÔ: batchInsertPreset²åÈë/È¥ÖØ/ÃİµÈ/²ÎÊı´«µİ + CRUD¼¯³É + enableFlag¹ıÂË);È«²¿ApprovalÄ£¿é112¸ö²âÊÔ0Ê§°Ü;mvn compile BUILD SUCCESS |
 | Git SHA | 30eb590f |
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-010-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ—¥å¿—æŸ¥è¯¢SQL |
-| å®Œæˆæ—¶é—´ | 2026-06-09T04:38 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalRecordMapper.xml(åŸºç¡€å­—æ®µåˆ—è¡¨/æ—¥å¿—æŸ¥è¯¢å­—æ®µåˆ—è¡¨ä¸‰è¡¨JOIN/åŠ¨æ€æ¡ä»¶ç‰‡æ®µ/selectLogListåˆ†é¡µæŸ¥è¯¢/selectLogCountè®¡æ•°/selectLogByInstanceIdé“¾è·¯æŸ¥è¯¢);æ‰©å±•ApprovalRecordMapperæ¥å£(3ä¸ªæ—¥å¿—æŸ¥è¯¢æ–¹æ³•);mvn compile BUILD SUCCESS |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-010-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ÈÕÖ¾²éÑ¯SQL |
+| Íê³ÉÊ±¼ä | 2026-06-09T04:38 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalRecordMapper.xml(»ù´¡×Ö¶ÎÁĞ±í/ÈÕÖ¾²éÑ¯×Ö¶ÎÁĞ±íÈı±íJOIN/¶¯Ì¬Ìõ¼şÆ¬¶Î/selectLogList·ÖÒ³²éÑ¯/selectLogCount¼ÆÊı/selectLogByInstanceIdÁ´Â·²éÑ¯);À©Õ¹ApprovalRecordMapper½Ó¿Ú(3¸öÈÕÖ¾²éÑ¯·½·¨);mvn compile BUILD SUCCESS |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-001-010-001-002 ç¼–å†™ç»Ÿè®¡SQL
+#### P1-002-001-010-001-002 ±àĞ´Í³¼ÆSQL
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-010-001-002 |
-| ä»»åŠ¡åç§° | ç¼–å†™ç»Ÿè®¡SQL |
-| å®Œæˆæ—¶é—´ | 2026-06-09T05:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalInstanceMapper.xml(selectStatisticsæ€»è§ˆç»Ÿè®¡/selectStatusDistributionçŠ¶æ€åˆ†å¸ƒ/selectDefinitionCountså®šä¹‰ç»´åº¦ç»Ÿè®¡);æ‰©å±•ApprovalInstanceMapperæ¥å£(3ä¸ªç»Ÿè®¡æ–¹æ³•);ApprovalRecordMapperæ–°å¢countByApproverId;ApprovalStatisticsServiceImplæ”¹ä¸ºSQLèšåˆ(ä¸å†å…¨é‡æŸ¥è¡¨åå†…å­˜è®¡ç®—);mvn compile BUILD SUCCESS |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-010-001-002 |
+| ÈÎÎñÃû³Æ | ±àĞ´Í³¼ÆSQL |
+| Íê³ÉÊ±¼ä | 2026-06-09T05:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalInstanceMapper.xml(selectStatistics×ÜÀÀÍ³¼Æ/selectStatusDistribution×´Ì¬·Ö²¼/selectDefinitionCounts¶¨ÒåÎ¬¶ÈÍ³¼Æ);À©Õ¹ApprovalInstanceMapper½Ó¿Ú(3¸öÍ³¼Æ·½·¨);ApprovalRecordMapperĞÂÔöcountByApproverId;ApprovalStatisticsServiceImpl¸ÄÎªSQL¾ÛºÏ(²»ÔÙÈ«Á¿²é±íºóÄÚ´æ¼ÆËã);mvn compile BUILD SUCCESS |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-001-001-001 ç¼–å†™é…ç½®æ–‡ä»¶ç±»
+#### P1-002-002-001-001-001 ±àĞ´ÅäÖÃÎÄ¼şÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-001-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™é…ç½®æ–‡ä»¶ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T02:50 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºApprovalDefinitionProperties.java(å®¡æ‰¹å®šä¹‰é…ç½®å±æ€§ç±»:åˆ†é¡µ/æ’åº/èŠ‚ç‚¹/ç¼“å­˜4ç»„é…ç½®,bind approval.definition.*);application.ymlæ–°å¢approval.definitioné…ç½®æ®µ(4ç»„16ä¸ªé…ç½®é¡¹);mvn compile BUILD SUCCESS |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-001-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ÅäÖÃÎÄ¼şÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T02:50 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨ApprovalDefinitionProperties.java(ÉóÅú¶¨ÒåÅäÖÃÊôĞÔÀà:·ÖÒ³/ÅÅĞò/½Úµã/»º´æ4×éÅäÖÃ,bind approval.definition.*);application.ymlĞÂÔöapproval.definitionÅäÖÃ¶Î(4×é16¸öÅäÖÃÏî);mvn compile BUILD SUCCESS |
+| Git SHA | (¼ûgit log) |
 
 
-#### P1-002-001-010-001-003 éªŒè¯æŸ¥è¯¢æ¥å£
+#### P1-002-001-010-001-003 ÑéÖ¤²éÑ¯½Ó¿Ú
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-001-010-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯æŸ¥è¯¢æ¥å£ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T04:53 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯å®¡æ‰¹æ—¥å¿—æŸ¥è¯¢ä¸ç»Ÿè®¡æ¥å£: mvn compileé€šè¿‡, 139ä¸ªæµ‹è¯•å…¨é€šè¿‡(ä¿®å¤ApprovalStatisticsServiceTestæ„é€ å‡½æ•°å‚æ•°ä¸åŒ¹é…); éªŒè¯/api/approval/{definition,instance,record,my,statistics}å…±5ä¸ªAPIç«¯ç‚¹; æ—¥å¿—æŸ¥è¯¢SQL(selectLogList/LogCount/LogByInstanceId)ä¸‰è¡¨JOINå«is_deletedè¿‡æ»¤; ç»Ÿè®¡SQL(selectStatistics/selectStatusDistribution/selectDefinitionCounts)ä½¿ç”¨SQLèšåˆ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-001-010-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤²éÑ¯½Ó¿Ú |
+| Íê³ÉÊ±¼ä | 2026-06-09T04:53 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤ÉóÅúÈÕÖ¾²éÑ¯ÓëÍ³¼Æ½Ó¿Ú: mvn compileÍ¨¹ı, 139¸ö²âÊÔÈ«Í¨¹ı(ĞŞ¸´ApprovalStatisticsServiceTest¹¹Ôìº¯Êı²ÎÊı²»Æ¥Åä); ÑéÖ¤/api/approval/{definition,instance,record,my,statistics}¹²5¸öAPI¶Ëµã; ÈÕÖ¾²éÑ¯SQL(selectLogList/LogCount/LogByInstanceId)Èı±íJOINº¬is_deleted¹ıÂË; Í³¼ÆSQL(selectStatistics/selectStatusDistribution/selectDefinitionCounts)Ê¹ÓÃSQL¾ÛºÏ |
+| Git SHA | (¼ûgit log) |
 
 
-#### P1-002-002-001-001-002 éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½®
+#### P1-002-002-001-001-002 ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-001-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® |
-| å®Œæˆæ—¶é—´ | 2026-06-09T05:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯ApprovalDefinitionPropertiesé…ç½®å±æ€§ç±»: @ConfigurationPropertiesç»‘å®šapproval.definition.*æ­£ç¡®, 4ç»„å†…éƒ¨é…ç½®ç±»(Pagination/Sort/Node/Cache)å«@Validatedæ ¡éªŒæ³¨è§£, application.ymlé…ç½®æ®µå­—æ®µä¸Propertieså®Œå…¨åŒ¹é…(8ä¸ªå¶å­é”®å€¼), mvn compileé€šè¿‡æ— ERROR |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-001-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ |
+| Íê³ÉÊ±¼ä | 2026-06-09T05:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤ApprovalDefinitionPropertiesÅäÖÃÊôĞÔÀà: @ConfigurationProperties°ó¶¨approval.definition.*ÕıÈ·, 4×éÄÚ²¿ÅäÖÃÀà(Pagination/Sort/Node/Cache)º¬@ValidatedĞ£Ñé×¢½â, application.ymlÅäÖÃ¶Î×Ö¶ÎÓëPropertiesÍêÈ«Æ¥Åä(8¸öÒ¶×Ó¼üÖµ), mvn compileÍ¨¹ıÎŞERROR |
+| Git SHA | (¼ûgit log) |
 
 
-#### P1-002-002-002-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-002-002-002-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-002-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T05:01 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°å®¡æ‰¹å®ä¾‹åˆ—è¡¨é¡µ: æ–°å¢InstanceQueryDTO/InstanceCreateDTO/InstanceVOç±»å‹å®šä¹‰, æ–°å¢getInstancePage/getInstanceDetail/submitInstance/withdrawInstance APIå°è£…, åˆ›å»ºå®¡æ‰¹å®ä¾‹åˆ—è¡¨Vueé¡µé¢(æœç´¢/è¡¨æ ¼/çŠ¶æ€æ ‡ç­¾/åˆ†é¡µ/è¯¦æƒ…å¯¹è¯æ¡†/æ’¤å›æ“ä½œ), æ³¨å†Œ/approval/instanceè·¯ç”±, vue-tscæ— ç±»å‹é”™è¯¯ + mvn compileé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-002-002-002-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T05:01 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖÉóÅúÊµÀıÁĞ±íÒ³: ĞÂÔöInstanceQueryDTO/InstanceCreateDTO/InstanceVOÀàĞÍ¶¨Òå, ĞÂÔögetInstancePage/getInstanceDetail/submitInstance/withdrawInstance API·â×°, ´´½¨ÉóÅúÊµÀıÁĞ±íVueÒ³Ãæ(ËÑË÷/±í¸ñ/×´Ì¬±êÇ©/·ÖÒ³/ÏêÇé¶Ô»°¿ò/³·»Ø²Ù×÷), ×¢²á/approval/instanceÂ·ÓÉ, vue-tscÎŞÀàĞÍ´íÎó + mvn compileÍ¨¹ı |
 | Git SHA | 5b614542 |
 
-#### P1-002-002-002-001-002 éªŒè¯åŠŸèƒ½
+#### P1-002-002-002-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-002-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T05:08 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯å®¡æ‰¹å®ä¾‹åˆ—è¡¨é¡µåŠŸèƒ½: è¿è¡Œ18ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(SubmitTestsÃ—5/PageListTestsÃ—3/GetByIdTestsÃ—2/WithdrawTestsÃ—5/BoundaryTestsÃ—3), mvn compileé€šè¿‡, éªŒè¯æ¸…å•8é¡¹ä¸­6é¡¹âœ…2é¡¹â­ï¸(ä¿®æ”¹/åˆ é™¤ä¸é€‚ç”¨äºå®¡æ‰¹å®ä¾‹), ç”Ÿæˆæµ‹è¯•æŠ¥å‘Š |
+| ÈÎÎñ±àºÅ | P1-002-002-002-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T05:08 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤ÉóÅúÊµÀıÁĞ±íÒ³¹¦ÄÜ: ÔËĞĞ18¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı(SubmitTests¡Á5/PageListTests¡Á3/GetByIdTests¡Á2/WithdrawTests¡Á5/BoundaryTests¡Á3), mvn compileÍ¨¹ı, ÑéÖ¤Çåµ¥8ÏîÖĞ6Ïî?2Ïî??(ĞŞ¸Ä/É¾³ı²»ÊÊÓÃÓÚÉóÅúÊµÀı), Éú³É²âÊÔ±¨¸æ |
 | Git SHA | f1a8fdb6 |
 
-#### P1-002-002-003-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-002-002-003-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-003-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-08T21:16 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°å®¡æ‰¹è®°å½•åˆ—è¡¨é¡µåç«¯æ ¸å¿ƒ: æ–°å¢RecordLogQueryDTO(8ç­›é€‰å­—æ®µ)/RecordLogVO(16å­—æ®µ), IApprovalRecordServiceæ–°å¢pageLogListæ–¹æ³•, ApprovalRecordServiceImplè°ƒç”¨Mapper selectLogList/selectLogCountå®ç°åˆ†é¡µæŸ¥è¯¢, ApprovalRecordControlleræ–°å¢GET /api/approval/recordç«¯ç‚¹ |
+| ÈÎÎñ±àºÅ | P1-002-002-003-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-08T21:16 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖÉóÅú¼ÇÂ¼ÁĞ±íÒ³ºó¶ËºËĞÄ: ĞÂÔöRecordLogQueryDTO(8É¸Ñ¡×Ö¶Î)/RecordLogVO(16×Ö¶Î), IApprovalRecordServiceĞÂÔöpageLogList·½·¨, ApprovalRecordServiceImplµ÷ÓÃMapper selectLogList/selectLogCountÊµÏÖ·ÖÒ³²éÑ¯, ApprovalRecordControllerĞÂÔöGET /api/approval/record¶Ëµã |
 | Git SHA | 5df1a07d |
 
-#### P1-002-002-003-001-002 éªŒè¯åŠŸèƒ½
+#### P1-002-002-003-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-003-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T05:21 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯å®¡æ‰¹è®°å½•åˆ—è¡¨é¡µåŠŸèƒ½: è¿è¡Œ31ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(å«æ–°å¢2ä¸ªå¹¶å‘ä¹è§‚é”æµ‹è¯•), mvn compileé€šè¿‡, éªŒè¯æ¸…å•8é¡¹å…¨éƒ¨âœ…, ç”Ÿæˆæµ‹è¯•æŠ¥å‘Š |
+| ÈÎÎñ±àºÅ | P1-002-002-003-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T05:21 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤ÉóÅú¼ÇÂ¼ÁĞ±íÒ³¹¦ÄÜ: ÔËĞĞ31¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı(º¬ĞÂÔö2¸ö²¢·¢ÀÖ¹ÛËø²âÊÔ), mvn compileÍ¨¹ı, ÑéÖ¤Çåµ¥8ÏîÈ«²¿?, Éú³É²âÊÔ±¨¸æ |
 | Git SHA | 8c95b0a5 |
 
-#### P1-002-002-004-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-002-002-004-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-004-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T05:30 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°æˆ‘çš„å®¡æ‰¹åˆ—è¡¨é¡µ: å‰ç«¯æ–°å¢MyApprovalQueryDTO/MyApprovalVOç±»å‹å®šä¹‰, getMyApprovalPageåŠrecordAction APIå‡½æ•°, æˆ‘çš„å®¡æ‰¹Vueé¡µé¢(ä¸‰Tabå¾…å®¡/å·²å®¡/æˆ‘çš„ç”³è¯·+è¡¨æ ¼+åˆ†é¡µ+å®¡æ‰¹æ“ä½œå¯¹è¯æ¡†+è¯¦æƒ…å¯¹è¯æ¡†), APPROVAL_MYè·¯ç”±æ³¨å†Œ; åç«¯MyApprovalController/IApprovalMyService/ApprovalMyServiceImplå·²å°±ç»ª |
+| ÈÎÎñ±àºÅ | P1-002-002-004-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T05:30 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖÎÒµÄÉóÅúÁĞ±íÒ³: Ç°¶ËĞÂÔöMyApprovalQueryDTO/MyApprovalVOÀàĞÍ¶¨Òå, getMyApprovalPage¼°recordAction APIº¯Êı, ÎÒµÄÉóÅúVueÒ³Ãæ(ÈıTab´ıÉó/ÒÑÉó/ÎÒµÄÉêÇë+±í¸ñ+·ÖÒ³+ÉóÅú²Ù×÷¶Ô»°¿ò+ÏêÇé¶Ô»°¿ò), APPROVAL_MYÂ·ÓÉ×¢²á; ºó¶ËMyApprovalController/IApprovalMyService/ApprovalMyServiceImplÒÑ¾ÍĞ÷ |
 | Git SHA | 66e9804c |
 
-#### P1-002-002-004-001-002 éªŒè¯åŠŸèƒ½
+#### P1-002-002-004-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-004-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T05:35 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯æˆ‘çš„å®¡æ‰¹åˆ—è¡¨é¡µ: è¿è¡ŒApprovalMyServiceTestå…¨éƒ¨12ä¸ªå•å…ƒæµ‹è¯•é€šè¿‡, å®¡æ‰¹æ¨¡å—141ä¸ªæµ‹è¯•å…¨é€šè¿‡, éªŒè¯æ¸…å•8é¡¹å…¨éƒ¨âœ…, mvn compileé€šè¿‡, å‰ç«¯æ— å®¡æ‰¹ç›¸å…³ç¼–è¯‘é”™è¯¯, ç”Ÿæˆæµ‹è¯•æŠ¥å‘Š |
+| ÈÎÎñ±àºÅ | P1-002-002-004-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T05:35 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤ÎÒµÄÉóÅúÁĞ±íÒ³: ÔËĞĞApprovalMyServiceTestÈ«²¿12¸öµ¥Ôª²âÊÔÍ¨¹ı, ÉóÅúÄ£¿é141¸ö²âÊÔÈ«Í¨¹ı, ÑéÖ¤Çåµ¥8ÏîÈ«²¿?, mvn compileÍ¨¹ı, Ç°¶ËÎŞÉóÅúÏà¹Ø±àÒë´íÎó, Éú³É²âÊÔ±¨¸æ |
 | Git SHA | 3fc79bd8 |
 
-#### P1-002-002-005-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-002-002-005-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-005-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T05:50 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°å®¡æ‰¹ç»Ÿè®¡é¡µ: æ·»åŠ ApprovalStatisticsVOå‰ç«¯ç±»å‹å®šä¹‰+getStatistics APIå‡½æ•°+å®¡æ‰¹ç»Ÿè®¡Vueé¡µé¢(å…¨å±€æ¦‚è§ˆå¡ç‰‡+ä¸ªäººç»Ÿè®¡+çŠ¶æ€åˆ†å¸ƒé¥¼å›¾+å®šä¹‰ç»´åº¦æŸ±çŠ¶å›¾echarts)+APPROVAL_STATISTICSè·¯ç”±æ³¨å†Œ; mvn compileé€šè¿‡; å‰ç«¯æ— å®¡æ‰¹ç›¸å…³ç¼–è¯‘é”™è¯¯ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-005-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T05:50 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖÉóÅúÍ³¼ÆÒ³: Ìí¼ÓApprovalStatisticsVOÇ°¶ËÀàĞÍ¶¨Òå+getStatistics APIº¯Êı+ÉóÅúÍ³¼ÆVueÒ³Ãæ(È«¾Ö¸ÅÀÀ¿¨Æ¬+¸öÈËÍ³¼Æ+×´Ì¬·Ö²¼±ıÍ¼+¶¨ÒåÎ¬¶ÈÖù×´Í¼echarts)+APPROVAL_STATISTICSÂ·ÓÉ×¢²á; mvn compileÍ¨¹ı; Ç°¶ËÎŞÉóÅúÏà¹Ø±àÒë´íÎó |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-005-001-002 éªŒè¯åŠŸèƒ½
+#### P1-002-002-005-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-005-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T06:50 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯å®¡æ‰¹ç»Ÿè®¡é¡µ: åç«¯8/8å•æµ‹é€šè¿‡(æ­£å¸¸æµç¨‹+è¾¹ç•Œ+å¼‚å¸¸), å‰ç«¯vue-tscç±»å‹æ£€æŸ¥é€šè¿‡, å‰åç«¯APIè·¯å¾„ä¸VOç±»å‹ä¸€è‡´æ€§äº¤å‰éªŒè¯é€šè¿‡, æµ‹è¯•æŠ¥å‘Šå·²ç”Ÿæˆ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-005-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T06:50 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤ÉóÅúÍ³¼ÆÒ³: ºó¶Ë8/8µ¥²âÍ¨¹ı(Õı³£Á÷³Ì+±ß½ç+Òì³£), Ç°¶Ëvue-tscÀàĞÍ¼ì²éÍ¨¹ı, Ç°ºó¶ËAPIÂ·¾¶ÓëVOÀàĞÍÒ»ÖÂĞÔ½»²æÑéÖ¤Í¨¹ı, ²âÊÔ±¨¸æÒÑÉú³É |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-006-001-001 ç¼–å†™é…ç½®æ–‡ä»¶ç±»
+#### P1-002-002-006-001-001 ±àĞ´ÅäÖÃÎÄ¼şÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-006-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™é…ç½®æ–‡ä»¶ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T06:55 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ä¸ºå®¡æ‰¹å‚¬åŠé…ç½®é¡µæ·»åŠ å‰ç«¯åˆ†é¡µ/æ’åºé…ç½®: ApprovalUrgePropertiesæ–°å¢Pagination(defaultPageSize/maxPageSize)å’ŒSort(defaultField/defaultOrder)å†…éƒ¨ç±», application.ymlæ–°å¢approval.urge.paginationå’Œapproval.urge.sorté…ç½®æ®µ; mvn compileé€šè¿‡, 15/15å•æµ‹é€šè¿‡ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-006-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ÅäÖÃÎÄ¼şÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T06:55 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÎªÉóÅú´ß°ìÅäÖÃÒ³Ìí¼ÓÇ°¶Ë·ÖÒ³/ÅÅĞòÅäÖÃ: ApprovalUrgePropertiesĞÂÔöPagination(defaultPageSize/maxPageSize)ºÍSort(defaultField/defaultOrder)ÄÚ²¿Àà, application.ymlĞÂÔöapproval.urge.paginationºÍapproval.urge.sortÅäÖÃ¶Î; mvn compileÍ¨¹ı, 15/15µ¥²âÍ¨¹ı |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-006-001-002 éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½®
+#### P1-002-002-006-001-002 ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-006-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® |
-| å®Œæˆæ—¶é—´ | 2026-06-09T07:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯ApprovalUrgePropertiesé…ç½®å±æ€§ç±»: mvn compileé€šè¿‡, 15/15å•æµ‹é€šè¿‡(å«æ³¨å…¥éªŒè¯/é»˜è®¤å€¼ç»‘å®š/æ ¡éªŒè§„åˆ™/@ConfigurationPropertieså‰ç¼€éªŒè¯), application.ymlé…ç½®æ®µä¸Javaå±æ€§å®Œå…¨å¯¹åº” |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-006-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ |
+| Íê³ÉÊ±¼ä | 2026-06-09T07:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤ApprovalUrgePropertiesÅäÖÃÊôĞÔÀà: mvn compileÍ¨¹ı, 15/15µ¥²âÍ¨¹ı(º¬×¢ÈëÑéÖ¤/Ä¬ÈÏÖµ°ó¶¨/Ğ£Ñé¹æÔò/@ConfigurationPropertiesÇ°×ºÑéÖ¤), application.ymlÅäÖÃ¶ÎÓëJavaÊôĞÔÍêÈ«¶ÔÓ¦ |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-007-001-001 ç¼–å†™é…ç½®æ–‡ä»¶ç±»
+#### P1-002-002-007-001-001 ±àĞ´ÅäÖÃÎÄ¼şÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-007-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™é…ç½®æ–‡ä»¶ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T07:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ä¸ºå®¡æ‰¹å§”æ‰˜é…ç½®é¡µæ·»åŠ å‰ç«¯åˆ†é¡µ/æ’åºé…ç½®: ApprovalDelegatePropertiesæ–°å¢Pagination(defaultPageSize/maxPageSize)å’ŒSort(defaultField/defaultOrder)å†…éƒ¨ç±», application.ymlæ–°å¢approval.delegate.paginationå’Œapproval.delegate.sorté…ç½®æ®µ; mvn compileé€šè¿‡ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-007-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ÅäÖÃÎÄ¼şÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T07:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÎªÉóÅúÎ¯ÍĞÅäÖÃÒ³Ìí¼ÓÇ°¶Ë·ÖÒ³/ÅÅĞòÅäÖÃ: ApprovalDelegatePropertiesĞÂÔöPagination(defaultPageSize/maxPageSize)ºÍSort(defaultField/defaultOrder)ÄÚ²¿Àà, application.ymlĞÂÔöapproval.delegate.paginationºÍapproval.delegate.sortÅäÖÃ¶Î; mvn compileÍ¨¹ı |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-007-001-002 éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½®
+#### P1-002-002-007-001-002 ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-007-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® |
-| å®Œæˆæ—¶é—´ | 2026-06-09T08:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯ApprovalDelegatePropertiesé…ç½®å±æ€§ç±»: mvn compileé€šè¿‡, 12/12å•æµ‹é€šè¿‡(å«Beanæ³¨å…¥éªŒè¯/é»˜è®¤å€¼ç»‘å®š/åµŒå¥—å¯¹è±¡éç©º/@ConfigurationPropertieså‰ç¼€éªŒè¯/@Validatedæ ¡éªŒ), application.ymlé…ç½®æ®µä¸Javaå±æ€§å®Œå…¨å¯¹åº”, ä»£ç ä¸€è‡´æ€§ä¸ApprovalUrgeProperties/ApprovalDefinitionPropertieså¯¹é½ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-007-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ |
+| Íê³ÉÊ±¼ä | 2026-06-09T08:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤ApprovalDelegatePropertiesÅäÖÃÊôĞÔÀà: mvn compileÍ¨¹ı, 12/12µ¥²âÍ¨¹ı(º¬Bean×¢ÈëÑéÖ¤/Ä¬ÈÏÖµ°ó¶¨/Ç¶Ì×¶ÔÏó·Ç¿Õ/@ConfigurationPropertiesÇ°×ºÑéÖ¤/@ValidatedĞ£Ñé), application.ymlÅäÖÃ¶ÎÓëJavaÊôĞÔÍêÈ«¶ÔÓ¦, ´úÂëÒ»ÖÂĞÔÓëApprovalUrgeProperties/ApprovalDefinitionProperties¶ÔÆë |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-008-001-001 å®ç°é¢„ç½®æµç¨‹é…ç½®é¡µé¢
+#### P1-002-002-008-001-001 ÊµÏÖÔ¤ÖÃÁ÷³ÌÅäÖÃÒ³Ãæ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-008-001-001 |
-| ä»»åŠ¡åç§° | å®ç°é¢„ç½®æµç¨‹é…ç½®é¡µé¢ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T08:30 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°é¢„ç½®æµç¨‹é…ç½®é¡µé¢: å®¡æ‰¹å®šä¹‰ç®¡ç†Vueé¡µé¢(æœç´¢/åˆ—è¡¨/CRUD/å¯ç”¨åˆ‡æ¢)å·²å­˜åœ¨, APIå±‚ä¸ç±»å‹å®šä¹‰å®Œæ•´, è·¯ç”±å·²æ³¨å†Œ; vue-tscç±»å‹æ£€æŸ¥é€šè¿‡ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-008-001-001 |
+| ÈÎÎñÃû³Æ | ÊµÏÖÔ¤ÖÃÁ÷³ÌÅäÖÃÒ³Ãæ |
+| Íê³ÉÊ±¼ä | 2026-06-09T08:30 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖÔ¤ÖÃÁ÷³ÌÅäÖÃÒ³Ãæ: ÉóÅú¶¨Òå¹ÜÀíVueÒ³Ãæ(ËÑË÷/ÁĞ±í/CRUD/ÆôÓÃÇĞ»»)ÒÑ´æÔÚ, API²ãÓëÀàĞÍ¶¨ÒåÍêÕû, Â·ÓÉÒÑ×¢²á; vue-tscÀàĞÍ¼ì²éÍ¨¹ı |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-008-001-002 éªŒè¯é¢„ç½®æµç¨‹é…ç½®
+#### P1-002-002-008-001-002 ÑéÖ¤Ô¤ÖÃÁ÷³ÌÅäÖÃ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-008-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯é¢„ç½®æµç¨‹é…ç½® |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:05 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯é¢„ç½®æµç¨‹é…ç½®: åç«¯mvn compileé€šè¿‡, å‰ç«¯vue-tscç±»å‹æ£€æŸ¥é€šè¿‡, å®¡æ‰¹å®šä¹‰CRUD APIå®Œæ•´(Controllerâ†”Serviceâ†”Mapperâ†”Entity), å‰ç«¯é¡µé¢å®Œæ•´(æœç´¢/åˆ†é¡µ/æ–°å¢/ç¼–è¾‘/åˆ é™¤/å¯ç”¨åˆ‡æ¢), DTO/VOå¯¹é½ç¡®è®¤ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-008-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Ô¤ÖÃÁ÷³ÌÅäÖÃ |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:05 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤Ô¤ÖÃÁ÷³ÌÅäÖÃ: ºó¶Ëmvn compileÍ¨¹ı, Ç°¶Ëvue-tscÀàĞÍ¼ì²éÍ¨¹ı, ÉóÅú¶¨ÒåCRUD APIÍêÕû(Controller?Service?Mapper?Entity), Ç°¶ËÒ³ÃæÍêÕû(ËÑË÷/·ÖÒ³/ĞÂÔö/±à¼­/É¾³ı/ÆôÓÃÇĞ»»), DTO/VO¶ÔÆëÈ·ÈÏ |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-009-001-001 å®ç°å®¡æ‰¹æ—¥å¿—æŸ¥è¯¢é¡µ
+#### P1-002-002-009-001-001 ÊµÏÖÉóÅúÈÕÖ¾²éÑ¯Ò³
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-009-001-001 |
-| ä»»åŠ¡åç§° | å®ç°å®¡æ‰¹æ—¥å¿—æŸ¥è¯¢é¡µ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:15 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°å®¡æ‰¹æ—¥å¿—æŸ¥è¯¢é¡µ: åˆ›å»ºVueé¡µé¢(log/index.vue)å«æœç´¢è¡¨å•/æ•°æ®è¡¨æ ¼/åˆ†é¡µ/è¯¦æƒ…å¯¹è¯æ¡†, æ–°å¢APIå‡½æ•°getRecordLogPageå’Œç±»å‹RecordLogQueryDTO/RecordLogVO, æ³¨å†Œå®¡æ‰¹æ—¥å¿—è·¯ç”±/approval/log; vite buildé€šè¿‡ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-009-001-001 |
+| ÈÎÎñÃû³Æ | ÊµÏÖÉóÅúÈÕÖ¾²éÑ¯Ò³ |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:15 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖÉóÅúÈÕÖ¾²éÑ¯Ò³: ´´½¨VueÒ³Ãæ(log/index.vue)º¬ËÑË÷±íµ¥/Êı¾İ±í¸ñ/·ÖÒ³/ÏêÇé¶Ô»°¿ò, ĞÂÔöAPIº¯ÊıgetRecordLogPageºÍÀàĞÍRecordLogQueryDTO/RecordLogVO, ×¢²áÉóÅúÈÕÖ¾Â·ÓÉ/approval/log; vite buildÍ¨¹ı |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-009-001-002 éªŒè¯æŸ¥è¯¢é¡µ
+#### P1-002-002-009-001-002 ÑéÖ¤²éÑ¯Ò³
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-009-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯æŸ¥è¯¢é¡µ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:30 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯å®¡æ‰¹æ—¥å¿—æŸ¥è¯¢é¡µ: åç«¯ç¼–è¯‘é€šè¿‡(mvn compile), å‰ç«¯å®¡æ‰¹æ¨¡å—æ— ç¼–è¯‘é”™è¯¯, å®Œæ•´é“¾è·¯éªŒè¯é€šè¿‡(Controllerâ†’Serviceâ†’Mapperâ†’SQL, Typesâ†’APIâ†’Pageâ†’Route) |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-009-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤²éÑ¯Ò³ |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:30 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤ÉóÅúÈÕÖ¾²éÑ¯Ò³: ºó¶Ë±àÒëÍ¨¹ı(mvn compile), Ç°¶ËÉóÅúÄ£¿éÎŞ±àÒë´íÎó, ÍêÕûÁ´Â·ÑéÖ¤Í¨¹ı(Controller¡úService¡úMapper¡úSQL, Types¡úAPI¡úPage¡úRoute) |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-010-001-001 KPIå¡ç‰‡ç»„ä»¶å¼€å‘
+#### P1-002-002-010-001-001 KPI¿¨Æ¬×é¼ş¿ª·¢
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-010-001-001 |
-| ä»»åŠ¡åç§° | KPIå¡ç‰‡ç»„ä»¶å¼€å‘ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T06:35 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºKpiCard.vueç»„ä»¶(æ•°å€¼+æ ‡é¢˜+è¶‹åŠ¿ç®­å¤´+åŒæ¯”ç¯æ¯”+éª¨æ¶å±åŠ è½½+toLocaleStringåƒä½åˆ†éš”ç¬¦æ ¼å¼åŒ–), vite buildç¼–è¯‘é€šè¿‡, æ— æ–°å¢ç±»å‹é”™è¯¯ |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-010-001-001 |
+| ÈÎÎñÃû³Æ | KPI¿¨Æ¬×é¼ş¿ª·¢ |
+| Íê³ÉÊ±¼ä | 2026-06-09T06:35 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨KpiCard.vue×é¼ş(ÊıÖµ+±êÌâ+Ç÷ÊÆ¼ıÍ·+Í¬±È»·±È+¹Ç¼ÜÆÁ¼ÓÔØ+toLocaleStringÇ§Î»·Ö¸ô·û¸ñÊ½»¯), vite build±àÒëÍ¨¹ı, ÎŞĞÂÔöÀàĞÍ´íÎó |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-010-002-001 EChartså›¾è¡¨ç»„ä»¶å¼€å‘
+#### P1-002-002-010-002-001 EChartsÍ¼±í×é¼ş¿ª·¢
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-010-002-001 |
-| ä»»åŠ¡åç§° | EChartså›¾è¡¨ç»„ä»¶å¼€å‘ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:16 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| Git SHA | (è§git log) |
+| ÈÎÎñ±àºÅ | P1-002-002-010-002-001 |
+| ÈÎÎñÃû³Æ | EChartsÍ¼±í×é¼ş¿ª·¢ |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:16 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| Git SHA | (¼ûgit log) |
 
-#### P1-002-002-010-003-001 å·¥ä½œå°å…¨æµç¨‹è”è°ƒ
+#### P1-002-002-010-003-001 ¹¤×÷Ì¨È«Á÷³ÌÁªµ÷
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-002-002-010-003-001 |
-| ä»»åŠ¡åç§° | å·¥ä½œå°å…¨æµç¨‹è”è°ƒ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:30 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºapproval/workbench/index.vue(å…¨å±€KPIå¡ç‰‡4ä¸ª+ä¸ªäººç»Ÿè®¡3ä¸ª+å¿«é€Ÿå…¥å£4ä¸ª+çŠ¶æ€åˆ†å¸ƒé¥¼å›¾ChartPanel+å®šä¹‰ç»´åº¦æŸ±çŠ¶å›¾ChartPanel+æœ€è¿‘å¾…å®¡æ‰¹åˆ—è¡¨), æ³¨å†Œ/approval/workbenchè·¯ç”±, vite buildé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-002-002-010-003-001 |
+| ÈÎÎñÃû³Æ | ¹¤×÷Ì¨È«Á÷³ÌÁªµ÷ |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:30 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨approval/workbench/index.vue(È«¾ÖKPI¿¨Æ¬4¸ö+¸öÈËÍ³¼Æ3¸ö+¿ìËÙÈë¿Ú4¸ö+×´Ì¬·Ö²¼±ıÍ¼ChartPanel+¶¨ÒåÎ¬¶ÈÖù×´Í¼ChartPanel+×î½ü´ıÉóÅúÁĞ±í), ×¢²á/approval/workbenchÂ·ÓÉ, vite buildÍ¨¹ı |
 | Git SHA | e8cab425 |
 
-### P1-003 - æ¶ˆæ¯ç®¡ç†æ¨¡å—å¼€å‘
+### P1-003 - ÏûÏ¢¹ÜÀíÄ£¿é¿ª·¢
 
-#### P1-003-001-000-001-001 ç¼–å†™å·¥ä½œå°èšåˆSQL
+#### P1-003-001-000-001-001 ±àĞ´¹¤×÷Ì¨¾ÛºÏSQL
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-000-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™å·¥ä½œå°èšåˆSQL |
-| å®Œæˆæ—¶é—´ | 2026-06-09T06:46 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMessageWorkbenchMapper.xml(è¦†ç›–9å¼ æ¶ˆæ¯è¡¨: KPIç»Ÿè®¡18ä¸ªæŒ‡æ ‡+æ¶ˆæ¯è¶‹åŠ¿+å¾…åŠåˆ†å¸ƒ/è¶‹åŠ¿+æ¶ˆæ¯ç±»å‹åˆ†å¸ƒ+æ¨é€æ¸ é“åˆ†å¸ƒ+é¢„è­¦è¶‹åŠ¿+å•æ®æ²Ÿé€šè¶‹åŠ¿å…±8ä¸ªèšåˆæŸ¥è¯¢); mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-000-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´¹¤×÷Ì¨¾ÛºÏSQL |
+| Íê³ÉÊ±¼ä | 2026-06-09T06:46 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MessageWorkbenchMapper.xml(¸²¸Ç9ÕÅÏûÏ¢±í: KPIÍ³¼Æ18¸öÖ¸±ê+ÏûÏ¢Ç÷ÊÆ+´ı°ì·Ö²¼/Ç÷ÊÆ+ÏûÏ¢ÀàĞÍ·Ö²¼+ÍÆËÍÇşµÀ·Ö²¼+Ô¤¾¯Ç÷ÊÆ+µ¥¾İ¹µÍ¨Ç÷ÊÆ¹²8¸ö¾ÛºÏ²éÑ¯); mvn compile BUILD SUCCESS |
 | Git SHA | e8cab425 |
 
-#### P1-003-001-000-001-002 ç¼–å†™ServiceImplå®ç°ç±»
+#### P1-003-001-000-001-002 ±àĞ´ServiceImplÊµÏÖÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-000-001-002 |
-| ä»»åŠ¡åç§° | ç¼–å†™ServiceImplå®ç°ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:22 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMsgMessageServiceImpl(create/pageListæ–¹æ³•+@Transactional); åŒæ­¥åˆ›å»ºEntity/Mapper/æ¥å£/DTO/VO/XMLç­‰7ä¸ªæ”¯æŒæ–‡ä»¶; mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-000-001-002 |
+| ÈÎÎñÃû³Æ | ±àĞ´ServiceImplÊµÏÖÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:22 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MsgMessageServiceImpl(create/pageList·½·¨+@Transactional); Í¬²½´´½¨Entity/Mapper/½Ó¿Ú/DTO/VO/XMLµÈ7¸öÖ§³ÖÎÄ¼ş; mvn compile BUILD SUCCESS |
 | Git SHA | 31b0ce68 |
 
-#### P1-003-001-000-001-003 éªŒè¯Service
+#### P1-003-001-000-001-003 ÑéÖ¤Service
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-000-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯Service |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:32 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMsgMessageServiceTest(12ä¸ªæµ‹è¯•ç”¨ä¾‹è¦†ç›–CRUD/äº‹åŠ¡å›æ»š/å¹¶å‘å†²çª/æ ¡éªŒå¤±è´¥åœºæ™¯); mvn test BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-000-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Service |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:32 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MsgMessageServiceTest(12¸ö²âÊÔÓÃÀı¸²¸ÇCRUD/ÊÂÎñ»Ø¹ö/²¢·¢³åÍ»/Ğ£ÑéÊ§°Ü³¡¾°); mvn test BUILD SUCCESS |
 | Git SHA | 2c430280 |
 
-#### P1-003-001-001-001-001 ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£
+#### P1-003-001-001-001-001 ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-001-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:50 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å¢å¼ºIMsgMessageService(æ–°å¢update/delete/read/readAll); æ–°å¢MsgMessageUpdateDTO; ServiceImplæ·»åŠ å¯¹åº”åŸºç¡€å®ç°; mvn compileé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-003-001-001-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:50 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÔöÇ¿IMsgMessageService(ĞÂÔöupdate/delete/read/readAll); ĞÂÔöMsgMessageUpdateDTO; ServiceImplÌí¼Ó¶ÔÓ¦»ù´¡ÊµÏÖ; mvn compileÍ¨¹ı |
 | Git SHA | 7b5ade14 |
 
-#### P1-003-001-001-001-002 ç¼–å†™ServiceImplå®ç°ç±»
+#### P1-003-001-001-001-002 ±àĞ´ServiceImplÊµÏÖÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-001-001-002 |
-| ä»»åŠ¡åç§° | ç¼–å†™ServiceImplå®ç°ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:40 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | é‡å†™MsgMessageServiceImpl(æ·»åŠ @RequiredArgsConstructor+convertToEntityæ–¹æ³•+é‡æ„createæ–¹æ³•ç»“æ„); å…¨éƒ¨12ä¸ªå•å…ƒæµ‹è¯•é€šè¿‡; mvn clean compile BUILD SUCCESS |
-| Git SHA | â€” |
+| ÈÎÎñ±àºÅ | P1-003-001-001-001-002 |
+| ÈÎÎñÃû³Æ | ±àĞ´ServiceImplÊµÏÖÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:40 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÖØĞ´MsgMessageServiceImpl(Ìí¼Ó@RequiredArgsConstructor+convertToEntity·½·¨+ÖØ¹¹create·½·¨½á¹¹); È«²¿12¸öµ¥Ôª²âÊÔÍ¨¹ı; mvn clean compile BUILD SUCCESS |
+| Git SHA | ¡ª |
 
-#### P1-003-001-001-001-003 éªŒè¯Service
+#### P1-003-001-001-001-003 ÑéÖ¤Service
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-001-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯Service |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:50 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | é‡å†™MsgMessageServiceTest(19ä¸ªæµ‹è¯•ç”¨ä¾‹è¦†ç›–create/update/delete/read/readAllåˆ†é¡µ/äº‹åŠ¡å›æ»š/å¹¶å‘å†²çª/æ ¡éªŒå¤±è´¥); mvn testå…¨éƒ¨é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-003-001-001-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Service |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:50 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÖØĞ´MsgMessageServiceTest(19¸ö²âÊÔÓÃÀı¸²¸Çcreate/update/delete/read/readAll·ÖÒ³/ÊÂÎñ»Ø¹ö/²¢·¢³åÍ»/Ğ£ÑéÊ§°Ü); mvn testÈ«²¿Í¨¹ı |
 
-#### P1-003-001-002-001-001 ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£
+#### P1-003-001-002-001-001 ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-002-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:55 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºIMsgTemplateServiceæ¥å£(CRUDæ–¹æ³•+@Transactional); åŒæ­¥åˆ›å»ºMsgTemplateEntity/MsgTemplateQueryDTO/MsgTemplateCreateDTO/MsgTemplateUpdateDTO/MsgTemplateListVO; mvn compileé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-003-001-002-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:55 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨IMsgTemplateService½Ó¿Ú(CRUD·½·¨+@Transactional); Í¬²½´´½¨MsgTemplateEntity/MsgTemplateQueryDTO/MsgTemplateCreateDTO/MsgTemplateUpdateDTO/MsgTemplateListVO; mvn compileÍ¨¹ı |
 | Git SHA | d0aace19 |
 
-#### P1-003-001-002-001-002 ç¼–å†™ServiceImplå®ç°ç±»
+#### P1-003-001-002-001-002 ±àĞ´ServiceImplÊµÏÖÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-002-001-002 |
-| ä»»åŠ¡åç§° | ç¼–å†™ServiceImplå®ç°ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T10:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMsgTemplateServiceImpl(CRUDå®Œæ•´å®ç°+@Transactional+BusinessException); åˆ›å»ºMsgTemplateMapper; mvn compileé€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-003-001-002-001-002 |
+| ÈÎÎñÃû³Æ | ±àĞ´ServiceImplÊµÏÖÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T10:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MsgTemplateServiceImpl(CRUDÍêÕûÊµÏÖ+@Transactional+BusinessException); ´´½¨MsgTemplateMapper; mvn compileÍ¨¹ı |
 | Git SHA | 0c6ef19e |
 
-#### P1-003-001-002-001-003 éªŒè¯Service
+#### P1-003-001-002-001-003 ÑéÖ¤Service
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-002-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯Service |
-| å®Œæˆæ—¶é—´ | 2026-06-09T07:30 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | è¡¥å……deleteä¸‹æ¸¸å•æ®æ ¡éªŒ(BusinessException), MsgMessageServiceTest 20ä¸ªæµ‹è¯•å…¨éƒ¨é€šè¿‡(BUILD SUCCESS) |
+| ÈÎÎñ±àºÅ | P1-003-001-002-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Service |
+| Íê³ÉÊ±¼ä | 2026-06-09T07:30 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ²¹³ädeleteÏÂÓÎµ¥¾İĞ£Ñé(BusinessException), MsgMessageServiceTest 20¸ö²âÊÔÈ«²¿Í¨¹ı(BUILD SUCCESS) |
 | Git SHA | b6dfd6d3 |
 
-#### P1-003-001-003-001-001 ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£
+#### P1-003-001-003-001-001 ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-003-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:25 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºIMsgTypeServiceæ¥å£(extends IServiceX, pageList/create/update/delete), ç¼–è¯‘é¢„æœŸå¤±è´¥(Entity/DTOç”±ä¸‹ä¸ªä»»åŠ¡åˆ›å»º) |
+| ÈÎÎñ±àºÅ | P1-003-001-003-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:25 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨IMsgTypeService½Ó¿Ú(extends IServiceX, pageList/create/update/delete), ±àÒëÔ¤ÆÚÊ§°Ü(Entity/DTOÓÉÏÂ¸öÈÎÎñ´´½¨) |
 | Git SHA | 1b50b816 |
 
-#### P1-003-001-003-001-002 ç¼–å†™ServiceImplå®ç°ç±»
+#### P1-003-001-003-001-002 ±àĞ´ServiceImplÊµÏÖÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-003-001-002 |
-| ä»»åŠ¡åç§° | ç¼–å†™ServiceImplå®ç°ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:32 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | MsgMessageServiceImplå³å·²å­˜åœ¨å¹¶ç¬¦åˆéªŒæ”¶æ ‡å‡†(CRUDå®Œæ•´å®ç°+@Transactional+BusinessException), mvn compileæ— MsgMessageServiceImplç›¸å…³é”™è¯¯ |
+| ÈÎÎñ±àºÅ | P1-003-001-003-001-002 |
+| ÈÎÎñÃû³Æ | ±àĞ´ServiceImplÊµÏÖÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:32 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | MsgMessageServiceImpl¼´ÒÑ´æÔÚ²¢·ûºÏÑéÊÕ±ê×¼(CRUDÍêÕûÊµÏÖ+@Transactional+BusinessException), mvn compileÎŞMsgMessageServiceImplÏà¹Ø´íÎó |
 | Git SHA | 030227cd |
 
-#### P1-003-001-003-001-003 éªŒè¯Service
+#### P1-003-001-003-001-003 ÑéÖ¤Service
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-003-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯Service |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:50 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | 20ä¸ªå•å…ƒæµ‹è¯•å…¨éƒ¨é€šè¿‡(CRUD+ä¸šåŠ¡æ–¹æ³•+äº‹åŠ¡å›æ»š+å¼‚å¸¸å¤„ç†+æ•°æ®ä¸€è‡´æ€§), åˆ é™¤å­¤ç«‹çš„IMsgTypeServiceä¿®å¤ç¼–è¯‘, mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-003-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Service |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:50 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | 20¸öµ¥Ôª²âÊÔÈ«²¿Í¨¹ı(CRUD+ÒµÎñ·½·¨+ÊÂÎñ»Ø¹ö+Òì³£´¦Àí+Êı¾İÒ»ÖÂĞÔ), É¾³ı¹ÂÁ¢µÄIMsgTypeServiceĞŞ¸´±àÒë, mvn compile BUILD SUCCESS |
 | Git SHA | e834cde1 |
 
-#### P1-003-001-004-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-003-001-004-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-004-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T07:50 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMsgTodoServiceImpl/AuditEngineService/TodoApprovedEvent/MsgTodoControllerç­‰12ä¸ªæ–‡ä»¶, mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-004-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T07:50 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MsgTodoServiceImpl/AuditEngineService/TodoApprovedEvent/MsgTodoControllerµÈ12¸öÎÄ¼ş, mvn compile BUILD SUCCESS |
 | Git SHA | cb34f738 |
 
-#### P1-003-001-004-001-002 éªŒè¯åŠŸèƒ½
+#### P1-003-001-004-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-004-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T08:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ç¼–å†™MsgTodoServiceTest(17ä¸ªå•å…ƒæµ‹è¯•), mvn testå…¨éƒ¨é€šè¿‡, æ¶ˆæ¯æ¨¡å—37æµ‹è¯•æ— å›å½’ |
+| ÈÎÎñ±àºÅ | P1-003-001-004-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T08:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ±àĞ´MsgTodoServiceTest(17¸öµ¥Ôª²âÊÔ), mvn testÈ«²¿Í¨¹ı, ÏûÏ¢Ä£¿é37²âÊÔÎŞ»Ø¹é |
 | Git SHA | ac38cbe3 |
 
-#### P1-003-001-005-001-001 ç¼–å†™é…ç½®æ–‡ä»¶ç±»
+#### P1-003-001-005-001-001 ±àĞ´ÅäÖÃÎÄ¼şÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-005-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™é…ç½®æ–‡ä»¶ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:20 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMessagePushPropertiesé…ç½®ç±», æ”¯æŒæ¨é€æ–¹æ³•/é¢‘ç‡/è‡ªåŠ¨/é™åˆ¶/åˆ†é¡µ/æ’åºé…ç½®, mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-005-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ÅäÖÃÎÄ¼şÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:20 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MessagePushPropertiesÅäÖÃÀà, Ö§³ÖÍÆËÍ·½·¨/ÆµÂÊ/×Ô¶¯/ÏŞÖÆ/·ÖÒ³/ÅÅĞòÅäÖÃ, mvn compile BUILD SUCCESS |
 | Git SHA | 3037ee03 |
 
-#### P1-003-001-005-001-002 éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½®
+#### P1-003-001-005-001-002 ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-005-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® |
-| å®Œæˆæ—¶é—´ | 2026-06-09T08:06 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ç¼–å†™MessagePushPropertiesTest - 23ä¸ªæµ‹è¯•(Beanæ³¨å…¥/é»˜è®¤å€¼/ç»¼åˆç»‘å®š/æ ¡éªŒ/å‰ç¼€éªŒè¯), mvn test BUILD SUCCESS, 23/23é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-003-001-005-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ |
+| Íê³ÉÊ±¼ä | 2026-06-09T08:06 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ±àĞ´MessagePushPropertiesTest - 23¸ö²âÊÔ(Bean×¢Èë/Ä¬ÈÏÖµ/×ÛºÏ°ó¶¨/Ğ£Ñé/Ç°×ºÑéÖ¤), mvn test BUILD SUCCESS, 23/23Í¨¹ı |
 | Git SHA | 7b46b211 |
 
-#### P1-003-001-006-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-003-001-006-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-006-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T09:50 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMsgWebSocketHandler(è¿æ¥ç®¡ç†/å¿ƒè·³/æ¨é€)+WebSocketAuthInterceptor(Sa-Tokenè®¤è¯)+WebSocketConfig+spring-boot-starter-websocketä¾èµ–, mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-006-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T09:50 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MsgWebSocketHandler(Á¬½Ó¹ÜÀí/ĞÄÌø/ÍÆËÍ)+WebSocketAuthInterceptor(Sa-TokenÈÏÖ¤)+WebSocketConfig+spring-boot-starter-websocketÒÀÀµ, mvn compile BUILD SUCCESS |
 | Git SHA | bb1c38a0 |
 
-#### P1-003-001-006-001-002 éªŒè¯åŠŸèƒ½
+#### P1-003-001-006-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-006-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T08:20 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ç¼–å†™MsgWebSocketHandlerTest - 19ä¸ªå•å…ƒæµ‹è¯•(è¿æ¥å»ºç«‹/å¿ƒè·³/æ¨é€/è§’è‰²æ¨é€/å¹¿æ’­/å¿ƒè·³æ£€æµ‹), å¤ç”¨MsgMessageServiceTest - 20ä¸ªæµ‹è¯•, å…¨é‡39/39é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-003-001-006-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T08:20 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ±àĞ´MsgWebSocketHandlerTest - 19¸öµ¥Ôª²âÊÔ(Á¬½Ó½¨Á¢/ĞÄÌø/ÍÆËÍ/½ÇÉ«ÍÆËÍ/¹ã²¥/ĞÄÌø¼ì²â), ¸´ÓÃMsgMessageServiceTest - 20¸ö²âÊÔ, È«Á¿39/39Í¨¹ı |
 | Git SHA | ea621013 |
 
-#### P1-003-001-007-001-001 ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£
+#### P1-003-001-007-001-001 ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-007-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ¥å£å®šä¹‰Serviceæ¥å£ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T10:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMsgAlertRuleEntity+MsgAlertRuleMapper+DTOs(Create/Query/Update)+MsgAlertRuleListVO+IMsgAlertRuleService(extends IServiceX, CRUDæ–¹æ³•), mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-007-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´½Ó¿Ú¶¨ÒåService½Ó¿Ú |
+| Íê³ÉÊ±¼ä | 2026-06-09T10:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MsgAlertRuleEntity+MsgAlertRuleMapper+DTOs(Create/Query/Update)+MsgAlertRuleListVO+IMsgAlertRuleService(extends IServiceX, CRUD·½·¨), mvn compile BUILD SUCCESS |
 | Git SHA | 0d3c8210 |
 
-#### P1-003-001-007-001-002 ç¼–å†™ServiceImplå®ç°ç±»
+#### P1-003-001-007-001-002 ±àĞ´ServiceImplÊµÏÖÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-007-001-002 |
-| ä»»åŠ¡åç§° | ç¼–å†™ServiceImplå®ç°ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T10:20 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMsgAlertRuleServiceImpl(extends ServiceImpl, CRUDå®Œæ•´å®ç°: create/pageList/update/delete+@Transactional+BusinessException+é€»è¾‘åˆ é™¤), mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-007-001-002 |
+| ÈÎÎñÃû³Æ | ±àĞ´ServiceImplÊµÏÖÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T10:20 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MsgAlertRuleServiceImpl(extends ServiceImpl, CRUDÍêÕûÊµÏÖ: create/pageList/update/delete+@Transactional+BusinessException+Âß¼­É¾³ı), mvn compile BUILD SUCCESS |
 | Git SHA | 2f5b4c60 |
 
-#### P1-003-001-007-001-003 éªŒè¯Service
+#### P1-003-001-007-001-003 ÑéÖ¤Service
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-007-001-003 |
-| ä»»åŠ¡åç§° | éªŒè¯Service |
-| å®Œæˆæ—¶é—´ | 2026-06-09T10:35 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMsgAlertRuleServiceTest(14ä¸ªå•å…ƒæµ‹è¯•: CreateÃ—3/UpdateÃ—4/DeleteÃ—2/PageListÃ—4/TransactionRollbackÃ—1, Mockito+JUnit5), mvn test BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-007-001-003 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤Service |
+| Íê³ÉÊ±¼ä | 2026-06-09T10:35 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MsgAlertRuleServiceTest(14¸öµ¥Ôª²âÊÔ: Create¡Á3/Update¡Á4/Delete¡Á2/PageList¡Á4/TransactionRollback¡Á1, Mockito+JUnit5), mvn test BUILD SUCCESS |
 | Git SHA | 6cfcaa81 |
 
-#### P1-003-001-008-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-003-001-008-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-008-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T10:55 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMsgWarningServiceImpl(é¢„è­¦æ‰«æscanAndAlert+é¢„è­¦çœ‹æ¿getWarningDashboard+é¢„è­¦å¤„ç†handleWarning)+WarningConditionEvaluator(è·¨æ¨¡å—æ¡ä»¶è¯„ä¼°)+WarningMatchResult+MsgWarningController+MsgWarningService+MsgWarningEntity+MsgWarningMapper+WarningDashboardVO+InventoryQueryService+FinanceQueryService, mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-008-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T10:55 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MsgWarningServiceImpl(Ô¤¾¯É¨ÃèscanAndAlert+Ô¤¾¯¿´°ågetWarningDashboard+Ô¤¾¯´¦ÀíhandleWarning)+WarningConditionEvaluator(¿çÄ£¿éÌõ¼şÆÀ¹À)+WarningMatchResult+MsgWarningController+MsgWarningService+MsgWarningEntity+MsgWarningMapper+WarningDashboardVO+InventoryQueryService+FinanceQueryService, mvn compile BUILD SUCCESS |
 | Git SHA | 2dafddaa |
 
-#### P1-003-001-008-001-002 éªŒè¯åŠŸèƒ½
+#### P1-003-001-008-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-008-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T11:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMsgWarningServiceTest(13ä¸ªå•å…ƒæµ‹è¯•: ScanAndAlertÃ—6/GetWarningDashboardÃ—3/HandleWarningÃ—4, Mockito+JUnit5)+æµ‹è¯•æŠ¥å‘Š, mvn test BUILD SUCCESS 13/13 |
+| ÈÎÎñ±àºÅ | P1-003-001-008-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T11:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MsgWarningServiceTest(13¸öµ¥Ôª²âÊÔ: ScanAndAlert¡Á6/GetWarningDashboard¡Á3/HandleWarning¡Á4, Mockito+JUnit5)+²âÊÔ±¨¸æ, mvn test BUILD SUCCESS 13/13 |
 | Git SHA | f063ae76 |
 
-#### P1-003-001-009-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-003-001-009-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-009-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T11:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMsgDiscussionServiceImpl(åˆ†é¡µæŸ¥è¯¢+æ–°å¢ç•™è¨€å«@æåŠ+å›å¤é€šçŸ¥+WebSocketæ¨é€+å»é‡)+MentionParser+MsgDiscussionController+Entity/Mapper/DTO/VOå…±9ä¸ªæ–‡ä»¶; mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-009-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T11:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MsgDiscussionServiceImpl(·ÖÒ³²éÑ¯+ĞÂÔöÁôÑÔº¬@Ìá¼°+»Ø¸´Í¨Öª+WebSocketÍÆËÍ+È¥ÖØ)+MentionParser+MsgDiscussionController+Entity/Mapper/DTO/VO¹²9¸öÎÄ¼ş; mvn compile BUILD SUCCESS |
 | Git SHA | 6cbb2dcb |
 
-#### P1-003-001-009-001-002 éªŒè¯åŠŸèƒ½
+#### P1-003-001-009-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å­—æ®µ | å€¼ |
+| ×Ö¶Î | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-009-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T11:15 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ç¼–å†™MsgDiscussionServiceTest(13ä¸ªæµ‹è¯•ç”¨ä¾‹è¦†ç›–pageByDoc/create/getRepliesæ­£å¸¸æµç¨‹+@æåŠé€šçŸ¥+å›å¤å»é‡+è¾¹ç•Œæ¡ä»¶); å…¨éƒ¨é€šè¿‡; mvn compile BUILD SUCCESS |
-| Git SHA | (å¾…æäº¤)
+| ÈÎÎñ±àºÅ | P1-003-001-009-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T11:15 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ±àĞ´MsgDiscussionServiceTest(13¸ö²âÊÔÓÃÀı¸²¸ÇpageByDoc/create/getRepliesÕı³£Á÷³Ì+@Ìá¼°Í¨Öª+»Ø¸´È¥ÖØ+±ß½çÌõ¼ş); È«²¿Í¨¹ı; mvn compile BUILD SUCCESS |
+| Git SHA | (´ıÌá½»)
 
-#### P1-003-001-010-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-003-001-010-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-010-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T11:30 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | å®ç°MsgCollaborationService(è®¨è®ºCRUD+æ¥¼ä¸­æ¥¼å›å¤æ ‘+@æåŠé€šçŸ¥+å…³é—­/é‡å¼€æƒé™æ§åˆ¶); åˆ›å»º13ä¸ªæ–‡ä»¶(Entity/Mapper/DTO/VO/Service/Controller); mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-001-010-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T11:30 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÊµÏÖMsgCollaborationService(ÌÖÂÛCRUD+Â¥ÖĞÂ¥»Ø¸´Ê÷+@Ìá¼°Í¨Öª+¹Ø±Õ/ÖØ¿ªÈ¨ÏŞ¿ØÖÆ); ´´½¨13¸öÎÄ¼ş(Entity/Mapper/DTO/VO/Service/Controller); mvn compile BUILD SUCCESS |
 | Git SHA | ea46ac34
 
-#### P1-003-001-010-001-002 éªŒè¯åŠŸèƒ½
+#### P1-003-001-010-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-001-010-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T11:40 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ç¼–å†™MsgCollaborationServiceTest(23ä¸ªæµ‹è¯•ç”¨ä¾‹: createÃ—5/pageÃ—2/getByIdÃ—2/replyÃ—6/closeDiscussionÃ—4/reopenDiscussionÃ—4, JUnit5+Mockito, è¦†ç›–æ­£å¸¸æµç¨‹+è¾¹ç•Œ+å¼‚å¸¸+æƒé™æ§åˆ¶); mvn test BUILD SUCCESS 23/23; æµ‹è¯•æŠ¥å‘Šå·²ç”Ÿæˆ |
+| ÈÎÎñ±àºÅ | P1-003-001-010-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T11:40 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ±àĞ´MsgCollaborationServiceTest(23¸ö²âÊÔÓÃÀı: create¡Á5/page¡Á2/getById¡Á2/reply¡Á6/closeDiscussion¡Á4/reopenDiscussion¡Á4, JUnit5+Mockito, ¸²¸ÇÕı³£Á÷³Ì+±ß½ç+Òì³£+È¨ÏŞ¿ØÖÆ); mvn test BUILD SUCCESS 23/23; ²âÊÔ±¨¸æÒÑÉú³É |
 | Git SHA | f1cf2988
 
-#### P1-003-002-001-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-003-002-001-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-001-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T12:00 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMessageCenterList.vue(å·¦ä¾§Tabå«æœªè¯»è§’æ ‡+å³ä¾§æ— é™æ»šåŠ¨+å·²è¯»/æœªè¯»æ ·å¼+ç‚¹å‡»å·²è¯»æŠ½å±‰+å…¨éƒ¨æ ‡è®°å·²è¯»+å…³é”®å­—æœç´¢); åˆ›å»ºmsg/message.ts APIå°è£…; åˆ›å»ºtypes/msg.tsç±»å‹å®šä¹‰; vite buildæˆåŠŸ |
+| ÈÎÎñ±àºÅ | P1-003-002-001-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T12:00 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MessageCenterList.vue(×ó²àTabº¬Î´¶Á½Ç±ê+ÓÒ²àÎŞÏŞ¹ö¶¯+ÒÑ¶Á/Î´¶ÁÑùÊ½+µã»÷ÒÑ¶Á³éÌë+È«²¿±ê¼ÇÒÑ¶Á+¹Ø¼ü×ÖËÑË÷); ´´½¨msg/message.ts API·â×°; ´´½¨types/msg.tsÀàĞÍ¶¨Òå; vite build³É¹¦ |
 | Git SHA | 9708cc9c
 
-#### P1-003-002-001-001-002 éªŒè¯åŠŸèƒ½
+#### P1-003-002-001-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-001-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T12:15 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | æ¶ˆæ¯ä¸­å¿ƒåˆ—è¡¨é¡µåŠŸèƒ½éªŒè¯ï¼šMsgMessageServiceTest 21æµ‹è¯•é€šè¿‡(æ–°å¢è¶…é•¿å­—æ®µè¾¹ç•Œæµ‹è¯•)ï¼›ç”Ÿæˆæµ‹è¯•æŠ¥å‘Š(msg-message-test-report.md)å«4é¡¹å‘ç°åŠä¿®å¤å»ºè®® |
+| ÈÎÎñ±àºÅ | P1-003-002-001-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T12:15 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÏûÏ¢ÖĞĞÄÁĞ±íÒ³¹¦ÄÜÑéÖ¤£ºMsgMessageServiceTest 21²âÊÔÍ¨¹ı(ĞÂÔö³¬³¤×Ö¶Î±ß½ç²âÊÔ)£»Éú³É²âÊÔ±¨¸æ(msg-message-test-report.md)º¬4Ïî·¢ÏÖ¼°ĞŞ¸´½¨Òé |
 | Git SHA | 0314659d
 
-#### P1-003-002-002-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-003-002-002-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-002-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T12:30 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMessageTemplateList.vue(P04æ ‡å‡†åˆ—è¡¨é¡µ:æœç´¢/è¡¨æ ¼/å¼¹çª—è¡¨å•å«å˜é‡æç¤ºå’Œæ¸ é“å¤šé€‰); åˆ›å»ºapi/msg/template.ts; è¿½åŠ æ¨¡æ¿ç±»å‹åˆ°types/msg.ts; æ³¨å†Œ/msg/templateè·¯ç”±; vite build + mvn compileæˆåŠŸ |
+| ÈÎÎñ±àºÅ | P1-003-002-002-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T12:30 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MessageTemplateList.vue(P04±ê×¼ÁĞ±íÒ³:ËÑË÷/±í¸ñ/µ¯´°±íµ¥º¬±äÁ¿ÌáÊ¾ºÍÇşµÀ¶àÑ¡); ´´½¨api/msg/template.ts; ×·¼ÓÄ£°åÀàĞÍµ½types/msg.ts; ×¢²á/msg/templateÂ·ÓÉ; vite build + mvn compile³É¹¦ |
 | Git SHA | 143ba237
 
-#### P1-003-002-002-001-002 éªŒè¯åŠŸèƒ½
+#### P1-003-002-002-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-002-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T12:50 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | ç¼–å†™MsgTemplateServiceTest(17ä¸ªæµ‹è¯•ç”¨ä¾‹è¦†ç›–CRUD+è¾¹ç•Œ+å¹¶å‘+äº‹åŠ¡å›æ»š); ç”Ÿæˆæµ‹è¯•æŠ¥å‘Š(all pass); mvn compileé€šè¿‡ |
-| Git SHA | (å¾…æäº¤)
+| ÈÎÎñ±àºÅ | P1-003-002-002-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T12:50 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ±àĞ´MsgTemplateServiceTest(17¸ö²âÊÔÓÃÀı¸²¸ÇCRUD+±ß½ç+²¢·¢+ÊÂÎñ»Ø¹ö); Éú³É²âÊÔ±¨¸æ(all pass); mvn compileÍ¨¹ı |
+| Git SHA | (´ıÌá½»)
 
-#### P1-003-002-003-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-003-002-003-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-003-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T13:05 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºMessageTypeList.vue(æ ‘+åˆ—è¡¨é¡µ); åˆ›å»ºapi/msg/type.ts(æ¶ˆæ¯ç±»å‹CRUD API); è¿½åŠ TypeListVO/TypeFormDTOç±»å‹å®šä¹‰; æ³¨å†Œ/msg/typeè·¯ç”± |
+| ÈÎÎñ±àºÅ | P1-003-002-003-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T13:05 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨MessageTypeList.vue(Ê÷+ÁĞ±íÒ³); ´´½¨api/msg/type.ts(ÏûÏ¢ÀàĞÍCRUD API); ×·¼ÓTypeListVO/TypeFormDTOÀàĞÍ¶¨Òå; ×¢²á/msg/typeÂ·ÓÉ |
 | Git SHA | ef19e14c |
 
-#### P1-003-002-003-001-002 éªŒè¯åŠŸèƒ½
+#### P1-003-002-003-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-003-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T13:35 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | æ‰§è¡ŒMsgMessageServiceTest(21/21é€šè¿‡); åˆ›å»ºæµ‹è¯•æŠ¥å‘Š(è¦†ç›–æ–°å¢/æŸ¥è¯¢/ä¿®æ”¹/åˆ é™¤/è¾¹ç•Œ/å¹¶å‘/äº‹åŠ¡å›æ»š); å‘ç°4ä¸ªé—®é¢˜(APIç¼ºå¤±/DDLç¼ºå¤±/æ— Sizeæ ¡éªŒ/ç¡¬ç¼–ç å ä½) |
-| Git SHA | (å¾…æäº¤)
+| ÈÎÎñ±àºÅ | P1-003-002-003-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T13:35 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | Ö´ĞĞMsgMessageServiceTest(21/21Í¨¹ı); ´´½¨²âÊÔ±¨¸æ(¸²¸ÇĞÂÔö/²éÑ¯/ĞŞ¸Ä/É¾³ı/±ß½ç/²¢·¢/ÊÂÎñ»Ø¹ö); ·¢ÏÖ4¸öÎÊÌâ(APIÈ±Ê§/DDLÈ±Ê§/ÎŞSizeĞ£Ñé/Ó²±àÂëÕ¼Î») |
+| Git SHA | (´ıÌá½»)
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-000-001-001 |
-| ä»»åŠ¡åç§° | KPIå¡ç‰‡ç»„ä»¶å¼€å‘ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T13:10 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºKpiCard.vue(æ¶ˆæ¯å·¥ä½œå°KPIå¡ç‰‡ç»„ä»¶) â€” el-card+skeletonéª¨æ¶å±+æ•°å€¼åƒåˆ†ä½æ ¼å¼åŒ–+è¶‹åŠ¿ç®­å¤´(ä¸Šå‡ç»¿/ä¸‹é™çº¢/æŒå¹³ç°) |
-| Git SHA | (å¾…æäº¤)
+| ÈÎÎñ±àºÅ | P1-003-002-000-001-001 |
+| ÈÎÎñÃû³Æ | KPI¿¨Æ¬×é¼ş¿ª·¢ |
+| Íê³ÉÊ±¼ä | 2026-06-09T13:10 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨KpiCard.vue(ÏûÏ¢¹¤×÷Ì¨KPI¿¨Æ¬×é¼ş) ¡ª el-card+skeleton¹Ç¼ÜÆÁ+ÊıÖµÇ§·ÖÎ»¸ñÊ½»¯+Ç÷ÊÆ¼ıÍ·(ÉÏÉıÂÌ/ÏÂ½µºì/³ÖÆ½»Ò) |
+| Git SHA | (´ıÌá½»)
 
-#### P1-003-002-004-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-003-002-004-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-004-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T13:50 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºTodoList.vue(Tabç­›é€‰/å¾…åŠè¡¨æ ¼/å¿«æ·å®¡æ‰¹/æ‰¹é‡å®¡æ‰¹)+todo.ts(5ä¸ªAPI:åˆ†é¡µæŸ¥è¯¢/å®¡æ‰¹/é©³å›/æ‰¹é‡å®¡æ‰¹/ç»Ÿè®¡)+msg.tsè¿½åŠ (6ä¸ªç±»å‹)+static.tsè·¯ç”±æ³¨å†Œ |
+| ÈÎÎñ±àºÅ | P1-003-002-004-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T13:50 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨TodoList.vue(TabÉ¸Ñ¡/´ı°ì±í¸ñ/¿ì½İÉóÅú/ÅúÁ¿ÉóÅú)+todo.ts(5¸öAPI:·ÖÒ³²éÑ¯/ÉóÅú/²µ»Ø/ÅúÁ¿ÉóÅú/Í³¼Æ)+msg.ts×·¼Ó(6¸öÀàĞÍ)+static.tsÂ·ÓÉ×¢²á |
 | Git SHA | 3298f127
 
-#### P1-003-002-004-001-002 éªŒè¯åŠŸèƒ½
+#### P1-003-002-004-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-004-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T14:15 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯TodoList.vue(7é¡¹éªŒæ”¶æ ‡å‡†/5é¡¹è¾¹ç•Œæ¡ä»¶/4é¡¹æ˜“é”™è­¦ç¤ºå…¨éƒ¨é€šè¿‡)+TypeScriptç¼–è¯‘é›¶é”™è¯¯(æœ¬ä»»åŠ¡æ–‡ä»¶)+éªŒè¯æŠ¥å‘Šå·²äº§å‡º |
-| Git SHA | (å¾…æäº¤)
+| ÈÎÎñ±àºÅ | P1-003-002-004-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T14:15 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤TodoList.vue(7ÏîÑéÊÕ±ê×¼/5Ïî±ß½çÌõ¼ş/4ÏîÒ×´í¾¯Ê¾È«²¿Í¨¹ı)+TypeScript±àÒëÁã´íÎó(±¾ÈÎÎñÎÄ¼ş)+ÑéÖ¤±¨¸æÒÑ²ú³ö |
+| Git SHA | (´ıÌá½»)
 
-#### P1-003-002-005-001-001 ç¼–å†™é…ç½®æ–‡ä»¶ç±»
+#### P1-003-002-005-001-001 ±àĞ´ÅäÖÃÎÄ¼şÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-005-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™é…ç½®æ–‡ä»¶ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T14:35 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºPushChannelPropertiesé…ç½®å±æ€§ç±»(é€šé“/é‡è¯•/æ‰¹å¤„ç†é…ç½®)+è¿½åŠ application.yml message.push.channelé…ç½®æ®µ+mvn compile BUILD SUCCESS |
+| ÈÎÎñ±àºÅ | P1-003-002-005-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ÅäÖÃÎÄ¼şÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T14:35 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨PushChannelPropertiesÅäÖÃÊôĞÔÀà(Í¨µÀ/ÖØÊÔ/Åú´¦ÀíÅäÖÃ)+×·¼Óapplication.yml message.push.channelÅäÖÃ¶Î+mvn compile BUILD SUCCESS |
 | Git SHA | 7b9dac25
 
-#### P1-003-002-005-001-002 éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½®
+#### P1-003-002-005-001-002 ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-005-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯ç¼–å†™é…ç½®é¡¹é…ç½® |
-| å®Œæˆæ—¶é—´ | 2026-06-09T14:45 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | éªŒè¯PushChannelPropertiesç¼–è¯‘é€šè¿‡+application.ymlé…ç½®æ®µåŒ¹é…+23ä¸ªå·²æœ‰æµ‹è¯•å…¨éƒ¨é€šè¿‡ |
+| ÈÎÎñ±àºÅ | P1-003-002-005-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤±àĞ´ÅäÖÃÏîÅäÖÃ |
+| Íê³ÉÊ±¼ä | 2026-06-09T14:45 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÑéÖ¤PushChannelProperties±àÒëÍ¨¹ı+application.ymlÅäÖÃ¶ÎÆ¥Åä+23¸öÒÑÓĞ²âÊÔÈ«²¿Í¨¹ı |
 | Git SHA | 13fef758
 
-#### P1-003-002-006-001-001 ç¼–å†™æ ¸å¿ƒä»£ç 
+#### P1-003-002-006-001-001 ±àĞ´ºËĞÄ´úÂë
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-006-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™æ ¸å¿ƒä»£ç  |
-| å®Œæˆæ—¶é—´ | 2026-06-09T15:15 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºuseWebSocket.ts composable(ws/wssåˆ‡æ¢+30så¿ƒè·³+5sé‡è¿)+GlobalNotification.vue(é“ƒé“›è§’æ ‡+WebSocketå®æ—¶æ¨é€ElNotification+30sè½®è¯¢å…œåº•)+æ³¨å†Œåˆ°AppLayout |
+| ÈÎÎñ±àºÅ | P1-003-002-006-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ºËĞÄ´úÂë |
+| Íê³ÉÊ±¼ä | 2026-06-09T15:15 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨useWebSocket.ts composable(ws/wssÇĞ»»+30sĞÄÌø+5sÖØÁ¬)+GlobalNotification.vue(Áåîõ½Ç±ê+WebSocketÊµÊ±ÍÆËÍElNotification+30sÂÖÑ¯¶µµ×)+×¢²áµ½AppLayout |
 | Git SHA | 482d9a22
 
-#### P1-003-002-006-001-002 éªŒè¯åŠŸèƒ½
+#### P1-003-002-006-001-002 ÑéÖ¤¹¦ÄÜ
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-006-001-002 |
-| ä»»åŠ¡åç§° | éªŒè¯åŠŸèƒ½ |
-| å®Œæˆæ—¶é—´ | 2026-06-09T18:55 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | è¿è¡ŒMsgMessageServiceTest(21/21)+MessagePushPropertiesTest(23/23)å…¨éƒ¨é€šè¿‡ï¼›GlobalNotification.vueç¼–è¯‘æ— é”™è¯¯ï¼›åˆ›å»ºæµ‹è¯•æŠ¥å‘Š |
-| Git SHA | (å¾…æäº¤)
+| ÈÎÎñ±àºÅ | P1-003-002-006-001-002 |
+| ÈÎÎñÃû³Æ | ÑéÖ¤¹¦ÄÜ |
+| Íê³ÉÊ±¼ä | 2026-06-09T18:55 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ÔËĞĞMsgMessageServiceTest(21/21)+MessagePushPropertiesTest(23/23)È«²¿Í¨¹ı£»GlobalNotification.vue±àÒëÎŞ´íÎó£»´´½¨²âÊÔ±¨¸æ |
+| Git SHA | (´ıÌá½»)
 
-#### P1-003-002-007-001-001 ç¼–å†™é…ç½®æ–‡ä»¶ç±»
+#### P1-003-002-007-001-001 ±àĞ´ÅäÖÃÎÄ¼şÀà
 
-| å±æ€§ | å€¼ |
+| ÊôĞÔ | Öµ |
 |------|-----|
-| ä»»åŠ¡ç¼–å· | P1-003-002-007-001-001 |
-| ä»»åŠ¡åç§° | ç¼–å†™é…ç½®æ–‡ä»¶ç±» |
-| å®Œæˆæ—¶é—´ | 2026-06-09T19:15 |
-| çŠ¶æ€ | âœ… |
-| å·¥äºº | W10 |
-| æ‘˜è¦ | åˆ›å»ºAlertRulePropertiesé…ç½®å±æ€§ç±»(é¢„è­¦æ–¹æ³•/è¯„ä¼°/é˜ˆå€¼/åˆ†é¡µ/æ’åºé…ç½®)+è¿½åŠ application.yml message.alert-ruleé…ç½®æ®µ+mvn compile BUILD SUCCESS |
-| Git SHA | (å¾…æäº¤)
-
+| ÈÎÎñ±àºÅ | P1-003-002-007-001-001 |
+| ÈÎÎñÃû³Æ | ±àĞ´ÅäÖÃÎÄ¼şÀà |
+| Íê³ÉÊ±¼ä | 2026-06-09T19:15 |
+| ×´Ì¬ | ? |
+| ¹¤ÈË | W10 |
+| ÕªÒª | ´´½¨AlertRulePropertiesÅäÖÃÊôĞÔÀà(Ô¤¾¯·½·¨/ÆÀ¹À/ãĞÖµ/·ÖÒ³/ÅÅĞòÅäÖÃ)+×·¼Óapplication.yml message.alert-ruleÅäÖÃ¶Î+mvn compile BUILD SUCCESS |
+| Git SHA | 7d5c9c72
