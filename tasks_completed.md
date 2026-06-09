@@ -3415,7 +3415,7 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 实现WarningDashboard.vue业务预警看板页:4个KPI卡片+近30天预警趋势折线图+预警分布饼图+预警明细表+60s自动刷新+ECharts resize自适应;创建warning.ts API接口封装;追加msg.ts预警类型定义;注册/msg/warning-dashboard路由;vite build通过 |
-| Git SHA | PENDING |
+| Git SHA | d3eb04e3 |
 
 #### P1-003-002-008-001-002 验证功能
 
@@ -3427,4 +3427,4 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 验证业务预警看板后端Service:运行MsgWarningServiceTest(13用例全通过)+MsgAlertRuleServiceTest+MsgMessageServiceTest+MsgTemplateServiceTest共65用例全通过;mvn compile通过;创建测试报告 |
-| Git SHA | PENDING |
+| Git SHA | 5b6d4268 |
