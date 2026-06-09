@@ -3858,3 +3858,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 摘要 | SaleQuotationListVO(id,saleNo,saleName,status,statusName,@JsonFormat createTime,creatorName)+SaleQuotationDetailVO(extends ListVO,remark,version,details(List<SaleQuotationDetailVO>),@JsonFormat bizDate),@Schema注解齐全,mvn compile通过 |
 | Git SHA | c5379110 |
 
+#### P1-005-001-002-002-001 定义Mapper接口
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-002-002-001 |
+| 任务名称 | 定义Mapper接口 |
+| 完成时间 | 2026-06-09T23:40 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | SaleQuotationMapper接口(@Mapper+extends BaseMapperX<SaleQuotationEntity>+selectPageList+selectDetailById+selectByCondition+countByStatus),代码已存在仅做验证,mvn compile通过 |
+| Git SHA | 33e282d8 |
+
