@@ -3868,5 +3868,5 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | SaleQuotationMapper接口(@Mapper+extends BaseMapperX<SaleQuotationEntity>+selectPageList+selectDetailById+selectByCondition+countByStatus),代码已存在仅做验证,mvn compile通过 |
-| Git SHA | 33e282d8 |
+| Git SHA | 4dc3029f |
 
