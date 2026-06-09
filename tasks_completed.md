@@ -3989,4 +3989,4 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | SaleAggregationMapper.xml:3个查询(selectUnshippedPage分页/selectUnshippedCount计数/selectUnshippedList导出)基于sale_order_detail LEFT JOIN sale_delivery_notice_detail聚合未发货数量,动态过滤(客户/商品/销售员/日期),#{}防注入,无SELECT *,mvn compile通过 |
-| Git SHA | — |
+| Git SHA | d2814e6b |
