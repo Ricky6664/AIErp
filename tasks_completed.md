@@ -3699,3 +3699,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 创建SaleQuotationEntity(sale_quotation表映射),继承BaseEntity,@TableName+@TableField字段映射完整,mvn compile通过 |
 | Git SHA | faab524b |
+
+#### P1-005-001-001-001-002 定义DTO类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-001-001-002 |
+| 任务名称 | 定义DTO类 |
+| 完成时间 | 2026-06-09T20:20 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建SaleQuotationCreateDTO(@NotBlank/@NotNull校验)+UpdateDTO(继承CreateDTO,含id+version)+QueryDTO(继承PageQuery,含筛选字段)+DetailCreateDTO,mvn compile通过 |
+| Git SHA | <pending> |
