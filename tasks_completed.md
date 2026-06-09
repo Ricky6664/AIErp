@@ -3119,5 +3119,5 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 编写MsgWebSocketHandlerTest - 19个单元测试(连接建立/心跳/推送/角色推送/广播/心跳检测), 复用MsgMessageServiceTest - 20个测试, 全量39/39通过 |
-| Git SHA | (待提交) |
+| Git SHA | ea621013 |
 
