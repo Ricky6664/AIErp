@@ -3502,3 +3502,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 实现单据关联关系核心业务:DocRelationEntity实体+DocRelationMapper+ BizDocRelationDTO+BizDocRelationCoreService(创建/查询/删除+@Transactional+BusinessException+日志)+DocImportController(/api/doc-flow/import|source|relation);mvn compile BUILD SUCCESS |
 | Git SHA | 987ddfb6 |
+
+#### P1-004-001-001-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-004-001-001-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T21:20 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 编写BizDocRelationCoreServiceVerificationTest(13个用例覆盖正常流程新增/查询/删除+边界条件+异常不存在);mvn test 13/13 PASS;生成测试报告 |
+| Git SHA | PENDING |
