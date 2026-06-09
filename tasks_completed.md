@@ -3977,4 +3977,4 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | SaleQuotationMapper已存在且完全符合规格(BaseMapperX<SaleQuotationEntity>含selectPageList/selectDetailById/@Mapper注解),mvn compile通过 |
-| Git SHA | (待提交) |
+| Git SHA | d8737d25 |
