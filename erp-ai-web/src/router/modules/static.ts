@@ -318,6 +318,14 @@ export const APPROVAL_LOG: RouteRecordRaw = {
   meta: { title: '审批日志', icon: 'Tickets', keepAlive: true }
 }
 
+// 消息工作台页
+export const MSG_WORKBENCH: RouteRecordRaw = {
+  path: '/msg/workbench',
+  name: 'MsgWorkbench',
+  component: () => import('@/views/msg/workbench/index.vue'),
+  meta: { title: '消息工作台', icon: 'DataAnalysis', keepAlive: true }
+}
+
 // 消息中心列表页
 export const MSG_MESSAGE_CENTER: RouteRecordRaw = {
   path: '/msg/message',
@@ -385,6 +393,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   APPROVAL_MY,
   APPROVAL_STATISTICS,
   APPROVAL_LOG,
+  MSG_WORKBENCH,
   MSG_MESSAGE_CENTER,
   MSG_TEMPLATE,
   MSG_TYPE,

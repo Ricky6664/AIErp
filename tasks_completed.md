@@ -3440,3 +3440,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 创建ChartPanel.vue ECharts图表组件:el-card+el-skeleton加载态+el-empty空数据占位+echarts.init渲染+window resize自适应+deep watch option实时刷新+onBeforeUnmount dispose防内存泄漏;样式匹配KpiCard.vue(SCSS scoped+Element Plus) |
 | Git SHA | 1b7956aa |
+
+#### P1-003-002-000-003-001 工作台全流程联调
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-002-000-003-001 |
+| 任务名称 | 工作台全流程联调 |
+| 完成时间 | 2026-06-09T20:15 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建msg/workbench/index.vue消息工作台主页:消息概览KPI卡片(未读/系统/业务/预警)+待办统计KPI+快速入口卡片(消息中心/模板/类型/待办/预警)+预警分布饼图+预警趋势柱状图+最近待办列表;注册/msg/workbench路由;集成KpiCard和ChartPanel组件;全流程联调:消息概览→待办统计→数据可视化→快速导航 |
+| Git SHA | PENDING |
