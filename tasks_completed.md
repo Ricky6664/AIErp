@@ -3880,5 +3880,5 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | SaleQuotationMapper.xml(BasicResultMap+Base_Column_List+selectPageList+selectDetailById+selectByCondition+countByStatus+selectStatistics),namespace与Mapper接口一致,动态SQL使用OGNL+CONCAT防注入,mvn compile通过 |
-| Git SHA | 待填写 |
+| Git SHA | 7b3cd71d |
 
