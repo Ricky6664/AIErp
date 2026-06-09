@@ -3215,5 +3215,17 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 实现MsgCollaborationService(讨论CRUD+楼中楼回复树+@提及通知+关闭/重开权限控制); 创建13个文件(Entity/Mapper/DTO/VO/Service/Controller); mvn compile BUILD SUCCESS |
+| Git SHA | ea46ac34
+
+#### P1-003-001-010-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-010-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T11:40 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 编写MsgCollaborationServiceTest(23个测试用例: create×5/page×2/getById×2/reply×6/closeDiscussion×4/reopenDiscussion×4, JUnit5+Mockito, 覆盖正常流程+边界+异常+权限控制); mvn test BUILD SUCCESS 23/23; 测试报告已生成 |
 | Git SHA | (待提交)
 
