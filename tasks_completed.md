@@ -3810,3 +3810,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 摘要 | 实现SaleQuotationController五个接口方法:GET分页(PageResult<ListVO>)/GET详情(DetailVO)/POST新增(RT<Long>)/PUT修改(RT<Boolean>,DTO含id)/DELETE删除(RT<Boolean>),统一RT<T>响应包装,@Valid触发DTO校验,mvn compile通过 |
 | Git SHA | 68f95ad3 |
 
+#### P1-005-001-001-004-003 补充接口文档注解
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-001-004-003 |
+| 任务名称 | 补充接口文档注解 |
+| 完成时间 | 2026-06-09T23:15 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 为SaleQuotationController添加@Tag(description)+所有6个@Operation(description)注解;为SaleQuotationCreateDTO/UpdateDTO/DetailCreateDTO添加@Schema类及字段注解;为SaleQuotationListVO/DetailVO添加@Schema注解,status字段标注枚举值,mvn compile通过 |
+| Git SHA | 2272a1ce |
+

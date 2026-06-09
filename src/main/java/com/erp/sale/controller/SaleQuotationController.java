@@ -34,46 +34,46 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/sale/quotation")
 @RequiredArgsConstructor
-@Tag(name = "SaleQuotation管理")
+@Tag(name = "SaleQuotation管理", description = "SaleQuotation相关接口")
 public class SaleQuotationController {
 
     private final ISaleQuotationService saleService;
 
-    @Operation(summary = "分页查询报价单列表")
+    @Operation(summary = "分页查询报价单列表", description = "支持多条件筛选+分页排序")
     @GetMapping
     public RT<PageResult<SaleQuotationListVO>> page(@Valid SaleQuotationQueryDTO query) {
         return RT.ok(PageResult.of(saleService.pageList(query)));
     }
 
-    @Operation(summary = "根据ID查询报价单详情")
+    @Operation(summary = "根据ID查询报价单详情", description = "根据唯一ID获取报价单完整详情及明细行")
     @GetMapping("/{id}")
     public RT<SaleQuotationDetailVO> getById(
             @Parameter(description = "报价单ID") @PathVariable Long id) {
         return RT.ok(saleService.getDetail(id));
     }
 
-    @Operation(summary = "新增报价单")
+    @Operation(summary = "新增报价单", description = "创建新的报价单及明细行记录")
     @PostMapping
     public RT<Long> create(
             @Parameter(description = "报价单创建参数") @Valid @RequestBody SaleQuotationCreateDTO dto) {
         return RT.ok(saleService.create(dto));
     }
 
-    @Operation(summary = "修改报价单")
+    @Operation(summary = "修改报价单", description = "根据ID更新报价单及明细行信息")
     @PutMapping
     public RT<Boolean> update(
             @Parameter(description = "报价单更新参数") @Valid @RequestBody SaleQuotationUpdateDTO dto) {
         return RT.ok(saleService.update(dto));
     }
 
-    @Operation(summary = "删除报价单")
+    @Operation(summary = "删除报价单", description = "根据ID删除报价单及关联明细行")
     @DeleteMapping("/{id}")
     public RT<Boolean> delete(
             @Parameter(description = "报价单ID") @PathVariable Long id) {
         return RT.ok(saleService.delete(id));
     }
 
-    @Operation(summary = "提交审核")
+    @Operation(summary = "提交审核", description = "提交报价单进入审核流程")
     @PostMapping("/{id}/submit-audit")
     public RT<Boolean> submitAudit(
             @Parameter(description = "报价单ID") @PathVariable Long id,
