@@ -3145,3 +3145,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 创建MsgAlertRuleServiceImpl(extends ServiceImpl, CRUD完整实现: create/pageList/update/delete+@Transactional+BusinessException+逻辑删除), mvn compile BUILD SUCCESS |
 | Git SHA | 2f5b4c60 |
 
+#### P1-003-001-007-001-003 验证Service
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-007-001-003 |
+| 任务名称 | 验证Service |
+| 完成时间 | 2026-06-09T10:35 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MsgAlertRuleServiceTest(14个单元测试: Create×3/Update×4/Delete×2/PageList×4/TransactionRollback×1, Mockito+JUnit5), mvn test BUILD SUCCESS |
+| Git SHA | TBD |
+
