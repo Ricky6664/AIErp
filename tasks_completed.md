@@ -3882,3 +3882,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 摘要 | SaleQuotationMapper.xml(BasicResultMap+Base_Column_List+selectPageList+selectDetailById+selectByCondition+countByStatus+selectStatistics),namespace与Mapper接口一致,动态SQL使用OGNL+CONCAT防注入,mvn compile通过 |
 | Git SHA | 7b3cd71d |
 
+#### P1-005-001-002-002-003 编写自定义查询方法
+
+| 字段 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-002-002-003 |
+| 任务名称 | 编写自定义查询方法 |
+| 完成时间 | 2026-06-09T20:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证SaleQuotationMapper自定义查询方法(selectByCondition多表关联+countByStatus统计+selectStatistics聚合),方法签名与XML SQL完全匹配,mvn compile通过 |
+| Git SHA | (待提交) |
+
