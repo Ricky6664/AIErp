@@ -3649,3 +3649,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 摘要 | BizDocCopyService(复制/回滚/查询/目标类型获取)+DocCopyController(4个API端点);10个单元测试覆盖新增/查询/回滚/边界/异常全部PASS;mvn compile BUILD SUCCESS |
 | Git SHA | 90386397 |
 
+
+#### P1-004-002-003-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-004-002-003-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T13:45 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 运行62个单元测试全PASS(BizDocRelationCoreService/BizDocCopyService/BizDocPushService/BizDocFlowLogService);覆盖CRUD/复制/下推/日志/边界/异常/并发全场景;生成测试报告docs/test-reports/P1-004-002-003-001-002-test-report.md |
+| Git SHA | 74c157a5 |
