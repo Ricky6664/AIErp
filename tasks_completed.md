@@ -3673,3 +3673,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 实现单据追溯服务DocFlowTraceService(递归上下游查询+树形组装+循环引用防护)+DocFlowTraceController(trace/relation API)+TraceNodeVO+RelationListVO;mvn compile BUILD SUCCESS |
 | Git SHA | b40300ef |
+
+#### P1-004-002-004-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-004-002-004-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T14:00 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 运行62个单元测试全PASS(BizDocRelationCoreService/BizDocPushService/BizDocCopyService/BizDocFlowLogService);覆盖CRUD/下推/复制/日志/边界/异常/并发全场景;生成测试报告docs/test-reports/P1-004-002-004-001-002-verification-report.md |
+| Git SHA | TBD |
