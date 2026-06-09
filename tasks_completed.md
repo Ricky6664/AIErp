@@ -4025,4 +4025,4 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | SaleQuotationMapper.xml已完整覆盖全部5个Mapper方法(selectPageList/selectDetailById/selectByCondition/countByStatus/selectStatistics),包含BaseResultMap完整映射/Base_Column_List/dynamic SQL with WHERE+IF/CONCAT防注入/is_deleted过滤,namespace正确指向接口全限定名,mvn compile通过 |
-| Git SHA | (待提交) |
+| Git SHA | 0dc3a4f5 |
