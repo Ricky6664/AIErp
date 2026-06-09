@@ -3107,5 +3107,5 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建MsgWebSocketHandler(连接管理/心跳/推送)+WebSocketAuthInterceptor(Sa-Token认证)+WebSocketConfig+spring-boot-starter-websocket依赖, mvn compile BUILD SUCCESS |
-| Git SHA | 
+| Git SHA | bb1c38a0 |
 
