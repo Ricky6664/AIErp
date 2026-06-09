@@ -3822,3 +3822,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 摘要 | 为SaleQuotationController添加@Tag(description)+所有6个@Operation(description)注解;为SaleQuotationCreateDTO/UpdateDTO/DetailCreateDTO添加@Schema类及字段注解;为SaleQuotationListVO/DetailVO添加@Schema注解,status字段标注枚举值,mvn compile通过 |
 | Git SHA | 8e115519 |
 
+#### P1-005-001-002-001-001 定义Entity类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-002-001-001 |
+| 任务名称 | 定义Entity类 |
+| 完成时间 | 2026-06-09T23:05 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | SaleQuotationEntity继承BaseEntity,映射sale_quotation表(@TableName+@Data+@EqualsAndHashCode),定义saleNo/saleName/status/remark四个业务字段(@TableField),mvn compile通过 |
+| Git SHA | (待提交) |
+
