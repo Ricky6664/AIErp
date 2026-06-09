@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T11:30
-> **归档总数**：634 条
+> **最后更新**：2026-06-09T12:00
+> **归档总数**：635 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -3228,4 +3228,16 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 编写MsgCollaborationServiceTest(23个测试用例: create×5/page×2/getById×2/reply×6/closeDiscussion×4/reopenDiscussion×4, JUnit5+Mockito, 覆盖正常流程+边界+异常+权限控制); mvn test BUILD SUCCESS 23/23; 测试报告已生成 |
 | Git SHA | f1cf2988
+
+#### P1-003-002-001-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-002-001-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T12:00 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MessageCenterList.vue(左侧Tab含未读角标+右侧无限滚动+已读/未读样式+点击已读抽屉+全部标记已读+关键字搜索); 创建msg/message.ts API封装; 创建types/msg.ts类型定义; vite build成功 |
+| Git SHA | (待提交)
 
