@@ -3832,5 +3832,5 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | SaleQuotationEntity继承BaseEntity,映射sale_quotation表(@TableName+@Data+@EqualsAndHashCode),定义saleNo/saleName/status/remark四个业务字段(@TableField),mvn compile通过 |
-| Git SHA | (待提交) |
+| Git SHA | da63bf02 |
 
