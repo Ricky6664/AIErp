@@ -3191,5 +3191,5 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建MsgDiscussionServiceImpl(分页查询+新增留言含@提及+回复通知+WebSocket推送+去重)+MentionParser+MsgDiscussionController+Entity/Mapper/DTO/VO共9个文件; mvn compile BUILD SUCCESS |
-| Git SHA | — |
+| Git SHA | 6cbb2dcb |
 
