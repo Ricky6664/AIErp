@@ -3723,3 +3723,16 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 创建SaleQuotationListVO(列表VO)+SaleQuotationDetailVO(详情VO继承ListVO含明细行列表),@JsonFormat日期格式化+statusName字典翻译字段,mvn compile通过 |
 | Git SHA | c5379110 |
+
+
+#### P1-005-001-001-002-001 定义Mapper接口
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-001-002-001 |
+| 任务名称 | 定义Mapper接口 |
+| 完成时间 | 2026-06-09T20:42 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建SaleQuotationMapper继承BaseMapperX,声明selectPageList(分页查询)+selectDetailById(详情查询)两个自定义方法,@Mapper+@Param注解完整,mvn compile通过 |
+| Git SHA | ce4ed167 |
