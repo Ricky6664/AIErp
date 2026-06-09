@@ -3478,3 +3478,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 为doc_relation表添加5个部分索引(正向/反向追溯+行级+租户隔离)和2个CHECK约束(relation_type取值限定+relation_qty非负),所有索引使用WHERE is_deleted=FALSE排除软删除数据 |
 | Git SHA | f53d8872 |
+
+#### P1-004-001-005-001-003 验证编写单据关联关系表DDL
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-004-001-005-001-003 |
+| 任务名称 | 验证编写单据关联关系表DDL |
+| 完成时间 | 2026-06-09T20:50 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证V8__create_doc_relation.sql:SQL语法(PostgreSQL 15+)通过+10通用必含字段完整+5个部分索引策略正确+2个CHECK约束正确+COMMENT注释完整+Flyway集成正常+mvn compile通过;无CRITICAL/WARNING发现 |
+| Git SHA | c8c8a27e |
