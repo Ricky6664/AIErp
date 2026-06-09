@@ -3929,4 +3929,16 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 验证SaleQuotationServiceImpl已有校验逻辑:validateCreate(非空→唯一性→金额)、validateUpdate(排除当前ID)、validateStatusTransition(状态机ALLOWED_TRANSITIONS)、validateAmount(数量/单价/税率/折扣),全部符合Section5规格 |
-| Git SHA | (待提交) |
+| Git SHA | 59dd451c |
+
+#### P1-005-001-002-004-001 定义Controller类@RequestMapping路径注入Service
+
+| 字段 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-002-004-001 |
+| 任务名称 | 定义Controller类@RequestMapping路径注入Service |
+| 完成时间 | 2026-06-09T20:42 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建SaleOrderController(@RestController+@RequestMapping("/api/sale/order")),注入ISaleOrderService,声明GET/POST/PUT/DELETE及submitAudit端点,使用RT<T>+PageResult<T>统一响应格式 |
+| Git SHA | PENDING |
