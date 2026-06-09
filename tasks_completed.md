@@ -3953,4 +3953,28 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | SaleOrderController已实现完整RESTful方法:GET分页查询(@Valid QueryDTO)、GET/{id}详情、POST新增(@Valid @RequestBody)、PUT修改(@Valid @RequestBody)、DELETE/{id}删除,统一RT<T>/PageResult<T>响应包装,@Tag修正为"SaleOrder管理",mvn compile通过 |
+| Git SHA | e6fc99b5 |
+
+#### P1-005-001-002-004-003 补充接口文档注解
+
+| 字段 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-002-004-003 |
+| 任务名称 | 补充接口文档注解 |
+| 完成时间 | 2026-06-09T21:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | SaleOrderController所有6个@Operation增强description描述(@Tag/@Parameter已有);DTO/VO的@Schema注解前序任务已完成(枚举值标注可选值、example真实有效),mvn compile通过 |
+| Git SHA | 5ae2b4e2 |
+
+#### P1-005-001-003-001-001 定义Mapper接口
+
+| 字段 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-003-001-001 |
+| 任务名称 | 定义Mapper接口 |
+| 完成时间 | 2026-06-09T22:05 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | SaleQuotationMapper已存在且完全符合规格(BaseMapperX<SaleQuotationEntity>含selectPageList/selectDetailById/@Mapper注解),mvn compile通过 |
 | Git SHA | (待提交) |
