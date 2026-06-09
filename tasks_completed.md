@@ -3439,4 +3439,4 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建ChartPanel.vue ECharts图表组件:el-card+el-skeleton加载态+el-empty空数据占位+echarts.init渲染+window resize自适应+deep watch option实时刷新+onBeforeUnmount dispose防内存泄漏;样式匹配KpiCard.vue(SCSS scoped+Element Plus) |
-| Git SHA | (待提交) |
+| Git SHA | 1b7956aa |
