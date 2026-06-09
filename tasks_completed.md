@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
 > **最后更新**：2026-06-09T09:50
-> **归档总数**：629 条
+> **归档总数**：630 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -3096,4 +3096,16 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 编写MessagePushPropertiesTest - 23个测试(Bean注入/默认值/综合绑定/校验/前缀验证), mvn test BUILD SUCCESS, 23/23通过 |
 | Git SHA | 7b46b211 |
+
+#### P1-003-001-006-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-006-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T09:50 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MsgWebSocketHandler(连接管理/心跳/推送)+WebSocketAuthInterceptor(Sa-Token认证)+WebSocketConfig+spring-boot-starter-websocket依赖, mvn compile BUILD SUCCESS |
+| Git SHA | 
 

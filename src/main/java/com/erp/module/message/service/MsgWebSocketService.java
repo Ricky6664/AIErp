@@ -8,4 +8,8 @@ package com.erp.module.message.service;
 public interface MsgWebSocketService {
 
     void pushToUser(Long userId, String message);
+
+    void pushToRole(String roleCode, String message);
+
+    void broadcastAll(String message);
 }
