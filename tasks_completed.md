@@ -3917,4 +3917,16 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | SaleQuotationServiceImpl添加ISaleOrderService接口实现,已有方法(pageList/getDetail/create/update/delete/submitAudit)完全满足接口规范,mvn compile通过 |
-| Git SHA | 
+| Git SHA | 9e71cf00 |
+
+#### P1-005-001-002-003-003 业务校验逻辑
+
+| 字段 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-002-003-003 |
+| 任务名称 | 业务校验逻辑 |
+| 完成时间 | 2026-06-09T20:36 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证SaleQuotationServiceImpl已有校验逻辑:validateCreate(非空→唯一性→金额)、validateUpdate(排除当前ID)、validateStatusTransition(状态机ALLOWED_TRANSITIONS)、validateAmount(数量/单价/税率/折扣),全部符合Section5规格 |
+| Git SHA | (待提交) |
