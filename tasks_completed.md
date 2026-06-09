@@ -3685,3 +3685,17 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 运行62个单元测试全PASS(BizDocRelationCoreService/BizDocPushService/BizDocCopyService/BizDocFlowLogService);覆盖CRUD/下推/复制/日志/边界/异常/并发全场景;生成测试报告docs/test-reports/P1-004-002-004-001-002-verification-report.md |
 | Git SHA | 8ada6ac4 |
+
+### P1-005 - 销售管理模块开发
+
+#### P1-005-001-001-001-001 定义Entity类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-001-001-001 |
+| 任务名称 | 定义Entity类 |
+| 完成时间 | 2026-06-09T20:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建SaleQuotationEntity(sale_quotation表映射),继承BaseEntity,@TableName+@TableField字段映射完整,mvn compile通过 |
+| Git SHA | faab524b |
