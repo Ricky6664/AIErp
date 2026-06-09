@@ -3428,3 +3428,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 验证业务预警看板后端Service:运行MsgWarningServiceTest(13用例全通过)+MsgAlertRuleServiceTest+MsgMessageServiceTest+MsgTemplateServiceTest共65用例全通过;mvn compile通过;创建测试报告 |
 | Git SHA | 5b6d4268 |
+
+#### P1-003-002-000-002-001 ECharts图表组件开发
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-002-000-002-001 |
+| 任务名称 | ECharts图表组件开发 |
+| 完成时间 | 2026-06-09T20:05 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建ChartPanel.vue ECharts图表组件:el-card+el-skeleton加载态+el-empty空数据占位+echarts.init渲染+window resize自适应+deep watch option实时刷新+onBeforeUnmount dispose防内存泄漏;样式匹配KpiCard.vue(SCSS scoped+Element Plus) |
+| Git SHA | (待提交) |
