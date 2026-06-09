@@ -4002,3 +4002,27 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 静态SQL验证通过:3个查询(selectUnshippedPage/selectUnshippedCount/selectUnshippedList)语法正确,#{}防注入,is_deleted检查完整,JOIN逻辑正确(INNER JOIN sale_order + LEFT JOIN sale_delivery_notice*),GROUP BY/HAVING正确,多租户由拦截器处理,无SELECT *,mvn compile通过,索引覆盖合理 |
 | Git SHA | 049aeca0 |
+
+#### P1-005-001-004-001-003 验证SQL执行
+
+| 字段 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-004-001-003 |
+| 任务名称 | 验证SQL执行 |
+| 完成时间 | 2026-06-09T20:35 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 二次静态SQL验证通过:3个查询(selectUnshippedPage/selectUnshippedCount/selectUnshippedList)全部语法正确,JOIN逻辑(INNER→LEFT)合理,COALESCE聚合正确,#{}防注入,is_deleted+status过滤完整,GROUP BY/HAVING正确,多租户tenant_id由拦截器处理,无SELECT*,mvn compile通过,易错警示4项全部规避,性能索引覆盖充分(主键/FK/过滤字段) |
+| Git SHA | (待提交) |
+
+#### P1-005-001-003-001-002 编写XML映射文件
+
+| 字段 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-003-001-002 |
+| 任务名称 | 编写XML映射文件 |
+| 完成时间 | 2026-06-09T21:00 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | SaleQuotationMapper.xml已完整覆盖全部5个Mapper方法(selectPageList/selectDetailById/selectByCondition/countByStatus/selectStatistics),包含BaseResultMap完整映射/Base_Column_List/dynamic SQL with WHERE+IF/CONCAT防注入/is_deleted过滤,namespace正确指向接口全限定名,mvn compile通过 |
+| Git SHA | (待提交) |
