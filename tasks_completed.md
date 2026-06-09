@@ -3761,3 +3761,16 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | SaleQuotationMapper新增selectByCondition(条件查询)+countByStatus(状态统计)+selectStatistics(日期聚合统计)三个方法,XML新增对应SQL(多表LEFT JOIN+动态条件+GROUP BY聚合),mvn compile通过 |
 | Git SHA | cdc32706 |
+
+#### P1-005-001-001-003-001 定义Service接口
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-001-003-001 |
+| 任务名称 | 定义Service接口 |
+| 完成时间 | 2026-06-09T21:35 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建ISaleQuotationService继承IServiceX<SaleQuotationEntity>,声明pageList/getDetail/create/update/delete/submitAudit六个方法,返回值类型统一(Long/Boolean/Page/DetailVO),mvn compile通过 |
+| Git SHA | 待提交 |
+
