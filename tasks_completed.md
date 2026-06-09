@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T09:50
-> **归档总数**：630 条
+> **最后更新**：2026-06-09T08:20
+> **归档总数**：631 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -3108,4 +3108,16 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 创建MsgWebSocketHandler(连接管理/心跳/推送)+WebSocketAuthInterceptor(Sa-Token认证)+WebSocketConfig+spring-boot-starter-websocket依赖, mvn compile BUILD SUCCESS |
 | Git SHA | bb1c38a0 |
+
+#### P1-003-001-006-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-006-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T08:20 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 编写MsgWebSocketHandlerTest - 19个单元测试(连接建立/心跳/推送/角色推送/广播/心跳检测), 复用MsgMessageServiceTest - 20个测试, 全量39/39通过 |
+| Git SHA | (待提交) |
 
