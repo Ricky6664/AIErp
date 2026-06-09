@@ -3345,5 +3345,17 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建PushChannelProperties配置属性类(通道/重试/批处理配置)+追加application.yml message.push.channel配置段+mvn compile BUILD SUCCESS |
-| Git SHA | (待提交)
+| Git SHA | 7b9dac25
+
+#### P1-003-002-005-001-002 验证编写配置项配置
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-002-005-001-002 |
+| 任务名称 | 验证编写配置项配置 |
+| 完成时间 | 2026-06-09T14:45 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 验证PushChannelProperties编译通过+application.yml配置段匹配+23个已有测试全部通过 |
+| Git SHA | (待commit)
 
