@@ -495,3 +495,39 @@ message:
         interval-ms: 500
         # 推送队列最大容量
         max-queue-size: 10000
+
+# ---- 业务预警规则配置 ----
+  alert-rule:
+    methods:
+      # 是否启用站内信预警通知
+      station: true
+      # 是否启用邮件预警通知
+      email: true
+      # 是否启用短信预警通知
+      sms: false
+    # 预警评估配置
+    evaluation:
+      # 是否启用自动预警评估定时任务
+      enabled: false
+      # 自动预警评估cron表达式(默认每5分钟)
+      cron: "0 */5 * * * ?"
+      # 每批评估最大规则数
+      max-rules-per-batch: 50
+      # 单规则最大条件表达式数
+      max-conditions-per-rule: 10
+    # 预警阈值配置
+    threshold:
+      # 默认预警阈值
+      default-value: 0.00
+    # 预警规则列表分页配置
+    pagination:
+      # 默认每页条数(5-100)
+      default-page-size: 10
+      # 最大每页条数
+      max-page-size: 50
+    # 预警规则列表排序配置
+    sort:
+      # 默认排序字段
+      default-field: createTime
+      # 默认排序方向(asc/desc)
+      default-order: desc

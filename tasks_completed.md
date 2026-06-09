@@ -3383,3 +3383,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 运行MsgMessageServiceTest(21/21)+MessagePushPropertiesTest(23/23)全部通过；GlobalNotification.vue编译无错误；创建测试报告 |
 | Git SHA | (待提交)
 
+#### P1-003-002-007-001-001 编写配置文件类
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-002-007-001-001 |
+| 任务名称 | 编写配置文件类 |
+| 完成时间 | 2026-06-09T19:15 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建AlertRuleProperties配置属性类(预警方法/评估/阈值/分页/排序配置)+追加application.yml message.alert-rule配置段+mvn compile BUILD SUCCESS |
+| Git SHA | (待提交)
+
