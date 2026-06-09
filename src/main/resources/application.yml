@@ -470,3 +470,28 @@ approval:
       enabled: true
       # 缓存过期时间(分钟)
       ttl-minutes: 30
+
+# ---- 消息推送通道配置 ----
+message:
+  push:
+    channel:
+      # 每租户最大推送通道数
+      max-channels-per-tenant: 5
+      # 默认推送通道类型(station=站内信, email=邮件, sms=短信)
+      default-type: station
+      # 推送失败重试配置
+      retry:
+        # 推送失败最大重试次数(0=不重试)
+        max-retries: 3
+        # 重试间隔(秒)
+        interval-seconds: 60
+        # 退避倍数(每次重试间隔 = 上次间隔 * 此倍数)
+        backoff-multiplier: 2.0
+      # 批量推送配置
+      batch:
+        # 每批推送数量
+        size: 100
+        # 批次间隔(毫秒)
+        interval-ms: 500
+        # 推送队列最大容量
+        max-queue-size: 10000
