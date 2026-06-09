@@ -55,3 +55,26 @@ export interface TemplateFormDTO {
   channels: string[]
   enableFlag: boolean
 }
+
+/** 消息类型列表项 */
+export interface TypeListVO {
+  id: number
+  typeCode: string
+  typeName: string
+  parentId: number
+  sortNo: number
+  icon: string
+  enableFlag: boolean
+  children?: TypeListVO[]
+}
+
+/** 消息类型表单数据 */
+export interface TypeFormDTO {
+  id?: number
+  parentId?: number
+  typeCode: string
+  typeName: string
+  sortNo: number
+  icon: string
+  enableFlag: boolean
+}

@@ -334,6 +334,14 @@ export const MSG_TEMPLATE: RouteRecordRaw = {
   meta: { title: '消息模板', icon: 'Document', keepAlive: true }
 }
 
+// 消息类型列表页
+export const MSG_TYPE: RouteRecordRaw = {
+  path: '/msg/type',
+  name: 'MsgType',
+  component: () => import('@/views/msg/MessageTypeList.vue'),
+  meta: { title: '消息类型', icon: 'Grid', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -363,6 +371,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   APPROVAL_LOG,
   MSG_MESSAGE_CENTER,
   MSG_TEMPLATE,
+  MSG_TYPE,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,

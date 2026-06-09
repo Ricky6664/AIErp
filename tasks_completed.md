@@ -3277,3 +3277,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 编写MsgTemplateServiceTest(17个测试用例覆盖CRUD+边界+并发+事务回滚); 生成测试报告(all pass); mvn compile通过 |
 | Git SHA | (待提交)
 
+#### P1-003-002-003-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-002-003-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T13:05 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MessageTypeList.vue(树+列表页); 创建api/msg/type.ts(消息类型CRUD API); 追加TypeListVO/TypeFormDTO类型定义; 注册/msg/type路由 |
+| Git SHA | (待提交)
+
