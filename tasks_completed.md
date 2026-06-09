@@ -3796,5 +3796,5 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建SaleQuotationController(@RestController+@RequestMapping("/api/sale/quotation")+@RequiredArgsConstructor),注入ISaleQuotationService,声明GET(分页列表/详情)/POST(新增/提交审核)/PUT(修改)/DELETE(删除)六个端点方法,返回RT<T>统一响应,mvn compile通过 |
-| Git SHA | 待填充 |
+| Git SHA | b41e46f2 |
 
