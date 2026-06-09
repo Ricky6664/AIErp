@@ -3490,3 +3490,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | 验证V8__create_doc_relation.sql:SQL语法(PostgreSQL 15+)通过+10通用必含字段完整+5个部分索引策略正确+2个CHECK约束正确+COMMENT注释完整+Flyway集成正常+mvn compile通过;无CRITICAL/WARNING发现 |
 | Git SHA | c8c8a27e |
+
+#### P1-004-001-001-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-004-001-001-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T21:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 实现单据关联关系核心业务:DocRelationEntity实体+DocRelationMapper+ BizDocRelationDTO+BizDocRelationCoreService(创建/查询/删除+@Transactional+BusinessException+日志)+DocImportController(/api/doc-flow/import|source|relation);mvn compile BUILD SUCCESS |
+| Git SHA | 987ddfb6 |
