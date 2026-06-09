@@ -3513,4 +3513,4 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 编写BizDocRelationCoreServiceVerificationTest(13个用例覆盖正常流程新增/查询/删除+边界条件+异常不存在);mvn test 13/13 PASS;生成测试报告 |
-| Git SHA | PENDING |
+| Git SHA | d130f674 |
