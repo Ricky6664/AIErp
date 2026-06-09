@@ -3978,3 +3978,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 工人 | W10 |
 | 摘要 | SaleQuotationMapper已存在且完全符合规格(BaseMapperX<SaleQuotationEntity>含selectPageList/selectDetailById/@Mapper注解),mvn compile通过 |
 | Git SHA | d8737d25 |
+
+#### P1-005-001-004-001-001 编写未发货通知SQL
+
+| 字段 | 值 |
+|------|-----|
+| 任务编号 | P1-005-001-004-001-001 |
+| 任务名称 | 编写未发货通知SQL |
+| 完成时间 | 2026-06-09T16:04 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | SaleAggregationMapper.xml:3个查询(selectUnshippedPage分页/selectUnshippedCount计数/selectUnshippedList导出)基于sale_order_detail LEFT JOIN sale_delivery_notice_detail聚合未发货数量,动态过滤(客户/商品/销售员/日期),#{}防注入,无SELECT *,mvn compile通过 |
+| Git SHA | — |
