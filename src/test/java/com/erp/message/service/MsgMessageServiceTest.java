@@ -108,6 +108,22 @@ class MsgMessageServiceTest {
             assertEquals(ErrorCode.PARAM_INVALID.getCode(), ex.getCode());
             verify(service, never()).save(any());
         }
+
+        @Test
+        @DisplayName("messageTitle超长(500字符) → 当前无长度校验，成功保存; 标记为待补充@Size")
+        void shouldHandleOverlongTitle() {
+            String longTitle = "A".repeat(500);
+            createDTO.setMessageTitle(longTitle);
+            doAnswer(inv -> {
+                MsgMessageEntity e = inv.getArgument(0);
+                e.setId(300L);
+                return true;
+            }).when(service).save(any(MsgMessageEntity.class));
+
+            Long id = service.create(createDTO);
+            assertNotNull(id);
+            verify(service).save(any(MsgMessageEntity.class));
+        }
     }
 
     // ==================== update ====================
