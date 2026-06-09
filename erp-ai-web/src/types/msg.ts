@@ -78,3 +78,44 @@ export interface TypeFormDTO {
   icon: string
   enableFlag: boolean
 }
+
+/** 待办列表项 */
+export interface TodoListVO {
+  id: number
+  businessType: string
+  businessNo: string
+  businessId: number
+  title: string
+  todoType: string
+  createTime: string
+  dueTime: string
+  originatorName: string
+}
+
+/** 待办查询参数 */
+export interface TodoQueryDTO {
+  todoType?: string
+  isCompleted?: boolean
+  keyword?: string
+  pageNum: number
+  pageSize: number
+}
+
+/** 审批/驳回参数 */
+export interface TodoApproveDTO {
+  todoId: number
+  opinion: string
+}
+
+/** 批量审批参数 */
+export interface TodoBatchApproveDTO {
+  todoIds: number[]
+  opinion: string
+}
+
+/** 待办数量统计 */
+export interface TodoCountVO {
+  pending_approval: number
+  pending_handle: number
+  pending_confirm: number
+}

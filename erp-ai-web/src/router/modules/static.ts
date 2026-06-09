@@ -342,6 +342,14 @@ export const MSG_TYPE: RouteRecordRaw = {
   meta: { title: '消息类型', icon: 'Grid', keepAlive: true }
 }
 
+// 单据待办列表页
+export const MSG_TODO: RouteRecordRaw = {
+  path: '/msg/todo',
+  name: 'MsgTodo',
+  component: () => import('@/views/msg/TodoList.vue'),
+  meta: { title: '单据待办', icon: 'List', keepAlive: true }
+}
+
 // 静态路由集合 - 导出供router/index.ts使用
 export const staticRoutes: RouteRecordRaw[] = [
   LOGIN_ROUTE,
@@ -372,6 +380,7 @@ export const staticRoutes: RouteRecordRaw[] = [
   MSG_MESSAGE_CENTER,
   MSG_TEMPLATE,
   MSG_TYPE,
+  MSG_TODO,
   LOGIN_LOG_PAGE,
   ONLINE_DEVICE_PAGE,
   SSO_OAUTH2_CONFIG_PAGE,
