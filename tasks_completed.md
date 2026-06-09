@@ -3227,5 +3227,5 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 编写MsgCollaborationServiceTest(23个测试用例: create×5/page×2/getById×2/reply×6/closeDiscussion×4/reopenDiscussion×4, JUnit5+Mockito, 覆盖正常流程+边界+异常+权限控制); mvn test BUILD SUCCESS 23/23; 测试报告已生成 |
-| Git SHA | (待提交)
+| Git SHA | f1cf2988
 
