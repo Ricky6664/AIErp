@@ -3784,5 +3784,5 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建SaleQuotationServiceImpl继承ServiceImplX<SaleQuotationMapper,SaleQuotationEntity>,实现pageList/getDetail/create/update/delete/submitAudit六个方法,注入CodeGenerateService+AuditEngineService,业务校验含名称唯一性+明细非空+状态流转(仅草稿可编辑/删除/提交审核),mvn compile通过 |
-| Git SHA | (待提交) |
+| Git SHA | 05015598 |
 
