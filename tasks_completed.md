@@ -3760,4 +3760,4 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | SaleQuotationMapper新增selectByCondition(条件查询)+countByStatus(状态统计)+selectStatistics(日期聚合统计)三个方法,XML新增对应SQL(多表LEFT JOIN+动态条件+GROUP BY聚合),mvn compile通过 |
-| Git SHA | 
+| Git SHA | cdc32706 |
