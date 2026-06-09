@@ -3525,3 +3525,14 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建BizDocPushService(下推/回滚/校验可推数量/查询目标类型)+DocPushController(4个REST端点);mvn compile PASS |
+
+#### P1-004-001-002-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-004-001-002-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T20:05 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建BizDocPushServiceVerificationTest(11个用例覆盖下推/回滚/查询/边界/异常)+保有BizDocRelationCoreServiceVerificationTest(13个用例);mvn test 24/24 PASS;生成测试报告docs/test-reports/P1-004-001-002-001-002-test-report.md |
