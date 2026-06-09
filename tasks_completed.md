@@ -3157,3 +3157,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 创建MsgAlertRuleServiceTest(14个单元测试: Create×3/Update×4/Delete×2/PageList×4/TransactionRollback×1, Mockito+JUnit5), mvn test BUILD SUCCESS |
 | Git SHA | 6cfcaa81 |
 
+#### P1-003-001-008-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-008-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T10:55 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MsgWarningServiceImpl(预警扫描scanAndAlert+预警看板getWarningDashboard+预警处理handleWarning)+WarningConditionEvaluator(跨模块条件评估)+WarningMatchResult+MsgWarningController+MsgWarningService+MsgWarningEntity+MsgWarningMapper+WarningDashboardVO+InventoryQueryService+FinanceQueryService, mvn compile BUILD SUCCESS |
+| Git SHA | (待填入) |
+
