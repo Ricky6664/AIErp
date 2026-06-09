@@ -38,6 +38,9 @@
 
     <!-- 公告通知弹窗 -->
     <AnnouncementPopup />
+
+    <!-- 全局消息通知（WebSocket + 轮询 + 铃铛角标） -->
+    <GlobalNotification />
   </el-container>
 </template>
 
@@ -46,6 +49,7 @@ import { computed, watch } from 'vue'
 import Sidebar from './components/Sidebar/index.vue'
 import Navbar from './components/Navbar.vue'
 import TabNav from './components/TabNav/index.vue'
+import GlobalNotification from './components/GlobalNotification.vue'
 import AnnouncementPopup from '@/components/AnnouncementPopup.vue'
 import { useLayoutStore } from '@/stores/modules/layout'
 import { useTagsViewStore } from '@/stores/modules/tagsView'
