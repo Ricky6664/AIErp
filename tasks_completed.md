@@ -3181,3 +3181,15 @@ n#### P0-006-001-004-001-002 验证功能
 | 摘要 | 创建MsgWarningServiceTest(13个单元测试: ScanAndAlert×6/GetWarningDashboard×3/HandleWarning×4, Mockito+JUnit5)+测试报告, mvn test BUILD SUCCESS 13/13 |
 | Git SHA | f063ae76 |
 
+#### P1-003-001-009-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-009-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T11:10 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MsgDiscussionServiceImpl(分页查询+新增留言含@提及+回复通知+WebSocket推送+去重)+MentionParser+MsgDiscussionController+Entity/Mapper/DTO/VO共9个文件; mvn compile BUILD SUCCESS |
+| Git SHA | — |
+
