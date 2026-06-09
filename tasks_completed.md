@@ -3564,3 +3564,15 @@ n#### P0-006-001-004-001-002 ��֤����
 | 摘要 | 创建BizDocCopyServiceVerificationTest(10个单元测试覆盖复制/回滚/查询/边界/异常场景);创建测试报告;mvn test BUILD SUCCESS |
 | Git SHA | 3bac3cd3 |
 
+#### P1-004-001-004-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-004-001-004-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T12:55 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 实现BizDocRelationCoreService(createRelation/queryBySource/queryByTarget/deleteRelation)+DocImportController;mvn compile通过;13个单元测试PASS |
+| Git SHA | (待更新) |
+
