@@ -1,7 +1,7 @@
 ﻿# tasks_completed.md — 已完成任务归档
 
-> **最后更新**：2026-06-09T08:20
-> **归档总数**：631 条
+> **最后更新**：2026-06-09T11:00
+> **归档总数**：632 条
 > **文档定位**：全量历史完成记录，仅供回溯查阅
 
 ---
@@ -3168,4 +3168,16 @@ n#### P0-006-001-004-001-002 验证功能
 | 工人 | W10 |
 | 摘要 | 创建MsgWarningServiceImpl(预警扫描scanAndAlert+预警看板getWarningDashboard+预警处理handleWarning)+WarningConditionEvaluator(跨模块条件评估)+WarningMatchResult+MsgWarningController+MsgWarningService+MsgWarningEntity+MsgWarningMapper+WarningDashboardVO+InventoryQueryService+FinanceQueryService, mvn compile BUILD SUCCESS |
 | Git SHA | 2dafddaa |
+
+#### P1-003-001-008-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-003-001-008-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T11:00 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建MsgWarningServiceTest(13个单元测试: ScanAndAlert×6/GetWarningDashboard×3/HandleWarning×4, Mockito+JUnit5)+测试报告, mvn test BUILD SUCCESS 13/13 |
+| Git SHA | (待提交) |
 
