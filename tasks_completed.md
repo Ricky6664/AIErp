@@ -3820,5 +3820,5 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 为SaleQuotationController添加@Tag(description)+所有6个@Operation(description)注解;为SaleQuotationCreateDTO/UpdateDTO/DetailCreateDTO添加@Schema类及字段注解;为SaleQuotationListVO/DetailVO添加@Schema注解,status字段标注枚举值,mvn compile通过 |
-| Git SHA | 2272a1ce |
+| Git SHA | 8e115519 |
 
