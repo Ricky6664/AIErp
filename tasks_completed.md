@@ -3536,3 +3536,30 @@ n#### P0-006-001-004-001-002 ��֤����
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建BizDocPushServiceVerificationTest(11个用例覆盖下推/回滚/查询/边界/异常)+保有BizDocRelationCoreServiceVerificationTest(13个用例);mvn test 24/24 PASS;生成测试报告docs/test-reports/P1-004-001-002-001-002-test-report.md |
+| Git SHA | d16c4e11 |
+
+### P1-004 - 通用单据流转引擎开发
+
+#### P1-004-001-003-001-001 编写核心代码
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-004-001-003-001-001 |
+| 任务名称 | 编写核心代码 |
+| 完成时间 | 2026-06-09T20:15 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建BizDocCopyService(复制/回滚/查询关联关系/可复制目标类型)+DocCopyController(4个REST端点);mvn compile PASS |
+| Git SHA | 90386397 |
+
+#### P1-004-001-003-001-002 验证功能
+
+| 属性 | 值 |
+|------|-----|
+| 任务编号 | P1-004-001-003-001-002 |
+| 任务名称 | 验证功能 |
+| 完成时间 | 2026-06-09T20:50 |
+| 状态 | ✅ |
+| 工人 | W10 |
+| 摘要 | 创建BizDocCopyServiceVerificationTest(10个单元测试覆盖复制/回滚/查询/边界/异常场景);创建测试报告;mvn test BUILD SUCCESS |
+
