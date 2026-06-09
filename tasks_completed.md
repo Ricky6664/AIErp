@@ -3167,5 +3167,5 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建MsgWarningServiceImpl(预警扫描scanAndAlert+预警看板getWarningDashboard+预警处理handleWarning)+WarningConditionEvaluator(跨模块条件评估)+WarningMatchResult+MsgWarningController+MsgWarningService+MsgWarningEntity+MsgWarningMapper+WarningDashboardVO+InventoryQueryService+FinanceQueryService, mvn compile BUILD SUCCESS |
-| Git SHA | (待填入) |
+| Git SHA | 2dafddaa |
 
