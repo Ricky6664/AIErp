@@ -3287,9 +3287,7 @@ n#### P0-006-001-004-001-002 验证功能
 | 状态 | ✅ |
 | 工人 | W10 |
 | 摘要 | 创建MessageTypeList.vue(树+列表页); 创建api/msg/type.ts(消息类型CRUD API); 追加TypeListVO/TypeFormDTO类型定义; 注册/msg/type路由 |
-| Git SHA | (待提交)
-
-#### P1-003-002-000-001-001 KPI卡片组件开发
+| Git SHA | ef19e14c |
 
 | 属性 | 值 |
 |------|-----|
