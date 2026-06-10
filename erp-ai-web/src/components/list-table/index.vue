@@ -572,26 +572,115 @@ defineExpose({
   display: flex;
   flex-direction: column;
   height: 100%;
+  background: var(--el-bg-color, #fff);
+  border-radius: 8px;
+  border: 1px solid var(--el-border-color-lighter, #ebeef5);
+  overflow: hidden;
 
   &__prefix {
     flex-shrink: 0;
+    padding: 12px 16px 0;
   }
 
   &__toolbar {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 0;
+    padding: 12px 16px;
     flex-shrink: 0;
+    border-bottom: 1px solid var(--el-border-color-lighter, #ebeef5);
+    background: var(--el-fill-color-light, #fafafa);
   }
 
   &__suffix {
     flex-shrink: 0;
+    padding: 0 16px 12px;
   }
 
   &__footer {
-    padding: 8px 0;
+    padding: 8px 16px;
     flex-shrink: 0;
+    border-top: 1px solid var(--el-border-color-lighter, #ebeef5);
+  }
+
+  // vxe-grid inner overrides
+  :deep(.vxe-grid) {
+    border: none;
+    border-radius: 0;
+  }
+
+  :deep(.vxe-table--body-wrapper) {
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--el-border-color, #dcdfe6);
+      border-radius: 3px;
+      &:hover {
+        background: var(--el-text-color-placeholder, #c0c4cc);
+      }
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  }
+
+  :deep(.vxe-table--header) {
+    .vxe-header--row {
+      background: var(--el-fill-color, #f5f7fa);
+    }
+    .vxe-header--column {
+      font-weight: 600;
+      color: var(--el-text-color-regular, #606266);
+      border-bottom: 2px solid var(--el-border-color-light, #e4e7ed);
+      .vxe-cell {
+        padding: 10px 12px;
+      }
+    }
+  }
+
+  :deep(.vxe-body--row) {
+    transition: background-color 0.15s ease;
+    &:hover {
+      background-color: var(--el-fill-color-light, #f5f7fa) !important;
+    }
+    &.row--current {
+      background-color: var(--el-color-primary-light-9, #ecf5ff) !important;
+    }
+  }
+
+  :deep(.vxe-body--column) {
+    .vxe-cell {
+      padding: 9px 12px;
+      font-size: 13px;
+      color: var(--el-text-color-regular, #606266);
+    }
+  }
+
+  // stripe override
+  :deep(.vxe-table--stripe .vxe-body--row:nth-child(odd)) {
+    background-color: var(--el-fill-color-lighter, #fafafa);
+  }
+
+  // pagination
+  :deep(.vxe-pager) {
+    padding: 12px 16px;
+    border-top: 1px solid var(--el-border-color-lighter, #ebeef5);
+    background: var(--el-bg-color, #fff);
+  }
+
+  // loading overlay
+  :deep(.vxe-loading) {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+  }
+
+  // empty state
+  :deep(.vxe-table--empty-block) {
+    padding: 48px 0;
+    color: var(--el-text-color-secondary, #909399);
+    font-size: 14px;
   }
 }
 </style>

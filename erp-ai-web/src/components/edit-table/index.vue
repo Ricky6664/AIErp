@@ -516,31 +516,93 @@ defineExpose({
   display: flex;
   flex-direction: column;
   height: 100%;
+  background: var(--el-bg-color, #fff);
+  border-radius: 8px;
+  border: 1px solid var(--el-border-color-lighter, #ebeef5);
+  overflow: hidden;
 
   &__prefix {
     flex-shrink: 0;
+    padding: 12px 16px 0;
   }
 
   &__suffix {
     flex-shrink: 0;
+    padding: 0 16px 12px;
   }
 
   &__summary {
     display: flex;
     align-items: center;
-    padding: 8px 0;
-    border-top: 2px solid #409eff;
-    background-color: #f5f7fa;
+    padding: 10px 16px;
+    border-top: 2px solid var(--el-color-primary, #409eff);
+    background: var(--el-color-primary-light-9, #ecf5ff);
     font-weight: 600;
+    font-size: 13px;
     flex-shrink: 0;
     overflow-x: auto;
   }
 
   &__summary-cell {
-    padding: 0 8px;
+    padding: 0 12px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: var(--el-text-color-regular, #606266);
+  }
+
+  // vxe-grid inner overrides
+  :deep(.vxe-grid) {
+    border: none;
+    border-radius: 0;
+  }
+
+  :deep(.vxe-table--body-wrapper) {
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--el-border-color, #dcdfe6);
+      border-radius: 3px;
+      &:hover {
+        background: var(--el-text-color-placeholder, #c0c4cc);
+      }
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  }
+
+  :deep(.vxe-table--header) {
+    .vxe-header--row {
+      background: var(--el-fill-color, #f5f7fa);
+    }
+    .vxe-header--column {
+      font-weight: 600;
+      color: var(--el-text-color-regular, #606266);
+      border-bottom: 2px solid var(--el-border-color-light, #e4e7ed);
+      .vxe-cell {
+        padding: 10px 12px;
+      }
+    }
+  }
+
+  :deep(.vxe-body--row) {
+    transition: background-color 0.15s ease;
+    &:hover {
+      background-color: var(--el-fill-color-light, #f5f7fa) !important;
+    }
+    &.row--current {
+      background-color: var(--el-color-primary-light-9, #ecf5ff) !important;
+    }
+  }
+
+  :deep(.vxe-body--column) {
+    .vxe-cell {
+      padding: 8px 12px;
+      font-size: 13px;
+    }
   }
 }
 </style>

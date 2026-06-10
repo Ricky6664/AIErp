@@ -258,26 +258,39 @@ defineExpose({
 <style scoped>
 .master-form {
   width: 100%;
+  background: var(--el-bg-color, #fff);
+  border-radius: 8px;
+  border: 1px solid var(--el-border-color-lighter, #ebeef5);
+  padding: 20px 24px;
 }
 .master-form__prefix,
 .master-form__suffix {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 .master-form__group {
-  margin-bottom: 16px;
-  border: 1px solid var(--el-border-color-light);
-  border-radius: 4px;
-  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--el-border-color-lighter, #ebeef5);
+  border-radius: 8px;
+  padding: 16px;
+  background: var(--el-fill-color-lighter, #fafafa);
 }
 .master-form__group-header {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--el-border-color-light, #e4e7ed);
 }
 .master-form__group-title {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
+  color: var(--el-text-color-primary, #303133);
 }
 .master-form__actions {
-  margin-top: 16px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--el-border-color-lighter, #ebeef5);
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
 }
 </style>
