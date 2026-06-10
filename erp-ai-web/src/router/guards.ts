@@ -42,6 +42,10 @@ export function setupRouterGuards(router: Router) {
       try {
         await userStore.getInfo()
         await permissionStore.generateRoutes(userStore.menuTree)
+        // 将动态路由注册到 Layout 父路由下
+        for (const route of permissionStore.routes) {
+          router.addRoute('Layout', route)
+        }
         return next({ ...to, replace: true })
       } catch {
         localStorage.removeItem(TOKEN_KEY)

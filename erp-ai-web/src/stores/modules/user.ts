@@ -36,7 +36,18 @@ export const useUserStore = defineStore('user', {
         this.refreshToken = data.refreshToken
         localStorage.setItem(REFRESH_TOKEN_KEY, data.refreshToken)
       }
-      if (!this.passwordExpired) {
+      // 如果登录响应已包含 menuTree 和 permissions，直接使用
+      if (data.menuTree && data.menuTree.length > 0) {
+        this.menuTree = data.menuTree
+        this.permissions = data.permissions ?? []
+        this.userInfo = {
+          id: data.userId ?? 0,
+          username: data.username ?? '',
+          nickname: data.nickname ?? data.username ?? '',
+          avatar: data.avatar ?? ''
+        }
+      } else if (!this.passwordExpired) {
+        // 回退：单独调用 user-info API
         await this.getInfo()
       }
     },
@@ -48,7 +59,8 @@ export const useUserStore = defineStore('user', {
         this.permissions = data.permissions ?? []
         this.roles = data.roles ?? []
         this.menuTree = data.menuTree ?? []
-      } catch {
+      } catch (e) {
+        console.error('[UserStore] getInfo failed:', e)
         this.logout()
       }
     },

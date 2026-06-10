@@ -6,13 +6,19 @@ export interface LoginDTO {
   rememberMe?: boolean
 }
 
+import type { MenuTreeNode } from '@/types/user'
+
 export interface LoginResponse {
   token: string
   refreshToken?: string
   userId?: number
   username?: string
+  nickname?: string
+  avatar?: string
   passwordExpired?: boolean
   passwordExpireDate?: string
+  menuTree?: MenuTreeNode[]
+  permissions?: string[]
 }
 
 export interface CaptchaResponse {

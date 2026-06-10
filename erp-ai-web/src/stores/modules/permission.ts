@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
 import type { MenuTreeNode } from '@/types/user'
-import { HOME_ROUTE } from '@/router/modules/static'
 import { resolveComponent } from '@/router/modules/dynamic'
 
 interface PermissionState {
@@ -16,8 +15,10 @@ function buildRoutes(menuTree: MenuTreeNode[]): RouteRecordRaw[] {
     if (node.menuType === 'button') continue
     const children =
       node.children && node.children.length > 0 ? buildRoutes(node.children) : undefined
+    // 确保路径不以 / 开头，因为将作为 Layout 路由的子路由添加
+    const childPath = (node.routePath || '').replace(/^\//, '')
     const route: RouteRecordRaw = {
-      path: node.routePath || '',
+      path: childPath,
       name: node.menuName,
       component: node.componentPath ? resolveComponent(node.componentPath) : undefined,
       meta: {
@@ -54,7 +55,7 @@ export const usePermissionStore = defineStore('permission', {
   actions: {
     generateRoutes(menuTree: MenuTreeNode[]) {
       const dynamicRoutes = buildRoutes(menuTree)
-      this.routes = [HOME_ROUTE as RouteRecordRaw, ...dynamicRoutes]
+      this.routes = dynamicRoutes
       this.permissions = collectPermissions(menuTree)
       this.isRoutesLoaded = true
     },

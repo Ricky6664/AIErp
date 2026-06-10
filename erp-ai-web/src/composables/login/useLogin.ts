@@ -171,6 +171,7 @@ export function useLogin() {
         rememberMe: form.rememberMe
       }
       await userStore.login(loginData)
+      console.log('[Login] login successful, menuTree:', userStore.menuTree?.length, 'items')
 
       // 记住我：存储加密后的用户名
       if (form.rememberMe) {
@@ -187,12 +188,11 @@ export function useLogin() {
         return
       }
 
-      // 动态路由生成：根据菜单树添加路由
+      // 动态路由生成：根据菜单树添加路由（作为 Layout 子路由）
       if (userStore.menuTree.length > 0) {
         permissionStore.generateRoutes(userStore.menuTree)
-        const dynamicRoutes = permissionStore.routes
-        for (const r of dynamicRoutes) {
-          router.addRoute(r)
+        for (const r of permissionStore.routes) {
+          router.addRoute('Layout', r)
         }
       }
 
@@ -200,6 +200,7 @@ export function useLogin() {
       const redirect = (route.query.redirect as string) || '/home'
       router.replace(redirect)
     } catch (error: unknown) {
+      console.error('[Login] Error during login:', error)
       const errMsg = resolveErrorMessage(error)
       ElMessage.error(errMsg)
       form.captchaCode = ''
