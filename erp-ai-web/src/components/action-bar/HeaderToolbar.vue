@@ -190,7 +190,7 @@ function getDefaultTools(): HeaderToolbarItem[] {
 
 const rowHeightOptions = computed(() => ROW_HEIGHT_PRESETS)
 
-function getButtonType(item: HeaderToolbarItem): string {
+function getButtonType(item: HeaderToolbarItem): 'primary' | 'default' {
   if (item.tool === 'maximize' && localState.value.maximized) return 'primary'
   return 'default'
 }

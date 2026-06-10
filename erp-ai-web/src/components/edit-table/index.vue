@@ -171,7 +171,7 @@ const displayColumns = computed(() => {
       ...col,
       visible: col.visible !== false,
       _order: idx
-    }))
+    })) as Record<string, unknown>[]
   }
 
   const persistMap = new Map<string, ColumnPersistData>(persist.map((p) => [p.field, p]))
@@ -189,7 +189,7 @@ const displayColumns = computed(() => {
     })
     .sort((a, b) => (a._order as number) - (b._order as number))
 
-  return ordered
+  return ordered as Record<string, unknown>[]
 })
 
 // 编辑配置

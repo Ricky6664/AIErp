@@ -86,7 +86,7 @@ export interface EditTableColumn {
   /** 列对齐 */
   align?: 'left' | 'center' | 'right'
   /** 列数据类型 */
-  type?: string
+  type?: 'seq' | 'checkbox' | 'radio' | 'html' | 'expand' | 'img' | string
   /** 格式化函数 */
   formatter?: (value: unknown, row: Record<string, unknown>) => string
   /** 是否显示省略提示 */

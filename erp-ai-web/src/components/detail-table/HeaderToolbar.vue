@@ -282,7 +282,7 @@ function syncState(): void {
   emit('update:modelValue', { ...localState.value })
 }
 
-function getButtonType(item: DetailTableToolbarItem): string {
+function getButtonType(item: DetailTableToolbarItem): 'primary' | 'default' {
   if (item.tool === 'maximize' && localState.value.maximized) return 'primary'
   return 'default'
 }
