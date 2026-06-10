@@ -1,6 +1,6 @@
 <template>
   <PageP04SimpleList
-    view-id="company-list"
+    view-id="org-company"
     page-type="P04"
     :config="pageConfig"
     :permissions="permissions"
@@ -62,10 +62,9 @@
         style="width: 100%"
         max-height="600"
       >
+        <el-table-column prop="creditCode" label="信用代码" min-width="180" />
         <el-table-column prop="companyName" label="公司名称" min-width="180" />
-        <el-table-column prop="companyShortName" label="公司简称" min-width="120" />
-        <el-table-column prop="creditCode" label="统一社会信用代码" min-width="180" />
-        <el-table-column prop="legalPerson" label="法定代表人" min-width="100" />
+        <el-table-column prop="address" label="地址" min-width="200" show-overflow-tooltip />
         <el-table-column prop="phone" label="联系电话" min-width="130" />
         <el-table-column prop="status" label="状态" width="90" align="center">
           <template #default="{ row }">
@@ -74,7 +73,6 @@
             </el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="createTime" label="创建时间" min-width="170" sortable />
         <el-table-column label="操作" width="220" align="center" fixed="right">
           <template #default="{ row }">
             <el-button type="primary" link size="small" @click="handleEdit(row)">编辑</el-button>

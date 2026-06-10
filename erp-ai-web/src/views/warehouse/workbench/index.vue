@@ -1,7 +1,11 @@
 <template>
-  <div class="warehouse-workbench-page">
-    <div class="page-header">
-      <h2>{{ $t('warehouse.workbench.title') }}</h2>
+  <PageP02Workbench
+    view-id="warehouse-workbench"
+    page-type="P02"
+    :config="pageConfig"
+    :permissions="[]"
+  >
+    <template #header-extra>
       <p class="page-desc">{{ $t('warehouse.workbench.desc') }}</p>
       <el-select
         v-model="timeRange"
@@ -19,106 +23,108 @@
       <el-button :icon="RefreshRight" :loading="isGlobalLoading" @click="handleRefreshAll">
         {{ $t('common.refresh') }}
       </el-button>
-    </div>
+    </template>
 
-    <div v-loading="isGlobalLoading" class="workbench-content">
-      <!-- KPI卡片区 -->
-      <section class="workbench-section">
-        <div class="section-header">
-          <h3>{{ $t('warehouse.workbench.kpiTitle') }}</h3>
-        </div>
-        <div v-if="kpiError" class="area-error">
-          <el-result icon="error" sub-title="KPI数据加载失败">
-            <template #extra>
-              <el-button type="primary" size="small" @click="loadKpiArea">重试</el-button>
-            </template>
-          </el-result>
-        </div>
-        <Suspense v-else>
-          <KpiCardArea ref="kpiCardAreaRef" />
-        </Suspense>
-      </section>
+    <template #main-content>
+      <div v-loading="isGlobalLoading" class="workbench-content">
+        <!-- KPI卡片区 -->
+        <section class="workbench-section">
+          <div class="section-header">
+            <h3>{{ $t('warehouse.workbench.kpiTitle') }}</h3>
+          </div>
+          <div v-if="kpiError" class="area-error">
+            <el-result icon="error" sub-title="KPI数据加载失败">
+              <template #extra>
+                <el-button type="primary" size="small" @click="loadKpiArea">重试</el-button>
+              </template>
+            </el-result>
+          </div>
+          <Suspense v-else>
+            <KpiCardArea ref="kpiCardAreaRef" />
+          </Suspense>
+        </section>
 
-      <!-- 图表区 -->
-      <section class="workbench-section">
-        <div class="section-header">
-          <h3>{{ $t('warehouse.workbench.chartTitle') }}</h3>
-        </div>
-        <div v-if="chartError" class="area-error">
-          <el-result icon="error" sub-title="图表数据加载失败">
-            <template #extra>
-              <el-button type="primary" size="small" @click="loadChartArea">重试</el-button>
-            </template>
-          </el-result>
-        </div>
-        <el-row v-else :gutter="16" class="chart-row">
-          <el-col :xs="24" :md="14">
-            <el-card shadow="never">
-              <template #header>
-                <span class="card-title">{{ $t('warehouse.workbench.trendTitle') }}</span>
+        <!-- 图表区 -->
+        <section class="workbench-section">
+          <div class="section-header">
+            <h3>{{ $t('warehouse.workbench.chartTitle') }}</h3>
+          </div>
+          <div v-if="chartError" class="area-error">
+            <el-result icon="error" sub-title="图表数据加载失败">
+              <template #extra>
+                <el-button type="primary" size="small" @click="loadChartArea">重试</el-button>
               </template>
-              <div ref="trendChartRef" class="chart-container"></div>
-            </el-card>
-          </el-col>
-          <el-col :xs="24" :md="10">
-            <el-card shadow="never">
-              <template #header>
-                <span class="card-title">{{ $t('warehouse.workbench.distTitle') }}</span>
-              </template>
-              <div ref="distChartRef" class="chart-container"></div>
-            </el-card>
-          </el-col>
-        </el-row>
-      </section>
+            </el-result>
+          </div>
+          <el-row v-else :gutter="16" class="chart-row">
+            <el-col :xs="24" :md="14">
+              <el-card shadow="never">
+                <template #header>
+                  <span class="card-title">{{ $t('warehouse.workbench.trendTitle') }}</span>
+                </template>
+                <div ref="trendChartRef" class="chart-container"></div>
+              </el-card>
+            </el-col>
+            <el-col :xs="24" :md="10">
+              <el-card shadow="never">
+                <template #header>
+                  <span class="card-title">{{ $t('warehouse.workbench.distTitle') }}</span>
+                </template>
+                <div ref="distChartRef" class="chart-container"></div>
+              </el-card>
+            </el-col>
+          </el-row>
+        </section>
 
-      <!-- 待办区 -->
-      <section class="workbench-section">
-        <div class="section-header">
-          <h3>{{ $t('warehouse.workbench.todoTitle') }}</h3>
-        </div>
-        <div v-if="todoError" class="area-error">
-          <el-result icon="error" sub-title="待办数据加载失败">
-            <template #extra>
-              <el-button type="primary" size="small" @click="loadTodoArea">重试</el-button>
-            </template>
-          </el-result>
-        </div>
-        <el-card v-else shadow="never">
-          <el-table :data="todoItems" border stripe empty-text="暂无待办事项" style="width: 100%">
-            <el-table-column
-              prop="title"
-              :label="$t('warehouse.workbench.todoTitle')"
-              min-width="200"
-            />
-            <el-table-column
-              prop="type"
-              :label="$t('warehouse.workbench.todoType')"
-              width="120"
-              align="center"
-            >
-              <template #default="{ row }">
-                <el-tag :type="getTodoTagType(row.type)" size="small">
-                  {{ row.typeLabel }}
-                </el-tag>
+        <!-- 待办区 -->
+        <section class="workbench-section">
+          <div class="section-header">
+            <h3>{{ $t('warehouse.workbench.todoTitle') }}</h3>
+          </div>
+          <div v-if="todoError" class="area-error">
+            <el-result icon="error" sub-title="待办数据加载失败">
+              <template #extra>
+                <el-button type="primary" size="small" @click="loadTodoArea">重试</el-button>
               </template>
-            </el-table-column>
-            <el-table-column
-              prop="createTime"
-              :label="$t('warehouse.workbench.todoTime')"
-              width="180"
-            />
-            <el-table-column :label="$t('common.action')" width="120" align="center">
-              <template #default="{ row }">
-                <el-button type="primary" link size="small" @click="handleTodoClick(row)">
-                  {{ $t('common.process') }}
-                </el-button>
-              </template>
-            </el-table-column>
-          </el-table>
-        </el-card>
-      </section>
-    </div>
-  </div>
+            </el-result>
+          </div>
+          <el-card v-else shadow="never">
+            <el-table :data="todoItems" border stripe empty-text="暂无待办事项" style="width: 100%">
+              <el-table-column
+                prop="title"
+                :label="$t('warehouse.workbench.todoTitle')"
+                min-width="200"
+              />
+              <el-table-column
+                prop="type"
+                :label="$t('warehouse.workbench.todoType')"
+                width="120"
+                align="center"
+              >
+                <template #default="{ row }">
+                  <el-tag :type="getTodoTagType(row.type)" size="small">
+                    {{ row.typeLabel }}
+                  </el-tag>
+                </template>
+              </el-table-column>
+              <el-table-column
+                prop="createTime"
+                :label="$t('warehouse.workbench.todoTime')"
+                width="180"
+              />
+              <el-table-column :label="$t('common.action')" width="120" align="center">
+                <template #default="{ row }">
+                  <el-button type="primary" link size="small" @click="handleTodoClick(row)">
+                    {{ $t('common.process') }}
+                  </el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+          </el-card>
+        </section>
+      </div>
+    </template>
+  </PageP02Workbench>
 </template>
 
 <script setup lang="ts">
@@ -130,6 +136,8 @@ import * as echarts from 'echarts/core'
 import { LineChart, PieChart } from 'echarts/charts'
 import { GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
+import PageP02Workbench from '@/components/page-base/PageP02Workbench.vue'
+import type { WorkbenchPageConfig } from '@/types/page-base.d.ts'
 import KpiCardArea from './components/KpiCardArea.vue'
 import {
   getWarehouseWorkbenchChartApi,
@@ -139,6 +147,11 @@ import {
 import { WORKBENCH_CONTEXT_KEY, type WorkbenchContext } from './types'
 
 echarts.use([LineChart, PieChart, GridComponent, TooltipComponent, LegendComponent, CanvasRenderer])
+
+const pageConfig: WorkbenchPageConfig = {
+  title: '仓库管理工作台',
+  showStatCards: false
+}
 
 const timeRange = ref<TimeRange>('week')
 const loadingCount = ref(0)
@@ -388,69 +401,50 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
-.warehouse-workbench-page {
-  padding: 20px;
+.page-desc {
+  margin: 0;
+  font-size: 14px;
+  color: var(--el-text-color-secondary);
+}
 
-  .page-header {
+.workbench-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.workbench-section {
+  .section-header {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    margin-bottom: 12px;
 
-    h2 {
+    h3 {
       margin: 0;
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--el-text-color-primary);
-    }
-
-    .page-desc {
-      flex: 1;
-      margin: 0;
-      font-size: 14px;
-      color: var(--el-text-color-secondary);
-    }
-  }
-
-  .workbench-content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .workbench-section {
-    .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-
-      h3 {
-        margin: 0;
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--el-text-color-primary);
-      }
-    }
-  }
-
-  .chart-row {
-    .card-title {
       font-size: 16px;
       font-weight: 600;
       color: var(--el-text-color-primary);
     }
+  }
+}
 
-    .chart-container {
-      width: 100%;
-      height: 320px;
-    }
+.chart-row {
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--el-text-color-primary);
   }
 
-  .area-error {
-    padding: 20px;
-    background: var(--el-bg-color);
-    border-radius: 8px;
+  .chart-container {
+    width: 100%;
+    height: 320px;
   }
+}
+
+.area-error {
+  padding: 20px;
+  background: var(--el-bg-color);
+  border-radius: 8px;
 }
 </style>
