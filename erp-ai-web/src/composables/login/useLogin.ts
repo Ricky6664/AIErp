@@ -187,11 +187,18 @@ export function useLogin() {
         return
       }
 
-      // 动态路由生成：根据菜单树添加路由（作为 Layout 子路由，跳过已存在的静态路由）
+      // 动态路由生成：根据菜单树添加路由（作为 Layout 子路由，跳过路径已存在的静态路由）
       if (userStore.menuTree.length > 0) {
         permissionStore.generateRoutes(userStore.menuTree)
+        const existingPaths = new Set(
+          router.getRoutes().map((r) => {
+            const p = r.path || ''
+            return p.startsWith('/') ? p : `/${p}`
+          })
+        )
         for (const r of permissionStore.routes) {
-          if (r.name && !router.hasRoute(r.name)) {
+          const fullPath = (r.path || '').startsWith('/') ? r.path : `/${r.path}`
+          if (r.name && !router.hasRoute(r.name) && !existingPaths.has(fullPath)) {
             router.addRoute('Layout', r)
           }
         }

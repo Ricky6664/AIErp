@@ -16,18 +16,20 @@ function buildRoutes(menuTree: MenuTreeNode[]): RouteRecordRaw[] {
 
     const childRoutes =
       node.children && node.children.length > 0 ? buildRoutes(node.children) : undefined
-    const childPath = (node.routePath || '').replace(/^\//, '')
+
+    // 路径保持绝对形式（以 / 开头），避免 Vue Router 嵌套时路径重复拼接
+    // 种子数据中 routePath 已是完整绝对路径如 /system/user
+    const routePath = node.routePath || ''
+    const absPath = routePath.startsWith('/') ? routePath : `/${routePath}`
 
     // 有子菜单的父节点：如果自己没有页面组件，则自动重定向到第一个子页面
     if (!node.componentPath && childRoutes && childRoutes.length > 0) {
       const firstChild = childRoutes[0]
-      const firstChildPath = firstChild.path || ''
+      const firstChildPath = (firstChild.path || '') as string
       routes.push({
-        path: childPath,
+        path: absPath,
         name: node.menuName,
-        redirect: firstChildPath.startsWith('/')
-          ? firstChildPath
-          : `${childPath}/${firstChildPath}`.replace(/\/+/g, '/'),
+        redirect: firstChildPath,
         meta: {
           title: node.menuName,
           icon: node.icon,
@@ -43,7 +45,7 @@ function buildRoutes(menuTree: MenuTreeNode[]): RouteRecordRaw[] {
 
     // 有组件的叶子节点或父节点
     const route: RouteRecordRaw = {
-      path: childPath,
+      path: absPath,
       name: node.menuName,
       component: node.componentPath ? resolveComponent(node.componentPath) : undefined,
       meta: {
