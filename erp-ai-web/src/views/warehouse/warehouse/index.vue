@@ -1,29 +1,36 @@
 <template>
-  <div class="warehouse-list-page">
-    <!-- 快捷统计卡片 -->
-    <el-row :gutter="16" class="stats-row">
-      <el-col :xs="24" :sm="8">
-        <el-card shadow="hover" class="stat-card">
-          <div class="stat-value">{{ stats.total }}</div>
-          <div class="stat-label">仓库总数</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="8">
-        <el-card shadow="hover" class="stat-card stat-card--enabled">
-          <div class="stat-value">{{ stats.enabled }}</div>
-          <div class="stat-label">已启用</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="8">
-        <el-card shadow="hover" class="stat-card stat-card--disabled">
-          <div class="stat-value">{{ stats.disabled }}</div>
-          <div class="stat-label">已停用</div>
-        </el-card>
-      </el-col>
-    </el-row>
+  <PageP04SimpleList
+    view-id="warehouse-list"
+    page-type="P04"
+    :config="pageConfig"
+    :permissions="permissions"
+  >
+    <!-- 统计卡片 -->
+    <template #extra-area>
+      <el-row :gutter="16" class="stats-row">
+        <el-col :xs="24" :sm="8">
+          <el-card shadow="hover" class="stat-card">
+            <div class="stat-value">{{ stats.total }}</div>
+            <div class="stat-label">仓库总数</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="8">
+          <el-card shadow="hover" class="stat-card stat-card--enabled">
+            <div class="stat-value">{{ stats.enabled }}</div>
+            <div class="stat-label">已启用</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="8">
+          <el-card shadow="hover" class="stat-card stat-card--disabled">
+            <div class="stat-value">{{ stats.disabled }}</div>
+            <div class="stat-label">已停用</div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </template>
 
-    <!-- 搜索表单 -->
-    <el-card shadow="never" class="search-card">
+    <!-- 查询区 -->
+    <template #query-panel>
       <el-form :model="searchForm" :inline="true" @submit.prevent>
         <el-form-item label="仓库名称">
           <el-input
@@ -63,17 +70,20 @@
           <el-button @click="handleReset">重置</el-button>
         </el-form-item>
       </el-form>
-    </el-card>
+    </template>
+
+    <!-- 操作栏 -->
+    <template #action-bar>
+      <div class="action-bar-left">
+        <el-button type="primary" @click="handleCreate">新增</el-button>
+      </div>
+      <div class="action-bar-right">
+        <span class="record-count">{{ stats.total }} 条记录</span>
+      </div>
+    </template>
 
     <!-- 数据表格 -->
-    <el-card shadow="never" class="table-card">
-      <template #header>
-        <div class="table-header">
-          <span>{{ stats.total }} 条记录</span>
-          <el-button type="primary" @click="handleCreate">新建仓库</el-button>
-        </div>
-      </template>
-
+    <template #main-content>
       <vxe-table
         :loading="tableLoading"
         :data="tableData"
@@ -128,117 +138,117 @@
         </vxe-column>
       </vxe-table>
 
-      <div class="pagination-wrapper">
-        <vxe-pager
-          v-model:current-page="pagination.pageNum"
-          v-model:page-size="pagination.pageSize"
-          :total="pagination.total"
-          :layouts="['Total', 'Sizes', 'PrevPage', 'Number', 'NextPage', 'FullJump', 'PageCount']"
-          background
-          @page-change="handleSearch"
+      <!-- 分页 -->
+      <div class="pagination-box">
+        <el-pagination
+          v-model:current-page="searchForm.page"
+          v-model:page-size="searchForm.pageSize"
+          :total="stats.total"
+          :page-sizes="[10, 20, 50, 100]"
+          layout="total, sizes, prev, pager, next"
+          small
+          @size-change="handleSearch"
+          @current-change="handleSearch"
         />
       </div>
-    </el-card>
+    </template>
+  </PageP04SimpleList>
 
-    <!-- 仓库表单弹窗 -->
-    <el-dialog
-      v-model="dialogVisible"
-      :title="isEdit ? '编辑仓库' : '新增仓库'"
-      width="640px"
-      destroy-on-close
-      @closed="handleDialogClosed"
-    >
-      <el-form ref="formRef" :model="formData" :rules="formRules" label-width="100px">
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="仓库编码" prop="warehouseCode">
-              <el-input v-model="formData.warehouseCode" disabled placeholder="系统自动生成" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="仓库名称" prop="warehouseName">
-              <el-input
-                v-model="formData.warehouseName"
-                placeholder="请输入仓库名称"
-                maxlength="100"
-                show-word-limit
+  <!-- 新增/编辑弹窗（弹窗留在外部） -->
+  <el-dialog
+    v-model="dialogVisible"
+    :title="isEdit ? '编辑仓库' : '新增仓库'"
+    width="640px"
+    destroy-on-close
+    @closed="handleDialogClosed"
+  >
+    <el-form ref="formRef" :model="formData" :rules="formRules" label-width="100px">
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="仓库编码" prop="warehouseCode">
+            <el-input v-model="formData.warehouseCode" disabled placeholder="系统自动生成" />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="仓库名称" prop="warehouseName">
+            <el-input v-model="formData.warehouseName" placeholder="请输入" maxlength="100" />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="仓库类型" prop="warehouseType">
+            <el-select v-model="formData.warehouseType" placeholder="请选择" style="width: 100%">
+              <el-option label="普通仓" value="NORMAL" />
+              <el-option label="保税仓" value="BONDED" />
+              <el-option label="虚拟仓" value="VIRTUAL" />
+            </el-select>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="状态" prop="status">
+            <el-radio-group v-model="formData.status">
+              <el-radio :value="1">启用</el-radio>
+              <el-radio :value="0">停用</el-radio>
+            </el-radio-group>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="负责人" prop="managerId">
+            <el-select
+              v-model="formData.managerId"
+              filterable
+              remote
+              reserve-keyword
+              :remote-method="handleUserSearch"
+              :loading="userSearchLoading"
+              clearable
+              placeholder="请输入负责人姓名搜索"
+              style="width: 100%"
+            >
+              <el-option
+                v-for="user in userOptions"
+                :key="user.id"
+                :label="user.nickname || user.username"
+                :value="user.id"
               />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="仓库类型" prop="warehouseType">
-              <el-select
-                v-model="formData.warehouseType"
-                placeholder="请选择仓库类型"
-                style="width: 100%"
-              >
-                <el-option label="普通仓" value="NORMAL" />
-                <el-option label="保税仓" value="BONDED" />
-                <el-option label="虚拟仓" value="VIRTUAL" />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="状态" prop="status">
-              <el-radio-group v-model="formData.status">
-                <el-radio :value="1">启用</el-radio>
-                <el-radio :value="0">停用</el-radio>
-              </el-radio-group>
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="负责人" prop="managerId">
-              <el-select
-                v-model="formData.managerId"
-                placeholder="请选择负责人"
-                clearable
-                filterable
-                remote
-                :remote-method="handleUserSearch"
-                :loading="userSearchLoading"
-                style="width: 100%"
-              >
-                <el-option
-                  v-for="user in userOptions"
-                  :key="user.id"
-                  :label="user.realName || user.username"
-                  :value="user.id"
-                />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="联系电话" prop="phone">
-              <el-input v-model="formData.phone" placeholder="请输入联系电话" maxlength="11" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-form-item label="地址" prop="address">
-          <el-input
-            v-model="formData.address"
-            type="textarea"
-            placeholder="请输入仓库地址"
-            maxlength="500"
-            show-word-limit
-            :rows="3"
-          />
-        </el-form-item>
-      </el-form>
-      <template #footer>
-        <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="primary" :loading="submitLoading" @click="handleSubmit">确定</el-button>
-      </template>
-    </el-dialog>
-  </div>
+            </el-select>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="联系电话" prop="phone">
+            <el-input v-model="formData.phone" placeholder="请输入" maxlength="30" />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="24">
+          <el-form-item label="地址" prop="address">
+            <el-input
+              v-model="formData.address"
+              type="textarea"
+              placeholder="请输入"
+              maxlength="300"
+              rows="2"
+            />
+          </el-form-item>
+        </el-col>
+      </el-row>
+    </el-form>
+    <template #footer>
+      <el-button @click="dialogVisible = false">取消</el-button>
+      <el-button type="primary" :loading="submitLoading" @click="handleSubmit">确定</el-button>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
+import PageP04SimpleList from '@/components/page-base/PageP04SimpleList.vue'
+import type { SimpleListPageConfig } from '@/types/page-base.d.ts'
 import {
   getWarehousePage,
   getWarehouseDetail,
@@ -250,6 +260,13 @@ import { getUserPageList } from '@/api/modules/user'
 import type { UserListItem } from '@/types/user'
 import type { WarehouseListVO, WarehouseCreateDTO } from '@/api/types/warehouse'
 import type { FormInstance, FormRules } from 'element-plus'
+
+const pageConfig: SimpleListPageConfig = {
+  title: '仓库定义',
+  showQueryPanel: true,
+  showActionBar: true
+}
+const permissions = ['warehouse:view', 'warehouse:create', 'warehouse:edit', 'warehouse:delete']
 
 const formRef = ref<FormInstance>()
 const tableLoading = ref(false)
@@ -477,55 +494,52 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-.warehouse-list-page {
-  padding: 20px;
+.stats-row {
+  margin-bottom: 0;
+}
 
-  .stats-row {
-    margin-bottom: 16px;
+.stat-card {
+  text-align: center;
+  cursor: default;
+
+  .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--el-text-color-primary);
+    line-height: 1.4;
   }
 
-  .stat-card {
-    text-align: center;
-    cursor: default;
-
-    .stat-value {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--el-text-color-primary);
-      line-height: 1.4;
-    }
-
-    .stat-label {
-      font-size: 13px;
-      color: var(--el-text-color-secondary);
-      margin-top: 4px;
-    }
-
-    &--enabled .stat-value {
-      color: var(--el-color-success);
-    }
-
-    &--disabled .stat-value {
-      color: var(--el-color-danger);
-    }
+  .stat-label {
+    font-size: 13px;
+    color: var(--el-text-color-secondary);
+    margin-top: 4px;
   }
 
-  .search-card {
-    margin-bottom: 16px;
+  &--enabled .stat-value {
+    color: var(--el-color-success);
   }
+  &--disabled .stat-value {
+    color: var(--el-color-danger);
+  }
+}
 
-  .table-card {
-    .table-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
+.action-bar-left {
+  display: flex;
+  gap: 8px;
+}
+.action-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.record-count {
+  font-size: 13px;
+  color: var(--el-text-color-secondary);
+}
 
-  .pagination-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 16px;
-  }
+.pagination-box {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 0 0;
 }
 </style>
