@@ -8,7 +8,10 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -60,7 +63,7 @@ public class CaptchaService {
         String redisKey = CAPTCHA_PREFIX + captchaKey;
         redisTemplate.opsForValue().set(redisKey, captchaCode, CAPTCHA_TTL, CAPTCHA_TTL_UNIT);
         String base64Image = drawCaptchaImage(captchaCode);
-        log.debug("验证码图片已生成: key={}", captchaKey);
+        log.info("验证码: key={}, code={}", captchaKey, captchaCode);
         return CaptchaVO.builder()
                 .captchaKey(captchaKey)
                 .captchaImage(base64Image)
@@ -143,6 +146,15 @@ public class CaptchaService {
         }
         redisTemplate.delete(redisKey);
         log.debug("验证码校验通过并已删除: key={}", captchaKey);
+    }
+
+    /**
+     * [DEV] 获取验证码文本（仅开发环境使用）.
+     */
+    public String getCaptchaCode(String captchaKey) {
+        String redisKey = CAPTCHA_PREFIX + captchaKey;
+        String storedCode = redisTemplate.opsForValue().get(redisKey);
+        return storedCode != null ? storedCode : "已过期";
     }
 
     private String generateRandomCode(int length) {
