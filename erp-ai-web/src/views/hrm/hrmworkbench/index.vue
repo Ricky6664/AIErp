@@ -1,116 +1,118 @@
 <template>
-  <div class="hrm-workbench-page">
-    <div class="page-header">
-      <h2>{{ $t('hrm.workbench.title') }}</h2>
-      <p class="page-desc">{{ $t('hrm.workbench.desc') }}</p>
+  <PageP02Workbench view-id="hrm-workbench" page-type="P02" :config="pageConfig" :permissions="[]">
+    <template #header-extra>
       <el-button :icon="RefreshRight" :loading="loading" @click="loadData">
         {{ $t('common.refresh') }}
       </el-button>
-    </div>
+    </template>
 
-    <div v-loading="loading" class="workbench-content">
-      <div v-if="error" class="area-error">
-        <el-result icon="error" sub-title="数据加载失败">
-          <template #extra>
-            <el-button type="primary" size="small" @click="loadData">重试</el-button>
+    <template #main-content>
+      <div class="hrm-workbench-page">
+        <div v-loading="loading" class="workbench-content">
+          <div v-if="error" class="area-error">
+            <el-result icon="error" sub-title="数据加载失败">
+              <template #extra>
+                <el-button type="primary" size="small" @click="loadData">重试</el-button>
+              </template>
+            </el-result>
+          </div>
+
+          <template v-else-if="data">
+            <!-- KPI卡片区 -->
+            <section class="workbench-section">
+              <div class="section-header">
+                <h3>{{ $t('hrm.workbench.kpiTitle') }}</h3>
+              </div>
+              <el-row :gutter="16" class="kpi-row">
+                <el-col :xs="12" :sm="8" :md="6" :lg="4">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value">
+                      {{ data.activeEmployees ?? 0 }}
+                      <span class="kpi-sub">/ {{ data.totalEmployees ?? 0 }}</span>
+                    </div>
+                    <div class="kpi-label">{{ $t('hrm.workbench.employeeCount') }}</div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="12" :sm="8" :md="6" :lg="4">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value">{{ data.newHiresThisMonth ?? 0 }}</div>
+                    <div class="kpi-label">{{ $t('hrm.workbench.newHires') }}</div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="12" :sm="8" :md="6" :lg="4">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value">{{ data.openRecruitments ?? 0 }}</div>
+                    <div class="kpi-label">{{ $t('hrm.workbench.openRecruitments') }}</div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="12" :sm="8" :md="6" :lg="4">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value salary-value">
+                      {{ formatSalary(data.totalMonthlySalary) }}
+                    </div>
+                    <div class="kpi-label">{{ $t('hrm.workbench.monthlySalary') }}</div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="12" :sm="8" :md="6" :lg="4">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value">{{ data.departmentCount ?? 0 }}</div>
+                    <div class="kpi-label">{{ $t('hrm.workbench.departmentCount') }}</div>
+                  </el-card>
+                </el-col>
+              </el-row>
+            </section>
+
+            <!-- 图表区-第一行 -->
+            <section class="workbench-section">
+              <div class="section-header">
+                <h3>{{ $t('hrm.workbench.chartTitle') }}</h3>
+              </div>
+              <el-row :gutter="16" class="chart-row">
+                <el-col :xs="24" :md="14">
+                  <el-card shadow="never">
+                    <template #header>
+                      <span class="card-title">{{ $t('hrm.workbench.employeeTrend') }}</span>
+                    </template>
+                    <div ref="employeeTrendRef" class="chart-container"></div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="24" :md="10">
+                  <el-card shadow="never">
+                    <template #header>
+                      <span class="card-title">{{ $t('hrm.workbench.deptDist') }}</span>
+                    </template>
+                    <div ref="deptDistRef" class="chart-container"></div>
+                  </el-card>
+                </el-col>
+              </el-row>
+            </section>
+
+            <!-- 图表区-第二行 -->
+            <section class="workbench-section">
+              <el-row :gutter="16" class="chart-row">
+                <el-col :xs="24" :md="14">
+                  <el-card shadow="never">
+                    <template #header>
+                      <span class="card-title">{{ $t('hrm.workbench.attendanceTrend') }}</span>
+                    </template>
+                    <div ref="attendanceTrendRef" class="chart-container"></div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="24" :md="10">
+                  <el-card shadow="never">
+                    <template #header>
+                      <span class="card-title">{{ $t('hrm.workbench.recruitStatus') }}</span>
+                    </template>
+                    <div ref="recruitStatusRef" class="chart-container"></div>
+                  </el-card>
+                </el-col>
+              </el-row>
+            </section>
           </template>
-        </el-result>
+        </div>
       </div>
-
-      <template v-else-if="data">
-        <!-- KPI卡片区 -->
-        <section class="workbench-section">
-          <div class="section-header">
-            <h3>{{ $t('hrm.workbench.kpiTitle') }}</h3>
-          </div>
-          <el-row :gutter="16" class="kpi-row">
-            <el-col :xs="12" :sm="8" :md="6" :lg="4">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value">
-                  {{ data.activeEmployees ?? 0 }}
-                  <span class="kpi-sub">/ {{ data.totalEmployees ?? 0 }}</span>
-                </div>
-                <div class="kpi-label">{{ $t('hrm.workbench.employeeCount') }}</div>
-              </el-card>
-            </el-col>
-            <el-col :xs="12" :sm="8" :md="6" :lg="4">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value">{{ data.newHiresThisMonth ?? 0 }}</div>
-                <div class="kpi-label">{{ $t('hrm.workbench.newHires') }}</div>
-              </el-card>
-            </el-col>
-            <el-col :xs="12" :sm="8" :md="6" :lg="4">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value">{{ data.openRecruitments ?? 0 }}</div>
-                <div class="kpi-label">{{ $t('hrm.workbench.openRecruitments') }}</div>
-              </el-card>
-            </el-col>
-            <el-col :xs="12" :sm="8" :md="6" :lg="4">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value salary-value">
-                  {{ formatSalary(data.totalMonthlySalary) }}
-                </div>
-                <div class="kpi-label">{{ $t('hrm.workbench.monthlySalary') }}</div>
-              </el-card>
-            </el-col>
-            <el-col :xs="12" :sm="8" :md="6" :lg="4">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value">{{ data.departmentCount ?? 0 }}</div>
-                <div class="kpi-label">{{ $t('hrm.workbench.departmentCount') }}</div>
-              </el-card>
-            </el-col>
-          </el-row>
-        </section>
-
-        <!-- 图表区-第一行 -->
-        <section class="workbench-section">
-          <div class="section-header">
-            <h3>{{ $t('hrm.workbench.chartTitle') }}</h3>
-          </div>
-          <el-row :gutter="16" class="chart-row">
-            <el-col :xs="24" :md="14">
-              <el-card shadow="never">
-                <template #header>
-                  <span class="card-title">{{ $t('hrm.workbench.employeeTrend') }}</span>
-                </template>
-                <div ref="employeeTrendRef" class="chart-container"></div>
-              </el-card>
-            </el-col>
-            <el-col :xs="24" :md="10">
-              <el-card shadow="never">
-                <template #header>
-                  <span class="card-title">{{ $t('hrm.workbench.deptDist') }}</span>
-                </template>
-                <div ref="deptDistRef" class="chart-container"></div>
-              </el-card>
-            </el-col>
-          </el-row>
-        </section>
-
-        <!-- 图表区-第二行 -->
-        <section class="workbench-section">
-          <el-row :gutter="16" class="chart-row">
-            <el-col :xs="24" :md="14">
-              <el-card shadow="never">
-                <template #header>
-                  <span class="card-title">{{ $t('hrm.workbench.attendanceTrend') }}</span>
-                </template>
-                <div ref="attendanceTrendRef" class="chart-container"></div>
-              </el-card>
-            </el-col>
-            <el-col :xs="24" :md="10">
-              <el-card shadow="never">
-                <template #header>
-                  <span class="card-title">{{ $t('hrm.workbench.recruitStatus') }}</span>
-                </template>
-                <div ref="recruitStatusRef" class="chart-container"></div>
-              </el-card>
-            </el-col>
-          </el-row>
-        </section>
-      </template>
-    </div>
-  </div>
+    </template>
+  </PageP02Workbench>
 </template>
 
 <script setup lang="ts">
@@ -123,10 +125,19 @@ import { LineChart, PieChart } from 'echarts/charts'
 import { GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
 import { getHrmWorkbenchApi, type HrmWorkbenchVO } from '@/api/modules/hrm-workbench'
+import PageP02Workbench from '@/components/page-base/PageP02Workbench.vue'
+import type { WorkbenchPageConfig } from '@/types/page-base.d.ts'
 
 echarts.use([LineChart, PieChart, GridComponent, TooltipComponent, LegendComponent, CanvasRenderer])
 
 const { t } = useI18n()
+
+const pageConfig: WorkbenchPageConfig = {
+  title: '人力资源工作台',
+  showStatCards: false,
+  showQueryPanel: false,
+  showActionBar: false
+}
 
 const loading = ref(false)
 const error = ref(false)
@@ -319,29 +330,6 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .hrm-workbench-page {
-  padding: 20px;
-
-  .page-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-
-    h2 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--el-text-color-primary);
-    }
-
-    .page-desc {
-      flex: 1;
-      margin: 0;
-      font-size: 14px;
-      color: var(--el-text-color-secondary);
-    }
-  }
-
   .workbench-content {
     display: flex;
     flex-direction: column;

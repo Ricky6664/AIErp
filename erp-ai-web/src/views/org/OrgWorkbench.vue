@@ -1,189 +1,191 @@
-﻿<template>
-  <div class="org-workbench-page">
-    <div class="page-header">
-      <h2>{{ $t('org.workbench.title') }}</h2>
-      <p class="page-desc">{{ $t('org.workbench.desc') }}</p>
+<template>
+  <PageP02Workbench view-id="org-workbench" page-type="P02" :config="pageConfig" :permissions="[]">
+    <template #header-extra>
       <el-button :icon="RefreshRight" :loading="loading" @click="loadData">
         {{ $t('refresh') }}
       </el-button>
-    </div>
+    </template>
 
-    <div v-loading="loading" class="workbench-content">
-      <div v-if="error" class="area-error">
-        <el-result icon="error" :sub-title="$t('org.workbench.loadFailed')">
-          <template #extra>
-            <el-button type="primary" size="small" @click="loadData">{{
-              $t('org.workbench.retry')
-            }}</el-button>
+    <template #main-content>
+      <div class="org-workbench-page">
+        <div v-loading="loading" class="workbench-content">
+          <div v-if="error" class="area-error">
+            <el-result icon="error" :sub-title="$t('org.workbench.loadFailed')">
+              <template #extra>
+                <el-button type="primary" size="small" @click="loadData">{{
+                  $t('org.workbench.retry')
+                }}</el-button>
+              </template>
+            </el-result>
+          </div>
+
+          <template v-else-if="data">
+            <!-- KPI 统计卡片区 -->
+            <section class="workbench-section">
+              <div class="section-header">
+                <h3>{{ $t('org.workbench.kpiTitle') }}</h3>
+              </div>
+              <el-row :gutter="16" class="kpi-row">
+                <el-col :xs="12" :sm="12" :md="6">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value">{{ animatedCompanyCount }}</div>
+                    <div class="kpi-label">{{ $t('org.workbench.companyCount') }}</div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="12" :sm="12" :md="6">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value">{{ animatedDeptCount }}</div>
+                    <div class="kpi-label">{{ $t('org.workbench.departmentCount') }}</div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="12" :sm="12" :md="6">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value">{{ animatedPositionCount }}</div>
+                    <div class="kpi-label">{{ $t('org.workbench.positionCount') }}</div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="12" :sm="12" :md="6">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value">{{ animatedEmployeeCount }}</div>
+                    <div class="kpi-label">{{ $t('org.workbench.employeeCount') }}</div>
+                  </el-card>
+                </el-col>
+              </el-row>
+            </section>
+
+            <!-- 图表区 -->
+            <section class="workbench-section">
+              <div class="section-header">
+                <h3>{{ $t('org.workbench.chartTitle') }}</h3>
+              </div>
+              <el-row :gutter="16" class="chart-row">
+                <el-col :xs="24" :md="12">
+                  <el-card shadow="never">
+                    <template #header>
+                      <span class="card-title">{{ $t('org.workbench.deptTypeDist') }}</span>
+                    </template>
+                    <div ref="pieChartRef" class="chart-container"></div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="24" :md="12">
+                  <el-card shadow="never">
+                    <template #header>
+                      <span class="card-title">{{ $t('org.workbench.companyDeptCompare') }}</span>
+                    </template>
+                    <div ref="barChartRef" class="chart-container"></div>
+                  </el-card>
+                </el-col>
+              </el-row>
+            </section>
+
+            <!-- 快捷操作区 -->
+            <section class="workbench-section">
+              <div class="section-header">
+                <h3>{{ $t('org.workbench.quickActions') }}</h3>
+              </div>
+              <el-row :gutter="16" class="action-row">
+                <el-col :xs="12" :sm="6">
+                  <el-button
+                    v-permission="'org:company:add'"
+                    type="primary"
+                    :icon="Plus"
+                    class="action-btn"
+                    @click="handleNavigate('/org/company')"
+                  >
+                    {{ $t('org.workbench.addCompany') }}
+                  </el-button>
+                </el-col>
+                <el-col :xs="12" :sm="6">
+                  <el-button
+                    v-permission="'org:department:add'"
+                    type="success"
+                    :icon="Plus"
+                    class="action-btn"
+                    @click="handleNavigate('/org/department')"
+                  >
+                    {{ $t('org.workbench.addDepartment') }}
+                  </el-button>
+                </el-col>
+                <el-col :xs="12" :sm="6">
+                  <el-button
+                    v-permission="'org:position:add'"
+                    type="warning"
+                    :icon="Plus"
+                    class="action-btn"
+                    @click="handleNavigate('/org/position')"
+                  >
+                    {{ $t('org.workbench.addPosition') }}
+                  </el-button>
+                </el-col>
+                <el-col :xs="12" :sm="6">
+                  <el-button
+                    v-permission="'org:structure:view'"
+                    type="info"
+                    :icon="Share"
+                    class="action-btn"
+                    @click="handleNavigate('/org/structure')"
+                  >
+                    {{ $t('org.workbench.orgChart') }}
+                  </el-button>
+                </el-col>
+              </el-row>
+            </section>
+
+            <!-- 最近新增记录 -->
+            <section class="workbench-section">
+              <div class="section-header">
+                <h3>{{ $t('org.workbench.recentRecords') }}</h3>
+              </div>
+              <el-row :gutter="16">
+                <el-col :xs="24" :md="8">
+                  <el-card shadow="never" class="recent-card">
+                    <template #header>
+                      <span class="card-title">{{ $t('org.workbench.recentCompany') }}</span>
+                    </template>
+                    <div v-if="recentCompanies.length === 0" class="empty-tip">
+                      {{ $t('noData') }}
+                    </div>
+                    <div v-for="item in recentCompanies" :key="item.id" class="recent-item">
+                      <span class="recent-name">{{ item.name }}</span>
+                      <span class="recent-time">{{ item.createTime }}</span>
+                    </div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="24" :md="8">
+                  <el-card shadow="never" class="recent-card">
+                    <template #header>
+                      <span class="card-title">{{ $t('org.workbench.recentDept') }}</span>
+                    </template>
+                    <div v-if="recentDepartments.length === 0" class="empty-tip">
+                      {{ $t('noData') }}
+                    </div>
+                    <div v-for="item in recentDepartments" :key="item.id" class="recent-item">
+                      <span class="recent-name">{{ item.name }}</span>
+                      <span class="recent-time">{{ item.createTime }}</span>
+                    </div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="24" :md="8">
+                  <el-card shadow="never" class="recent-card">
+                    <template #header>
+                      <span class="card-title">{{ $t('org.workbench.recentPosition') }}</span>
+                    </template>
+                    <div v-if="recentPositions.length === 0" class="empty-tip">
+                      {{ $t('noData') }}
+                    </div>
+                    <div v-for="item in recentPositions" :key="item.id" class="recent-item">
+                      <span class="recent-name">{{ item.name }}</span>
+                      <span class="recent-time">{{ item.createTime }}</span>
+                    </div>
+                  </el-card>
+                </el-col>
+              </el-row>
+            </section>
           </template>
-        </el-result>
+        </div>
       </div>
-
-      <template v-else-if="data">
-        <!-- KPI 统计卡片区 -->
-        <section class="workbench-section">
-          <div class="section-header">
-            <h3>{{ $t('org.workbench.kpiTitle') }}</h3>
-          </div>
-          <el-row :gutter="16" class="kpi-row">
-            <el-col :xs="12" :sm="12" :md="6">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value">{{ animatedCompanyCount }}</div>
-                <div class="kpi-label">{{ $t('org.workbench.companyCount') }}</div>
-              </el-card>
-            </el-col>
-            <el-col :xs="12" :sm="12" :md="6">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value">{{ animatedDeptCount }}</div>
-                <div class="kpi-label">{{ $t('org.workbench.departmentCount') }}</div>
-              </el-card>
-            </el-col>
-            <el-col :xs="12" :sm="12" :md="6">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value">{{ animatedPositionCount }}</div>
-                <div class="kpi-label">{{ $t('org.workbench.positionCount') }}</div>
-              </el-card>
-            </el-col>
-            <el-col :xs="12" :sm="12" :md="6">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value">{{ animatedEmployeeCount }}</div>
-                <div class="kpi-label">{{ $t('org.workbench.employeeCount') }}</div>
-              </el-card>
-            </el-col>
-          </el-row>
-        </section>
-
-        <!-- 图表区 -->
-        <section class="workbench-section">
-          <div class="section-header">
-            <h3>{{ $t('org.workbench.chartTitle') }}</h3>
-          </div>
-          <el-row :gutter="16" class="chart-row">
-            <el-col :xs="24" :md="12">
-              <el-card shadow="never">
-                <template #header>
-                  <span class="card-title">{{ $t('org.workbench.deptTypeDist') }}</span>
-                </template>
-                <div ref="pieChartRef" class="chart-container"></div>
-              </el-card>
-            </el-col>
-            <el-col :xs="24" :md="12">
-              <el-card shadow="never">
-                <template #header>
-                  <span class="card-title">{{ $t('org.workbench.companyDeptCompare') }}</span>
-                </template>
-                <div ref="barChartRef" class="chart-container"></div>
-              </el-card>
-            </el-col>
-          </el-row>
-        </section>
-
-        <!-- 快捷操作区 -->
-        <section class="workbench-section">
-          <div class="section-header">
-            <h3>{{ $t('org.workbench.quickActions') }}</h3>
-          </div>
-          <el-row :gutter="16" class="action-row">
-            <el-col :xs="12" :sm="6">
-              <el-button
-                v-permission="'org:company:add'"
-                type="primary"
-                :icon="Plus"
-                class="action-btn"
-                @click="handleNavigate('/org/company')"
-              >
-                {{ $t('org.workbench.addCompany') }}
-              </el-button>
-            </el-col>
-            <el-col :xs="12" :sm="6">
-              <el-button
-                v-permission="'org:department:add'"
-                type="success"
-                :icon="Plus"
-                class="action-btn"
-                @click="handleNavigate('/org/department')"
-              >
-                {{ $t('org.workbench.addDepartment') }}
-              </el-button>
-            </el-col>
-            <el-col :xs="12" :sm="6">
-              <el-button
-                v-permission="'org:position:add'"
-                type="warning"
-                :icon="Plus"
-                class="action-btn"
-                @click="handleNavigate('/org/position')"
-              >
-                {{ $t('org.workbench.addPosition') }}
-              </el-button>
-            </el-col>
-            <el-col :xs="12" :sm="6">
-              <el-button
-                v-permission="'org:structure:view'"
-                type="info"
-                :icon="Share"
-                class="action-btn"
-                @click="handleNavigate('/org/structure')"
-              >
-                {{ $t('org.workbench.orgChart') }}
-              </el-button>
-            </el-col>
-          </el-row>
-        </section>
-
-        <!-- 最近新增记录 -->
-        <section class="workbench-section">
-          <div class="section-header">
-            <h3>{{ $t('org.workbench.recentRecords') }}</h3>
-          </div>
-          <el-row :gutter="16">
-            <el-col :xs="24" :md="8">
-              <el-card shadow="never" class="recent-card">
-                <template #header>
-                  <span class="card-title">{{ $t('org.workbench.recentCompany') }}</span>
-                </template>
-                <div v-if="recentCompanies.length === 0" class="empty-tip">
-                  {{ $t('noData') }}
-                </div>
-                <div v-for="item in recentCompanies" :key="item.id" class="recent-item">
-                  <span class="recent-name">{{ item.name }}</span>
-                  <span class="recent-time">{{ item.createTime }}</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :xs="24" :md="8">
-              <el-card shadow="never" class="recent-card">
-                <template #header>
-                  <span class="card-title">{{ $t('org.workbench.recentDept') }}</span>
-                </template>
-                <div v-if="recentDepartments.length === 0" class="empty-tip">
-                  {{ $t('noData') }}
-                </div>
-                <div v-for="item in recentDepartments" :key="item.id" class="recent-item">
-                  <span class="recent-name">{{ item.name }}</span>
-                  <span class="recent-time">{{ item.createTime }}</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :xs="24" :md="8">
-              <el-card shadow="never" class="recent-card">
-                <template #header>
-                  <span class="card-title">{{ $t('org.workbench.recentPosition') }}</span>
-                </template>
-                <div v-if="recentPositions.length === 0" class="empty-tip">
-                  {{ $t('noData') }}
-                </div>
-                <div v-for="item in recentPositions" :key="item.id" class="recent-item">
-                  <span class="recent-name">{{ item.name }}</span>
-                  <span class="recent-time">{{ item.createTime }}</span>
-                </div>
-              </el-card>
-            </el-col>
-          </el-row>
-        </section>
-      </template>
-    </div>
-  </div>
+    </template>
+  </PageP02Workbench>
 </template>
 
 <script setup lang="ts">
@@ -198,10 +200,19 @@ import { CanvasRenderer } from 'echarts/renderers'
 import { getOrgWorkbenchApi, type OrgWorkbenchVO } from '@/api/org/workbench'
 import { getCompanyPage } from '@/api/modules/org'
 import request from '@/utils/request'
+import PageP02Workbench from '@/components/page-base/PageP02Workbench.vue'
+import type { WorkbenchPageConfig } from '@/types/page-base.d.ts'
 
 echarts.use([PieChart, BarChart, GridComponent, TooltipComponent, LegendComponent, CanvasRenderer])
 
 const router = useRouter()
+
+const pageConfig: WorkbenchPageConfig = {
+  title: '组织架构工作台',
+  showStatCards: false,
+  showQueryPanel: false,
+  showActionBar: false
+}
 
 const loading = ref(false)
 const error = ref(false)
@@ -444,29 +455,6 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .org-workbench-page {
-  padding: 20px;
-
-  .page-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-
-    h2 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--el-text-color-primary);
-    }
-
-    .page-desc {
-      flex: 1;
-      margin: 0;
-      font-size: 14px;
-      color: var(--el-text-color-secondary);
-    }
-  }
-
   .workbench-content {
     display: flex;
     flex-direction: column;

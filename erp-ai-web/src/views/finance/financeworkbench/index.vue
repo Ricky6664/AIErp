@@ -1,92 +1,99 @@
 <template>
-  <div class="finance-workbench-page">
-    <div class="page-header">
-      <h2>{{ $t('finance.workbench.title') }}</h2>
-      <p class="page-desc">{{ $t('finance.workbench.desc') }}</p>
+  <PageP02Workbench
+    view-id="finance-workbench"
+    page-type="P02"
+    :config="pageConfig"
+    :permissions="[]"
+  >
+    <template #header-extra>
       <el-button :icon="RefreshRight" :loading="loading" @click="loadData">
         {{ $t('common.refresh') }}
       </el-button>
-    </div>
+    </template>
 
-    <div v-loading="loading" class="workbench-content">
-      <div v-if="error" class="area-error">
-        <el-result icon="error" sub-title="数据加载失败">
-          <template #extra>
-            <el-button type="primary" size="small" @click="loadData">重试</el-button>
+    <template #main-content>
+      <div class="finance-workbench-page">
+        <div v-loading="loading" class="workbench-content">
+          <div v-if="error" class="area-error">
+            <el-result icon="error" sub-title="数据加载失败">
+              <template #extra>
+                <el-button type="primary" size="small" @click="loadData">重试</el-button>
+              </template>
+            </el-result>
+          </div>
+
+          <template v-else-if="data">
+            <!-- KPI卡片区 -->
+            <section class="workbench-section">
+              <div class="section-header">
+                <h3>{{ $t('finance.workbench.kpiTitle') }}</h3>
+              </div>
+              <el-row :gutter="16" class="kpi-row">
+                <el-col :xs="12" :sm="8" :md="6" :lg="4">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value">{{ data.currencyRateCount ?? 0 }}</div>
+                    <div class="kpi-label">{{ $t('finance.workbench.currencyRateCount') }}</div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="12" :sm="8" :md="6" :lg="4">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value">
+                      {{ data.activeBankAccountCount ?? 0 }}
+                      <span class="kpi-sub">/ {{ data.bankAccountCount ?? 0 }}</span>
+                    </div>
+                    <div class="kpi-label">{{ $t('finance.workbench.bankAccountCount') }}</div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="12" :sm="8" :md="6" :lg="4">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value">
+                      {{ data.leafAccountCount ?? 0 }}
+                      <span class="kpi-sub">/ {{ data.accountCount ?? 0 }}</span>
+                    </div>
+                    <div class="kpi-label">{{ $t('finance.workbench.accountCount') }}</div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="12" :sm="8" :md="6" :lg="4">
+                  <el-card shadow="never" class="kpi-card">
+                    <div class="kpi-value">
+                      {{ data.activeVoucherWordCount ?? 0 }}
+                      <span class="kpi-sub">/ {{ data.voucherWordCount ?? 0 }}</span>
+                    </div>
+                    <div class="kpi-label">{{ $t('finance.workbench.voucherWordCount') }}</div>
+                  </el-card>
+                </el-col>
+              </el-row>
+            </section>
+
+            <!-- 图表区 -->
+            <section class="workbench-section">
+              <div class="section-header">
+                <h3>{{ $t('finance.workbench.chartTitle') }}</h3>
+              </div>
+              <el-row :gutter="16" class="chart-row">
+                <el-col :xs="24" :md="14">
+                  <el-card shadow="never">
+                    <template #header>
+                      <span class="card-title">{{ $t('finance.workbench.trendTitle') }}</span>
+                    </template>
+                    <div ref="trendChartRef" class="chart-container"></div>
+                  </el-card>
+                </el-col>
+                <el-col :xs="24" :md="10">
+                  <el-card shadow="never">
+                    <template #header>
+                      <span class="card-title">{{ $t('finance.workbench.distTitle') }}</span>
+                    </template>
+                    <div ref="distChartRef" class="chart-container"></div>
+                  </el-card>
+                </el-col>
+              </el-row>
+            </section>
           </template>
-        </el-result>
+        </div>
       </div>
-
-      <template v-else-if="data">
-        <!-- KPI卡片区 -->
-        <section class="workbench-section">
-          <div class="section-header">
-            <h3>{{ $t('finance.workbench.kpiTitle') }}</h3>
-          </div>
-          <el-row :gutter="16" class="kpi-row">
-            <el-col :xs="12" :sm="8" :md="6" :lg="4">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value">{{ data.currencyRateCount ?? 0 }}</div>
-                <div class="kpi-label">{{ $t('finance.workbench.currencyRateCount') }}</div>
-              </el-card>
-            </el-col>
-            <el-col :xs="12" :sm="8" :md="6" :lg="4">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value">
-                  {{ data.activeBankAccountCount ?? 0 }}
-                  <span class="kpi-sub">/ {{ data.bankAccountCount ?? 0 }}</span>
-                </div>
-                <div class="kpi-label">{{ $t('finance.workbench.bankAccountCount') }}</div>
-              </el-card>
-            </el-col>
-            <el-col :xs="12" :sm="8" :md="6" :lg="4">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value">
-                  {{ data.leafAccountCount ?? 0 }}
-                  <span class="kpi-sub">/ {{ data.accountCount ?? 0 }}</span>
-                </div>
-                <div class="kpi-label">{{ $t('finance.workbench.accountCount') }}</div>
-              </el-card>
-            </el-col>
-            <el-col :xs="12" :sm="8" :md="6" :lg="4">
-              <el-card shadow="never" class="kpi-card">
-                <div class="kpi-value">
-                  {{ data.activeVoucherWordCount ?? 0 }}
-                  <span class="kpi-sub">/ {{ data.voucherWordCount ?? 0 }}</span>
-                </div>
-                <div class="kpi-label">{{ $t('finance.workbench.voucherWordCount') }}</div>
-              </el-card>
-            </el-col>
-          </el-row>
-        </section>
-
-        <!-- 图表区 -->
-        <section class="workbench-section">
-          <div class="section-header">
-            <h3>{{ $t('finance.workbench.chartTitle') }}</h3>
-          </div>
-          <el-row :gutter="16" class="chart-row">
-            <el-col :xs="24" :md="14">
-              <el-card shadow="never">
-                <template #header>
-                  <span class="card-title">{{ $t('finance.workbench.trendTitle') }}</span>
-                </template>
-                <div ref="trendChartRef" class="chart-container"></div>
-              </el-card>
-            </el-col>
-            <el-col :xs="24" :md="10">
-              <el-card shadow="never">
-                <template #header>
-                  <span class="card-title">{{ $t('finance.workbench.distTitle') }}</span>
-                </template>
-                <div ref="distChartRef" class="chart-container"></div>
-              </el-card>
-            </el-col>
-          </el-row>
-        </section>
-      </template>
-    </div>
-  </div>
+    </template>
+  </PageP02Workbench>
 </template>
 
 <script setup lang="ts">
@@ -98,8 +105,17 @@ import { LineChart, PieChart } from 'echarts/charts'
 import { GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
 import { getFinanceWorkbenchApi, type FinanceWorkbenchVO } from '@/api/modules/finance-workbench'
+import PageP02Workbench from '@/components/page-base/PageP02Workbench.vue'
+import type { WorkbenchPageConfig } from '@/types/page-base.d.ts'
 
 echarts.use([LineChart, PieChart, GridComponent, TooltipComponent, LegendComponent, CanvasRenderer])
+
+const pageConfig: WorkbenchPageConfig = {
+  title: '财务管理工作台',
+  showStatCards: false,
+  showQueryPanel: false,
+  showActionBar: false
+}
 
 const loading = ref(false)
 const error = ref(false)
@@ -215,29 +231,6 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .finance-workbench-page {
-  padding: 20px;
-
-  .page-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-
-    h2 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--el-text-color-primary);
-    }
-
-    .page-desc {
-      flex: 1;
-      margin: 0;
-      font-size: 14px;
-      color: var(--el-text-color-secondary);
-    }
-  }
-
   .workbench-content {
     display: flex;
     flex-direction: column;
