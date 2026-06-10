@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.module.message.mapper.MsgMessageMapper">
+
+    <select id="selectPageList" resultType="com.erp.module.message.entity.MsgMessageEntity">
+        SELECT id, tenant_id, message_title, message_content, receiver_id,
+               read_status, msg_type_id, source_type, status,
+               create_time, update_time, creator_id, updater_id, is_deleted,
+               owner_dept_id, owner_id, version
+        FROM msg_message
+        WHERE tenant_id = #{query.tenantId}
+          AND is_deleted = FALSE
+        <if test="query.messageTitle != null and query.messageTitle != ''">
+            AND message_title LIKE CONCAT('%', #{query.messageTitle}, '%')
+        </if>
+        <if test="query.readStatus != null">
+            AND read_status = #{query.readStatus}
+        </if>
+        <if test="query.msgTypeId != null">
+            AND msg_type_id = #{query.msgTypeId}
+        </if>
+        <if test="query.receiverId != null">
+            AND receiver_id = #{query.receiverId}
+        </if>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

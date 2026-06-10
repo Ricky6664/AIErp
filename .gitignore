@@ -4,6 +4,16 @@ target/
 *.jar
 *.war
 *.ear
+HELP.md
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
 
 # ============ Node.js / Frontend ============
 node_modules/
@@ -17,6 +27,13 @@ dist/
 .vscode/
 *.swp
 *.swo
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
 # ============ OS ============
 .DS_Store
@@ -30,9 +47,16 @@ logs/
 # ============ Environment / Secrets ============
 .env
 .env.*
+!.env.example
 credentials.json
 *.pem
 *.key
+
+# ============ SSL Certificates (deployed via Secret / certbot) ============
+deploy/nginx/ssl/*.crt
+deploy/nginx/ssl/*.key
+deploy/nginx/ssl/*.pem
+!deploy/nginx/ssl/README.md
 
 # ============ Temp ============
 *.tmp
@@ -41,3 +65,16 @@ credentials.json
 # ============ Lock files (runtime only, never commit) ============
 .catalog.lock
 .parallel.lock
+.relay
+.session-id
+.session-token
+.worker.pid
+.cmd.pid
+.done
+.watchdog.pid
+.watchdog.ps1
+.watchdog-*.pid
+.watchdog-*.ps1
+auto.log
+watchdog.log
+.locks/

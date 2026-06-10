@@ -1,0 +1,174 @@
+{
+  "$schema": "linkage-rules-schema.json",
+  "description": "默认联动规则配置示例 — 演示所有支持的联动条件和动作类型",
+  "rules": [
+    {
+      "triggerField": "category",
+      "targetField": "subCategory",
+      "action": "show",
+      "condition": {
+        "operator": "eq",
+        "value": "A"
+      }
+    },
+    {
+      "triggerField": "category",
+      "targetField": "subCategory",
+      "action": "hide",
+      "condition": {
+        "operator": "eq",
+        "value": "B"
+      }
+    },
+    {
+      "triggerField": "category",
+      "targetField": "price",
+      "action": "setValue",
+      "condition": {
+        "operator": "eq",
+        "value": "premium"
+      },
+      "params": {
+        "value": 100
+      }
+    },
+    {
+      "triggerField": "category",
+      "targetField": "discount",
+      "action": "disable",
+      "condition": {
+        "operator": "eq",
+        "value": "locked"
+      }
+    },
+    {
+      "triggerField": "category",
+      "targetField": "discount",
+      "action": "enable",
+      "condition": {
+        "operator": "eq",
+        "value": "unlocked"
+      }
+    },
+    {
+      "triggerField": "type",
+      "targetField": "detail",
+      "action": "setOptions",
+      "params": {
+        "options": [
+          { "label": "选项A", "value": "a" },
+          { "label": "选项B", "value": "b" }
+        ]
+      }
+    },
+    {
+      "triggerField": "amount",
+      "targetField": "taxRate",
+      "action": "show",
+      "condition": {
+        "operator": "gt",
+        "value": 1000
+      }
+    },
+    {
+      "triggerField": "status",
+      "targetField": "reason",
+      "action": "show",
+      "condition": {
+        "operator": "in",
+        "value": ["rejected", "returned"]
+      }
+    },
+    {
+      "triggerField": "name",
+      "targetField": "searchHint",
+      "action": "show",
+      "condition": {
+        "operator": "isEmpty"
+      }
+    },
+    {
+      "triggerField": "code",
+      "targetField": "codeWarning",
+      "action": "hide",
+      "condition": {
+        "operator": "isNotEmpty"
+      }
+    },
+    {
+      "triggerField": "productName",
+      "targetField": "duplicateHint",
+      "action": "show",
+      "condition": {
+        "operator": "startsWith",
+        "value": "TEST-"
+      }
+    },
+    {
+      "triggerField": "email",
+      "targetField": "emailDomain",
+      "action": "show",
+      "condition": {
+        "operator": "endsWith",
+        "value": "@company.com"
+      }
+    },
+    {
+      "triggerField": "tags",
+      "targetField": "tagNote",
+      "action": "show",
+      "condition": {
+        "operator": "contains",
+        "value": "urgent"
+      }
+    },
+    {
+      "triggerField": "priority",
+      "targetField": "urgentFields",
+      "action": "show",
+      "condition": {
+        "operator": "neq",
+        "value": "low"
+      }
+    },
+    {
+      "triggerField": "score",
+      "targetField": "scoreWarning",
+      "action": "show",
+      "condition": {
+        "operator": "gte",
+        "value": 80
+      }
+    },
+    {
+      "triggerField": "score",
+      "targetField": "scoreLowWarning",
+      "action": "show",
+      "condition": {
+        "operator": "lte",
+        "value": 30
+      }
+    },
+    {
+      "triggerField": "selectedItems",
+      "targetField": "batchActions",
+      "action": "show",
+      "condition": {
+        "operator": "notIn",
+        "value": []
+      }
+    },
+    {
+      "triggerField": "amount",
+      "targetField": "reason",
+      "action": "setRequired",
+      "condition": {
+        "operator": "gt",
+        "value": 5000
+      },
+      "params": {
+        "required": true
+      }
+    }
+  ]
+}

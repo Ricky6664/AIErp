@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.common.mapper.DocDetailSerialMapper">
+
+    <!-- ==================== 基础字段列表 ==================== -->
+    <sql id="Base_Column_List">
+        id, tenant_id, created_at, updated_at, created_by, updated_by,
+        is_deleted, owner_dept_id, owner_id, version,
+        detail_id, serial_no, status, activation_time
+    </sql>
+
+    <!-- ==================== DocDetailSerial 基础映射 ==================== -->
+    <resultMap id="BaseResultMap" type="com.erp.common.entity.DocDetailSerial">
+        <id column="id" property="id"/>
+        <result column="tenant_id" property="tenantId"/>
+        <result column="created_at" property="createTime"/>
+        <result column="updated_at" property="updateTime"/>
+        <result column="created_by" property="creatorId"/>
+        <result column="updated_by" property="updaterId"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="owner_dept_id" property="ownerDeptId"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="version" property="version"/>
+        <result column="detail_id" property="detailId"/>
+        <result column="serial_no" property="serialNo"/>
+        <result column="status" property="status"/>
+        <result column="activation_time" property="activationTime"/>
+    </resultMap>
+
+    <!-- ==================== 按明细ID查询序列号列表 ==================== -->
+    <select id="selectByDetailId" resultMap="BaseResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM doc_detail_serial
+        WHERE detail_id = #{detailId}
+          AND is_deleted = FALSE
+    </select>
+
+</mapper>

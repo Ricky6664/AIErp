@@ -1,0 +1,139 @@
+package com.erp.module.message.service.impl;
+
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.erp.common.enums.ErrorCode;
+import com.erp.common.exception.BusinessException;
+import com.erp.common.result.PageResult;
+import com.erp.module.message.dto.MsgMessageCreateDTO;
+import com.erp.module.message.dto.MsgMessageQueryDTO;
+import com.erp.module.message.dto.MsgMessageUpdateDTO;
+import com.erp.module.message.entity.MsgMessageEntity;
+import com.erp.module.message.mapper.MsgMessageMapper;
+import com.erp.module.message.service.IMsgMessageService;
+import com.erp.module.message.vo.MsgMessageListVO;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+
+/**
+ * 消息Service实现.
+ *
+ * @author AI
+ */
+@Service
+@RequiredArgsConstructor
+public class MsgMessageServiceImpl
+        extends ServiceImpl<MsgMessageMapper, MsgMessageEntity>
+        implements IMsgMessageService {
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Long create(MsgMessageCreateDTO dto) {
+        validateCreate(dto);
+        MsgMessageEntity entity = convertToEntity(dto);
+        entity.setStatus(0);
+        save(entity);
+        return entity.getId();
+    }
+
+    @Override
+    public PageResult<MsgMessageListVO> pageList(MsgMessageQueryDTO query) {
+        LambdaQueryWrapper<MsgMessageEntity> wrapper = new LambdaQueryWrapper<>();
+        wrapper.like(StringUtils.hasText(query.getMessageTitle()),
+                MsgMessageEntity::getMessageTitle, query.getMessageTitle());
+        wrapper.eq(query.getReadStatus() != null,
+                MsgMessageEntity::getReadStatus, query.getReadStatus());
+        wrapper.eq(query.getMsgTypeId() != null,
+                MsgMessageEntity::getMsgTypeId, query.getMsgTypeId());
+        wrapper.eq(query.getReceiverId() != null,
+                MsgMessageEntity::getReceiverId, query.getReceiverId());
+        wrapper.orderByDesc(MsgMessageEntity::getCreateTime);
+
+        int pageNum = query.getPageNum() != null ? query.getPageNum() : 1;
+        int pageSize = query.getPageSize() != null ? query.getPageSize() : 10;
+        IPage<MsgMessageEntity> page = page(new Page<>(pageNum, pageSize), wrapper);
+
+        return PageResult.of(page).convert(this::toListVO);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void update(Long id, MsgMessageUpdateDTO dto) {
+        MsgMessageEntity entity = getById(id);
+        if (entity == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
+        }
+        if (StringUtils.hasText(dto.getMessageTitle())) {
+            entity.setMessageTitle(dto.getMessageTitle());
+        }
+        if (dto.getMessageContent() != null) {
+            entity.setMessageContent(dto.getMessageContent());
+        }
+        if (dto.getMsgTypeId() != null) {
+            entity.setMsgTypeId(dto.getMsgTypeId());
+        }
+        updateById(entity);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Long id) {
+        MsgMessageEntity entity = getById(id);
+        if (entity == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
+        }
+        if (entity.getStatus() != null && entity.getStatus() > 0) {
+            throw new BusinessException(ErrorCode.DATA_STATUS_INVALID);
+        }
+        entity.setIsDeleted(true);
+        updateById(entity);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void read(Long id) {
+        MsgMessageEntity entity = getById(id);
+        if (entity == null) {
+            throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
+        }
+        entity.setReadStatus(1);
+        updateById(entity);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void readAll() {
+        LambdaQueryWrapper<MsgMessageEntity> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(MsgMessageEntity::getReadStatus, 0);
+        list(wrapper).forEach(entity -> {
+            entity.setReadStatus(1);
+            updateById(entity);
+        });
+    }
+
+    private void validateCreate(MsgMessageCreateDTO dto) {
+        if (!StringUtils.hasText(dto.getMessageTitle())) {
+            throw new BusinessException(ErrorCode.PARAM_INVALID);
+        }
+        if (dto.getReceiverId() == null) {
+            throw new BusinessException(ErrorCode.PARAM_INVALID);
+        }
+    }
+
+    private MsgMessageEntity convertToEntity(MsgMessageCreateDTO dto) {
+        MsgMessageEntity entity = new MsgMessageEntity();
+        BeanUtils.copyProperties(dto, entity);
+        return entity;
+    }
+
+    private MsgMessageListVO toListVO(MsgMessageEntity entity) {
+        MsgMessageListVO vo = new MsgMessageListVO();
+        BeanUtils.copyProperties(entity, vo);
+        return vo;
+    }
+}

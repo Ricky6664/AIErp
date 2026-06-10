@@ -1,0 +1,76 @@
+// ============================================================
+// 文本与装饰工具类 — text / color / transition
+// P0-002-006-004-002-001
+// ============================================================
+
+// 单行文本省略
+.erp-text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 多行文本省略
+@for $i from 2 through 5 {
+  .erp-text-truncate-#{$i} {
+    display: -webkit-box;
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $i;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// 文本/背景颜色工具类（引用CSS变量）
+$color-map: (primary, success, warning, danger, info);
+@each $name in $color-map {
+  .erp-text-#{$name} {
+    color: var(--color-#{$name});
+  }
+  .erp-bg-#{$name} {
+    background-color: var(--color-#{$name});
+  }
+}
+
+// 字体大小工具类
+$font-sizes: (
+  xs: 12px,
+  sm: 13px,
+  md: 14px,
+  lg: 16px,
+  xl: 18px,
+  xxl: 24px
+);
+
+@each $name, $value in $font-sizes {
+  .erp-font-#{$name} {
+    font-size: $value;
+  }
+}
+
+// 文本对齐工具类
+.erp-text-left {
+  text-align: left;
+}
+.erp-text-center {
+  text-align: center;
+}
+.erp-text-right {
+  text-align: right;
+}
+
+// 过渡动画
+.erp-transition-fade {
+  transition: opacity 0.3s ease;
+}
+.erp-transition-scale {
+  transition: transform 0.2s ease;
+}
+.erp-transition-all {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    background-color 0.3s ease;
+}

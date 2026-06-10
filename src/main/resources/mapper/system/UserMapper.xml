@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.system.mapper.UserMapper">
+
+    <!-- ==================== 基础字段列表 ==================== -->
+    <sql id="Base_Column_List">
+        u.id, u.tenant_id, u.create_time, u.update_time, u.creator_id, u.updater_id,
+        u.is_deleted, u.owner_dept_id, u.owner_id, u.version,
+        u.username, u.password_hash, u.employee_id, u.real_name, u.nickname, u.avatar,
+        u.email, u.mobile, u.gender, u.status, u.last_login_at, u.last_login_ip,
+        u.pwd_reset_at, u.is_locked, u.locked_until
+    </sql>
+
+    <!-- ==================== 用户列表结果映射(含员工姓名) ==================== -->
+    <resultMap id="UserListResultMap" type="com.erp.system.vo.SysUserVO$ListVO">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="real_name" property="realName"/>
+        <result column="nickname" property="nickname"/>
+        <result column="avatar" property="avatar"/>
+        <result column="email" property="email"/>
+        <result column="mobile" property="mobile"/>
+        <result column="gender" property="gender"/>
+        <result column="status" property="status"/>
+        <result column="is_locked" property="isLocked"/>
+        <result column="employee_name" property="employeeName"/>
+        <result column="last_login_at" property="lastLoginAt"/>
+        <result column="last_login_ip" property="lastLoginIp"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <!-- ==================== 用户列表分页查询 ==================== -->
+    <select id="selectUserPage" resultMap="UserListResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>,
+            e.employee_name
+        FROM sys_user u
+        LEFT JOIN hrm_employee e ON u.employee_id = e.id
+        WHERE u.is_deleted = 0
+        <if test="keyword != null and keyword != ''">
+            AND (u.username LIKE CONCAT('%', #{keyword}, '%') OR u.nickname LIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+        <if test="status != null and status != ''">
+            AND u.status = #{status}
+        </if>
+        ORDER BY u.create_time DESC
+    </select>
+
+    <!-- ==================== 用户名唯一性校验 ==================== -->
+    <select id="countByUsername" resultType="int">
+        SELECT COUNT(*)
+        FROM sys_user
+        WHERE username = #{username}
+          AND is_deleted = 0
+        <if test="excludeId != null">
+            AND id != #{excludeId}
+        </if>
+    </select>
+
+    <!-- ==================== 密码历史查询 ==================== -->
+    <select id="selectPasswordHistory" resultType="string">
+        SELECT password_hash
+        FROM sys_user_password_history
+        WHERE user_id = #{userId}
+        ORDER BY create_time DESC
+        LIMIT #{historyCount}
+    </select>
+
+    <!-- ==================== 按部门查询用户列表 ==================== -->
+    <select id="selectUsersByDeptId" resultMap="UserListResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>,
+            e.employee_name
+        FROM sys_user u
+        INNER JOIN sys_user_dept ud ON u.id = ud.user_id AND ud.is_deleted = 0
+        LEFT JOIN hrm_employee e ON u.employee_id = e.id
+        WHERE u.is_deleted = 0
+          AND ud.dept_id = #{deptId}
+        ORDER BY u.create_time DESC
+    </select>
+
+    <!-- ==================== 用户角色名称查询 ==================== -->
+    <select id="selectRoleNamesByUserId" resultType="string">
+        SELECT r.role_name
+        FROM sys_user_role ur
+        INNER JOIN sys_role r ON ur.role_id = r.id AND r.is_deleted = 0
+        WHERE ur.user_id = #{userId}
+          AND ur.is_deleted = 0
+        ORDER BY r.sort_order ASC
+    </select>
+
+    <!-- ==================== 删除用户所有角色关联 ==================== -->
+    <delete id="deleteUserRoles">
+        DELETE FROM sys_user_role WHERE user_id = #{userId}
+    </delete>
+
+    <!-- ==================== 批量插入用户角色关联 ==================== -->
+    <insert id="insertUserRoles">
+        INSERT INTO sys_user_role (user_id, role_id, create_time)
+        VALUES
+        <foreach collection="roleIds" item="roleId" separator=",">
+            (#{userId}, #{roleId}, NOW())
+        </foreach>
+    </insert>
+
+    <!-- ==================== 插入密码历史 ==================== -->
+    <insert id="insertPasswordHistory">
+        INSERT INTO sys_user_password_history (user_id, password_hash, create_time)
+        VALUES (#{userId}, #{passwordHash}, NOW())
+    </insert>
+
+    <!-- ==================== 删除单个用户角色关联 ==================== -->
+    <delete id="deleteUserRole">
+        DELETE FROM sys_user_role WHERE user_id = #{userId} AND role_id = #{roleId}
+    </delete>
+
+    <!-- ==================== 查询用户所有角色ID ==================== -->
+    <select id="selectRoleIdsByUserId" resultType="long">
+        SELECT role_id
+        FROM sys_user_role
+        WHERE user_id = #{userId}
+          AND is_deleted = 0
+        ORDER BY role_id ASC
+    </select>
+
+    <!-- ==================== 查询拥有指定角色的用户ID列表 ==================== -->
+    <select id="selectUserIdsByRoleId" resultType="long">
+        SELECT DISTINCT user_id
+        FROM sys_user_role
+        WHERE role_id = #{roleId}
+          AND is_deleted = 0
+        ORDER BY user_id ASC
+    </select>
+
+    <!-- ==================== 检查用户是否拥有指定角色 ==================== -->
+    <select id="countUserRole" resultType="int">
+        SELECT COUNT(*)
+        FROM sys_user_role
+        WHERE user_id = #{userId}
+          AND role_id = #{roleId}
+          AND is_deleted = 0
+    </select>
+
+    <!-- ==================== 删除用户所有部门关联 ==================== -->
+    <delete id="deleteUserDepts">
+        DELETE FROM sys_user_dept WHERE user_id = #{userId}
+    </delete>
+
+    <!-- ==================== 批量插入用户部门关联 ==================== -->
+    <insert id="insertUserDepts">
+        INSERT INTO sys_user_dept (user_id, dept_id, is_primary, create_time)
+        VALUES
+        <foreach collection="deptIds" item="deptId" separator=",">
+            (#{userId}, #{deptId}, 0, NOW())
+        </foreach>
+    </insert>
+
+    <!-- ==================== 删除单个用户部门关联 ==================== -->
+    <delete id="deleteUserDept">
+        DELETE FROM sys_user_dept WHERE user_id = #{userId} AND dept_id = #{deptId}
+    </delete>
+
+    <!-- ==================== 查询用户所有部门ID ==================== -->
+    <select id="selectDeptIdsByUserId" resultType="long">
+        SELECT dept_id
+        FROM sys_user_dept
+        WHERE user_id = #{userId}
+          AND is_deleted = 0
+        ORDER BY dept_id ASC
+    </select>
+
+    <!-- ==================== 查询拥有指定部门的用户ID列表 ==================== -->
+    <select id="selectUserIdsByDeptId" resultType="long">
+        SELECT DISTINCT user_id
+        FROM sys_user_dept
+        WHERE dept_id = #{deptId}
+          AND is_deleted = 0
+        ORDER BY user_id ASC
+    </select>
+
+    <!-- ==================== 检查用户是否属于指定部门 ==================== -->
+    <select id="countUserDept" resultType="int">
+        SELECT COUNT(*)
+        FROM sys_user_dept
+        WHERE user_id = #{userId}
+          AND dept_id = #{deptId}
+          AND is_deleted = 0
+    </select>
+
+    <!-- ==================== 设置用户主部门 ==================== -->
+    <update id="setPrimaryDept">
+        UPDATE sys_user_dept
+        SET is_primary = CASE WHEN dept_id = #{deptId} THEN 1 ELSE 0 END
+        WHERE user_id = #{userId}
+    </update>
+
+    <!-- ==================== 工作台核心统计 ==================== -->
+    <resultMap id="WorkbenchStatsResultMap" type="com.erp.system.vo.UserWorkbenchVO">
+        <result column="user_total" property="userTotal"/>
+        <result column="role_total" property="roleTotal"/>
+        <result column="online_count" property="onlineCount"/>
+        <result column="today_login_count" property="todayLoginCount"/>
+    </resultMap>
+
+    <select id="selectWorkbenchStats" resultMap="WorkbenchStatsResultMap">
+        SELECT
+            (SELECT COUNT(*) FROM sys_user WHERE is_deleted = 0) AS user_total,
+            (SELECT COUNT(*) FROM sys_role WHERE is_deleted = 0) AS role_total,
+            (SELECT COUNT(*) FROM auth_online_device WHERE status = 'online') AS online_count,
+            (SELECT COUNT(*)
+             FROM sys_login_log
+             WHERE is_deleted = 0
+               AND login_at >= CURRENT_DATE
+               AND login_status = 'success') AS today_login_count
+    </select>
+
+    <!-- ==================== 角色分配统计 ==================== -->
+    <resultMap id="RoleDistResultMap" type="com.erp.system.vo.UserWorkbenchVO$RoleDistVO">
+        <result column="role_name" property="roleName"/>
+        <result column="user_count" property="userCount"/>
+    </resultMap>
+
+    <select id="selectRoleDistribution" resultMap="RoleDistResultMap">
+        SELECT
+            r.role_name,
+            COUNT(ur.user_id) AS user_count
+        FROM sys_role r
+        LEFT JOIN sys_user_role ur ON r.id = ur.role_id AND ur.is_deleted = 0
+        WHERE r.is_deleted = 0
+        GROUP BY r.id, r.role_name
+        ORDER BY user_count DESC
+    </select>
+
+    <!-- ==================== 近7天登录趋势 ==================== -->
+    <resultMap id="LoginTrendResultMap" type="com.erp.system.vo.UserWorkbenchVO$LoginTrendVO">
+        <result column="login_date" property="date"/>
+        <result column="login_count" property="count"/>
+    </resultMap>
+
+    <select id="selectLoginTrend" resultMap="LoginTrendResultMap">
+        SELECT
+            TO_CHAR(d::date, 'YYYY-MM-DD') AS login_date,
+            COALESCE(COUNT(l.id), 0) AS login_count
+        FROM generate_series(CURRENT_DATE - INTERVAL '6 days', CURRENT_DATE, '1 day') AS d
+        LEFT JOIN sys_login_log l ON DATE(l.login_at) = d::date
+            AND l.is_deleted = 0
+            AND l.login_status = 'success'
+        GROUP BY d::date
+        ORDER BY d::date
+    </select>
+
+    <!-- ==================== 最近登录日志 ==================== -->
+    <resultMap id="RecentLoginResultMap" type="com.erp.system.vo.UserWorkbenchVO$RecentLoginVO">
+        <result column="username" property="username"/>
+        <result column="login_time" property="loginTime"/>
+        <result column="login_ip" property="ip"/>
+        <result column="login_status" property="status"/>
+    </resultMap>
+
+    <select id="selectRecentLogins" resultMap="RecentLoginResultMap">
+        SELECT
+            username,
+            TO_CHAR(login_at, 'YYYY-MM-DD HH24:MI:SS') AS login_time,
+            COALESCE(ip_address, '-') AS login_ip,
+            login_status
+        FROM sys_login_log
+        WHERE is_deleted = 0
+        ORDER BY login_at DESC
+        LIMIT #{limit}
+    </select>
+
+</mapper>

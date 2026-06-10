@@ -1,0 +1,7 @@
+feat(P0-011): 编写会计科目P05树形列表页核心代码
+
+- 创建finance-account.ts API模块(AccountVO/AccountTreeVO/CRUD接口)
+- 创建account/index.vue树形列表页(el-tree+VxeTable+统计卡片+搜索防抖+CRUD弹窗)
+
+Task: P0-011-002-006-001-001
+Module: P0-011 财务基础设置模块开发

@@ -1,0 +1,68 @@
+# ============================================================
+# ERP AI - 生产环境配置 (application-prod.yml)
+# ============================================================
+# 安全警告: 生产环境所有敏感配置必须通过环境变量注入, 禁止硬编码明文密码
+# ============================================================
+
+# ---- 服务器配置 ----
+server:
+  port: 8080
+  shutdown: graceful
+
+# ---- 生产环境核心配置 ----
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
+      idle-timeout: 600000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      pool-name: HikariCP-Prod
+
+  # ---- Redis 缓存配置 (Sentinel哨兵模式) ----
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD}
+      database: 0
+      timeout: 5000ms
+      lettuce:
+        pool:
+          max-active: 50
+          max-idle: 20
+          min-idle: 10
+          max-wait: 3000ms
+
+  # ---- JWT 密钥配置 (生产环境禁止硬编码) ----
+  jwt:
+    secret: ${JWT_SECRET}
+
+# ---- MyBatis-Plus 环境覆盖项（生产级日志实现, 其余继承 application.yml） ----
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+
+# ---- Swagger/Knife4j 文档配置 (生产环境关闭) ----
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+# ---- 日志配置 (生产环境WARN级别, 禁止DEBUG/INFO) ----
+logging:
+  level:
+    com.erp: INFO
+    com.baomidou.mybatisplus: WARN
+    org.springframework.web: INFO
+    org.springframework: WARN
+    org.hibernate.SQL: WARN
+    io.undertow: WARN
+    org.apache: WARN
+    root: WARN

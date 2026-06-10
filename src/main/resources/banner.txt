@@ -1,0 +1,11 @@
+${AnsiColor.BRIGHT_GREEN}
+  ______  _____   _____       ___    ____
+ |  ____||  __ \ |  __ \     / _ \  |_   _|
+ | |__   | |__) || |__) |   / /_\ \   | |
+ |  __|  |  _  / |  ___/    |  ___|   | |
+ | |____ | | \ \ | |     _  | |      _| |_
+ |______||_|  \_\|_|    (_) |_|     |_____|
+
+${AnsiColor.BRIGHT_CYAN} :: ERP AI Intelligent Management System :: ${AnsiColor.BRIGHT_WHITE}(v${application.version})${AnsiColor.DEFAULT}
+${AnsiColor.BRIGHT_CYAN} :: Spring Boot ${spring-boot.version} :: Java ${java.version} ::${AnsiColor.DEFAULT}
+

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.system.mapper.UserGroupMapper">
+
+    <!-- ==================== 删除用户组所有成员 ==================== -->
+    <delete id="deleteGroupMembers">
+        DELETE FROM sys_user_group_member WHERE group_id = #{groupId}
+    </delete>
+
+    <!-- ==================== 批量插入用户组成员 ==================== -->
+    <insert id="insertGroupMembers">
+        INSERT INTO sys_user_group_member (group_id, user_id, create_time)
+        VALUES
+        <foreach collection="userIds" item="userId" separator=",">
+            (#{groupId}, #{userId}, NOW())
+        </foreach>
+    </insert>
+
+    <!-- ==================== 删除单个用户组成员 ==================== -->
+    <delete id="deleteGroupMember">
+        DELETE FROM sys_user_group_member WHERE group_id = #{groupId} AND user_id = #{userId}
+    </delete>
+
+    <!-- ==================== 查询用户组内所有用户ID ==================== -->
+    <select id="selectUserIdsByGroupId" resultType="long">
+        SELECT user_id
+        FROM sys_user_group_member
+        WHERE group_id = #{groupId}
+          AND is_deleted = 0
+        ORDER BY user_id ASC
+    </select>
+
+    <!-- ==================== 查询用户所属的所有用户组ID ==================== -->
+    <select id="selectGroupIdsByUserId" resultType="long">
+        SELECT group_id
+        FROM sys_user_group_member
+        WHERE user_id = #{userId}
+          AND is_deleted = 0
+        ORDER BY group_id ASC
+    </select>
+
+    <!-- ==================== 检查用户组成员是否存在 ==================== -->
+    <select id="countGroupMember" resultType="int">
+        SELECT COUNT(*)
+        FROM sys_user_group_member
+        WHERE group_id = #{groupId}
+          AND user_id = #{userId}
+          AND is_deleted = 0
+    </select>
+
+    <!-- ==================== 批量统计用户组成员数 ==================== -->
+    <select id="countMembersByGroupIds" resultType="java.util.HashMap">
+        SELECT group_id, COUNT(*) AS member_count
+        FROM sys_user_group_member
+        WHERE group_id IN
+        <foreach collection="groupIds" item="gid" open="(" separator="," close=")">
+            #{gid}
+        </foreach>
+          AND is_deleted = 0
+        GROUP BY group_id
+    </select>
+
+    <!-- ==================== 删除用户组所有角色关联 ==================== -->
+    <delete id="deleteGroupRoles">
+        DELETE FROM sys_user_group_role WHERE group_id = #{groupId}
+    </delete>
+
+    <!-- ==================== 批量插入用户组角色关联 ==================== -->
+    <insert id="insertGroupRoles">
+        INSERT INTO sys_user_group_role (group_id, role_id, create_time)
+        VALUES
+        <foreach collection="roleIds" item="roleId" separator=",">
+            (#{groupId}, #{roleId}, NOW())
+        </foreach>
+    </insert>
+
+    <!-- ==================== 查询用户组关联的角色ID列表 ==================== -->
+    <select id="selectRoleIdsByGroupId" resultType="long">
+        SELECT role_id
+        FROM sys_user_group_role
+        WHERE group_id = #{groupId}
+          AND is_deleted = 0
+        ORDER BY role_id ASC
+    </select>
+
+    <!-- ==================== 检查用户组角色关联是否存在 ==================== -->
+    <select id="countGroupRole" resultType="int">
+        SELECT COUNT(*)
+        FROM sys_user_group_role
+        WHERE group_id = #{groupId}
+          AND role_id = #{roleId}
+          AND is_deleted = 0
+    </select>
+
+</mapper>

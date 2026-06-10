@@ -1,0 +1,48 @@
+# docker-compose.override.yml — 开发环境覆盖
+# 此文件自动与 docker-compose.yml 合并（docker compose 默认行为）
+# 用途：挂载源码目录实现热重载、开启调试端口、开发环境特定配置
+
+services:
+  postgres:
+    ports:
+      - "5432:5432"
+
+  redis:
+    ports:
+      - "6379:6379"
+
+  minio:
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+  elasticsearch:
+    ports:
+      - "9200:9200"
+
+  backend:
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      JAVA_OPTS: "-Xms256m -Xmx512m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"
+    volumes:
+      - ./erp-ai-system/target:/app/target
+      - ./erp-ai-system/src:/app/src:ro
+      - erp_logs:/app/logs
+
+  frontend:
+    ports:
+      - "3000:80"
+      - "5173:5173"
+    volumes:
+      - ./erp-ai-web/src:/usr/share/nginx/html:ro
+    environment:
+      ENV: dev
+
+  nginx:
+    ports:
+      - "80:80"
+    volumes:
+      - ./deploy/nginx/nginx.dev.conf:/etc/nginx/nginx.conf:ro

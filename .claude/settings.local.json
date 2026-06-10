@@ -41,7 +41,17 @@
       "Bash(git branch *)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(mvn compile *)",
+      "Bash(mvn dependency:tree)",
+      "Bash(findstr /i \"javax\")",
+      "Bash(findstr /i \"javax\\\\|error\\\\|ERROR\\\\|cannot find\")",
+      "Bash(findstr /i \"javax ERROR error\")",
+      "Bash(powershell *)",
+      "Bash(mvn test *)",
+      "Bash(Select-String -Pattern \"Tests run:|BUILD|ERROR|FAIL\")",
+      "PowerShell(Get-Content *)",
+      "PowerShell(Get-Process *)"
     ]
   }
 }

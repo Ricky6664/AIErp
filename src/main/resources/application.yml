@@ -1,0 +1,533 @@
+# ERP AI Intelligent Management System
+spring:
+  application:
+    name: erp-ai
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  main:
+    banner-mode: console
+  servlet:
+    multipart:
+      # 单文件最大上传大小
+      max-file-size: 10MB
+      # 单次请求最大上传大小
+      max-request-size: 100MB
+  # ---- Jackson 公共配置 ----
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+    livereload:
+      enabled: true
+  # ---- Redis Lettuce 连接池公共配置 ----
+  data:
+    redis:
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+
+# ---- 服务器公共配置 ----
+server:
+  servlet:
+    context-path: /api
+
+# ---- 文件上传公共配置 ----
+file:
+  upload:
+    # 允许的 MIME 类型白名单（逗号分隔）
+    allowed-types: image/jpeg,image/png,application/pdf,application/vnd.ms-excel
+    # 文件上传存储根路径
+    path: /data/erp/upload
+
+# ---- 分页默认值配置 ----
+page:
+  # 默认每页条数
+  default-size: 20
+  # 每页最大条数
+  max-size: 100
+
+# ---- MyBatis-Plus 全局配置（环境无关公共项） ----
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.erp.entity
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+      logic-delete-field: isDeleted
+      logic-delete-value: true
+      logic-not-delete-value: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+# ---- Sa-Token 全局配置（环境无关公共项） ----
+sa-token:
+  # Token 名称（也是 cookie 名称）
+  token-name: satoken
+  # Token 有效期（秒），30天 = 2592000
+  timeout: 2592000
+  # Token 临时有效期（秒），无操作超时时间，30分钟 = 1800
+  active-timeout: 1800
+  # 是否允许同一账号并发登录（为true时允许一起登录，为false时新登录挤掉旧登录）
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个Token
+  is-share: true
+  # Token 风格：uuid
+  token-style: uuid
+  # 是否输出操作日志
+  is-log: false
+  # SaServletFilter 和 SaInterceptor 排除的路径（逗号分隔）
+  exclude-paths: /api/auth/login,/api/auth/logout,/api/auth/token/refresh,/api/auth/token/verify,/doc.html,/v3/api-docs/**
+
+# ---- 认证模块配置 ----
+auth:
+  captcha:
+    # 验证码 Redis 缓存有效期（分钟）
+    ttl-minutes: 5
+    # 验证码字符长度
+    code-length: 4
+  login-security:
+    # 最大登录失败次数，超过后锁定
+    max-attempts: 5
+    # 登录失败锁定时间（分钟）
+    lock-minutes: 15
+  user-info:
+    # 用户未设置头像时的默认头像 URL
+    default-avatar: ""
+    # 用户信息接口返回的菜单权限树最大深度
+    menu-tree-max-depth: 5
+  menu-permission:
+    # 菜单权限树最大层级深度, 超出不返回
+    tree-max-depth: 5
+    # 是否启用菜单权限缓存
+    cache-enabled: true
+    # 菜单权限缓存 TTL（秒）
+    cache-ttl-seconds: 1800
+    # 新菜单项的默认权限类型
+    default-permission-type: view
+    # 权限树中是否自动包含父节点路径
+    include-parent-path: true
+
+# ---- 菜单权限配置页配置 ----
+menu-permission:
+  menu-tree:
+    # 菜单树默认展开层级（1=仅根节点, 2=展开到第2层, 0=全部展开）
+    auto-expand-level: 2
+    # 是否在权限树中显示已禁用的菜单
+    show-disabled: false
+    # 父子节点是否独立勾选（true=独立, false=关联勾选）
+    check-strictly: false
+  assignment:
+    # 保存权限分配前是否弹出确认框
+    confirm-before-save: true
+
+# ---- 数据权限配置页配置 ----
+data-permission:
+  data-scope:
+    # 默认数据权限范围（SELF=仅本人, DEPT=本部门, COMPANY=本公司, ALL=全部）
+    default-scope: SELF
+    # 是否显示"仅本人"选项
+    show-self: true
+    # 是否显示"本部门"选项
+    show-dept: true
+    # 是否显示"本公司"选项
+    show-company: true
+    # 是否显示"全部"选项
+    show-all: false
+  rule:
+    # 数据权限规则缓存 TTL（秒）
+    cache-ttl-seconds: 1800
+    # 是否启用字段级权限
+    field-level-enabled: false
+    # 规则匹配失败时是否默认拒绝
+    default-deny: true
+
+# ---- 字段权限配置页配置 ----
+field-permission:
+  table-tree:
+    # 数据表树默认展开层级（1=仅根节点, 2=展开到第2层, 0=全部展开）
+    auto-expand-level: 2
+    # 是否在表树中显示系统内部表
+    show-system-tables: false
+  field-rule:
+    # 字段默认权限模式（EDITABLE=可编辑, READONLY=只读, HIDDEN=隐藏）
+    default-mode: EDITABLE
+    # 是否启用字段权限缓存
+    cache-enabled: true
+    # 字段权限缓存 TTL（秒）
+    cache-ttl-seconds: 1800
+    # 保存字段权限前是否弹出确认框
+    confirm-before-save: true
+
+# ---- 认证方式配置页配置 ----
+auth-method:
+  page:
+    # 分页默认每页条数
+    default-page-size: 20
+    # 默认排序字段
+    default-sort-field: priority
+    # 列表中是否显示已禁用的认证方式
+    show-disabled: true
+  form:
+    # 认证方式名称最小长度
+    method-name-min-length: 2
+    # 认证方式名称最大长度
+    method-name-max-length: 50
+    # 新建时是否要求填写配置JSON
+    require-config-json: false
+  priority:
+    # 优先级最小值
+    min: 1
+    # 优先级最大值
+    max: 999
+    # 新建认证方式的默认优先级
+    default-priority: 100
+
+# ---- 密码策略配置页配置 ----
+password-policy:
+  page:
+    # 分页默认每页条数
+    default-page-size: 15
+    # 默认排序字段
+    default-sort-field: updateTime
+    # 列表中是否显示已禁用的策略
+    show-disabled: true
+  form:
+    # 策略名称最小长度
+    policy-name-min-length: 2
+    # 策略名称最大长度
+    policy-name-max-length: 50
+  password:
+    # 密码最小长度
+    min-length: 8
+    # 密码最大长度
+    max-length: 32
+    # 是否必须包含大写字母
+    require-uppercase: true
+    # 是否必须包含小写字母
+    require-lowercase: true
+    # 是否必须包含数字
+    require-digit: true
+    # 是否必须包含特殊字符
+    require-special-char: true
+    # 最少特殊字符数量
+    min-special-char-count: 1
+  lockout:
+    # 最大登录失败次数
+    max-attempts: 5
+    # 锁定持续时间(分钟)
+    lock-duration-minutes: 30
+    # 失败计数重置时间(分钟)
+    reset-duration-minutes: 10
+  expire:
+    # 密码过期天数(0=永不过期)
+    password-expire-days: 90
+    # 过期前提醒天数
+    remind-before-days: 7
+  history:
+    # 历史密码不可重复次数(0=不限制)
+    max-history-count: 3
+
+# ---- 列表数据表格列格式配置 ----
+list-table:
+  column-format:
+    # 日期列格式化模式
+    date-format: yyyy-MM-dd
+    # 日期时间列格式化模式
+    datetime-format: yyyy-MM-dd HH:mm:ss
+    # 数字列小数位数
+    number-decimal-places: 2
+    # 数字列是否显示千分位分隔符
+    number-thousands-separator: true
+  column-default:
+    # 列默认宽度(px)
+    width: 120
+    # 列最小宽度(px)
+    min-width: 60
+    # 列默认对齐方式(left/center/right)
+    align: left
+    # 内容超出时是否显示省略提示
+    show-overflow: true
+  column-persist:
+    # 列配置持久化模式(local=仅localStorage, remote=后端API, both=双写)
+    mode: local
+    # 远程持久化缓存TTL(秒)
+    cache-ttl-seconds: 1800
+  row-height:
+    # 默认行尺寸(mini/small/medium/large/loose/x-large/xx-large)
+    default-size: medium
+    # mini 行高(px)
+    mini-height: 28
+    # small 行高(px)
+    small-height: 36
+    # medium 行高(px)
+    medium-height: 44
+    # large 行高(px)
+    large-height: 52
+    # loose 行高(px)
+    loose-height: 60
+    # x-large 行高(px)
+    x-large-height: 68
+    # xx-large 行高(px)
+    xx-large-height: 76
+  font-size:
+    # 默认字体尺寸(mini/small/medium/large/loose/x-large/xx-large)
+    default-size: medium
+    # mini 字体大小(px)
+    mini-size: 10
+    # small 字体大小(px)
+    small-size: 12
+    # medium 字体大小(px)
+    medium-size: 14
+    # large 字体大小(px)
+    large-size: 16
+    # loose 字体大小(px)
+    loose-size: 18
+    # x-large 字体大小(px)
+    x-large-size: 20
+    # xx-large 字体大小(px)
+    xx-large-size: 22
+
+# ---- 录入数据表格列格式配置 ----
+edit-table:
+  column-format:
+    # 日期列格式化模式
+    date-format: yyyy-MM-dd
+    # 日期时间列格式化模式
+    datetime-format: yyyy-MM-dd HH:mm:ss
+    # 数字列小数位数
+    number-decimal-places: 2
+    # 数字列是否显示千分位分隔符
+    number-thousands-separator: true
+  column-default:
+    # 列默认宽度(px)
+    width: 120
+    # 列最小宽度(px)
+    min-width: 60
+    # 列默认对齐方式(left/center/right)
+    align: left
+    # 内容超出时是否显示省略提示
+    show-overflow: true
+    # 列是否默认可编辑
+    editable: false
+  column-persist:
+    # 列配置持久化模式(local=仅localStorage, remote=后端API, both=双写)
+    mode: local
+    # 远程持久化缓存TTL(秒)
+    cache-ttl-seconds: 1800
+  edit:
+    # 编辑触发方式(click/dblclick/manual)
+    trigger: click
+    # 编辑时是否自动聚焦
+    auto-focus: true
+    # 是否显示编辑状态图标
+    show-status: true
+    # 编辑模式(cell=单元格编辑, row=行编辑)
+    mode: cell
+  row-height:
+    # 默认行尺寸(mini/small/medium/large/loose/x-large/xx-large)
+    default-size: medium
+    # mini 行高(px)
+    mini-height: 28
+    # small 行高(px)
+    small-height: 36
+    # medium 行高(px)
+    medium-height: 44
+    # large 行高(px)
+    large-height: 52
+    # loose 行高(px)
+    loose-height: 60
+    # x-large 行高(px)
+    x-large-height: 68
+    # xx-large 行高(px)
+    xx-large-height: 76
+  font-size:
+    # 默认字体尺寸(mini/small/medium/large/loose/x-large/xx-large)
+    default-size: medium
+    # mini 字体大小(px)
+    mini-size: 10
+    # small 字体大小(px)
+    small-size: 12
+    # medium 字体大小(px)
+    medium-size: 14
+    # large 字体大小(px)
+    large-size: 16
+    # loose 字体大小(px)
+    loose-size: 18
+    # x-large 字体大小(px)
+    x-large-size: 20
+    # xx-large 字体大小(px)
+    xx-large-size: 22
+  cell-render:
+    # 未知字段类型时的默认编辑组件(input/input-number/select/date-picker/datetime-picker/switch/textarea)
+    default-component: input
+    # 是否启用懒渲染（仅可视区域单元格渲染，提升大表格性能）
+    lazy-render: true
+    # 是否启用组件实例缓存
+    cache-enabled: true
+    # 组件实例缓存上限（个），超出后LRU淘汰
+    cache-max-size: 200
+    # 字段类型 → 编辑组件映射
+    component-mapping:
+      # 文本类型字段使用文本输入框
+      text: input
+      # 数字类型字段使用数字输入框
+      number: input-number
+      # 日期类型字段使用日期选择器
+      date: date-picker
+      # 日期时间类型字段使用日期时间选择器
+      datetime: datetime-picker
+      # 布尔类型字段使用开关组件
+      boolean-type: switch
+      # 下拉选择类型字段使用下拉选择器
+      select: select
+      # 长文本类型字段使用文本域
+      textarea: textarea
+
+# ---- 审批催办配置 ----
+approval:
+  urge:
+    methods:
+      # 是否启用站内信催办
+      station: true
+      # 是否启用邮件催办
+      email: true
+      # 是否启用短信催办
+      sms: false
+    frequency:
+      # 默认催办频率(daily=每天, weekly=每周)
+      default-frequency: daily
+    auto:
+      # 是否启用自动催办定时任务
+      enabled: false
+      # 自动催办cron表达式
+      cron: "0 0 9 * * ?"
+    limits:
+      # 每天最大催办次数
+      max-per-day: 3
+      # 同一审批催办冷却时间(小时)
+      cooldown-hours: 24
+    pagination:
+      # 默认每页条数(5-100)
+      default-page-size: 10
+      # 最大每页条数
+      max-page-size: 50
+    sort:
+      # 默认排序字段
+      default-field: createTime
+      # 默认排序方向(asc/desc)
+      default-order: desc
+
+  # ---- 审批委托配置 ----
+  delegate:
+    # 是否启用审批委托功能
+    enabled: true
+    # 单次委托最大天数
+    max-delegate-days: 30
+    # 委托到期是否自动撤销
+    auto-revoke: true
+    # 委托通知配置
+    notification:
+      # 委托生效时是否通知被委托人
+      enabled: true
+    # 是否允许被委托人再次委托
+    allow-redelegate: false
+    pagination:
+      # 默认每页条数(5-100)
+      default-page-size: 10
+      # 最大每页条数
+      max-page-size: 50
+    sort:
+      # 默认排序字段
+      default-field: createTime
+      # 默认排序方向(asc/desc)
+      default-order: desc
+
+  # ---- 审批定义配置 ----
+  definition:
+    pagination:
+      # 默认每页条数(5-100)
+      default-page-size: 10
+      # 最大每页条数
+      max-page-size: 50
+    sort:
+      # 默认排序字段
+      default-field: createTime
+      # 默认排序方向(asc/desc)
+      default-order: desc
+    node:
+      # 单个审批定义最大节点数
+      max-nodes-per-definition: 20
+      # 是否允许空节点名称
+      allow-empty-node-name: false
+    cache:
+      # 是否启用审批定义缓存
+      enabled: true
+      # 缓存过期时间(分钟)
+      ttl-minutes: 30
+
+# ---- 消息推送通道配置 ----
+message:
+  push:
+    channel:
+      # 每租户最大推送通道数
+      max-channels-per-tenant: 5
+      # 默认推送通道类型(station=站内信, email=邮件, sms=短信)
+      default-type: station
+      # 推送失败重试配置
+      retry:
+        # 推送失败最大重试次数(0=不重试)
+        max-retries: 3
+        # 重试间隔(秒)
+        interval-seconds: 60
+        # 退避倍数(每次重试间隔 = 上次间隔 * 此倍数)
+        backoff-multiplier: 2.0
+      # 批量推送配置
+      batch:
+        # 每批推送数量
+        size: 100
+        # 批次间隔(毫秒)
+        interval-ms: 500
+        # 推送队列最大容量
+        max-queue-size: 10000
+
+# ---- 业务预警规则配置 ----
+  alert-rule:
+    methods:
+      # 是否启用站内信预警通知
+      station: true
+      # 是否启用邮件预警通知
+      email: true
+      # 是否启用短信预警通知
+      sms: false
+    # 预警评估配置
+    evaluation:
+      # 是否启用自动预警评估定时任务
+      enabled: false
+      # 自动预警评估cron表达式(默认每5分钟)
+      cron: "0 */5 * * * ?"
+      # 每批评估最大规则数
+      max-rules-per-batch: 50
+      # 单规则最大条件表达式数
+      max-conditions-per-rule: 10
+    # 预警阈值配置
+    threshold:
+      # 默认预警阈值
+      default-value: 0.00
+    # 预警规则列表分页配置
+    pagination:
+      # 默认每页条数(5-100)
+      default-page-size: 10
+      # 最大每页条数
+      max-page-size: 50
+    # 预警规则列表排序配置
+    sort:
+      # 默认排序字段
+      default-field: createTime
+      # 默认排序方向(asc/desc)
+      default-order: desc

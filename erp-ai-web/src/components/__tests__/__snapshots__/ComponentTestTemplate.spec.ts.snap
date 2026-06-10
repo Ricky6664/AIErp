@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ComponentTestTemplate — 标准测试模式 > 快照测试 > should match snapshot when disabled 1`] = `"<button class="sample-btn sample-btn--default sample-btn--disabled" disabled=""><span class="sample-btn__label">Click me</span><span class="sample-btn__count">0</span></button>"`;
+
+exports[`ComponentTestTemplate — 标准测试模式 > 快照测试 > should match snapshot with custom props 1`] = `"<button class="sample-btn sample-btn--danger"><span class="sample-btn__label">Snapshot</span><span class="sample-btn__count">0</span></button>"`;
+
+exports[`ComponentTestTemplate — 标准测试模式 > 快照测试 > should match snapshot with default props 1`] = `"<button class="sample-btn sample-btn--default"><span class="sample-btn__label">Click me</span><span class="sample-btn__count">0</span></button>"`;

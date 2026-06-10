@@ -1,0 +1,89 @@
+# ==================== 版本控制 ====================
+.git
+.gitignore
+.gitattributes
+
+# ==================== IDE与编辑器 ====================
+.idea
+.vscode
+*.iml
+*.iws
+*.ipr
+*.swp
+*.swo
+*~
+
+# ==================== 后端构建产物与依赖 ====================
+target/
+*.class
+*.jar
+*.log
+dependency-reduced-pom.xml
+
+# ==================== 前端构建产物与依赖 ====================
+node_modules/
+dist/
+build/
+.npm
+.eslintcache
+.parcel-cache
+
+# ==================== 文档 ====================
+README.md
+README*.md
+CHANGELOG.md
+LICENSE
+docs/
+**/*.md
+!**/README.md
+
+# ==================== 本地配置与环境文件 ====================
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# ==================== 日志与临时文件 ====================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==================== 测试与覆盖率 ====================
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# ==================== Docker自身 ====================
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# ==================== CI/CD配置 ====================
+.github/
+.gitlab-ci.yml
+.travis.yml
+Jenkinsfile
+
+# ==================== 部署脚本（不进镜像）====================
+deploy/
+scripts/
+helm/
+k8s/
+
+# ==================== Claude Code AI开发（不进镜像）====================
+.claude/
+.claude-code/
+.session-id-*
+.relay-*
+.catalog.lock
+.parallel.lock
+.commit-msg-tmp
+.tmp-restore/
+
+# ==================== OS ====================
+.DS_Store
+Thumbs.db

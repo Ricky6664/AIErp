@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.sale.mapper.SaleAggregationMapper">
+
+    <!-- ==================== 未发货通知清单查询 ==================== -->
+    <select id="selectUnshippedPage" resultType="java.util.Map">
+        SELECT so.id             AS order_id,
+               so.order_no,
+               so.order_date,
+               so.customer_name,
+               so.sales_person,
+               sod.id            AS order_detail_id,
+               sod.line_no,
+               sod.product_code,
+               sod.product_name,
+               sod.model,
+               sod.spec,
+               sod.brand,
+               sod.unit,
+               sod.qty          AS order_qty,
+               COALESCE(SUM(sdnd.qty), 0) AS shipped_qty,
+               sod.qty - COALESCE(SUM(sdnd.qty), 0) AS unshipped_qty,
+               sod.delivery_date
+        FROM sale_order_detail sod
+        INNER JOIN sale_order so ON so.id = sod.order_id
+            AND so.is_deleted = false
+            AND so.status = 'approved'
+        LEFT JOIN sale_delivery_notice_detail sdnd ON sdnd.order_detail_id = sod.id
+            AND sdnd.is_deleted = false
+        LEFT JOIN sale_delivery_notice sdn ON sdn.id = sdnd.notice_id
+            AND sdn.is_deleted = false
+            AND sdn.status NOT IN ('voided', 'rejected')
+        WHERE sod.is_deleted = false
+            AND sod.qty > 0
+        <if test="query.customerId != null">
+            AND so.customer_id = #{query.customerId}
+        </if>
+        <if test="query.productId != null">
+            AND sod.product_id = #{query.productId}
+        </if>
+        <if test="query.salesPersonId != null">
+            AND so.sales_person_id = #{query.salesPersonId}
+        </if>
+        <if test="query.orderDateStart != null">
+            AND so.order_date &gt;= #{query.orderDateStart}
+        </if>
+        <if test="query.orderDateEnd != null">
+            AND so.order_date &lt;= #{query.orderDateEnd}
+        </if>
+        GROUP BY so.id, so.order_no, so.order_date, so.customer_name, so.sales_person,
+                 sod.id, sod.line_no, sod.product_code, sod.product_name, sod.model, sod.spec,
+                 sod.brand, sod.unit, sod.qty, sod.delivery_date
+        HAVING sod.qty - COALESCE(SUM(sdnd.qty), 0) > 0
+        ORDER BY so.order_date, so.order_no, sod.line_no
+    </select>
+
+    <!-- ==================== 未发货通知清单总数 ==================== -->
+    <select id="selectUnshippedCount" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM (
+            SELECT sod.id
+            FROM sale_order_detail sod
+            INNER JOIN sale_order so ON so.id = sod.order_id
+                AND so.is_deleted = false
+                AND so.status = 'approved'
+            LEFT JOIN sale_delivery_notice_detail sdnd ON sdnd.order_detail_id = sod.id
+                AND sdnd.is_deleted = false
+            LEFT JOIN sale_delivery_notice sdn ON sdn.id = sdnd.notice_id
+                AND sdn.is_deleted = false
+                AND sdn.status NOT IN ('voided', 'rejected')
+            WHERE sod.is_deleted = false
+                AND sod.qty > 0
+            <if test="query.customerId != null">
+                AND so.customer_id = #{query.customerId}
+            </if>
+            <if test="query.productId != null">
+                AND sod.product_id = #{query.productId}
+            </if>
+            <if test="query.salesPersonId != null">
+                AND so.sales_person_id = #{query.salesPersonId}
+            </if>
+            <if test="query.orderDateStart != null">
+                AND so.order_date &gt;= #{query.orderDateStart}
+            </if>
+            <if test="query.orderDateEnd != null">
+                AND so.order_date &lt;= #{query.orderDateEnd}
+            </if>
+            GROUP BY sod.id
+            HAVING sod.qty - COALESCE(SUM(sdnd.qty), 0) > 0
+        ) unshipped_list
+    </select>
+
+    <!-- ==================== 未发货通知导出（不分页） ==================== -->
+    <select id="selectUnshippedList" resultType="java.util.Map">
+        SELECT so.id             AS order_id,
+               so.order_no,
+               so.order_date,
+               so.customer_name,
+               so.sales_person,
+               sod.id            AS order_detail_id,
+               sod.line_no,
+               sod.product_code,
+               sod.product_name,
+               sod.model,
+               sod.spec,
+               sod.brand,
+               sod.unit,
+               sod.qty          AS order_qty,
+               COALESCE(SUM(sdnd.qty), 0) AS shipped_qty,
+               sod.qty - COALESCE(SUM(sdnd.qty), 0) AS unshipped_qty,
+               sod.delivery_date
+        FROM sale_order_detail sod
+        INNER JOIN sale_order so ON so.id = sod.order_id
+            AND so.is_deleted = false
+            AND so.status = 'approved'
+        LEFT JOIN sale_delivery_notice_detail sdnd ON sdnd.order_detail_id = sod.id
+            AND sdnd.is_deleted = false
+        LEFT JOIN sale_delivery_notice sdn ON sdn.id = sdnd.notice_id
+            AND sdn.is_deleted = false
+            AND sdn.status NOT IN ('voided', 'rejected')
+        WHERE sod.is_deleted = false
+            AND sod.qty > 0
+        <if test="query.customerId != null">
+            AND so.customer_id = #{query.customerId}
+        </if>
+        <if test="query.productId != null">
+            AND sod.product_id = #{query.productId}
+        </if>
+        <if test="query.salesPersonId != null">
+            AND so.sales_person_id = #{query.salesPersonId}
+        </if>
+        <if test="query.orderDateStart != null">
+            AND so.order_date &gt;= #{query.orderDateStart}
+        </if>
+        <if test="query.orderDateEnd != null">
+            AND so.order_date &lt;= #{query.orderDateEnd}
+        </if>
+        GROUP BY so.id, so.order_no, so.order_date, so.customer_name, so.sales_person,
+                 sod.id, sod.line_no, sod.product_code, sod.product_name, sod.model, sod.spec,
+                 sod.brand, sod.unit, sod.qty, sod.delivery_date
+        HAVING sod.qty - COALESCE(SUM(sdnd.qty), 0) > 0
+        ORDER BY so.order_date, so.order_no, sod.line_no
+    </select>
+
+</mapper>

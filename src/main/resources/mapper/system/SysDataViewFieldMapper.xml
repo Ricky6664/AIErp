@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.system.mapper.SysDataViewFieldMapper">
+
+    <!-- ==================== 基础字段列表 ==================== -->
+    <sql id="Base_Column_List">
+        id, tenant_id, created_at, updated_at, created_by, updated_by,
+        is_deleted, owner_dept_id, owner_id, version,
+        view_id, field_code, field_name, field_type, field_order,
+        is_searchable, is_sortable, is_visible, search_type, search_component
+    </sql>
+
+    <!-- ==================== 结果映射 ==================== -->
+    <resultMap id="BaseResultMap" type="com.erp.system.entity.SysDataViewField">
+        <id column="id" property="id"/>
+        <result column="tenant_id" property="tenantId"/>
+        <result column="created_at" property="createTime"/>
+        <result column="updated_at" property="updateTime"/>
+        <result column="created_by" property="creatorId"/>
+        <result column="updated_by" property="updaterId"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="owner_dept_id" property="ownerDeptId"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="version" property="version"/>
+        <result column="view_id" property="viewId"/>
+        <result column="field_code" property="fieldCode"/>
+        <result column="field_name" property="fieldName"/>
+        <result column="field_type" property="fieldType"/>
+        <result column="field_order" property="fieldOrder"/>
+        <result column="is_searchable" property="isSearchable"/>
+        <result column="is_sortable" property="isSortable"/>
+        <result column="is_visible" property="isVisible"/>
+        <result column="search_type" property="searchType"/>
+        <result column="search_component" property="searchComponent"/>
+    </resultMap>
+
+    <!-- ==================== 查询可见字段 ==================== -->
+    <select id="selectVisibleFields" resultMap="BaseResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM sys_data_view_field
+        WHERE view_id = #{viewId}
+          AND is_visible = TRUE
+          AND is_deleted = FALSE
+        ORDER BY field_order ASC
+    </select>
+
+</mapper>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.module.message.mapper.MessageWorkbenchMapper">
+
+    <!-- ==================== KPI聚合统计 ==================== -->
+    <select id="selectKpiStats" resultType="java.util.HashMap">
+        SELECT
+            (SELECT COUNT(*)
+             FROM msg_message
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE)                        AS "messageTotal",
+
+            (SELECT COUNT(*)
+             FROM msg_message
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE
+               AND read_status = 0)                           AS "messageUnread",
+
+            (SELECT COUNT(*)
+             FROM msg_message
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE
+               AND DATE(created_at) = CURRENT_DATE)           AS "messageToday",
+
+            (SELECT COUNT(*)
+             FROM msg_template
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE)                        AS "templateTotal",
+
+            (SELECT COUNT(*)
+             FROM msg_template
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE
+               AND is_enabled = TRUE)                         AS "templateEnabled",
+
+            (SELECT COUNT(*)
+             FROM msg_todo
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE)                        AS "todoTotal",
+
+            (SELECT COUNT(*)
+             FROM msg_todo
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE
+               AND process_status = 0)                        AS "todoPending",
+
+            (SELECT COUNT(*)
+             FROM msg_todo
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE
+               AND process_status = 1
+               AND DATE(completed_at) = CURRENT_DATE)         AS "todoDoneToday",
+
+            (SELECT COUNT(*)
+             FROM msg_push_config
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE)                        AS "pushConfigTotal",
+
+            (SELECT COUNT(*)
+             FROM msg_push_config
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE
+               AND is_enabled = TRUE)                         AS "pushConfigEnabled",
+
+            (SELECT COUNT(*)
+             FROM msg_alert_rule
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE)                        AS "alertRuleTotal",
+
+            (SELECT COUNT(*)
+             FROM msg_alert_rule
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE
+               AND is_enabled = TRUE)                         AS "alertRuleEnabled",
+
+            (SELECT COUNT(*)
+             FROM msg_doc_comment
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE)                        AS "docCommentTotal",
+
+            (SELECT COUNT(*)
+             FROM msg_doc_comment
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE
+               AND DATE(created_at) = CURRENT_DATE)           AS "docCommentToday",
+
+            (SELECT COUNT(*)
+             FROM msg_discussion
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE)                        AS "discussionTotal",
+
+            (SELECT COUNT(*)
+             FROM msg_discussion_reply
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE)                        AS "discussionReplyTotal",
+
+            (SELECT COUNT(*)
+             FROM msg_type
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE)                        AS "msgTypeTotal",
+
+            (SELECT COUNT(*)
+             FROM msg_type
+             WHERE tenant_id = #{tenantId}
+               AND is_deleted = FALSE
+               AND is_enabled = TRUE)                         AS "msgTypeEnabled"
+    </select>
+
+    <!-- ==================== 消息创建趋势（按日） ==================== -->
+    <select id="selectMessageTrendByDay" resultType="java.util.HashMap">
+        SELECT
+            DATE_TRUNC('day', created_at) AS "period",
+            COUNT(*)                      AS "count"
+        FROM msg_message
+        WHERE tenant_id = #{tenantId}
+          AND is_deleted = FALSE
+          AND created_at BETWEEN #{startDate}::TIMESTAMP AND #{endDate}::TIMESTAMP
+        GROUP BY "period"
+        ORDER BY "period"
+    </select>
+
+    <!-- ==================== 待办创建趋势（按日） ==================== -->
+    <select id="selectTodoTrendByDay" resultType="java.util.HashMap">
+        SELECT
+            DATE_TRUNC('day', created_at) AS "period",
+            COUNT(*)                      AS "count"
+        FROM msg_todo
+        WHERE tenant_id = #{tenantId}
+          AND is_deleted = FALSE
+          AND created_at BETWEEN #{startDate}::TIMESTAMP AND #{endDate}::TIMESTAMP
+        GROUP BY "period"
+        ORDER BY "period"
+    </select>
+
+    <!-- ==================== 待办状态分布 ==================== -->
+    <select id="selectTodoStatusDistribution" resultType="java.util.HashMap">
+        SELECT
+            process_status AS "processStatus",
+            COUNT(*)       AS "count"
+        FROM msg_todo
+        WHERE tenant_id = #{tenantId}
+          AND is_deleted = FALSE
+        GROUP BY process_status
+    </select>
+
+    <!-- ==================== 消息类型分布 ==================== -->
+    <select id="selectMessageTypeDistribution" resultType="java.util.HashMap">
+        SELECT
+            t.type_name   AS "typeName",
+            COUNT(m.id)   AS "count"
+        FROM msg_message m
+        INNER JOIN msg_type t ON m.msg_type_id = t.id
+            AND t.is_deleted = FALSE
+        WHERE m.tenant_id = #{tenantId}
+          AND m.is_deleted = FALSE
+        GROUP BY t.type_name
+        ORDER BY "count" DESC
+    </select>
+
+    <!-- ==================== 推送渠道分布 ==================== -->
+    <select id="selectPushChannelDistribution" resultType="java.util.HashMap">
+        SELECT
+            push_channel AS "pushChannel",
+            COUNT(*)     AS "count"
+        FROM msg_push_config
+        WHERE tenant_id = #{tenantId}
+          AND is_deleted = FALSE
+        GROUP BY push_channel
+        ORDER BY "count" DESC
+    </select>
+
+    <!-- ==================== 预警触发趋势（按日） ==================== -->
+    <select id="selectAlertTrendByDay" resultType="java.util.HashMap">
+        SELECT
+            DATE_TRUNC('day', created_at) AS "period",
+            COUNT(*)                      AS "count"
+        FROM msg_message
+        WHERE tenant_id = #{tenantId}
+          AND is_deleted = FALSE
+          AND source_type = 'ALERT'
+          AND created_at BETWEEN #{startDate}::TIMESTAMP AND #{endDate}::TIMESTAMP
+        GROUP BY "period"
+        ORDER BY "period"
+    </select>
+
+    <!-- ==================== 单据沟通趋势（按日） ==================== -->
+    <select id="selectDocCommentTrendByDay" resultType="java.util.HashMap">
+        SELECT
+            DATE_TRUNC('day', created_at) AS "period",
+            COUNT(*)                      AS "count"
+        FROM msg_doc_comment
+        WHERE tenant_id = #{tenantId}
+          AND is_deleted = FALSE
+          AND created_at BETWEEN #{startDate}::TIMESTAMP AND #{endDate}::TIMESTAMP
+        GROUP BY "period"
+        ORDER BY "period"
+    </select>
+
+</mapper>

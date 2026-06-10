@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.approval.mapper.ApprovalDefinitionMapper">
+
+    <!-- ==================== 基础字段列表 ==================== -->
+    <sql id="Base_Column_List">
+        id, tenant_id, create_time, update_time, creator_id, updater_id,
+        is_deleted, owner_dept_id, owner_id, version,
+        definition_name, definition_code, business_type, flow_config, enable_flag
+    </sql>
+
+    <!-- ==================== ApprovalDefinition 基础映射 ==================== -->
+    <resultMap id="BaseResultMap" type="com.erp.approval.entity.ApprovalDefinitionEntity">
+        <id column="id" property="id"/>
+        <result column="tenant_id" property="tenantId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="creator_id" property="creatorId"/>
+        <result column="updater_id" property="updaterId"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="owner_dept_id" property="ownerDeptId"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="version" property="version"/>
+        <result column="definition_name" property="definitionName"/>
+        <result column="definition_code" property="definitionCode"/>
+        <result column="business_type" property="businessType"/>
+        <result column="flow_config" property="flowConfig"/>
+        <result column="enable_flag" property="enableFlag"/>
+    </resultMap>
+
+    <!-- ==================== 按定义编码查询 ==================== -->
+    <select id="selectByDefinitionCode" resultMap="BaseResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM approval_definition
+        WHERE definition_code = #{definitionCode}
+          AND is_deleted = false
+    </select>
+
+    <!-- ==================== 查询所有启用定义 ==================== -->
+    <select id="selectAllEnabled" resultMap="BaseResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM approval_definition
+        WHERE enable_flag = true
+          AND is_deleted = false
+        ORDER BY create_time ASC
+    </select>
+
+    <!-- ==================== 批量插入预置审批定义 ==================== -->
+    <!-- 逐行 INSERT ... SELECT ... WHERE NOT EXISTS 避免重复 -->
+    <insert id="batchInsertPreset">
+        <foreach collection="list" item="item" separator=";">
+            INSERT INTO approval_definition
+                (id, tenant_id, create_time, update_time, creator_id, updater_id,
+                 is_deleted, owner_dept_id, owner_id, version,
+                 definition_name, definition_code, business_type, flow_config, enable_flag)
+            SELECT
+                #{item.id}, #{item.tenantId}, #{item.createTime}, #{item.updateTime},
+                #{item.creatorId}, #{item.updaterId},
+                #{item.isDeleted}, #{item.ownerDeptId}, #{item.ownerId}, #{item.version},
+                #{item.definitionName}, #{item.definitionCode}, #{item.businessType},
+                #{item.flowConfig}::jsonb, #{item.enableFlag}
+            WHERE NOT EXISTS (
+                SELECT 1 FROM approval_definition
+                WHERE definition_code = #{item.definitionCode}
+                  AND is_deleted = false
+            )
+        </foreach>
+    </insert>
+
+</mapper>

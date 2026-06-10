@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.system.mapper.SysDataViewMapper">
+
+    <!-- ==================== 基础字段列表 ==================== -->
+    <sql id="Base_Column_List">
+        id, tenant_id, created_at, updated_at, created_by, updated_by,
+        is_deleted, owner_dept_id, owner_id, version,
+        view_code, view_name, source_table, source_type, source_sql, description
+    </sql>
+
+    <sql id="Field_Column_List">
+        id, view_id, field_code, field_name, field_type, field_order,
+        is_searchable, is_sortable, is_visible, search_type, search_component,
+        tenant_id, created_at, updated_at, created_by, updated_by,
+        is_deleted, owner_dept_id, owner_id, version
+    </sql>
+
+    <!-- ==================== SysDataView 基础映射 ==================== -->
+    <resultMap id="BaseResultMap" type="com.erp.system.entity.SysDataView">
+        <id column="id" property="id"/>
+        <result column="tenant_id" property="tenantId"/>
+        <result column="created_at" property="createTime"/>
+        <result column="updated_at" property="updateTime"/>
+        <result column="created_by" property="creatorId"/>
+        <result column="updated_by" property="updaterId"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="owner_dept_id" property="ownerDeptId"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="version" property="version"/>
+        <result column="view_code" property="viewCode"/>
+        <result column="view_name" property="viewName"/>
+        <result column="source_table" property="sourceTable"/>
+        <result column="source_type" property="sourceType"/>
+        <result column="source_sql" property="sourceSql"/>
+        <result column="description" property="description"/>
+    </resultMap>
+
+    <!-- ==================== SysDataViewField 基础映射 ==================== -->
+    <resultMap id="FieldBaseResultMap" type="com.erp.system.entity.SysDataViewField">
+        <id column="id" property="id"/>
+        <result column="tenant_id" property="tenantId"/>
+        <result column="created_at" property="createTime"/>
+        <result column="updated_at" property="updateTime"/>
+        <result column="created_by" property="creatorId"/>
+        <result column="updated_by" property="updaterId"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="owner_dept_id" property="ownerDeptId"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="version" property="version"/>
+        <result column="view_id" property="viewId"/>
+        <result column="field_code" property="fieldCode"/>
+        <result column="field_name" property="fieldName"/>
+        <result column="field_type" property="fieldType"/>
+        <result column="field_order" property="fieldOrder"/>
+        <result column="is_searchable" property="isSearchable"/>
+        <result column="is_sortable" property="isSortable"/>
+        <result column="is_visible" property="isVisible"/>
+        <result column="search_type" property="searchType"/>
+        <result column="search_component" property="searchComponent"/>
+    </resultMap>
+
+    <!-- ==================== 联查结果映射(主表+字段列表) ==================== -->
+    <resultMap id="ViewWithFieldsResultMap" type="com.erp.system.vo.SysDataViewVO$DetailVO">
+        <id column="v_id" property="id"/>
+        <result column="v_view_code" property="viewCode"/>
+        <result column="v_view_name" property="viewName"/>
+        <result column="v_source_table" property="sourceTable"/>
+        <result column="v_source_type" property="sourceType"/>
+        <result column="v_source_type_name" property="sourceTypeName"/>
+        <result column="v_source_sql" property="sourceSql"/>
+        <result column="v_description" property="description"/>
+        <result column="v_create_time" property="createTime"/>
+        <result column="v_update_time" property="updateTime"/>
+        <collection property="fields" ofType="com.erp.system.vo.SysDataViewFieldVO$DetailVO">
+            <id column="f_id" property="id"/>
+            <result column="f_view_id" property="viewId"/>
+            <result column="f_field_code" property="fieldCode"/>
+            <result column="f_field_name" property="fieldName"/>
+            <result column="f_field_type" property="fieldType"/>
+            <result column="f_field_type_name" property="fieldTypeName"/>
+            <result column="f_field_order" property="fieldOrder"/>
+            <result column="f_is_searchable" property="isSearchable"/>
+            <result column="f_is_sortable" property="isSortable"/>
+            <result column="f_is_visible" property="isVisible"/>
+            <result column="f_search_type" property="searchType"/>
+            <result column="f_search_component" property="searchComponent"/>
+            <result column="f_create_time" property="createTime"/>
+            <result column="f_update_time" property="updateTime"/>
+        </collection>
+    </resultMap>
+
+    <!-- ==================== 联查主从表 ==================== -->
+    <select id="selectViewWithFields" resultMap="ViewWithFieldsResultMap">
+        SELECT
+            v.id                AS v_id,
+            v.view_code         AS v_view_code,
+            v.view_name         AS v_view_name,
+            v.source_table      AS v_source_table,
+            v.source_type       AS v_source_type,
+            CASE v.source_type WHEN 1 THEN '表' WHEN 2 THEN 'SQL' END AS v_source_type_name,
+            v.source_sql        AS v_source_sql,
+            v.description       AS v_description,
+            v.created_at        AS v_create_time,
+            v.updated_at        AS v_update_time,
+            f.id                AS f_id,
+            f.view_id           AS f_view_id,
+            f.field_code        AS f_field_code,
+            f.field_name        AS f_field_name,
+            f.field_type        AS f_field_type,
+            f.field_type        AS f_field_type_name,
+            f.field_order       AS f_field_order,
+            f.is_searchable     AS f_is_searchable,
+            f.is_sortable       AS f_is_sortable,
+            f.is_visible        AS f_is_visible,
+            f.search_type       AS f_search_type,
+            f.search_component  AS f_search_component,
+            f.created_at        AS f_create_time,
+            f.updated_at        AS f_update_time
+        FROM sys_data_view v
+        LEFT JOIN sys_data_view_field f ON v.id = f.view_id AND f.is_deleted = FALSE
+        WHERE v.id = #{viewId}
+          AND v.is_deleted = FALSE
+        ORDER BY f.field_order ASC
+    </select>
+
+    <!-- ==================== 按视图编码查询 ==================== -->
+    <select id="selectByViewCode" resultMap="BaseResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM sys_data_view
+        WHERE view_code = #{viewCode}
+          AND is_deleted = FALSE
+    </select>
+
+</mapper>

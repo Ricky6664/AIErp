@@ -1,0 +1,25 @@
+/* Element Plus 主题变量覆盖 */
+:root {
+  /* 品牌色 — 引用全局颜色变量确保一致 */
+  --el-color-primary: var(--color-primary);
+  --el-color-success: var(--color-success);
+  --el-color-warning: var(--color-warning);
+  --el-color-danger: var(--color-danger);
+  --el-color-info: var(--color-info);
+
+  /* 字体 */
+  --el-font-size-base: 14px;
+  --el-font-family:
+    'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial,
+    sans-serif;
+
+  /* 圆角 */
+  --el-border-radius-base: 4px;
+  --el-border-radius-small: 2px;
+
+  /* 间距 */
+  --el-padding-base: 8px;
+
+  /* 过渡 */
+  --el-transition-duration: 0.3s;
+}

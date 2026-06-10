@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.erp.approval.mapper.ApprovalRecordMapper">
+
+    <!-- ==================== 基础字段列表 ==================== -->
+    <sql id="Base_Column_List">
+        id, tenant_id, create_time, update_time, creator_id, updater_id,
+        is_deleted, owner_dept_id, owner_id, version,
+        instance_id, node_name, approver_id, action, comment, operate_time
+    </sql>
+
+    <!-- ==================== 日志查询字段列表 ==================== -->
+    <sql id="Log_Column_List">
+        r.id AS record_id,
+        r.instance_id,
+        r.node_name,
+        r.approver_id,
+        r.action,
+        r.comment,
+        r.operate_time,
+        r.create_time AS record_create_time,
+        i.definition_id,
+        i.business_type,
+        i.business_id,
+        i.applicant_id,
+        i.status AS instance_status,
+        i.current_node_id,
+        d.definition_name,
+        d.definition_code
+    </sql>
+
+    <!-- ==================== 日志查询条件片段 ==================== -->
+    <sql id="Log_Where_Clause">
+        <where>
+            r.is_deleted = false
+            <if test="definitionId != null">
+                AND i.definition_id = #{definitionId}
+            </if>
+            <if test="action != null and action != ''">
+                AND r.action = #{action}
+            </if>
+            <if test="status != null and status != ''">
+                AND i.status = #{status}
+            </if>
+            <if test="businessType != null and businessType != ''">
+                AND i.business_type = #{businessType}
+            </if>
+            <if test="applicantId != null">
+                AND i.applicant_id = #{applicantId}
+            </if>
+            <if test="approverId != null">
+                AND r.approver_id = #{approverId}
+            </if>
+            <if test="startTime != null and startTime != ''">
+                AND r.operate_time &gt;= #{startTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND r.operate_time &lt;= #{endTime}
+            </if>
+        </where>
+    </sql>
+
+    <!-- ==================== 分页查询审批日志 ==================== -->
+    <select id="selectLogList" resultType="map">
+        SELECT
+            <include refid="Log_Column_List"/>
+        FROM approval_record r
+        LEFT JOIN approval_instance i ON r.instance_id = i.id
+        LEFT JOIN approval_definition d ON i.definition_id = d.id
+        <include refid="Log_Where_Clause"/>
+        ORDER BY r.operate_time DESC, r.id DESC
+        <if test="offset != null and limit != null">
+            OFFSET #{offset} LIMIT #{limit}
+        </if>
+    </select>
+
+    <!-- ==================== 日志数量统计 ==================== -->
+    <select id="selectLogCount" resultType="long">
+        SELECT COUNT(*)
+        FROM approval_record r
+        LEFT JOIN approval_instance i ON r.instance_id = i.id
+        LEFT JOIN approval_definition d ON i.definition_id = d.id
+        <include refid="Log_Where_Clause"/>
+    </select>
+
+    <!-- ==================== 按实例查询日志详情 ==================== -->
+    <select id="selectLogByInstanceId" resultType="map">
+        SELECT
+            <include refid="Log_Column_List"/>
+        FROM approval_record r
+        LEFT JOIN approval_instance i ON r.instance_id = i.id
+        LEFT JOIN approval_definition d ON i.definition_id = d.id
+        WHERE r.instance_id = #{instanceId}
+          AND r.is_deleted = false
+        ORDER BY r.operate_time ASC, r.id ASC
+    </select>
+
+    <!-- ==================== 按审批人统计已审数量 ==================== -->
+    <select id="countByApproverId" resultType="long">
+        SELECT COUNT(*)
+        FROM approval_record
+        WHERE approver_id = #{approverId}
+          AND is_deleted = false
+    </select>
+
+</mapper>

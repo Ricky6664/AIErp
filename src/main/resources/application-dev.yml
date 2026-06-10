@@ -1,0 +1,65 @@
+# ============================================================
+# ERP AI - 开发环境配置 (application-dev.yml)
+# ============================================================
+
+# ---- 服务器配置 ----
+server:
+  port: 8080
+
+# ---- 数据源配置 (PostgreSQL) ----
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/erp_dev?currentSchema=public&useUnicode=true&characterEncoding=utf-8
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    # ---- HikariCP 连接池配置 ----
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      connection-timeout: 30000
+      pool-name: ErpHikariPool
+      leak-detection-threshold: 60000
+
+  # ---- Redis 缓存配置 ----
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: ${REDIS_PASSWORD:}
+      database: 0
+      timeout: 5000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: 3000ms
+
+# ---- MyBatis-Plus 环境覆盖项（仅覆盖日志实现, 其余继承 application.yml） ----
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# ---- 日志配置 ----
+logging:
+  level:
+    com.erp: DEBUG
+    com.baomidou.mybatisplus: WARN
+    org.springframework.web: INFO
+    org.springframework: INFO
+    org.hibernate.SQL: WARN
+    io.undertow: WARN
+    org.apache: WARN
+
+# ---- Actuator 端点配置 (开发环境用于验证) ----
+management:
+  endpoints:
+    web:
+      exposure:
+        include: env,info,health
+  endpoint:
+    env:
+      show-values: ALWAYS

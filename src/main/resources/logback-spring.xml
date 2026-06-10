@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================ -->
+<!-- ERP AI - Logback 日志框架配置                                   -->
+<!-- 文件: logback-spring.xml                                       -->
+<!-- 版本: 1.0                                                      -->
+<!-- 描述: CONSOLE + FILE 双 Appender、按日期与大小滚动、             -->
+<!--       springProfile 区分环境日志级别                             -->
+<!-- 技术栈: Logback 1.4.x + Spring Boot 3.4.x                      -->
+<!-- 作者: @author AI                                                -->
+<!-- ============================================================ -->
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <!-- ============================================================ -->
+    <!-- 变量定义                                                       -->
+    <!-- ============================================================ -->
+    <!-- 应用名称（读取 spring.application.name 属性，默认 erp-ai）-->
+    <springProperty scope="context" name="APP_NAME" source="spring.application.name" defaultValue="erp-ai"/>
+
+    <!-- 日志格式: 时间 [线程名] 日志级别 Logger名 - 消息 换行 -->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+
+    <!-- 开发环境控制台彩色日志格式 -->
+    <property name="LOG_PATTERN_COLOR"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{36}) - %msg%n"/>
+
+    <!-- ============================================================ -->
+    <!-- 动态日志级别（从 application.yml 各环境配置读取）                -->
+    <!-- 用途: 各环境可通过 application-{profile}.yml 覆盖日志级别       -->
+    <!-- ============================================================ -->
+    <springProperty scope="context" name="LOG_LEVEL_ERP" source="logging.level.com.erp" defaultValue="INFO"/>
+    <springProperty scope="context" name="LOG_LEVEL_MYBATIS_PLUS" source="logging.level.com.baomidou.mybatisplus" defaultValue="WARN"/>
+    <springProperty scope="context" name="LOG_LEVEL_SPRING_WEB" source="logging.level.org.springframework.web" defaultValue="INFO"/>
+    <springProperty scope="context" name="LOG_LEVEL_HIBERNATE_SQL" source="logging.level.org.hibernate.SQL" defaultValue="WARN"/>
+    <springProperty scope="context" name="LOG_LEVEL_UNDERTOW" source="logging.level.io.undertow" defaultValue="WARN"/>
+
+    <!-- ============================================================ -->
+    <!-- CONSOLE Appender（控制台输出）                                 -->
+    <!-- 用途: 开发调试、容器日志采集                                     -->
+    <!-- ============================================================ -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- ============================================================ -->
+    <!-- FILE Appender（文件滚动输出）                                   -->
+    <!-- 策略: 按日期(每天) + 按大小(100MB)滚动                         -->
+    <!-- 保留: 30 天历史文件，总容量上限 10GB                           -->
+    <!-- 路径: ${LOG_PATH}/${APP_NAME}.log（由 springProfile 注入）    -->
+    <!-- ============================================================ -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 当前活动日志文件路径（由 springProfile 通过 LOG_PATH 变量注入）-->
+        <file>${LOG_PATH}/${APP_NAME}.log</file>
+
+        <!-- 滚动策略: 日期 + 大小混合滚动 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 归档文件名模式: 按天分目录，超过 100MB 自动切分新文件 -->
+            <fileNamePattern>${LOG_PATH}/archived/${APP_NAME}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 单文件最大 100MB -->
+            <maxFileSize>100MB</maxFileSize>
+            <!-- 历史文件保留 30 天 -->
+            <maxHistory>30</maxHistory>
+            <!-- 所有归档文件总大小上限 10GB -->
+            <totalSizeCap>10GB</totalSizeCap>
+            <!-- 启动时清理过期归档 -->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+
+        <!-- 写入后立即刷新（确保崩溃时不丢失日志，生产环境可改 false 提升性能）-->
+        <immediateFlush>true</immediateFlush>
+    </appender>
+
+    <!-- ============================================================ -->
+    <!-- ERROR 独立文件 Appender（仅记录 ERROR 级别）                   -->
+    <!-- 用途: 方便快速定位严重问题，独立于常规日志文件                   -->
+    <!-- ============================================================ -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${APP_NAME}-error.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/archived/${APP_NAME}-error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>5GB</totalSizeCap>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+
+        <!-- 仅接受 ERROR 及以上级别 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+
+    <!-- ============================================================ -->
+    <!-- springProfile: dev（开发环境）                                 -->
+    <!-- 日志级别: 业务代码 DEBUG（从yml读取）、框架按组件配置           -->
+    <!-- 输出目标: CONSOLE（开发环境无需持久化文件）                     -->
+    <!-- ============================================================ -->
+    <springProfile name="dev">
+        <property name="LOG_PATH" value="logs"/>
+
+        <!-- 业务代码: 从 application-dev.yml 读取（默认 DEBUG） -->
+        <logger name="com.erp" level="${LOG_LEVEL_ERP}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <!-- MyBatis-Plus: 从 yml 读取（默认 WARN） -->
+        <logger name="com.baomidou.mybatisplus" level="${LOG_LEVEL_MYBATIS_PLUS}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <!-- Spring Web: 从 yml 读取（默认 INFO） -->
+        <logger name="org.springframework.web" level="${LOG_LEVEL_SPRING_WEB}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <!-- Hibernate SQL: 从 yml 读取（默认 WARN） -->
+        <logger name="org.hibernate.SQL" level="${LOG_LEVEL_HIBERNATE_SQL}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <!-- Undertow 服务器: 从 yml 读取（默认 WARN） -->
+        <logger name="io.undertow" level="${LOG_LEVEL_UNDERTOW}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <!-- Spring 框架（非 Web）: INFO -->
+        <logger name="org.springframework" level="INFO" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <!-- Apache 组件: WARN -->
+        <logger name="org.apache" level="WARN" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <!-- ============================================================ -->
+    <!-- springProfile: prod（生产环境）                                -->
+    <!-- 日志级别: 业务代码 INFO（从yml读取）、框架按组件配置            -->
+    <!-- 输出目标: CONSOLE + FILE + ERROR_FILE                         -->
+    <!-- 安全: 生产环境禁止输出 DEBUG 级别日志                           -->
+    <!-- ============================================================ -->
+    <springProfile name="prod">
+        <property name="LOG_PATH" value="/data/logs"/>
+
+        <!-- 业务代码: 从 application-prod.yml 读取（默认 INFO） -->
+        <logger name="com.erp" level="${LOG_LEVEL_ERP}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </logger>
+        <!-- MyBatis-Plus: 从 yml 读取（默认 WARN） -->
+        <logger name="com.baomidou.mybatisplus" level="${LOG_LEVEL_MYBATIS_PLUS}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </logger>
+        <!-- Spring Web: 从 yml 读取（默认 INFO） -->
+        <logger name="org.springframework.web" level="${LOG_LEVEL_SPRING_WEB}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </logger>
+        <!-- Hibernate SQL: 从 yml 读取（默认 WARN） -->
+        <logger name="org.hibernate.SQL" level="${LOG_LEVEL_HIBERNATE_SQL}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </logger>
+        <!-- Undertow 服务器: 从 yml 读取（默认 WARN） -->
+        <logger name="io.undertow" level="${LOG_LEVEL_UNDERTOW}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </logger>
+        <!-- Spring 框架（非 Web）: WARN -->
+        <logger name="org.springframework" level="WARN" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </logger>
+        <!-- Apache 组件: WARN -->
+        <logger name="org.apache" level="WARN" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </logger>
+
+        <root level="WARN">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </root>
+    </springProfile>
+
+    <!-- ============================================================ -->
+    <!-- springProfile: test / staging（测试与预生产环境）              -->
+    <!-- 日志级别: 业务代码 INFO（从yml读取）、框架按组件配置            -->
+    <!-- 输出目标: CONSOLE + FILE                                      -->
+    <!-- ============================================================ -->
+    <springProfile name="test,staging">
+        <property name="LOG_PATH" value="logs"/>
+
+        <!-- 业务代码: 从 application-{profile}.yml 读取（默认 INFO） -->
+        <logger name="com.erp" level="${LOG_LEVEL_ERP}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+        <!-- MyBatis-Plus: 从 yml 读取（默认 WARN） -->
+        <logger name="com.baomidou.mybatisplus" level="${LOG_LEVEL_MYBATIS_PLUS}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+        <!-- Spring Web: 从 yml 读取（默认 INFO） -->
+        <logger name="org.springframework.web" level="${LOG_LEVEL_SPRING_WEB}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+        <!-- Hibernate SQL: 从 yml 读取（默认 WARN） -->
+        <logger name="org.hibernate.SQL" level="${LOG_LEVEL_HIBERNATE_SQL}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+        <!-- Undertow 服务器: 从 yml 读取（默认 WARN） -->
+        <logger name="io.undertow" level="${LOG_LEVEL_UNDERTOW}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+        <!-- Spring 框架（非 Web）: INFO -->
+        <logger name="org.springframework" level="INFO" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+        <!-- Apache 组件: WARN -->
+        <logger name="org.apache" level="WARN" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </root>
+    </springProfile>
+
+</configuration>
