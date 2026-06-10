@@ -13,10 +13,35 @@ function buildRoutes(menuTree: MenuTreeNode[]): RouteRecordRaw[] {
   const routes: RouteRecordRaw[] = []
   for (const node of menuTree) {
     if (node.menuType === 'button') continue
-    const children =
+
+    const childRoutes =
       node.children && node.children.length > 0 ? buildRoutes(node.children) : undefined
-    // 确保路径不以 / 开头，因为将作为 Layout 路由的子路由添加
     const childPath = (node.routePath || '').replace(/^\//, '')
+
+    // 有子菜单的父节点：如果自己没有页面组件，则自动重定向到第一个子页面
+    if (!node.componentPath && childRoutes && childRoutes.length > 0) {
+      const firstChild = childRoutes[0]
+      const firstChildPath = firstChild.path || ''
+      routes.push({
+        path: childPath,
+        name: node.menuName,
+        redirect: firstChildPath.startsWith('/')
+          ? firstChildPath
+          : `${childPath}/${firstChildPath}`.replace(/\/+/g, '/'),
+        meta: {
+          title: node.menuName,
+          icon: node.icon,
+          permissions: node.permissionCode ? [node.permissionCode] : []
+        },
+        children: childRoutes
+      } as RouteRecordRaw)
+      continue
+    }
+
+    // 无子菜单且无组件的节点：跳过
+    if (!node.componentPath && (!childRoutes || childRoutes.length === 0)) continue
+
+    // 有组件的叶子节点或父节点
     const route: RouteRecordRaw = {
       path: childPath,
       name: node.menuName,
@@ -26,7 +51,7 @@ function buildRoutes(menuTree: MenuTreeNode[]): RouteRecordRaw[] {
         icon: node.icon,
         permissions: node.permissionCode ? [node.permissionCode] : []
       },
-      children
+      children: childRoutes
     } as RouteRecordRaw
     routes.push(route)
   }

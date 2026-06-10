@@ -61,6 +61,12 @@ function handleMenuSelect(index: string) {
     window.open(index, '_blank')
     return
   }
+  // 检查该路径是否对应一个实际可渲染的路由（不是仅有子菜单的父节点）
+  const resolved = router.resolve(index)
+  if (!resolved || resolved.name === 'Error404' || resolved.name === 'NotFound') {
+    // 父节点路径没有对应页面，不导航，仅展开/收起子菜单
+    return
+  }
   router.push(index)
 }
 </script>
