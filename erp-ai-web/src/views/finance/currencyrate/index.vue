@@ -1,29 +1,36 @@
 <template>
-  <div class="currencyrate-list-page">
-    <!-- 快捷统计卡片 -->
-    <el-row :gutter="16" class="stats-row">
-      <el-col :xs="24" :sm="8">
-        <el-card shadow="hover" class="stat-card">
-          <div class="stat-value">{{ stats.total }}</div>
-          <div class="stat-label">总记录数</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="8">
-        <el-card shadow="hover" class="stat-card stat-card--today">
-          <div class="stat-value">{{ stats.todayCount }}</div>
-          <div class="stat-label">今日新增</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="8">
-        <el-card shadow="hover" class="stat-card stat-card--type">
-          <div class="stat-value">{{ stats.typeCount }}</div>
-          <div class="stat-label">汇率类型数</div>
-        </el-card>
-      </el-col>
-    </el-row>
+  <PageP04SimpleList
+    view-id="currencyrate-list"
+    page-type="P04"
+    :config="pageConfig"
+    :permissions="permissions"
+  >
+    <!-- 统计卡片 -->
+    <template #extra-area>
+      <el-row :gutter="16" class="stats-row">
+        <el-col :xs="24" :sm="8">
+          <el-card shadow="hover" class="stat-card">
+            <div class="stat-value">{{ stats.total }}</div>
+            <div class="stat-label">总记录数</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="8">
+          <el-card shadow="hover" class="stat-card stat-card--today">
+            <div class="stat-value">{{ stats.todayCount }}</div>
+            <div class="stat-label">今日新增</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="8">
+          <el-card shadow="hover" class="stat-card stat-card--type">
+            <div class="stat-value">{{ stats.typeCount }}</div>
+            <div class="stat-label">汇率类型数</div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </template>
 
-    <!-- 搜索表单 -->
-    <el-card shadow="never" class="search-card">
+    <!-- 查询区 -->
+    <template #query-panel>
       <el-form :model="searchForm" :inline="true" @submit.prevent>
         <el-form-item label="币种名称">
           <el-input
@@ -51,117 +58,20 @@
           <el-button :icon="RefreshRight" @click="handleReset">重置</el-button>
         </el-form-item>
       </el-form>
-    </el-card>
+    </template>
 
-    <!-- 新增/编辑弹窗 -->
-    <el-dialog
-      v-model="dialogVisible"
-      :title="isEdit ? '编辑币种汇率' : '新增币种汇率'"
-      width="600px"
-      destroy-on-close
-      @closed="handleDialogClosed"
-    >
-      <el-form
-        ref="formRef"
-        :model="formData"
-        :rules="formRules"
-        label-width="100px"
-        @submit.prevent
-      >
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="币种编码" prop="currencyCode">
-              <el-input
-                v-model="formData.currencyCode"
-                placeholder="请输入币种编码"
-                :maxlength="20"
-                :disabled="isEdit"
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="币种名称" prop="currencyName">
-              <el-input
-                v-model="formData.currencyName"
-                placeholder="请输入币种名称"
-                maxlength="50"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="基准币种" prop="currencySymbol">
-              <el-select
-                v-model="formData.currencySymbol"
-                placeholder="请选择基准币种"
-                filterable
-                allow-create
-                style="width: 100%"
-              >
-                <el-option
-                  v-for="item in baseCurrencyOptions"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="汇率" prop="exchangeRate">
-              <el-input-number
-                v-model="formData.exchangeRate"
-                :precision="6"
-                :min="0"
-                placeholder="请输入汇率"
-                style="width: 100%"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="汇率日期" prop="effectiveDate">
-              <el-date-picker
-                v-model="formData.effectiveDate"
-                type="date"
-                placeholder="请选择汇率日期"
-                :disabled-date="disabledDate"
-                value-format="YYYY-MM-DD"
-                style="width: 100%"
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="汇率类型" prop="rateType">
-              <el-select
-                v-model="formData.rateType"
-                placeholder="请选择汇率类型"
-                style="width: 100%"
-              >
-                <el-option label="固定汇率" :value="1" />
-                <el-option label="浮动汇率" :value="2" />
-              </el-select>
-            </el-form-item>
-          </el-col>
-        </el-row>
-      </el-form>
-      <template #footer>
-        <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="primary" :loading="submitLoading" @click="handleSubmit"> 确认 </el-button>
-      </template>
-    </el-dialog>
+    <!-- 操作栏 -->
+    <template #action-bar>
+      <div class="action-bar-left">
+        <el-button type="primary" :icon="Plus" @click="handleAdd">新增币种汇率</el-button>
+      </div>
+      <div class="action-bar-right">
+        <span class="record-count">{{ stats.total }} 条记录</span>
+      </div>
+    </template>
 
     <!-- 数据表格 -->
-    <el-card shadow="never" class="table-card">
-      <template #header>
-        <div class="table-header">
-          <span>{{ stats.total }} 条记录</span>
-          <el-button type="primary" :icon="Plus" @click="handleAdd">新增币种汇率</el-button>
-        </div>
-      </template>
-
+    <template #main-content>
       <vxe-table
         :loading="tableLoading"
         :data="tableData"
@@ -206,7 +116,7 @@
       </vxe-table>
 
       <!-- 分页 -->
-      <div class="pagination-wrapper">
+      <div class="pagination-box">
         <el-pagination
           v-model:current-page="pagination.pageNum"
           v-model:page-size="pagination.pageSize"
@@ -217,14 +127,102 @@
           @current-change="handlePageChange"
         />
       </div>
-    </el-card>
-  </div>
+    </template>
+  </PageP04SimpleList>
+
+  <!-- 新增/编辑弹窗（弹窗留在外部） -->
+  <el-dialog
+    v-model="dialogVisible"
+    :title="isEdit ? '编辑币种汇率' : '新增币种汇率'"
+    width="600px"
+    destroy-on-close
+    @closed="handleDialogClosed"
+  >
+    <el-form ref="formRef" :model="formData" :rules="formRules" label-width="100px" @submit.prevent>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="币种编码" prop="currencyCode">
+            <el-input
+              v-model="formData.currencyCode"
+              placeholder="请输入币种编码"
+              :maxlength="20"
+              :disabled="isEdit"
+            />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="币种名称" prop="currencyName">
+            <el-input v-model="formData.currencyName" placeholder="请输入币种名称" maxlength="50" />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="基准币种" prop="currencySymbol">
+            <el-select
+              v-model="formData.currencySymbol"
+              placeholder="请选择基准币种"
+              filterable
+              allow-create
+              style="width: 100%"
+            >
+              <el-option
+                v-for="item in baseCurrencyOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="汇率" prop="exchangeRate">
+            <el-input-number
+              v-model="formData.exchangeRate"
+              :precision="6"
+              :min="0"
+              placeholder="请输入汇率"
+              style="width: 100%"
+            />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="汇率日期" prop="effectiveDate">
+            <el-date-picker
+              v-model="formData.effectiveDate"
+              type="date"
+              placeholder="请选择汇率日期"
+              :disabled-date="disabledDate"
+              value-format="YYYY-MM-DD"
+              style="width: 100%"
+            />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="汇率类型" prop="rateType">
+            <el-select v-model="formData.rateType" placeholder="请选择汇率类型" style="width: 100%">
+              <el-option label="固定汇率" :value="1" />
+              <el-option label="浮动汇率" :value="2" />
+            </el-select>
+          </el-form-item>
+        </el-col>
+      </el-row>
+    </el-form>
+    <template #footer>
+      <el-button @click="dialogVisible = false">取消</el-button>
+      <el-button type="primary" :loading="submitLoading" @click="handleSubmit"> 确认 </el-button>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive, onMounted, computed } from 'vue'
 import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
 import { Search, RefreshRight, Plus } from '@element-plus/icons-vue'
+import PageP04SimpleList from '@/components/page-base/PageP04SimpleList.vue'
+import type { SimpleListPageConfig } from '@/types/page-base.d.ts'
 import {
   getCurrencyRatePageApi,
   getCurrencyRateByIdApi,
@@ -235,6 +233,18 @@ import {
   type CurrencyRateVO,
   type CurrencyRateSaveDTO
 } from '@/api/modules/finance-currencyrate'
+
+const pageConfig: SimpleListPageConfig = {
+  title: '币种汇率',
+  showQueryPanel: true,
+  showActionBar: true
+}
+const permissions = [
+  'currencyrate:view',
+  'currencyrate:create',
+  'currencyrate:edit',
+  'currencyrate:delete'
+]
 
 const tableLoading = ref(false)
 const tableData = ref<CurrencyRateVO[]>([])
@@ -479,58 +489,52 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-.currencyrate-list-page {
-  padding: 20px;
+.stats-row {
+  margin-bottom: 0;
+}
 
-  .stats-row {
-    margin-bottom: 16px;
+.stat-card {
+  text-align: center;
+  cursor: default;
 
-    .stat-card {
-      text-align: center;
-
-      .stat-value {
-        font-size: 28px;
-        font-weight: 700;
-        color: var(--el-color-primary);
-        line-height: 1.2;
-      }
-
-      .stat-label {
-        margin-top: 8px;
-        font-size: 14px;
-        color: var(--el-text-color-secondary);
-      }
-
-      &--today {
-        .stat-value {
-          color: var(--el-color-success);
-        }
-      }
-
-      &--type {
-        .stat-value {
-          color: var(--el-color-warning);
-        }
-      }
-    }
+  .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--el-text-color-primary);
+    line-height: 1.4;
   }
 
-  .search-card {
-    margin-bottom: 16px;
+  .stat-label {
+    font-size: 13px;
+    color: var(--el-text-color-secondary);
+    margin-top: 4px;
   }
 
-  .table-card {
-    .table-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .pagination-wrapper {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 16px;
-    }
+  &--today .stat-value {
+    color: var(--el-color-success);
   }
+  &--type .stat-value {
+    color: var(--el-color-warning);
+  }
+}
+
+.action-bar-left {
+  display: flex;
+  gap: 8px;
+}
+.action-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.record-count {
+  font-size: 13px;
+  color: var(--el-text-color-secondary);
+}
+
+.pagination-box {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 0 0;
 }
 </style>

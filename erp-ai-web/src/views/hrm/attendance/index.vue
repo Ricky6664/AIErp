@@ -1,35 +1,42 @@
 <template>
-  <div class="hrm-attendance-list-page">
-    <!-- 快捷统计卡片 -->
-    <el-row :gutter="16" class="stats-row">
-      <el-col :xs="24" :sm="6">
-        <el-card shadow="hover" class="stat-card">
-          <div class="stat-value">{{ pagination.total }}</div>
-          <div class="stat-label">{{ $t('hrm.attendance.totalRecords') }}</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="6">
-        <el-card shadow="hover" class="stat-card stat-card--normal">
-          <div class="stat-value">{{ stats.normalCount }}</div>
-          <div class="stat-label">{{ $t('hrm.attendance.normal') }}</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="6">
-        <el-card shadow="hover" class="stat-card stat-card--absent">
-          <div class="stat-value">{{ stats.absentCount }}</div>
-          <div class="stat-label">{{ $t('hrm.attendance.absent') }}</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="6">
-        <el-card shadow="hover" class="stat-card stat-card--overtime">
-          <div class="stat-value">{{ stats.overtimeCount }}</div>
-          <div class="stat-label">{{ $t('hrm.attendance.overtime') }}</div>
-        </el-card>
-      </el-col>
-    </el-row>
+  <PageP04SimpleList
+    view-id="hrm-attendance-list"
+    page-type="P04"
+    :config="pageConfig"
+    :permissions="permissions"
+  >
+    <!-- 统计卡片 -->
+    <template #extra-area>
+      <el-row :gutter="16" class="stats-row">
+        <el-col :xs="24" :sm="6">
+          <el-card shadow="hover" class="stat-card">
+            <div class="stat-value">{{ pagination.total }}</div>
+            <div class="stat-label">{{ $t('hrm.attendance.totalRecords') }}</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="6">
+          <el-card shadow="hover" class="stat-card stat-card--normal">
+            <div class="stat-value">{{ stats.normalCount }}</div>
+            <div class="stat-label">{{ $t('hrm.attendance.normal') }}</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="6">
+          <el-card shadow="hover" class="stat-card stat-card--absent">
+            <div class="stat-value">{{ stats.absentCount }}</div>
+            <div class="stat-label">{{ $t('hrm.attendance.absent') }}</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="6">
+          <el-card shadow="hover" class="stat-card stat-card--overtime">
+            <div class="stat-value">{{ stats.overtimeCount }}</div>
+            <div class="stat-label">{{ $t('hrm.attendance.overtime') }}</div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </template>
 
-    <!-- 搜索表单 -->
-    <el-card shadow="never" class="search-card">
+    <!-- 查询区 -->
+    <template #query-panel>
       <el-form :model="searchForm" :inline="true" @submit.prevent>
         <el-form-item :label="$t('hrm.attendance.employeeName')">
           <el-input
@@ -76,19 +83,24 @@
           </el-button>
         </el-form-item>
       </el-form>
-    </el-card>
+    </template>
+
+    <!-- 操作栏 -->
+    <template #action-bar>
+      <div class="action-bar-left">
+        <el-button type="primary" @click="handleCreate">
+          {{ $t('hrm.attendance.add') }}
+        </el-button>
+      </div>
+      <div class="action-bar-right">
+        <span class="record-count">{{
+          $t('hrm.attendance.recordCount', { total: pagination.total })
+        }}</span>
+      </div>
+    </template>
 
     <!-- 数据表格 -->
-    <el-card shadow="never" class="table-card">
-      <template #header>
-        <div class="table-header">
-          <span>{{ $t('hrm.attendance.recordCount', { total: pagination.total }) }}</span>
-          <el-button type="primary" @click="handleCreate">
-            {{ $t('hrm.attendance.add') }}
-          </el-button>
-        </div>
-      </template>
-
+    <template #main-content>
       <vxe-table
         :loading="tableLoading"
         :data="tableData"
@@ -196,131 +208,133 @@
           @size-change="loadTableData"
         />
       </div>
-    </el-card>
+    </template>
+  </PageP04SimpleList>
 
-    <!-- 编辑弹窗（P07单一表单页） -->
-    <el-dialog
-      v-model="dialogVisible"
-      :title="isEdit ? $t('hrm.attendance.editTitle') : $t('hrm.attendance.addTitle')"
-      width="600px"
-      :close-on-click-modal="false"
-      @closed="resetForm"
-    >
-      <el-form ref="formRef" :model="formData" :rules="formRules" label-width="110px">
-        <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.attendance.employeeId')" prop="employeeId">
-              <el-select
-                v-model="formData.employeeId"
-                :placeholder="$t('hrm.attendance.employeeIdPlaceholder')"
-                filterable
-                remote
-                :remote-method="searchEmployees"
-                :loading="employeeLoading"
-                style="width: 100%"
-              >
-                <el-option
-                  v-for="emp in employeeOptions"
-                  :key="emp.id"
-                  :label="emp.label"
-                  :value="emp.id"
-                />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.attendance.attendanceDate')" prop="attendanceDate">
-              <el-date-picker
-                v-model="formData.attendanceDate"
-                type="date"
-                style="width: 100%"
-                value-format="YYYY-MM-DD"
-                :placeholder="$t('common.pleaseSelect')"
+  <!-- 编辑弹窗 -->
+  <el-dialog
+    v-model="dialogVisible"
+    :title="isEdit ? $t('hrm.attendance.editTitle') : $t('hrm.attendance.addTitle')"
+    width="600px"
+    :close-on-click-modal="false"
+    @closed="resetForm"
+  >
+    <el-form ref="formRef" :model="formData" :rules="formRules" label-width="110px">
+      <el-row :gutter="16">
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.attendance.employeeId')" prop="employeeId">
+            <el-select
+              v-model="formData.employeeId"
+              :placeholder="$t('hrm.attendance.employeeIdPlaceholder')"
+              filterable
+              remote
+              :remote-method="searchEmployees"
+              :loading="employeeLoading"
+              style="width: 100%"
+            >
+              <el-option
+                v-for="emp in employeeOptions"
+                :key="emp.id"
+                :label="emp.label"
+                :value="emp.id"
               />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.attendance.checkInTime')" prop="checkInTime">
-              <el-date-picker
-                v-model="formData.checkInTime"
-                type="datetime"
-                style="width: 100%"
-                value-format="YYYY-MM-DD HH:mm:ss"
-                :placeholder="$t('common.pleaseSelect')"
+            </el-select>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.attendance.attendanceDate')" prop="attendanceDate">
+            <el-date-picker
+              v-model="formData.attendanceDate"
+              type="date"
+              style="width: 100%"
+              value-format="YYYY-MM-DD"
+              :placeholder="$t('common.pleaseSelect')"
+            />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="16">
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.attendance.checkInTime')" prop="checkInTime">
+            <el-date-picker
+              v-model="formData.checkInTime"
+              type="datetime"
+              style="width: 100%"
+              value-format="YYYY-MM-DD HH:mm:ss"
+              :placeholder="$t('common.pleaseSelect')"
+            />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.attendance.checkOutTime')" prop="checkOutTime">
+            <el-date-picker
+              v-model="formData.checkOutTime"
+              type="datetime"
+              style="width: 100%"
+              value-format="YYYY-MM-DD HH:mm:ss"
+              :placeholder="$t('common.pleaseSelect')"
+            />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="16">
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.attendance.workHours')">
+            <el-input-number
+              v-model="formData.workHours"
+              :min="0"
+              :precision="2"
+              :placeholder="$t('hrm.attendance.workHoursPlaceholder')"
+              style="width: 100%"
+            />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.attendance.overtimeHours')">
+            <el-input-number
+              v-model="formData.overtimeHours"
+              :min="0"
+              :precision="2"
+              :placeholder="$t('hrm.attendance.overtimeHoursPlaceholder')"
+              style="width: 100%"
+            />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="16">
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.attendance.attendanceType')">
+            <el-select
+              v-model="formData.attendanceType"
+              style="width: 100%"
+              :placeholder="$t('common.pleaseSelect')"
+            >
+              <el-option
+                v-for="item in attendanceTypeOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
               />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.attendance.checkOutTime')" prop="checkOutTime">
-              <el-date-picker
-                v-model="formData.checkOutTime"
-                type="datetime"
-                style="width: 100%"
-                value-format="YYYY-MM-DD HH:mm:ss"
-                :placeholder="$t('common.pleaseSelect')"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.attendance.workHours')">
-              <el-input-number
-                v-model="formData.workHours"
-                :min="0"
-                :precision="2"
-                :placeholder="$t('hrm.attendance.workHoursPlaceholder')"
-                style="width: 100%"
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.attendance.overtimeHours')">
-              <el-input-number
-                v-model="formData.overtimeHours"
-                :min="0"
-                :precision="2"
-                :placeholder="$t('hrm.attendance.overtimeHoursPlaceholder')"
-                style="width: 100%"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.attendance.attendanceType')">
-              <el-select
-                v-model="formData.attendanceType"
-                style="width: 100%"
-                :placeholder="$t('common.pleaseSelect')"
-              >
-                <el-option
-                  v-for="item in attendanceTypeOptions"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                />
-              </el-select>
-            </el-form-item>
-          </el-col>
-        </el-row>
-      </el-form>
-      <template #footer>
-        <el-button @click="dialogVisible = false">{{ $t('common.cancel') }}</el-button>
-        <el-button type="primary" :loading="submitLoading" @click="handleSubmit">
-          {{ $t('common.confirm') }}
-        </el-button>
-      </template>
-    </el-dialog>
-  </div>
+            </el-select>
+          </el-form-item>
+        </el-col>
+      </el-row>
+    </el-form>
+    <template #footer>
+      <el-button @click="dialogVisible = false">{{ $t('common.cancel') }}</el-button>
+      <el-button type="primary" :loading="submitLoading" @click="handleSubmit">
+        {{ $t('common.confirm') }}
+      </el-button>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
+import PageP04SimpleList from '@/components/page-base/PageP04SimpleList.vue'
+import type { SimpleListPageConfig } from '@/types/page-base.d.ts'
 import {
   getAttendancePageApi,
   createAttendanceApi,
@@ -333,6 +347,18 @@ import {
 import { getEmployeePageApi } from '@/api/modules/hrm-employee'
 
 const { t } = useI18n()
+
+const pageConfig: SimpleListPageConfig = {
+  title: '考勤管理',
+  showQueryPanel: true,
+  showActionBar: true
+}
+const permissions = [
+  'hrm:attendance:view',
+  'hrm:attendance:create',
+  'hrm:attendance:edit',
+  'hrm:attendance:delete'
+]
 
 const formRef = ref<FormInstance>()
 const tableLoading = ref(false)
@@ -540,59 +566,59 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-.hrm-attendance-list-page {
-  padding: 20px;
+.stats-row {
+  margin-bottom: 0;
+}
 
-  .stats-row {
-    margin-bottom: 16px;
+.stat-card {
+  text-align: center;
+  cursor: default;
 
-    .stat-card {
-      text-align: center;
-      cursor: default;
-
-      .stat-value {
-        font-size: 28px;
-        font-weight: 700;
-        color: var(--el-text-color-primary);
-        line-height: 1.4;
-      }
-
-      .stat-label {
-        font-size: 13px;
-        color: var(--el-text-color-secondary);
-        margin-top: 4px;
-      }
-
-      &--normal .stat-value {
-        color: var(--el-color-success);
-      }
-
-      &--absent .stat-value {
-        color: var(--el-color-danger);
-      }
-
-      &--overtime .stat-value {
-        color: var(--el-color-primary);
-      }
-    }
+  .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--el-text-color-primary);
+    line-height: 1.4;
   }
 
-  .search-card {
-    margin-bottom: 16px;
+  .stat-label {
+    font-size: 13px;
+    color: var(--el-text-color-secondary);
+    margin-top: 4px;
   }
 
-  .table-card {
-    .table-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .pagination-wrap {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 16px;
-    }
+  &--normal .stat-value {
+    color: var(--el-color-success);
   }
+
+  &--absent .stat-value {
+    color: var(--el-color-danger);
+  }
+
+  &--overtime .stat-value {
+    color: var(--el-color-primary);
+  }
+}
+
+.action-bar-left {
+  display: flex;
+  gap: 8px;
+}
+
+.action-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.record-count {
+  font-size: 13px;
+  color: var(--el-text-color-secondary);
+}
+
+.pagination-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
 }
 </style>

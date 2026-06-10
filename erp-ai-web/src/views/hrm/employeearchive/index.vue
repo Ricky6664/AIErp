@@ -1,35 +1,42 @@
 <template>
-  <div class="hrm-archive-list-page">
-    <!-- 快捷统计卡片 -->
-    <el-row :gutter="16" class="stats-row">
-      <el-col :xs="24" :sm="6">
-        <el-card shadow="hover" class="stat-card">
-          <div class="stat-value">{{ stats.total }}</div>
-          <div class="stat-label">{{ $t('hrm.archive.totalArchives') }}</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="6">
-        <el-card shadow="hover" class="stat-card stat-card--enabled">
-          <div class="stat-value">{{ stats.enabled }}</div>
-          <div class="stat-label">{{ $t('hrm.archive.enabled') }}</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="6">
-        <el-card shadow="hover" class="stat-card stat-card--disabled">
-          <div class="stat-value">{{ stats.disabled }}</div>
-          <div class="stat-label">{{ $t('hrm.archive.disabled') }}</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="6">
-        <el-card shadow="hover" class="stat-card stat-card--month">
-          <div class="stat-value">{{ stats.newThisMonth }}</div>
-          <div class="stat-label">{{ $t('hrm.archive.newThisMonth') }}</div>
-        </el-card>
-      </el-col>
-    </el-row>
+  <PageP04SimpleList
+    view-id="hrm-archive-list"
+    page-type="P04"
+    :config="pageConfig"
+    :permissions="permissions"
+  >
+    <!-- 统计卡片 -->
+    <template #extra-area>
+      <el-row :gutter="16" class="stats-row">
+        <el-col :xs="24" :sm="6">
+          <el-card shadow="hover" class="stat-card">
+            <div class="stat-value">{{ stats.total }}</div>
+            <div class="stat-label">{{ $t('hrm.archive.totalArchives') }}</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="6">
+          <el-card shadow="hover" class="stat-card stat-card--enabled">
+            <div class="stat-value">{{ stats.enabled }}</div>
+            <div class="stat-label">{{ $t('hrm.archive.enabled') }}</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="6">
+          <el-card shadow="hover" class="stat-card stat-card--disabled">
+            <div class="stat-value">{{ stats.disabled }}</div>
+            <div class="stat-label">{{ $t('hrm.archive.disabled') }}</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="6">
+          <el-card shadow="hover" class="stat-card stat-card--month">
+            <div class="stat-value">{{ stats.newThisMonth }}</div>
+            <div class="stat-label">{{ $t('hrm.archive.newThisMonth') }}</div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </template>
 
-    <!-- 搜索表单 -->
-    <el-card shadow="never" class="search-card">
+    <!-- 查询区 -->
+    <template #query-panel>
       <el-form :model="searchForm" :inline="true" @submit.prevent>
         <el-form-item :label="$t('hrm.archive.employeeName')">
           <el-input
@@ -59,19 +66,24 @@
           </el-button>
         </el-form-item>
       </el-form>
-    </el-card>
+    </template>
+
+    <!-- 操作栏 -->
+    <template #action-bar>
+      <div class="action-bar-left">
+        <el-button type="primary" @click="handleCreate">
+          {{ $t('hrm.archive.add') }}
+        </el-button>
+      </div>
+      <div class="action-bar-right">
+        <span class="record-count">{{
+          $t('hrm.archive.recordCount', { total: pagination.total })
+        }}</span>
+      </div>
+    </template>
 
     <!-- 数据表格 -->
-    <el-card shadow="never" class="table-card">
-      <template #header>
-        <div class="table-header">
-          <span>{{ $t('hrm.archive.recordCount', { total: pagination.total }) }}</span>
-          <el-button type="primary" @click="handleCreate">
-            {{ $t('hrm.archive.add') }}
-          </el-button>
-        </div>
-      </template>
-
+    <template #main-content>
       <vxe-table
         ref="tableRef"
         :loading="tableLoading"
@@ -151,158 +163,152 @@
           @size-change="loadTableData"
         />
       </div>
-    </el-card>
+    </template>
+  </PageP04SimpleList>
 
-    <!-- 编辑弹窗 -->
-    <el-dialog
-      v-model="dialogVisible"
-      :title="isEdit ? $t('hrm.archive.editTitle') : $t('hrm.archive.addTitle')"
-      width="600px"
-      :close-on-click-modal="false"
-      @closed="resetForm"
-    >
-      <el-form ref="formRef" :model="formData" :rules="formRules" label-width="110px">
-        <el-form-item :label="$t('hrm.archive.employeeName')" prop="employeeId">
-          <el-select
-            v-model="formData.employeeId"
-            :placeholder="$t('hrm.archive.employeeNamePlaceholder')"
-            filterable
-            remote
-            :remote-method="searchEmployees"
-            :loading="employeeLoading"
-            clearable
-            style="width: 100%"
-          >
-            <el-option
-              v-for="emp in employeeOptions"
-              :key="emp.id"
-              :label="emp.name"
-              :value="emp.id"
+  <!-- 编辑弹窗 -->
+  <el-dialog
+    v-model="dialogVisible"
+    :title="isEdit ? $t('hrm.archive.editTitle') : $t('hrm.archive.addTitle')"
+    width="600px"
+    :close-on-click-modal="false"
+    @closed="resetForm"
+  >
+    <el-form ref="formRef" :model="formData" :rules="formRules" label-width="110px">
+      <el-form-item :label="$t('hrm.archive.employeeName')" prop="employeeId">
+        <el-select
+          v-model="formData.employeeId"
+          :placeholder="$t('hrm.archive.employeeNamePlaceholder')"
+          filterable
+          remote
+          :remote-method="searchEmployees"
+          :loading="employeeLoading"
+          clearable
+          style="width: 100%"
+        >
+          <el-option
+            v-for="emp in employeeOptions"
+            :key="emp.id"
+            :label="emp.name"
+            :value="emp.id"
+          />
+        </el-select>
+      </el-form-item>
+      <el-row :gutter="16">
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.archive.education')">
+            <el-select
+              v-model="formData.education"
+              style="width: 100%"
+              :placeholder="$t('common.pleaseSelect')"
+              clearable
+            >
+              <el-option v-for="item in educationOptions" :key="item" :label="item" :value="item" />
+            </el-select>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.archive.major')">
+            <el-input v-model="formData.major" :placeholder="$t('hrm.archive.majorPlaceholder')" />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="16">
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.archive.school')">
+            <el-input
+              v-model="formData.school"
+              :placeholder="$t('hrm.archive.schoolPlaceholder')"
             />
-          </el-select>
-        </el-form-item>
-        <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.archive.education')">
-              <el-select
-                v-model="formData.education"
-                style="width: 100%"
-                :placeholder="$t('common.pleaseSelect')"
-                clearable
-              >
-                <el-option
-                  v-for="item in educationOptions"
-                  :key="item"
-                  :label="item"
-                  :value="item"
-                />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.archive.major')">
-              <el-input
-                v-model="formData.major"
-                :placeholder="$t('hrm.archive.majorPlaceholder')"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.archive.school')">
-              <el-input
-                v-model="formData.school"
-                :placeholder="$t('hrm.archive.schoolPlaceholder')"
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.archive.emergencyContact')">
-              <el-input
-                v-model="formData.emergencyContact"
-                :placeholder="$t('hrm.archive.emergencyContactPlaceholder')"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.archive.emergencyPhone')" prop="emergencyPhone">
-              <el-input
-                v-model="formData.emergencyPhone"
-                :placeholder="$t('hrm.archive.emergencyPhonePlaceholder')"
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.archive.address')">
-              <el-input
-                v-model="formData.address"
-                :placeholder="$t('hrm.archive.addressPlaceholder')"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.archive.bankCardNumber')">
-              <el-input
-                v-model="formData.bankCardNumber"
-                :placeholder="$t('hrm.archive.bankCardNumberPlaceholder')"
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.archive.bankName')">
-              <el-input
-                v-model="formData.bankName"
-                :placeholder="$t('hrm.archive.bankNamePlaceholder')"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="16">
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.archive.socialSecurityAccount')">
-              <el-input
-                v-model="formData.socialSecurityAccount"
-                :placeholder="$t('hrm.archive.socialSecurityAccountPlaceholder')"
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item :label="$t('hrm.archive.archiveDate')">
-              <el-date-picker
-                v-model="formData.archiveDate"
-                type="date"
-                style="width: 100%"
-                value-format="YYYY-MM-DD"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-form-item :label="$t('hrm.archive.status')">
-          <el-radio-group v-model="formData.status">
-            <el-radio :value="1">{{ $t('hrm.archive.statusEnabled') }}</el-radio>
-            <el-radio :value="0">{{ $t('hrm.archive.statusDisabled') }}</el-radio>
-          </el-radio-group>
-        </el-form-item>
-      </el-form>
-      <template #footer>
-        <el-button @click="dialogVisible = false">{{ $t('common.cancel') }}</el-button>
-        <el-button type="primary" :loading="submitLoading" @click="handleSubmit">
-          {{ $t('common.confirm') }}
-        </el-button>
-      </template>
-    </el-dialog>
-  </div>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.archive.emergencyContact')">
+            <el-input
+              v-model="formData.emergencyContact"
+              :placeholder="$t('hrm.archive.emergencyContactPlaceholder')"
+            />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="16">
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.archive.emergencyPhone')" prop="emergencyPhone">
+            <el-input
+              v-model="formData.emergencyPhone"
+              :placeholder="$t('hrm.archive.emergencyPhonePlaceholder')"
+            />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.archive.address')">
+            <el-input
+              v-model="formData.address"
+              :placeholder="$t('hrm.archive.addressPlaceholder')"
+            />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="16">
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.archive.bankCardNumber')">
+            <el-input
+              v-model="formData.bankCardNumber"
+              :placeholder="$t('hrm.archive.bankCardNumberPlaceholder')"
+            />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.archive.bankName')">
+            <el-input
+              v-model="formData.bankName"
+              :placeholder="$t('hrm.archive.bankNamePlaceholder')"
+            />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="16">
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.archive.socialSecurityAccount')">
+            <el-input
+              v-model="formData.socialSecurityAccount"
+              :placeholder="$t('hrm.archive.socialSecurityAccountPlaceholder')"
+            />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item :label="$t('hrm.archive.archiveDate')">
+            <el-date-picker
+              v-model="formData.archiveDate"
+              type="date"
+              style="width: 100%"
+              value-format="YYYY-MM-DD"
+            />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-form-item :label="$t('hrm.archive.status')">
+        <el-radio-group v-model="formData.status">
+          <el-radio :value="1">{{ $t('hrm.archive.statusEnabled') }}</el-radio>
+          <el-radio :value="0">{{ $t('hrm.archive.statusDisabled') }}</el-radio>
+        </el-radio-group>
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <el-button @click="dialogVisible = false">{{ $t('common.cancel') }}</el-button>
+      <el-button type="primary" :loading="submitLoading" @click="handleSubmit">
+        {{ $t('common.confirm') }}
+      </el-button>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
+import PageP04SimpleList from '@/components/page-base/PageP04SimpleList.vue'
+import type { SimpleListPageConfig } from '@/types/page-base.d.ts'
 import {
   getEmployeeArchivePageApi,
   createEmployeeArchiveApi,
@@ -316,6 +322,18 @@ import {
 } from '@/api/modules/hrm-archive'
 import { getEmployeePageApi, type EmployeeVO } from '@/api/modules/hrm-employee'
 import { useDebounceFn } from '@vueuse/core'
+
+const pageConfig: SimpleListPageConfig = {
+  title: '员工档案',
+  showQueryPanel: true,
+  showActionBar: true
+}
+const permissions = [
+  'hrm:archive:view',
+  'hrm:archive:create',
+  'hrm:archive:edit',
+  'hrm:archive:delete'
+]
 
 const tableRef = ref()
 const formRef = ref<FormInstance>()
@@ -539,59 +557,59 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-.hrm-archive-list-page {
-  padding: 20px;
+.stats-row {
+  margin-bottom: 0;
+}
 
-  .stats-row {
-    margin-bottom: 16px;
+.stat-card {
+  text-align: center;
+  cursor: default;
 
-    .stat-card {
-      text-align: center;
-      cursor: default;
-
-      .stat-value {
-        font-size: 28px;
-        font-weight: 700;
-        color: var(--el-text-color-primary);
-        line-height: 1.4;
-      }
-
-      .stat-label {
-        font-size: 13px;
-        color: var(--el-text-color-secondary);
-        margin-top: 4px;
-      }
-
-      &--enabled .stat-value {
-        color: var(--el-color-success);
-      }
-
-      &--disabled .stat-value {
-        color: var(--el-color-danger);
-      }
-
-      &--month .stat-value {
-        color: var(--el-color-primary);
-      }
-    }
+  .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--el-text-color-primary);
+    line-height: 1.4;
   }
 
-  .search-card {
-    margin-bottom: 16px;
+  .stat-label {
+    font-size: 13px;
+    color: var(--el-text-color-secondary);
+    margin-top: 4px;
   }
 
-  .table-card {
-    .table-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .pagination-wrap {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 16px;
-    }
+  &--enabled .stat-value {
+    color: var(--el-color-success);
   }
+
+  &--disabled .stat-value {
+    color: var(--el-color-danger);
+  }
+
+  &--month .stat-value {
+    color: var(--el-color-primary);
+  }
+}
+
+.action-bar-left {
+  display: flex;
+  gap: 8px;
+}
+
+.action-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.record-count {
+  font-size: 13px;
+  color: var(--el-text-color-secondary);
+}
+
+.pagination-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
 }
 </style>
