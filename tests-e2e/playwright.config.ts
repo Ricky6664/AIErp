@@ -11,13 +11,13 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:5173',
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    video: 'off',
     trace: 'on-first-retry'
   },
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] }
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' }
     }
   ],
   webServer: {
