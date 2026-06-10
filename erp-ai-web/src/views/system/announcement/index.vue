@@ -1,199 +1,202 @@
 <template>
-  <div class="announcement-list-page">
-    <div class="page-header">
-      <h2>公告管理</h2>
-      <p class="page-desc">管理系统公告，支持公告发布、编辑、删除、置顶操作</p>
-    </div>
+  <PageP04SimpleList view-id="system-announcement-list" page-type="P04" :config="pageConfig">
+    <template #query-panel>
+      <el-input
+        v-model="searchTitle"
+        placeholder="公告标题"
+        clearable
+        style="width: 200px"
+        @keyup.enter="handleSearch"
+      >
+        <template #prepend>标题</template>
+      </el-input>
+      <el-select
+        v-model="searchType"
+        placeholder="公告类型"
+        clearable
+        style="width: 160px"
+        @change="handleSearch"
+      >
+        <el-option label="系统公告" value="system" />
+        <el-option label="业务公告" value="business" />
+        <el-option label="活动通知" value="event" />
+      </el-select>
+      <el-button type="primary" @click="handleSearch">
+        <el-icon><Search /></el-icon>
+        查询
+      </el-button>
+      <el-button @click="handleReset">
+        <el-icon><Refresh /></el-icon>
+        重置
+      </el-button>
+    </template>
 
-    <div class="toolbar">
-      <div class="toolbar-left">
-        <el-input
-          v-model="searchTitle"
-          placeholder="公告标题"
-          clearable
-          style="width: 200px"
-          @keyup.enter="handleSearch"
-        >
-          <template #prepend>标题</template>
-        </el-input>
-        <el-select
-          v-model="searchType"
-          placeholder="公告类型"
-          clearable
-          style="width: 160px"
-          @change="handleSearch"
-        >
-          <el-option label="系统公告" value="system" />
-          <el-option label="业务公告" value="business" />
-          <el-option label="活动通知" value="event" />
-        </el-select>
-        <el-button type="primary" @click="handleSearch">
-          <el-icon><Search /></el-icon>
-          查询
-        </el-button>
-        <el-button @click="handleReset">
-          <el-icon><Refresh /></el-icon>
-          重置
-        </el-button>
+    <template #action-bar>
+      <div class="action-left">
+        <span class="record-count">共 {{ total }} 条记录</span>
       </div>
-      <div class="toolbar-right">
+      <div class="action-right">
         <el-button v-permission="'system:announcement:manage'" type="success" @click="handleAdd">
           <el-icon><Plus /></el-icon>
           新增公告
         </el-button>
       </div>
-    </div>
+    </template>
 
-    <el-table ref="tableRef" v-loading="loading" :data="list" border stripe style="width: 100%">
-      <el-table-column prop="title" label="标题" min-width="160" show-overflow-tooltip />
-      <el-table-column label="内容" min-width="200" show-overflow-tooltip>
-        <template #default="{ row }">
-          {{ truncateContent(row.content) }}
-        </template>
-      </el-table-column>
-      <el-table-column prop="announcementType" label="类型" width="100" align="center">
-        <template #default="{ row }">
-          <el-tag :type="typeTagType(row.announcementType)" size="small">
-            {{ typeLabel(row.announcementType) }}
-          </el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column label="发布时间" width="170" align="center">
-        <template #default="{ row }">
-          {{ formatTime(row.publishTime) }}
-        </template>
-      </el-table-column>
-      <el-table-column label="置顶" width="80" align="center">
-        <template #default="{ row }">
-          <el-tag :type="row.isTop ? 'danger' : 'info'" size="small">
-            {{ row.isTop ? '置顶' : '普通' }}
-          </el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column label="状态" width="90" align="center">
-        <template #default="{ row }">
-          <el-tag :type="statusTagType(row.status)" size="small">
-            {{ statusLabel(row.status) }}
-          </el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column label="创建人" width="120" prop="creatorName" show-overflow-tooltip />
-      <el-table-column label="操作" width="240" align="center" fixed="right">
-        <template #default="{ row }">
-          <el-button
-            v-permission="'system:announcement:manage'"
-            type="warning"
-            link
-            size="small"
-            @click="handleToggleTop(row)"
-          >
-            <el-icon><Top /></el-icon>
-            {{ row.isTop ? '取消置顶' : '置顶' }}
-          </el-button>
-          <el-button
-            v-permission="'system:announcement:manage'"
-            type="primary"
-            link
-            size="small"
-            @click="handleEdit(row)"
-          >
-            <el-icon><Edit /></el-icon>
-            编辑
-          </el-button>
-          <el-button
-            v-permission="'system:announcement:manage'"
-            type="danger"
-            link
-            size="small"
-            @click="handleDelete(row)"
-          >
-            <el-icon><Delete /></el-icon>
-            删除
-          </el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+    <template #main-content>
+      <el-table ref="tableRef" v-loading="loading" :data="list" border stripe style="width: 100%">
+        <el-table-column prop="title" label="标题" min-width="160" show-overflow-tooltip />
+        <el-table-column label="内容" min-width="200" show-overflow-tooltip>
+          <template #default="{ row }">
+            {{ truncateContent(row.content) }}
+          </template>
+        </el-table-column>
+        <el-table-column prop="announcementType" label="类型" width="100" align="center">
+          <template #default="{ row }">
+            <el-tag :type="typeTagType(row.announcementType)" size="small">
+              {{ typeLabel(row.announcementType) }}
+            </el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="发布时间" width="170" align="center">
+          <template #default="{ row }">
+            {{ formatTime(row.publishTime) }}
+          </template>
+        </el-table-column>
+        <el-table-column label="置顶" width="80" align="center">
+          <template #default="{ row }">
+            <el-tag :type="row.isTop ? 'danger' : 'info'" size="small">
+              {{ row.isTop ? '置顶' : '普通' }}
+            </el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="状态" width="90" align="center">
+          <template #default="{ row }">
+            <el-tag :type="statusTagType(row.status)" size="small">
+              {{ statusLabel(row.status) }}
+            </el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="创建人" width="120" prop="creatorName" show-overflow-tooltip />
+        <el-table-column label="操作" width="240" align="center" fixed="right">
+          <template #default="{ row }">
+            <el-button
+              v-permission="'system:announcement:manage'"
+              type="warning"
+              link
+              size="small"
+              @click="handleToggleTop(row)"
+            >
+              <el-icon><Top /></el-icon>
+              {{ row.isTop ? '取消置顶' : '置顶' }}
+            </el-button>
+            <el-button
+              v-permission="'system:announcement:manage'"
+              type="primary"
+              link
+              size="small"
+              @click="handleEdit(row)"
+            >
+              <el-icon><Edit /></el-icon>
+              编辑
+            </el-button>
+            <el-button
+              v-permission="'system:announcement:manage'"
+              type="danger"
+              link
+              size="small"
+              @click="handleDelete(row)"
+            >
+              <el-icon><Delete /></el-icon>
+              删除
+            </el-button>
+          </template>
+        </el-table-column>
+      </el-table>
 
-    <div class="pagination-wrapper">
-      <el-pagination
-        v-model:current-page="pageNum"
-        v-model:page-size="pageSize"
-        :page-sizes="[10, 20, 50, 100]"
-        :total="total"
-        layout="total, sizes, prev, pager, next, jumper"
-        @size-change="handleSizeChange"
-        @current-change="handlePageChange"
-      />
-    </div>
+      <div class="pagination-wrapper">
+        <el-pagination
+          v-model:current-page="pageNum"
+          v-model:page-size="pageSize"
+          :page-sizes="[10, 20, 50, 100]"
+          :total="total"
+          layout="total, sizes, prev, pager, next, jumper"
+          @size-change="handleSizeChange"
+          @current-change="handlePageChange"
+        />
+      </div>
+    </template>
+  </PageP04SimpleList>
 
-    <el-dialog
-      v-model="dialogVisible"
-      :title="dialogTitle"
-      width="600px"
-      :close-on-click-modal="false"
-      @closed="handleDialogClosed"
-    >
-      <el-form ref="formRef" :model="formData" :rules="formRules" label-width="90px">
-        <el-form-item label="公告标题" prop="title">
-          <el-input
-            v-model="formData.title"
-            placeholder="请输入公告标题"
-            maxlength="200"
-            show-word-limit
-          />
-        </el-form-item>
-        <el-form-item label="公告类型" prop="announcementType">
-          <el-select
-            v-model="formData.announcementType"
-            placeholder="请选择公告类型"
-            style="width: 100%"
-          >
-            <el-option label="系统公告" value="system" />
-            <el-option label="业务公告" value="business" />
-            <el-option label="活动通知" value="event" />
-          </el-select>
-        </el-form-item>
-        <el-form-item label="发布时间" prop="publishTime">
-          <el-date-picker
-            v-model="formData.publishTime"
-            type="datetime"
-            placeholder="请选择发布时间"
-            format="YYYY-MM-DD HH:mm"
-            value-format="YYYY-MM-DDTHH:mm:ss"
-            style="width: 100%"
-          />
-        </el-form-item>
-        <el-form-item label="是否置顶" prop="isTop">
-          <el-switch v-model="formData.isTop" />
-        </el-form-item>
-        <el-form-item label="状态" prop="status">
-          <el-radio-group v-model="formData.status">
-            <el-radio :value="2">已发布</el-radio>
-            <el-radio :value="1">草稿</el-radio>
-            <el-radio :value="3">已撤回</el-radio>
-          </el-radio-group>
-        </el-form-item>
-        <el-form-item label="公告内容" prop="content">
-          <el-input
-            v-model="formData.content"
-            type="textarea"
-            :rows="6"
-            placeholder="请输入公告内容（支持HTML富文本）"
-          />
-        </el-form-item>
-      </el-form>
-      <template #footer>
-        <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="primary" :loading="submitLoading" @click="handleSubmit">确定</el-button>
-      </template>
-    </el-dialog>
-  </div>
+  <el-dialog
+    v-model="dialogVisible"
+    :title="dialogTitle"
+    width="600px"
+    :close-on-click-modal="false"
+    @closed="handleDialogClosed"
+  >
+    <el-form ref="formRef" :model="formData" :rules="formRules" label-width="90px">
+      <el-form-item label="公告标题" prop="title">
+        <el-input
+          v-model="formData.title"
+          placeholder="请输入公告标题"
+          maxlength="200"
+          show-word-limit
+        />
+      </el-form-item>
+      <el-form-item label="公告类型" prop="announcementType">
+        <el-select
+          v-model="formData.announcementType"
+          placeholder="请选择公告类型"
+          style="width: 100%"
+        >
+          <el-option label="系统公告" value="system" />
+          <el-option label="业务公告" value="business" />
+          <el-option label="活动通知" value="event" />
+        </el-select>
+      </el-form-item>
+      <el-form-item label="发布时间" prop="publishTime">
+        <el-date-picker
+          v-model="formData.publishTime"
+          type="datetime"
+          placeholder="请选择发布时间"
+          format="YYYY-MM-DD HH:mm"
+          value-format="YYYY-MM-DDTHH:mm:ss"
+          style="width: 100%"
+        />
+      </el-form-item>
+      <el-form-item label="是否置顶" prop="isTop">
+        <el-switch v-model="formData.isTop" />
+      </el-form-item>
+      <el-form-item label="状态" prop="status">
+        <el-radio-group v-model="formData.status">
+          <el-radio :value="2">已发布</el-radio>
+          <el-radio :value="1">草稿</el-radio>
+          <el-radio :value="3">已撤回</el-radio>
+        </el-radio-group>
+      </el-form-item>
+      <el-form-item label="公告内容" prop="content">
+        <el-input
+          v-model="formData.content"
+          type="textarea"
+          :rows="6"
+          placeholder="请输入公告内容（支持HTML富文本）"
+        />
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <el-button @click="dialogVisible = false">取消</el-button>
+      <el-button type="primary" :loading="submitLoading" @click="handleSubmit">确定</el-button>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox, type FormInstance, type FormRules } from 'element-plus'
 import { Search, Refresh, Plus, Delete, Edit, Top } from '@element-plus/icons-vue'
+import PageP04SimpleList from '@/components/page-base/PageP04SimpleList.vue'
+import type { SimpleListPageConfig } from '@/types/page-base.d.ts'
 import type { AnnouncementListItem, AnnouncementQuery } from '@/api/types/announcement'
 import {
   getAnnouncementPageList,
@@ -201,6 +204,12 @@ import {
   updateAnnouncement,
   deleteAnnouncement
 } from '@/api/modules/announcement'
+
+const pageConfig: SimpleListPageConfig = {
+  title: '公告管理',
+  showQueryPanel: true,
+  showActionBar: true
+}
 
 const loading = ref(false)
 const list = ref<AnnouncementListItem[]>([])
@@ -420,52 +429,26 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-.announcement-list-page {
-  padding: 20px;
+.action-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-  .page-header {
-    margin-bottom: 20px;
+.action-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-    h2 {
-      margin: 0 0 8px;
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--el-text-color-primary);
-    }
+.record-count {
+  font-size: 13px;
+  color: var(--el-text-color-secondary);
+}
 
-    .page-desc {
-      margin: 0;
-      font-size: 14px;
-      color: var(--el-text-color-secondary);
-    }
-  }
-
-  .toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-    gap: 12px;
-
-    .toolbar-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .toolbar-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-  }
-
-  .pagination-wrapper {
-    margin-top: 16px;
-    display: flex;
-    justify-content: flex-end;
-  }
+.pagination-wrapper {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
