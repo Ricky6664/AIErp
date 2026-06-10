@@ -170,6 +170,13 @@ export const ORG_WORKBENCH: RouteRecordRaw = {
 }
 
 // 仓库
+export const WAREHOUSE_WORKBENCH: RouteRecordRaw = {
+  path: 'warehouse/workbench',
+  name: 'WarehouseWorkbench',
+  component: () => import('@/views/warehouse/workbench/index.vue'),
+  meta: { title: '仓库工作台', icon: 'DataBoard', keepAlive: true }
+}
+
 export const WAREHOUSE_LIST: RouteRecordRaw = {
   path: 'warehouse/warehouse',
   name: 'WarehouseList',
@@ -185,6 +192,34 @@ export const WAREHOUSE_LOCATION: RouteRecordRaw = {
 }
 
 // 系统管理
+export const SYSTEM_USER: RouteRecordRaw = {
+  path: 'system/user',
+  name: 'SystemUser',
+  component: () => import('@/views/system/user/index.vue'),
+  meta: { title: '用户管理', icon: 'User', keepAlive: true }
+}
+
+export const SYSTEM_ROLE: RouteRecordRaw = {
+  path: 'system/role',
+  name: 'SystemRole',
+  component: () => import('@/views/system/role/RoleList.vue'),
+  meta: { title: '角色管理', icon: 'UserFilled', keepAlive: true }
+}
+
+export const SYSTEM_MENU: RouteRecordRaw = {
+  path: 'system/menu',
+  name: 'SystemMenu',
+  component: () => import('@/views/system/menu/index.vue'),
+  meta: { title: '菜单管理', icon: 'Menu', keepAlive: true }
+}
+
+export const SYSTEM_PARAMS: RouteRecordRaw = {
+  path: 'system/params',
+  name: 'SystemParams',
+  component: () => import('@/views/system/params/index.vue'),
+  meta: { title: '系统参数', icon: 'Setting', keepAlive: true }
+}
+
 export const SYSTEM_CACHE: RouteRecordRaw = {
   path: 'system/cache',
   name: 'SystemCache',
@@ -357,9 +392,14 @@ const ALL_CHILDREN: RouteRecordRaw[] = [
   // 组织
   ORG_WORKBENCH,
   // 仓库
+  WAREHOUSE_WORKBENCH,
   WAREHOUSE_LIST,
   WAREHOUSE_LOCATION,
   // 系统
+  SYSTEM_USER,
+  SYSTEM_ROLE,
+  SYSTEM_MENU,
+  SYSTEM_PARAMS,
   SYSTEM_CACHE,
   SYSTEM_ANNOUNCEMENT,
   // HRM

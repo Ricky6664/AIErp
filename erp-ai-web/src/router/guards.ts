@@ -42,9 +42,11 @@ export function setupRouterGuards(router: Router) {
       try {
         await userStore.getInfo()
         await permissionStore.generateRoutes(userStore.menuTree)
-        // 将动态路由注册到 Layout 父路由下
+        // 将动态路由注册到 Layout 父路由下（跳过已存在的静态路由）
         for (const route of permissionStore.routes) {
-          router.addRoute('Layout', route)
+          if (route.name && !router.hasRoute(route.name)) {
+            router.addRoute('Layout', route)
+          }
         }
         return next({ ...to, replace: true })
       } catch {
