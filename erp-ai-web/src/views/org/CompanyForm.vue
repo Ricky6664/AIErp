@@ -1,4 +1,114 @@
 <template>
+  <PageP04SimpleList
+    view-id="company-list"
+    page-type="P04"
+    :config="pageConfig"
+    :permissions="permissions"
+  >
+    <!-- 查询区 -->
+    <template #query-panel>
+      <el-form :model="searchForm" :inline="true" @submit.prevent>
+        <el-form-item label="公司名称">
+          <el-input
+            v-model="searchForm.companyName"
+            placeholder="请输入公司名称"
+            clearable
+            @input="handleSearchDebounced"
+          />
+        </el-form-item>
+        <el-form-item label="信用代码">
+          <el-input
+            v-model="searchForm.creditCode"
+            placeholder="请输入信用代码"
+            clearable
+            @input="handleSearchDebounced"
+          />
+        </el-form-item>
+        <el-form-item label="状态">
+          <el-select
+            v-model="searchForm.status"
+            placeholder="请选择状态"
+            clearable
+            style="width: 120px"
+            @change="handleSearch"
+          >
+            <el-option label="启用" :value="1" />
+            <el-option label="停用" :value="0" />
+          </el-select>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="handleSearch">查询</el-button>
+          <el-button @click="handleReset">重置</el-button>
+        </el-form-item>
+      </el-form>
+    </template>
+
+    <!-- 操作栏 -->
+    <template #action-bar>
+      <div class="action-bar-left">
+        <el-button type="primary" @click="handleCreate">新增</el-button>
+      </div>
+      <div class="action-bar-right">
+        <span class="record-count">{{ pagination.total }} 条记录</span>
+      </div>
+    </template>
+
+    <!-- 数据表格 -->
+    <template #main-content>
+      <el-table
+        v-loading="tableLoading"
+        :data="tableData"
+        stripe
+        style="width: 100%"
+        max-height="600"
+      >
+        <el-table-column prop="companyName" label="公司名称" min-width="180" />
+        <el-table-column prop="companyShortName" label="公司简称" min-width="120" />
+        <el-table-column prop="creditCode" label="统一社会信用代码" min-width="180" />
+        <el-table-column prop="legalPerson" label="法定代表人" min-width="100" />
+        <el-table-column prop="phone" label="联系电话" min-width="130" />
+        <el-table-column prop="status" label="状态" width="90" align="center">
+          <template #default="{ row }">
+            <el-tag :type="row.status === 1 ? 'success' : 'danger'" size="small">
+              {{ row.status === 1 ? '启用' : '停用' }}
+            </el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column prop="createTime" label="创建时间" min-width="170" sortable />
+        <el-table-column label="操作" width="220" align="center" fixed="right">
+          <template #default="{ row }">
+            <el-button type="primary" link size="small" @click="handleEdit(row)">编辑</el-button>
+            <el-popconfirm
+              title="确认删除该公司？"
+              confirm-button-text="确认"
+              cancel-button-text="取消"
+              @confirm="handleDelete(row)"
+            >
+              <template #reference>
+                <el-button type="danger" link size="small">删除</el-button>
+              </template>
+            </el-popconfirm>
+          </template>
+        </el-table-column>
+      </el-table>
+
+      <!-- 分页 -->
+      <div class="pagination-box">
+        <el-pagination
+          v-model:current-page="pagination.pageNum"
+          v-model:page-size="pagination.pageSize"
+          :total="pagination.total"
+          :page-sizes="[10, 20, 50, 100]"
+          layout="total, sizes, prev, pager, next"
+          small
+          @size-change="handleSearch"
+          @current-change="handleSearch"
+        />
+      </div>
+    </template>
+  </PageP04SimpleList>
+
+  <!-- 新增/编辑弹窗（P07 表单，留在 PageP04SimpleList 外部） -->
   <el-dialog
     v-model="dialogVisible"
     :title="isEdit ? $t('org.company.editTitle') : $t('org.company.addTitle')"
@@ -94,32 +204,106 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
-import { getCompanyDetail, createCompany, updateCompany } from '@/api/modules/org'
+import PageP04SimpleList from '@/components/page-base/PageP04SimpleList.vue'
+import type { SimpleListPageConfig } from '@/types/page-base.d.ts'
+import {
+  getCompanyPage,
+  getCompanyDetail,
+  createCompany,
+  updateCompany,
+  deleteCompany
+} from '@/api/modules/org'
+import type { CompanyQueryDTO, CompanyCreateDTO, CompanyListVO } from '@/api/types/org'
 
-const props = defineProps<{
-  visible: boolean
-  companyId?: number
-}>()
+// ==================== PageP04SimpleList 配置 ====================
+const pageConfig: SimpleListPageConfig = {
+  title: '公司管理',
+  showQueryPanel: true,
+  showActionBar: true
+}
+const permissions = [
+  'org:company:view',
+  'org:company:create',
+  'org:company:edit',
+  'org:company:delete'
+]
 
-const emit = defineEmits<{
-  (e: 'update:visible', val: boolean): void
-  (e: 'success'): void
-}>()
+// ==================== 列表数据 ====================
+const tableLoading = ref(false)
+const tableData = ref<CompanyListVO[]>([])
 
-const dialogVisible = ref(false)
-watch(
-  () => props.visible,
-  (val) => {
-    dialogVisible.value = val
-    if (val) initForm()
+const searchForm = reactive<CompanyQueryDTO>({
+  companyName: '',
+  creditCode: '',
+  status: undefined
+})
+
+const pagination = reactive({
+  pageNum: 1,
+  pageSize: 20,
+  total: 0
+})
+
+let debounceTimer: ReturnType<typeof setTimeout> | null = null
+
+function handleSearchDebounced(): void {
+  if (debounceTimer) clearTimeout(debounceTimer)
+  debounceTimer = setTimeout(() => {
+    handleSearch()
+  }, 300)
+}
+
+async function handleSearch(): Promise<void> {
+  tableLoading.value = true
+  try {
+    const res = await getCompanyPage({
+      companyName: searchForm.companyName || undefined,
+      creditCode: searchForm.creditCode || undefined,
+      status: searchForm.status,
+      pageNum: pagination.pageNum,
+      pageSize: pagination.pageSize
+    })
+    if (res) {
+      tableData.value = res.records || []
+      pagination.total = res.total || 0
+    }
+  } catch {
+    ElMessage.error('获取公司列表失败')
+    tableData.value = []
+    pagination.total = 0
+  } finally {
+    tableLoading.value = false
   }
-)
-watch(dialogVisible, (val) => emit('update:visible', val))
+}
 
-const isEdit = computed(() => !!props.companyId)
+function handleReset(): void {
+  searchForm.companyName = ''
+  searchForm.creditCode = ''
+  searchForm.status = undefined
+  pagination.pageNum = 1
+  handleSearch()
+}
+
+async function handleDelete(row: CompanyListVO): Promise<void> {
+  tableLoading.value = true
+  try {
+    await deleteCompany(row.id)
+    ElMessage.success('删除成功')
+    await handleSearch()
+  } catch {
+    ElMessage.error('删除失败')
+  } finally {
+    tableLoading.value = false
+  }
+}
+
+// ==================== 弹窗/P07 表单逻辑（保留原全部验证与规则） ====================
+const dialogVisible = ref(false)
+const isEdit = ref(false)
+const editingId = ref<number>(0)
 
 interface FormData {
   companyName: string
@@ -191,9 +375,9 @@ async function initForm(): Promise<void> {
   formData.value = defaultForm()
   formRef.value?.clearValidate()
 
-  if (props.companyId) {
+  if (editingId.value) {
     try {
-      const detail = await getCompanyDetail(props.companyId)
+      const detail = await getCompanyDetail(editingId.value)
       formData.value.companyName = detail.companyName ?? ''
       formData.value.companyShortName = detail.companyShortName ?? ''
       formData.value.creditCode = detail.creditCode ?? ''
@@ -206,6 +390,20 @@ async function initForm(): Promise<void> {
       ElMessage.error('加载公司详情失败')
     }
   }
+}
+
+function handleCreate(): void {
+  isEdit.value = false
+  editingId.value = 0
+  dialogVisible.value = true
+  initForm()
+}
+
+async function handleEdit(row: CompanyListVO): Promise<void> {
+  isEdit.value = true
+  editingId.value = row.id
+  dialogVisible.value = true
+  await initForm()
 }
 
 async function handleSubmit(): Promise<void> {
@@ -224,15 +422,15 @@ async function handleSubmit(): Promise<void> {
       phone: formData.value.phone || undefined
     }
 
-    if (isEdit.value && props.companyId) {
-      await updateCompany({ id: props.companyId, ...payload })
+    if (isEdit.value && editingId.value) {
+      await updateCompany({ id: editingId.value, ...payload })
     } else {
-      await createCompany(payload as any)
+      await createCompany(payload as CompanyCreateDTO)
     }
 
     ElMessage.success(isEdit.value ? '修改成功' : '新增成功')
-    emit('success')
     dialogVisible.value = false
+    await handleSearch()
   } catch {
     // error handled by request interceptor
   } finally {
@@ -244,9 +442,34 @@ function handleClosed(): void {
   formData.value = defaultForm()
   formRef.value?.resetFields()
 }
+
+// ==================== 生命周期 ====================
+onMounted(() => {
+  handleSearch()
+})
 </script>
 
 <style scoped lang="scss">
+.action-bar-left {
+  display: flex;
+  gap: 8px;
+}
+.action-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.record-count {
+  font-size: 13px;
+  color: var(--el-text-color-secondary);
+}
+
+.pagination-box {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 0 0;
+}
+
 .input-unit {
   margin-left: 8px;
   font-size: 14px;
