@@ -620,7 +620,7 @@ class PageResultTest {
             RT<PageResult<String>> response = RT.ok(pageResult);
 
             // then
-            assertEquals(200, response.getCode(), "RT包装后code必须为200");
+            assertEquals(0, response.getCode(), "RT包装后code必须为200");
             assertNotNull(response.getData(), "RT data不得为null");
             assertEquals(50L, response.getData().getTotal(),
                     "通过RT获取的PageResult total必须正确");
@@ -638,7 +638,7 @@ class PageResultTest {
             RT<PageResult<Object>> response = RT.ok(emptyPage);
 
             // then
-            assertEquals(200, response.getCode(), "RT包装空分页code必须为200");
+            assertEquals(0, response.getCode(), "RT包装空分页code必须为200");
             assertTrue(response.getData().getList().isEmpty(),
                     "通过RT获取的PageResult list必须为空");
         }

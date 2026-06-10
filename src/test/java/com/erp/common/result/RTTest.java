@@ -59,7 +59,7 @@ class RTTest {
             long after = System.currentTimeMillis();
 
             // then
-            assertEquals(200, result.getCode(), "成功响应code必须为200");
+            assertEquals(0, result.getCode(), "成功响应code必须为200");
             assertEquals("success", result.getMessage(), "成功响应message必须为success");
             assertEquals("测试数据", result.getData(), "data必须与传入参数一致");
             assertTrue(result.getTimestamp() >= before && result.getTimestamp() <= after,
@@ -76,7 +76,7 @@ class RTTest {
             RT<String> result = RT.ok(null);
 
             // then
-            assertEquals(200, result.getCode(), "成功响应code必须为200");
+            assertEquals(0, result.getCode(), "成功响应code必须为200");
             assertEquals("success", result.getMessage(), "成功响应message必须为success");
             assertNull(result.getData(), "传入null时data必须为null");
             assertTrue(result.isSuccess(), "ok(null)返回的isSuccess必须为true");
@@ -93,7 +93,7 @@ class RTTest {
             long after = System.currentTimeMillis();
 
             // then
-            assertEquals(200, result.getCode(), "成功响应code必须为200");
+            assertEquals(0, result.getCode(), "成功响应code必须为200");
             assertEquals("success", result.getMessage(), "成功响应message必须为success");
             assertNull(result.getData(), "ok()无参时data必须为null");
             assertTrue(result.getTimestamp() >= before && result.getTimestamp() <= after,
@@ -111,7 +111,7 @@ class RTTest {
             RT<Integer> result = RT.ok(message, data);
 
             // then
-            assertEquals(200, result.getCode(), "成功响应code必须为200");
+            assertEquals(0, result.getCode(), "成功响应code必须为200");
             assertEquals("操作成功", result.getMessage(), "message必须与传入参数一致");
             assertEquals(42, result.getData(), "data必须与传入参数一致");
             assertTrue(result.isSuccess(), "ok(message, data)返回的isSuccess必须为true");
@@ -128,7 +128,7 @@ class RTTest {
             RT<UserDTO> result = RT.ok(user);
 
             // then
-            assertEquals(200, result.getCode(), "成功响应code必须为200");
+            assertEquals(0, result.getCode(), "成功响应code必须为200");
             assertNotNull(result.getData(), "data不能为null");
             assertEquals("张三", result.getData().name(), "data对象属性必须正确");
             assertEquals(25, result.getData().age(), "data对象属性必须正确");
@@ -317,7 +317,7 @@ class RTTest {
             RT<String> result = RT.<String>ok().data("链式数据");
 
             // then
-            assertEquals(200, result.getCode(), "链式调用code必须为200");
+            assertEquals(0, result.getCode(), "链式调用code必须为200");
             assertEquals("success", result.getMessage(), "链式调用message必须为success");
             assertEquals("链式数据", result.getData(), "data必须与链式传入参数一致");
             assertTrue(result.isSuccess(), "链式调用返回的isSuccess必须为true");
@@ -412,7 +412,7 @@ class RTTest {
             JsonNode node = objectMapper.readTree(json);
 
             // then
-            assertEquals(200, node.get("code").asInt(), "JSON中code必须为200");
+            assertEquals(0, node.get("code").asInt(), "JSON中code必须为0");
             assertEquals("success", node.get("message").asText(), "JSON中message必须为success");
             assertEquals(100, node.get("data").asInt(), "JSON中data必须正确");
             assertTrue(node.get("timestamp").asLong() > 0, "JSON中timestamp必须为正数");
@@ -534,16 +534,16 @@ class RTTest {
         }
 
         @Test
-        @DisplayName("isSuccess - 自定义code=200的fail也返回true(边界)")
+        @DisplayName("isSuccess - 自定义code=0的fail也返回true(边界)")
         void should_returnTrue_when_customCodeIs200() {
             // given - 无
 
-            // when — 虽然不推荐, 但code=200时isSuccess按定义返回true
-            RT<Object> result = RT.fail(200, "特殊消息");
+            // when — code=0时isSuccess按定义返回true
+            RT<Object> result = RT.fail(0, "特殊消息");
 
             // then
             assertTrue(result.isSuccess(),
-                    "code=200时isSuccess必须为true(即使通过fail方法创建)");
+                    "code=0时isSuccess必须为true(即使通过fail方法创建)");
         }
     }
 

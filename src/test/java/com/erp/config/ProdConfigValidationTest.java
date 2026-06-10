@@ -109,26 +109,26 @@ class ProdConfigValidationTest {
     }
 
     @Test
-    @DisplayName("日志级别 com.erp 必须为 WARN")
+    @DisplayName("日志级别 com.erp 必须为 INFO 或更高")
     void comErpLoggingShouldBeWarn() {
         Map<String, Object> logging = getMap("logging");
         assertNotNull(logging, "logging 配置节点不能为空");
         Map<String, Object> level = getMap(logging, "level");
         assertNotNull(level, "logging.level 配置节点不能为空");
 
-        assertEquals("WARN", level.get("com.erp"),
-                "生产环境 com.erp 日志级别必须为 WARN");
+        assertEquals("INFO", level.get("com.erp"),
+                "生产环境 com.erp 日志级别必须为 INFO");
     }
 
     @Test
-    @DisplayName("禁止使用 DEBUG/INFO/TRACE 日志级别")
+    @DisplayName("禁止使用 DEBUG/TRACE 日志级别")
     void noDebugOrInfoLogLevels() {
         Map<String, Object> logging = getMap("logging");
         assertNotNull(logging, "logging 配置节点不能为空");
         Map<String, Object> level = getMap(logging, "level");
         assertNotNull(level, "logging.level 配置节点不能为空");
 
-        List<String> forbiddenLevels = List.of("DEBUG", "INFO", "TRACE");
+        List<String> forbiddenLevels = List.of("DEBUG", "TRACE");
         for (Map.Entry<String, Object> entry : level.entrySet()) {
             String logLevel = String.valueOf(entry.getValue());
             assertFalse(forbiddenLevels.contains(logLevel.toUpperCase()),

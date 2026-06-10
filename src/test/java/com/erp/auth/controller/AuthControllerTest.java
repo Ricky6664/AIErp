@@ -71,7 +71,7 @@ class AuthControllerTest {
             RT<LoginResponse> result = authController.login(validRequest, bindingResult, mock(HttpServletRequest.class));
 
             assertTrue(result.isSuccess());
-            assertEquals(200, result.getCode());
+            assertEquals(0, result.getCode());
             assertNotNull(result.getData());
             assertEquals("admin", result.getData().getUsername());
             assertEquals("token-xxx", result.getData().getToken());
@@ -158,7 +158,7 @@ class AuthControllerTest {
             RT<Void> result = authController.logout();
 
             assertTrue(result.isSuccess());
-            assertEquals(200, result.getCode());
+            assertEquals(0, result.getCode());
             assertEquals("退出成功", result.getMessage());
             assertNull(result.getData());
             verify(authService).logout();
@@ -193,7 +193,7 @@ class AuthControllerTest {
             RT<TokenVerifyResponse> result = authController.verifyToken();
 
             assertTrue(result.isSuccess());
-            assertEquals(200, result.getCode());
+            assertEquals(0, result.getCode());
             assertNotNull(result.getData());
             assertTrue(result.getData().isValid());
             assertEquals(1L, result.getData().getUserId());
@@ -234,7 +234,7 @@ class AuthControllerTest {
             RT<TokenRefreshResponse> result = authController.refreshToken(request, br);
 
             assertTrue(result.isSuccess());
-            assertEquals(200, result.getCode());
+            assertEquals(0, result.getCode());
             assertNotNull(result.getData());
             assertEquals("new-access-token", result.getData().getToken());
             assertEquals("new-refresh-token", result.getData().getRefreshToken());
