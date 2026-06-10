@@ -1,369 +1,358 @@
 <template>
-  <div class="account-list-page">
-    <el-row :gutter="16" class="stats-row">
-      <el-col :xs="24" :sm="6">
-        <el-card shadow="hover" class="stat-card">
-          <div class="stat-value">{{ stats.total }}</div>
-          <div class="stat-label">科目总数</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="6">
-        <el-card shadow="hover" class="stat-card stat-card--leaf">
-          <div class="stat-value">{{ stats.leafCount }}</div>
-          <div class="stat-label">末级科目</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="6">
-        <el-card shadow="hover" class="stat-card stat-card--enabled">
-          <div class="stat-value">{{ stats.enabled }}</div>
-          <div class="stat-label">已启用</div>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="6">
-        <el-card shadow="hover" class="stat-card stat-card--disabled">
-          <div class="stat-value">{{ stats.disabled }}</div>
-          <div class="stat-label">已停用</div>
-        </el-card>
-      </el-col>
-    </el-row>
+  <PageP05TreeList>
+    <!-- Stats cards → extra-area -->
+    <template #extra-area>
+      <el-row :gutter="16">
+        <el-col :xs="24" :sm="6">
+          <el-card shadow="hover" class="stat-card">
+            <div class="stat-value">{{ stats.total }}</div>
+            <div class="stat-label">科目总数</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="6">
+          <el-card shadow="hover" class="stat-card stat-card--leaf">
+            <div class="stat-value">{{ stats.leafCount }}</div>
+            <div class="stat-label">末级科目</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="6">
+          <el-card shadow="hover" class="stat-card stat-card--enabled">
+            <div class="stat-value">{{ stats.enabled }}</div>
+            <div class="stat-label">已启用</div>
+          </el-card>
+        </el-col>
+        <el-col :xs="24" :sm="6">
+          <el-card shadow="hover" class="stat-card stat-card--disabled">
+            <div class="stat-value">{{ stats.disabled }}</div>
+            <div class="stat-label">已停用</div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </template>
 
-    <div class="content-layout">
-      <div class="tree-panel">
-        <el-card shadow="never" class="tree-card">
-          <template #header>
-            <div class="tree-header">
-              <span>科目树</span>
-              <el-button type="primary" size="small" :icon="Plus" @click="handleAddRoot">
-                新增根科目
-              </el-button>
-            </div>
-          </template>
+    <!-- Search form → query-panel -->
+    <template #query-panel>
+      <el-form :model="searchForm" :inline="true" @submit.prevent>
+        <el-form-item label="科目名称">
           <el-input
-            v-model="treeFilterText"
-            placeholder="搜索科目..."
+            v-model="searchForm.accountName"
+            placeholder="请输入科目名称"
             clearable
-            size="small"
-            class="tree-filter"
+            style="width: 180px"
+            @input="handleSearchDebounced"
           />
-          <el-tree
-            ref="treeRef"
-            :data="treeData"
-            :props="treeProps"
-            :filter-node-method="filterTreeNode"
-            :expand-on-click-node="true"
-            node-key="id"
-            highlight-current
-            default-expand-all
-            @node-click="handleTreeNodeClick"
+        </el-form-item>
+        <el-form-item label="科目类别">
+          <el-select
+            v-model="searchForm.accountType"
+            placeholder="请选择科目类别"
+            clearable
+            style="width: 140px"
+            @change="handleSearch"
           >
-            <template #default="{ data }">
-              <span class="tree-node">
-                <span class="tree-node-label">
-                  <span class="tree-node-code">{{ data.accountCode }}</span>
-                  {{ data.accountName }}
-                  <el-tag v-if="data.isLeaf" size="small" type="success" class="leaf-tag">
-                    末级
-                  </el-tag>
-                </span>
-                <span class="tree-node-actions">
-                  <el-button
-                    v-if="!data.isLeaf"
-                    link
-                    type="primary"
-                    size="small"
-                    :icon="Plus"
-                    @click.stop="handleAddChild(data)"
-                  />
-                  <el-button
-                    link
-                    type="primary"
-                    size="small"
-                    :icon="Edit"
-                    @click.stop="handleEditFromTree(data)"
-                  />
-                  <el-popconfirm
-                    title="确认删除该科目？"
-                    confirm-button-text="确认"
-                    cancel-button-text="取消"
-                    @confirm="handleDeleteFromTree(data)"
-                  >
-                    <template #reference>
-                      <el-button link type="danger" size="small" :icon="Delete" @click.stop />
-                    </template>
-                  </el-popconfirm>
-                </span>
-              </span>
-            </template>
-          </el-tree>
-        </el-card>
-      </div>
-
-      <div class="table-panel">
-        <el-card shadow="never" class="search-card">
-          <el-form :model="searchForm" :inline="true" @submit.prevent>
-            <el-form-item label="科目名称">
-              <el-input
-                v-model="searchForm.accountName"
-                placeholder="请输入科目名称"
-                clearable
-                style="width: 180px"
-                @input="handleSearchDebounced"
-              />
-            </el-form-item>
-            <el-form-item label="科目类别">
-              <el-select
-                v-model="searchForm.accountType"
-                placeholder="请选择科目类别"
-                clearable
-                style="width: 140px"
-                @change="handleSearch"
-              >
-                <el-option
-                  v-for="item in accountTypeOptions"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                />
-              </el-select>
-            </el-form-item>
-            <el-form-item label="状态">
-              <el-select
-                v-model="searchForm.status"
-                placeholder="请选择状态"
-                clearable
-                style="width: 100px"
-                @change="handleSearch"
-              >
-                <el-option label="启用" :value="1" />
-                <el-option label="停用" :value="0" />
-              </el-select>
-            </el-form-item>
-            <el-form-item>
-              <el-button type="primary" :icon="Search" @click="handleSearch"> 查询 </el-button>
-              <el-button :icon="RefreshRight" @click="handleReset"> 重置 </el-button>
-            </el-form-item>
-          </el-form>
-        </el-card>
-
-        <el-card shadow="never" class="table-card">
-          <template #header>
-            <div class="table-header">
-              <span>{{ selectedNodeName || '请选择左侧科目' }}</span>
-              <span v-if="tableData.length">共 {{ pagination.total }} 条</span>
-            </div>
-          </template>
-
-          <vxe-table
-            :loading="tableLoading"
-            :data="tableData"
-            :scroll-y="{ enabled: true, gt: 100 }"
-            max-height="600"
-            border
-            style="width: 100%"
-          >
-            <vxe-column type="seq" title="序号" width="60" align="center" />
-            <vxe-column field="accountCode" title="科目编码" min-width="140" />
-            <vxe-column field="accountName" title="科目名称" min-width="160" />
-            <vxe-column field="category" title="科目类别" width="120" align="center">
-              <template #default="{ row }">
-                {{ categoryLabel(row.category) }}
-              </template>
-            </vxe-column>
-            <vxe-column field="balanceDirection" title="余额方向" width="100" align="center">
-              <template #default="{ row }">
-                <el-tag :type="row.balanceDirection === 1 ? 'danger' : 'success'" size="small">
-                  {{ row.balanceDirection === 1 ? '借方' : '贷方' }}
-                </el-tag>
-              </template>
-            </vxe-column>
-            <vxe-column field="isLeaf" title="是否末级" width="90" align="center">
-              <template #default="{ row }">
-                <el-tag :type="row.isLeaf ? 'success' : 'info'" size="small">
-                  {{ row.isLeaf ? '是' : '否' }}
-                </el-tag>
-              </template>
-            </vxe-column>
-            <vxe-column field="status" title="状态" width="90" align="center">
-              <template #default="{ row }">
-                <el-tag :type="row.status === 1 ? 'success' : 'danger'" size="small">
-                  {{ row.status === 1 ? '启用' : '停用' }}
-                </el-tag>
-              </template>
-            </vxe-column>
-            <vxe-column title="操作" width="200" align="center" fixed="right">
-              <template #default="{ row }">
-                <el-button link type="primary" size="small" @click="handleEdit(row)">
-                  编辑
-                </el-button>
-                <el-button
-                  link
-                  :type="row.status === 1 ? 'warning' : 'success'"
-                  size="small"
-                  @click="handleToggleStatus(row)"
-                >
-                  {{ row.status === 1 ? '停用' : '启用' }}
-                </el-button>
-                <el-popconfirm
-                  title="确认删除该科目？"
-                  confirm-button-text="确认"
-                  cancel-button-text="取消"
-                  @confirm="handleDelete(row)"
-                >
-                  <template #reference>
-                    <el-button link type="danger" size="small">删除</el-button>
-                  </template>
-                </el-popconfirm>
-              </template>
-            </vxe-column>
-          </vxe-table>
-
-          <div class="pagination-wrapper">
-            <el-pagination
-              v-model:current-page="pagination.pageNum"
-              v-model:page-size="pagination.pageSize"
-              :page-sizes="[10, 20, 50, 100]"
-              :total="pagination.total"
-              layout="total, sizes, prev, pager, next, jumper"
-              @size-change="handleSizeChange"
-              @current-change="handlePageChange"
+            <el-option
+              v-for="item in accountTypeOptions"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
             />
-          </div>
-        </el-card>
-      </div>
-    </div>
-
-    <el-dialog
-      v-model="dialogVisible"
-      :title="dialogTitle"
-      width="600px"
-      destroy-on-close
-      @closed="handleDialogClosed"
-    >
-      <el-form
-        ref="formRef"
-        :model="formData"
-        :rules="formRules"
-        label-width="100px"
-        @submit.prevent
-      >
-        <el-row :gutter="20">
-          <el-col :span="24">
-            <el-form-item label="上级科目" prop="parentId">
-              <el-tree-select
-                v-model="formData.parentId"
-                :data="treeData"
-                :props="treeSelectProps"
-                :check-strictly="true"
-                :render-after-expand="false"
-                placeholder="请选择上级科目（不选则为根科目）"
-                clearable
-                style="width: 100%"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="科目编码">
-              <el-input
-                v-model="formData.accountCode"
-                placeholder="保存后自动生成"
-                maxlength="20"
-                disabled
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="科目名称" prop="accountName">
-              <el-input
-                v-model="formData.accountName"
-                placeholder="请输入科目名称"
-                maxlength="100"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="科目类别" prop="accountType">
-              <el-select
-                v-model="formData.accountType"
-                placeholder="请选择科目类别"
-                style="width: 100%"
-                @change="onAccountTypeChange"
-              >
-                <el-option
-                  v-for="item in accountTypeOptions"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                />
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="余额方向" prop="balanceDirection">
-              <el-select
-                v-model="formData.balanceDirection"
-                placeholder="请选择余额方向"
-                style="width: 100%"
-              >
-                <el-option label="借方" :value="1" />
-                <el-option label="贷方" :value="2" />
-              </el-select>
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="是否现金">
-              <el-switch v-model="formData.isCash" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="是否银行">
-              <el-switch v-model="formData.isBank" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="是否外币">
-              <el-switch v-model="formData.isForeignCurrency" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="辅助核算">
-              <el-switch v-model="formData.isAuxiliary" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <el-form-item label="状态" prop="status">
-              <el-switch
-                v-model="formData.status"
-                :active-value="1"
-                :inactive-value="0"
-                active-text="启用"
-                inactive-text="停用"
-              />
-            </el-form-item>
-          </el-col>
-        </el-row>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="状态">
+          <el-select
+            v-model="searchForm.status"
+            placeholder="请选择状态"
+            clearable
+            style="width: 100px"
+            @change="handleSearch"
+          >
+            <el-option label="启用" :value="1" />
+            <el-option label="停用" :value="0" />
+          </el-select>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" :icon="Search" @click="handleSearch"> 查询 </el-button>
+          <el-button :icon="RefreshRight" @click="handleReset"> 重置 </el-button>
+        </el-form-item>
       </el-form>
-      <template #footer>
-        <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="primary" :loading="submitLoading" @click="handleSubmit"> 确认 </el-button>
-      </template>
-    </el-dialog>
-  </div>
+    </template>
+
+    <!-- Tree search → tree-search -->
+    <template #tree-search>
+      <el-input v-model="treeFilterText" placeholder="搜索科目..." clearable size="default" />
+    </template>
+
+    <!-- Tree content → tree-content -->
+    <template #tree-content>
+      <el-tree
+        ref="treeRef"
+        :data="treeData"
+        :props="treeProps"
+        :filter-node-method="filterTreeNode"
+        :expand-on-click-node="true"
+        node-key="id"
+        highlight-current
+        default-expand-all
+        @node-click="handleTreeNodeClick"
+      >
+        <template #default="{ data }">
+          <span class="tree-node">
+            <span class="tree-node-label">
+              <span class="tree-node-code">{{ data.accountCode }}</span>
+              {{ data.accountName }}
+              <el-tag v-if="data.isLeaf" size="small" type="success" class="leaf-tag">
+                末级
+              </el-tag>
+            </span>
+            <span class="tree-node-actions">
+              <el-button
+                v-if="!data.isLeaf"
+                link
+                type="primary"
+                size="small"
+                :icon="Plus"
+                @click.stop="handleAddChild(data)"
+              />
+              <el-button
+                link
+                type="primary"
+                size="small"
+                :icon="Edit"
+                @click.stop="handleEditFromTree(data)"
+              />
+              <el-popconfirm
+                title="确认删除该科目？"
+                confirm-button-text="确认"
+                cancel-button-text="取消"
+                @confirm="handleDeleteFromTree(data)"
+              >
+                <template #reference>
+                  <el-button link type="danger" size="small" :icon="Delete" @click.stop />
+                </template>
+              </el-popconfirm>
+            </span>
+          </span>
+        </template>
+      </el-tree>
+    </template>
+
+    <!-- Tree footer → tree-footer -->
+    <template #tree-footer>
+      <span>当前选中：{{ selectedNodeName || '—' }}</span>
+    </template>
+
+    <!-- Action bar → action-bar -->
+    <template #action-bar>
+      <el-button type="primary" :icon="Plus" @click="handleAddRoot"> 新增根科目 </el-button>
+      <el-button :icon="RefreshRight" @click="handleRefresh"> 刷新 </el-button>
+    </template>
+
+    <!-- Main content → main-content (table) -->
+    <template #main-content>
+      <div class="table-header">
+        <span class="table-title">{{ selectedNodeName || '全部科目' }}</span>
+        <span v-if="tableData.length" class="table-count">共 {{ pagination.total }} 条</span>
+      </div>
+
+      <vxe-table
+        :loading="tableLoading"
+        :data="tableData"
+        :scroll-y="{ enabled: true, gt: 100 }"
+        max-height="600"
+        border
+        style="width: 100%"
+      >
+        <vxe-column type="seq" title="序号" width="60" align="center" />
+        <vxe-column field="accountCode" title="科目编码" min-width="140" />
+        <vxe-column field="accountName" title="科目名称" min-width="160" />
+        <vxe-column field="category" title="科目类别" width="120" align="center">
+          <template #default="{ row }">
+            {{ categoryLabel(row.category) }}
+          </template>
+        </vxe-column>
+        <vxe-column field="balanceDirection" title="余额方向" width="100" align="center">
+          <template #default="{ row }">
+            <el-tag :type="row.balanceDirection === 1 ? 'danger' : 'success'" size="small">
+              {{ row.balanceDirection === 1 ? '借方' : '贷方' }}
+            </el-tag>
+          </template>
+        </vxe-column>
+        <vxe-column field="isLeaf" title="是否末级" width="90" align="center">
+          <template #default="{ row }">
+            <el-tag :type="row.isLeaf ? 'success' : 'info'" size="small">
+              {{ row.isLeaf ? '是' : '否' }}
+            </el-tag>
+          </template>
+        </vxe-column>
+        <vxe-column field="status" title="状态" width="90" align="center">
+          <template #default="{ row }">
+            <el-tag :type="row.status === 1 ? 'success' : 'danger'" size="small">
+              {{ row.status === 1 ? '启用' : '停用' }}
+            </el-tag>
+          </template>
+        </vxe-column>
+        <vxe-column title="操作" width="200" align="center" fixed="right">
+          <template #default="{ row }">
+            <el-button link type="primary" size="small" @click="handleEdit(row)"> 编辑 </el-button>
+            <el-button
+              link
+              :type="row.status === 1 ? 'warning' : 'success'"
+              size="small"
+              @click="handleToggleStatus(row)"
+            >
+              {{ row.status === 1 ? '停用' : '启用' }}
+            </el-button>
+            <el-popconfirm
+              title="确认删除该科目？"
+              confirm-button-text="确认"
+              cancel-button-text="取消"
+              @confirm="handleDelete(row)"
+            >
+              <template #reference>
+                <el-button link type="danger" size="small">删除</el-button>
+              </template>
+            </el-popconfirm>
+          </template>
+        </vxe-column>
+      </vxe-table>
+
+      <div class="pagination-wrapper">
+        <el-pagination
+          v-model:current-page="pagination.pageNum"
+          v-model:page-size="pagination.pageSize"
+          :page-sizes="[10, 20, 50, 100]"
+          :total="pagination.total"
+          layout="total, sizes, prev, pager, next, jumper"
+          @size-change="handleSizeChange"
+          @current-change="handlePageChange"
+        />
+      </div>
+    </template>
+  </PageP05TreeList>
+
+  <!-- Dialog OUTSIDE PageP05TreeList -->
+  <el-dialog
+    v-model="dialogVisible"
+    :title="dialogTitle"
+    width="600px"
+    destroy-on-close
+    @closed="handleDialogClosed"
+  >
+    <el-form ref="formRef" :model="formData" :rules="formRules" label-width="100px" @submit.prevent>
+      <el-row :gutter="20">
+        <el-col :span="24">
+          <el-form-item label="上级科目" prop="parentId">
+            <el-tree-select
+              v-model="formData.parentId"
+              :data="treeData"
+              :props="treeSelectProps"
+              :check-strictly="true"
+              :render-after-expand="false"
+              placeholder="请选择上级科目（不选则为根科目）"
+              clearable
+              style="width: 100%"
+            />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="科目编码">
+            <el-input
+              v-model="formData.accountCode"
+              placeholder="保存后自动生成"
+              maxlength="20"
+              disabled
+            />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="科目名称" prop="accountName">
+            <el-input v-model="formData.accountName" placeholder="请输入科目名称" maxlength="100" />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="科目类别" prop="accountType">
+            <el-select
+              v-model="formData.accountType"
+              placeholder="请选择科目类别"
+              style="width: 100%"
+              @change="onAccountTypeChange"
+            >
+              <el-option
+                v-for="item in accountTypeOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="余额方向" prop="balanceDirection">
+            <el-select
+              v-model="formData.balanceDirection"
+              placeholder="请选择余额方向"
+              style="width: 100%"
+            >
+              <el-option label="借方" :value="1" />
+              <el-option label="贷方" :value="2" />
+            </el-select>
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="是否现金">
+            <el-switch v-model="formData.isCash" />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="是否银行">
+            <el-switch v-model="formData.isBank" />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="是否外币">
+            <el-switch v-model="formData.isForeignCurrency" />
+          </el-form-item>
+        </el-col>
+        <el-col :span="12">
+          <el-form-item label="辅助核算">
+            <el-switch v-model="formData.isAuxiliary" />
+          </el-form-item>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <el-form-item label="状态" prop="status">
+            <el-switch
+              v-model="formData.status"
+              :active-value="1"
+              :inactive-value="0"
+              active-text="启用"
+              inactive-text="停用"
+            />
+          </el-form-item>
+        </el-col>
+      </el-row>
+    </el-form>
+    <template #footer>
+      <el-button @click="dialogVisible = false">取消</el-button>
+      <el-button type="primary" :loading="submitLoading" @click="handleSubmit"> 确认 </el-button>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive, onMounted, computed } from 'vue'
 import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
 import { Search, RefreshRight, Plus, Edit, Delete } from '@element-plus/icons-vue'
+import PageP05TreeList from '@/components/page-base/PageP05TreeList.vue'
 import {
   getAccountTreeApi,
   getAccountPageApi,
@@ -613,6 +602,11 @@ function filterTreeNode(value: string, data: Record<string, unknown>): boolean {
   return accountName.includes(value) || accountCode.includes(value)
 }
 
+async function handleRefresh(): Promise<void> {
+  await loadTree()
+  await loadTableData()
+}
+
 async function loadTree(): Promise<void> {
   try {
     const res = await getAccountTreeApi()
@@ -692,132 +686,98 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-.account-list-page {
-  padding: 20px;
+// Stat cards
+.stat-card {
+  text-align: center;
 
-  .stats-row {
-    margin-bottom: 16px;
-
-    .stat-card {
-      text-align: center;
-
-      .stat-value {
-        font-size: 28px;
-        font-weight: 700;
-        color: var(--el-color-primary);
-        line-height: 1.2;
-      }
-
-      .stat-label {
-        margin-top: 8px;
-        font-size: 14px;
-        color: var(--el-text-color-secondary);
-      }
-
-      &--leaf {
-        .stat-value {
-          color: var(--el-color-success);
-        }
-      }
-
-      &--enabled {
-        .stat-value {
-          color: var(--el-color-success);
-        }
-      }
-
-      &--disabled {
-        .stat-value {
-          color: var(--el-color-danger);
-        }
-      }
-    }
+  .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--el-color-primary);
+    line-height: 1.2;
   }
 
-  .content-layout {
+  .stat-label {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--el-text-color-secondary);
+  }
+
+  &--leaf .stat-value {
+    color: var(--el-color-success);
+  }
+
+  &--enabled .stat-value {
+    color: var(--el-color-success);
+  }
+
+  &--disabled .stat-value {
+    color: var(--el-color-danger);
+  }
+}
+
+// Tree node
+.tree-node {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+
+  .tree-node-label {
     display: flex;
-    gap: 16px;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
 
-    .tree-panel {
-      width: 320px;
-      flex-shrink: 0;
-
-      .tree-card {
-        height: 100%;
-
-        .tree-header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .tree-filter {
-          margin-bottom: 12px;
-        }
-
-        :deep(.el-tree-node__content) {
-          height: 36px;
-        }
-
-        .tree-node {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex: 1;
-          min-width: 0;
-
-          .tree-node-label {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            min-width: 0;
-
-            .tree-node-code {
-              font-size: 12px;
-              color: var(--el-text-color-secondary);
-            }
-
-            .leaf-tag {
-              margin-left: 4px;
-            }
-          }
-
-          .tree-node-actions {
-            display: flex;
-            align-items: center;
-            gap: 2px;
-            visibility: hidden;
-          }
-
-          &:hover .tree-node-actions {
-            visibility: visible;
-          }
-        }
-      }
+    .tree-node-code {
+      font-size: 12px;
+      color: var(--el-text-color-secondary);
     }
 
-    .table-panel {
-      flex: 1;
-      min-width: 0;
-
-      .search-card {
-        margin-bottom: 16px;
-      }
-
-      .table-card {
-        .table-header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .pagination-wrapper {
-          display: flex;
-          justify-content: flex-end;
-          margin-top: 16px;
-        }
-      }
+    .leaf-tag {
+      margin-left: 4px;
     }
   }
+
+  .tree-node-actions {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    visibility: hidden;
+  }
+
+  &:hover .tree-node-actions {
+    visibility: visible;
+  }
+}
+
+:deep(.el-tree-node__content) {
+  height: 36px;
+}
+
+// Table header
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+
+  .table-title {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .table-count {
+    font-size: 13px;
+    color: var(--el-text-color-secondary);
+  }
+}
+
+// Pagination
+.pagination-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
 }
 </style>

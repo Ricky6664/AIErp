@@ -28,115 +28,108 @@
       </el-col>
     </el-row>
 
-    <!-- 搜索表单 -->
-    <el-card shadow="never" class="search-card">
-      <el-form :model="searchForm" :inline="true" @submit.prevent>
-        <el-form-item :label="$t('hrm.employee.name')">
-          <el-input
-            v-model="searchForm.name"
-            :placeholder="$t('hrm.employee.namePlaceholder')"
-            clearable
-            @input="handleSearchDebounced"
-          />
-        </el-form-item>
-        <el-form-item :label="$t('hrm.employee.department')">
-          <el-select
-            v-model="searchForm.departmentId"
-            :placeholder="$t('common.pleaseSelect')"
-            clearable
-            style="width: 160px"
-            @change="handleSearch"
-          >
-            <el-option
-              v-for="dept in deptOptions"
-              :key="dept.value"
-              :label="dept.label"
-              :value="dept.value"
+    <!-- P03 主从列表页基座 -->
+    <PageP03MasterList
+      view-id="hrm-employeecenter"
+      page-type="P03"
+      :config="pageConfig"
+      :permissions="[]"
+    >
+      <!-- 查询区 -->
+      <template #query-panel>
+        <el-form :model="searchForm" :inline="true" class="query-form" @submit.prevent>
+          <el-form-item :label="$t('hrm.employee.name')">
+            <el-input
+              v-model="searchForm.name"
+              :placeholder="$t('hrm.employee.namePlaceholder')"
+              clearable
+              style="width: 180px"
+              @input="handleSearchDebounced"
             />
-          </el-select>
-        </el-form-item>
-        <el-form-item :label="$t('hrm.employee.status')">
-          <el-select
-            v-model="searchForm.employeeStatus"
-            :placeholder="$t('common.pleaseSelect')"
-            clearable
-            style="width: 140px"
-            @change="handleSearch"
-          >
-            <el-option :label="$t('hrm.employee.statusActive')" value="在职" />
-            <el-option :label="$t('hrm.employee.statusLeave')" value="离职" />
-            <el-option :label="$t('hrm.employee.statusProbation')" value="试用期" />
-          </el-select>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="handleSearch">
-            {{ $t('common.search') }}
-          </el-button>
-          <el-button @click="handleReset">
-            {{ $t('common.reset') }}
-          </el-button>
-        </el-form-item>
-      </el-form>
-    </el-card>
+          </el-form-item>
+          <el-form-item :label="$t('hrm.employee.department')">
+            <el-select
+              v-model="searchForm.departmentId"
+              :placeholder="$t('common.pleaseSelect')"
+              clearable
+              style="width: 180px"
+              @change="handleSearch"
+            >
+              <el-option
+                v-for="dept in deptOptions"
+                :key="dept.value"
+                :label="dept.label"
+                :value="dept.value"
+              />
+            </el-select>
+          </el-form-item>
+          <el-form-item :label="$t('hrm.employee.status')">
+            <el-select
+              v-model="searchForm.employeeStatus"
+              :placeholder="$t('common.pleaseSelect')"
+              clearable
+              style="width: 160px"
+              @change="handleSearch"
+            >
+              <el-option :label="$t('hrm.employee.statusActive')" value="在职" />
+              <el-option :label="$t('hrm.employee.statusLeave')" value="离职" />
+              <el-option :label="$t('hrm.employee.statusProbation')" value="试用期" />
+            </el-select>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="handleSearch">
+              {{ $t('common.search') }}
+            </el-button>
+            <el-button @click="handleReset">
+              {{ $t('common.reset') }}
+            </el-button>
+          </el-form-item>
+        </el-form>
+      </template>
 
-    <!-- 主从区域 -->
-    <el-row :gutter="16" class="master-detail-row">
-      <!-- 主表 -->
-      <el-col :xs="24" :md="14" class="master-col">
-        <el-card shadow="never" class="table-card">
-          <template #header>
-            <div class="table-header">
-              <span>{{ $t('hrm.employee.recordCount', { total: pagination.total }) }}</span>
-              <el-button type="primary" @click="handleCreate">
-                {{ $t('hrm.employee.add') }}
-              </el-button>
-            </div>
-          </template>
+      <!-- 操作栏 -->
+      <template #action-bar>
+        <el-button type="primary" @click="handleCreate">
+          <el-icon><Plus /></el-icon>
+          {{ $t('hrm.employee.add') }}
+        </el-button>
+        <el-button @click="handleExport">
+          <el-icon><Download /></el-icon>
+          {{ $t('common.export') }}
+        </el-button>
+      </template>
 
+      <!-- 主列表 -->
+      <template #list-content>
+        <div class="list-wrap">
+          <div class="list-header">
+            <span class="list-title">{{
+              $t('hrm.employee.recordCount', { total: pagination.total })
+            }}</span>
+          </div>
           <vxe-table
-            ref="tableRef"
             :loading="tableLoading"
             :data="tableData"
             :scroll-y="{ enabled: true, gt: 100 }"
-            max-height="500"
+            max-height="420"
             stripe
             highlight-current-row
             style="width: 100%"
             @current-row-change="handleRowChange"
           >
-            <vxe-column field="employeeNo" :title="$t('hrm.employee.employeeNo')" width="120" />
-            <vxe-column field="name" :title="$t('hrm.employee.name')" min-width="100" />
-            <vxe-column field="gender" :title="$t('hrm.employee.gender')" width="70" align="center">
+            <vxe-column field="employeeNo" :title="$t('hrm.employee.employeeNo')" width="110" />
+            <vxe-column field="name" :title="$t('hrm.employee.name')" min-width="90" />
+            <vxe-column field="gender" :title="$t('hrm.employee.gender')" width="60" align="center">
               <template #default="{ row }">
                 <span>{{ genderLabel(row.gender) }}</span>
               </template>
             </vxe-column>
-            <vxe-column field="phone" :title="$t('hrm.employee.phone')" width="130" />
-            <vxe-column
-              field="departmentId"
-              :title="$t('hrm.employee.department')"
-              width="100"
-              align="center"
-            >
-              <template #default="{ row }">
-                <span>{{ row.departmentId || '-' }}</span>
-              </template>
-            </vxe-column>
-            <vxe-column
-              field="positionId"
-              :title="$t('hrm.employee.position')"
-              width="100"
-              align="center"
-            >
-              <template #default="{ row }">
-                <span>{{ row.positionId || '-' }}</span>
-              </template>
-            </vxe-column>
-            <vxe-column field="entryDate" :title="$t('hrm.employee.entryDate')" width="120" />
+            <vxe-column field="phone" :title="$t('hrm.employee.phone')" width="120" />
+            <vxe-column field="entryDate" :title="$t('hrm.employee.entryDate')" width="110" />
             <vxe-column
               field="employeeStatus"
               :title="$t('hrm.employee.status')"
-              width="100"
+              width="90"
               align="center"
             >
               <template #default="{ row }">
@@ -145,7 +138,7 @@
                 </el-tag>
               </template>
             </vxe-column>
-            <vxe-column :title="$t('common.operate')" width="150" align="center" fixed="right">
+            <vxe-column :title="$t('common.operate')" width="130" align="center" fixed="right">
               <template #default="{ row }">
                 <el-button type="primary" link size="small" @click="handleEdit(row)">
                   {{ $t('common.edit') }}
@@ -156,7 +149,6 @@
               </template>
             </vxe-column>
           </vxe-table>
-
           <div class="pagination-wrap">
             <el-pagination
               v-model:current-page="pagination.current"
@@ -164,28 +156,27 @@
               :total="pagination.total"
               :page-sizes="[10, 20, 50, 100]"
               layout="total, sizes, prev, pager, next"
+              small
               @current-change="loadTableData"
               @size-change="loadTableData"
             />
           </div>
-        </el-card>
-      </el-col>
+        </div>
+      </template>
 
       <!-- 从表标签页 -->
-      <el-col :xs="24" :md="10" class="detail-col">
-        <el-card shadow="never" class="detail-card">
-          <template #header>
-            <span v-if="selectedEmployee">
-              {{ selectedEmployee.name }} {{ $t('hrm.employee.detailTitle') }}
-            </span>
-            <span v-else>{{ $t('hrm.employee.selectHint') }}</span>
-          </template>
-
-          <div v-if="!selectedEmployee" class="detail-empty">
-            <el-empty :description="$t('hrm.employee.clickRowHint')" />
+      <template #form-content>
+        <div v-if="!selectedEmployee" class="detail-empty">
+          <el-empty :description="$t('hrm.employee.clickRowHint')" />
+        </div>
+        <div v-else class="detail-tabs-wrap">
+          <div class="detail-header">
+            <span class="detail-title"
+              >{{ selectedEmployee.name }} {{ $t('hrm.employee.detailTitle') }}</span
+            >
           </div>
-
-          <el-tabs v-else v-model="activeTab" class="detail-tabs">
+          <el-tabs v-model="activeTab" class="detail-tabs" @tab-change="handleTabChange">
+            <!-- 基本信息 -->
             <el-tab-pane :label="$t('hrm.employee.tabBasic')" name="basic">
               <el-descriptions :column="1" border size="small">
                 <el-descriptions-item :label="$t('hrm.employee.employeeNo')">
@@ -217,29 +208,163 @@
               </el-descriptions>
             </el-tab-pane>
 
+            <!-- 档案 -->
             <el-tab-pane :label="$t('hrm.employee.tabArchive')" name="archive" lazy>
-              <div class="tab-placeholder">
-                <el-empty :description="$t('hrm.employee.archiveHint')" />
+              <div v-loading="archiveLoading" class="tab-data-wrap">
+                <template v-if="archiveList.length">
+                  <vxe-table
+                    :data="archiveList"
+                    border
+                    size="small"
+                    max-height="300"
+                    style="width: 100%"
+                  >
+                    <vxe-column
+                      field="education"
+                      :title="$t('hrm.archive.education')"
+                      min-width="80"
+                    />
+                    <vxe-column field="major" :title="$t('hrm.archive.major')" min-width="100" />
+                    <vxe-column field="school" :title="$t('hrm.archive.school')" min-width="120" />
+                    <vxe-column
+                      field="emergencyContact"
+                      :title="$t('hrm.archive.emergencyContact')"
+                      min-width="100"
+                    />
+                    <vxe-column
+                      field="emergencyPhone"
+                      :title="$t('hrm.archive.emergencyPhone')"
+                      min-width="120"
+                    />
+                    <vxe-column
+                      field="bankCardNumber"
+                      :title="$t('hrm.archive.bankCardNumber')"
+                      min-width="130"
+                    />
+                    <vxe-column
+                      field="archiveDate"
+                      :title="$t('hrm.archive.archiveDate')"
+                      width="110"
+                    />
+                  </vxe-table>
+                </template>
+                <el-empty v-else :description="$t('hrm.employee.archiveHint')" />
               </div>
             </el-tab-pane>
 
+            <!-- 考勤 -->
             <el-tab-pane :label="$t('hrm.employee.tabAttendance')" name="attendance" lazy>
-              <div class="tab-placeholder">
-                <el-empty :description="$t('hrm.employee.attendanceHint')" />
+              <div v-loading="attendanceLoading" class="tab-data-wrap">
+                <template v-if="attendanceList.length">
+                  <vxe-table
+                    :data="attendanceList"
+                    border
+                    size="small"
+                    max-height="300"
+                    style="width: 100%"
+                  >
+                    <vxe-column
+                      field="attendanceDate"
+                      :title="$t('hrm.attendance.attendanceDate')"
+                      width="120"
+                    />
+                    <vxe-column
+                      field="checkInTime"
+                      :title="$t('hrm.attendance.checkInTime')"
+                      width="100"
+                    />
+                    <vxe-column
+                      field="checkOutTime"
+                      :title="$t('hrm.attendance.checkOutTime')"
+                      width="100"
+                    />
+                    <vxe-column
+                      field="workHours"
+                      :title="$t('hrm.attendance.workHours')"
+                      width="90"
+                      align="center"
+                    />
+                    <vxe-column
+                      field="overtimeHours"
+                      :title="$t('hrm.attendance.overtimeHours')"
+                      width="100"
+                      align="center"
+                    />
+                    <vxe-column
+                      field="attendanceType"
+                      :title="$t('hrm.attendance.attendanceType')"
+                      width="90"
+                      align="center"
+                    />
+                  </vxe-table>
+                </template>
+                <el-empty v-else :description="$t('hrm.employee.attendanceHint')" />
               </div>
             </el-tab-pane>
 
+            <!-- 薪资 -->
             <el-tab-pane :label="$t('hrm.employee.tabSalary')" name="salary" lazy>
-              <div class="tab-placeholder">
-                <el-empty :description="$t('hrm.employee.salaryHint')" />
+              <div v-loading="salaryLoading" class="tab-data-wrap">
+                <template v-if="salaryList.length">
+                  <vxe-table
+                    :data="salaryList"
+                    border
+                    size="small"
+                    max-height="300"
+                    style="width: 100%"
+                  >
+                    <vxe-column
+                      field="salaryMonth"
+                      :title="$t('hrm.salary.salaryMonth')"
+                      width="110"
+                    />
+                    <vxe-column
+                      field="baseSalary"
+                      :title="$t('hrm.salary.baseSalary')"
+                      width="100"
+                      align="right"
+                    />
+                    <vxe-column
+                      field="overtimePay"
+                      :title="$t('hrm.salary.overtimePay')"
+                      width="100"
+                      align="right"
+                    />
+                    <vxe-column
+                      field="bonus"
+                      :title="$t('hrm.salary.bonus')"
+                      width="90"
+                      align="right"
+                    />
+                    <vxe-column
+                      field="allowance"
+                      :title="$t('hrm.salary.allowance')"
+                      width="90"
+                      align="right"
+                    />
+                    <vxe-column
+                      field="deduction"
+                      :title="$t('hrm.salary.deduction')"
+                      width="90"
+                      align="right"
+                    />
+                    <vxe-column
+                      field="netSalary"
+                      :title="$t('hrm.salary.netSalary')"
+                      width="100"
+                      align="right"
+                    />
+                  </vxe-table>
+                </template>
+                <el-empty v-else :description="$t('hrm.employee.salaryHint')" />
               </div>
             </el-tab-pane>
           </el-tabs>
-        </el-card>
-      </el-col>
-    </el-row>
+        </div>
+      </template>
+    </PageP03MasterList>
 
-    <!-- 编辑弹窗 -->
+    <!-- 编辑弹窗（模态覆盖层，置于组件外部） -->
     <el-dialog
       v-model="dialogVisible"
       :title="isEdit ? $t('hrm.employee.editTitle') : $t('hrm.employee.addTitle')"
@@ -366,7 +491,7 @@
             </el-button>
           </div>
           <vxe-table
-            :data="archiveList"
+            :data="formArchiveList"
             :edit-config="{ trigger: 'click', mode: 'cell' }"
             border
             size="small"
@@ -426,7 +551,10 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { Plus, Download } from '@element-plus/icons-vue'
 import type { FormInstance, FormRules } from 'element-plus'
+import PageP03MasterList from '@/components/page-base/PageP03MasterList.vue'
+import type { MasterListPageConfig } from '@/types/page-base.d.ts'
 import {
   getEmployeePageApi,
   createEmployeeApi,
@@ -438,10 +566,29 @@ import {
   type EmployeeCreateDTO,
   type EmployeeArchiveDTO
 } from '@/api/modules/hrm-employee'
+import {
+  getEmployeeArchivePageApi,
+  type EmployeeArchiveVO,
+  type EmployeeArchiveQueryDTO
+} from '@/api/modules/hrm-archive'
+import {
+  getAttendancePageApi,
+  type AttendanceVO,
+  type AttendanceQueryDTO
+} from '@/api/modules/hrm-attendance'
+import { getSalaryPageApi, type SalaryVO, type SalaryQueryDTO } from '@/api/modules/hrm-salary'
 import { getDeptTree } from '@/api/modules/system'
 import type { DeptTreeNode } from '@/api/modules/user'
 
-const tableRef = ref()
+// ========== P03 页面配置 ==========
+const pageConfig = ref<MasterListPageConfig>({
+  title: '员工中心',
+  showQueryPanel: true,
+  showActionBar: true,
+  listWidthPercent: 45
+})
+
+// ========== 表单 / 表格 ==========
 const formRef = ref<FormInstance>()
 const tableLoading = ref(false)
 const submitLoading = ref(false)
@@ -451,6 +598,14 @@ const editingId = ref<number | null>(null)
 const selectedEmployee = ref<EmployeeVO | null>(null)
 const activeTab = ref('basic')
 const tableData = ref<EmployeeVO[]>([])
+
+// ========== 从表标签页数据 ==========
+const archiveLoading = ref(false)
+const attendanceLoading = ref(false)
+const salaryLoading = ref(false)
+const archiveList = ref<EmployeeArchiveVO[]>([])
+const attendanceList = ref<AttendanceVO[]>([])
+const salaryList = ref<SalaryVO[]>([])
 
 let debounceTimer: ReturnType<typeof setTimeout> | null = null
 
@@ -477,7 +632,8 @@ const stats = reactive({
 
 const deptOptions = ref<{ label: string; value: number }[]>([])
 
-const archiveList = ref<EmployeeArchiveDTO[]>([])
+// 编辑弹窗中的档案子表数据
+const formArchiveList = ref<EmployeeArchiveDTO[]>([])
 
 const formData = reactive<EmployeeCreateDTO>({
   employeeNo: '',
@@ -548,6 +704,76 @@ function updateStats(): void {
   stats.departments = deptSet.size
 }
 
+// ========== 从表标签页数据加载 ==========
+async function loadArchiveData(): Promise<void> {
+  if (!selectedEmployee.value) return
+  archiveLoading.value = true
+  try {
+    const query: EmployeeArchiveQueryDTO = {
+      employeeName: selectedEmployee.value.name,
+      pageNum: 1,
+      pageSize: 100
+    }
+    const res = await getEmployeeArchivePageApi(query)
+    archiveList.value = res.records || []
+  } catch {
+    archiveList.value = []
+  } finally {
+    archiveLoading.value = false
+  }
+}
+
+async function loadAttendanceData(): Promise<void> {
+  if (!selectedEmployee.value) return
+  attendanceLoading.value = true
+  try {
+    const query: AttendanceQueryDTO = {
+      employeeId: selectedEmployee.value.id,
+      pageNum: 1,
+      pageSize: 100
+    }
+    const res = await getAttendancePageApi(query)
+    attendanceList.value = res.records || []
+  } catch {
+    attendanceList.value = []
+  } finally {
+    attendanceLoading.value = false
+  }
+}
+
+async function loadSalaryData(): Promise<void> {
+  if (!selectedEmployee.value) return
+  salaryLoading.value = true
+  try {
+    const query: SalaryQueryDTO = {
+      employeeId: selectedEmployee.value.id,
+      pageNum: 1,
+      pageSize: 100
+    }
+    const res = await getSalaryPageApi(query)
+    salaryList.value = res.records || []
+  } catch {
+    salaryList.value = []
+  } finally {
+    salaryLoading.value = false
+  }
+}
+
+function handleTabChange(tabName: string | number): void {
+  const name = String(tabName)
+  switch (name) {
+    case 'archive':
+      if (archiveList.value.length === 0) loadArchiveData()
+      break
+    case 'attendance':
+      if (attendanceList.value.length === 0) loadAttendanceData()
+      break
+    case 'salary':
+      if (salaryList.value.length === 0) loadSalaryData()
+      break
+  }
+}
+
 // ========== 搜索 ==========
 function handleSearch(): void {
   pagination.current = 1
@@ -568,11 +794,20 @@ function handleReset(): void {
   handleSearch()
 }
 
+// ========== 导出 ==========
+function handleExport(): void {
+  ElMessage.info('导出功能开发中')
+}
+
 // ========== 行选择 ==========
 function handleRowChange({ row }: { row: EmployeeVO | null }): void {
   selectedEmployee.value = row
   if (row) {
     activeTab.value = 'basic'
+    // 重置从表缓存，让 tab-change 重新触发加载
+    archiveList.value = []
+    attendanceList.value = []
+    salaryList.value = []
   }
 }
 
@@ -603,7 +838,7 @@ async function loadEmployeeDetail(id: number): Promise<void> {
     formData.positionId = detail.positionId
     formData.entryDate = detail.entryDate || ''
     formData.employeeStatus = detail.employeeStatus || '在职'
-    archiveList.value = (detail as any).archives || []
+    formArchiveList.value = (detail as any).archives || []
     dialogVisible.value = true
   } catch {
     ElMessage.error('加载员工详情失败')
@@ -634,7 +869,7 @@ async function handleSubmit(): Promise<void> {
 
   submitLoading.value = true
   try {
-    const submitData = { ...formData, archives: archiveList.value }
+    const submitData = { ...formData, archives: formArchiveList.value }
     if (isEdit.value && editingId.value) {
       await updateEmployeeApi(editingId.value, { ...submitData, id: editingId.value })
       ElMessage.success('更新成功')
@@ -662,13 +897,13 @@ function resetForm(): void {
   formData.positionId = undefined
   formData.entryDate = ''
   formData.employeeStatus = '在职'
-  archiveList.value = []
+  formArchiveList.value = []
   formRef.value?.resetFields()
 }
 
-// ========== 从表操作 ==========
+// ========== 编辑弹窗中的档案子表 ==========
 function addArchiveRow(): void {
-  archiveList.value.push({
+  formArchiveList.value.push({
     education: '',
     major: '',
     school: '',
@@ -678,7 +913,7 @@ function addArchiveRow(): void {
 }
 
 function removeArchiveRow(index: number): void {
-  archiveList.value.splice(index, 1)
+  formArchiveList.value.splice(index, 1)
 }
 
 // ========== 工具函数 ==========
@@ -701,7 +936,7 @@ function maskIdCard(idCard: string | undefined): string {
   return idCard.substring(0, 6) + '****' + idCard.substring(idCard.length - 4)
 }
 
-// ========== 生命周期 ==========
+// ========== 部门选项 ==========
 async function loadDeptOptions(): Promise<void> {
   try {
     const tree = await getDeptTree()
@@ -715,10 +950,11 @@ async function loadDeptOptions(): Promise<void> {
     flatten(tree || [])
     deptOptions.value = flatList
   } catch {
-    // 静默失败，部门筛选不可用时不影响主流程
+    // 静默失败
   }
 }
 
+// ========== 生命周期 ==========
 onMounted(() => {
   loadTableData()
   loadDeptOptions()
@@ -727,86 +963,101 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .hrm-employeecenter-page {
-  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-  .stats-row {
-    margin-bottom: 16px;
+// 统计卡片
+.stats-row {
+  flex-shrink: 0;
 
-    .stat-card {
-      text-align: center;
+  .stat-card {
+    text-align: center;
 
-      .stat-value {
-        font-size: 28px;
-        font-weight: 700;
-        color: var(--el-text-color-primary);
-      }
-
-      .stat-label {
-        margin-top: 4px;
-        font-size: 13px;
-        color: var(--el-text-color-secondary);
-      }
-
-      &--active .stat-value {
-        color: var(--el-color-success);
-      }
-
-      &--new .stat-value {
-        color: var(--el-color-primary);
-      }
-
-      &--dept .stat-value {
-        color: var(--el-color-warning);
-      }
-    }
-  }
-
-  .search-card {
-    margin-bottom: 16px;
-  }
-
-  .master-detail-row {
-    .master-col,
-    .detail-col {
-      margin-bottom: 16px;
-    }
-  }
-
-  .table-card {
-    .table-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--el-text-color-primary);
     }
 
-    .pagination-wrap {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 16px;
-    }
-  }
-
-  .detail-card {
-    min-height: 400px;
-
-    .detail-empty {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 300px;
+    .stat-label {
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--el-text-color-secondary);
     }
 
-    .detail-tabs {
-      .tab-placeholder {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 200px;
-      }
+    &--active .stat-value {
+      color: var(--el-color-success);
+    }
+
+    &--new .stat-value {
+      color: var(--el-color-primary);
+    }
+
+    &--dept .stat-value {
+      color: var(--el-color-warning);
     }
   }
 }
 
+// 查询表单
+.query-form {
+  width: 100%;
+}
+
+// 列表区域
+.list-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    .list-title {
+      font-size: 13px;
+      color: var(--el-text-color-secondary);
+    }
+  }
+
+  .pagination-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+    flex-shrink: 0;
+  }
+}
+
+// 详情区
+.detail-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.detail-tabs-wrap {
+  .detail-header {
+    margin-bottom: 8px;
+
+    .detail-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--el-text-color-primary);
+    }
+  }
+}
+
+.tab-data-wrap {
+  min-height: 200px;
+}
+
+// 编辑弹窗
 .p06-form-wrap {
   .el-divider {
     margin: 8px 0 16px;
