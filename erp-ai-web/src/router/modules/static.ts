@@ -88,6 +88,166 @@ export const DEMO_EDIT_TABLE_READONLY: RouteRecordRaw = {
   meta: { title: '只读/禁用态演示', icon: 'View', keepAlive: true }
 }
 
+// ============================================================
+// P01-P15 页面类型演示（标准示范页面）
+// ============================================================
+
+export const DEMO_P01_DASHBOARD: RouteRecordRaw = {
+  path: 'demo/pages/p01',
+  name: 'DemoP01Dashboard',
+  component: () => import('@/views/demo/pages/P01DashboardDemo.vue'),
+  meta: { title: 'P01 首页仪表盘', icon: 'DataBoard', keepAlive: true }
+}
+
+export const DEMO_P02_WORKBENCH: RouteRecordRaw = {
+  path: 'demo/pages/p02',
+  name: 'DemoP02Workbench',
+  component: () => import('@/views/demo/pages/P02WorkbenchDemo.vue'),
+  meta: { title: 'P02 工作台', icon: 'DataBoard', keepAlive: true }
+}
+
+export const DEMO_P03_MASTER_LIST: RouteRecordRaw = {
+  path: 'demo/pages/p03',
+  name: 'DemoP03MasterList',
+  component: () => import('@/views/demo/pages/P03MasterListDemo.vue'),
+  meta: { title: 'P03 主从列表页', icon: 'List', keepAlive: true }
+}
+
+export const DEMO_P04_SIMPLE_LIST: RouteRecordRaw = {
+  path: 'demo/pages/p04',
+  name: 'DemoP04SimpleList',
+  component: () => import('@/views/demo/pages/P04SimpleListDemo.vue'),
+  meta: { title: 'P04 单一列表页', icon: 'List', keepAlive: true }
+}
+
+export const DEMO_P05_TREE_LIST: RouteRecordRaw = {
+  path: 'demo/pages/p05',
+  name: 'DemoP05TreeList',
+  component: () => import('@/views/demo/pages/P05TreeListDemo.vue'),
+  meta: { title: 'P05 树形列表页', icon: 'Grid', keepAlive: true }
+}
+
+export const DEMO_P06_MASTER_FORM: RouteRecordRaw = {
+  path: 'demo/pages/p06',
+  name: 'DemoP06MasterForm',
+  component: () => import('@/views/demo/pages/P06MasterFormDemo.vue'),
+  meta: { title: 'P06 主从表单页', icon: 'Edit', keepAlive: true }
+}
+
+export const DEMO_P07_SIMPLE_FORM: RouteRecordRaw = {
+  path: 'demo/pages/p07',
+  name: 'DemoP07SimpleForm',
+  component: () => import('@/views/demo/pages/P07SimpleFormDemo.vue'),
+  meta: { title: 'P07 单一表单页', icon: 'Edit', keepAlive: true }
+}
+
+export const DEMO_P08_KANBAN: RouteRecordRaw = {
+  path: 'demo/pages/p08',
+  name: 'DemoP08Kanban',
+  component: () => import('@/views/demo/pages/P08KanbanDemo.vue'),
+  meta: { title: 'P08 看板页', icon: 'Grid', keepAlive: true }
+}
+
+export const DEMO_P09_QUERY: RouteRecordRaw = {
+  path: 'demo/pages/p09',
+  name: 'DemoP09Query',
+  component: () => import('@/views/demo/pages/P09QueryDemo.vue'),
+  meta: { title: 'P09 查询页', icon: 'Search', keepAlive: true }
+}
+
+export const DEMO_P10_REPORT: RouteRecordRaw = {
+  path: 'demo/pages/p10',
+  name: 'DemoP10Report',
+  component: () => import('@/views/demo/pages/P10ReportDemo.vue'),
+  meta: { title: 'P10 报表页', icon: 'Document', keepAlive: true }
+}
+
+export const DEMO_P11_SCREEN: RouteRecordRaw = {
+  path: 'demo/pages/p11',
+  name: 'DemoP11Screen',
+  component: () => import('@/views/demo/pages/P11ScreenDemo.vue'),
+  meta: { title: 'P11 大屏页', icon: 'Monitor', keepAlive: true }
+}
+
+export const DEMO_P12_PROFILE: RouteRecordRaw = {
+  path: 'demo/pages/p12',
+  name: 'DemoP12Profile',
+  component: () => import('@/views/demo/pages/P12ProfileDemo.vue'),
+  meta: { title: 'P12 画像页', icon: 'User', keepAlive: true }
+}
+
+export const DEMO_P13_CONFIG: RouteRecordRaw = {
+  path: 'demo/pages/p13',
+  name: 'DemoP13Config',
+  component: () => import('@/views/demo/pages/P13ConfigDemo.vue'),
+  meta: { title: 'P13 配置页', icon: 'Setting', keepAlive: true }
+}
+
+export const DEMO_P14_AI_DIALOG: RouteRecordRaw = {
+  path: 'demo/pages/p14',
+  name: 'DemoP14AIDialog',
+  component: () => import('@/views/demo/pages/P14AIDialogDemo.vue'),
+  meta: { title: 'P14 AI对话页', icon: 'ChatDotRound', keepAlive: true }
+}
+
+export const DEMO_P15_DESIGNER: RouteRecordRaw = {
+  path: 'demo/pages/p15',
+  name: 'DemoP15Designer',
+  component: () => import('@/views/demo/pages/P15DesignerDemo.vue'),
+  meta: { title: 'P15 设计器页（旧）', icon: 'Brush', keepAlive: true }
+}
+
+// P15 设计器拆分为 3 个独立页面
+export const DEMO_P15_PRINT_DESIGNER: RouteRecordRaw = {
+  path: 'demo/pages/p15-print',
+  name: 'DemoP15PrintDesigner',
+  component: () => import('@/views/demo/pages/P15PrintDesignerDemo.vue'),
+  meta: { title: 'P15 打印模板设计器', icon: 'Printer', keepAlive: true }
+}
+
+export const DEMO_P15_REPORT_DESIGNER: RouteRecordRaw = {
+  path: 'demo/pages/p15-report',
+  name: 'DemoP15ReportDesigner',
+  component: () => import('@/views/demo/pages/P15ReportDesignerDemo.vue'),
+  meta: { title: 'P15 数据报表设计器', icon: 'DataAnalysis', keepAlive: true }
+}
+
+export const DEMO_P15_APPROVAL_DESIGNER: RouteRecordRaw = {
+  path: 'demo/pages/p15-approval',
+  name: 'DemoP15ApprovalDesigner',
+  component: () => import('@/views/demo/pages/P15ApprovalDesignerDemo.vue'),
+  meta: { title: 'P15 审批流程设计器', icon: 'Stamp', keepAlive: true }
+}
+
+// 组件演示（独立页面）
+export const DEMO_BASIC_INPUTS: RouteRecordRaw = {
+  path: 'demo/components/basic-inputs',
+  name: 'DemoBasicInputs',
+  component: () => import('@/views/demo/components/BasicInputsDemo.vue'),
+  meta: { title: '§8.1 基础录入组件', icon: 'Edit', keepAlive: true }
+}
+
+export const DEMO_DICT_COMPONENTS: RouteRecordRaw = {
+  path: 'demo/components/dict',
+  name: 'DemoDictComponents',
+  component: () => import('@/views/demo/components/DictComponentsDemo.vue'),
+  meta: { title: '§8.2 字典下拉组件', icon: 'Menu', keepAlive: true }
+}
+
+export const DEMO_LIST_TABLE_FEATURES: RouteRecordRaw = {
+  path: 'demo/components/list-table',
+  name: 'DemoListTableFeatures',
+  component: () => import('@/views/demo/components/ListTableFeaturesDemo.vue'),
+  meta: { title: '§6.2 列表表格功能', icon: 'List', keepAlive: true }
+}
+
+export const DEMO_EDIT_TABLE_FEATURES: RouteRecordRaw = {
+  path: 'demo/components/edit-table',
+  name: 'DemoEditTableFeatures',
+  component: () => import('@/views/demo/components/EditTableFeaturesDemo.vue'),
+  meta: { title: '§6.3 录入表格功能', icon: 'Edit', keepAlive: true }
+}
+
 // 用户管理
 export const USER_WORKBENCH: RouteRecordRaw = {
   path: 'user/workbench',
@@ -377,6 +537,30 @@ const ALL_CHILDREN: RouteRecordRaw[] = [
   DEMO_LIST_TABLE,
   DEMO_EDIT_TABLE,
   DEMO_EDIT_TABLE_READONLY,
+  // P01-P15 页面类型演示
+  DEMO_P01_DASHBOARD,
+  DEMO_P02_WORKBENCH,
+  DEMO_P03_MASTER_LIST,
+  DEMO_P04_SIMPLE_LIST,
+  DEMO_P05_TREE_LIST,
+  DEMO_P06_MASTER_FORM,
+  DEMO_P07_SIMPLE_FORM,
+  DEMO_P08_KANBAN,
+  DEMO_P09_QUERY,
+  DEMO_P10_REPORT,
+  DEMO_P11_SCREEN,
+  DEMO_P12_PROFILE,
+  DEMO_P13_CONFIG,
+  DEMO_P14_AI_DIALOG,
+  DEMO_P15_DESIGNER,
+  DEMO_P15_PRINT_DESIGNER,
+  DEMO_P15_REPORT_DESIGNER,
+  DEMO_P15_APPROVAL_DESIGNER,
+  // 组件演示（独立页面）
+  DEMO_BASIC_INPUTS,
+  DEMO_DICT_COMPONENTS,
+  DEMO_LIST_TABLE_FEATURES,
+  DEMO_EDIT_TABLE_FEATURES,
   // 用户+权限
   USER_WORKBENCH,
   AUTH_CONFIG_WORKBENCH,

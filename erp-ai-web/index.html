@@ -4,12 +4,40 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
+      .app-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .app-loading-logo {
+        width: 72px;
+        height: 72px;
+        animation: app-loading-pulse 1.5s ease-in-out infinite;
+      }
+      @keyframes app-loading-pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.6; transform: scale(0.9); }
+      }
+    </style>
     <link rel="preconnect" href="https://fonts.loli.net" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>%VITE_APP_TITLE%</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="app-loading">
+        <svg class="app-loading-logo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="12" fill="#764ba2" />
+          <path d="M14 16h20v4H14zM14 24h20v4H14zM14 32h12v4H14z" fill="#fff" />
+        </svg>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
